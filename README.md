@@ -34,7 +34,7 @@ Host github.com
         IdentityFile ~/.ssh/id_github
 ```
 
-# Fitx VS Code terminal
+# Fix VS Code terminal
 
 ```
 "terminal.integrated.fontFamily": "DejaVu Sans Mono for Powerline"
