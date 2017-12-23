@@ -90,6 +90,7 @@ function serverless.sh() {
   echo 'Installing Serverless'
 
   sudo npm install serverless -g
+  sudo chown -R $USER:$(id -gn $USER) ~/.config
 
 }
 
