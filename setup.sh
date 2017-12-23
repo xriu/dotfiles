@@ -10,7 +10,7 @@ install_packages
 date
 echo 'End'
 
-echo 'Making Github key'
+echo 'Updating ssh'
 ssh_config
 
 echo 'In case of issues, reboot your machine'

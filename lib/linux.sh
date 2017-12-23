@@ -70,7 +70,7 @@ function chrome.sh() {
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
   sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
   sudo apt-get update
-  sudo apt-get install google-chrome-stable
+  sudo apt-get install -y google-chrome-stable
 
 }
 
@@ -107,10 +107,8 @@ function code.sh() {
   sudo apt-get update
   sudo apt-get install -y code
 
-  if [ -f ~/.config/Code/User/settings.json ]; then
-    sudo mv -f ~/.config/Code/User/settings.json /tmp/
-  fi
-
+  mkdir -p ~/.config/Code/User
+  sudo chown -R $USER.$USER ~/.config
   sudo ln -sf ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
 
 }
@@ -200,11 +198,8 @@ function prezto.sh() {
 
   if [ ! -d ~/.zprezto ]; then
 
-    # Launch Zsh
-    zsh
-
     # Get Prezto
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "~/.zprezto"
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
     # Backup zsh config if it exists
     if [ -f ~/.zshrc ]; then
@@ -212,27 +207,30 @@ function prezto.sh() {
     fi
 
     # Create links to zsh config files
-    ln -sf ~/.zprezto/runcoms/zlogin ~/.zlogin
-    ln -sf ~/.zprezto/runcoms/zlogout ~/.zlogout
-    ln -sf ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
-    ln -sf ~/.zprezto/runcoms/zprofile ~/.zprofile
-    ln -sf ~/.zprezto/runcoms/zshenv ~/.zshenv
-    ln -sf ~/.zprezto/runcoms/zshrc ~/.zshrc
+    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogin ~/.zlogin
+    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogout ~/.zlogout
+    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile ~/.zprofile
+    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshenv ~/.zshenv
+    ln -sf ~/dotfiles/zsh/.zpreztorc ~/.zpreztorc
+    ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
+
+    # ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+    # ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshrc ~/.zshrc
 
     # Get Powerline fonts
     git clone https://github.com/powerline/fonts.git --depth=1
-    ./fonts/install.sh
-    rm -fr fonts
+    cd fonts
+    ./install.sh
+    cd ..
+    rm -rf fonts
+
+    # Hack for Zsh shell
+    sudo sed -i 's/required/sufficient/g' /etc/pam.d/chsh
 
     # Set Zsh as default shell
     chsh -s /bin/zsh
 
-    # Enable terminal for 256 colors
-    sed -i '1 i\export TERM="xterm-256color"' ~/.zshrc
-
   fi
-
-  # Overwrite custom configuration
-  cp ~/dotfiles/zsh/.zpreztorc ~/.zprezto/runcoms/zpreztorc 2>/dev/null
+  
 
 }
