@@ -17,7 +17,7 @@ cd ~/dotfiles
 # Git configuration
 
 ```
-ssh-keygen -f ~/.ssh/id_github
+ssh-keygen -t rsa -f ~/.ssh/id_github -q -P ""
 git config --global user.name "[YOUR_NAME]"
 git config --global user.email "[YOUR_EMAIL]"
 git config --global push.default simple

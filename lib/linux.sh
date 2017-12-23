@@ -1,10 +1,29 @@
 #!/bin/bash
 
+# Install packages
+function install_linux_packages() {
+
+  common.sh
+  vpn.sh
+  chrome.sh
+  aws.sh
+  dropbox.sh
+  code.sh
+  node.sh
+  serverless.sh
+  terraform.sh
+  ansible.sh
+  docker.sh
+  prezto.sh
+
+}
+
 # Common
 function common.sh() {
 
   echo 'Installing common'
 
+  cd ~
   mkdir -p ~/Develop/
 
   sudo apt-get update
@@ -88,7 +107,10 @@ function code.sh() {
   sudo apt-get update
   sudo apt-get install -y code
 
-  sudo mv -f ~/.config/Code/User/settings.json /tmp/
+  if [ -f ~/.config/Code/User/settings.json ]; then
+    sudo mv -f ~/.config/Code/User/settings.json /tmp/
+  fi
+
   sudo ln -sf ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
 
 }
@@ -178,11 +200,11 @@ function prezto.sh() {
 
   if [ ! -d ~/.zprezto ]; then
 
-    # Enable terminal for 256 colors
-    sed -i '1 i\export TERM="xterm-256color"' ~/.zshrc
+    # Launch Zsh
+    zsh
 
     # Get Prezto
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "~/.zprezto"
 
     # Backup zsh config if it exists
     if [ -f ~/.zshrc ]; then
@@ -190,24 +212,23 @@ function prezto.sh() {
     fi
 
     # Create links to zsh config files
-    setopt EXTENDED_GLOB
-    ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
-    ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
-    ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
-    ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile
-    ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
-    ln -s ~/.zprezto/runcoms/zshrc ~/.zshrc
+    ln -sf ~/.zprezto/runcoms/zlogin ~/.zlogin
+    ln -sf ~/.zprezto/runcoms/zlogout ~/.zlogout
+    ln -sf ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+    ln -sf ~/.zprezto/runcoms/zprofile ~/.zprofile
+    ln -sf ~/.zprezto/runcoms/zshenv ~/.zshenv
+    ln -sf ~/.zprezto/runcoms/zshrc ~/.zshrc
 
     # Get Powerline fonts
     git clone https://github.com/powerline/fonts.git --depth=1
-    cd fonts
-    ./install.sh
-    cd ..
-    rm -rf fonts
-    cd ~
+    ./fonts/install.sh
+    rm -fr fonts
 
     # Set Zsh as default shell
     chsh -s /bin/zsh
+
+    # Enable terminal for 256 colors
+    sed -i '1 i\export TERM="xterm-256color"' ~/.zshrc
 
   fi
 
