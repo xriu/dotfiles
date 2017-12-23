@@ -61,6 +61,10 @@ function code.sh() {
   sudo apt-get update
   sudo apt-get install -y code
 
+  mv ~/.config/Code/User/settings.json /tmp/
+  sudo ln -sf ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
+  ext install code-settings-sync
+
 }
 
 # Node
@@ -90,6 +94,12 @@ function serverless.sh() {
   echo 'Installing Serverless'
 
   sudo npm install serverless -g
+
+  # Error: You don't have permission to write to /home/xrl/.bashrc.
+  # Try running with sudo instead:
+  # sudo /usr/bin/node /usr/lib/node_modules/serverless/node_modules/tabtab/src/cli.js install --name serverless --auto
+
+  # serverless update check failed
   sudo chown -R $USER:$(id -gn $USER) ~/.config
 
 }
@@ -180,7 +190,6 @@ function prezto.sh() {
 
   # Overwrite custom configuration
   cp ~/dotfiles/zsh/.zpreztorc ~/.zprezto/runcoms/zpreztorc 2>/dev/null
-  cp ~/Develop/dotfiles/zsh/.zpreztorc ~/.zprezto/runcoms/zpreztorc 2>/dev/null
 
   # Set Zsh as default shell
   chsh -s /bin/zsh

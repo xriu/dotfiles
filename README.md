@@ -34,6 +34,12 @@ Host github.com
         IdentityFile ~/.ssh/id_github
 ```
 
+# VS Code sync extension
+
+```
+ext install code-settings-sync
+```
+
 # Fix VS Code terminal
 
 ```
