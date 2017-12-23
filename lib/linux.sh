@@ -49,9 +49,9 @@ function vpn.sh() {
 function chrome.sh() {
 
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-  sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+  sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
   sudo apt-get update
-  sudo apt-get install -y google-chrome-stable
+  sudo apt-get install google-chrome-stable
 
 }
 
@@ -164,6 +164,9 @@ function docker.sh() {
   sudo apt-get update
   sudo apt-get install -y docker-ce
 
+  # Fix docker right
+  sudo usermod -aG docker $USER
+
 }
 
 # Prezto
@@ -194,11 +197,6 @@ function prezto.sh() {
     ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile
     ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
     ln -s ~/.zprezto/runcoms/zshrc ~/.zshrc
-
-    # Create links to zsh config files
-    # for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    #   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-    # done
 
     # Get Powerline fonts
     git clone https://github.com/powerline/fonts.git --depth=1
