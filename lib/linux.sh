@@ -24,7 +24,14 @@ function common.sh() {
     jq \
     unzip \
     wget \
-    meld
+    meld \
+    nano \
+
+  # Dropbox requirements
+  sudo apt-get install -y python-gobject-2 python-gtk2
+
+  # Others
+  # sudo apt-get install -y openjdk-8-jdk nginx
 
 }
 
@@ -38,6 +45,16 @@ function vpn.sh() {
 
 }
 
+# Google Chrome
+function chrome.sh() {
+
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+  sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+  sudo apt-get update
+  sudo apt-get install -y google-chrome-stable
+
+}
+
 # AWS
 function aws.sh() {
 
@@ -46,6 +63,16 @@ function aws.sh() {
   sudo apt-get install -y python python-pip
   pip install --upgrade pip
   pip install awscli --upgrade --user
+
+}
+
+# Dropbox
+function dropbox.sh() {
+
+  cd /tmp
+  wget -O dropbox.deb 'https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb'
+  sudo dpkg -i /tmp/dropbox.deb
+  cd ~
 
 }
 
@@ -61,9 +88,8 @@ function code.sh() {
   sudo apt-get update
   sudo apt-get install -y code
 
-  mv ~/.config/Code/User/settings.json /tmp/
+  sudo mv -f ~/.config/Code/User/settings.json /tmp/
   sudo ln -sf ~/dotfiles/vscode/settings.json ~/.config/Code/User/settings.json
-  ext install code-settings-sync
 
 }
 
@@ -95,10 +121,6 @@ function serverless.sh() {
 
   sudo npm install serverless -g
 
-  # Error: You don't have permission to write to /home/xrl/.bashrc.
-  # Try running with sudo instead:
-  # sudo /usr/bin/node /usr/lib/node_modules/serverless/node_modules/tabtab/src/cli.js install --name serverless --auto
-
   # serverless update check failed
   sudo chown -R $USER:$(id -gn $USER) ~/.config
 
@@ -110,7 +132,7 @@ function terraform.sh() {
   echo 'Installing Terraform'
 
   URL="https://releases.hashicorp.com/terraform/0.11.1/terraform_0.11.1_linux_amd64.zip"
-  curl --silent $URL > /tmp/terraform.zip
+  curl -s $URL > /tmp/terraform.zip
   sudo unzip -o /tmp/terraform.zip -d /usr/local/bin/
   rm -f /tmp/terraform.zip
 
@@ -186,12 +208,12 @@ function prezto.sh() {
     rm -rf fonts
     cd ~
 
+    # Set Zsh as default shell
+    chsh -s /bin/zsh
+
   fi
 
   # Overwrite custom configuration
   cp ~/dotfiles/zsh/.zpreztorc ~/.zprezto/runcoms/zpreztorc 2>/dev/null
-
-  # Set Zsh as default shell
-  chsh -s /bin/zsh
 
 }
