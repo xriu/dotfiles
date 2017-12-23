@@ -28,6 +28,16 @@ function common.sh() {
 
 }
 
+# VPN
+function vpn.sh() {
+
+  echo 'Installing VPN'
+
+  sudo apt-get install -y network-manager-vpnc \
+    network-manager-vpnc-gnome
+
+}
+
 # AWS
 function aws.sh() {
 
