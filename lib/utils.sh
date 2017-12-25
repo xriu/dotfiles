@@ -15,14 +15,15 @@ function get_os() {
 }
 
 function install_packages() {
+    local package=$1
 
     os=$(get_os)
     if [ $os == "osx" ]; then
         source ./lib/osx.sh
-        install_osx_packages
+        install_osx_packages $package
     elif [ $os == "linux" ]; then
         source ./lib/linux.sh
-        install_linux_packages
+        install_linux_packages $package
     else
         error "OS $os not supported"
         exit;
@@ -30,7 +31,10 @@ function install_packages() {
 
 }
 
-function ssh_config() {
+function common_configuration() {
+
+    # Default folder for develop
+    mkdir -p ~/Develop/
 
     # Github blank ssh key
     if [ ! -f ~/.ssh/id_github ]; then
@@ -38,12 +42,14 @@ function ssh_config() {
         cat ~/.ssh/id_github.pub
     fi
 
+    # Git basic configuration, still pending user & email
     git config --global push.default simple
     git config --global pull.rebase preserve
     git config --global merge.ff false
     git config --global merge.tool meld
     git config --global mergetool.prompt false
 
+    # Configuration file for ssh
     if [ ! -f ~/.ssh/config ]; then
         echo 'Host github.com' >> ~/.ssh/config
         echo '  IdentityFile ~/.ssh/id_github' >> ~/.ssh/config

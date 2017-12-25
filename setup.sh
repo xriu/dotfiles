@@ -2,15 +2,13 @@
 
 set -e
 
+PACKAGE=$1
+
 source ./lib/utils.sh
 
-echo 'Starting setup.sh'
-date
-install_packages
-date
-echo 'End'
-
-echo 'Updating ssh'
-ssh_config
+echo 'Starting packages setup'
+install_packages $PACKAGE
+echo 'Starting common configuration'
+common_configuration
 
 echo 'In case of issues, reboot your machine'

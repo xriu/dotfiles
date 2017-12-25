@@ -1,20 +1,36 @@
 #!/bin/bash
 
-# Install packages
 function install_linux_packages() {
+  local package=$1
+  cd ~
 
-  common.sh
-  vpn.sh
-  chrome.sh
-  aws.sh
-  dropbox.sh
-  code.sh
-  node.sh
-  serverless.sh
-  terraform.sh
-  ansible.sh
-  docker.sh
-  prezto.sh
+  if [[ $package ]]; then
+    # Install specific package
+    echo $package
+    $package
+  else
+    # Install packages
+    common.sh
+    vpn.sh
+    chrome.sh
+    aws.sh
+    dropbox.sh
+    code.sh
+    remmina.sh
+    node.sh
+    serverless.sh
+    terraform.sh
+    ansible.sh
+    docker.sh
+    prezto.sh
+  fi
+
+}
+
+# Dummy
+function dummy.sh() {
+
+  echo 'Dummy!'
 
 }
 
@@ -22,9 +38,6 @@ function install_linux_packages() {
 function common.sh() {
 
   echo 'Installing common'
-
-  cd ~
-  mkdir -p ~/Develop/
 
   sudo apt-get update
   sudo apt-get install -y git \
@@ -131,6 +144,17 @@ function node.sh() {
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
   sudo apt-get update
   sudo apt-get install -y yarn
+
+}
+
+# Remmina
+function remmina.sh() {
+
+  echo 'Installing Remmina'
+
+  sudo add-apt-repository -y ppa:remmina-ppa-team/remmina-next
+  sudo apt-get update
+  sudo apt-get install -y remmina
 
 }
 
