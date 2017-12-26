@@ -25,7 +25,7 @@ function install_linux_packages() {
 }
 
 # APT repositories
-function apt_repositories {
+function apt_repositories() {
 
   # Common packages
   sudo apt-get install -y wget curl
