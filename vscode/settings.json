@@ -5,7 +5,7 @@
     "sync.lastUpload": "2017-12-24T18:49:28.790Z",
     "sync.autoDownload": true,
     "sync.autoUpload": false,
-    "sync.lastDownload": "2017-12-26T13:48:37.883Z",
+    "sync.lastDownload": "2017-12-26T19:09:35.620Z",
     "sync.forceDownload": true,
     "sync.anonymousGist": false,
     "sync.host": "",
@@ -18,8 +18,7 @@
     "perltidy.additionalArguments": ["-npro", "--notabs", "-ci=0", "-ibc", "-nbl", "-nsbl", "-lbl=0", "-l=0", "-i=2", "-ce", "-baa", "-st", "-nsyn", "-bt=2", "-pt=2", "-sbt=2", "-nsfs"],
     "perltidy.executable": "/usr/local/bin/perltidy",
     "perltidy.profile": "",
-    "terraform.formatOnSave": true,
-    "terraform.formatVarsOnSave": true,
+    "terraform.format.enable": true,
     "window.zoomLevel": 0,
     "terminal.integrated.fontFamily": "DejaVu Sans Mono for Powerline"
 }
