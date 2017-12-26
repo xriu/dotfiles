@@ -6,7 +6,9 @@ Requirements
 - Shell theme powerlevel9k (https://github.com/bhilburn/powerlevel9k)
 - Fonts powerline (https://github.com/powerline/fonts)
 
-# Installation
+***
+
+## Installation
 
 ```
 git clone https://github.com/xriu/dotfiles.git ~/dotfiles
@@ -14,7 +16,9 @@ cd ~/dotfiles
 ./setup.sh
 ```
 
-# Git configuration
+***
+
+## Git configuration
 
 ```
 ssh-keygen -t rsa -f ~/.ssh/id_github -q -P ""
@@ -34,14 +38,73 @@ Host github.com
         IdentityFile ~/.ssh/id_github
 ```
 
-# VS Code sync extension
+***
 
+## VS Code
+
+VS Code sync extension
 ```
 ext install code-settings-sync
 ```
 
-# Fix VS Code terminal
-
+Fix VS Code terminal
 ```
 "terminal.integrated.fontFamily": "DejaVu Sans Mono for Powerline"
+```
+
+***
+
+## Puppet 
+
+### Certificates commands
+
+Puppet cert list
+
+The absence of a plus sign indicates our new certificate has not been signed yet.
+```
+sudo /opt/puppetlabs/bin/puppet cert list --all
+```
+
+Puppet cert clean
+```
+sudo /opt/puppetlabs/bin/puppet cert clean $USER
+```
+
+Puppet cert sign
+```
+sudo /opt/puppetlabs/bin/puppet cert sign --all --allow-dns-alt-names
+```
+
+Puppet new cert
+```
+sudo /opt/puppetlabs/bin/puppet agent -t || true
+```
+
+## Puppet server
+
+### Installation
+
+Download package
+```
+cd /tmp
+wget https://apt.puppetlabs.com/puppet5-release-$(lsb_release -cs).deb
+sudo dpkg -i puppet5-release-$(lsb_release -cs).deb
+cd ~
+```
+
+Install puppet server
+```
+sudo apt-get update
+sudo apt-get install -y puppetserver
+```
+
+Allow firewall port
+```
+sudo ufw allow 8140
+```
+
+Enable puppet server
+```
+sudo systemctl start puppetserver
+sudo systemctl enable puppetserver
 ```

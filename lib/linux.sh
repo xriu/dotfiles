@@ -10,96 +10,101 @@ function install_linux_packages() {
     $package
   else
     # Install packages
-    common.sh
-    vpn.sh
-    chrome.sh
-    aws.sh
-    dropbox.sh
-    code.sh
-    remmina.sh
-    node.sh
-    serverless.sh
-    terraform.sh
-    ansible.sh
-    docker.sh
-    prezto.sh
+    apt_repositories
+    puppet
+    aws
+    dropbox
+    code
+    node
+    serverless
+    terraform
+    docker
+    prezto
   fi
 
 }
 
-# Dummy
-function dummy.sh() {
+# APT repositories
+function apt_repositories() {
 
-  echo 'Dummy!'
+  # Common packages
+  sudo apt-get install -y wget curl
 
-}
-
-# Common
-function common.sh() {
-
-  echo 'Installing common'
-
-  sudo apt-get update
-  sudo apt-get install -y git \
-    curl \
-    htop \
-    ssh \
-    screen \
-    tree \
-    build-essential \
-    libssl-dev \
-    apt-transport-https \
-    lsb-release \
-    python-software-properties \
-    software-properties-common \
-    ca-certificates \
-    jq \
-    unzip \
-    wget \
-    meld \
-    nano \
-
-  # Dropbox requirements
-  sudo apt-get install -y python-gobject-2 python-gtk2
-
-  # Others
-  # sudo apt-get install -y openjdk-8-jdk nginx
-
-}
-
-# VPN
-function vpn.sh() {
-
-  echo 'Installing VPN'
-
-  sudo apt-get install -y network-manager-vpnc \
-    network-manager-vpnc-gnome
-
-}
-
-# Google Chrome
-function chrome.sh() {
-
+  # Google Chrome
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
   sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
-  sudo apt-get update
-  sudo apt-get install -y google-chrome-stable
+
+  # VS Code
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+  # Node 8 / Yarn
+  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+  # Remmina
+  sudo add-apt-repository -y ppa:remmina-ppa-team/remmina-next
+
+  # Ansible
+  sudo apt-add-repository -y ppa:ansible/ansible
+
+  # Docker
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo apt-key fingerprint 0EBFCD88
+  sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+
+}
+
+# Puppet
+function puppet() {
+
+  echo 'Installing Puppet agent'
+
+  # Download package
+  cd /tmp
+  wget -O puppet5.deb https://apt.puppetlabs.com/puppet5-release-$(lsb_release -cs).deb
+  sudo dpkg -i puppet5.deb
+  cd ~
+
+  # Install puppet agent
+  sudo apt update
+  sudo apt-get install -y puppet-agent
+
+  # Enable PATH for puppet
+  if ! grep -q "puppetlabs" ~/.profile; then
+    echo 'PATH=/opt/puppetlabs/bin:$PATH' >> ~/.profile
+  fi
+
+  if ! grep -q "puppet" /etc/hosts; then
+    ipAddress=`ifconfig enp0s3 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 1`
+    echo "$ipAddress puppet" | sudo tee -a /etc/hosts
+  fi
+
+  # Enable puppet
+  sudo systemctl start puppet
+  sudo systemctl enable puppet
+  sudo /opt/puppetlabs/bin/puppet resource service puppet ensure=running enable=true
+
+  # Setup manifests
+  sudo /opt/puppetlabs/bin/puppet apply ~/dotfiles/puppet/manifests/packages.pp
 
 }
 
 # AWS
-function aws.sh() {
+function aws() {
 
-  echo 'Installing AWS CLI'
-
-  sudo apt-get install -y python python-pip
   pip install --upgrade pip
   pip install awscli --upgrade --user
 
 }
 
 # Dropbox
-function dropbox.sh() {
+function dropbox() {
 
   cd /tmp
   wget -O dropbox.deb 'https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb'
@@ -109,16 +114,7 @@ function dropbox.sh() {
 }
 
 # VS Code
-function code.sh() {
-
-  echo 'Installing VS Code'
-
-  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-
-  sudo apt-get update
-  sudo apt-get install -y code
+function code() {
 
   mkdir -p ~/.config/Code/User
   sudo chown -R $USER.$USER ~/.config
@@ -127,53 +123,26 @@ function code.sh() {
 }
 
 # Node
-function node.sh() {
-
-  echo 'Installing Node'
-
-  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-  sudo apt-get install -y nodejs
+function node() {
 
   # NPM
   sudo npm install -g npm@latest
   echo "alias node='nodejs'" >>  ~/.bashrc
   source ~/.bashrc
 
-  # Yarn
-  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo apt-get update
-  sudo apt-get install -y yarn
-
-}
-
-# Remmina
-function remmina.sh() {
-
-  echo 'Installing Remmina'
-
-  sudo add-apt-repository -y ppa:remmina-ppa-team/remmina-next
-  sudo apt-get update
-  sudo apt-get install -y remmina
-
 }
 
 # Serverless
-function serverless.sh() {
-
-  echo 'Installing Serverless'
+function serverless() {
 
   sudo npm install serverless -g
-
   # serverless update check failed
   sudo chown -R $USER:$(id -gn $USER) ~/.config
 
 }
 
 # Terraform
-function terraform.sh() {
-
-  echo 'Installing Terraform'
+function terraform() {
 
   URL="https://releases.hashicorp.com/terraform/0.11.1/terraform_0.11.1_linux_amd64.zip"
   curl -s $URL > /tmp/terraform.zip
@@ -182,31 +151,8 @@ function terraform.sh() {
 
 }
 
-# Ansible
-function ansible.sh() {
-
-  echo 'Installing Ansible'
-
-  sudo apt-add-repository ppa:ansible/ansible
-  sudo apt-get update
-  sudo apt-get install -y ansible
-
-}
-
 # Docker
-function docker.sh() {
-
-  echo 'Installing Docker'
-
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  sudo apt-key fingerprint 0EBFCD88
-  sudo add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) \
-    stable"
-
-  sudo apt-get update
-  sudo apt-get install -y docker-ce
+function docker() {
 
   # Fix docker right
   sudo usermod -aG docker $USER
@@ -218,11 +164,9 @@ function docker.sh() {
 }
 
 # Prezto
-function prezto.sh() {
+function prezto() {
 
   echo 'Installing Prezto'
-
-  sudo apt-get install -y zsh
 
   if [ ! -d ~/.zprezto ]; then
 
