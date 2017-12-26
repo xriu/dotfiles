@@ -1,3 +1,16 @@
+# Define function
+define download_file($source = '', $cwd = '') {
+
+    exec { $name:
+      command => "wget -O ${name} ${source}",
+      cwd     => $cwd,
+      path    => '/usr/bin',
+      creates => "${cwd}/${name}",
+      require => Package['wget'],
+      user    => 'undefined',
+    }
+}
+
 # Packages to install
 class packages_install {
 
@@ -44,18 +57,6 @@ class packages_install {
 
   package { ['python-gobject-2', 'python-gtk2']:
     require => Exec['apt-get-update'],
-  }
-
-  package { 'dropbox':
-    ensure   => installed,
-    provider => dpkg,
-    source   => '/tmp/dropbox.deb',
-    require  => [ Download_file['dropbox.deb'] ],
-  }
-
-  download_file { 'dropbox.deb':
-    cwd    => '/tmp',
-    source => 'https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb',
   }
 
   # VPN
