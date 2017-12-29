@@ -49,6 +49,7 @@ ext install code-settings-sync
 
 Fix VS Code terminal
 ```
+"terminal.integrated.fontSize": 13,
 "terminal.integrated.fontFamily": "DejaVu Sans Mono for Powerline"
 ```
 
