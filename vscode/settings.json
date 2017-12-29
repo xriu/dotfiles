@@ -1,11 +1,12 @@
 {
+    "terminal.integrated.fontSize": 13,
     "workbench.iconTheme": "vscode-icons",
     "workbench.colorTheme": "Monokai Dimmed",
     "sync.gist": "aa22e7e79b7195617a2741c2bf4ffdcc",
     "sync.lastUpload": "2017-12-27T19:14:55.257Z",
     "sync.autoDownload": true,
     "sync.autoUpload": false,
-    "sync.lastDownload": "2017-12-27T19:04:32.867Z",
+    "sync.lastDownload": "2017-12-29T14:31:14.933Z",
     "sync.forceDownload": true,
     "sync.anonymousGist": false,
     "sync.host": "",
