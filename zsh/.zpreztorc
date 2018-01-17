@@ -44,7 +44,9 @@ zstyle ':prezto:load' pmodule \
   'docker' \
   'node' \
   'screen' \
-  'tmux'
+  'tmux' \
+  'rsync' \
+  'ssh'
 
 #
 # Autosuggestions
