@@ -40,6 +40,22 @@ Host github.com
 
 ***
 
+## Terraform prompt
+
+```
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs terraform)
+
+function tf_prompt_info() {
+    # check if in terraform dir
+    if [ -d .terraform ]; then
+      workspace=$(terraform workspace show 2> /dev/null) || return
+      echo "[${workspace}]"
+    fi
+}
+```
+
+***
+
 ## VS Code
 
 VS Code sync extension
