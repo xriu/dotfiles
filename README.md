@@ -45,12 +45,12 @@ Host github.com
 ```
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs terraform)
 
-function tf_prompt_info() {
-    # check if in terraform dir
-    if [ -d .terraform ]; then
-      workspace=$(terraform workspace show 2> /dev/null) || return
-      echo "[${workspace}]"
-    fi
+prompt_terraform() {
+  # check if in terraform dir
+  if [ -d .terraform ]; then
+    WORKSPACE=$(terraform workspace show 2> /dev/null) || return
+    "$1_prompt_segment" "$0" "$2" "$DEFAULT_COLOR" "red" "$WORKSPACE"
+  fi
 }
 ```
 
