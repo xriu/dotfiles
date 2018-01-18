@@ -168,6 +168,8 @@ function prezto() {
 
   echo 'Installing Prezto'
 
+  sudo apt-get install zsh
+
   if [ ! -d ~/.zprezto ]; then
 
     # Get Prezto
