@@ -13,7 +13,7 @@
     "sync.pathPrefix": "",
     "sync.quietSync": true,
     "sync.askGistName": false,
-    "vsicons.projectDetection.autoReload": true,
+    "vsicons.projectDetection.autoReload": false,
     "explorer.confirmDelete": false,
     "workbench.startupEditor": "newUntitledFile",
     "perltidy.additionalArguments": ["-npro", "--notabs", "-ci=0", "-ibc", "-nbl", "-nsbl", "-lbl=0", "-l=0", "-i=2", "-ce", "-baa", "-st", "-nsyn", "-bt=2", "-pt=2", "-sbt=2", "-nsfs"],
