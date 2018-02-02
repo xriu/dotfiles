@@ -126,6 +126,8 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'powerlevel9k'
 
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs terraform)
+
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
 # for longer or 'full' (with '~' expansion) for even longer prompt display.
