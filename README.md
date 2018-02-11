@@ -40,17 +40,28 @@ Host github.com
 
 ***
 
+## NVM prompt
+
+```
+nvm install node
+nvm install 6.10
+nvm use system
+```
+
+***
+
 ## Terraform prompt
 
 ```
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs terraform)
 
-prompt_terraform() {
-  # check if in terraform dir
-  if [ -d .terraform ]; then
+function prompt_terraform() {
+
+  if [[ -n *.tf(#qN) ]]; then
     WORKSPACE=$(terraform workspace show 2> /dev/null) || return
-    "$1_prompt_segment" "$0" "$2" "$DEFAULT_COLOR" "red" "$WORKSPACE"
+    "$1_prompt_segment" "$0" "$2" "$DEFAULT_COLOR" "red" "tf:$WORKSPACE"
   fi
+
 }
 ```
 
