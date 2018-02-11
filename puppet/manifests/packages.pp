@@ -9,6 +9,7 @@ define download_file($source = '', $cwd = '') {
       require => Package['wget'],
       user    => 'undefined',
     }
+
 }
 
 # Packages to install
