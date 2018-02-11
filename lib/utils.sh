@@ -15,6 +15,7 @@ function get_os() {
 }
 
 function install_packages() {
+    
     local package=$1
 
     os=$(get_os)

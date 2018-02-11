@@ -1,6 +1,7 @@
 #!/bin/bash
 
 function install_linux_packages() {
+  
   local package=$1
   cd ~
 
@@ -19,7 +20,8 @@ function install_linux_packages() {
     serverless
     terraform
     docker
-    prezto
+    nvm
+    prezto    
   fi
 
 }
@@ -144,7 +146,7 @@ function serverless() {
 # Terraform
 function terraform() {
 
-  URL="https://releases.hashicorp.com/terraform/0.11.2/terraform_0.11.2_linux_amd64.zip"
+  URL="https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_linux_amd64.zip"
   curl -s $URL > /tmp/terraform.zip
   sudo unzip -o /tmp/terraform.zip -d /usr/local/bin/
   rm -f /tmp/terraform.zip
@@ -205,6 +207,18 @@ function prezto() {
     chsh -s /bin/zsh
 
   fi
-  
 
 }
+
+# NVM
+function nvm() {
+
+  echo 'Installing nvm'
+
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+  nvm install node
+  nvm install 6.10
+  nvm use system
+
+}
+

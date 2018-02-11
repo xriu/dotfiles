@@ -1,4 +1,4 @@
-# Xavier Riu Dotfiles for Ubuntu
+# Dotfiles for Ubuntu
 
 Requirements
 
