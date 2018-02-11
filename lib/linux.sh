@@ -165,6 +165,18 @@ function docker() {
 
 }
 
+# NVM
+function nvm() {
+
+  echo 'Installing nvm'
+
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+  nvm install node
+  nvm install 6.10
+  nvm use system
+
+}
+
 # Prezto
 function prezto() {
 
@@ -210,15 +222,4 @@ function prezto() {
 
 }
 
-# NVM
-function nvm() {
-
-  echo 'Installing nvm'
-
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-  nvm install node
-  nvm install 6.10
-  nvm use system
-
-}
 
