@@ -33,6 +33,11 @@ git config --global mergetool.prompt false
 
 ```
 ~/.ssh/config
+
+# To avoid disconects
+ServerAliveInterval 30
+ServerAliveCountMax 4
+
 Host github.com
         User [YOUR_EMAIL]
         IdentityFile ~/.ssh/id_github
