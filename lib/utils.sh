@@ -52,8 +52,7 @@ function common_configuration() {
 
     # Configuration file for ssh
     if [ ! -f ~/.ssh/config ]; then
-        echo 'Host github.com' >> ~/.ssh/config
-        echo '  IdentityFile ~/.ssh/id_github' >> ~/.ssh/config
+        cp ${HOME}/dotfiles/config ~/.ssh/config
     fi
 
 }
