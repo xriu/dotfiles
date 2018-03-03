@@ -6,7 +6,7 @@
     "sync.lastUpload": "2017-12-27T19:14:55.257Z",
     "sync.autoDownload": true,
     "sync.autoUpload": false,
-    "sync.lastDownload": "2018-01-27T12:24:25.628Z",
+    "sync.lastDownload": "2018-03-02T10:05:25.951Z",
     "sync.forceDownload": true,
     "sync.anonymousGist": false,
     "sync.host": "",
@@ -21,5 +21,6 @@
     "perltidy.profile": "",
     "terraform.format.enable": true,
     "window.zoomLevel": 0,
-    "terminal.integrated.fontFamily": "Roboto Mono for Powerline"
+    "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
+    "vsicons.dontShowNewVersionMessage": true
 }
