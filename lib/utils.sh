@@ -34,6 +34,9 @@ function install_packages() {
 
 function common_configuration() {
 
+    # Default inotify files handle
+    sudo sysctl -w fs.inotify.max_user_watches=524288
+
     # Default folder for develop
     mkdir -p ~/Develop/
 

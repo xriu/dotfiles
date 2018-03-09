@@ -6,7 +6,7 @@
     "sync.lastUpload": "2017-12-27T19:14:55.257Z",
     "sync.autoDownload": true,
     "sync.autoUpload": false,
-    "sync.lastDownload": "2018-03-02T10:05:25.951Z",
+    "sync.lastDownload": "2018-03-08T11:59:08.905Z",
     "sync.forceDownload": true,
     "sync.anonymousGist": false,
     "sync.host": "",
@@ -22,5 +22,7 @@
     "terraform.format.enable": true,
     "window.zoomLevel": 0,
     "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
-    "vsicons.dontShowNewVersionMessage": true
+    "vsicons.dontShowNewVersionMessage": true,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true
 }
