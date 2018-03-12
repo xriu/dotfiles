@@ -24,5 +24,6 @@
     "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
     "vsicons.dontShowNewVersionMessage": true,
     "sync.removeExtensions": true,
-    "sync.syncExtensions": true
+    "sync.syncExtensions": true,
+    "git.ignoreLimitWarning": true
 }
