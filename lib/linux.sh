@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function install_linux_packages() {
-  
+
   local package=$1
   cd ~
 
@@ -21,7 +21,7 @@ function install_linux_packages() {
     terraform
     docker
     nvm
-    prezto    
+    prezto
   fi
 
 }
@@ -173,9 +173,9 @@ function nvm() {
   echo 'Installing nvm'
 
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-  nvm install node
-  nvm install 6.10
-  nvm use system
+  # nvm install node
+  # nvm install 6.10
+  # nvm use system
 
 }
 
@@ -217,10 +217,11 @@ function prezto() {
     # Hack for Zsh shell
     sudo sed -i 's/required/sufficient/g' /etc/pam.d/chsh
 
-    # Set Zsh as default shell
-    chsh -s /bin/zsh
-
   fi
+
+  # Set Zsh as default shell
+  chsh -s /bin/zsh
+  chsh -s $(which zsh)
 
 }
 

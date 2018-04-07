@@ -15,7 +15,7 @@ function get_os() {
 }
 
 function install_packages() {
-    
+
     local package=$1
 
     os=$(get_os)
@@ -39,6 +39,7 @@ function common_configuration() {
 
     # Default folder for develop
     mkdir -p ~/Develop/
+    mkdir -p ~/.ssh/
 
     # Github blank ssh key
     if [ ! -f ~/.ssh/id_github ]; then
@@ -55,8 +56,7 @@ function common_configuration() {
 
     # Configuration file for ssh
     if [ ! -f ~/.ssh/config ]; then
-        echo 'Host github.com' >> ~/.ssh/config
-        echo '  IdentityFile ~/.ssh/id_github' >> ~/.ssh/config
+        cp ${HOME}/dotfiles/ssh/config ~/.ssh/config
     fi
 
 }
