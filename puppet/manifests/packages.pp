@@ -62,7 +62,7 @@ class packages_install {
 
   # VPN
 
-  package { ['network-manager-vpnc', 'network-manager-vpnc-gnome']:
+  package { ['network-manager-vpnc', 'network-manager-vpnc-gnome', 'openvpn']:
     require => Exec['apt-get-update'],
   }
 
