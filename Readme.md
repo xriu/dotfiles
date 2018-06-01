@@ -112,31 +112,3 @@ Puppet new cert
 sudo /opt/puppetlabs/bin/puppet agent -t || true
 ```
 
-## Puppet server
-
-### Installation
-
-Download package
-```
-cd /tmp
-wget https://apt.puppetlabs.com/puppet5-release-$(lsb_release -cs).deb
-sudo dpkg -i puppet5-release-$(lsb_release -cs).deb
-cd ~
-```
-
-Install puppet server
-```
-sudo apt-get update
-sudo apt-get install -y puppetserver
-```
-
-Allow firewall port
-```
-sudo ufw allow 8140
-```
-
-Enable puppet server
-```
-sudo systemctl start puppetserver
-sudo systemctl enable puppetserver
-```
