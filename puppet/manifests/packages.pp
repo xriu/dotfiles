@@ -25,6 +25,9 @@ class packages_install {
 
   $common = [
     'git',
+    'gcc',
+    'g++',
+    'make',
     'curl',
     'htop',
     'ssh',

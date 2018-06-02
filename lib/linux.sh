@@ -12,6 +12,7 @@ function install_linux_packages() {
   else
     # Install packages
     apt_repositories
+    common
     puppet
     aws
     dropbox
@@ -61,6 +62,14 @@ function apt_repositories() {
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) \
     stable"
+
+}
+
+# Common
+function common() {
+
+  sudo apt update
+  sudo apt-get install -y git gcc g++ make curl
 
 }
 
