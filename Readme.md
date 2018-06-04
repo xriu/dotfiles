@@ -86,29 +86,3 @@ Fix VS Code terminal
 
 ***
 
-## Puppet 
-
-### Certificates commands
-
-Puppet cert list
-
-The absence of a plus sign indicates our new certificate has not been signed yet.
-```
-sudo /opt/puppetlabs/bin/puppet cert list --all
-```
-
-Puppet cert clean
-```
-sudo /opt/puppetlabs/bin/puppet cert clean $USER
-```
-
-Puppet cert sign
-```
-sudo /opt/puppetlabs/bin/puppet cert sign --all --allow-dns-alt-names
-```
-
-Puppet new cert
-```
-sudo /opt/puppetlabs/bin/puppet agent -t || true
-```
-
