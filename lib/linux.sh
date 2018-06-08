@@ -31,7 +31,7 @@ function install_linux_packages() {
 function apt_repositories() {
 
   # Common packages
-  sudo apt-get install -y wget curl
+  sudo apt-get install -y wget curl software-properties-common
 
   # Google Chrome
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
