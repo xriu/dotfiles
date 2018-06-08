@@ -38,8 +38,6 @@ class packages_install {
     'libssl-dev',
     'apt-transport-https',
     'lsb-release',
-    'python-software-properties',
-    'software-properties-common',
     'ca-certificates',
     'jq',
     'unzip',
