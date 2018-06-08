@@ -28,6 +28,7 @@ class packages_install {
     'gcc',
     'g++',
     'make',
+    'software-properties-common',
     'curl',
     'htop',
     'ssh',
