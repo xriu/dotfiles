@@ -49,7 +49,7 @@ Host github.com
 
 ```
 nvm install node
-nvm install 6.10
+nvm install 8.10
 nvm use system
 ```
 
