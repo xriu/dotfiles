@@ -14,7 +14,7 @@ function install_linux_packages() {
     apt_repositories
     common
     puppet
-    code
+    vscode
     node
     serverless
     terraform
@@ -108,7 +108,7 @@ function aws() {
 }
 
 # VS Code
-function code() {
+function vscode() {
 
   mkdir -p ~/.config/Code/User
   sudo chown -R $USER.$USER ~/.config
