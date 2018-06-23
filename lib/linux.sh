@@ -111,7 +111,7 @@ function puppet() {
 # AWS
 function aws() {
 
-  pip install --upgrade pip
+  python -m pip install --force-reinstall pip==9.0.3 --user
   pip install awscli --upgrade --user
 
 }
