@@ -111,8 +111,8 @@ function puppet() {
 # AWS
 function aws() {
 
-  pip3 install --upgrade pip
-  pip3 install awscli --upgrade --user
+  pip install --upgrade pip
+  pip install awscli --upgrade --user
 
 }
 
