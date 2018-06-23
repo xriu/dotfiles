@@ -16,7 +16,6 @@ function install_linux_packages() {
     puppet
     # awscli (20180623 disabled)
     # aws
-    dropbox
     code
     node
     serverless
@@ -114,16 +113,6 @@ function aws() {
 
   python -m pip install --force-reinstall pip==9.0.3 --user
   pip install awscli --upgrade --user
-
-}
-
-# Dropbox
-function dropbox() {
-
-  cd /tmp
-  wget -O dropbox.deb 'https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb'
-  sudo dpkg -i /tmp/dropbox.deb
-  cd ~
 
 }
 
