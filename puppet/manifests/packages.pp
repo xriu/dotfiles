@@ -55,6 +55,12 @@ class packages_install {
   package { ['awscli']:
     require => Exec['apt-get-update'],
   }
+  
+  # Dropbox
+
+  package { ['nautilus-dropbox']:
+    require => Exec['apt-get-update'],
+  }
 
   # VPN
 
