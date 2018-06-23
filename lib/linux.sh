@@ -14,7 +14,8 @@ function install_linux_packages() {
     apt_repositories
     common
     puppet
-    aws
+    # awscli (20180623 disabled)
+    # aws
     dropbox
     code
     node
