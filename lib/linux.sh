@@ -49,8 +49,8 @@ function apt_repositories() {
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-  # Remmina
-  sudo add-apt-repository -y ppa:remmina-ppa-team/remmina-next
+  # Remmina (20180623 disabled)
+  # sudo add-apt-repository -y ppa:remmina-ppa-team/remmina-next
 
   # Ansible
   sudo apt-add-repository -y ppa:ansible/ansible
