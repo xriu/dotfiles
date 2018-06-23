@@ -14,8 +14,6 @@ function install_linux_packages() {
     apt_repositories
     common
     puppet
-    # awscli (20180623 disabled)
-    # aws
     code
     node
     serverless
@@ -44,13 +42,6 @@ function apt_repositories() {
 
   # Node 8
   curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-
-  # Yarn
-  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-
-  # Remmina (20180623 disabled)
-  # sudo add-apt-repository -y ppa:remmina-ppa-team/remmina-next
 
   # Ansible
   sudo apt-add-repository -y ppa:ansible/ansible
