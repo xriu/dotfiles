@@ -56,6 +56,12 @@ class packages_install {
     require => Exec['apt-get-update'],
   }
   
+  # Yarn
+
+  package { ['yarn']:
+    require => Exec['apt-get-update'],
+  }
+  
   # Dropbox
 
   package { ['nautilus-dropbox']:
