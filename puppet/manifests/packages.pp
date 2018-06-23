@@ -56,12 +56,6 @@ class packages_install {
     require => Exec['apt-get-update'],
   }
 
-  # Dropbox
-
-  package { ['python-gobject-2', 'python-gtk2']:
-    require => Exec['apt-get-update'],
-  }
-
   # VPN
 
   package { ['network-manager-vpnc', 'network-manager-vpnc-gnome', 'openvpn']:
