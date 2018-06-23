@@ -52,7 +52,7 @@ class packages_install {
 
   # AWS CLI
 
-  package { ['python-pip', 'python3-pip']:
+  package { ['python-pip']:
     require => Exec['apt-get-update'],
   }
 
