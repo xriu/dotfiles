@@ -44,6 +44,7 @@ class packages_install {
     'wget',
     'meld',
     'nano',
+    'terminator',
   ]
 
   package { $common:
