@@ -84,7 +84,7 @@ class packages_install {
 
   # Node / Yarn
 
-  package { ['nodejs']:
+  package { ['nodejs', 'yarn']:
     require => Exec['apt-get-update'],
   }
 
