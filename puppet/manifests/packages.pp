@@ -35,6 +35,7 @@ class packages_install {
     'screen',
     'tree',
     'build-essential',
+    'dialog',
     'libssl-dev',
     'apt-transport-https',
     'lsb-release',
