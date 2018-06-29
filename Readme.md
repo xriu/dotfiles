@@ -86,3 +86,10 @@ Fix VS Code terminal
 
 ***
 
+## CPAN
+
+```
+cpan install YAML
+cpan install File::HomeDir
+```
+
