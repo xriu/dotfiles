@@ -81,7 +81,7 @@ function puppet() {
 
   # Enable PATH for puppet
   if ! grep -q "puppetlabs" ~/.profile; then
-    echo 'PATH=/opt/puppetlabs/bin:$PATH' >> ~/.profile
+    echo 'PATH="$HOME/.GIS-lm-build/bin:/opt/puppetlabs/bin:$PATH"' >> ~/.profile
   fi
 
   if ! grep -q "puppet" /etc/hosts; then
