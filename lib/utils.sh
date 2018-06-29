@@ -34,6 +34,8 @@ function install_packages() {
 
 function common_configuration() {
 
+    echo 'PATH="$HOME/.GIS-lm-build/bin:$PATH"' >> ~/.profile
+
     # Default inotify files handle
     sudo sysctl -w fs.inotify.max_user_watches=524288
 
