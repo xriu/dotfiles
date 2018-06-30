@@ -90,6 +90,6 @@ Fix VS Code terminal
 
 ```
 cpan install YAML
-cpan install File::HomeDir
+sudo cpan install File::HomeDir
 ```
 
