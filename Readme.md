@@ -93,3 +93,10 @@ cpan install YAML
 sudo cpan install File::HomeDir
 ```
 
+***
+
+## YARN
+
+```
+yarn global add eslint
+```
