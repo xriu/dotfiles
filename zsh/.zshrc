@@ -13,6 +13,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+DISABLE_AUTO_UPDATE=false
+DISABLE_UPDATE_PROMPT=true
 
 function prompt_terraform() {
 
