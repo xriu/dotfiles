@@ -118,9 +118,6 @@ class packages_install {
     require => Exec['apt-get-update'],
   }
 
-  # Others
-  # openjdk-8-jdk nginx
-
 }
 
 include packages_install
