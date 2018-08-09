@@ -45,8 +45,7 @@ class packages_install {
     'wget',
     'meld',
     'nano',
-    'terminator',
-    'openjdk-8-jdk'
+    'terminator'
   ]
 
   package { $common:
@@ -56,6 +55,12 @@ class packages_install {
   # AWS CLI
 
   package { ['awscli']:
+    require => Exec['apt-get-update'],
+  }
+  
+  # JAVA JDK
+
+  package { ['openjdk-8-jdk']:
     require => Exec['apt-get-update'],
   }
   
