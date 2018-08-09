@@ -46,6 +46,7 @@ class packages_install {
     'meld',
     'nano',
     'terminator',
+    'openjdk-8-jdk'
   ]
 
   package { $common:
