@@ -20,6 +20,7 @@ function install_linux_packages() {
     terraform
     docker
     nvm
+    gradle
     prezto
   fi
 
@@ -173,6 +174,22 @@ function nvm() {
 
 }
 
+# Gradle
+function gradle() {
+
+  echo 'Installing gradle'
+
+  wget https://services.gradle.org/distributions/gradle-4.9-bin.zip
+  sudo mkdir /opt/gradle
+  sudo unzip -d /opt/gradle gradle-4.9-bin.zip
+  # Enable PATH for gradle
+  if ! grep -q "gradle" ~/.profile; then
+    echo 'PATH=$PATH:/opt/gradle/gradle-4.9/bin' >> ~/.profile
+  fi
+  sudo rm -fR gradle-4.9-bin.zip
+
+}
+
 # Prezto
 function prezto() {
 
@@ -218,5 +235,3 @@ function prezto() {
   chsh -s $(which zsh)
 
 }
-
-
