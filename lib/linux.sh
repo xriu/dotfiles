@@ -178,7 +178,7 @@ function prezto() {
 
   echo 'Installing Prezto'
 
-  sudo apt-get install zsh
+  sudo apt-get install -y zsh
 
   if [ ! -d ~/.zprezto ]; then
 
