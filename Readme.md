@@ -41,7 +41,7 @@ ext install code-settings-sync
 
 ```
 cpan install YAML
-cpan install Perl::Tidy
+sudo cpan install Perl::Tidy
 sudo cpan install File::HomeDir
 ```
 
