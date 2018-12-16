@@ -66,6 +66,7 @@ function common() {
 
   sudo apt update
   sudo apt-get install -y git gcc g++ make curl
+  sudo apt-get install -y linux-tools-common linux-tools-generic linux-tools-`uname -r`
 
 }
 
