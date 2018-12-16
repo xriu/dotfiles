@@ -58,6 +58,12 @@ class packages_install {
     require => Exec['apt-get-update'],
   }
   
+  # PYTHON PIP
+
+  package { ['python-pip']:
+    require => Exec['apt-get-update'],
+  }
+  
   # JAVA JDK
 
   package { ['openjdk-8-jdk']:
