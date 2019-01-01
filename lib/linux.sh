@@ -144,7 +144,7 @@ function serverless() {
 # Terraform
 function terraform() {
 
-  URL="https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip"
+  URL="https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip"
   curl -s $URL > /tmp/terraform.zip
   sudo unzip -o /tmp/terraform.zip -d /usr/local/bin/
   rm -f /tmp/terraform.zip
