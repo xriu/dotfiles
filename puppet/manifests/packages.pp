@@ -57,19 +57,19 @@ class packages_install {
   package { ['awscli']:
     require => Exec['apt-get-update'],
   }
-  
+
   # PYTHON PIP
 
   package { ['python-pip']:
     require => Exec['apt-get-update'],
   }
-  
+
   # JAVA JDK
 
   package { ['openjdk-8-jdk']:
     require => Exec['apt-get-update'],
   }
-  
+
   # Dropbox
 
   package { ['nautilus-dropbox']:
