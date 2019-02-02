@@ -3,80 +3,23 @@
 # Install packages
 function install_osx_packages() {
 
-    setup_osx
     brew_install
     brew_cask_install
     yarn_install
-
-}
-
-# Setup osx
-function setup_osx() {
-
-    echo "Default setup for osx ..."
-
-    # Show full paths in Finder
-    defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
-
-    # Disable and kill Dashboard
-    defaults write com.apple.dashboard mcx-disabled -boolean YES
-
-    # Show all file extensions on Finder
-    defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
-    # Disable natural trackpad scrolling (TODO however it seems it does not work)
-    defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
-
-    # Don't automatically rearrange Spaces
-    defaults write com.apple.dock mru-spaces -bool false
-
-    # Set list view as preferred Finder view
-    defaults write com.apple.finder FXPreferredViewStyle -string 'Nlsv'
-
-    # Search the current folder by default
-    defaults write com.apple.finder FXDefaultSearchScope -string 'SCcf'
-
-    # Remove all applications from Dock
-    defaults write com.apple.dock persistent-apps -array
-
-    # Set bottom right hot corner to show/hide desktop
-    defaults write com.apple.dock wvous-br-corner -int 4
-    defaults write com.apple.dock wvous-br-modifier -int 0
-
-    # Update clock to show current date and current day of the week and 24h format
-    defaults write com.apple.menuextra.clock DateFormat 'EEE MMM d  H:mm a'
-
-    # Show the ~/Library directory in Finder
-    chflags nohidden "${HOME}/Library"
-
-    # Show finder status bar
-    defaults write com.apple.finder ShowStatusBar -bool true
-
-    # Show home folder on new Finder window instead of All my files
-    defaults write com.apple.finder NewWindowTarget PfHm
-
-    # Put dock on the left
-    defaults write com.apple.dock orientation -string left
-
-    # Avoid creating .DS_Store files on network volumes
-    defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-
-    # Disable the warning when changing a file extension
-    defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
-    killall Dock Finder SystemUIServer
+    prezto_setup
+    zsh_setup
 
 }
 
 # Brew install
 function brew_install() {
 
-    echo "Brew install packages ..."
+    echo "Brew install packages"
 
     # Check for Homebrew
     # Install if we don't have it
     if test ! $(which brew); then
-        echo "Installing homebrew ..."
+        echo "Installing homebrew"
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
@@ -97,9 +40,9 @@ function brew_install() {
     brew install screen
     brew install entr
     brew install mtr
-    mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//')
-    sudo chmod 4755 $mtrlocation/sbin/mtr
-    sudo chown root $mtrlocation/sbin/mtr
+        mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//')
+        sudo chmod 4755 $mtrlocation/sbin/mtr
+        sudo chown root $mtrlocation/sbin/mtr
     brew install git
     brew install imagemagick --with-webp
     brew install node
@@ -109,6 +52,7 @@ function brew_install() {
     brew install fx
     brew install tree
     brew install zopfli
+    brew install jenv
     brew install ffmpeg --with-libvpx
     brew install ack
     brew install terminal-notifier
@@ -133,7 +77,7 @@ function brew_install() {
 # Brew cask install
 function brew_cask_install() {
 
-    echo "Brew cask install packages ..."
+    echo "Brew cask install packages"
 
     # Install Caskroom
     brew tap caskroom/cask
@@ -162,8 +106,57 @@ function brew_cask_install() {
 # Yarn install packages
 function yarn_install() {
 
-    echo "Yarn install packages ..."
+    echo "Yarn install packages"
 
     # yarn global add
+
+}
+
+# Prezto
+function prezto_setup() {
+
+  echo "Prezto setup"
+
+  if [ ! -d ~/.zprezto ]; then
+
+    # Get Prezto
+    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
+    # Backup zsh config if it exists
+    if [ -f ~/.zshrc ]; then
+      mv ~/.zshrc ~/.zshrc.backup
+    fi
+
+    # Create links to zsh config files
+    setopt EXTENDED_GLOB
+    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+      ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    done
+
+    unlink ~/.zpreztorc
+    unlink ~/.zshrc
+
+    ln -sf ~/dotfiles/zsh/.zpreztorc ~/.zpreztorc
+    ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
+
+  fi
+
+}
+
+function zsh_setup() {
+
+    echo "Zsh setup"
+
+    # Set Zsh as default shell
+    if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
+        chsh -s $(which zsh)
+    fi
+
+    # Get Powerline fonts
+    git clone https://github.com/powerline/fonts.git --depth=1
+    cd fonts
+    ./install.sh
+    cd ..
+    rm -rf fonts
 
 }

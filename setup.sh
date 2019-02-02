@@ -9,5 +9,5 @@ source ./lib/utils.sh
 echo 'Starting packages setup'
 install_packages $PACKAGE
 
-echo 'Starting common configuration'
-common_configuration
+# echo 'Starting common configuration'
+# common_configuration
