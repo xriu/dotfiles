@@ -70,5 +70,7 @@
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.statusBar.feedback.visible": false,
-    "workbench.statusBar.visible": true
+    "workbench.statusBar.visible": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "terminal.integrated.rendererType": "dom"
 }
