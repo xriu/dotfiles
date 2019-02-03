@@ -1,4 +1,5 @@
 {
+
     "[java]": {
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 120,

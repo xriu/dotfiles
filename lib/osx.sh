@@ -6,7 +6,6 @@ function install_osx_packages() {
     brew_install
     brew_cask_install
     yarn_install
-    ./.osx
     prezto_setup
     zsh_setup
 
@@ -154,8 +153,7 @@ function zsh_setup() {
     rm -rf fonts
 
     # Set Zsh as default shell
-    if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
-        chsh -s $(which zsh)
-    fi
+    chsh -s /bin/zsh
+    chsh -s $(which zsh)
 
 }

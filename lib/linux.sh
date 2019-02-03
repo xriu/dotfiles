@@ -67,6 +67,12 @@ function common() {
   sudo apt-get install -y git gcc g++ make curl
   sudo apt-get install -y linux-tools-common linux-tools-generic linux-tools-`uname -r`
 
+  echo 'PATH="$HOME/.GIS-lm-build/bin:$PATH"' >> ~/.profile
+
+  # Default inotify files handle
+  echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+  sudo sysctl -p
+
 }
 
 # Puppet
