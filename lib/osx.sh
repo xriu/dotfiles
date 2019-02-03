@@ -30,11 +30,14 @@ function brew_install() {
     brew install coreutils
     brew install moreutils
     brew install findutils
-    brew install gnu-sed --with-default-names
+    brew install gnu-sed
+    # brew install gnu-sed --with-default-names
     brew install bash
     brew install bash-completion
-    brew install wget --with-iri
-    brew install vim --with-override-system-vi
+    brew install wget
+    # brew install wget --with-iri
+    brew install vim
+    # brew install vim --with-override-system-vi
     brew install nano
     brew install grep
     brew install openssh
@@ -45,7 +48,7 @@ function brew_install() {
         sudo chmod 4755 $mtrlocation/sbin/mtr
         sudo chown root $mtrlocation/sbin/mtr
     brew install git
-    brew install imagemagick --with-webp
+    # brew install imagemagick --with-webp
     brew install node
     brew install pv
     brew install rename
@@ -54,7 +57,7 @@ function brew_install() {
     brew install tree
     brew install zopfli
     brew install jenv
-    brew install ffmpeg --with-libvpx
+    # brew install ffmpeg --with-libvpx
     brew install ack
     brew install terminal-notifier
     brew install ncdu
@@ -96,11 +99,11 @@ function brew_cask_install() {
     brew cask install spotify
     brew cask install slack
     brew cask install visual-studio-code
-    brew cask install limechat
+    # brew cask install limechat
     brew cask install vlc
     brew cask install transmission
 
-    brew cask cleanup
+    brew cleanup
 
 }
 
