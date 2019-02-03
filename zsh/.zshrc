@@ -1,18 +1,11 @@
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
+# Source Prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+# Customize to your needs ...
 DISABLE_AUTO_UPDATE=false
 DISABLE_UPDATE_PROMPT=true
 
