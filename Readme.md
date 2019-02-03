@@ -1,4 +1,4 @@
-# Dotfiles for Ubuntu
+# Dotfiles for Mac OSX / Ubuntu
 
 Requirements
 

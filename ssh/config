@@ -1,6 +1,21 @@
-# To avoid disconnects
-ServerAliveInterval 30
-ServerAliveCountMax 4
+# copy to ~/.ssh/config
 
 Host github.com
   IdentityFile ~/.ssh/id_github
+
+Host *
+	# Always use SSH2.
+	Protocol 2
+
+	# Use a shared channel for all sessions to the same host,
+	# instead of always opening a new one. This leads to much
+	# quicker connection times.
+	ControlMaster auto
+	ControlPath ~/.ssh/control/%r@%h:%p
+	ControlPersist 1800
+
+	# To avoid disconnects
+	Compression yes
+	TCPKeepAlive yes
+	ServerAliveInterval 20
+	ServerAliveCountMax 10
