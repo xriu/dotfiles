@@ -99,6 +99,7 @@ function brew_cask_install() {
     brew cask install spotify
     brew cask install slack
     brew cask install visual-studio-code
+        ln -fs ${HOME}/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
     # brew cask install limechat
     brew cask install vlc
     brew cask install transmission
@@ -145,8 +146,12 @@ function zsh_setup() {
 
     echo "Zsh setup"
 
-    git clone https://github.com/bhilburn/powerlevel9k.git  ~/.zprezto/modules/prompt/external/powerlevel9k
-    ln -s ~/.zprezto/modules/prompt/external/powerlevel9k/powerlevel9k.zsh-theme ~/.zprezto/modules/prompt/functions/prompt_powerlevel9k_setup
+    # Get Powerline fonts
+    git clone https://github.com/powerline/fonts.git --depth=1
+    cd fonts
+    ./install.sh
+    cd ..
+    rm -rf fonts
 
     # Set Zsh as default shell
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
