@@ -109,8 +109,6 @@ function yarn_install() {
 
     echo "Yarn install packages"
 
-    # yarn global add
-
 }
 
 # Prezto
@@ -129,14 +127,10 @@ function prezto_setup() {
     fi
 
     # Create links to zsh config files
-    setopt EXTENDED_GLOB
-    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-      ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-    done
-
-    unlink ~/.zpreztorc
-    unlink ~/.zshrc
-
+    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogin ~/.zlogin
+    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogout ~/.zlogout
+    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile ~/.zprofile
+    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshenv ~/.zshenv
     ln -sf ~/dotfiles/zsh/.zpreztorc ~/.zpreztorc
     ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
 
