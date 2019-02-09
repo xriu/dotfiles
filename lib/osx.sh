@@ -102,6 +102,7 @@ function brew_cask_install() {
     # brew cask install limechat
     brew cask install vlc
     brew cask install transmission
+    brew cask install geekbench
 
     brew cleanup
 
