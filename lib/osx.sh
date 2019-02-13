@@ -3,10 +3,27 @@
 # Install packages
 function install_osx_packages() {
 
+    # Install for Homebrew
+    if test ! $(which brew); then
+        echo "Installing homebrew"
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+
+    # Caskroom
+    brew tap caskroom/cask
+    brew tap caskroom/versions
+    brew tap caskroom/drivers
+    # Java before aws-cli
+    brew cask install java
+    # Common packages
     brew_install
+    # App packages
     brew_cask_install
+    # Yarn packages
     yarn_install
+    # Prezto setup
     prezto_setup
+    # Zsh setup
     zsh_setup
 
 }
@@ -15,13 +32,6 @@ function install_osx_packages() {
 function brew_install() {
 
     echo "Brew install packages"
-
-    # Check for Homebrew
-    # Install if we don't have it
-    if test ! $(which brew); then
-        echo "Installing homebrew"
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    fi
 
     brew update
     brew upgrade
@@ -82,18 +92,12 @@ function brew_cask_install() {
 
     echo "Brew cask install packages"
 
-    # Install Caskroom
-    brew tap caskroom/cask
-    brew tap caskroom/versions
-    brew tap caskroom/drivers
-
     brew cask install dropbox
     brew cask install alfred
     brew cask install docker
     brew cask install iterm2
     brew cask install firefox
     brew cask install google-chrome
-    brew cask install java
     brew cask install spectacle
     brew cask install spotify
     brew cask install slack
