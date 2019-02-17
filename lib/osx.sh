@@ -108,6 +108,7 @@ function brew_cask_install() {
     brew cask install transmission
     brew cask install geekbench
     brew cask install istat-menus
+    brew cask install 1password
 
     brew cleanup
 
