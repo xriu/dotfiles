@@ -15,10 +15,17 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
+<<<<<<< HEAD
 #sudo scutil --set ComputerName "xrl"
 #sudo scutil --set HostName "xrl"
 #sudo scutil --set LocalHostName "xrl"
 #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "xrl"
+=======
+# sudo scutil --set ComputerName "xrl"
+# sudo scutil --set HostName "xrl"
+# sudo scutil --set LocalHostName "xrl"
+# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "xrl"
+>>>>>>> 2c99c21... Minor changes
 
 # Set standby delay to 24 hours (default is 1 hour)
 # sudo pmset -a standbydelay 86400
@@ -129,7 +136,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ###############################################################################
 
 # Always display full control strip (ignoring App Controls)
-# defaults write com.apple.touchbar.agent PresentationModeGlobal fullControlStrip
+defaults write com.apple.touchbar.agent PresentationModeGlobal fullControlStrip
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
