@@ -104,7 +104,7 @@ function brew_cask_install() {
     brew cask install spotify
     brew cask install slack
     brew cask install visual-studio-code
-        ln -fs ${HOME}/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+        ln -fs ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
     # brew cask install limechat
     brew cask install vlc
     brew cask install transmission
