@@ -20,8 +20,10 @@ function prompt_terraform() {
 
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="$HOME/.GIS-lm-build/bin:$PATH"
+export DOCKER_EXTERNAL_IP=`ipconfig getifaddr en0`
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # Since we are using it, unalias lm
-# unalias lm
+unalias lm
+

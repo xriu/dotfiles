@@ -40,9 +40,9 @@ ext install code-settings-sync
 ## CPAN
 
 ```
-cpan install YAML
-sudo cpan install Perl::Tidy
-sudo cpan install File::HomeDir
+cpan App::cpanminus
+cpan install YAML::XS
+cpan install List::MoreUtils
 ```
 
 ***
@@ -52,3 +52,4 @@ sudo cpan install File::HomeDir
 ```
 yarn global add eslint
 ```
+

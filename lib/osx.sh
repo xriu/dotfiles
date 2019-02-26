@@ -74,6 +74,8 @@ function brew_install() {
     brew install gradle
     brew install gradle-completion
     brew install htop
+    # brew install cpanm
+    # brew install perltidy
     brew install openvpn
     brew install perl-build
     brew install plenv
