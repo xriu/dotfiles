@@ -35,9 +35,15 @@
     "files.trimFinalNewlines": false,
     "files.trimTrailingWhitespace": true,
     "git.ignoreLimitWarning": true,
+    "java.configuration.checkProjectSettingsExclusions": false,
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
     "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/home/xrl/.vscode/extensions/gabrielbb.vscode-lombok-0.9.7/server/lombok.jar\" -Xbootclasspath/a:\"/home/xrl/.vscode/extensions/gabrielbb.vscode-lombok-0.9.7/server/lombok.jar\"",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "peacock.affectedElements": [
+        "statusBar",
+        "titleBar"
+    ],
     "perltidy.additionalArguments": [
         "-bt=2",
         "-ce",
@@ -63,14 +69,12 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "window.restoreFullscreen": true,
     "window.zoomLevel": 0,
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
     "workbench.editor.showIcons": false,
     "workbench.editor.tabCloseButton": "off",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.statusBar.feedback.visible": false,
-    "workbench.statusBar.visible": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "terminal.integrated.rendererType": "dom"
+    "workbench.statusBar.visible": true
 }
