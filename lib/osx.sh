@@ -76,6 +76,7 @@ function brew_install() {
     brew install htop
     # brew install cpanm
     # brew install perltidy
+    brew install autopep8
     brew install openvpn
     brew install perl-build
     brew install plenv
@@ -108,6 +109,7 @@ function brew_cask_install() {
     # brew cask install limechat
     brew cask install vlc
     brew cask install transmission
+    brew cask install whatsapp
     brew cask install geekbench
     brew cask install istat-menus
     brew cask install 1password
