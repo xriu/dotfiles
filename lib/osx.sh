@@ -82,7 +82,9 @@ function brew_install() {
     brew install plenv
     brew install serverless
     brew install terraform
-    brew install ansible
+    brew install ansible@1.9
+    # sudo /usr/bin/python -m easy_install pip
+    # sudo /usr/bin/python -m pip install boto
     brew install yarn
     brew install zsh
 
