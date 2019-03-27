@@ -43,6 +43,7 @@ ext install code-settings-sync
 cpan App::cpanminus
 cpan install YAML::XS
 cpan install List::MoreUtils
+cpan install IO::Socket::SSL
 ```
 
 ***
