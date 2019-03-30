@@ -113,6 +113,7 @@ function brew_cask_install() {
     # TODO: Disabled due preinstalled
     # brew cask install firefox
     # brew cask install google-chrome
+    brew cask install java8
     brew cask install spectacle
     brew cask install spotify
     brew cask install slack
