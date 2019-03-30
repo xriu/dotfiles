@@ -13,16 +13,22 @@ function install_osx_packages() {
     brew tap caskroom/cask
     brew tap caskroom/versions
     brew tap caskroom/drivers
+
     # Java before aws-cli
     brew cask install java
+
     # Common packages
     brew_install
+
     # App packages
     brew_cask_install
+
     # Yarn packages
     yarn_install
+
     # Prezto setup
     prezto_setup
+
     # Zsh setup
     zsh_setup
 
@@ -51,6 +57,8 @@ function brew_install() {
     brew install grep
     brew install openssh
     brew install screen
+    brew install libxml2
+    brew link libxml2 --force
     brew install entr
     brew install mtr
         mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//')
@@ -87,6 +95,7 @@ function brew_install() {
     # sudo /usr/bin/python -m pip install boto
     brew install yarn
     brew install zsh
+    brew install z
 
     brew cleanup
 
@@ -101,14 +110,15 @@ function brew_cask_install() {
     brew cask install alfred
     brew cask install docker
     brew cask install iterm2
+    # TODO: Disabled due preinstalled
     # brew cask install firefox
     # brew cask install google-chrome
     brew cask install spectacle
     brew cask install spotify
     brew cask install slack
-    brew cask install visual-studio-code
-        ln -fs ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-    # brew cask install limechat
+    brew cask install visual-studio-Code
+    # TODO: Pending to be fixed
+    # ln -fs ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
     brew cask install vlc
     brew cask install transmission
     brew cask install whatsapp
@@ -167,6 +177,8 @@ function zsh_setup() {
 
     # Set Zsh as default shell
     chsh -s /bin/zsh
-    chsh -s $(which zsh)
+
+    # chsh: /usr/local/bin/zsh: non-standard shell
+    # chsh -s $(which zsh)
 
 }
