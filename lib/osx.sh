@@ -120,6 +120,7 @@ function brew_cask_install() {
     # TODO: Pending to be fixed
     # ln -fs ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
     brew cask install vlc
+    brew cask install postman
     brew cask install transmission
     brew cask install whatsapp
     brew cask install geekbench
