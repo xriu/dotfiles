@@ -13,6 +13,7 @@ function install_osx_packages() {
     brew tap caskroom/cask
     brew tap caskroom/versions
     brew tap caskroom/drivers
+    brew tap caskroom/fonts
 
     # Java before aws-cli
     brew cask install java
@@ -107,6 +108,7 @@ function brew_cask_install() {
 
     echo "Brew cask install packages"
 
+    # Applications
     brew cask install dropbox
     brew cask install alfred
     brew cask install docker
@@ -128,6 +130,14 @@ function brew_cask_install() {
     brew cask install geekbench
     brew cask install istat-menus
     brew cask install 1password
+    # brew cask install ccleaner
+
+    # Fonts
+    brew cask install font-fira-code
+    brew cask install font-fira-mono
+    brew cask install font-fira-mono-for-powerline
+    brew cask install font-menlo-for-powerline
+    brew cask install font-roboto-mono-for-powerline
 
     brew cleanup
 
@@ -171,12 +181,12 @@ function zsh_setup() {
 
     echo "Zsh setup"
 
-    # Get Powerline fonts
-    git clone https://github.com/powerline/fonts.git --depth=1
-    cd fonts
-    ./install.sh
-    cd ..
-    rm -rf fonts
+    # # Get Powerline fonts
+    # git clone https://github.com/powerline/fonts.git --depth=1
+    # cd fonts
+    # ./install.sh
+    # cd ..
+    # rm -rf fonts
 
     # Set Zsh as default shell
     chsh -s /bin/zsh
