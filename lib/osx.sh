@@ -89,6 +89,7 @@ function brew_install() {
     brew install perl-build
     brew install plenv
     brew install serverless
+    brew install eslint
     brew install terraform
     brew install ansible@1.9
     # sudo /usr/bin/python -m easy_install pip
