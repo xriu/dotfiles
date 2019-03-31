@@ -83,8 +83,8 @@ function brew_install() {
     brew install gradle
     brew install gradle-completion
     brew install htop
-    # brew install cpanm
-    # brew install perltidy
+    brew install cpanm
+    brew install perltidy
     brew install autopep8
     brew install openvpn
     brew install perl-build
@@ -113,9 +113,8 @@ function brew_cask_install() {
     brew cask install alfred
     brew cask install docker
     brew cask install iterm2
-    # TODO: Disabled due preinstalled
-    # brew cask install firefox
-    # brew cask install google-chrome
+    brew cask install firefox --force
+    brew cask install google-chrome --force
     brew cask install java8
     brew cask install spectacle
     brew cask install spotify
@@ -180,13 +179,6 @@ function prezto_setup() {
 function zsh_setup() {
 
     echo "Zsh setup"
-
-    # # Get Powerline fonts
-    # git clone https://github.com/powerline/fonts.git --depth=1
-    # cd fonts
-    # ./install.sh
-    # cd ..
-    # rm -rf fonts
 
     # Set Zsh as default shell
     chsh -s /bin/zsh
