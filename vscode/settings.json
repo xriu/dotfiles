@@ -62,7 +62,7 @@
     "sync.removeExtensions": true,
     "sync.syncExtensions": true,
     "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
-    "terminal.integrated.fontSize": 11,
+    "terminal.integrated.fontSize": 12,
     "typescript.updateImportsOnFileMove.enabled": "always",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.restoreFullscreen": true,

@@ -75,6 +75,7 @@ function brew_install() {
     brew install tree
     brew install zopfli
     brew install jenv
+    brew install nvm
     # brew install ffmpeg --with-libvpx
     brew install ack
     brew install terminal-notifier
@@ -129,7 +130,8 @@ function brew_cask_install() {
     brew cask install geekbench
     brew cask install istat-menus
     brew cask install 1password
-    # brew cask install ccleaner
+    brew cask install ccleaner
+    brew cask install meld
 
     # Fonts
     brew cask install font-fira-code

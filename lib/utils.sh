@@ -35,8 +35,7 @@ function install_packages() {
 function common_configuration() {
 
     # Default folder for develop
-    mkdir -p ~/Develop/
-    mkdir -p ~/.ssh/
+    mkdir -p ~/Develop/ ~/.ssh/ ~/.nvm/ ~/.jenv/ ~/.plenv/
 
     # Github blank ssh key
     if [ ! -f ~/.ssh/id_github ]; then
