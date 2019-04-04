@@ -84,6 +84,7 @@ function brew_install() {
     brew install gradle
     brew install gradle-completion
     brew install htop
+    brew install jq
     brew install cpanm
     brew install perltidy
     brew install autopep8

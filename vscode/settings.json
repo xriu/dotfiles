@@ -15,6 +15,7 @@
         "editor.wrappingIndent": "same"
     },
     "breadcrumbs.enabled": true,
+    "docker.groupImagesBy": "Repository",
     "editor.detectIndentation": false,
     "editor.folding": true,
     "editor.glyphMargin": false,
