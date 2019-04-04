@@ -21,6 +21,9 @@ function prompt_terraform() {
 # Find libxml2 location path
 libxml2=$(brew info libxml2 | grep Cellar | sed -e 's/ (.*//')
 
+# Find terraform location path
+terraform=$(brew info terraform | grep Cellar | sed -e 's/ (.*//')
+
 # NVM_DIR
 export NVM_DIR="$HOME/.nvm"
 
@@ -49,3 +52,6 @@ eval "$(jenv enable-plugin export)"
 # Since we are using it, unalias lm
 if alias lm > /dev/null; then unalias lm; fi
 
+# Terraform auto-complete
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C ${terraform}/bin/terraform terraform
