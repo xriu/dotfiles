@@ -126,7 +126,7 @@ function brew_cask_install() {
     # ln -fs ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
     brew cask install vlc
     brew cask install postman
-    brew cask install transmission
+    # brew cask install transmission
     brew cask install whatsapp
     brew cask install geekbench
     brew cask install istat-menus

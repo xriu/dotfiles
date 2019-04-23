@@ -1,4 +1,7 @@
 {
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
     "[java]": {
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 120,
