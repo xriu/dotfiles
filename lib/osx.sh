@@ -94,6 +94,7 @@ function brew_install() {
     brew install serverless
     brew install eslint
     brew install terraform
+    brew install terraform_landscape
     brew install ansible@1.9
     # sudo /usr/bin/python -m easy_install pip
     # sudo /usr/bin/python -m pip install boto
