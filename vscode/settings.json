@@ -10,7 +10,8 @@
     "[javascript]": {
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 120,
-        "editor.wrappingIndent": "same"
+        "editor.wrappingIndent": "same",
+        "editor.defaultFormatter": "HookyQR.beautify"
     },
     "[typescript]": {
         "editor.wordWrap": "wordWrapColumn",
@@ -43,7 +44,7 @@
     "java.configuration.checkProjectSettingsExclusions": false,
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-    "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/xrl/.vscode/extensions/gabrielbb.vscode-lombok-0.9.7/server/lombok.jar\" -Xbootclasspath/a:\"/Users/xrl/.vscode/extensions/gabrielbb.vscode-lombok-0.9.7/server/lombok.jar\"",
+    "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "peacock.favoriteColors": [
         {
@@ -59,8 +60,16 @@
             "value": "#007fff"
         },
         {
+            "name": "C# Purple",
+            "value": "#68217A"
+        },
+        {
             "name": "Gatsby Purple",
             "value": "#639"
+        },
+        {
+            "name": "Java Blue-Gray",
+            "value": "#557c9b"
         },
         {
             "name": "JavaScript Yellow",
