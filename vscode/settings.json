@@ -1,6 +1,6 @@
 {
     "[html]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[java]": {
         "editor.wordWrap": "wordWrapColumn",
@@ -11,7 +11,7 @@
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 120,
         "editor.wrappingIndent": "same",
-        "editor.defaultFormatter": "HookyQR.beautify"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
         "editor.wordWrap": "wordWrapColumn",
