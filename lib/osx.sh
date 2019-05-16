@@ -118,7 +118,6 @@ function brew_cask_install() {
     brew cask install iterm2
     brew cask install firefox --force
     brew cask install google-chrome --force
-    brew cask install java8
     brew cask install spectacle
     brew cask install spotify
     brew cask install slack
@@ -133,7 +132,6 @@ function brew_cask_install() {
     brew cask install istat-menus
     brew cask install 1password
     brew cask install ccleaner
-    brew cask install meld
 
     # Fonts
     brew cask install font-fira-code
