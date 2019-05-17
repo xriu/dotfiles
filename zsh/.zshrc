@@ -9,13 +9,18 @@ fi
 DISABLE_AUTO_UPDATE=false
 DISABLE_UPDATE_PROMPT=true
 
+# Terraform alias in order to append the | landscape command prettier
+alias terraform="_terraform"
+
 function prompt_terraform() {
+    if [[ -n *.tf(#qN) ]]; then
+        WORKSPACE=$("terraform" workspace show 2> /dev/null) || return
+        "$1_prompt_segment" "$0" "$2" "$DEFAULT_COLOR" "red" "tf:$WORKSPACE"
+    fi
+}
 
-  if [[ -n *.tf(#qN) ]]; then
-    WORKSPACE=$(terraform workspace show 2> /dev/null) || return
-    "$1_prompt_segment" "$0" "$2" "$DEFAULT_COLOR" "red" "tf:$WORKSPACE"
-  fi
-
+function _terraform() {
+    "terraform" "$@" | landscape
 }
 
 # Find libxml2 location path
