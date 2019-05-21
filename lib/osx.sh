@@ -91,6 +91,7 @@ function brew_install() {
     brew install openvpn
     brew install perl-build
     brew install plenv
+    brew install angular-cli
     brew install serverless
     brew install eslint
     brew install terraform
@@ -127,6 +128,7 @@ function brew_cask_install() {
     brew cask install vlc
     brew cask install postman
     # brew cask install transmission
+    brew cask install gitter
     brew cask install whatsapp
     brew cask install geekbench
     brew cask install istat-menus
