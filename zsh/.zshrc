@@ -9,6 +9,15 @@ fi
 DISABLE_AUTO_UPDATE=false
 DISABLE_UPDATE_PROMPT=true
 
+# Change random MAC address
+function change_mac() {
+    local mac=$(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')
+    sudo ifconfig en0 ether $mac
+    sudo ifconfig en0 down
+    sudo ifconfig en0 up
+    echo "MAC address: $mac"
+}
+
 # Terraform alias in order to append the | landscape command prettier
 alias terraform="_terraform"
 
