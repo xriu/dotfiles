@@ -69,3 +69,13 @@ if alias lm > /dev/null; then unalias lm; fi
 # Terraform auto-complete
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C ${terraform}/bin/terraform terraform
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/xrl/dotfiles/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/xrl/dotfiles/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/xrl/dotfiles/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/xrl/dotfiles/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/xrl/dotfiles/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/xrl/dotfiles/node_modules/tabtab/.completions/slss.zsh
