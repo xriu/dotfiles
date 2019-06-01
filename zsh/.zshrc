@@ -29,7 +29,11 @@ function prompt_terraform() {
 }
 
 function _terraform() {
-    "terraform" "$@" | landscape
+    if [[ "$@" =~ "plan" ]] || [[ "$@" =~ "apply" ]]; then
+        "terraform" "$@" | landscape
+    else
+        "terraform" "$@"
+    fi
 }
 
 # Find libxml2 location path
