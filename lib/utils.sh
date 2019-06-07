@@ -47,7 +47,7 @@ function common_configuration() {
     git config --global push.default simple
     git config --global pull.rebase preserve
     git config --global merge.ff false
-    git config --global merge.tool meld
+    # git config --global merge.tool meld
     git config --global mergetool.prompt false
 
     # Configuration file for ssh
