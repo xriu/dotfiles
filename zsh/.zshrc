@@ -42,6 +42,9 @@ libxml2=$(brew info libxml2 | grep Cellar | sed -e 's/ (.*//')
 # Find terraform location path
 terraform=$(brew info terraform | grep Cellar | sed -e 's/ (.*//')
 
+# Locales
+export LC_ALL=$LANG
+
 # NVM_DIR
 export NVM_DIR="$HOME/.nvm"
 
