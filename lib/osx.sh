@@ -76,6 +76,7 @@ function brew_install() {
     brew install zopfli
     brew install jenv
     brew install nvm
+    brew install libopendkim
     # brew install ffmpeg --with-libvpx
     brew install ack
     brew install terminal-notifier

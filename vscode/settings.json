@@ -8,8 +8,6 @@
         "editor.wrappingIndent": "same"
     },
     "[javascript]": {
-        "editor.wordWrap": "wordWrapColumn",
-        "editor.wordWrapColumn": 120,
         "editor.wrappingIndent": "same",
         "editor.defaultFormatter": "HookyQR.beautify"
     },
@@ -125,7 +123,7 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.restoreFullscreen": true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "workbench.activityBar.visible": true,
     "workbench.editor.showIcons": false,
     "workbench.editor.tabCloseButton": "off",
