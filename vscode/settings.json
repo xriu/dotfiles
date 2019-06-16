@@ -2,6 +2,9 @@
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[scss]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
     "[java]": {
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 120,
@@ -14,7 +17,8 @@
     "[typescript]": {
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 120,
-        "editor.wrappingIndent": "same"
+        "editor.wrappingIndent": "same",
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "breadcrumbs.enabled": true,
     "docker.groupImagesBy": "None",
