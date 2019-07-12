@@ -1,9 +1,9 @@
 {
     "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "HookyQR.beautify"
     },
     "[scss]": {
-        "editor.defaultFormatter": "HookyQR.beautify"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[java]": {
         "editor.wordWrap": "wordWrapColumn",
@@ -12,7 +12,7 @@
     },
     "[javascript]": {
         "editor.wrappingIndent": "same",
-        "editor.defaultFormatter": "HookyQR.beautify"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
         "editor.wordWrap": "wordWrapColumn",
@@ -46,7 +46,7 @@
     "java.configuration.checkProjectSettingsExclusions": false,
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-    "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication",
+    "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/xrl/.vscode/extensions/gabrielbb.vscode-lombok-0.9.8/server/lombok.jar\"",
     "javascript.updateImportsOnFileMove.enabled": "always",
     "peacock.favoriteColors": [
         {
@@ -127,7 +127,7 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.restoreFullscreen": true,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "workbench.activityBar.visible": true,
     "workbench.editor.showIcons": false,
     "workbench.editor.tabCloseButton": "off",
