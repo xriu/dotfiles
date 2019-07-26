@@ -40,7 +40,7 @@ function _terraform() {
 libxml2=$(brew info libxml2 | grep Cellar | sed -e 's/ (.*//')
 
 # Find terraform location path
-terraform=$(brew info terraform | grep Cellar | sed -e 's/ (.*//')
+terraform=$(brew info terraform@0.11 | grep Cellar | sed -e 's/ (.*//')
 
 # Locales
 export LC_ALL=$LANG
