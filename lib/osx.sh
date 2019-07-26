@@ -114,7 +114,7 @@ function brew_cask_install() {
     echo "Brew cask install packages"
 
     # Applications
-    brew cask install dropbox
+    # brew cask install dropbox
     brew cask install alfred
     brew cask install docker
     brew cask install iterm2

@@ -55,6 +55,9 @@ export PATH="$HOME/.GIS-lm-build/bin:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
+# TERRAFORM 0.11
+export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+
 # C_INCLUDE_PATH
 export C_INCLUDE_PATH="$libxml2/include/libxml2:$C_INCLUDE_PATH"
 
@@ -87,3 +90,4 @@ complete -o nospace -C ${terraform}/bin/terraform terraform
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/xrl/dotfiles/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/xrl/dotfiles/node_modules/tabtab/.completions/slss.zsh
+

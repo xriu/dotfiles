@@ -2,23 +2,26 @@
     "[html]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
-    "[scss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "[java]": {
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 120,
         "editor.wrappingIndent": "same"
     },
     "[javascript]": {
-        "editor.wrappingIndent": "same",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.wrappingIndent": "same"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features",
         "editor.wordWrap": "wordWrapColumn",
         "editor.wordWrapColumn": 120,
-        "editor.wrappingIndent": "same",
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.wrappingIndent": "same"
     },
     "breadcrumbs.enabled": true,
     "docker.groupImagesBy": "None",
