@@ -24,7 +24,6 @@
         "editor.wrappingIndent": "same"
     },
     "breadcrumbs.enabled": true,
-    "docker.groupImagesBy": "None",
     "editor.detectIndentation": false,
     "editor.folding": true,
     "editor.glyphMargin": false,
@@ -105,6 +104,9 @@
             "value": "#42b883"
         }
     ],
+    "peacock.remoteContainersColor": "",
+    "peacock.remoteSshColor": "",
+    "peacock.remoteWslColor": "",
     "perltidy.additionalArguments": [
         "-bt=2",
         "-ce",
@@ -137,6 +139,5 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.feedback.visible": false,
     "workbench.statusBar.visible": true
 }
