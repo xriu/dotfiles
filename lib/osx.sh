@@ -95,8 +95,9 @@ function brew_install() {
     brew install angular-cli
     brew install serverless
     brew install eslint
-    brew install terraform
+    brew install terraform@0.11.14
     brew install terraform_landscape
+    brew install warrensbox/tap/tfswitch
     brew install ansible@1.9
     # sudo /usr/bin/python -m easy_install pip
     # sudo /usr/bin/python -m pip install boto
