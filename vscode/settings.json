@@ -107,6 +107,7 @@
     "peacock.remoteContainersColor": "",
     "peacock.remoteSshColor": "",
     "peacock.remoteWslColor": "",
+    "peacock.surpriseMeFromFavoritesOnly": false,
     "perltidy.additionalArguments": [
         "-bt=2",
         "-ce",
