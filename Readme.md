@@ -45,12 +45,3 @@ cpan install YAML::XS
 cpan install List::MoreUtils
 cpan install IO::Socket::SSL
 ```
-
-***
-
-## YARN
-
-```
-yarn global add eslint
-```
-
