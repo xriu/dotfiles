@@ -79,6 +79,7 @@ function brew_install() {
     brew install libopendkim
     # brew install ffmpeg --with-libvpx
     brew install ack
+    brew install termshark
     brew install terminal-notifier
     brew install ncdu
     brew install awscli
@@ -121,6 +122,8 @@ function brew_cask_install() {
     brew cask install firefox --force
     brew cask install google-chrome --force
     brew cask install spectacle
+    # brew cask install wireshark
+    # brew cask install wireshark-chmodbpf
     brew cask install spotify
     brew cask install slack
     brew cask install visual-studio-Code
