@@ -14,6 +14,7 @@ function install_osx_packages() {
     brew tap caskroom/versions
     brew tap caskroom/drivers
     brew tap caskroom/fonts
+    brew tap wagoodman/dive
 
     # Java before aws-cli
     brew cask install java
@@ -79,6 +80,7 @@ function brew_install() {
     brew install libopendkim
     # brew install ffmpeg --with-libvpx
     brew install ack
+    brew install dive
     brew install termshark
     brew install terminal-notifier
     brew install ncdu
