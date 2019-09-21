@@ -120,6 +120,7 @@ function brew_cask_install() {
     # brew cask install dropbox
     brew cask install alfred
     brew cask install docker
+    brew cask install kitematic --force
     brew cask install iterm2
     brew cask install firefox --force
     brew cask install google-chrome --force
