@@ -14,6 +14,11 @@
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[magicpython]": {
+        "editor.defaultFormatter": "autopep8",
+        "editor.wordWrapColumn": 120,
+        "editor.wrappingIndent": "same"
+    },
     "[scss]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -119,6 +124,10 @@
     ],
     "perltidy.executable": "/usr/bin/perltidy",
     "perltidy.profile": "/home/xrl/.GIS-lm-build/.perltidyrc",
+    "python.formatting.autopep8Args": [
+        "--max-line-length=120"
+    ],
+    "python.formatting.provider": "autopep8",
     "python.jediEnabled": false,
     "sync.askGistName": false,
     "sync.autoDownload": false,
