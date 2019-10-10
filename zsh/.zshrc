@@ -50,6 +50,7 @@ export LC_ALL=$LANG
 export NVM_DIR="$HOME/.nvm"
 
 # PATH
+export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.GIS-lm-build/bin:$PATH"
