@@ -93,6 +93,7 @@ function brew_install() {
     brew install perltidy
     brew install autopep8
     brew install openvpn
+    brew install hadolint
     brew install perl-build
     brew install plenv
     brew install angular-cli
