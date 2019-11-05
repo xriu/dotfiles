@@ -58,6 +58,7 @@ function brew_install() {
     brew install nano
     brew install grep
     brew install openssh
+    brew install openssl
     brew install screen
     brew install libxml2
     brew link libxml2 --force
