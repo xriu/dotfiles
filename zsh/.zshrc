@@ -18,7 +18,7 @@ function change_mac() {
     echo "MAC address: $mac"
 }
 
-# Terraform alias in order to append the | landscape command prettier
+# Terraform alias in order to append specific options
 alias terraform="_terraform"
 
 function prompt_terraform() {
