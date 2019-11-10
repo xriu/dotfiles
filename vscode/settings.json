@@ -1,166 +1,166 @@
 {
-	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[java]": {
-		"editor.wordWrap": "wordWrapColumn",
-		"editor.wordWrapColumn": 120,
-		"editor.wrappingIndent": "same"
-	},
-	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.wrappingIndent": "same"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[magicpython]": {
-		"editor.defaultFormatter": "autopep8",
-		"editor.wordWrapColumn": 120,
-		"editor.wrappingIndent": "same"
-	},
-	"[scss]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"breadcrumbs.enabled": true,
-	"editor.detectIndentation": false,
-	"editor.folding": true,
-	"editor.fontFamily": "FiraCode-Retina",
-	"editor.fontLigatures": true,
-	"editor.fontWeight": "300",
-	"editor.glyphMargin": false,
-	"editor.hideCursorInOverviewRuler": true,
-	"editor.insertSpaces": true,
-	"editor.matchBrackets": false,
-	"editor.minimap.enabled": false,
-	"editor.occurrencesHighlight": false,
-	"editor.overviewRulerBorder": false,
-	"editor.renderIndentGuides": false,
-	"editor.renderLineHighlight": "none",
-	"editor.renderWhitespace": "none",
-	"editor.suggestSelection": "first",
-	"editor.tabSize": 4,
-	"eslint.packageManager": "yarn",
-	"explorer.confirmDelete": false,
-	"explorer.openEditors.visible": 0,
-	"files.insertFinalNewline": true,
-	"files.trimFinalNewlines": false,
-	"files.trimTrailingWhitespace": true,
-	"git.ignoreLimitWarning": true,
-	"java.configuration.checkProjectSettingsExclusions": false,
-	"java.configuration.updateBuildConfiguration": "interactive",
-	"java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-	"java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/xrl/.vscode/extensions/gabrielbb.vscode-lombok-0.9.9/server/lombok.jar\"",
-	"javascript.updateImportsOnFileMove.enabled": "always",
-	"peacock.favoriteColors": [
-		{
-			"name": "Angular Red",
-			"value": "#b52e31"
-		},
-		{
-			"name": "Auth0 Orange",
-			"value": "#eb5424"
-		},
-		{
-			"name": "Azure Blue",
-			"value": "#007fff"
-		},
-		{
-			"name": "C# Purple",
-			"value": "#68217A"
-		},
-		{
-			"name": "Gatsby Purple",
-			"value": "#639"
-		},
-		{
-			"name": "Go Cyan",
-			"value": "#5dc9e2"
-		},
-		{
-			"name": "Java Blue-Gray",
-			"value": "#557c9b"
-		},
-		{
-			"name": "JavaScript Yellow",
-			"value": "#f9e64f"
-		},
-		{
-			"name": "Mandalorian Blue",
-			"value": "#1857a4"
-		},
-		{
-			"name": "Node Green",
-			"value": "#215732"
-		},
-		{
-			"name": "React Blue",
-			"value": "#00b3e6"
-		},
-		{
-			"name": "Something Different",
-			"value": "#832561"
-		},
-		{
-			"name": "Vue Green",
-			"value": "#42b883"
-		}
-	],
-	"peacock.remoteContainersColor": "",
-	"peacock.remoteSshColor": "",
-	"peacock.remoteWslColor": "",
-	"peacock.surpriseMeFromFavoritesOnly": false,
-	"perltidy.additionalArguments": [
-		"-bt=2",
-		"-ce",
-		"-et=2",
-		"-i=2",
-		"-l=2000",
-		"-pt=2",
-		"-sbt=2"
-	],
-	"perltidy.executable": "/usr/bin/perltidy",
-	"perltidy.profile": "/home/xrl/.GIS-lm-build/.perltidyrc",
-	"python.formatting.autopep8Args": [
-		"--max-line-length=120"
-	],
-	"python.formatting.provider": "autopep8",
-	"python.jediEnabled": false,
-	"sync.askGistName": false,
-	"sync.autoDownload": false,
-	"sync.autoUpload": false,
-	"sync.forceDownload": true,
-	"sync.gist": "aa22e7e79b7195617a2741c2bf4ffdcc",
-	"sync.quietSync": false,
-	"sync.removeExtensions": true,
-	"sync.syncExtensions": true,
-	"terminal.integrated.fontFamily": "Roboto Mono for Powerline",
-	"terminal.integrated.fontSize": 12,
-	"terraform.indexing": {
-        "enabled": false,
-        "liveIndexing": false,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[java]": {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.wordWrapColumn": 120,
+        "editor.wrappingIndent": "same"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.wrappingIndent": "same"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[magicpython]": {
+        "editor.defaultFormatter": "autopep8",
+        "editor.wordWrapColumn": 120,
+        "editor.wrappingIndent": "same"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "breadcrumbs.enabled": true,
+    "editor.detectIndentation": false,
+    "editor.folding": true,
+    "editor.fontFamily": "FiraCode-Retina",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "300",
+    "editor.glyphMargin": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.insertSpaces": true,
+    "editor.matchBrackets": false,
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": false,
+    "editor.overviewRulerBorder": false,
+    "editor.renderIndentGuides": false,
+    "editor.renderLineHighlight": "none",
+    "editor.renderWhitespace": "none",
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 4,
+    "eslint.packageManager": "yarn",
+    "explorer.confirmDelete": false,
+    "explorer.openEditors.visible": 0,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": false,
+    "files.trimTrailingWhitespace": true,
+    "git.ignoreLimitWarning": true,
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+    "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/xrl/.vscode/extensions/gabrielbb.vscode-lombok-0.9.9/server/lombok.jar\"",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "peacock.favoriteColors": [
+        {
+            "name": "Angular Red",
+            "value": "#b52e31"
+        },
+        {
+            "name": "Auth0 Orange",
+            "value": "#eb5424"
+        },
+        {
+            "name": "Azure Blue",
+            "value": "#007fff"
+        },
+        {
+            "name": "C# Purple",
+            "value": "#68217A"
+        },
+        {
+            "name": "Gatsby Purple",
+            "value": "#639"
+        },
+        {
+            "name": "Go Cyan",
+            "value": "#5dc9e2"
+        },
+        {
+            "name": "Java Blue-Gray",
+            "value": "#557c9b"
+        },
+        {
+            "name": "JavaScript Yellow",
+            "value": "#f9e64f"
+        },
+        {
+            "name": "Mandalorian Blue",
+            "value": "#1857a4"
+        },
+        {
+            "name": "Node Green",
+            "value": "#215732"
+        },
+        {
+            "name": "React Blue",
+            "value": "#00b3e6"
+        },
+        {
+            "name": "Something Different",
+            "value": "#832561"
+        },
+        {
+            "name": "Vue Green",
+            "value": "#42b883"
+        }
+    ],
+    "peacock.remoteContainersColor": "",
+    "peacock.remoteSshColor": "",
+    "peacock.remoteWslColor": "",
+    "peacock.surpriseMeFromFavoritesOnly": false,
+    "perltidy.additionalArguments": [
+        "-bt=2",
+        "-ce",
+        "-et=2",
+        "-i=2",
+        "-l=2000",
+        "-pt=2",
+        "-sbt=2"
+    ],
+    "perltidy.executable": "/usr/bin/perltidy",
+    "perltidy.profile": "/home/xrl/.GIS-lm-build/.perltidyrc",
+    "python.formatting.autopep8Args": [
+        "--max-line-length=120"
+    ],
+    "python.formatting.provider": "autopep8",
+    "python.jediEnabled": false,
+    "sync.askGistName": false,
+    "sync.autoDownload": false,
+    "sync.autoUpload": false,
+    "sync.forceDownload": true,
+    "sync.gist": "aa22e7e79b7195617a2741c2bf4ffdcc",
+    "sync.quietSync": false,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+    "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
+    "terminal.integrated.fontSize": 12,
+    "terraform.indexing": {
         "delay": 500,
+        "enabled": false,
         "exclude": [
             "**/.terraform/**/*",
             ".terraform/**/*"
-        ]
+        ],
+        "liveIndexing": false
     },
-	"terraform.languageServer": {
-        "enabled": true,
-        "args": []
+    "terraform.languageServer": {
+        "args": [],
+        "enabled": true
     },
-	"typescript.updateImportsOnFileMove.enabled": "always",
-	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-	"window.restoreFullscreen": true,
-	"window.zoomLevel": 0,
-	"workbench.activityBar.visible": true,
-	"workbench.editor.showIcons": false,
-	"workbench.editor.tabCloseButton": "off",
-	"workbench.iconTheme": "material-icon-theme",
-	"workbench.sideBar.location": "left",
-	"workbench.startupEditor": "newUntitledFile",
-	"workbench.statusBar.visible": true
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.restoreFullscreen": true,
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": true,
+    "workbench.editor.showIcons": false,
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.sideBar.location": "left",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.visible": true
 }
