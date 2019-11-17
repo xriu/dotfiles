@@ -68,7 +68,6 @@ function brew_install() {
         sudo chmod 4755 $mtrlocation/sbin/mtr
         sudo chown root $mtrlocation/sbin/mtr
     brew install git
-    # brew install imagemagick --with-webp
     brew install node
     brew install pv
     brew install rename
@@ -118,7 +117,6 @@ function brew_cask_install() {
     echo "Brew cask install packages"
 
     # Applications
-    # brew cask install dropbox
     brew cask install alfred
     brew cask install docker
     brew cask install kitematic --force
