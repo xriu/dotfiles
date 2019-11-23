@@ -41,7 +41,7 @@ function _terraform() {
 libxml2=$(brew info libxml2 | grep Cellar | sed -e 's/ (.*//')
 
 # Find terraform location path
-terraform=$(brew info terraform@0.11 | grep Cellar | sed -e 's/ (.*//')
+terraform=$(brew info terraform | grep Cellar | sed -e 's/ (.*//')
 
 # Locales
 export LC_ALL=$LANG
@@ -50,15 +50,13 @@ export LC_ALL=$LANG
 export NVM_DIR="$HOME/.nvm"
 
 # PATH
+export PATH="/usr/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.GIS-lm-build/bin:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-
-# TERRAFORM 0.11
-export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 
 # C_INCLUDE_PATH
 export C_INCLUDE_PATH="$libxml2/include/libxml2:$C_INCLUDE_PATH"
