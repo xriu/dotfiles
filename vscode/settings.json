@@ -26,6 +26,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "breadcrumbs.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
     "editor.detectIndentation": false,
     "editor.folding": true,
     "editor.fontFamily": "FiraCode-Retina",
