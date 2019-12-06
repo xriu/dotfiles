@@ -138,6 +138,7 @@ function brew_cask_install() {
     # brew cask install transmission
     brew cask install gitter
     brew cask install whatsapp
+    brew cask install figma
     brew cask install geekbench
     brew cask install istat-menus
     brew cask install 1password
