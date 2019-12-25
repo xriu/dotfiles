@@ -55,7 +55,7 @@
     "java.errors.incompleteClasspath.severity": "ignore",
     "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
     "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/xrl/.vscode/extensions/gabrielbb.vscode-lombok-0.9.9/server/lombok.jar\"",
-    "java.saveActions.organizeImports": true,
+    "java.saveActions.organizeImports": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "perltidy.additionalArguments": [
         "-bt=2",
