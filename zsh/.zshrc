@@ -49,6 +49,10 @@ export LC_ALL=$LANG
 # NVM_DIR
 export NVM_DIR="$HOME/.nvm"
 
+# TODO: Review if needed
+export PATH="/usr/local/opt/perl@5.18/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/perl@5.18/lib"
+
 # PATH
 export PATH="/usr/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
