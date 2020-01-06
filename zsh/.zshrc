@@ -49,13 +49,10 @@ export LC_ALL=$LANG
 # NVM_DIR
 export NVM_DIR="$HOME/.nvm"
 
-# TODO: Review if needed
-export PATH="/usr/local/opt/perl@5.18/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/perl@5.18/lib"
-
 # PATH
 export PATH="/usr/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/perl@5.18/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.GIS-lm-build/bin:$PATH"
@@ -67,6 +64,9 @@ export C_INCLUDE_PATH="$libxml2/include/libxml2:$C_INCLUDE_PATH"
 
 # DOCKER_EXTERNAL_IP
 export DOCKER_EXTERNAL_IP=`ipconfig getifaddr en0`
+
+# TODO: Review if needed
+export LDFLAGS="-L/usr/local/opt/perl@5.18/lib"
 
 [[ -s "/usr/local/opt/nvm/nvm.sh" ]] && . "/usr/local/opt/nvm/nvm.sh"
 [[ -s "/usr/local/opt/nvm/etc/bash_completion" ]] && . "/usr/local/opt/nvm/etc/bash_completion"
