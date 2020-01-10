@@ -83,17 +83,17 @@
     "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
     "terminal.integrated.fontSize": 12,
     "terraform.indexing": {
-        "enabled": false,
-        "liveIndexing": false,
         "delay": 500,
+        "enabled": false,
         "exclude": [
             "**/.terraform/**/*",
             ".terraform/**/*"
-        ]
+        ],
+        "liveIndexing": false
     },
     "terraform.languageServer": {
-        "enabled": true,
-        "args": []
+        "args": [],
+        "enabled": true
     },
     "typescript.updateImportsOnFileMove.enabled": "always",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
