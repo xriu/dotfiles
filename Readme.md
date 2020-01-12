@@ -22,7 +22,6 @@ cd ~/dotfiles
 
 ```
 nvm install node
-nvm install 8.10
 nvm use system
 ```
 
