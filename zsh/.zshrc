@@ -46,8 +46,10 @@ terraform=$(brew info terraform | grep Cellar | sed -e 's/ (.*//')
 # Locales
 export LC_ALL=$LANG
 
-# NVM_DIR
+# NVM
 export NVM_DIR="$HOME/.nvm"
+[[ -s "/usr/local/opt/nvm/nvm.sh" ]] && . "/usr/local/opt/nvm/nvm.sh"
+[[ -s "/usr/local/opt/nvm/etc/bash_completion" ]] && . "/usr/local/opt/nvm/etc/bash_completion"
 
 # PATH
 export PATH="/usr/bin:$PATH"
@@ -68,12 +70,10 @@ export DOCKER_EXTERNAL_IP=`ipconfig getifaddr en0`
 # TODO: Review if needed
 export LDFLAGS="-L/usr/local/opt/perl@5.18/lib"
 
-[[ -s "/usr/local/opt/nvm/nvm.sh" ]] && . "/usr/local/opt/nvm/nvm.sh"
-[[ -s "/usr/local/opt/nvm/etc/bash_completion" ]] && . "/usr/local/opt/nvm/etc/bash_completion"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # To enable shims and autocompletion add to your profile:
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+if which jenv > /dev/null; then eval "$(jenv init - --no-rehash)"; fi
 
 # Enabling export plugin to automatically expose JAVA_HOME
 eval "$(jenv enable-plugin export)"
