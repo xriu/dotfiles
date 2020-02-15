@@ -18,23 +18,11 @@ function change_mac() {
     echo "MAC address: $mac"
 }
 
-# Terraform alias in order to append specific options
-alias terraform="_terraform"
-
 function prompt_terraform() {
     if [[ -n *.tf(#qN) ]]; then
         WORKSPACE=$("terraform" workspace show 2> /dev/null) || return
         "$1_prompt_segment" "$0" "$2" "$DEFAULT_COLOR" "red" "tf:$WORKSPACE"
     fi
-}
-
-function _terraform() {
-    "terraform" "$@"
-    # if [[ "$@" =~ "plan" ]] || [[ "$@" =~ "apply" ]]; then
-    #     "terraform" "$@" | landscape
-    # else
-    #     "terraform" "$@"
-    # fi
 }
 
 # Find libxml2 location path
