@@ -10,7 +10,7 @@ function install_osx_packages() {
     fi
 
     # Caskroom
-    brew tap homebrew/cask-cask
+    brew tap homebrew/cask
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
