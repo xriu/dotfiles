@@ -48,6 +48,10 @@ export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.GIS-lm-build/bin:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/awscli@1/bin:$PATH"
+
+# GPG
+export GPG_TTY=$(tty)
 
 # C_INCLUDE_PATH
 export C_INCLUDE_PATH="$libxml2/include/libxml2:$C_INCLUDE_PATH"

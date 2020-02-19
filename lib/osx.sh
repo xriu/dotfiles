@@ -92,6 +92,7 @@ function brew_install() {
     brew install jq
     brew install cpanm
     brew install perltidy
+    brew install gpg
     brew install autopep8
     brew install openvpn
     brew install hadolint
