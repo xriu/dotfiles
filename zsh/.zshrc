@@ -34,11 +34,6 @@ terraform=$(brew info terraform | grep Cellar | sed -e 's/ (.*//')
 # Locales
 export LC_ALL=$LANG
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[[ -s "/usr/local/opt/nvm/nvm.sh" ]] && . "/usr/local/opt/nvm/nvm.sh"
-[[ -s "/usr/local/opt/nvm/etc/bash_completion" ]] && . "/usr/local/opt/nvm/etc/bash_completion"
-
 # PATH
 export PATH="/usr/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
@@ -87,3 +82,8 @@ complete -o nospace -C ${terraform}/bin/terraform terraform
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/xrl/dotfiles/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/xrl/dotfiles/node_modules/tabtab/.completions/slss.zsh
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[[ -s "/usr/local/opt/nvm/nvm.sh" ]] && . "/usr/local/opt/nvm/nvm.sh"
+[[ -s "/usr/local/opt/nvm/etc/bash_completion" ]] && . "/usr/local/opt/nvm/etc/bash_completion"
+nvm use default
