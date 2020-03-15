@@ -56,6 +56,7 @@ function brew_install() {
     # brew install wget --with-iri
     brew install vim
     # brew install vim --with-override-system-vi
+    # brew install mongodb/brew/mongodb-community-shell
     brew install nano
     brew install grep
     brew install openssh
@@ -121,6 +122,7 @@ function brew_cask_install() {
     # Applications
     brew cask install alfred
     brew cask install docker
+    brew cask install discord
     brew cask install kitematic --force
     brew cask install iterm2
     brew cask install firefox --force
