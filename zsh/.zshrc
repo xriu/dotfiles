@@ -37,8 +37,9 @@ export LC_ALL=$LANG
 # PATH
 export PATH="/usr/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/libressl/bin:$PATH"
 export PATH="/usr/local/opt/perl@5.18/bin:$PATH"
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+# export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.GIS-lm-build/bin:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"

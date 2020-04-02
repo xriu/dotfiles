@@ -36,6 +36,14 @@ ext install code-settings-sync
 
 ***
 
+## SSL
+
+```
+brew switch openssl 1.0.2t
+```
+
+***
+
 ## CPAN
 
 ```
