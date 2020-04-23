@@ -41,6 +41,10 @@ ext install code-settings-sync
 ```
 brew switch openssl 1.0.2t
 ```
+OR
+```
+brew switch openssl 1.0.2s
+```
 
 ***
 
