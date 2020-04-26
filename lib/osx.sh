@@ -19,7 +19,6 @@ function install_osx_packages() {
     brew tap devhubapp/devhub
 
     # Java
-    # brew cask install java
     brew cask install adoptopenjdk14
 
     # Common packages
