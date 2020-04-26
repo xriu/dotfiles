@@ -14,11 +14,13 @@ function install_osx_packages() {
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
+    brew tap AdoptOpenJDK/openjdk
     brew tap wagoodman/dive
     brew tap devhubapp/devhub
 
-    # Java before aws-cli
-    brew cask install java
+    # Java
+    # brew cask install java
+    brew cask install adoptopenjdk14
 
     # Common packages
     brew_install

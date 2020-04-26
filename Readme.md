@@ -36,6 +36,15 @@ ext install code-settings-sync
 
 ***
 
+## Jenv
+
+```
+jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home/
+jenv global 14.0.1
+```
+
+***
+
 ## SSL
 
 ```
