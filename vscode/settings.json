@@ -66,8 +66,8 @@
         "-pt=2",
         "-sbt=2"
     ],
-    "perltidy.executable": "/usr/bin/perltidy",
-    "perltidy.profile": "/home/xrl/.GIS-lm-build/.perltidyrc",
+    "perltidy.executable": "/usr/local/bin/perltidy",
+    "perltidy.profile": "/Users/xrl/.GIS-lm-build/.perltidyrc",
     "python.formatting.autopep8Args": [
         "--max-line-length=120"
     ],
