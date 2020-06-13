@@ -92,8 +92,10 @@
         "liveIndexing": false
     },
     "terraform.languageServer": {
-        "args": [],
-        "enabled": true
+        "external": true,
+        "args": [
+            "serve"
+        ]
     },
     "typescript.updateImportsOnFileMove.enabled": "always",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
