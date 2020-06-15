@@ -107,5 +107,11 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.visible": true
+    "workbench.statusBar.visible": true,
+    "java.imports.gradle.wrapper.checksums": [
+        {
+            "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06",
+            "allowed": true
+        }
+    ]
 }
