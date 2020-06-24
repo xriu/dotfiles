@@ -83,13 +83,13 @@
     "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
     "terminal.integrated.fontSize": 12,
     "terraform.indexing": {
-        "delay": 500,
         "enabled": false,
+        "liveIndexing": false,
+        "delay": 500,
         "exclude": [
             "**/.terraform/**/*",
             ".terraform/**/*"
-        ],
-        "liveIndexing": false
+        ]
     },
     "terraform.languageServer": {
         "external": true,
