@@ -113,5 +113,6 @@
             "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06",
             "allowed": true
         }
-    ]
+    ],
+    "liveServer.settings.donotShowInfoMsg": true
 }
