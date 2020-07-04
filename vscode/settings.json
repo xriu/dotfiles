@@ -114,5 +114,6 @@
             "allowed": true
         }
     ],
-    "liveServer.settings.donotShowInfoMsg": true
+    "liveServer.settings.donotShowInfoMsg": true,
+    "python.languageServer": "Microsoft"
 }
