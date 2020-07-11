@@ -59,8 +59,10 @@ brew uninstall --ignore-dependencies openssl
 brew install openssl
 ls /usr/local/Cellar/openssl*
 mkdir -p /usr/local/Cellar/openssl/1.0.2t/lib
-mv libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2t/lib
-mv libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2t/lib
+cp ~/Downloads/libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2t/lib
+cp ~/Downloads/libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2t/lib
+cp ~/Downloads/libssl.1.0.0.dylib /usr/local/opt/openssl/lib
+cp ~/Downloads/libcrypto.1.0.0.dylib /usr/local/opt/openssl/lib
 ```
 
 ***
