@@ -94,6 +94,7 @@ function brew_install() {
     brew install htop
     brew install jq
     brew install cpanm
+    # Perltidy patch
     # brew install perltidy
     # brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/4fb2963d5abee2efa068ed6a0d7a160446f752ef/Formula/perltidy.rb
     brew install gpg
