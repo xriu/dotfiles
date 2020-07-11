@@ -16,15 +16,13 @@ function get_os() {
 
 function install_packages() {
 
-    local package=$1
-
     os=$(get_os)
     if [ $os == "osx" ]; then
         source ./lib/osx.sh
-        install_osx_packages $package
+        install_osx_packages
     elif [ $os == "linux" ]; then
         source ./lib/linux.sh
-        install_linux_packages $package
+        install_linux_packages
     else
         error "OS $os not supported"
         exit;

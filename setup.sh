@@ -2,21 +2,21 @@
 
 set -e
 
-PACKAGE=$1
+FUNCTION=$1
 
 source ./lib/utils.sh
 
 # Install
-function install() {
+function install {
     echo 'Starting packages setup'
-    install_packages $PACKAGE
+    install_packages
 
     echo 'Starting common configuration'
     common_configuration
 }
 
 # Upgrade
-function upgrade() {
+function upgrade {
     echo 'Brew upgrade'
     brew upgrade
     brew uninstall perltidy
@@ -24,8 +24,11 @@ function upgrade() {
 }
 
 # Cleanup
-function cleanup() {
+function cleanup {
     echo 'Brew cleanup'
     to_clean=$(brew list -1 | grep -vi openssl | tr '\n' ' ')
     brew cleanup $to_clean
 }
+
+# Call function
+${FUNCTION}
