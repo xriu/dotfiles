@@ -57,7 +57,6 @@ function brew_install() {
     # brew install wget --with-iri
     brew install vim
     # brew install vim --with-override-system-vi
-    # brew install mongodb/brew/mongodb-community-shell
     brew install nano
     brew install grep
     brew install openssh
@@ -94,9 +93,7 @@ function brew_install() {
     brew install htop
     brew install jq
     brew install cpanm
-    # Perltidy patch
     # brew install perltidy
-    # brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/4fb2963d5abee2efa068ed6a0d7a160446f752ef/Formula/perltidy.rb
     brew install gpg
     brew install autopep8
     brew install openvpn
@@ -107,7 +104,7 @@ function brew_install() {
     brew install serverless
     brew install eslint
     brew install terraform
-    brew install ansible@1.9
+    brew install python@3.8
     # sudo /usr/bin/python -m easy_install pip
     # sudo /usr/bin/python -m pip install boto
     brew install yarn
