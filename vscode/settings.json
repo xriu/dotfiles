@@ -14,6 +14,9 @@
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[magicpython]": {
         "editor.defaultFormatter": "autopep8",
         "editor.wordWrapColumn": 120,
@@ -54,9 +57,16 @@
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.errors.incompleteClasspath.severity": "ignore",
     "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+    "java.imports.gradle.wrapper.checksums": [
+        {
+            "allowed": true,
+            "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06"
+        }
+    ],
     "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/xrl/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
     "java.saveActions.organizeImports": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
+    "liveServer.settings.donotShowInfoMsg": true,
     "perltidy.additionalArguments": [
         "-bt=2",
         "-ce",
@@ -73,6 +83,7 @@
     ],
     "python.formatting.provider": "autopep8",
     "python.jediEnabled": false,
+    "python.languageServer": "Microsoft",
     "sync.autoDownload": false,
     "sync.autoUpload": false,
     "sync.forceDownload": true,
@@ -83,19 +94,19 @@
     "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
     "terminal.integrated.fontSize": 12,
     "terraform.indexing": {
-        "enabled": false,
-        "liveIndexing": false,
         "delay": 500,
+        "enabled": false,
         "exclude": [
             "**/.terraform/**/*",
             ".terraform/**/*"
-        ]
+        ],
+        "liveIndexing": false
     },
     "terraform.languageServer": {
-        "external": true,
         "args": [
             "serve"
-        ]
+        ],
+        "external": true
     },
     "typescript.updateImportsOnFileMove.enabled": "always",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -107,13 +118,5 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.sideBar.location": "left",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.visible": true,
-    "java.imports.gradle.wrapper.checksums": [
-        {
-            "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06",
-            "allowed": true
-        }
-    ],
-    "liveServer.settings.donotShowInfoMsg": true,
-    "python.languageServer": "Microsoft"
+    "workbench.statusBar.visible": true
 }
