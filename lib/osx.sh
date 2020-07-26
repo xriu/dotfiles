@@ -162,6 +162,7 @@ function brew_cask_install() {
 function yarn_install() {
 
     echo "Yarn install packages"
+    yarn global add nodemon
 
 }
 
