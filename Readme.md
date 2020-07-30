@@ -45,28 +45,6 @@ jenv global 14.0.1
 
 ***
 
-## SSL
-
-```
-brew uninstall --ignore-dependencies openssl
-brew install https://github.com/tebelorg/Tump/releases/download/v1.0.0/openssl.rb
-cp /usr/local/opt/ope…ssl/lib/libcrypto.1.0.0.dylib ~/Downloads/
-cp /usr/local/opt/ope…ssl/lib/libssl.1.0.0.dylib ~/Downloads/
-brew uninstall --ignore-dependencies openssl
-```
-
-```
-brew install openssl
-ls /usr/local/Cellar/openssl*
-mkdir -p /usr/local/Cellar/openssl/1.0.2t/lib
-cp ~/Downloads/libssl.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2t/lib
-cp ~/Downloads/libcrypto.1.0.0.dylib /usr/local/Cellar/openssl/1.0.2t/lib
-cp ~/Downloads/libssl.1.0.0.dylib /usr/local/opt/openssl/lib
-cp ~/Downloads/libcrypto.1.0.0.dylib /usr/local/opt/openssl/lib
-```
-
-***
-
 ## CPAN
 
 ```
