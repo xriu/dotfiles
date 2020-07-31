@@ -26,12 +26,5 @@ function upgrade {
     # brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/${id}/Formula/perltidy.rb
 }
 
-# Cleanup
-function cleanup {
-    echo 'Brew cleanup'
-    for_clean=$(brew list -1 | grep -vi openssl | tr '\n' ' ')
-    brew cleanup $for_clean
-}
-
 # Call function
 ${FUNCTION}

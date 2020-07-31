@@ -54,3 +54,11 @@ cpan install List::MoreUtils
 cpan install IO::Socket::SSL
 cpanm -n Carton
 ```
+
+## LM-Build
+
+```
+cd ~/.GIS-lm-build
+rm -rf local
+bin/lm install
+```
