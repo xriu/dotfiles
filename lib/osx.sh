@@ -71,6 +71,7 @@ function brew_install() {
         sudo chmod 4755 $mtrlocation/sbin/mtr
         sudo chown root $mtrlocation/sbin/mtr
     brew install git
+    brew install svn
     brew install node
     brew install pv
     brew install rename
