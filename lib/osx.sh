@@ -104,7 +104,7 @@ function brew_install() {
     brew install angular-cli
     brew install serverless
     brew install eslint
-    brew install terraform
+    brew install terraform@0.12
     brew install python@3.8
     # sudo /usr/bin/python -m easy_install pip
     # sudo /usr/bin/python -m pip install boto
