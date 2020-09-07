@@ -116,7 +116,7 @@
     "workbench.editor.showIcons": false,
     "workbench.editor.tabCloseButton": "off",
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.sideBar.location": "left",
+    "workbench.sideBar.location": "right",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.statusBar.visible": true
 }
