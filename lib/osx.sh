@@ -135,11 +135,9 @@ function brew_cask_install() {
     brew cask install spotify
     brew cask install slack
     brew cask install visual-studio-Code
-    brew cask install devhub
     # TODO: Pending to be fixed
     # ln -fs ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
     brew cask install vlc
-    brew cask install postman
     # brew cask install transmission
     brew cask install whatsapp
     brew cask install figma
@@ -164,6 +162,7 @@ function yarn_install() {
 
     echo "Yarn install packages"
     yarn global add nodemon
+    yarn global add webpack-bundle-analyzer
 
 }
 
