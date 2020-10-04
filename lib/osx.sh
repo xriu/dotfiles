@@ -124,6 +124,7 @@ function brew_cask_install() {
     # Applications
     brew cask install alfred
     brew cask install docker
+    brew cask install insomnia
     brew cask install discord
     brew cask install kitematic --force
     brew cask install iterm2
