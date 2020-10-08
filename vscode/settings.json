@@ -85,7 +85,7 @@
   "python.formatting.autopep8Args": ["--max-line-length=120"],
   "python.formatting.provider": "autopep8",
   "python.jediEnabled": false,
-  "python.languageServer": "Microsoft",
+  "python.languageServer": "Pylance",
   "sync.autoDownload": false,
   "sync.autoUpload": false,
   "sync.forceDownload": true,
