@@ -128,7 +128,7 @@ function brew_cask_install() {
     brew cask install discord
     brew cask install kitematic --force
     brew cask install iterm2
-    brew cask install firefox --force
+    # brew cask install firefox --force
     brew cask install google-chrome --force
     brew cask install spectacle
     # brew cask install wireshark
