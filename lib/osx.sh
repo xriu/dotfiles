@@ -104,8 +104,8 @@ function brew_install() {
     brew install angular-cli
     brew install serverless
     brew install eslint
-    brew install terraform@0.12
     brew install python@3.8
+    brew install warrensbox/tap/tfswitch
     # sudo /usr/bin/python -m easy_install pip
     # sudo /usr/bin/python -m pip install boto
     brew install yarn
@@ -136,6 +136,7 @@ function brew_cask_install() {
     brew cask install spotify
     brew cask install slack
     brew cask install visual-studio-Code
+    brew cask install dbeaver-community
     # TODO: Pending to be fixed
     # ln -fs ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
     brew cask install vlc
