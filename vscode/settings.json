@@ -25,6 +25,10 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true
+  },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -47,9 +51,11 @@
   "editor.renderWhitespace": "none",
   "editor.suggestSelection": "first",
   "editor.tabSize": 4,
-  "eslint.packageManager": "yarn",
   "explorer.confirmDelete": false,
   "explorer.openEditors.visible": 0,
+  "files.associations": {
+    "*.tfvars": "terraform"
+  },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": false,
   "files.trimTrailingWhitespace": true,
@@ -84,23 +90,9 @@
   "perltidy.profile": "/Users/xrl/.GIS-lm-build/.perltidyrc",
   "python.formatting.autopep8Args": ["--max-line-length=120"],
   "python.formatting.provider": "autopep8",
-  "python.jediEnabled": false,
   "python.languageServer": "Pylance",
-  "sync.autoDownload": false,
-  "sync.autoUpload": false,
-  "sync.forceDownload": true,
-  "sync.gist": "aa22e7e79b7195617a2741c2bf4ffdcc",
-  "sync.quietSync": false,
-  "sync.removeExtensions": true,
-  "sync.syncExtensions": true,
   "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
   "terminal.integrated.fontSize": 12,
-  "terraform.indexing": {
-    "delay": 500,
-    "enabled": false,
-    "exclude": ["**/.terraform/**/*", ".terraform/**/*"],
-    "liveIndexing": false
-  },
   "terraform.languageServer": {
     "args": ["serve"],
     "external": true
