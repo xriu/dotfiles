@@ -15,6 +15,7 @@ function install_osx_packages() {
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
     brew tap AdoptOpenJDK/openjdk
+    brew tap aws/tap
     brew tap wagoodman/dive
     brew tap devhubapp/devhub
 
@@ -105,6 +106,7 @@ function brew_install() {
     brew install serverless
     brew install eslint
     brew install python@3.8
+    brew install aws-sam-cli
     brew install warrensbox/tap/tfswitch
     # sudo /usr/bin/python -m easy_install pip
     # sudo /usr/bin/python -m pip install boto
