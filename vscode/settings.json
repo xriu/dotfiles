@@ -91,6 +91,7 @@
   "python.formatting.autopep8Args": ["--max-line-length=120"],
   "python.formatting.provider": "autopep8",
   "python.languageServer": "Pylance",
+  "python.showStartPage": false,
   "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
   "terminal.integrated.fontSize": 12,
   "terraform.languageServer": {
