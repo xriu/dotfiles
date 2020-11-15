@@ -1,113 +1,129 @@
 {
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[java]": {
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 120,
-    "editor.wrappingIndent": "same"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.wrappingIndent": "same"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[magicpython]": {
-    "editor.defaultFormatter": "autopep8",
-    "editor.wordWrapColumn": 120,
-    "editor.wrappingIndent": "same"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSave": true
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "breadcrumbs.enabled": true,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "editor.detectIndentation": false,
-  "editor.folding": true,
-  "editor.fontFamily": "FiraCode-Retina",
-  "editor.fontLigatures": true,
-  "editor.fontWeight": "300",
-  "editor.formatOnSave": true,
-  "editor.glyphMargin": false,
-  "editor.hideCursorInOverviewRuler": true,
-  "editor.insertSpaces": true,
-  "editor.minimap.enabled": false,
-  "editor.occurrencesHighlight": false,
-  "editor.overviewRulerBorder": false,
-  "editor.renderIndentGuides": false,
-  "editor.renderLineHighlight": "none",
-  "editor.renderWhitespace": "none",
-  "editor.suggestSelection": "first",
-  "editor.tabSize": 4,
-  "explorer.confirmDelete": false,
-  "explorer.openEditors.visible": 0,
-  "files.associations": {
-    "*.tfvars": "terraform"
-  },
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": false,
-  "files.trimTrailingWhitespace": true,
-  "git.ignoreLimitWarning": true,
-  "java.configuration.checkProjectSettingsExclusions": false,
-  "java.configuration.updateBuildConfiguration": "interactive",
-  "java.errors.incompleteClasspath.severity": "ignore",
-  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-  "java.imports.gradle.wrapper.checksums": [
-    {
-      "allowed": true,
-      "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06"
-    }
-  ],
-  "java.jdt.ls.vmargs": "-Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/xrl/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
-  "java.project.importHint": false,
-  "java.project.importOnFirstTimeStartup": "automatic",
-  "java.refactor.renameFromFileExplorer": "autoApply",
-  "java.saveActions.organizeImports": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "liveServer.settings.donotShowInfoMsg": true,
-  "perltidy.additionalArguments": [
-    "-bt=2",
-    "-ce",
-    "-et=2",
-    "-i=2",
-    "-l=2000",
-    "-pt=2",
-    "-sbt=2"
-  ],
-  "perltidy.executable": "/usr/local/bin/perltidy",
-  "perltidy.profile": "/Users/xrl/.GIS-lm-build/.perltidyrc",
-  "python.formatting.autopep8Args": ["--max-line-length=120"],
-  "python.formatting.provider": "autopep8",
-  "python.languageServer": "Pylance",
-  "python.showStartPage": false,
-  "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
-  "terminal.integrated.fontSize": 12,
-  "terraform.languageServer": {
-    "args": ["serve"],
-    "external": true
-  },
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "window.restoreFullscreen": true,
-  "window.zoomLevel": 0,
-  "workbench.activityBar.visible": true,
-  "workbench.editor.showIcons": false,
-  "workbench.editor.showTabs": false,
-  "workbench.editor.tabCloseButton": "off",
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": true
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[java]": {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.wordWrapColumn": 120,
+        "editor.wrappingIndent": "same"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.wrappingIndent": "same"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[magicpython]": {
+        "editor.defaultFormatter": "autopep8",
+        "editor.wordWrapColumn": 120,
+        "editor.wrappingIndent": "same"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[terraform]": {
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "breadcrumbs.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.detectIndentation": false,
+    "editor.folding": true,
+    "editor.fontFamily": "FiraCode-Retina",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "300",
+    "editor.formatOnSave": true,
+    "editor.glyphMargin": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.insertSpaces": true,
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": false,
+    "editor.overviewRulerBorder": false,
+    "editor.renderIndentGuides": false,
+    "editor.renderLineHighlight": "none",
+    "editor.renderWhitespace": "none",
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 4,
+    "explorer.confirmDelete": false,
+    "explorer.openEditors.visible": 0,
+    "files.associations": {
+        "*.tfvars": "terraform"
+    },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": false,
+    "files.trimTrailingWhitespace": true,
+    "git.ignoreLimitWarning": true,
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "java.configuration.runtimes": [
+        {
+            "default": true,
+            "name": "JavaSE-11",
+            "path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home"
+        },
+        {
+            "name": "JavaSE-14",
+            "path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home"
+        }
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+    "java.home": "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home",
+    "java.imports.gradle.wrapper.checksums": [
+        {
+            "allowed": true,
+            "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06"
+        }
+    ],
+    "java.jdt.ls.vmargs": "-Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/xrl/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
+    "java.project.importHint": false,
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "java.refactor.renameFromFileExplorer": "autoApply",
+    "java.saveActions.organizeImports": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "perltidy.additionalArguments": [
+        "-bt=2",
+        "-ce",
+        "-et=2",
+        "-i=2",
+        "-l=2000",
+        "-pt=2",
+        "-sbt=2"
+    ],
+    "perltidy.executable": "/usr/local/bin/perltidy",
+    "perltidy.profile": "/Users/xrl/.GIS-lm-build/.perltidyrc",
+    "python.formatting.autopep8Args": [
+        "--max-line-length=120"
+    ],
+    "python.formatting.provider": "autopep8",
+    "python.languageServer": "Pylance",
+    "python.showStartPage": false,
+    "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
+    "terminal.integrated.fontSize": 12,
+    "terraform.languageServer": {
+        "args": [
+            "serve"
+        ],
+        "external": true
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.restoreFullscreen": true,
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": true,
+    "workbench.editor.showIcons": false,
+    "workbench.editor.showTabs": false,
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.visible": true
 }
