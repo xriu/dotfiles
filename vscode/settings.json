@@ -48,7 +48,7 @@
   "editor.overviewRulerBorder": false,
   "editor.renderIndentGuides": false,
   "editor.renderLineHighlight": "none",
-  "editor.renderWhitespace": "none",
+  "editor.renderWhitespace": "trailing",
   "editor.suggestSelection": "first",
   "editor.tabSize": 4,
   "explorer.confirmDelete": false,
