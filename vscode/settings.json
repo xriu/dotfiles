@@ -52,6 +52,7 @@
   "editor.suggestSelection": "first",
   "editor.tabSize": 4,
   "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
   "files.associations": {
     "*.tfvars": "terraform"
