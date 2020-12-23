@@ -168,6 +168,8 @@ function yarn_install() {
 
     echo "Yarn install packages"
     yarn global add nodemon
+    yarn global add serve
+    yarn global add firebase
     yarn global add webpack-bundle-analyzer
 
 }
