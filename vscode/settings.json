@@ -32,6 +32,7 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "angular.experimental-ivy": true,
   "breadcrumbs.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.detectIndentation": false,
