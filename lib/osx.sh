@@ -115,6 +115,8 @@ function brew_install() {
     brew install zsh
     brew install z
 
+    brew reinstall ldns
+
     brew cleanup
 
 }
