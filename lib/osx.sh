@@ -137,6 +137,7 @@ function brew_cask_install() {
     # brew cask install firefox --force
     brew cask install google-chrome --force
     brew cask install spectacle
+    brew cask install element
     # brew cask install wireshark
     # brew cask install wireshark-chmodbpf
     brew cask install spotify

@@ -119,6 +119,12 @@
   "workbench.editor.showIcons": false,
   "workbench.editor.showTabs": false,
   "workbench.editor.tabCloseButton": "off",
+  "workbench.editorAssociations": [
+    {
+      "filenamePattern": "*.ipynb",
+      "viewType": "jupyter.notebook.ipynb"
+    }
+  ],
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
