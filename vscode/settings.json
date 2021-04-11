@@ -119,7 +119,9 @@
   "window.titleBarStyle": "custom",
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
-    "editorWhitespace.foreground": "#000"
+    "activityBar.background": "#000",
+    "editorWhitespace.foreground": "#000",
+    "sideBar.background": "#000"
   },
   "workbench.colorTheme": "Pitch Black",
   "workbench.editor.showIcons": false,

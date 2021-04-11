@@ -15,7 +15,6 @@ function install_osx_packages() {
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
     brew tap AdoptOpenJDK/openjdk
-    brew tap aws/tap
     brew tap wagoodman/dive
 
     # Java
