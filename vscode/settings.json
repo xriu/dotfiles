@@ -55,6 +55,7 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
+  "extensions.autoUpdate": false,
   "files.associations": {
     "*.tfvars": "terraform"
   },
@@ -115,7 +116,12 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.restoreFullscreen": true,
+  "window.titleBarStyle": "custom",
   "workbench.activityBar.visible": true,
+  "workbench.colorCustomizations": {
+    "editorWhitespace.foreground": "#000"
+  },
+  "workbench.colorTheme": "Pitch Black",
   "workbench.editor.showIcons": false,
   "workbench.editor.showTabs": false,
   "workbench.editor.tabCloseButton": "off",
