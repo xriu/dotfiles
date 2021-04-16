@@ -55,7 +55,7 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": true,
   "files.associations": {
     "*.tfvars": "terraform"
   },
@@ -136,5 +136,5 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": true
+"workbench.statusBar.visible": true
 }
