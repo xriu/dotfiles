@@ -150,7 +150,7 @@ function brew_cask_install() {
     brew cask install figma
     brew cask install geekbench
     brew cask install istat-menus
-    brew cask install 1password
+    # brew cask install 1password
     brew cask install ccleaner
 
     # Fonts
