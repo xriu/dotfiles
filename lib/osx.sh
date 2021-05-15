@@ -84,6 +84,8 @@ function brew_install() {
     # brew install ffmpeg --with-libvpx
     brew install ack
     brew install dive
+    brew install helm
+    brew install istioctl
     brew install termshark
     brew install terminal-notifier
     brew install ncdu

@@ -127,6 +127,7 @@
   "workbench.editor.showIcons": false,
   "workbench.editor.showTabs": false,
   "workbench.editor.tabCloseButton": "off",
+  "workbench.editor.untitled.hint": "hidden",
   "workbench.editorAssociations": [
     {
       "filenamePattern": "*.ipynb",
