@@ -58,6 +58,7 @@ function brew_install() {
     # brew install vim --with-override-system-vi
     brew install nano
     brew install grep
+    brew install hey
     brew install openssh
     brew install openssl
     brew install libressl
