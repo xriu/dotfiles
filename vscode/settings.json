@@ -43,6 +43,7 @@
   "editor.formatOnSave": true,
   "editor.glyphMargin": false,
   "editor.hideCursorInOverviewRuler": true,
+  "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": false,
@@ -63,6 +64,12 @@
   "files.trimFinalNewlines": false,
   "files.trimTrailingWhitespace": true,
   "git.ignoreLimitWarning": true,
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": false,
+    "plaintext": false,
+    "yaml": true
+  },
   "java.configuration.checkProjectSettingsExclusions": false,
   "java.configuration.runtimes": [
     {
