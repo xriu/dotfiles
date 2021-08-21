@@ -32,7 +32,6 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "angular.experimental-ivy": true,
   "breadcrumbs.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.detectIndentation": false,
@@ -58,7 +57,8 @@
   "explorer.openEditors.visible": 0,
   "extensions.autoUpdate": true,
   "files.associations": {
-    "*.tfvars": "terraform"
+    "*.tfvars": "terraform",
+    "*.tf": "terraform"
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": false,
