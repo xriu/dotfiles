@@ -133,6 +133,7 @@ function brew_cask_install() {
     brew cask install insomnia
     brew cask install discord
     brew cask install robo-3t
+    brew cask install anydesk
     brew cask install kitematic --force
     brew cask install iterm2
     # brew cask install firefox --force
