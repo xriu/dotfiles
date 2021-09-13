@@ -22,6 +22,9 @@ libxml2=$(brew info libxml2 | grep Cellar | sed -e 's/ (.*//')
 # Find terraform location path
 terraform=$(brew info terraform | grep Cellar | sed -e 's/ (.*//')
 
+# Terminal colors
+export TERM="xterm-256color"
+
 # Locales
 export LC_ALL=$LANG
 
