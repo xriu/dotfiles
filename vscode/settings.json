@@ -115,6 +115,7 @@
   "python.formatting.provider": "autopep8",
   "python.languageServer": "Pylance",
   "python.showStartPage": false,
+  "quarkus.tools.alwaysShowWelcomePage": false,
   "redhat.telemetry.enabled": false,
   "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
   "terminal.integrated.fontSize": 12,
