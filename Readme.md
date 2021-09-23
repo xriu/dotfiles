@@ -6,17 +6,17 @@ Requirements
 - Shell theme powerlevel9k (https://github.com/bhilburn/powerlevel9k)
 - Fonts powerline (https://github.com/powerline/fonts)
 
-***
+---
 
 ## Installation
 
 ```
 git clone https://github.com/xriu/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-./setup.sh
+./setup.sh install
 ```
 
-***
+---
 
 ## NVM prompt
 
@@ -25,16 +25,17 @@ nvm install node
 nvm use system
 ```
 
-***
+---
 
 ## VS Code
 
 VS Code sync extension
+
 ```
 ext install code-settings-sync
 ```
 
-***
+---
 
 ## Jenv
 
@@ -43,7 +44,7 @@ jenv add $(/usr/libexec/java_home)
 jenv global 14.0.1
 ```
 
-***
+---
 
 ## CPAN
 
