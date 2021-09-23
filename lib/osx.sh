@@ -18,7 +18,7 @@ function install_osx_packages() {
     brew tap wagoodman/dive
 
     # Java
-    brew cask install adoptopenjdk14
+    brew install adoptopenjdk14
 
     # Common packages
     brew_install
@@ -122,47 +122,47 @@ function brew_install() {
 
 }
 
-# Brew cask install
+# Brew install
 function brew_cask_install() {
 
-    echo "Brew cask install packages"
+    echo "Brew install packages"
 
     # Applications
-    brew cask install alfred
-    brew cask install docker
-    brew cask install insomnia
-    brew cask install discord
-    brew cask install robo-3t
-    brew cask install anydesk
-    brew cask install kitematic --force
-    brew cask install iterm2
-    # brew cask install firefox --force
-    brew cask install google-chrome --force
-    brew cask install spectacle
-    brew cask install element
-    # brew cask install wireshark
-    # brew cask install wireshark-chmodbpf
-    brew cask install spotify
-    brew cask install slack
-    brew cask install visual-studio-Code
-    brew cask install dbeaver-community
+    brew install alfred
+    brew install docker
+    brew install insomnia
+    brew install discord
+    brew install robo-3t
+    brew install anydesk
+    brew install kitematic --force
+    brew install iterm2
+    # brew install firefox --force
+    brew install google-chrome --force
+    brew install spectacle
+    brew install element
+    # brew install wireshark
+    # brew install wireshark-chmodbpf
+    brew install spotify
+    brew install slack
+    brew install visual-studio-Code
+    brew install dbeaver-community
     # TODO: Pending to be fixed
     # ln -fs ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-    brew cask install vlc
-    # brew cask install transmission
-    brew cask install whatsapp
-    brew cask install figma
-    brew cask install geekbench
-    brew cask install istat-menus
-    # brew cask install 1password
-    brew cask install ccleaner
+    brew install vlc
+    # brew install transmission
+    brew install whatsapp
+    brew install figma
+    brew install geekbench
+    brew install istat-menus
+    # brew install 1password
+    brew install ccleaner
 
     # Fonts
-    brew cask install font-fira-code
-    brew cask install font-fira-mono
-    brew cask install font-fira-mono-for-powerline
-    brew cask install font-menlo-for-powerline
-    brew cask install font-roboto-mono-for-powerline
+    brew install font-fira-code
+    brew install font-fira-mono
+    brew install font-fira-mono-for-powerline
+    brew install font-menlo-for-powerline
+    brew install font-roboto-mono-for-powerline
 
     brew cleanup
 
