@@ -15,16 +15,5 @@ function install {
     common_configuration
 }
 
-# Upgrade
-function upgrade {
-    echo 'Brew upgrade'
-    brew upgrade
-
-    # Perltidy
-    # id='4fb2963d5abee2efa068ed6a0d7a160446f752ef'
-    # brew uninstall perltidy
-    # brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/${id}/Formula/perltidy.rb
-}
-
 # Call function
 ${FUNCTION}
