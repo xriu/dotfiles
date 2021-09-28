@@ -2,6 +2,12 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[java]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120,
+    "editor.wrappingIndent": "same",
+    "editor.defaultFormatter": "redhat.java"
+  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.wrappingIndent": "same"
