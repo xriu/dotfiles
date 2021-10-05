@@ -135,26 +135,29 @@ function brew_cask_install() {
     brew install anydesk
     brew install kitematic --force
     brew install iterm2
-    # brew install firefox --force
     brew install google-chrome --force
     brew install spectacle
     brew install element
-    # brew install wireshark
-    # brew install wireshark-chmodbpf
     brew install spotify
     brew install slack
     brew install visual-studio-Code
     brew install dbeaver-community
-    # TODO: Pending to be fixed
-    # ln -fs ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
     brew install vlc
-    # brew install transmission
     brew install whatsapp
     brew install figma
     brew install geekbench
     brew install istat-menus
-    # brew install 1password
     brew install ccleaner
+
+    # TODO: Pending to be fixed
+    # ln -fs ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+
+    # Not needed
+    # brew install firefox --force
+    # brew install transmission
+    # brew install 1password
+    # brew install wireshark
+    # brew install wireshark-chmodbpf
 
     # Fonts
     brew install font-fira-code
