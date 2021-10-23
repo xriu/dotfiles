@@ -6,8 +6,6 @@ function get_os() {
 
     if [ "$OS_NAME" == "Darwin" ]; then
         echo "osx"
-    elif [ "$OS_NAME" == "Linux" ]; then
-        echo "linux"
     else
         echo "unknown"
     fi
@@ -20,9 +18,6 @@ function install_packages() {
     if [ $os == "osx" ]; then
         source ./lib/osx.sh
         install_osx_packages
-    elif [ $os == "linux" ]; then
-        source ./lib/linux.sh
-        install_linux_packages
     else
         error "OS $os not supported"
         exit;
@@ -35,12 +30,6 @@ function common_configuration() {
     # Default folder for develop
     mkdir -p ~/Develop/ ~/.ssh/ ~/.nvm/ ~/.jenv/ ~/.plenv/
 
-    # Github blank ssh key
-    if [ ! -f ~/.ssh/id_github ]; then
-        ssh-keygen -t rsa -f ~/.ssh/id_github -q -P ""
-        cat ~/.ssh/id_github.pub
-    fi
-
     # Git basic configuration, still pending user & email
     git config --global push.default simple
     git config --global pull.rebase preserve
@@ -52,5 +41,11 @@ function common_configuration() {
     if [ ! -f ~/.ssh/config ]; then
         cp ${HOME}/dotfiles/ssh/config ~/.ssh/config
     fi
+
+    # Github blank ssh key
+    # if [ ! -f ~/.ssh/id_github ]; then
+    #     ssh-keygen -t rsa -f ~/.ssh/id_github -q -P ""
+    #     cat ~/.ssh/id_github.pub
+    # fi
 
 }

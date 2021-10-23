@@ -2,18 +2,10 @@
 
 set -e
 
-FUNCTION=$1
+source ./lib/main.sh
 
-source ./lib/utils.sh
+echo 'Starting packages setup'
+install_packages
 
-# Install
-function install {
-    echo 'Starting packages setup'
-    install_packages
-
-    echo 'Starting common configuration'
-    common_configuration
-}
-
-# Call function
-${FUNCTION}
+echo 'Starting common configuration'
+common_configuration

@@ -10,29 +10,34 @@ Requirements
 
 ## Installation
 
+Packages missing
+
+- strimio
+- logitech-camera-settings
+
 ```
 git clone https://github.com/xriu/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-./setup.sh install
+./setup.sh
 ```
 
 ---
 
-## NVM prompt
+## VS-Code
+
+```
+ln -fs \
+    ~/dotfiles/vscode/settings.json \
+    ~/Library/Application\ Support/Code/User/settings.json
+```
+
+---
+
+## NVM
 
 ```
 nvm install node
 nvm use system
-```
-
----
-
-## VS Code
-
-VS Code sync extension
-
-```
-ext install code-settings-sync
 ```
 
 ---
@@ -46,6 +51,16 @@ jenv global 14.0.1
 
 ---
 
+## LM-Build
+
+```
+cd ~/.GIS-lm-build
+rm -rf local
+bin/lm install
+```
+
+---
+
 ## CPAN
 
 ```
@@ -54,12 +69,4 @@ cpan install YAML::XS
 cpan install List::MoreUtils
 cpan install IO::Socket::SSL
 cpanm -n Carton
-```
-
-## LM-Build
-
-```
-cd ~/.GIS-lm-build
-rm -rf local
-bin/lm install
 ```

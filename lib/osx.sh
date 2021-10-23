@@ -17,22 +17,9 @@ function install_osx_packages() {
     brew tap AdoptOpenJDK/openjdk
     brew tap wagoodman/dive
 
-    # Java
-    brew install adoptopenjdk14
-
-    # Common packages
     brew_install
-
-    # App packages
-    brew_cask_install
-
-    # Yarn packages
     yarn_install
-
-    # Prezto setup
     prezto_setup
-
-    # Zsh setup
     zsh_setup
 
 }
@@ -45,119 +32,94 @@ function brew_install() {
     brew update
     brew upgrade
 
+    # Apps
+    brew install adoptopenjdk14
     brew install coreutils
     brew install moreutils
     brew install findutils
-    brew install gnu-sed
-    # brew install gnu-sed --with-default-names
     brew install bash
     brew install bash-completion
     brew install wget
-    # brew install wget --with-iri
     brew install vim
-    # brew install vim --with-override-system-vi
     brew install nano
     brew install grep
     brew install hey
     brew install openssh
     brew install openssl
-    brew install libressl
     brew install screen
-    brew install libxml2
-    brew link libxml2 --force
-    brew install entr
-    brew install mtr
-        mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//')
-        sudo chmod 4755 $mtrlocation/sbin/mtr
-        sudo chown root $mtrlocation/sbin/mtr
     brew install git
-    brew install svn
-    brew install node
     brew install pv
     brew install rename
     brew install nmap
+    brew install termshark
     brew install fx
     brew install tree
     brew install zopfli
     brew install jenv
     brew install nvm
-    # brew install ffmpeg --with-libvpx
     brew install ack
     brew install dive
     brew install helm
     brew install istioctl
-    brew install termshark
-    brew install terminal-notifier
     brew install ncdu
     brew install awscli
     brew install gradle
     brew install gradle-completion
     brew install htop
     brew install jq
-    brew install cpanm
-    # brew install perltidy
-    brew install gpg
     brew install autopep8
     brew install openvpn
     brew install hadolint
-    brew install perl-build
-    brew install plenv
     brew install angular-cli
     brew install serverless
     brew install eslint
     brew install python@3.8
-    # brew install aws-sam-cli
     brew install warrensbox/tap/tfswitch
     brew install cdktf
-    # sudo /usr/bin/python -m easy_install pip
-    # sudo /usr/bin/python -m pip install boto
     brew install yarn
     brew install zsh
     brew install z
 
-    brew reinstall ldns
+    # brew reinstall ldns
+    # brew install svn
+    # brew install node
+    # brew install aws-sam-cli
+    # brew install libressl
+    # brew install libxml2
+    # brew link libxml2 --force
+    # brew install gnu-sed
+    # brew install gpg
+    # brew install cpanm
+    # brew install plenv
+    # brew install perltidy
+    # brew install perl-build
+    # brew install entr
+    # brew install terminal-notifier
 
-    brew cleanup
-
-}
-
-# Brew install
-function brew_cask_install() {
-
-    echo "Brew install packages"
-
-    # Applications
+    # Desktop Apps
     brew install alfred
     brew install docker
+    brew install zoom --force
+    brew install amazon-chime
     brew install insomnia
     brew install discord
     brew install robo-3t
-    brew install anydesk
     brew install kitematic --force
     brew install iterm2
     brew install google-chrome --force
     brew install spectacle
     brew install element
     brew install spotify
-    brew install slack
+    brew install slack --force
     brew install visual-studio-Code
     brew install dbeaver-community
-    brew install vlc
     brew install whatsapp
     brew install figma
     brew install geekbench
     brew install istat-menus
     brew install ccleaner
 
-    # TODO: Pending to be fixed
-    # ln -fs ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-
-    # Not needed
-    # brew install firefox --force
-    # brew install transmission
-    # brew install 1password
-    # brew install wireshark
-    # brew install wireshark-chmodbpf
+    # brew install anydesk
 
     # Fonts
     brew install font-fira-code
@@ -175,9 +137,6 @@ function yarn_install() {
 
     echo "Yarn install packages"
     yarn global add nodemon
-    yarn global add serve
-    yarn global add firebase
-    yarn global add webpack-bundle-analyzer
 
 }
 
