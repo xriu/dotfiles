@@ -17,9 +17,6 @@ function prompt_terraform() {
     fi
 }
 
-# Find terraform location path
-terraform=$(brew info terraform | grep Cellar | sed -e 's/ (.*//')
-
 # Export
 export LC_ALL=$LANG
 export GPG_TTY=$(tty)
@@ -30,6 +27,10 @@ export PATH="/usr/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.GIS-lm-build/bin:$PATH"
+export PATH="/usr/local/opt/awscli@1/bin:$PATH"
+
+# # Find terraform location path
+# terraform=$(brew info terraform | grep Cellar | sed -e 's/ (.*//')
 
 # Find libxml2 location path
 # libxml2=$(brew info libxml2 | grep Cellar | sed -e 's/ (.*//')
@@ -40,7 +41,7 @@ export PATH="$HOME/.GIS-lm-build/bin:$PATH"
 # export PATH="/usr/local/opt/libressl/bin:$PATH"
 # export PATH="/usr/local/opt/perl@5.18/bin:$PATH"
 # export PATH="/usr/local/opt/libxml2/bin:$PATH"
-# export PATH="/usr/local/opt/awscli@1/bin:$PATH"
+
 # export PATH="/usr/local/opt/terraform@0.12/bin:$PATH"
 # export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
@@ -55,9 +56,9 @@ eval "$(jenv enable-plugin export)"
 # Since we are using it, unalias lm
 if alias lm > /dev/null; then unalias lm; fi
 
-# Terraform auto-complete
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C ${terraform}/bin/terraform terraform
+# # Terraform auto-complete
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C ${terraform}/bin/terraform terraform
 
 # # tabtab source for serverless package
 # # uninstall by removing these lines or running `tabtab uninstall serverless`
