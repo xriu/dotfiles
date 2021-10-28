@@ -107,7 +107,8 @@ function brew_install() {
     brew install kitematic --force
     brew install iterm2
     brew install google-chrome --force
-    brew install spectacle
+    # brew install spectacle
+    brew install rectangle
     brew install element
     brew install spotify
     brew install slack --force
