@@ -10,7 +10,7 @@ Requirements
 
 ## Installation
 
-Packages missing
+Brew packages missing
 
 - strimio
 - logitech-camera-settings
