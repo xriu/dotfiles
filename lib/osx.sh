@@ -48,6 +48,7 @@ function brew_install() {
     brew install openssl
     brew install screen
     brew install git
+    brew install svn
     brew install pv
     brew install rename
     brew install nmap
@@ -107,7 +108,7 @@ function brew_install() {
     brew install kitematic --force
     brew install iterm2
     brew install google-chrome --force
-    # brew install spectacle
+    brew install openvpn-connect
     brew install rectangle
     brew install element
     brew install spotify

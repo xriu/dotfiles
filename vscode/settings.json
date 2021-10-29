@@ -95,7 +95,7 @@
       "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06"
     }
   ],
-  "java.jdt.ls.vmargs": "-Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/xrl/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
+  "java.jdt.ls.vmargs": "-Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/xavier.riu/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
   "java.project.importHint": false,
   "java.project.importOnFirstTimeStartup": "automatic",
   "java.refactor.renameFromFileExplorer": "autoApply",
@@ -112,7 +112,7 @@
     "-sbt=2"
   ],
   "perltidy.executable": "/usr/local/bin/perltidy",
-  "perltidy.profile": "/Users/xrl/.GIS-lm-build/.perltidyrc",
+  "perltidy.profile": "/Users/xavier.riu/.GIS-lm-build/.perltidyrc",
   "python.formatting.autopep8Args": ["--max-line-length=120"],
   "python.formatting.provider": "autopep8",
   "python.languageServer": "Pylance",

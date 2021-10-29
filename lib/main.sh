@@ -28,7 +28,7 @@ function install_packages() {
 function common_configuration() {
 
     # Default folder for develop
-    mkdir -p ~/Develop/ ~/.ssh/ ~/.nvm/ ~/.jenv/ ~/.plenv/
+    mkdir -p ~/Develop/ ~/.ssh/ ~/.aws/ ~/.nvm/ ~/.jenv/ ~/.plenv/
 
     # Git basic configuration, still pending user & email
     git config --global push.default simple
@@ -43,9 +43,9 @@ function common_configuration() {
     fi
 
     # Github blank ssh key
-    # if [ ! -f ~/.ssh/id_github ]; then
-    #     ssh-keygen -t rsa -f ~/.ssh/id_github -q -P ""
-    #     cat ~/.ssh/id_github.pub
-    # fi
+    if [ ! -f ~/.ssh/id_github ]; then
+        ssh-keygen -t rsa -f ~/.ssh/id_github -q -P ""
+        cat ~/.ssh/id_github.pub
+    fi
 
 }

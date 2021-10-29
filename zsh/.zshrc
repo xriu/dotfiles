@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export TERM="xterm-256color"
 
 # Source Prezto
@@ -19,7 +26,7 @@ function prompt_terraform() {
 
 # Export
 export LC_ALL=$LANG
-export GPG_TTY=$(tty)
+export GPG_TTY=$TTY
 export DOCKER_EXTERNAL_IP=`ipconfig getifaddr en0`
 
 # Path
@@ -62,16 +69,23 @@ if alias lm > /dev/null; then unalias lm; fi
 
 # # tabtab source for serverless package
 # # uninstall by removing these lines or running `tabtab uninstall serverless`
-# [[ -f /Users/xrl/dotfiles/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/xrl/dotfiles/node_modules/tabtab/.completions/serverless.zsh
+# [[ -f /Users/xavier.riu/dotfiles/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/xavier.riu/dotfiles/node_modules/tabtab/.completions/serverless.zsh
 # # tabtab source for sls package
 # # uninstall by removing these lines or running `tabtab uninstall sls`
-# [[ -f /Users/xrl/dotfiles/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/xrl/dotfiles/node_modules/tabtab/.completions/sls.zsh
+# [[ -f /Users/xavier.riu/dotfiles/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/xavier.riu/dotfiles/node_modules/tabtab/.completions/sls.zsh
 # # tabtab source for slss package
 # # uninstall by removing these lines or running `tabtab uninstall slss`
-# [[ -f /Users/xrl/dotfiles/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/xrl/dotfiles/node_modules/tabtab/.completions/slss.zsh
+# [[ -f /Users/xavier.riu/dotfiles/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/xavier.riu/dotfiles/node_modules/tabtab/.completions/slss.zsh
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [[ -s "/usr/local/opt/nvm/nvm.sh" ]] && . "/usr/local/opt/nvm/nvm.sh"
 [[ -s "/usr/local/opt/nvm/etc/bash_completion" ]] && . "/usr/local/opt/nvm/etc/bash_completion"
 nvm use default
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+export POWERLEVEL9K_INSTANT_PROMPT=quiet
+export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true

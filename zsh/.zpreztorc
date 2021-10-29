@@ -124,15 +124,15 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'powerlevel9k'
+zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs terraform)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs terraform)
-POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh time)
-POWERLEVEL9K_STATUS_VERBOSE=false
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+# POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs terraform)
+POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(context dir vcs terraform)
+POWERLEVEL10K_CONTEXT_TEMPLATE="%n"
+POWERLEVEL10K_SHORTEN_DIR_LENGTH=3
+POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status ssh time)
+POWERLEVEL10K_STATUS_VERBOSE=false
+POWERLEVEL10K_SHORTEN_STRATEGY="truncate_middle"
 
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
