@@ -81,44 +81,30 @@ function brew_install() {
     brew install zsh
     brew install z
 
-    # brew reinstall ldns
-    # brew install aws-sam-cli
-    # brew install libressl
-    # brew install libxml2
-    # brew link libxml2 --force
-    # brew install gnu-sed
-    # brew install gpg
-    # brew install cpanm
-    # brew install plenv
-    # brew install perltidy
-    # brew install perl-build
-    # brew install entr
-    # brew install terminal-notifier
-
     # Desktop Apps
-    brew install alfred
-    brew install docker
-    brew install zoom --force
-    brew install amazon-chime
-    brew install insomnia
-    brew install discord
-    brew install robo-3t
-    brew install kitematic --force
-    brew install iterm2
-    brew install google-chrome --force
-    brew install openvpn-connect
-    brew install rectangle
-    brew install element
-    brew install spotify
-    brew install slack --force
-    brew install visual-studio-Code
-    brew install dbeaver-community
-    brew install whatsapp
-    brew install figma
-    brew install geekbench
-    brew install istat-menus
-    brew install ccleaner
-    # brew install anydesk
+    brew install --cask alfred
+    brew install --cask docker
+    brew install --cask zoom --force
+    brew install --cask amazon-chime
+    brew install --cask insomnia
+    brew install --cask discord
+    brew install --cask robo-3t
+    brew install --cask kitematic --force
+    brew install --cask iterm2
+    brew install --cask google-chrome --force
+    brew install --cask openvpn-connect
+    brew install --cask rectangle
+    brew install --cask element
+    brew install --cask spotify
+    brew install --cask slack --force
+    brew install --cask visual-studio-Code
+    brew install --cask dbeaver-community
+    brew install --cask whatsapp
+    brew install --cask figma
+    brew install --cask geekbench
+    brew install --cask istat-menus
+    brew install --cask ccleaner
+    # brew install --cask anydesk
 
     # Fonts
     brew install font-fira-code
