@@ -126,11 +126,10 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Auto set to 'off' on dumb terminals.
 zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 
-# POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs terraform)
-POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(context dir vcs terraform)
+POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 POWERLEVEL10K_CONTEXT_TEMPLATE="%n"
 POWERLEVEL10K_SHORTEN_DIR_LENGTH=3
-POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status ssh time)
+POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status ssh time terraform)
 POWERLEVEL10K_STATUS_VERBOSE=false
 POWERLEVEL10K_SHORTEN_STRATEGY="truncate_middle"
 
