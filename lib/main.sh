@@ -28,7 +28,13 @@ function install_packages() {
 function common_configuration() {
 
     # Default folder for develop
-    mkdir -p ~/Develop/ ~/.ssh/ ~/.aws/ ~/.nvm/ ~/.jenv/ ~/.plenv/
+    mkdir -p ~/Develop/ \
+        ~/.ssh/ \
+        ~/.aws/ \
+        ~/.nvm/ \
+        ~/.jenv/ \
+        ~/.plenv/ \
+        ~/.GIS-lm-build/
 
     # Git basic configuration, still pending user & email
     git config --global push.default simple

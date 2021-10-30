@@ -5,15 +5,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export TERM="xterm-256color"
-
 # Source Prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Customize to your needs
-DISABLE_AUTO_UPDATE=false
+DISABLE_AUTO_UPDATE=true
 DISABLE_UPDATE_PROMPT=true
 
 # Terraform prompt
@@ -25,6 +23,7 @@ function prompt_terraform() {
 }
 
 # Export
+export TERM="xterm-256color"
 export LC_ALL=$LANG
 export GPG_TTY=$TTY
 export DOCKER_EXTERNAL_IP=`ipconfig getifaddr en0`
@@ -86,6 +85,7 @@ nvm use default
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Improve prompt performance
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 export POWERLEVEL9K_INSTANT_PROMPT=quiet
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true

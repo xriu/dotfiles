@@ -82,8 +82,6 @@ function brew_install() {
     brew install z
 
     # brew reinstall ldns
-    # brew install svn
-    # brew install node
     # brew install aws-sam-cli
     # brew install libressl
     # brew install libxml2
@@ -120,7 +118,6 @@ function brew_install() {
     brew install geekbench
     brew install istat-menus
     brew install ccleaner
-
     # brew install anydesk
 
     # Fonts
