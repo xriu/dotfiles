@@ -27,6 +27,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.GIS-lm-build/bin:$PATH"
 export PATH="/usr/local/opt/awscli@1/bin:$PATH"
 
+# Bash completion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # To enable shims and autocompletion add to your profile:
