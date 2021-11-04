@@ -16,6 +16,7 @@ function install_osx_packages() {
     brew tap homebrew/cask-fonts
     brew tap AdoptOpenJDK/openjdk
     brew tap wagoodman/dive
+    brew tap fugue/regula
 
     brew_install
     yarn_install
@@ -68,6 +69,8 @@ function brew_install() {
     brew install gradle-completion
     brew install htop
     brew install jq
+    brew install regula
+    brew install docker-slim
     brew install autopep8
     brew install openvpn
     brew install hadolint
