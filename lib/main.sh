@@ -34,7 +34,8 @@ function common_configuration() {
         ~/.nvm/ \
         ~/.jenv/ \
         ~/.plenv/ \
-        ~/.GIS-lm-build/
+        ~/.GIS-lm-build/ \
+        ${HOME}/Pictures/screenshots/
 
     # Git basic configuration, still pending user & email
     git config --global push.default simple
