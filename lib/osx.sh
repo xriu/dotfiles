@@ -106,6 +106,7 @@ function brew_install() {
     brew install --cask figma
     brew install --cask geekbench
     brew install --cask istat-menus
+    brew install --cask cyberduck
     brew install --cask ccleaner
     # brew install --cask anydesk
 
