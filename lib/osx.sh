@@ -85,7 +85,6 @@ function brew_install() {
     brew install z
 
     # Desktop Apps
-    brew install --cask alfred
     brew install --cask docker
     brew install --cask zoom --force
     brew install --cask amazon-chime
@@ -108,6 +107,7 @@ function brew_install() {
     brew install --cask istat-menus
     brew install --cask cyberduck
     brew install --cask ccleaner
+    # brew install --cask alfred
     # brew install --cask anydesk
 
     # Fonts
