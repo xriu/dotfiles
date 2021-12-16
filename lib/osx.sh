@@ -65,6 +65,7 @@ function brew_install() {
     brew install istioctl
     brew install ncdu
     brew install awscli
+    brew install mvn
     brew install gradle
     brew install gradle-completion
     brew install htop
