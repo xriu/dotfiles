@@ -58,15 +58,3 @@ cd ~/.GIS-lm-build
 rm -rf local
 bin/lm install
 ```
-
----
-
-## CPAN
-
-```
-cpan App::cpanminus
-cpan install YAML::XS
-cpan install List::MoreUtils
-cpan install IO::Socket::SSL
-cpanm -n Carton
-```
