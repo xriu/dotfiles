@@ -108,8 +108,6 @@ function brew_install() {
     brew install --cask istat-menus
     brew install --cask cyberduck
     brew install --cask ccleaner
-    # brew install --cask alfred
-    # brew install --cask anydesk
 
     # Fonts
     brew install font-fira-code
