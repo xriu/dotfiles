@@ -162,7 +162,4 @@ function zsh_setup() {
     # Set Zsh as default shell
     chsh -s /bin/zsh
 
-    # chsh: /usr/local/bin/zsh: non-standard shell
-    # chsh -s $(which zsh)
-
 }
