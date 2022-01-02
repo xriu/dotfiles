@@ -23,16 +23,6 @@ cd ~/dotfiles
 
 ---
 
-## VS-Code
-
-```
-ln -fs \
-    ~/dotfiles/vscode/settings.json \
-    ~/Library/Application\ Support/Code/User/settings.json
-```
-
----
-
 ## NVM
 
 ```
