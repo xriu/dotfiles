@@ -87,28 +87,28 @@ function brew_install() {
     brew install z
 
     # Desktop Apps
-    brew install --cask docker
+    brew install --cask docker --force
     brew install --cask zoom --force
-    brew install --cask amazon-chime
-    brew install --cask insomnia
-    brew install --cask discord
-    brew install --cask robo-3t
+    brew install --cask amazon-chime --force
+    brew install --cask insomnia --force
+    brew install --cask discord --force
+    brew install --cask robo-3t --force
     brew install --cask kitematic --force
-    brew install --cask iterm2
+    brew install --cask iterm2 --force
     brew install --cask google-chrome --force
-    brew install --cask openvpn-connect
-    brew install --cask rectangle
-    brew install --cask element
-    brew install --cask spotify
+    brew install --cask openvpn-connect --force
+    brew install --cask rectangle --force
+    brew install --cask element --force
+    brew install --cask spotify --force
     brew install --cask slack --force
-    brew install --cask visual-studio-Code
-    brew install --cask dbeaver-community
-    brew install --cask whatsapp
-    brew install --cask figma
-    brew install --cask geekbench
-    brew install --cask istat-menus
-    brew install --cask cyberduck
-    brew install --cask ccleaner
+    brew install --cask visual-studio-Code --force
+    brew install --cask dbeaver-community --force
+    brew install --cask whatsapp --force
+    brew install --cask figma --force
+    brew install --cask geekbench --force
+    brew install --cask istat-menus --force
+    brew install --cask cyberduck --force
+    brew install --cask ccleaner --force
 
     # Fonts
     brew install font-fira-code
