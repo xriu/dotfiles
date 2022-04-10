@@ -53,6 +53,7 @@ function brew_install() {
     brew install pv
     brew install rename
     brew install nmap
+    brew install leapp
     brew install termshark
     brew install fx
     brew install tree
