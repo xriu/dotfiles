@@ -92,6 +92,7 @@ function brew_install() {
     brew install --cask zoom --force
     brew install --cask amazon-chime --force
     brew install --cask insomnia --force
+    brew install --cask responsively --force
     brew install --cask discord --force
     brew install --cask robo-3t --force
     brew install --cask kitematic --force
