@@ -82,6 +82,7 @@ function brew_install() {
     brew install eslint
     brew install python@3.8
     brew install warrensbox/tap/tfswitch
+    brew install iam-policy-json-to-terraform
     brew install cdktf
     brew install yarn
     brew install zsh
@@ -94,6 +95,7 @@ function brew_install() {
     brew install --cask insomnia --force
     brew install --cask responsively --force
     brew install --cask discord --force
+    brew install --cask session-manager-plugin --force
     brew install --cask robo-3t --force
     brew install --cask kitematic --force
     brew install --cask iterm2 --force
