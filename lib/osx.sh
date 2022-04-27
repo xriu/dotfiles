@@ -97,7 +97,6 @@ function brew_install() {
     brew install --cask discord --force
     brew install --cask session-manager-plugin --force
     brew install --cask robo-3t --force
-    brew install --cask kitematic --force
     brew install --cask iterm2 --force
     brew install --cask google-chrome --force
     brew install --cask openvpn-connect --force
