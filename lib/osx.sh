@@ -96,6 +96,7 @@ function brew_install() {
     brew install --cask responsively --force
     brew install --cask discord --force
     brew install --cask session-manager-plugin --force
+    brew install --cask microsoft-teams --force
     brew install --cask robo-3t --force
     brew install --cask iterm2 --force
     brew install --cask google-chrome --force
