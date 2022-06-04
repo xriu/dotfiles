@@ -93,10 +93,8 @@ function brew_install() {
     brew install --cask zoom --force
     brew install --cask amazon-chime --force
     brew install --cask insomnia --force
-    brew install --cask responsively --force
     brew install --cask discord --force
     brew install --cask session-manager-plugin --force
-    brew install --cask microsoft-teams --force
     brew install --cask robo-3t --force
     brew install --cask iterm2 --force
     brew install --cask google-chrome --force
@@ -109,7 +107,6 @@ function brew_install() {
     brew install --cask dbeaver-community --force
     brew install --cask whatsapp --force
     brew install --cask figma --force
-    brew install --cask geekbench --force
     brew install --cask stats --force
     brew install --cask cyberduck --force
     brew install --cask ccleaner --force
