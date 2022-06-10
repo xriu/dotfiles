@@ -49,7 +49,7 @@ nvm use default > /dev/null
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
 # Improve prompt performance
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet

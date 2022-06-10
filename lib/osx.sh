@@ -62,6 +62,7 @@ function brew_install() {
     brew install nvm
     brew install ack
     brew install dive
+    brew install mkcert
     brew install helm
     brew install istioctl
     brew install ncdu
