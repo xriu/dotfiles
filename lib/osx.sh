@@ -107,7 +107,6 @@ function brew_install() {
     brew install --cask visual-studio-Code --force
     brew install --cask dbeaver-community --force
     brew install --cask whatsapp --force
-    brew install --cask figma --force
     brew install --cask stats --force
     brew install --cask cyberduck --force
     brew install --cask ccleaner --force
