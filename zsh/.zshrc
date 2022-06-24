@@ -48,11 +48,7 @@ nvm use default > /dev/null
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Load Angular CLI autocompletion.
-# source <(ng completion script)
-
 # Improve prompt performance
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 export POWERLEVEL9K_INSTANT_PROMPT=quiet
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-
