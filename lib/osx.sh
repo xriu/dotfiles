@@ -14,7 +14,6 @@ function install_osx_packages() {
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
-    brew tap AdoptOpenJDK/openjdk
     brew tap wagoodman/dive
     brew tap fugue/regula
 
@@ -33,8 +32,32 @@ function brew_install() {
     brew update
     brew upgrade
 
+    # Desktop Apps
+    brew install --cask temurin --force
+    brew install --cask docker --force
+    brew install --cask zoom --force
+    brew install --cask amazon-chime --force
+    brew install --cask insomnia --force
+    brew install --cask discord --force
+    brew install --cask session-manager-plugin --force
+    brew install --cask robo-3t --force
+    brew install --cask iterm2 --force
+    brew install --cask google-chrome --force
+    brew install --cask openvpn-connect --force
+    brew install --cask rectangle --force
+    brew install --cask element --force
+    brew install --cask spotify --force
+    brew install --cask slack --force
+    brew install --cask visual-studio-Code --force
+    brew install --cask dbeaver-community --force
+    brew install --cask whatsapp --force
+    brew install --cask stats --force
+    brew install --cask cyberduck --force
+    brew install --cask ccleaner --force
+
     # Apps
-    brew install adoptopenjdk14
+    brew install openjdk
+    brew install openjdk@17
     brew install coreutils
     brew install moreutils
     brew install findutils
@@ -88,28 +111,6 @@ function brew_install() {
     brew install yarn
     brew install zsh
     brew install z
-
-    # Desktop Apps
-    brew install --cask docker --force
-    brew install --cask zoom --force
-    brew install --cask amazon-chime --force
-    brew install --cask insomnia --force
-    brew install --cask discord --force
-    brew install --cask session-manager-plugin --force
-    brew install --cask robo-3t --force
-    brew install --cask iterm2 --force
-    brew install --cask google-chrome --force
-    brew install --cask openvpn-connect --force
-    brew install --cask rectangle --force
-    brew install --cask element --force
-    brew install --cask spotify --force
-    brew install --cask slack --force
-    brew install --cask visual-studio-Code --force
-    brew install --cask dbeaver-community --force
-    brew install --cask whatsapp --force
-    brew install --cask stats --force
-    brew install --cask cyberduck --force
-    brew install --cask ccleaner --force
 
     # Fonts
     brew install font-fira-code

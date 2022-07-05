@@ -77,18 +77,14 @@
   "java.configuration.runtimes": [
     {
       "default": true,
-      "name": "JavaSE-11",
-      "path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home"
-    },
-    {
-      "name": "JavaSE-14",
-      "path": "/Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home"
+      "name": "JavaSE-18",
+      "path": "/Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home"
     }
   ],
   "java.configuration.updateBuildConfiguration": "interactive",
   "java.errors.incompleteClasspath.severity": "ignore",
   "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-  "java.home": "/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home",
+  "java.home": "/Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home",
   "java.imports.gradle.wrapper.checksums": [
     {
       "allowed": true,
