@@ -14,6 +14,7 @@ function install_osx_packages() {
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
+    brew tap AdoptOpenJDK/openjdk
     brew tap wagoodman/dive
     brew tap fugue/regula
 
@@ -33,6 +34,7 @@ function brew_install() {
     brew upgrade
 
     # Desktop Apps
+    brew install --cask adoptopenjdk11 --force
     brew install --cask temurin --force
     brew install --cask docker --force
     brew install --cask zoom --force
@@ -57,7 +59,6 @@ function brew_install() {
 
     # Apps
     brew install openjdk
-    brew install openjdk@17
     brew install coreutils
     brew install moreutils
     brew install findutils
