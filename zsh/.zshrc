@@ -10,6 +10,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+ssm() {
+  aws ssm start-session --target $1 --region $2 --profile $3
+}
+
 # Customize to your needs
 DISABLE_AUTO_UPDATE=true
 DISABLE_UPDATE_PROMPT=true
