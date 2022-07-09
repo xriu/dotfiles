@@ -11,7 +11,15 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 ssm() {
-  aws ssm start-session --target $1 --region $2 --profile $3
+    # Retrieve Instance ID
+    id=$(aws ec2 describe-instances \
+        --filters "Name=private-ip-address,Values=$1" \
+        --query 'Reservations[0].Instances[0].InstanceId' \
+        --output text \
+        --region $2 \
+        --profile $3)
+    # Start Session
+    aws ssm start-session --target ${id} --region $2 --profile $3
 }
 
 # Customize to your needs
