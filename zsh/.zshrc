@@ -11,15 +11,24 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 ssm() {
-    # Retrieve Instance ID
-    id=$(aws ec2 describe-instances \
-        --filters "Name=private-ip-address,Values=$1" \
-        --query 'Reservations[0].Instances[0].InstanceId' \
-        --output text \
-        --region $2 \
-        --profile $3)
+    ID=${1}
+    REGION=${2}
+    PROFILE=${3}
+
+    # IPv4 Pattern
+    ipv4_pattern="([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
+    if [[ ${ID} =~ ${ipv4_pattern} ]]; then
+        # Retrieve Instance ID
+        ID=$(aws ec2 describe-instances \
+            --filters "Name=private-ip-address,Values=$1" \
+            --query 'Reservations[0].Instances[0].InstanceId' \
+            --output text \
+            --region ${REGION} \
+            --profile ${PROFILE})
+    fi
+
     # Start Session
-    aws ssm start-session --target ${id} --region $2 --profile $3
+    aws ssm start-session --target ${ID} --region ${REGION} --profile ${PROFILE}
 }
 
 # Customize to your needs
