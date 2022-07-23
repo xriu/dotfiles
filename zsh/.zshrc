@@ -12,8 +12,8 @@ fi
 
 ssm() {
     ID=${1}
-    REGION=${2}
-    PROFILE=${3}
+    REGION=${2:-'eu-west-1'}
+    PROFILE=${3:-'default'}
 
     # IPv4 Pattern
     ipv4_pattern="([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
