@@ -106,7 +106,6 @@ function brew_install() {
     brew install eslint
     brew install python@3.8
     brew install warrensbox/tap/tfswitch
-    brew install iam-policy-json-to-terraform
     brew install cdktf
     brew install yarn
     brew install zsh
