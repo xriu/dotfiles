@@ -77,6 +77,7 @@ function brew_install() {
     brew install rename
     brew install nmap
     brew install leapp
+    brew install Noovolari/brew/leapp-cli
     brew install termshark
     brew install fx
     brew install tree
