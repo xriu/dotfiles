@@ -102,6 +102,7 @@ function brew_install() {
     brew install autopep8
     brew install openvpn
     brew install hadolint
+    brew install ansible@2.9
     brew install angular-cli
     brew install serverless
     brew install eslint
