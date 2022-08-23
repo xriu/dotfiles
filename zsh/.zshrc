@@ -47,7 +47,6 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.GIS-lm-build/bin:$PATH"
 export PATH="/usr/local/opt/awscli@1/bin:$PATH"
-export PATH="/usr/local/opt/ansible@2.9/bin:$PATH"
 
 # Bash completion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
