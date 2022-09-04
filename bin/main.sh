@@ -1,11 +1,9 @@
 #!/bin/bash
 
-function get_os() {
+function get_arch() {
 
-    declare -r OS_NAME="$(uname -s)"
-
-    if [ "$OS_NAME" == "Darwin" ]; then
-        echo "osx"
+    if [[ $(uname -m) == 'arm64' ]]; then
+        echo "arm64"
     else
         echo "unknown"
     fi
@@ -14,12 +12,12 @@ function get_os() {
 
 function install_packages() {
 
-    os=$(get_os)
-    if [ $os == "osx" ]; then
-        source ./lib/osx.sh
+    arch=$(get_arch)
+    if [ $arch == "arm64" ]; then
+        source ./bin/osx.sh
         install_osx_packages
     else
-        error "OS $os not supported"
+        error "Arch $arch not supported"
         exit;
     fi
 

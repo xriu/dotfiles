@@ -2,7 +2,7 @@
 
 set -e
 
-source ./lib/main.sh
+source ./bin/main.sh
 
 echo 'Starting packages setup'
 install_packages

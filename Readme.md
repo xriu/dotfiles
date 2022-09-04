@@ -2,6 +2,8 @@
 
 Requirements
 
+Apple Silicon
+
 - Install prezto & zsh as shell (https://github.com/sorin-ionescu/prezto)
 - Shell theme powerlevel9k (https://github.com/bhilburn/powerlevel9k)
 - Fonts powerline (https://github.com/powerline/fonts)
@@ -10,10 +12,13 @@ Requirements
 
 ## Installation
 
-Brew packages missing
+To Review
 
-- strimio
-- logitech-camera-settings
+```
+brew remove yarn
+brew remove node@14
+brew remove node@16
+```
 
 ```
 git clone https://github.com/xriu/dotfiles.git ~/dotfiles

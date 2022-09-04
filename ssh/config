@@ -1,17 +1,16 @@
 # copy to ~/.ssh/config
 
+PubkeyAcceptedKeyTypes +ssh-rsa
+
 Host github.com
-  IdentityFile ~/.ssh/id_github
+  # User YOUR_EMAIL
+  IdentityFile ~/.ssh/github
 
 Host *
+  # User YOUR_USER
+
   # Always use SSH2.
   Protocol 2
-
-  # To avoid disconnects
-  Compression yes
-  TCPKeepAlive yes
-  ServerAliveInterval 20
-  ServerAliveCountMax 10
 
   # Use a shared channel for all sessions to the same host,
   # instead of always opening a new one. This leads to much
@@ -19,3 +18,9 @@ Host *
   # ControlMaster auto
   # ControlPath ~/.ssh/control/%r@%h:%p
   # ControlPersist 1800
+
+  # To avoid disconnects
+  Compression yes
+  TCPKeepAlive yes
+  ServerAliveInterval 20
+  ServerAliveCountMax 10
