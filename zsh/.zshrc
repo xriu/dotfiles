@@ -56,6 +56,9 @@ if which jenv > /dev/null; then eval "$(jenv init - --no-rehash)"; fi
 # Enabling export plugin to automatically expose JAVA_HOME
 eval "$(jenv enable-plugin export)"
 
+# Homebrew shellenv
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Since we are using it, unalias lm
 if alias lm > /dev/null; then unalias lm; fi
 
@@ -72,6 +75,3 @@ nvm use default > /dev/null
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 export POWERLEVEL9K_INSTANT_PROMPT=quiet
 export POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-
-# Homebrew shellenv
-eval "$(/opt/homebrew/bin/brew shellenv)"
