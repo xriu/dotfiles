@@ -130,21 +130,12 @@ function brew_setup() {
     # brew install autopep8 # Automatically formats Python code to conform to the PEP 8 style guide
     # brew install azure-cli # Microsoft Azure CLI 2.0
     # brew install cdktf # Cloud Development Kit for Terraform
-    # brew install helm # Kubernetes package manager
-    # brew install istioctl # Istio configuration command-line utility
     # brew install mkcert # Simple tool to make locally trusted development certificates
     # brew install moreutils # Collection of tools that nobody wrote when UNIX was young
     # brew install nano # Free (GNU) replacement for the Pico text editor
-    # brew install ncdu # NCurses Disk Usage
     # brew install nmap # Port scanning utility for large networks
-    # brew install Noovolari/brew/leapp-cli-darwin-arm64 # Cloud credentials manager
-    # brew install pv # Monitor data's progress through a pipe
     # brew install python@3.10 # Interpreted, interactive, object-oriented programming language
-    # brew install rename # Perl-powered file rename script with many helpful built-ins
-    # brew install screen # Terminal multiplexer with VT100/ANSI terminal emulation
     # brew install termshark # Terminal UI for tshark, inspired by Wireshark
-    # brew install tree # Display directories as trees (with optional color/HTML output)
-    # brew install zopfli # New zlib (gzip, deflate) compatible compressor
 
     # Fonts
     brew install font-fira-code
