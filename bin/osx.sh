@@ -111,6 +111,7 @@ function brew_setup() {
     brew install mas # Mac App Store command-line interface
     brew install nvm # Manage multiple Node.js versions
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
+    brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install serverless # Build applications with serverless architectures
     brew install vim # Vi 'workalike' with many additional features
     brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
@@ -134,7 +135,6 @@ function brew_setup() {
     # brew install moreutils # Collection of tools that nobody wrote when UNIX was young
     # brew install nano # Free (GNU) replacement for the Pico text editor
     # brew install nmap # Port scanning utility for large networks
-    # brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     # brew install termshark # Terminal UI for tshark, inspired by Wireshark
 
     # Fonts
