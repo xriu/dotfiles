@@ -4,7 +4,7 @@ PubkeyAcceptedKeyTypes +ssh-rsa
 
 Host github.com
   # User YOUR_EMAIL
-  IdentityFile ~/.ssh/github
+  IdentityFile ~/.ssh/id_github
 
 Host *
   # User YOUR_USER
