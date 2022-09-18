@@ -37,31 +37,6 @@ function install_osx_packages() {
 
 }
 
-# Prepare mac
-function mac_setup() {
-
-    echo "Remove big default apps"
-    sudo rm -rf /Applications/GarageBand.app
-    sudo rm -rf /Applications/iMovie.app
-
-    echo "Remove dock items"
-    dockutil --remove 'Messages'
-    dockutil --remove 'Mail'
-    dockutil --remove 'Maps'
-    dockutil --remove 'Photos'
-    dockutil --remove 'FaceTime'
-    dockutil --remove 'TV'
-    dockutil --remove 'Podcasts'
-    dockutil --remove 'App Store'
-    dockutil --remove 'Keynote'
-    dockutil --remove 'Numbers'
-    dockutil --remove 'Pages'
-
-    echo "Add dock items"
-    dockutil --add '/Applications/Google Chrome.app'
-
-}
-
 # Brew install
 function brew_setup() {
 
@@ -114,7 +89,6 @@ function brew_setup() {
     brew install mas # Mac App Store command-line interface
     brew install nvm # Manage multiple Node.js versions
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
-    brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install serverless # Build applications with serverless architectures
     brew install vim # Vi 'workalike' with many additional features
     brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
@@ -123,11 +97,12 @@ function brew_setup() {
     brew install z # Tracks most-used directories to make cd smarter
     brew install zsh # UNIX shell (command interpreter)
 
-    mas install 1295203466 # Microsoft Remote Desktop
+    # mas install 1295203466 # Microsoft Remote Desktop
 
     # TODO: Verify
     # brew install openjdk # Development kit for the Java programming language
     # brew install openssl # Cryptography and SSL/TLS Toolkit
+    # brew install python@3.10 # Interpreted, interactive, object-oriented programming language
 
     # TODO: Remove
     # brew install ack # Search tool like grep, but optimized for programmers
@@ -152,6 +127,31 @@ function yarn_setup() {
 
     echo "Yarn install packages"
     # yarn global add nodemon
+
+}
+
+# Prepare mac
+function mac_setup() {
+
+    echo "Remove big default apps"
+    sudo rm -rf /Applications/GarageBand.app
+    sudo rm -rf /Applications/iMovie.app
+
+    echo "Remove dock items"
+    dockutil --remove 'Messages'
+    dockutil --remove 'Mail'
+    dockutil --remove 'Maps'
+    dockutil --remove 'Photos'
+    dockutil --remove 'FaceTime'
+    dockutil --remove 'TV'
+    dockutil --remove 'Podcasts'
+    dockutil --remove 'App Store'
+    dockutil --remove 'Keynote'
+    dockutil --remove 'Numbers'
+    dockutil --remove 'Pages'
+
+    echo "Add dock items"
+    dockutil --add '/Applications/Google Chrome.app'
 
 }
 

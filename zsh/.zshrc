@@ -51,7 +51,7 @@ export PATH="$HOME/.GIS-lm-build/bin:$PATH"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Bash completion
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 # To enable shims and autocompletion add to your profile:
 if which jenv > /dev/null; then eval "$(jenv init - --no-rehash)"; fi
@@ -66,9 +66,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 if alias lm > /dev/null; then unalias lm; fi
 
 # NVM
+mkdir ~/.nvm
 export NVM_DIR="$HOME/.nvm"
-[[ -s "/usr/local/opt/nvm/nvm.sh" ]] && . "/usr/local/opt/nvm/nvm.sh"
-[[ -s "/usr/local/opt/nvm/etc/bash_completion" ]] && . "/usr/local/opt/nvm/etc/bash_completion"
+[[ -s "/opt/homebrew/opt/nvm/nvm.sh" ]] && . "/opt/homebrew/opt/nvm/nvm.sh"
+[[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 nvm use default > /dev/null
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
