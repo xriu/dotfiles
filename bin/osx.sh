@@ -7,11 +7,11 @@ function install_osx_packages() {
     if test ! $(which brew); then
         echo "Installing homebrew"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
         eval "$(/opt/homebrew/bin/brew shellenv)"
         eval "$(/opt/homebrew/bin/brew shellenv)"
         eval "$(/opt/homebrew/bin/brew shellenv)"
         eval "$(/opt/homebrew/bin/brew shellenv)"
+        # echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
     fi
 
     # Update
@@ -64,6 +64,7 @@ function brew_setup() {
     brew install --cask temurin11 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-Code --force # Open-source code editor
     brew install --cask whatsapp --force # Desktop client for WhatsApp
+    brew install --cask leapp --force # Cloud credentials manager
     brew install --cask zoom --force # Video communication and virtual meeting platform
 
     brew install angular-cli # CLI tool for Angular
@@ -85,7 +86,7 @@ function brew_setup() {
     brew install htop # Improved top (interactive process viewer)
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
-    brew install leapp # Cloud credentials manager
+    brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install mas # Mac App Store command-line interface
     brew install nvm # Manage multiple Node.js versions
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
@@ -137,22 +138,6 @@ function mac_setup() {
     sudo rm -rf /Applications/GarageBand.app
     sudo rm -rf /Applications/iMovie.app
 
-    echo "Remove dock items"
-    dockutil --remove 'Messages'
-    dockutil --remove 'Mail'
-    dockutil --remove 'Maps'
-    dockutil --remove 'Photos'
-    dockutil --remove 'FaceTime'
-    dockutil --remove 'TV'
-    dockutil --remove 'Podcasts'
-    dockutil --remove 'App Store'
-    dockutil --remove 'Keynote'
-    dockutil --remove 'Numbers'
-    dockutil --remove 'Pages'
-
-    echo "Add dock items"
-    dockutil --add '/Applications/Google Chrome.app'
-
 }
 
 # Prezto
@@ -182,7 +167,7 @@ function prezto_setup() {
 
 }
 
-function zsh_setu() {
+function zsh_setup() {
 
     echo "Zsh install"
 
