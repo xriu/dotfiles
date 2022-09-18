@@ -5,8 +5,7 @@ Requirements
 Apple Silicon
 
 - Install prezto & zsh as shell (https://github.com/sorin-ionescu/prezto)
-- Shell theme powerlevel9k (https://github.com/bhilburn/powerlevel9k)
-- Fonts powerline (https://github.com/powerline/fonts)
+- Shell theme powerlevel10k (https://github.com/romkatv/powerlevel10k)
 
 ---
 

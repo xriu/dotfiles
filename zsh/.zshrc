@@ -47,6 +47,9 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.GIS-lm-build/bin:$PATH"
 
+# Zsh theme
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 # Bash completion
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
@@ -57,7 +60,7 @@ if which jenv > /dev/null; then eval "$(jenv init - --no-rehash)"; fi
 eval "$(jenv enable-plugin export)"
 
 # Homebrew shellenv
-# eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Since we are using it, unalias lm
 if alias lm > /dev/null; then unalias lm; fi

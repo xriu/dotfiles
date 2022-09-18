@@ -7,7 +7,7 @@ function install_osx_packages() {
     if test ! $(which brew); then
         echo "Installing homebrew"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        # echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
@@ -141,8 +141,6 @@ function brew_setup() {
     brew install font-fira-code
     brew install font-fira-mono
     brew install font-fira-mono-for-powerline
-    brew install font-menlo-for-powerline
-    brew install font-roboto-mono-for-powerline
 
 }
 
