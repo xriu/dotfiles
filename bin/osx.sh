@@ -134,6 +134,14 @@ function yarn_setup() {
 # Prepare mac
 function mac_setup() {
 
+    echo "NVM set alias default system"
+    nvm install node
+    nvm alias default system
+
+    echo "JENV set java virtual machines"
+    jenv add /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
+    jenv add /Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home
+
     echo "Remove big default apps"
     sudo rm -rf /Applications/GarageBand.app
     sudo rm -rf /Applications/iMovie.app

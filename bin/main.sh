@@ -37,7 +37,7 @@ function common_configuration() {
 
     # Git basic configuration, still pending user & email
     git config --global push.default simple
-    git config --global pull.rebase preserve
+    git config --global pull.rebase merges
     git config --global merge.ff false
     git config --global merge.tool vimdiff
     git config --global mergetool.prompt false

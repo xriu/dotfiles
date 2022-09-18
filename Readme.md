@@ -11,18 +11,16 @@ Apple Silicon
 
 ## Installation
 
-To Review
-
-```
-brew remove yarn
-brew remove node@14
-brew remove node@16
-```
-
 ```
 git clone https://github.com/xriu/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./setup.sh
+```
+
+Open iTerm2
+
+```
+p10k configure
 ```
 
 ---
@@ -52,4 +50,17 @@ jenv add /Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home
 cd ~/.GIS-lm-build
 rm -rf local
 bin/lm install
+```
+
+---
+
+## ERROR
+
+```
+error: preserve: 'preserve' superseded by 'merges'
+fatal: invalid value for 'pull.rebase': 'preserve'
+```
+
+```
+git config --local pull.rebase merges
 ```
