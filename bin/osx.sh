@@ -65,7 +65,7 @@ function brew_setup() {
     echo "Brew install packages"
 
     # Install Rosetta
-    # softwareupdate --install-rosetta --agree-to-license
+    softwareupdate --install-rosetta --agree-to-license
 
     # brew install --cask docker --force # App to build and share containerized applications and microservices
     brew install --cask amazon-chime --force # Communications service
