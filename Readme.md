@@ -51,16 +51,3 @@ cd ~/.GIS-lm-build
 rm -rf local
 bin/lm install
 ```
-
----
-
-## ERROR
-
-```
-error: preserve: 'preserve' superseded by 'merges'
-fatal: invalid value for 'pull.rebase': 'preserve'
-```
-
-```
-git config --local pull.rebase merges
-```
