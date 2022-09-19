@@ -46,6 +46,7 @@ export PATH="/usr/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$HOME/.GIS-lm-build/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # Zsh theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
