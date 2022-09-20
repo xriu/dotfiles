@@ -100,21 +100,9 @@ function brew_setup() {
 
     # mas install 1295203466 # Microsoft Remote Desktop
 
-    # TODO: Verify
     # brew install openjdk # Development kit for the Java programming language
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install python@3.10 # Interpreted, interactive, object-oriented programming language
-
-    # TODO: Remove
-    # brew install ack # Search tool like grep, but optimized for programmers
-    # brew install autopep8 # Automatically formats Python code to conform to the PEP 8 style guide
-    # brew install azure-cli # Microsoft Azure CLI 2.0
-    # brew install cdktf # Cloud Development Kit for Terraform
-    # brew install mkcert # Simple tool to make locally trusted development certificates
-    # brew install moreutils # Collection of tools that nobody wrote when UNIX was young
-    # brew install nano # Free (GNU) replacement for the Pico text editor
-    # brew install nmap # Port scanning utility for large networks
-    # brew install termshark # Terminal UI for tshark, inspired by Wireshark
 
     # Fonts
     brew install font-fira-code
