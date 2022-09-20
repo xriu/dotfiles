@@ -11,3 +11,10 @@ defaults write com.apple.screencapture location -string "${HOME}/Pictures/screen
 
 # Always display full control strip (ignoring App Controls)
 defaults write com.apple.touchbar.agent PresentationModeGlobal fullControlStrip
+
+###############################################################################
+# Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
+###############################################################################
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
