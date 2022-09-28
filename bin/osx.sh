@@ -86,11 +86,11 @@ function brew_setup() {
     brew install htop # Improved top (interactive process viewer)
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
-    brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install mas # Mac App Store command-line interface
     brew install nvm # Manage multiple Node.js versions
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install serverless # Build applications with serverless architectures
+    brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install vim # Vi 'workalike' with many additional features
     brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install wget # Internet file retriever
