@@ -11,7 +11,6 @@ function install_osx_packages() {
         eval "$(/opt/homebrew/bin/brew shellenv)"
         eval "$(/opt/homebrew/bin/brew shellenv)"
         eval "$(/opt/homebrew/bin/brew shellenv)"
-        # echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
     fi
 
     # Update
