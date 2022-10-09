@@ -70,6 +70,7 @@ function brew_setup() {
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
     brew install bash-completion # Programmable completion for Bash 4.2+
+    brew install colima # Container runtimes on MacOS (and Linux) with minimal setup
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install dive # Tool for exploring each layer in a docker image
     brew install docker # Pack, ship and run any application as a lightweight container
