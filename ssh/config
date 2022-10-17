@@ -3,24 +3,29 @@
 PubkeyAcceptedKeyTypes +ssh-rsa
 
 Host github.com
-  # User YOUR_EMAIL
-  IdentityFile ~/.ssh/id_github
+    # User YOUR_EMAIL
+    IdentityFile ~/.ssh/id_github
+
+Host i-* mi-* ip-*
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand ~/dotfiles/bin/ssm-proxy.sh %h %r %p ~/.ssh/id_rsa.pub
+  StrictHostKeyChecking no
+  LogLevel QUIET
 
 Host *
-  # User YOUR_USER
+    # User xrl
+    # Always use SSH2
+    Protocol 2
 
-  # Always use SSH2.
-  Protocol 2
+    # Use a shared channel for all sessions to the same host,
+    # instead of always opening a new one. This leads to much
+    # quicker connection times.
+    # ControlMaster auto
+    # ControlPath ~/.ssh/control/%r@%h:%p
+    # ControlPersist 1800
+    # To avoid disconnects
 
-  # Use a shared channel for all sessions to the same host,
-  # instead of always opening a new one. This leads to much
-  # quicker connection times.
-  # ControlMaster auto
-  # ControlPath ~/.ssh/control/%r@%h:%p
-  # ControlPersist 1800
-
-  # To avoid disconnects
-  Compression yes
-  TCPKeepAlive yes
-  ServerAliveInterval 20
-  ServerAliveCountMax 10
+    Compression yes
+    TCPKeepAlive yes
+    ServerAliveInterval 20
+    ServerAliveCountMax 10
