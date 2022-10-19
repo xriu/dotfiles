@@ -15,9 +15,8 @@ ssm() {
     REGION=${2:-'eu-west-1'}
     PROFILE=${3:-'default'}
 
-    # IPv4 Pattern
-    ipv4_pattern="([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
-    if [[ ${ID} =~ ${ipv4_pattern} ]]; then
+    IPV4_PATTERN="([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
+    if [[ ${ID} =~ ${IPV4_PATTERN} ]]; then
         # Retrieve Instance ID
         ID=$(aws ec2 describe-instances \
             --filters "Name=private-ip-address,Values=$1" \
@@ -27,7 +26,6 @@ ssm() {
             --profile ${PROFILE})
     fi
 
-    # Start Session
     aws ssm start-session --target ${ID} --region ${REGION} --profile ${PROFILE}
 }
 
