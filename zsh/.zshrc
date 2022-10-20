@@ -17,7 +17,6 @@ ssm() {
 
     IPV4_PATTERN="([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
     if [[ ${ID} =~ ${IPV4_PATTERN} ]]; then
-        # Retrieve Instance ID
         ID=$(aws ec2 describe-instances \
             --filters "Name=private-ip-address,Values=$1" \
             --query 'Reservations[0].Instances[0].InstanceId' \
