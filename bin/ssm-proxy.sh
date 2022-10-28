@@ -54,12 +54,9 @@ aws ssm send-command \
   --comment "Add an SSH public key to authorized_keys for ${SSH_PUBLIC_KEY_TIMEOUT} seconds" \
   --parameters commands="\"
     mkdir -p ~${SSH_USER}/.ssh && cd ~${SSH_USER}/.ssh || exit 1
-
     authorized_key='${SSH_PUBLIC_KEY} ssm-session'
     echo \\\"\${authorized_key}\\\" >> authorized_keys
-
     sleep ${SSH_PUBLIC_KEY_TIMEOUT}
-
     grep -v -F \\\"\${authorized_key}\\\" authorized_keys > .authorized_keys
     mv .authorized_keys authorized_keys
   \""
