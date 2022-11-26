@@ -54,4 +54,9 @@ function common_configuration() {
         cat ~/.ssh/id_github.pub
     fi
 
+    # Leapp symbolic links needed
+    sudo ln -s /opt/homebrew/bin/az /usr/local/bin/az
+    sudo ln -s /opt/homebrew/bin/aws /usr/local/bin/aws
+    sudo ln -s /opt/homebrew/bin/session-manager-plugin /usr/local/bin/session-manager-plugin
+
 }
