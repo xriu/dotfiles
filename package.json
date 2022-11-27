@@ -6,6 +6,6 @@
   "author": "Xavier Riu <xriu87@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "serverless": "3.24.1"
+    "serverless": "3.25.0"
   }
 }
