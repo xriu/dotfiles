@@ -44,7 +44,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
-  "aws.profile": "profile:augure",
+  "aws.codeWhisperer.shareCodeWhispererContentWithAWS": false,
   "aws.telemetry": false,
   "breadcrumbs.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -87,8 +87,18 @@
     },
     {
       "default": true,
-      "name": "JavaSE-18",
+      "name": "JavaSE-17",
+      "path": "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
+    },
+    {
+      "default": false,
+      "name": "JavaSE-17",
       "path": "/Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home"
+    },
+    {
+      "default": false,
+      "name": "JavaSE-18",
+      "path": "/Library/Java/JavaVirtualMachines/temurin-19.jdk/Contents/Home"
     }
   ],
   "java.configuration.updateBuildConfiguration": "interactive",
@@ -102,8 +112,8 @@
       "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06"
     }
   ],
-  "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home",
-  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/Users/xavier.riu/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
+  "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home",
+  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/Users/xavier.riu/.vscode/extensions/vscjava.vscode-lombok-1.0.1/server/lombok.jar\"",
   "java.project.importHint": false,
   "java.project.importOnFirstTimeStartup": "automatic",
   "java.saveActions.organizeImports": true,
@@ -113,13 +123,10 @@
   "python.languageServer": "Pylance",
   "quarkus.tools.alwaysShowWelcomePage": false,
   "redhat.telemetry.enabled": false,
-  "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.shellIntegration.enabled": true,
-  "terraform.languageServer": {
-    "args": ["serve"],
-    "external": true
-  },
+  "terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.commandCenter": true,
