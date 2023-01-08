@@ -81,6 +81,7 @@ function brew_setup() {
     brew install eslint # AST-based pattern checker for JavaScript
     brew install findutils # Collection of GNU find, xargs, and locate
     brew install git # Distributed revision control system
+    brew install maven # Java-based project management
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
     brew install gradle-completion # Bash and Zsh completion for Gradle
     brew install grep # GNU grep, egrep and fgrep
