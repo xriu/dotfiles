@@ -73,6 +73,10 @@ function brew_setup() {
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
     brew install bash-completion # Programmable completion for Bash 4.2+
+    brew install cmake # Cross-platform make
+    brew install protobuf # Protocol buffers (Google's data interchange format)
+    brew install rust # Safe, concurrent, practical language
+    brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install colima # Container runtimes on MacOS (and Linux) with minimal setup
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install dive # Tool for exploring each layer in a docker image
@@ -102,11 +106,9 @@ function brew_setup() {
     brew install z # Tracks most-used directories to make cd smarter
     brew install zsh # UNIX shell (command interpreter)
 
-    # mas install 1295203466 # Microsoft Remote Desktop
-
     # brew install openjdk # Development kit for the Java programming language
     # brew install openssl # Cryptography and SSL/TLS Toolkit
-    # brew install python@3.10 # Interpreted, interactive, object-oriented programming language
+    # mas install 1295203466 # Microsoft Remote Desktop
 
     # Fonts
     brew install font-fira-code
