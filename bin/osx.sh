@@ -69,7 +69,7 @@ function brew_setup() {
     brew install --cask zoom --force # Video communication and virtual meeting platform
     # brew install --cask whatsapp --force # Desktop client for WhatsApp
 
-    brew install lacework/tap/lacework-cli
+    # brew install lacework/tap/lacework-cli
     brew install switchaudio-osx # Change macOS audio source from the command-line
     brew install angular-cli # CLI tool for Angular
     brew install awscli # Official Amazon AWS command-line interface
