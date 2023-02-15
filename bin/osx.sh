@@ -22,9 +22,6 @@ function install_osx_packages() {
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
 
-    # TODO: Remove
-    # brew tap wagoodman/dive
-
     brew_setup
     yarn_setup
     mac_setup
