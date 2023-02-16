@@ -83,6 +83,7 @@ function brew_setup() {
     brew install docker-compose # Isolated development environments using Docker
     brew install docker-slim # Minify and secure Docker images
     brew install eslint # AST-based pattern checker for JavaScript
+    brew install --cask microsoft-remote-desktop # Remote desktop client
     brew install findutils # Collection of GNU find, xargs, and locate
     brew install git # Distributed revision control system
     brew install maven # Java-based project management
@@ -107,7 +108,6 @@ function brew_setup() {
 
     # brew install openjdk # Development kit for the Java programming language
     # brew install openssl # Cryptography and SSL/TLS Toolkit
-    # mas install 1295203466 # Microsoft Remote Desktop
 
     # Fonts
     brew install font-fira-code
