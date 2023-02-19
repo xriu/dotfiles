@@ -43,6 +43,7 @@ function brew_setup() {
 
     # brew install --cask docker --force # App to build and share containerized applications and microservices
     brew install --cask amazon-chime --force # Communications service
+    brew install --cask 1password # Password manager that keeps all passwords secure behind one password
     brew install --cask ccleaner --force # Remove junk and unused files
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
