@@ -68,6 +68,7 @@ function brew_setup() {
     # brew install --cask whatsapp --force # Desktop client for WhatsApp
 
     # brew install lacework/tap/lacework-cli
+    brew install newrelic-cli # Command-line interface for New Relic
     brew install switchaudio-osx # Change macOS audio source from the command-line
     brew install angular-cli # CLI tool for Angular
     brew install awscli # Official Amazon AWS command-line interface
