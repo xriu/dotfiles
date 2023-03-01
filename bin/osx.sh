@@ -43,7 +43,7 @@ function brew_setup() {
 
     # brew install --cask docker --force # App to build and share containerized applications and microservices
     brew install --cask amazon-chime --force # Communications service
-    brew install --cask 1password # Password manager that keeps all passwords secure behind one password
+    brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask ccleaner --force # Remove junk and unused files
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
@@ -64,6 +64,7 @@ function brew_setup() {
     brew install --cask temurin18 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-Code --force # Open-source code editor
     brew install --cask leapp --force # Cloud credentials manager
+    brew install --cask canva --force # Design tool
     brew install --cask zoom --force # Video communication and virtual meeting platform
     # brew install --cask whatsapp --force # Desktop client for WhatsApp
 
