@@ -42,44 +42,41 @@ function brew_setup() {
     softwareupdate --install-rosetta --agree-to-license
 
     # brew install --cask docker --force # App to build and share containerized applications and microservices
-    brew install --cask amazon-chime --force # Communications service
+    # brew install --cask whatsapp --force # Desktop client for WhatsApp
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
+    brew install --cask amazon-chime --force # Communications service
+    brew install --cask arc --force # Chromium based browser
+    brew install --cask canva --force # Design tool
     brew install --cask ccleaner --force # Remove junk and unused files
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask discord --force # Voice and text chat software
+    brew install --cask figma --force # Collaborative team software
     brew install --cask google-chrome --force # Web browser
     brew install --cask insomnia --force # HTTP and GraphQL Client
     brew install --cask iterm2 --force # Terminal emulator as alternative to Apple's Terminal app
+    brew install --cask leapp --force # Cloud credentials manager
     brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
     brew install --cask rectangle --force # Move and resize windows using keyboard shortcuts or snap areas
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask slack --force # Team communication and collaboration software
     brew install --cask spotify --force # Music streaming service
-    brew install --cask figma --force # Collaborative team software
     brew install --cask stats --force # System monitor for the menu bar
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin11 --force # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask microsoft-remote-desktop # Remote desktop client
     brew install --cask temurin17 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin18 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-Code --force # Open-source code editor
-    brew install --cask leapp --force # Cloud credentials manager
-    brew install --cask canva --force # Design tool
-    brew install --cask arc --force # Chromium based browser
     brew install --cask zoom --force # Video communication and virtual meeting platform
-    # brew install --cask whatsapp --force # Desktop client for WhatsApp
 
     # brew install lacework/tap/lacework-cli
-    brew install newrelic-cli # Command-line interface for New Relic
-    brew install switchaudio-osx # Change macOS audio source from the command-line
+    # brew install newrelic-cli # Command-line interface for New Relic
     brew install angular-cli # CLI tool for Angular
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
     brew install bash-completion # Programmable completion for Bash 4.2+
     brew install cmake # Cross-platform make
-    brew install protobuf # Protocol buffers (Google's data interchange format)
-    brew install rust # Safe, concurrent, practical language
-    brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install colima # Container runtimes on MacOS (and Linux) with minimal setup
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install dive # Tool for exploring each layer in a docker image
@@ -87,10 +84,8 @@ function brew_setup() {
     brew install docker-compose # Isolated development environments using Docker
     brew install docker-slim # Minify and secure Docker images
     brew install eslint # AST-based pattern checker for JavaScript
-    brew install --cask microsoft-remote-desktop # Remote desktop client
     brew install findutils # Collection of GNU find, xargs, and locate
     brew install git # Distributed revision control system
-    brew install maven # Java-based project management
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
     brew install gradle-completion # Bash and Zsh completion for Gradle
     brew install grep # GNU grep, egrep and fgrep
@@ -99,10 +94,15 @@ function brew_setup() {
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
     brew install mas # Mac App Store command-line interface
+    brew install maven # Java-based project management
     brew install nvm # Manage multiple Node.js versions
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
+    brew install protobuf # Protocol buffers (Google's data interchange format)
+    brew install python@3.10 # Interpreted, interactive, object-oriented programming language
+    brew install rust # Safe, concurrent, practical language
     brew install serverless # Build applications with serverless architectures
     brew install svn # Bidirectional operation between a Subversion repository and Git
+    brew install switchaudio-osx # Change macOS audio source from the command-line
     brew install vim # Vi 'workalike' with many additional features
     brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install wget # Internet file retriever
