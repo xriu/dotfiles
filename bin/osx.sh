@@ -65,6 +65,7 @@ function brew_setup() {
     brew install --cask visual-studio-Code --force # Open-source code editor
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask canva --force # Design tool
+    brew install --cask arc --force # Chromium based browser
     brew install --cask zoom --force # Video communication and virtual meeting platform
     # brew install --cask whatsapp --force # Desktop client for WhatsApp
 
