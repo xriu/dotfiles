@@ -41,17 +41,13 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask docker --force # App to build and share containerized applications and microservices
-    # brew install --cask whatsapp --force # Desktop client for WhatsApp
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask amazon-chime --force # Communications service
     brew install --cask arc --force # Chromium based browser
-    brew install --cask canva --force # Design tool
     brew install --cask ccleaner --force # Remove junk and unused files
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask discord --force # Voice and text chat software
-    brew install --cask figma --force # Collaborative team software
     brew install --cask google-chrome --force # Web browser
     brew install --cask insomnia --force # HTTP and GraphQL Client
     brew install --cask iterm2 --force # Terminal emulator as alternative to Apple's Terminal app
