@@ -73,6 +73,7 @@ function brew_setup() {
     brew install cmake # Cross-platform make
     brew install colima # Container runtimes on MacOS (and Linux) with minimal setup
     brew install coreutils # GNU File, Shell, and Text utilities
+    brew install leapp-cli # Cloud credentials manager cli
     brew install dive # Tool for exploring each layer in a docker image
     brew install docker # Pack, ship and run any application as a lightweight container
     brew install docker-compose # Isolated development environments using Docker
