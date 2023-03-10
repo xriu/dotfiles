@@ -113,7 +113,6 @@ function brew_setup() {
     brew install font-fira-code
     brew install font-fira-mono
     brew install font-fira-mono-for-powerline
-
 }
 
 # Yarn install packages
