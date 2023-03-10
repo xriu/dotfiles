@@ -66,8 +66,6 @@ function brew_setup() {
     brew install --cask visual-studio-Code --force # Open-source code editor
     brew install --cask zoom --force # Video communication and virtual meeting platform
 
-    # brew install lacework/tap/lacework-cli
-    # brew install newrelic-cli # Command-line interface for New Relic
     brew install angular-cli # CLI tool for Angular
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
