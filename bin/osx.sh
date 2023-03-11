@@ -131,6 +131,7 @@ function mac_setup() {
 
     echo "JENV set java virtual machines"
     jenv add /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
+    jenv add /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
     jenv add /Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home
 
     echo "Remove big default apps"
