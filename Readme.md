@@ -39,7 +39,9 @@ nvm use system
 ```
 jenv add $(/usr/libexec/java_home)
 jenv add /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
+jenv add /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
 jenv add /Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home
+jenv add /Library/Java/JavaVirtualMachines/temurin-20.jdk/Contents/Home
 ```
 
 ---

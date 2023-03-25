@@ -48,7 +48,6 @@ function brew_setup() {
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask discord --force # Voice and text chat software
-    brew install --cask google-chrome --force # Web browser
     brew install --cask insomnia --force # HTTP and GraphQL Client
     brew install --cask iterm2 --force # Terminal emulator as alternative to Apple's Terminal app
     brew install --cask leapp --force # Cloud credentials manager
@@ -62,6 +61,7 @@ function brew_setup() {
     brew install --cask temurin11 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin17 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin18 --force # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask temurin20 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-Code --force # Open-source code editor
     brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask microsoft-remote-desktop # Remote desktop client
@@ -76,7 +76,6 @@ function brew_setup() {
     brew install leapp-cli # Cloud credentials manager cli
     brew install dive # Tool for exploring each layer in a docker image
     brew install docker # Pack, ship and run any application as a lightweight container
-    brew install docker-compose # Isolated development environments using Docker
     brew install docker-slim # Minify and secure Docker images
     brew install eslint # AST-based pattern checker for JavaScript
     brew install findutils # Collection of GNU find, xargs, and locate
@@ -133,6 +132,7 @@ function mac_setup() {
     jenv add /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
     jenv add /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
     jenv add /Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home
+    jenv add /Library/Java/JavaVirtualMachines/temurin-20.jdk/Contents/Home
 
     echo "Remove big default apps"
     sudo rm -rf /Applications/GarageBand.app
