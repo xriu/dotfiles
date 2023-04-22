@@ -61,7 +61,6 @@ function brew_setup() {
     brew install --cask temurin11 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin17 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin18 --force # JDK from the Eclipse Foundation (Adoptium)
-    brew install --cask temurin20 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-Code --force # Open-source code editor
     brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask microsoft-remote-desktop # Remote desktop client
