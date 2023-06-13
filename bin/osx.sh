@@ -65,6 +65,7 @@ function brew_setup() {
     brew install --cask visual-studio-code-insiders --force # Open-source code editor
     brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask microsoft-remote-desktop # Remote desktop client
+    # brew install --cask orbstack # Replacement for Docker Desktop
 
     brew install angular-cli # CLI tool for Angular
     brew install awscli # Official Amazon AWS command-line interface
