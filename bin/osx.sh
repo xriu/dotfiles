@@ -50,7 +50,9 @@ function brew_setup() {
     brew install --cask insomnia --force # HTTP and GraphQL Client
     brew install --cask iterm2 --force # Terminal emulator as alternative to Apple's Terminal app
     brew install --cask leapp --force # Cloud credentials manager
+    brew install --cask microsoft-remote-desktop # Remote desktop client
     brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
+    brew install --cask orbstack # Replacement for Docker Desktop
     brew install --cask rectangle --force # Move and resize windows using keyboard shortcuts or snap areas
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask slack --force # Team communication and collaboration software
@@ -63,23 +65,19 @@ function brew_setup() {
     brew install --cask visual-studio-code --force # Open-source code editor
     brew install --cask visual-studio-code-insiders --force # Open-source code editor
     brew install --cask zoom --force # Video communication and virtual meeting platform
-    brew install --cask microsoft-remote-desktop # Remote desktop client
-    brew install --cask orbstack # Replacement for Docker Desktop
-    # brew install --cask discord --force # Voice and text chat software
 
     brew install angular-cli # CLI tool for Angular
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
     brew install bash-completion # Programmable completion for Bash 4.2+
     brew install cmake # Cross-platform make
-    brew install gh # GitHub command-line tool
     brew install coreutils # GNU File, Shell, and Text utilities
-    brew install leapp-cli # Cloud credentials manager cli
     brew install dive # Tool for exploring each layer in a docker image
     brew install docker # Pack, ship and run any application as a lightweight container
     brew install docker-slim # Minify and secure Docker images
     brew install eslint # AST-based pattern checker for JavaScript
     brew install findutils # Collection of GNU find, xargs, and locate
+    brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
     brew install gradle-completion # Bash and Zsh completion for Gradle
@@ -88,6 +86,7 @@ function brew_setup() {
     brew install htop # Improved top (interactive process viewer)
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
+    brew install leapp-cli # Cloud credentials manager cli
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
     brew install nvm # Manage multiple Node.js versions
@@ -104,7 +103,6 @@ function brew_setup() {
     brew install yarn # JavaScript package manager
     brew install z # Tracks most-used directories to make cd smarter
     brew install zsh # UNIX shell (command interpreter)
-    # brew install colima # Container runtimes on MacOS (and Linux) with minimal setup
 
     # brew install openjdk # Development kit for the Java programming language
     # brew install openssl # Cryptography and SSL/TLS Toolkit
