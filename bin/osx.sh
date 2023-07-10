@@ -70,6 +70,7 @@ function brew_setup() {
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
     brew install bash-completion # Programmable completion for Bash 4.2+
+    brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install dive # Tool for exploring each layer in a docker image
@@ -100,13 +101,12 @@ function brew_setup() {
     brew install vim # Vi 'workalike' with many additional features
     brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install wget # Internet file retriever
-    brew install yarn # JavaScript package manager
     brew install z # Tracks most-used directories to make cd smarter
     brew install zsh # UNIX shell (command interpreter)
-brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
 
     # brew install openjdk # Development kit for the Java programming language
     # brew install openssl # Cryptography and SSL/TLS Toolkit
+    # brew install yarn # JavaScript package manager
 
     # Fonts
     brew install font-fira-code
