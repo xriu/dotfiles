@@ -21,6 +21,7 @@ function install_osx_packages() {
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
+    brew tap oven-sh/bun
 
     brew_setup
     yarn_setup
@@ -102,6 +103,7 @@ function brew_setup() {
     brew install yarn # JavaScript package manager
     brew install z # Tracks most-used directories to make cd smarter
     brew install zsh # UNIX shell (command interpreter)
+brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
 
     # brew install openjdk # Development kit for the Java programming language
     # brew install openssl # Cryptography and SSL/TLS Toolkit
