@@ -106,7 +106,6 @@ function brew_setup() {
 
     # brew install openjdk # Development kit for the Java programming language
     # brew install openssl # Cryptography and SSL/TLS Toolkit
-    # brew install yarn # JavaScript package manager
 
     # Fonts
     brew install font-fira-code
