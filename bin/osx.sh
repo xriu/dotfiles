@@ -24,7 +24,6 @@ function install_osx_packages() {
     brew tap oven-sh/bun
 
     brew_setup
-    yarn_setup
     mac_setup
     prezto_setup
     zsh_setup
@@ -55,7 +54,7 @@ function brew_setup() {
     brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask raycast --force # Control your tools with a few keystrokes
-    brew install --cask rectangle --force # Move and resize windows using keyboard shortcuts or snap areas
+    # brew install --cask rectangle --force # Move and resize windows using keyboard shortcuts or snap areas
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask slack --force # Team communication and collaboration software
     brew install --cask spotify --force # Music streaming service
@@ -112,14 +111,6 @@ function brew_setup() {
     brew install font-fira-code
     brew install font-fira-mono
     brew install font-fira-mono-for-powerline
-}
-
-# Yarn install packages
-function yarn_setup() {
-
-    echo "Yarn install packages"
-    # yarn global add nodemon
-
 }
 
 # Prepare mac
