@@ -51,9 +51,10 @@ function brew_setup() {
     brew install --cask insomnia --force # HTTP and GraphQL Client
     brew install --cask iterm2 --force # Terminal emulator as alternative to Apple's Terminal app
     brew install --cask leapp --force # Cloud credentials manager
-    brew install --cask microsoft-remote-desktop # Remote desktop client
+    brew install --cask microsoft-remote-desktop --force # Remote desktop client
     brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
-    brew install --cask orbstack # Replacement for Docker Desktop
+    brew install --cask orbstack --force # Replacement for Docker Desktop
+    brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask rectangle --force # Move and resize windows using keyboard shortcuts or snap areas
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask slack --force # Team communication and collaboration software
