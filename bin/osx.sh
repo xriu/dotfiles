@@ -54,7 +54,6 @@ function brew_setup() {
     brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask raycast --force # Control your tools with a few keystrokes
-    # brew install --cask rectangle --force # Move and resize windows using keyboard shortcuts or snap areas
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask slack --force # Team communication and collaboration software
     brew install --cask spotify --force # Music streaming service
@@ -66,6 +65,8 @@ function brew_setup() {
     brew install --cask visual-studio-code --force # Open-source code editor
     brew install --cask zoom --force # Video communication and virtual meeting platform
 
+    # brew install openjdk # Development kit for the Java programming language
+    # brew install openssl # Cryptography and SSL/TLS Toolkit
     brew install angular-cli # CLI tool for Angular
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
@@ -103,9 +104,6 @@ function brew_setup() {
     brew install wget # Internet file retriever
     brew install z # Tracks most-used directories to make cd smarter
     brew install zsh # UNIX shell (command interpreter)
-
-    # brew install openjdk # Development kit for the Java programming language
-    # brew install openssl # Cryptography and SSL/TLS Toolkit
 
     # Fonts
     brew install font-fira-code
