@@ -96,6 +96,7 @@ function brew_setup() {
     brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install rust # Safe, concurrent, practical language
+    brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
     brew install serverless # Build applications with serverless architectures
     brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install switchaudio-osx # Change macOS audio source from the command-line
