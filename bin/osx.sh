@@ -22,6 +22,7 @@ function install_osx_packages() {
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
     brew tap oven-sh/bun
+    brew tap databricks/tap
 
     brew_setup
     mac_setup
@@ -74,6 +75,7 @@ function brew_setup() {
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
+    brew install databricks # Databricks CLI
     brew install dive # Tool for exploring each layer in a docker image
     brew install docker # Pack, ship and run any application as a lightweight container
     brew install docker-slim # Minify and secure Docker images
