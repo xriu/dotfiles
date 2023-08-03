@@ -50,8 +50,13 @@ export PATH="$HOME/bin:$PATH"
 # Zsh theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Bash completion
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+# Zsh completion
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
+fi
 
 # To enable shims and autocompletion add to your profile:
 if which jenv > /dev/null; then eval "$(jenv init - --no-rehash)"; fi
