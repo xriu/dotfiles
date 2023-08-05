@@ -42,6 +42,7 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
+    # brew install --cask discord --force # Voice and text chat software
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask amazon-chime --force # Communications service
     brew install --cask arc --force # Chromium based browser
