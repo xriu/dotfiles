@@ -10,6 +10,62 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+cexec() {
+    echo ""
+    echo -e " 🟢 \e[32m $@ \e[0m "
+    echo ""
+    "$@"
+}
+
+fexec() {
+    echo ""
+    echo -e " 🔴 \e[31m $@ \e[0m "
+    echo ""
+}
+
+tfinit() {
+    ENV=${1}
+    TF_VARS=$(find "." -type f -name "${ENV}.tfvars")
+    TF_BACKEND=$(find "." -type f -name "${ENV}.tfbackend")
+
+    # Check if terraform configuration exists
+    if [[ ! -e "terraform.tf" ]]; then
+        fexec "ERROR: Terraform configuration NOT found!"
+        return 1
+    elif [[ -z "${ENV}" ]] && [[ -d "environment" ]]; then
+        fexec "ERROR: Environment NOT specified!"
+        return 1
+    elif [[ -n ${ENV} ]] && [[ -z ${TF_VARS} ]]; then
+        fexec "ERROR: ${ENV}.tfvars NOT found!"
+        return 1
+    else
+        # Remove Terraform Cache
+        cexec rm -fR .terraform
+        cexec rm -f .terraform.lock.hcl
+        cexec tfswitch # Init Tfswitch
+    fi
+
+    # Terraform Init
+    if [[ "${TF_BACKEND}" == *"tfbackend"* ]]; then
+        TF_VARS=${TF_BACKEND//tfbackend/tfvars}
+        cexec terraform init -upgrade -reconfigure -backend-config="${TF_BACKEND}" -var-file="${TF_VARS}"
+    elif [[ "${TF_VARS}" == *"tfvars"* ]]; then
+        cexec terraform init -upgrade -reconfigure -var-file="${TF_VARS}"
+    else
+        cexec terraform init -upgrade -reconfigure
+    fi
+
+    # Terraform Workspace List
+    cexec terraform workspace list
+
+    # Terraform Workspace Select
+    if [[ "$(pwd)" == *"base"* ]]; then
+        cexec terraform workspace select default
+    else
+        cexec terraform workspace select ${ENV}
+    fi
+}
+
 ssm() {
     ID=${1}
     REGION=${2:-'eu-west-1'}
