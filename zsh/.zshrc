@@ -25,8 +25,9 @@ fexec() {
 
 tfinit() {
     ENV=${1}
-    TF_VARS=$(find "." -type f -name "${ENV}.tfvars")
-    TF_BACKEND=$(find "." -type f -name "${ENV}.tfbackend")
+    REGION=${2:-'eu-west-1'}
+    TF_VARS=$(find "." -type f -name "${ENV}.tfvars" | grep -i "${REGION}")
+    TF_BACKEND=$(find "." -type f -name "${ENV}.tfbackend" | grep -i "${REGION}")
 
     # Check if terraform configuration exists
     if [[ ! -e "terraform.tf" ]]; then
