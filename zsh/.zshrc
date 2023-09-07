@@ -33,7 +33,7 @@ tfinit() {
     TF_VARS=$(echo ${L_VARS} | grep -i ${REGION} || echo ${L_VARS})
     TF_BACKEND=$(echo ${L_BACKEND} | grep -i ${REGION} || echo ${L_BACKEND})
 
-    # Check if terraform configuration exists
+    # Check if Terraform configuration exists
     if [[ ! -e "terraform.tf" ]]; then
         fexec "ERROR: Terraform configuration NOT found!"
         return 1
