@@ -71,6 +71,22 @@ tfinit() {
     fi
 }
 
+tfapply() {
+    ENV=${1}
+    REGION=${2:-'eu-west-1'}
+
+    # Find Terraform configuration files
+    L_VARS=$(find "." -type f -name "${ENV}.tfvars")
+    TF_VARS=$(echo ${L_VARS} | grep -i ${REGION} || echo ${L_VARS})
+
+    # Terraform Apply
+    if [[ "${TF_VARS}" == *"tfvars"* ]]; then
+        cexec terraform apply -var-file="${TF_VARS}"
+    else
+        cexec terraform apply
+    fi
+}
+
 ssm() {
     ID=${1}
     REGION=${2:-'eu-west-1'}
