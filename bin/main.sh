@@ -42,6 +42,7 @@ function common_configuration() {
     git config --global merge.tool vimdiff
     git config --global mergetool.prompt false
     git config --global url."git@github.com:".insteadOf "https://github.com/"
+    git config --global --add --bool push.autoSetupRemote true
 
     # Configuration file for ssh
     if [ ! -f ~/.ssh/config ]; then

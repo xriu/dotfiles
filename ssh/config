@@ -3,8 +3,8 @@
 PubkeyAcceptedKeyTypes +ssh-rsa
 
 Host github.com
-    # User YOUR_EMAIL
-    IdentityFile ~/.ssh/id_github
+  # User [YOUR_EMAIL]
+  IdentityFile ~/.ssh/id_github
 
 Host i-* mi-* ip-*
   IdentityFile ~/.ssh/id_rsa
@@ -13,19 +13,20 @@ Host i-* mi-* ip-*
   LogLevel QUIET
 
 Host *
-    # User xrl
-    # Always use SSH2
-    Protocol 2
+  # User xrl
 
-    # Use a shared channel for all sessions to the same host,
-    # instead of always opening a new one. This leads to much
-    # quicker connection times.
-    # ControlMaster auto
-    # ControlPath ~/.ssh/control/%r@%h:%p
-    # ControlPersist 1800
-    # To avoid disconnects
+  # Always use SSH2.
+  Protocol 2
 
-    Compression yes
-    TCPKeepAlive yes
-    ServerAliveInterval 20
-    ServerAliveCountMax 10
+  # Use a shared channel for all sessions to the same host,
+  # instead of always opening a new one. This leads to much
+  # quicker connection times.
+  # ControlMaster auto
+  # ControlPath ~/.ssh/control/%r@%h:%p
+  # ControlPersist 1800
+
+  # To avoid disconnects
+  Compression yes
+  TCPKeepAlive yes
+  ServerAliveInterval 20
+  ServerAliveCountMax 10
