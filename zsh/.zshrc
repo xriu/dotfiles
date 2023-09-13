@@ -127,6 +127,9 @@ export PATH="$HOME/bin:$PATH"
 # Zsh theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# Load Angular CLI autocompletion.
+# source <(ng completion script)
+
 # Zsh completion
 if type brew &>/dev/null
 then
