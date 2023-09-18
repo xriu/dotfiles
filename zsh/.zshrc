@@ -71,19 +71,28 @@ tfinit() {
     fi
 }
 
+tfplan() {
+    tfchanges plan ${1} ${2}
+}
+
 tfapply() {
-    ENV=${1}
-    REGION=${2:-'eu-west-1'}
+    tfchanges apply ${1} ${2}
+}
+
+tfchanges() {
+    METHOD=${1:-'plan'}
+    ENV=${2}
+    REGION=${3:-'eu-west-1'}
 
     # Find Terraform configuration files
     L_VARS=$(find "." -type f -name "${ENV}.tfvars")
     TF_VARS=$(echo ${L_VARS} | grep -i ${REGION} || echo ${L_VARS})
 
-    # Terraform Apply
+    # Terraform Plan/Apply
     if [[ "${TF_VARS}" == *"tfvars"* ]]; then
-        cexec terraform apply -var-file="${TF_VARS}"
+        cexec terraform ${METHOD} -var-file="${TF_VARS}"
     else
-        cexec terraform apply
+        cexec terraform ${METHOD}
     fi
 }
 
