@@ -51,7 +51,6 @@ function brew_setup() {
     brew install --cask ccleaner --force # Remove junk and unused files
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
-    brew install --cask insomnia --force # HTTP and GraphQL Client
     brew install --cask iterm2 --force # Terminal emulator as alternative to Apple's Terminal app
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask microsoft-remote-desktop --force # Remote desktop client
