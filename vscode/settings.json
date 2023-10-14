@@ -98,7 +98,7 @@
     {
       "default": false,
       "name": "JavaSE-20",
-      "path": "/Library/Java/JavaVirtualMachines/temurin-20.jdk/Contents/Home"
+      "path": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
     }
   ],
   "java.configuration.updateBuildConfiguration": "interactive",

@@ -123,7 +123,7 @@ export TERM="xterm-256color"
 export LC_ALL=$LANG
 export GPG_TTY=$TTY
 export DOCKER_EXTERNAL_IP=`ipconfig getifaddr en0`
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-20.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
 
 # Path
 export PATH="/usr/bin:$PATH"
