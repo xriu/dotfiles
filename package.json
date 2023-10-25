@@ -5,7 +5,5 @@
   "repository": "git@github.com:xriu/dotfiles.git",
   "author": "Xavier Riu <xriu87@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "serverless": "3.35.2"
-  }
+  "devDependencies": {}
 }
