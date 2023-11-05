@@ -84,4 +84,5 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 # Dock                                                                        #
 ###############################################################################
 
-defaults write com.apple.dock workspaces-auto-swoosh -bool FALSE
+defaults write com.apple.dock workspaces-auto-swoosh -bool false
+defaults write com.apple.dock mru-spaces -bool false
