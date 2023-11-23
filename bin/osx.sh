@@ -89,6 +89,7 @@ function brew_setup() {
     brew install grep # GNU grep, egrep and fgrep
     brew install hadolint # Smarter Dockerfile linter to validate best practices
     brew install btop # Improved top (interactive process viewer)
+    brew install tldr # Simplified and community-driven man pages
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
     brew install leapp-cli # Cloud credentials manager cli
