@@ -51,6 +51,7 @@ function brew_setup() {
     brew install --cask ccleaner --force # Remove junk and unused files
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
+    brew install --cask httpie --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask iterm2 --force # Terminal emulator as alternative to Apple's Terminal app
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask microsoft-remote-desktop --force # Remote desktop client
@@ -73,6 +74,7 @@ function brew_setup() {
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
     brew install bash-completion # Programmable completion for Bash 4.2+
+    brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
@@ -88,8 +90,6 @@ function brew_setup() {
     brew install gradle-completion # Bash and Zsh completion for Gradle
     brew install grep # GNU grep, egrep and fgrep
     brew install hadolint # Smarter Dockerfile linter to validate best practices
-    brew install btop # Improved top (interactive process viewer)
-    brew install tldr # Simplified and community-driven man pages
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
     brew install leapp-cli # Cloud credentials manager cli
@@ -104,6 +104,7 @@ function brew_setup() {
     brew install serverless # Build applications with serverless architectures
     brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install switchaudio-osx # Change macOS audio source from the command-line
+    brew install tldr # Simplified and community-driven man pages
     brew install vim # Vi 'workalike' with many additional features
     brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install wget # Internet file retriever
