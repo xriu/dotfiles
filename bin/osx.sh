@@ -42,11 +42,7 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask discord --force # Voice and text chat software (Replaced with Arc)
-    # brew install --cask slack --force # Team communication and collaboration software (Replaced with Arc)
-    # brew install --cask spotify --force # Music streaming service (Replaced with Arc)
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
-    brew install --cask amazon-chime --force # Communications service
     brew install --cask arc --force # Chromium based browser
     brew install --cask ccleaner --force # Remove junk and unused files
     brew install --cask cyberduck --force # Server and cloud storage browser
