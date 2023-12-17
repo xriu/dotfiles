@@ -45,6 +45,7 @@ function brew_setup() {
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask arc --force # Chromium based browser
     brew install --cask ccleaner --force # Remove junk and unused files
+    brew install --cask codewhisperer --force # AI-powered productivity tool for the command-line
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask httpie --force # Testing client for REST, GraphQL, and HTTP APIs
