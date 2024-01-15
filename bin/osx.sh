@@ -109,6 +109,7 @@ function brew_setup() {
 
     # Fonts
     brew install font-fira-code
+    brew install font-fira-code-nerd-font
     brew install font-fira-mono
     brew install font-fira-mono-for-powerline
 }
