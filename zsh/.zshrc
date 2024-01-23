@@ -50,7 +50,7 @@ tfinit() {
         # Remove Terraform Cache
         cexec rm -fR .terragrunt-cache
         cexec rm -fR .terraform
-        cexec rm -f .terraform.lock.hcl
+        cexec rm -fR .terraform.lock.hcl
         cexec tfswitch # Init Tfswitch
     fi
 
