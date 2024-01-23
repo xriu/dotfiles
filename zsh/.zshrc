@@ -48,6 +48,7 @@ tfinit() {
         return 1
     else
         # Remove Terraform Cache
+        cexec rm -fR .terragrunt-cache
         cexec rm -fR .terraform
         cexec rm -f .terraform.lock.hcl
         cexec tfswitch # Init Tfswitch
@@ -79,7 +80,7 @@ tfplan() {
 }
 
 tfapply() {
-    tfchanges apply ${1} ${2}
+    tfchanges apply ${1} ${2} ${3}
 }
 
 tfchanges() {
@@ -94,9 +95,17 @@ tfchanges() {
 
     # Terraform Plan/Apply
     if [[ "${TF_VARS}" == *"tfvars"* ]]; then
-        cexec terraform ${METHOD} -var-file="${TF_VARS}"
+        if [[ "${AUTO_APPROVE}" == "-auto-approve" ]]; then
+            cexec terraform ${METHOD} -var-file="${TF_VARS}" -auto-approve
+        else
+            cexec terraform ${METHOD} -var-file="${TF_VARS}"
+        fi
     else
-        cexec terraform ${METHOD}
+        if [[ "${AUTO_APPROVE}" == "-auto-approve" ]]; then
+            cexec terraform ${METHOD} -auto-approve
+        else
+            cexec terraform ${METHOD}
+        fi
     fi
 }
 
