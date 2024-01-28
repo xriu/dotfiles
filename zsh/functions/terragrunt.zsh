@@ -10,9 +10,9 @@ tginit() {
 }
 
 tgplan() {
-    cexec terragrunt plan
+    cexec terragrunt run-all plan
 }
 
 tgapply() {
-    cexec terragrunt apply
+    cexec terragrunt run-all apply
 }
