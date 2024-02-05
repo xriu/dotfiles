@@ -48,7 +48,6 @@ function brew_setup() {
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask httpie --force # Testing client for REST, GraphQL, and HTTP APIs
-    brew install --cask iterm2 --force # Terminal emulator as alternative to Apple's Terminal app
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask microsoft-remote-desktop --force # Remote desktop client
     brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
