@@ -42,8 +42,8 @@ function brew_setup() {
     softwareupdate --install-rosetta --agree-to-license
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
+    brew install --cask appcleaner --force # Application uninstaller
     brew install --cask arc --force # Chromium based browser
-    brew install --cask ccleaner --force # Remove junk and unused files
     brew install --cask codewhisperer --force # AI-powered productivity tool for the command-line
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
@@ -51,6 +51,7 @@ function brew_setup() {
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask microsoft-remote-desktop --force # Remote desktop client
     brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
+    brew install --cask onyx --force # Multifunction utility for macOS
     brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask raycast --force # Control your tools with a few keystrokes
