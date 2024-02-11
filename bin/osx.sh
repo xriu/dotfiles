@@ -17,16 +17,16 @@ function install_osx_packages() {
     brew update
 
     # Caskroom
+    brew tap oven-sh/bun
+    brew tap databricks/tap
     brew tap homebrew/cask
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-fonts
-    brew tap oven-sh/bun
-    brew tap databricks/tap
 
     brew_setup
     mac_setup
-    prezto_setup
     zsh_setup
+    # prezto_setup
 
     # Cleanup
     brew cleanup
@@ -72,6 +72,7 @@ function brew_setup() {
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
     brew install bash-completion # Programmable completion for Bash 4.2+
+    brew install bat # Clone of cat(1) with syntax highlighting and Git integration
     brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
     brew install cmake # Cross-platform make
@@ -103,7 +104,9 @@ function brew_setup() {
     brew install switchaudio-osx # Change macOS audio source from the command-line
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
     brew install tldr # Simplified and community-driven man pages
+    brew install tree # Display directories as trees (with optional color/HTML output)
     brew install vim # Vi 'workalike' with many additional features
+    brew install vivid # Generator for LS_COLORS with support for multiple color themes
     brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install wget # Internet file retriever
     brew install z # Tracks most-used directories to make cd smarter
@@ -156,7 +159,6 @@ function prezto_setup() {
     ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile ~/.zprofile
     ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshenv ~/.zshenv
     ln -sf ~/dotfiles/zsh/.zpreztorc ~/.zpreztorc
-    ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
 
   fi
 
@@ -165,6 +167,11 @@ function prezto_setup() {
 function zsh_setup() {
 
     echo "Zsh install"
+
+    # Configure Zsh
+    mkdir -p ~/.config
+    ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
+    ln -sf ~/dotfiles/zsh/config/starship.toml ~/.config/starship.toml
 
     # Set Zsh as default shell
     chsh -s /bin/zsh
