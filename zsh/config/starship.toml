@@ -1,8 +1,17 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = true
-format = '$directory$git_branch$git_status$character'
-right_format = '$cmd_duration$all$time'
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$character"""
+
+right_format = """
+$cmd_duration\
+$all\
+$time"""
 
 [line_break]
 disabled = true
