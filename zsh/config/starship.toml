@@ -3,9 +3,9 @@
 add_newline = true
 
 format = """
-[](color_red)\
+[](color_green)\
 $username\
-[](fg:color_red bg:color_orange)\
+[](fg:color_green bg:color_orange)\
 $directory\
 [](fg:color_orange bg:color_blue)\
 $git_branch\
@@ -44,12 +44,12 @@ disabled = false
 
 [username]
 show_always = true
-style_user = "fg:color_fg0 bg:color_red"
-style_root = "fg:color_fg0 bg:color_red"
+style_user = "bold fg:color_fg0 bg:color_green"
+style_root = "bold fg:color_fg0 bg:color_red"
 format = '[$user ]($style)'
 
 [directory]
-style = "fg:color_fg0 bg:color_orange"
+style = "bold fg:color_fg0 bg:color_orange"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -57,8 +57,8 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "bg:color_blue"
-format = '[[ $symbol $branch ](fg:color_fg0 bg:color_blue)]($style)'
+format = '[[ $symbol $branch ](bold fg:color_fg0 bg:color_blue)]($style)'
 
 [git_status]
 style = "bg:color_aqua"
-format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
+format = '[[($all_status$ahead_behind )](bold fg:color_fg0 bg:color_aqua)]($style)'
