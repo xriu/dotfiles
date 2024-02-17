@@ -3,15 +3,34 @@
 add_newline = true
 
 format = """
+[](color_red)\
+$username\
+[](fg:color_red bg:color_orange)\
 $directory\
+[](fg:color_orange bg:color_blue)\
 $git_branch\
 $git_status\
+[ ](fg:color_blue)\
 $character"""
 
 right_format = """
 $cmd_duration\
 $all\
 $time"""
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
 
 [line_break]
 disabled = true
@@ -22,3 +41,31 @@ error_symbol = '[➜](bold red)'
 
 [time]
 disabled = false
+
+[username]
+show_always = true
+style_user = "fg:color_fg0 bg:color_red"
+style_root = "fg:color_fg0 bg:color_red"
+format = '[$user ]($style)'
+
+[directory]
+style = "fg:color_fg0 bg:color_orange"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+[git_branch]
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol $branch ](fg:color_fg0 bg:color_blue)]($style)'
+
+[git_status]
+style = "bg:color_aqua"
+format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
