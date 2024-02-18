@@ -102,6 +102,7 @@ setup_alias
 setup_export
 setup_terminal
 setup_nvm
+setup_angular
 setup_jenv
 setup_terragrunt
 setup_starship
