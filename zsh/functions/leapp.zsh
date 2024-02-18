@@ -1,9 +1,18 @@
 # Function: sso
-# Description: Performs actions on AWS Single Sign-On (SSO) sessions.
+# Description: Connects or disconnects from AWS Single Sign-On (SSO) sessions.
 # Parameters:
-#   - ACTION: The action to perform on the sessions. Default is 'start'.
+#   - ACTION: The action to perform. Defaults to 'start'.
+# Returns:
+#   - 0: If the function executes successfully.
+#   - 1: If AWS Single Sign-On (SSO) integration is not available.
 sso() {
     ACTION=${1:-'start'}
+
+    leapp integration list --columns='Type' --no-header 2>/dev/null | \
+        grep -q 'AWS-SSO' || {
+        echo "AWS Single Sign-On (SSO) integration is not available."
+        return 1
+    }
 
     sessionsAWS=$(leapp session list \
         --filter="Type=AWS Single Sign-On" \
