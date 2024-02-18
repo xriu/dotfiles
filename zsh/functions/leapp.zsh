@@ -8,6 +8,8 @@
 sso() {
     ACTION=${1:-'start'}
 
+    echo "🔍 Checking AWS Single Sign-On (SSO) integration ..."
+
     # Checks if the AWS Single Sign-On (SSO) integration is available.
     # It uses the 'leapp' command to list the integrations and filters the output
     # to check if the 'AWS-SSO' integration is present. If it is not found, it
