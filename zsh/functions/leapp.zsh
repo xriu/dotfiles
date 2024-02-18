@@ -8,6 +8,10 @@
 sso() {
     ACTION=${1:-'start'}
 
+    # Checks if the AWS Single Sign-On (SSO) integration is available.
+    # It uses the 'leapp' command to list the integrations and filters the output
+    # to check if the 'AWS-SSO' integration is present. If it is not found, it
+    # prints an error message and returns a non-zero exit code.
     leapp integration list --columns='Type' --no-header 2>/dev/null | \
         grep -q 'AWS-SSO' || {
         echo "AWS Single Sign-On (SSO) integration is not available."
@@ -20,6 +24,7 @@ sso() {
         --csv &>/dev/null | \
         awk -F ',' '$2 ~ /sre/ { print $1 }')
 
+    # Removes the first element of the 'sessions' array.
     sessions=()
     while IFS= read -r line; do
         sessions+=("$line")
