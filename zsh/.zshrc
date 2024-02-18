@@ -2,7 +2,7 @@
 setup_alias() {
     alias cat='bat'
     alias ls='gls --color'
-    alias ll='ls -alhS --group-directories-first'
+    alias ll='ls -alh --group-directories-first'
     if alias lm > /dev/null; then unalias lm; fi
 }
 
