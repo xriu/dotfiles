@@ -1,3 +1,6 @@
+# Function: tginit
+# Description: Removes Terraform cache and initializes Terragrunt.
+# Usage: tginit
 tginit() {
     # Remove Terraform Cache
     cexec rm -fR .terragrunt-cache
@@ -9,10 +12,16 @@ tginit() {
     cexec terragrunt init
 }
 
+# Function: tgplan
+# Description: Runs Terragrunt plan for all modules.
+# Usage: tgplan
 tgplan() {
     cexec terragrunt run-all plan
 }
 
+# Function: tgapply
+# Description: Runs Terragrunt apply for all modules.
+# Usage: tgapply
 tgapply() {
     cexec terragrunt run-all apply
 }

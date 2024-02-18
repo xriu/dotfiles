@@ -1,3 +1,11 @@
+# Function: tfinit
+# Description: Initializes Terraform for a specific environment and region.
+# Parameters:
+#   - ENV: The environment name.
+#   - REGION: The region name (default: 'eu-west-1').
+# Returns:
+#   - 0: Success.
+#   - 1: Error.
 tfinit() {
     ENV=${1}
     REGION=${2:-'eu-west-1'}
@@ -47,14 +55,32 @@ tfinit() {
     fi
 }
 
+# Function: tfplan
+# Description: Executes Terraform plan command with the specified environment and region.
+# Parameters:
+#   - ENV: The environment name.
+#   - REGION: The region name (default: 'eu-west-1').
 tfplan() {
     tfchanges plan ${1} ${2}
 }
 
+# Function: tfapply
+# Description: Executes Terraform apply command with the specified environment, region, and auto-approve flag.
+# Parameters:
+#   - ENV: The environment name.
+#   - REGION: The region name (default: 'eu-west-1').
+#   - AUTO_APPROVE: Flag to automatically approve changes (optional).
 tfapply() {
     tfchanges apply ${1} ${2} ${3}
 }
 
+# Function: tfchanges
+# Description: Executes Terraform plan or apply command with the specified method, environment, region, and auto-approve flag.
+# Parameters:
+#   - METHOD: The Terraform method (plan or apply, default: 'plan').
+#   - ENV: The environment name.
+#   - REGION: The region name (default: 'eu-west-1').
+#   - AUTO_APPROVE: Flag to automatically approve changes (optional).
 tfchanges() {
     METHOD=${1:-'plan'}
     ENV=${2}

@@ -1,3 +1,10 @@
+# Function: ssm
+# Description: Starts an AWS Systems Manager session to connect to an EC2 instance.
+# Parameters:
+#   - ID: The instance ID or private IP address of the EC2 instance.
+#   - REGION (optional): The AWS region where the EC2 instance is located. Default is 'eu-west-1'.
+#   - PROFILE (optional): The AWS profile to use for authentication. Default is 'default'.
+# Usage: ssm <ID> [REGION] [PROFILE]
 ssm() {
     ID=${1}
     REGION=${2:-'eu-west-1'}
