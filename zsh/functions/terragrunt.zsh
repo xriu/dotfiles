@@ -16,12 +16,12 @@ tginit() {
 # Description: Runs Terragrunt plan for all modules.
 # Usage: tgplan
 tgplan() {
-    cexec terragrunt run-all plan
+    cexec terragrunt plan
 }
 
 # Function: tgapply
 # Description: Runs Terragrunt apply for all modules.
 # Usage: tgapply
 tgapply() {
-    cexec terragrunt run-all apply
+    cexec terragrunt apply
 }
