@@ -1,11 +1,3 @@
-# Set up aliases.
-setup_alias() {
-    alias cat='bat'
-    alias ls='gls --color'
-    alias ll='ls -alh --group-directories-first'
-    if alias lm > /dev/null; then unalias lm; fi
-}
-
 # Set up environment variables for the shell.
 setup_export() {
     export LC_ALL=$LANG
@@ -59,9 +51,43 @@ setup_terragrunt() {
 }
 
 # Initializes the starship prompt for the zsh shell.
+# Starship is a minimalistic and customizable prompt for any shell.
 setup_starship() {
     eval "$(starship init zsh)"
 }
+
+# Initializes zoxide for zsh shell.
+# Zoxide is a fast directory jumper that tracks your most used directories.
+setup_zoxide() {
+    eval "$(zoxide init zsh)"
+}
+
+# Initializes the Atuin plugin for Zsh.
+# Atuin is a directory navigation tool for shells.
+setup_atuin() {
+    eval "$(atuin init zsh)"
+}
+
+# Sets up zsh-autosuggestions for the zsh shell.
+# Zsh-autosuggestions is a Fish-like autosuggestions for zsh.
+setup_zsh_autosuggestions() {
+    if type brew &>/dev/null; then
+        source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        if [[ -f "$(brew --prefix)/etc/profile.d/z.sh" ]]; then
+            . $(brew --prefix)/etc/profile.d/z.sh
+        fi
+    fi
+}
+
+# Sets up fzf for the zsh shell.
+# Fzf is a command-line fuzzy finder that can be used with any list; files, command history, etc.
+setup_fzf() {
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+}
+
+# Sets up environment variables and exports them.
+setup_export
 
 # This code block iterates over all the scripts in the directory $HOME/dotfiles/zsh/functions/
 # and sources each script. This allows the functions defined in those scripts to be available
@@ -78,31 +104,36 @@ DISABLE_UPDATE_PROMPT=true # Disable update prompts
 if type brew &>/dev/null
 then
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-    autoload -Uz compinit
-    compinit
 fi
+
+# Enable bash completion for zsh
+autoload -Uz compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
 
 # Homebrew shellenv
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Enable bash completion for zsh
-autoload -U +X bashcompinit && bashcompinit
-
 # This section sets up various aliases, exports, and configurations for the Zsh shell.
 # The following functions are called to set up the environment:
-# - setup_alias: Sets up custom aliases for commonly used commands.
-# - setup_export: Sets up environment variables and exports them.
 # - setup_terminal: Configures the terminal settings for a better visual experience.
+# - setup_fzf: Fzf is a command-line fuzzy finder that can be used with any list; files, command history, etc.
+# - setup_zsh_autosuggestions: Sets up zsh-autosuggestions for the zsh shell.
 # - setup_nvm: Sets up Node Version Manager (NVM) for managing multiple Node.js versions.
 # - setup_jenv: Sets up Java Version Manager (Jenv) for managing multiple Java versions.
 # - setup_terragrunt: Sets up Terragrunt, a thin wrapper for Terraform, for infrastructure provisioning.
 # - setup_starship: Sets up Starship, a minimalistic and customizable prompt for shells.
+# - setup_zoxide: Sets up Zoxide, a fast directory jumper that tracks your most used directories.
+# - setup_atuin: Sets up Atuin, a directory navigation tool for shells.
 
-setup_alias
-setup_export
 setup_terminal
+setup_fzf
+setup_zsh_autosuggestions
 setup_nvm
 setup_angular
 setup_jenv
 setup_terragrunt
 setup_starship
+setup_zoxide
+setup_atuin
+
+

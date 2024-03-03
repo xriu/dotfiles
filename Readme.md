@@ -8,6 +8,14 @@ cd ~/dotfiles
 ./setup.sh
 ```
 
+## FZF
+
+#### To install useful key bindings and fuzzy completion
+
+```
+/opt/homebrew/opt/fzf/install
+```
+
 ## NVM
 
 ```

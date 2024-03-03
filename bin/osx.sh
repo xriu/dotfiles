@@ -69,6 +69,7 @@ function brew_setup() {
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install angular-cli # CLI tool for Angular
+    brew install atuin # Magical shell history
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
     brew install bash-completion # Programmable completion for Bash 4.2+
@@ -80,9 +81,11 @@ function brew_setup() {
     brew install databricks # Databricks CLI
     brew install dive # Tool for exploring each layer in a docker image
     brew install docker # Pack, ship and run any application as a lightweight container
+    brew install docker-compose # Isolated development environments using Docker
     brew install docker-slim # Minify and secure Docker images
     brew install eslint # AST-based pattern checker for JavaScript
     brew install findutils # Collection of GNU find, xargs, and locate
+    brew install fzf # Command-line fuzzy finder
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
@@ -111,7 +114,9 @@ function brew_setup() {
     brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install wget # Internet file retriever
     brew install z # Tracks most-used directories to make cd smarter
+    brew install zoxide # A faster way to navigate your filesystem
     brew install zsh # UNIX shell (command interpreter)
+    brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
 
     # Fonts
     brew install font-fira-code
@@ -139,32 +144,6 @@ function mac_setup() {
 
 }
 
-# Prezto
-function prezto_setup() {
-
-  echo "Prezto install"
-
-  if [ ! -d ~/.zprezto ]; then
-
-    # Get Prezto
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-
-    # Backup zsh config if it exists
-    if [ -f ~/.zshrc ]; then
-      mv ~/.zshrc ~/.zshrc.backup
-    fi
-
-    # Create links to zsh config files
-    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogin ~/.zlogin
-    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogout ~/.zlogout
-    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile ~/.zprofile
-    ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshenv ~/.zshenv
-    ln -sf ~/dotfiles/zsh/.zpreztorc ~/.zpreztorc
-
-  fi
-
-}
-
 function zsh_setup() {
 
     echo "Zsh install"
@@ -178,3 +157,22 @@ function zsh_setup() {
     chsh -s /bin/zsh
 
 }
+
+# # Prezto
+# function prezto_setup() {
+#   echo "Prezto install"
+#   if [ ! -d ~/.zprezto ]; then
+#     # Get Prezto
+#     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+#     # Backup zsh config if it exists
+#     if [ -f ~/.zshrc ]; then
+#       mv ~/.zshrc ~/.zshrc.backup
+#     fi
+#     # Create links to zsh config files
+#     ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogin ~/.zlogin
+#     ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogout ~/.zlogout
+#     ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile ~/.zprofile
+#     ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshenv ~/.zshenv
+#     ln -sf ~/dotfiles/zsh/.zpreztorc ~/.zpreztorc
+#   fi
+# }

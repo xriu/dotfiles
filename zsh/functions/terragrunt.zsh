@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Function: tginit
 # Description: Removes Terraform cache and initializes Terragrunt.
 # Usage: tginit

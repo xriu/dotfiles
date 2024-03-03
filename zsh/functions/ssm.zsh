@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Function: ssm
 # Description: Starts an AWS Systems Manager session to connect to an EC2 instance.
 # Parameters:

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Function: sso
 # Description: Connects or disconnects from AWS Single Sign-On (SSO) sessions.
 # Parameters:

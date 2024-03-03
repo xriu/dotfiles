@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Function: tfinit
 # Description: Initializes Terraform for a specific environment and region.
 # Parameters:
