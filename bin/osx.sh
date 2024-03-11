@@ -26,7 +26,6 @@ function install_osx_packages() {
     brew_setup
     mac_setup
     zsh_setup
-    # prezto_setup
 
     # Cleanup
     brew cleanup
@@ -157,22 +156,3 @@ function zsh_setup() {
     chsh -s /bin/zsh
 
 }
-
-# # Prezto
-# function prezto_setup() {
-#   echo "Prezto install"
-#   if [ ! -d ~/.zprezto ]; then
-#     # Get Prezto
-#     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-#     # Backup zsh config if it exists
-#     if [ -f ~/.zshrc ]; then
-#       mv ~/.zshrc ~/.zshrc.backup
-#     fi
-#     # Create links to zsh config files
-#     ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogin ~/.zlogin
-#     ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zlogout ~/.zlogout
-#     ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zprofile ~/.zprofile
-#     ln -sf ${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshenv ~/.zshenv
-#     ln -sf ~/dotfiles/zsh/.zpreztorc ~/.zpreztorc
-#   fi
-# }
