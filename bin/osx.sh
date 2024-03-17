@@ -68,6 +68,7 @@ function brew_setup() {
     # brew install openjdk # Development kit for the Java programming language
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install protobuf # Protocol buffers (Google's data interchange format)
+    # brew install rustscan # Modern port scanner
     brew install angular-cli # CLI tool for Angular
     brew install atuin # Magical shell history
     brew install awscli # Official Amazon AWS command-line interface
