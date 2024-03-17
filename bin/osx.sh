@@ -64,6 +64,7 @@ function brew_setup() {
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zoom --force # Video communication and virtual meeting platform
 
+    # brew install bandwhich # Terminal bandwidth utilization tool
     # brew install openjdk # Development kit for the Java programming language
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install protobuf # Protocol buffers (Google's data interchange format)
