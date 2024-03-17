@@ -36,7 +36,7 @@ setup_nvm() {
 # Sets up jenv by initializing it and enabling the export plugin.
 # If jenv is not installed, the function does nothing.
 setup_jenv() {
-    if which jenv > /dev/null; then eval "$(jenv init - --no-rehash)"; fi
+    eval "$(jenv init - zsh)"
     eval "$(jenv enable-plugin export)"
 }
 
