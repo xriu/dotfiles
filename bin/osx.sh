@@ -59,6 +59,7 @@ function brew_setup() {
     brew install --cask temurin11 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin17 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin18 --force # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask temurin21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-code --force # Open-source code editor
     brew install --cask warp --force # Rust-based terminal
     brew install --cask zed --force # Multiplayer code editor
