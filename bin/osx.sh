@@ -45,6 +45,7 @@ function brew_setup() {
     brew install --cask arc --force # Chromium based browser
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
+    brew install --cask eqmac --force # System-wide audio equalizer
     brew install --cask httpie --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask microsoft-remote-desktop --force # Remote desktop client
