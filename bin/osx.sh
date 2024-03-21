@@ -40,6 +40,7 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
+    # brew install --cask soundsource --force # Sound control for Mac
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask arc --force # Chromium based browser
@@ -108,7 +109,6 @@ function brew_setup() {
     brew install serverless # Build applications with serverless architectures
     brew install starship # The cross-shell prompt for astronauts
     brew install svn # Bidirectional operation between a Subversion repository and Git
-    brew install switchaudio-osx # Change macOS audio source from the command-line
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
     brew install tldr # Simplified and community-driven man pages
     brew install tree # Display directories as trees (with optional color/HTML output)
