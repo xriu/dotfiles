@@ -40,7 +40,7 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask soundsource --force # Sound control for Mac
+    # brew install --cask soundsource --force # Sound control for Mac (Need Purchase)
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask arc --force # Chromium based browser
