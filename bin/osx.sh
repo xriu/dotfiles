@@ -71,7 +71,6 @@ function brew_setup() {
     # brew install openjdk # Development kit for the Java programming language
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install protobuf # Protocol buffers (Google's data interchange format)
-    # brew install rustscan # Modern port scanner
     brew install angular-cli # CLI tool for Angular
     brew install atuin # Magical shell history
     brew install awscli # Official Amazon AWS command-line interface
@@ -105,6 +104,7 @@ function brew_setup() {
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install rust # Safe, concurrent, practical language
+    brew install rustscan # Modern port scanner
     brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
     brew install serverless # Build applications with serverless architectures
     brew install starship # The cross-shell prompt for astronauts
