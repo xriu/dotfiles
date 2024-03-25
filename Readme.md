@@ -42,8 +42,8 @@ rm -rf local
 bin/lm install
 ```
 
-## Deprecated
+## VSCode workspace cleanup
 
 ```
-p10k configure
+/Users/.../Library/Application Support/Code/User
 ```

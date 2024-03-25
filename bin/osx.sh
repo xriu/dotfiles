@@ -42,6 +42,7 @@ function brew_setup() {
 
     # brew install --cask soundsource --force # Sound control for Mac (Need Purchase)
     # brew install --cask zed --force # Multiplayer code editor
+    # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask arc --force # Chromium based browser
@@ -65,7 +66,6 @@ function brew_setup() {
     brew install --cask temurin21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-code --force # Open-source code editor
     brew install --cask warp --force # Rust-based terminal
-    brew install --cask zoom --force # Video communication and virtual meeting platform
 
     # brew install bandwhich # Terminal bandwidth utilization tool
     # brew install openjdk # Development kit for the Java programming language
