@@ -40,8 +40,6 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask soundsource --force # Sound control for Mac (Need Purchase)
-    # brew install --cask zed --force # Multiplayer code editor
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
@@ -61,12 +59,12 @@ function brew_setup() {
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask stats --force # System monitor for the menu bar
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
-    brew install --cask temurin11 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin17 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin18 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-code --force # Open-source code editor
     brew install --cask warp --force # Rust-based terminal
+    brew install --cask zed --force # Multiplayer code editor
 
     # brew install bandwhich # Terminal bandwidth utilization tool
     # brew install openjdk # Development kit for the Java programming language
