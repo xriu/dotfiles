@@ -89,7 +89,7 @@ setup_fzf() {
 
 # Sets up the GitHub CLI for the zsh shell.
 setup_github_cli() {
-    echo 'eval "$(gh copilot alias -- zsh)"' >> ~/.zshrc
+    eval "$(gh copilot alias -- zsh)"
 }
 
 # Sets up environment variables and exports them.
@@ -142,4 +142,3 @@ setup_terragrunt
 setup_starship
 setup_zoxide
 setup_atuin
-
