@@ -134,7 +134,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 setup_terminal
 setup_fzf
 setup_zsh_autosuggestions
-setup_github_cli
 setup_nvm
 setup_angular
 setup_jenv
@@ -142,3 +141,4 @@ setup_terragrunt
 setup_starship
 setup_zoxide
 setup_atuin
+
