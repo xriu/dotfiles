@@ -16,6 +16,14 @@ cd ~/dotfiles
 /opt/homebrew/opt/fzf/install
 ```
 
+## Github Copilot CLI
+
+#### Execute manually for first time
+
+```
+gh copilot alias -- zsh
+```
+
 ## NVM
 
 ```
