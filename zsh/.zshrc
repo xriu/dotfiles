@@ -87,6 +87,11 @@ setup_fzf() {
     export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 }
 
+# Sets up the GitHub CLI for the zsh shell.
+setup_github_cli() {
+    echo 'eval "$(gh copilot alias -- zsh)"' >> ~/.zshrc
+}
+
 # Sets up environment variables and exports them.
 setup_export
 
@@ -129,6 +134,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 setup_terminal
 setup_fzf
 setup_zsh_autosuggestions
+setup_github_cli
 setup_nvm
 setup_angular
 setup_jenv
