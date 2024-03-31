@@ -123,6 +123,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # The following functions are called to set up the environment:
 # - setup_terminal: Configures the terminal settings for a better visual experience.
 # - setup_fzf: Fzf is a command-line fuzzy finder that can be used with any list; files, command history, etc.
+# - setup_github_cli: Sets up the GitHub CLI for the zsh shell.
 # - setup_zsh_autosuggestions: Sets up zsh-autosuggestions for the zsh shell.
 # - setup_nvm: Sets up Node Version Manager (NVM) for managing multiple Node.js versions.
 # - setup_jenv: Sets up Java Version Manager (Jenv) for managing multiple Java versions.
