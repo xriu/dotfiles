@@ -34,4 +34,5 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
+# LM internal alias
 if alias lm > /dev/null; then unalias lm; fi
