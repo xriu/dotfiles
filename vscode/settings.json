@@ -72,6 +72,8 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": false,
   "files.trimTrailingWhitespace": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
   "git.ignoreLimitWarning": true,
   "hadolint.cliOptions": [],
   "java.configuration.runtimes": [
@@ -135,6 +137,5 @@
   },
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "newUntitledFile",
-  "git.enableSmartCommit": true
+  "workbench.startupEditor": "newUntitledFile"
 }
