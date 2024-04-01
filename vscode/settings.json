@@ -1,20 +1,14 @@
 {
   "[html]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
-  "[java]": {
-    "editor.defaultFormatter": "redhat.java",
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 120,
-    "editor.wrappingIndent": "same"
-  },
   "[javascript]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
@@ -25,11 +19,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[magicpython]": {
-    "editor.defaultFormatter": "ms-python.python",
-    "editor.wordWrapColumn": 120,
-    "editor.wrappingIndent": "same"
-  },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -39,31 +28,36 @@
   },
   "[typescript]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
+      "source.fixAll.eslint": "explicit"
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
-  "aws.codeWhisperer.shareCodeWhispererContentWithAWS": false,
-  "aws.telemetry": false,
   "breadcrumbs.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.detectIndentation": false,
+  "editor.experimental.asyncTokenization": true,
   "editor.folding": true,
-  "editor.fontFamily": "FiraCode-Retina",
+  "editor.fontFamily": "FiraCodeNerdFont-Retina",
   "editor.fontLigatures": true,
   "editor.fontWeight": "300",
   "editor.formatOnSave": true,
   "editor.glyphMargin": false,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.highlightActiveBracketPair": true,
   "editor.hideCursorInOverviewRuler": true,
   "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
   "editor.overviewRulerBorder": false,
   "editor.renderLineHighlight": "none",
   "editor.renderWhitespace": "none",
+  "editor.stickyScroll.enabled": true,
   "editor.suggestSelection": "first",
   "editor.tabSize": 4,
   "explorer.confirmDelete": false,
@@ -74,17 +68,13 @@
     "*.tf": "terraform",
     "*.tfvars": "terraform"
   },
+  "files.autoSave": "afterDelay",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": false,
   "files.trimTrailingWhitespace": true,
   "git.ignoreLimitWarning": true,
   "hadolint.cliOptions": [],
   "java.configuration.runtimes": [
-    {
-      "default": false,
-      "name": "JavaSE-11",
-      "path": "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home"
-    },
     {
       "default": true,
       "name": "JavaSE-17",
@@ -105,7 +95,7 @@
   "java.errors.incompleteClasspath.severity": "ignore",
   "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
   "java.import.generatesMetadataFilesAtProjectRoot": false,
-  "java.import.gradle.java.home": "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home",
+  "java.import.gradle.java.home": "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home",
   "java.imports.gradle.wrapper.checksums": [
     {
       "allowed": true,
@@ -118,12 +108,15 @@
   "java.project.importOnFirstTimeStartup": "automatic",
   "java.saveActions.organizeImports": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "oneDarkPro.bold": true,
+  "oneDarkPro.editorTheme": "One Dark Pro Darker",
+  "oneDarkPro.vivid": true,
   "python.formatting.autopep8Args": ["--max-line-length=120"],
   "python.formatting.provider": "autopep8",
   "python.languageServer": "Pylance",
   "quarkus.tools.alwaysShowWelcomePage": false,
   "redhat.telemetry.enabled": false,
-  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "terminal.integrated.fontFamily": "FiraCodeNerdFont-Retina",
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.shellIntegration.enabled": true,
   "terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
@@ -132,10 +125,11 @@
   "window.commandCenter": true,
   "window.restoreFullscreen": true,
   "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.editor.empty.hint": "hidden",
   "workbench.editor.showIcons": false,
+  "workbench.editor.tabActionCloseVisibility": false,
   "workbench.editor.tabCloseButton": "off",
-  "workbench.editor.untitled.hint": "hidden",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
