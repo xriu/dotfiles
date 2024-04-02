@@ -133,7 +133,6 @@ function mac_setup() {
     nvm alias default system
 
     echo "JENV set java virtual machines"
-    jenv add /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
     jenv add /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
     jenv add /Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home
     jenv add /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home

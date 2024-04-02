@@ -26,7 +26,7 @@ alias dcupd='docker-compose up -d'
 alias dcdn='docker-compose down'
 
 # Brew update
-alias update='brew update; brew upgrade; brew cleanup'
+alias update='brew update; brew upgrade; brew cleanup; brew autoremove'
 
 # IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

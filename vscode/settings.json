@@ -75,6 +75,7 @@
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.ignoreLimitWarning": true,
+  "git.openRepositoryInParentFolders": "always",
   "hadolint.cliOptions": [],
   "java.configuration.runtimes": [
     {
