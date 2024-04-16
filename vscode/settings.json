@@ -44,7 +44,7 @@
   "editor.experimental.asyncTokenization": true,
   "editor.folding": true,
   "editor.fontFamily": "FiraCodeNerdFont-Retina",
-  "editor.fontLigatures": true,
+  "editor.fontLigatures": false,
   "editor.fontWeight": "300",
   "editor.formatOnSave": true,
   "editor.glyphMargin": false,
