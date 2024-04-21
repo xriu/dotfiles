@@ -66,6 +66,8 @@ function brew_setup() {
     brew install --cask warp --force # Rust-based terminal
     brew install --cask zed --force # Multiplayer code editor
 
+    # brew install switchaudio-osx # Switch the audio input/output device
+    # brew install wireguard-go # Fast, modern, secure VPN tunnel
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install angular-cli # CLI tool for Angular
