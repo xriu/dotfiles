@@ -130,7 +130,7 @@
   "terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "window.commandCenter": true,
+  "window.commandCenter": false,
   "window.restoreFullscreen": true,
   "window.titleBarStyle": "custom",
   "workbench.colorTheme": "One Dark Pro Darker",
