@@ -1,4 +1,7 @@
 {
+  "[hcl]": {
+    "editor.defaultFormatter": "jkillian.custom-local-formatters"
+  },
   "[html]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
@@ -33,6 +36,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
+  "customLocalFormatters.formatters": [
+    {
+      "command": "terraform fmt -",
+      "languages": ["hcl"]
+    }
+  ],
   "breadcrumbs.enabled": false,
   "console-ninja.featureSet": "Community",
   "diffEditor.ignoreTrimWhitespace": false,
