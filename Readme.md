@@ -49,8 +49,15 @@ rm -rf local
 bin/lm install
 ```
 
+## NX
+
+```
+pnpm add --global nx@latest
+```
+
 ## VSCode workspace cleanup
 
 ```
 /Users/.../Library/Application Support/Code/User
 ```
+

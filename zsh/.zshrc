@@ -40,6 +40,16 @@ setup_jenv() {
     eval "$(jenv enable-plugin export)"
 }
 
+# Sets up pnpm by exporting the PNPM_HOME environment variable and adding it to the PATH.
+# This allows the pnpm binary to be available in the shell session.
+setup_pnpm() {
+    export PNPM_HOME="$HOME/Library/pnpm"
+    case ":$PATH:" in
+        *":$PNPM_HOME:"*) ;;
+        *) export PATH="$PNPM_HOME:$PATH" ;;
+    esac
+}
+
 # Sets up Angular completion by sourcing the ng completion script.
 setup_angular() {
     source <(ng completion script)
@@ -126,6 +136,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # - setup_github_cli: Sets up the GitHub CLI for the zsh shell.
 # - setup_zsh_autosuggestions: Sets up zsh-autosuggestions for the zsh shell.
 # - setup_nvm: Sets up Node Version Manager (NVM) for managing multiple Node.js versions.
+# - setup_pnpm: Sets up pnpm, a fast, disk space efficient package manager.
 # - setup_jenv: Sets up Java Version Manager (Jenv) for managing multiple Java versions.
 # - setup_terragrunt: Sets up Terragrunt, a thin wrapper for Terraform, for infrastructure provisioning.
 # - setup_starship: Sets up Starship, a minimalistic and customizable prompt for shells.
@@ -137,9 +148,11 @@ setup_fzf
 setup_github_cli
 setup_zsh_autosuggestions
 setup_nvm
+setup_pnpm
 setup_angular
 setup_jenv
 setup_terragrunt
 setup_starship
 setup_zoxide
 setup_atuin
+

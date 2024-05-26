@@ -70,7 +70,6 @@ function brew_setup() {
     # brew install switchaudio-osx # Switch the audio input/output device
     # brew install wireguard-go # Fast, modern, secure VPN tunnel
     # brew install openssl # Cryptography and SSL/TLS Toolkit
-    brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install angular-cli # CLI tool for Angular
     brew install atuin # Magical shell history
     brew install awscli # Official Amazon AWS command-line interface
@@ -102,6 +101,8 @@ function brew_setup() {
     brew install maven # Java-based project management
     brew install nvm # Manage multiple Node.js versions
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
+    brew install pnpm # Fast, disk space efficient package manager
+    brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install rust # Safe, concurrent, practical language
     brew install rustscan # Modern port scanner
