@@ -58,7 +58,6 @@ function brew_setup() {
     brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask raycast --force # Control your tools with a few keystrokes
-    brew install --cask responsively --force # Web developer tool that makes responsive web development easier
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask stats --force # System monitor for the menu bar
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)

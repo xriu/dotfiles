@@ -157,5 +157,6 @@
   },
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.accessibilitySupport": "off"
 }
