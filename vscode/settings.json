@@ -48,6 +48,7 @@
     }
   ],
   "diffEditor.ignoreTrimWhitespace": false,
+  "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.cursorBlinking": "expand",
@@ -157,6 +158,5 @@
   },
   "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "newUntitledFile",
-  "editor.accessibilitySupport": "off"
+  "workbench.startupEditor": "newUntitledFile"
 }
