@@ -115,6 +115,7 @@ done
 
 DISABLE_AUTO_UPDATE=true # Disable automatic updates
 DISABLE_UPDATE_PROMPT=true # Disable update prompts
+PROMPT="${PROMPT}"$'\n'
 
 # Enables zsh completion by loading and initializing the `compinit` function.
 if type brew &>/dev/null
