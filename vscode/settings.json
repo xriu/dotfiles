@@ -1,7 +1,4 @@
 {
-  "[hcl]": {
-    "editor.defaultFormatter": "jkillian.custom-local-formatters"
-  },
   "[html]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
@@ -24,6 +21,9 @@
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[hcl]": {
+    "editor.defaultFormatter": "jkillian.custom-local-formatters"
   },
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
@@ -81,7 +81,8 @@
   "extensions.ignoreRecommendations": true,
   "files.associations": {
     "*.tf": "terraform",
-    "*.tfvars": "terraform"
+    "*.tftpl": "hcl",
+    "*.tfvars": "terraform-vars"
   },
   "files.autoSave": "afterDelay",
   "files.insertFinalNewline": true,
