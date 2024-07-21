@@ -87,6 +87,7 @@ function brew_setup() {
     brew install docker-compose # Isolated development environments using Docker
     brew install docker-slim # Minify and secure Docker images
     brew install eslint # AST-based pattern checker for JavaScript
+    brew install fd # Simple, fast and user-friendly alternative to find
     brew install findutils # Collection of GNU find, xargs, and locate
     brew install fzf # Command-line fuzzy finder
     brew install gh # GitHub command-line tool
@@ -100,6 +101,7 @@ function brew_setup() {
     brew install leapp-cli # Cloud credentials manager cli
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
+    brew install nushell # Modern shell for the GitHub era
     brew install nvm # Manage multiple Node.js versions
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pnpm # Fast, disk space efficient package manager
