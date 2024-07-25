@@ -1,4 +1,7 @@
 {
+  "[hcl]": {
+    "editor.defaultFormatter": "jkillian.custom-local-formatters"
+  },
   "[html]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
@@ -22,9 +25,6 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[hcl]": {
-    "editor.defaultFormatter": "jkillian.custom-local-formatters"
-  },
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
     "editor.formatOnSave": true
@@ -40,6 +40,7 @@
     "titleBarStyle": "hidden"
   },
   "breadcrumbs.enabled": false,
+  "CodeGPT.apiKey": "Ollama",
   "console-ninja.featureSet": "Community",
   "customLocalFormatters.formatters": [
     {
@@ -47,21 +48,6 @@
       "languages": ["hcl"]
     }
   ],
-  "files.exclude": {
-    "**/node_modules/": true,
-    "wp-includes/": true,
-    "wp-admin/": true,
-    "wp-config.*": false,
-    "xmlrpc.php": true
-  },
-  "search.exclude": {
-    "**/build": true,
-    "**/.git": true,
-    "**/node_modules": true,
-    "**/bower_components": true,
-    "**/tmp": true
-  },
-  "scm.experimental.showHistoryGraph": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
@@ -81,6 +67,7 @@
   "editor.hideCursorInOverviewRuler": true,
   "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
+  "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": "off",
   "editor.overviewRulerBorder": false,
   "editor.renderLineHighlight": "none",
@@ -99,6 +86,13 @@
     "*.tfvars": "terraform-vars"
   },
   "files.autoSave": "afterDelay",
+  "files.exclude": {
+    "**/node_modules/": true,
+    "wp-admin/": true,
+    "wp-config.*": false,
+    "wp-includes/": true,
+    "xmlrpc.php": true
+  },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": false,
   "files.trimTrailingWhitespace": true,
@@ -108,6 +102,7 @@
   "git.openRepositoryInParentFolders": "always",
   "github.copilot.editor.enableAutoCompletions": true,
   "githubPullRequests.createOnPublishBranch": "never",
+  "githubPullRequests.pullBranch": "never",
   "hadolint.cliOptions": [],
   "java.configuration.runtimes": [
     {
@@ -151,6 +146,14 @@
   "python.languageServer": "Pylance",
   "quarkus.tools.alwaysShowWelcomePage": false,
   "redhat.telemetry.enabled": false,
+  "scm.experimental.showHistoryGraph": true,
+  "search.exclude": {
+    "**/.git": true,
+    "**/bower_components": true,
+    "**/build": true,
+    "**/node_modules": true,
+    "**/tmp": true
+  },
   "terminal.external.osxExec": "warp.app",
   "terminal.integrated.env.osx": {},
   "terminal.integrated.fontFamily": "FiraCodeNerdFont-Retina",
@@ -172,7 +175,5 @@
     "*.ipynb": "jupyter-notebook"
   },
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "newUntitledFile",
-  "githubPullRequests.pullBranch": "never",
-  "editor.minimap.enabled": false
+  "workbench.startupEditor": "newUntitledFile"
 }
