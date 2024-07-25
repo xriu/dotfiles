@@ -47,6 +47,21 @@
       "languages": ["hcl"]
     }
   ],
+  "files.exclude": {
+    "**/node_modules/": true,
+    "wp-includes/": true,
+    "wp-admin/": true,
+    "wp-config.*": false,
+    "xmlrpc.php": true
+  },
+  "search.exclude": {
+    "**/build": true,
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/tmp": true
+  },
+  "scm.experimental.showHistoryGraph": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
@@ -66,7 +81,6 @@
   "editor.hideCursorInOverviewRuler": true,
   "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
-  "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": "off",
   "editor.overviewRulerBorder": false,
   "editor.renderLineHighlight": "none",
@@ -157,8 +171,8 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "newUntitledFile",
-  "githubPullRequests.pullBranch": "never"
+  "githubPullRequests.pullBranch": "never",
+  "editor.minimap.enabled": false
 }
