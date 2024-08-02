@@ -96,6 +96,10 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": false,
   "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true
+  },
   "git.confirmSync": false,
   "git.enableSmartCommit": true,
   "git.ignoreLimitWarning": true,
