@@ -165,7 +165,7 @@
   "window.commandCenter": false,
   "window.customTitleBarVisibility": "never",
   "window.restoreFullscreen": true,
-  "window.titleBarStyle": "native",
+  "window.titleBarStyle": "custom",
   "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.showIcons": false,
