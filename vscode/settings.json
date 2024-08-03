@@ -158,6 +158,7 @@
     "**/node_modules": true,
     "**/tmp": true
   },
+  "telemetry.telemetryLevel": "off",
   "terminal.external.osxExec": "warp.app",
   "terminal.integrated.env.osx": {},
   "terminal.integrated.fontFamily": "FiraCodeNerdFont-Retina",
