@@ -54,6 +54,7 @@ function brew_setup() {
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask microsoft-remote-desktop --force # Remote desktop client
     brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
+    brew install --cask nikitabobko/tap/aerospace --force # Aerospace engineering software
     brew install --cask onyx --force # Multifunction utility for macOS
     brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
     brew install --cask orbstack --force # Replacement for Docker Desktop
