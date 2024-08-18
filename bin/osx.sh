@@ -40,14 +40,14 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
+    # brew install --cask appcleaner --force # Application uninstaller
+    # brew install --cask dbeaver-community --force # Universal database tool and SQL client
     # brew install --cask gitbutler --force # Git client
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask amazon-chime --force # Unified communications service that transforms online meetings with a secure, easy-to-use application
-    brew install --cask appcleaner --force # Application uninstaller
     brew install --cask arc --force # Chromium based browser
     brew install --cask cyberduck --force # Server and cloud storage browser
-    brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask eqmac --force # System-wide audio equalizer
     brew install --cask httpie --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask intellij-idea-ce --force # IDE for Java development - community edition
@@ -68,9 +68,10 @@ function brew_setup() {
     brew install --cask warp --force # Rust-based terminal
     brew install --cask zed --force # Multiplayer code editor
 
+    # brew install ollama # Create, run, and share large language models (LLMs)
+    # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install switchaudio-osx # Switch the audio input/output device
     # brew install wireguard-go # Fast, modern, secure VPN tunnel
-    # brew install openssl # Cryptography and SSL/TLS Toolkit
     brew install angular-cli # CLI tool for Angular
     brew install atuin # Magical shell history
     brew install awscli # Official Amazon AWS command-line interface
@@ -102,7 +103,6 @@ function brew_setup() {
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
     brew install nvm # Manage multiple Node.js versions
-    brew install ollama # Create, run, and share large language models (LLMs)
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pnpm # Fast, disk space efficient package manager
     brew install protobuf # Protocol buffers (Google's data interchange format)
