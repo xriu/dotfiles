@@ -41,7 +41,6 @@ function brew_setup() {
     softwareupdate --install-rosetta --agree-to-license
 
     # brew install --cask appcleaner --force # Application uninstaller
-    # brew install --cask dbeaver-community --force # Universal database tool and SQL client
     # brew install --cask gitbutler --force # Git client
     # brew install --cask nikitabobko/tap/aerospace --force # Aerospace engineering software
     # brew install --cask zoom --force # Video communication and virtual meeting platform
@@ -49,6 +48,7 @@ function brew_setup() {
     brew install --cask amazon-chime --force # Unified communications service that transforms online meetings with a secure, easy-to-use application
     brew install --cask arc --force # Chromium based browser
     brew install --cask cyberduck --force # Server and cloud storage browser
+    brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask eqmac --force # System-wide audio equalizer
     brew install --cask httpie --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask intellij-idea-ce --force # IDE for Java development - community edition
