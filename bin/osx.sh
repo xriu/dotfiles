@@ -43,6 +43,7 @@ function brew_setup() {
     # brew install --cask appcleaner --force # Application uninstaller
     # brew install --cask dbeaver-community --force # Universal database tool and SQL client
     # brew install --cask gitbutler --force # Git client
+    # brew install --cask nikitabobko/tap/aerospace --force # Aerospace engineering software
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask amazon-chime --force # Unified communications service that transforms online meetings with a secure, easy-to-use application
@@ -54,7 +55,6 @@ function brew_setup() {
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask microsoft-remote-desktop --force # Remote desktop client
     brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
-    brew install --cask nikitabobko/tap/aerospace --force # Aerospace engineering software
     brew install --cask onyx --force # Multifunction utility for macOS
     brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
     brew install --cask orbstack --force # Replacement for Docker Desktop
@@ -159,6 +159,7 @@ function zsh_setup() {
     mkdir -p ~/.config
     ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
     ln -sf ~/dotfiles/zsh/config/starship.toml ~/.config/starship.toml
+    # ln -sf ~/dotfiles/zsh/config/aerospace.toml ~/.aerospace.toml
 
     # Set Zsh as default shell
     chsh -s /bin/zsh
