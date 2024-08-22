@@ -168,7 +168,6 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.commandCenter": false,
-  "window.customTitleBarVisibility": "never",
   "window.restoreFullscreen": true,
   "window.titleBarStyle": "custom",
   "workbench.colorTheme": "One Dark Pro Darker",
