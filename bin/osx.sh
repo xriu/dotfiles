@@ -41,12 +41,13 @@ function brew_setup() {
     softwareupdate --install-rosetta --agree-to-license
 
     # brew install --cask appcleaner --force # Application uninstaller
-    # brew install --cask gitbutler --force # Git client
+    # brew install --cask gitbutler --force # Git client for simultaneous branches on top of your existing workflow
     # brew install --cask nikitabobko/tap/aerospace --force # Aerospace engineering software
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask amazon-chime --force # Unified communications service that transforms online meetings with a secure, easy-to-use application
     brew install --cask arc --force # Chromium based browser
+    brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask eqmac --force # System-wide audio equalizer
