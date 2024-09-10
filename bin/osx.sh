@@ -22,6 +22,7 @@ function install_osx_packages() {
     brew tap homebrew/cask
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-fonts
+    brew tap zen-browser/browser https://github.com/zen-browser/desktop.git
 
     brew_setup
     mac_setup
@@ -69,6 +70,7 @@ function brew_setup() {
     brew install --cask visual-studio-code --force # Open-source code editor
     brew install --cask warp --force # Rust-based terminal
     brew install --cask zed --force # Multiplayer code editor
+    brew install --cask zen-browser --force # Firefox based browser
 
     # brew install ollama # Create, run, and share large language models (LLMs)
     # brew install openssl # Cryptography and SSL/TLS Toolkit
