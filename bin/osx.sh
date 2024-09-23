@@ -22,7 +22,6 @@ function install_osx_packages() {
     brew tap homebrew/cask
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-fonts
-    brew tap zen-browser/browser https://github.com/zen-browser/desktop.git
 
     brew_setup
     mac_setup
