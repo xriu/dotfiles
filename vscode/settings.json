@@ -1,4 +1,5 @@
 {
+  "CodeGPT.apiKey": "Ollama",
   "[hcl]": {
     "editor.defaultFormatter": "jkillian.custom-local-formatters"
   },
@@ -40,7 +41,6 @@
     "titleBarStyle": "hidden"
   },
   "breadcrumbs.enabled": false,
-  "CodeGPT.apiKey": "Ollama",
   "console-ninja.featureSet": "Community",
   "customLocalFormatters.formatters": [
     {
@@ -170,6 +170,7 @@
   "window.commandCenter": false,
   "window.restoreFullscreen": true,
   "window.titleBarStyle": "custom",
+  "workbench.activityBar.location": "top",
   "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.showIcons": false,
