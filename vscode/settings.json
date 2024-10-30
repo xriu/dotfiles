@@ -1,5 +1,4 @@
 {
-  "CodeGPT.apiKey": "Ollama",
   "[hcl]": {
     "editor.defaultFormatter": "jkillian.custom-local-formatters"
   },
@@ -37,10 +36,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
-  "apc.electron": {
-    "titleBarStyle": "hidden"
-  },
   "breadcrumbs.enabled": false,
+  "chat.commandCenter.enabled": true,
   "console-ninja.featureSet": "Community",
   "customLocalFormatters.formatters": [
     {
@@ -104,7 +101,24 @@
   "git.enableSmartCommit": true,
   "git.ignoreLimitWarning": true,
   "git.openRepositoryInParentFolders": "always",
+  "github.copilot.advanced": {
+    "enabled": true,
+    "useLocalModel": false
+  },
+  "github.copilot.chat.edits.enabled": true,
+  "github.copilot.chat.generateTests.codeLens": true,
+  "github.copilot.chat.inlineChatCompletionTrigger.enabled": true,
+  "github.copilot.chat.inlineChatHint.enabled": true,
+  "github.copilot.chat.search.semanticTextResults": true,
+  "github.copilot.chat.temporalContext.enabled": true,
+  "github.copilot.chat.testGeneration.instructions": [],
   "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": false,
+    "plaintext": false,
+    "scminput": false
+  },
   "githubPullRequests.createOnPublishBranch": "never",
   "githubPullRequests.pullBranch": "never",
   "hadolint.cliOptions": [],
@@ -167,10 +181,9 @@
   "terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "window.commandCenter": false,
+  "window.commandCenter": true,
   "window.restoreFullscreen": true,
   "window.titleBarStyle": "custom",
-  "workbench.activityBar.location": "top",
   "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.showIcons": false,
