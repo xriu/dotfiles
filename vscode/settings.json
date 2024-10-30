@@ -109,6 +109,11 @@
   "github.copilot.chat.generateTests.codeLens": true,
   "github.copilot.chat.inlineChatCompletionTrigger.enabled": true,
   "github.copilot.chat.inlineChatHint.enabled": true,
+  "github.copilot.chat.reviewSelection.instructions": [
+    {
+      "file": ".ai/code-style.md"
+    }
+  ],
   "github.copilot.chat.search.semanticTextResults": true,
   "github.copilot.chat.temporalContext.enabled": true,
   "github.copilot.chat.testGeneration.instructions": [],
@@ -184,6 +189,7 @@
   "window.commandCenter": true,
   "window.restoreFullscreen": true,
   "window.titleBarStyle": "custom",
+  "workbench.activityBar.location": "top",
   "workbench.colorTheme": "One Dark Pro Darker",
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.showIcons": false,
@@ -192,6 +198,7 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.panel.showLabels": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.sideBar.location": "right"
 }
