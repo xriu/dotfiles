@@ -62,6 +62,7 @@
   "editor.guides.bracketPairs": true,
   "editor.guides.highlightActiveBracketPair": true,
   "editor.hideCursorInOverviewRuler": true,
+  "editor.inlineSuggest.edits.experimental.enabled": true,
   "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
@@ -120,9 +121,9 @@
   "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.enable": {
     "*": true,
-    "markdown": false,
-    "plaintext": false,
-    "scminput": false
+    "markdown": true,
+    "plaintext": true,
+    "scminput": true
   },
   "githubPullRequests.createOnPublishBranch": "never",
   "githubPullRequests.pullBranch": "never",
@@ -185,7 +186,6 @@
   "terminal.integrated.shellIntegration.enabled": true,
   "terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.commandCenter": true,
   "window.restoreFullscreen": true,
   "window.titleBarStyle": "custom",
