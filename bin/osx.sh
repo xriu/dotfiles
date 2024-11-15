@@ -47,6 +47,7 @@ function brew_setup() {
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask amazon-chime --force # Unified communications service that transforms online meetings with a secure, easy-to-use application
     brew install --cask arc --force # Chromium based browser
+    brew install --cask chatgpt --force # Chat with an AI that can generate human-like responses
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
