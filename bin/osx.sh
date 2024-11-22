@@ -40,12 +40,13 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask appcleaner --force # Application uninstaller
     # brew install --cask nikitabobko/tap/aerospace --force # Aerospace engineering software
     # brew install --cask onyx --force # Multifunction utility for macOS
+    # brew install --cask webstorm --force # IDE for JavaScript development
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask amazon-chime --force # Unified communications service that transforms online meetings with a secure, easy-to-use application
+    brew install --cask appcleaner --force # Application uninstaller
     brew install --cask arc --force # Chromium based browser
     brew install --cask chatgpt --force # Chat with an AI that can generate human-like responses
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
@@ -68,7 +69,6 @@ function brew_setup() {
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-code --force # Open-source code editor
     brew install --cask warp --force # Rust-based terminal
-    brew install --cask webstorm --force # IDE for JavaScript development
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zen-browser --force # Firefox based browser
 
