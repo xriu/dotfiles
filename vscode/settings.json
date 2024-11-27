@@ -36,6 +36,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": false
   },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "breadcrumbs.enabled": false,
   "chat.commandCenter.enabled": true,
   "console-ninja.featureSet": "Community",
@@ -199,6 +202,6 @@
     "*.ipynb": "jupyter-notebook"
   },
   "workbench.panel.showLabels": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.sideBar.location": "right"
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "newUntitledFile"
 }
