@@ -39,6 +39,7 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "amazonQ.telemetry": false,
   "breadcrumbs.enabled": false,
   "chat.commandCenter.enabled": true,
   "console-ninja.featureSet": "Community",
@@ -203,6 +204,5 @@
   },
   "workbench.panel.showLabels": false,
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "newUntitledFile",
-  "amazonQ.telemetry": false
+  "workbench.startupEditor": "newUntitledFile"
 }
