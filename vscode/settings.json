@@ -203,5 +203,6 @@
   },
   "workbench.panel.showLabels": false,
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "amazonQ.telemetry": false
 }
