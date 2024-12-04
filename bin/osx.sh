@@ -52,6 +52,7 @@ function brew_setup() {
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
+    brew install --cask finch --force # Open source container development tool
     brew install --cask fleet --force # Hybrid IDE and text editor
     brew install --cask httpie --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask intellij-idea-ce --force # IDE for Java development - community edition
