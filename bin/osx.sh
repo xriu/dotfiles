@@ -40,6 +40,7 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
+    # brew install --cask arc --force # Chromium based browser
     # brew install --cask fleet --force # Hybrid IDE and text editor
     # brew install --cask nikitabobko/tap/aerospace --force # Aerospace engineering software
     # brew install --cask onyx --force # Multifunction utility for macOS
@@ -48,7 +49,6 @@ function brew_setup() {
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask amazon-chime --force # Unified communications service that transforms online meetings with a secure, easy-to-use application
     brew install --cask appcleaner --force # Application uninstaller
-    brew install --cask arc --force # Chromium based browser
     brew install --cask chatgpt --force # Chat with an AI that can generate human-like responses
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
