@@ -44,6 +44,7 @@ function brew_setup() {
     # brew install --cask fleet --force # Hybrid IDE and text editor
     # brew install --cask nikitabobko/tap/aerospace --force # Aerospace engineering software
     # brew install --cask onyx --force # Multifunction utility for macOS
+    # brew install --cask warp --force # Rust-based terminal
     # brew install --cask webstorm --force # IDE for JavaScript development
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
@@ -70,7 +71,6 @@ function brew_setup() {
     brew install --cask temurin@18 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-code --force # Open-source code editor
-    brew install --cask warp --force # Rust-based terminal
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zen-browser --force # Firefox based browser
 
