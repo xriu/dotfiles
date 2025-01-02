@@ -41,8 +41,6 @@ function brew_setup() {
     softwareupdate --install-rosetta --agree-to-license
 
     # brew install --cask arc --force # Chromium based browser
-    # brew install --cask fleet --force # Hybrid IDE and text editor
-    # brew install --cask nikitabobko/tap/aerospace --force # Aerospace engineering software
     # brew install --cask onyx --force # Multifunction utility for macOS
     # brew install --cask webstorm --force # IDE for JavaScript development
     # brew install --cask zoom --force # Video communication and virtual meeting platform
@@ -166,7 +164,6 @@ function zsh_setup() {
     mkdir -p ~/.config
     ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
     ln -sf ~/dotfiles/zsh/config/starship.toml ~/.config/starship.toml
-    # ln -sf ~/dotfiles/zsh/config/aerospace.toml ~/.aerospace.toml
 
     # Set Zsh as default shell
     chsh -s /bin/zsh
