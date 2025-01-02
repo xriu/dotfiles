@@ -71,7 +71,6 @@ function brew_setup() {
 
     # brew install ollama # Create, run, and share large language models (LLMs)
     # brew install openssl # Cryptography and SSL/TLS Toolkit
-    # brew install switchaudio-osx # Switch the audio input/output device
     # brew install wireguard-go # Fast, modern, secure VPN tunnel
     brew install angular-cli # CLI tool for Angular
     brew install atuin # Magical shell history
