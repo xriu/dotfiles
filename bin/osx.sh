@@ -137,6 +137,7 @@ function brew_setup() {
     brew install font-fira-code-nerd-font
     brew install font-fira-mono
     brew install font-fira-mono-for-powerline
+
 }
 
 # Prepare mac
