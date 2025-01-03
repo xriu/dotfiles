@@ -25,9 +25,6 @@ alias dcup='docker-compose up'
 alias dcupd='docker-compose up -d'
 alias dcdn='docker-compose down'
 
-# Brew update
-
-
 # IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
