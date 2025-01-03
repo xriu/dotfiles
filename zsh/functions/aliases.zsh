@@ -35,7 +35,9 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias bh="brew home"
 alias bi="brew install"
 alias bu="brew uninstall --zap --force"
-alias update='brew update; brew upgrade; brew cleanup; brew autoremove'
+alias bt="brew tap"
+alias btu="brew untap"
+alias update="brew update; brew upgrade; brew cleanup; brew autoremove"
 
 # LM internal alias
 if alias lm > /dev/null; then unalias lm; fi
