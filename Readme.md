@@ -61,3 +61,14 @@ pnpm add --global nx@latest
 /Users/.../Library/Application Support/Code/User
 ```
 
+## Ghostty
+
+```
+font-size = 13
+theme = GruvboxDarkHard
+background = 1C2021
+window-padding-balance = true
+window-save-state = always
+copy-on-select = clipboard
+keybind = global:º=toggle_visibility
+```
