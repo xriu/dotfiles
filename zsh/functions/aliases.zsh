@@ -16,8 +16,10 @@ alias egrep="egrep --color=auto"
 alias cat="bat"
 
 # List
-alias ls="gls --color"
-alias ll="ls -alh --group-directories-first"
+# alias ls="gls --color"
+# alias ll="ls -alh --group-directories-first"
+alias ls="lla"
+alias ll="ls -l --sort-dirs-first"
 
 # Docker shortcuts
 alias dc='docker-compose'
