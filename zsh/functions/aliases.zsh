@@ -26,13 +26,19 @@ alias dcupd='docker-compose up -d'
 alias dcdn='docker-compose down'
 
 # Brew update
-alias update='brew update; brew upgrade; brew cleanup; brew autoremove'
+
 
 # IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Brew
+alias bh="brew home"
+alias bi="brew install"
+alias bu="brew uninstall --zap --force"
+alias update='brew update; brew upgrade; brew cleanup; brew autoremove'
 
 # LM internal alias
 if alias lm > /dev/null; then unalias lm; fi
