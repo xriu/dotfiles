@@ -40,7 +40,7 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask eqmac --force # Audio player
+    # brew install --cask eqmac --force # System-wide audio equaliser
     # brew install --cask onyx --force # Multifunction utility for macOS
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
