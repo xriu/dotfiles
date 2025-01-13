@@ -40,7 +40,6 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask eqmac --force # System-wide audio equaliser
     # brew install --cask onyx --force # Multifunction utility for macOS
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
@@ -61,6 +60,7 @@ function brew_setup() {
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
+    brew install --cask soundsource --force # Sound and audio controller
     brew install --cask stats --force # System monitor for the menu bar
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@17 --force # JDK from the Eclipse Foundation (Adoptium)
