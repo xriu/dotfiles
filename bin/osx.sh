@@ -115,6 +115,7 @@ function brew_setup() {
     brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
     brew install serverless # Build applications with serverless architectures
     brew install starship # The cross-shell prompt for astronauts
+    brew install suzuki-shunsuke/tfmv/tfmv # tfmv is a CLI to rename Terraform resources
     brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
     brew install tldr # Simplified and community-driven man pages
