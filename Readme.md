@@ -73,25 +73,29 @@ copy-on-select = clipboard
 keybind = global:º=toggle_visibility
 ```
 
-## Windows
+# Dotfiles for Windows 11
 
-CloudFlare DNS
+## CloudFlare DNS
+
 ```
 1.1.1.1
 1.0.0.1
 ```
 
-# Christitus (Enable Hyper-V)
+## Christitus (Enable Hyper-V)
+
 ```
 iwr -useb https://christitus.com/win | iex
 ```
 
-# WinGet Upgrade
+## WinGet Upgrade
+
 ```
 winget upgrade
 ```
 
-# WinGet Install
+## WinGet Install
+
 ```
 winget install -e --id glzr-io.glazewm
 winget install -e --id Starship.Starship
