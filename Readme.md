@@ -105,6 +105,7 @@ winget install -e --id Microsoft.VisualStudioCode
 winget install -e --id Anysphere.Cursor
 winget install -e --id Cloudflare.Warp
 winget install -e --id Zen-Team.Zen-Browser
+winget install -e --id Discord.Discord
 winget install -e --id Microsoft.PowerToys
 winget install -e --id CPUID.HWMonitor
 winget install -e --id Guru3D.Afterburner
@@ -115,4 +116,3 @@ winget install -e --id Ventoy.Ventoy
 winget install -e --id Nvidia.GeForceApp -> ???
 winget install -e --id TechPowerUp.GPU-Z -> ???
 ```
-
