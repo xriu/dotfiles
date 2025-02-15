@@ -69,6 +69,7 @@ theme = GruvboxDarkHard
 background = 1C2021
 window-padding-balance = true
 window-save-state = always
+scrollback-limit = 4294967295
 copy-on-select = clipboard
 keybind = global:º=toggle_visibility
 ```
