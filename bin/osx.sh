@@ -120,6 +120,7 @@ function brew_setup() {
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
     brew install tldr # Simplified and community-driven man pages
     brew install tree # Display directories as trees (with optional color/HTML output)
+    brew install uv # Universal Version Manager
     brew install vim # Vi 'workalike' with many additional features
     brew install vivid # Generator for LS_COLORS with support for multiple color themes
     brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform

@@ -120,7 +120,6 @@
     }
   ],
   "github.copilot.chat.search.semanticTextResults": true,
-  "github.copilot.chat.temporalContext.enabled": true,
   "github.copilot.chat.testGeneration.instructions": [],
   "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.enable": {
@@ -204,5 +203,6 @@
   },
   "workbench.panel.showLabels": false,
   "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "github.copilot.chat.editor.temporalContext.enabled": true
 }
