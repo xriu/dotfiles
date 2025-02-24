@@ -79,6 +79,16 @@ setup_atuin() {
     eval "$(atuin init zsh)"
 }
 
+# Sets up Carapace for the zsh shell.
+# Carapace is a tool for tab completion.
+setup_carapace() {
+    if command -v carapace > /dev/null; then
+        export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+        zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+        source <(carapace _carapace)
+    fi
+}
+
 # Sets up zsh-autosuggestions for the zsh shell.
 # Zsh-autosuggestions is a Fish-like autosuggestions for zsh.
 setup_zsh_autosuggestions() {
@@ -142,6 +152,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # - setup_starship: Sets up Starship, a minimalistic and customizable prompt for shells.
 # - setup_zoxide: Sets up Zoxide, a fast directory jumper that tracks your most used directories.
 # - setup_atuin: Sets up Atuin, a directory navigation tool for shells.
+# - setup_carapace: Sets up Carapace, a tool for tab completion.
 
 setup_terminal
 setup_fzf
@@ -155,6 +166,7 @@ setup_terragrunt
 setup_starship
 setup_zoxide
 setup_atuin
+setup_carapace
 
 # End by setting the prompt for the shell.
 PROMPT="${PROMPT}"$'\n'

@@ -83,6 +83,7 @@ function brew_setup() {
     brew install bat # Clone of cat(1) with syntax highlighting and Git integration
     brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
+    brew install carapace # Carapace is a completion system for any shell
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install databricks # Databricks CLI
