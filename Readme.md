@@ -109,6 +109,7 @@ winget install -e --id Cloudflare.Warp
 winget install -e --id Zen-Team.Zen-Browser
 winget install -e --id Microsoft.PowerToys
 winget install -e --id CPUID.HWMonitor
+winget install -e --id WesternDigital.Dashboard
 winget install -e --id CrystalDewWorld.CrystalDiskInfo
 winget install -e --id Guru3D.Afterburner
 winget install -e --id Valve.Steam
