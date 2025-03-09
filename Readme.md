@@ -116,6 +116,6 @@ winget install -e --id Valve.Steam
 winget install -e --id RiotGames.LeagueOfLegends.EUW
 winget install -e --id Microsoft.PowerShell
 winget install -e --id Ventoy.Ventoy
+winget install -e --id TechPowerUp.GPU-Z
 winget install -e --id Nvidia.GeForceApp -> ???
-winget install -e --id TechPowerUp.GPU-Z -> ???
 ```
