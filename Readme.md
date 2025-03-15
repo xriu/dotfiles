@@ -113,12 +113,12 @@ winget install -e --id TechPowerUp.GPU-Z
 ```
 
 ```
-winget install -e --id Microsoft.PowerShell
 winget install -e --id glzr-io.glazewm
 winget install -e --id Starship.Starship
-winget install -e --id Microsoft.VisualStudioCode
 winget install -e --id WesternDigital.Dashboard
 winget install -e --id Ventoy.Ventoy
+winget install -e --id Microsoft.PowerShell
+winget install -e --id Microsoft.VisualStudioCode
 winget install -e --id Nvidia.GeForceApp -> ???
 winget install -e --id Cloudflare.Warp -> Issues Discord, Twitch ...
 ```
