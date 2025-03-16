@@ -37,6 +37,13 @@ defaults write com.apple.screencapture type -string "png"
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
 
 ###############################################################################
+# Mission Control                                                            #
+###############################################################################
+
+# Disable animation when switching to an application
+defaults write com.apple.dock expose-animation-duration -float 0.1
+
+###############################################################################
 # MacBookPro Touch Bar                                                        #
 ###############################################################################
 
