@@ -71,6 +71,10 @@ window-padding-balance = true
 window-save-state = always
 scrollback-limit = 4294967295
 copy-on-select = clipboard
+keybind = global:º=toggle_visibility
+```
+
+```
 keybind = global:º=toggle_quick_terminal
 quick-terminal-position = top
 ```
