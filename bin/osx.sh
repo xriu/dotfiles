@@ -72,6 +72,7 @@ function brew_setup() {
     brew install --cask zen-browser --force # Firefox based browser
 
     # brew install ollama # Create, run, and share large language models (LLMs)
+    # brew install openfortivpn # Open Fortinet VPN client
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install wireguard-go # Fast, modern, secure VPN tunnel
     brew install angular-cli # CLI tool for Angular
