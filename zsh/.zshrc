@@ -12,6 +12,7 @@ setup_export() {
     export PATH="$HOME/.GIS-lm-build/bin:$PATH"
     export PATH="$HOME/bin:$PATH"
     export PATH=~/.console-ninja/.bin:$PATH
+    export PATH=~/.codeium/windsurf/bin:$PATH
 }
 
 # Configures the terminal settings for a better visual experience.
@@ -170,3 +171,4 @@ setup_carapace
 
 # End by setting the prompt for the shell.
 PROMPT="${PROMPT}"$'\n'
+
