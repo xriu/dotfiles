@@ -55,6 +55,12 @@ bin/lm install
 pnpm add --global nx@latest
 ```
 
+## Task Master
+
+```
+npm install -g task-master-ai
+```
+
 ## VSCode workspace cleanup
 
 ```
