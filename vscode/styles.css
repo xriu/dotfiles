@@ -1,6 +1,6 @@
-.mac {
+/* .mac {
   font-family: "Menlo", monospace !important;
-}
+} */
 
 .quick-input-widget {
   background-color: color-mix(
@@ -25,8 +25,10 @@
 
   /* REMOVE THESE IF YOU DON'T WANT THE BRIGHTNESS AND ZOOM EFFECTS */
 
+  /*
   filter: brightness(1.5);
   zoom: 1.25;
+  */
 
   /* --- */
 
