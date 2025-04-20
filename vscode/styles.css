@@ -11,7 +11,6 @@
   top: 50% !important;
   translate: 0 -300px !important;
 
-  /* hack -- dark background overlay */
   outline: 9999px solid rgba(0, 0, 0, 0.5) !important;
 
   backdrop-filter: blur(9px) !important;
@@ -23,14 +22,10 @@
   transition-behavior: allow-discrete;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* REMOVE THESE IF YOU DON'T WANT THE BRIGHTNESS AND ZOOM EFFECTS */
-
   /*
   filter: brightness(1.5);
   zoom: 1.25;
   */
-
-  /* --- */
 
   @starting-style {
     opacity: 0;
