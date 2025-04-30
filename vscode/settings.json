@@ -133,18 +133,8 @@
   "hadolint.cliOptions": [],
   "java.configuration.runtimes": [
     {
-      "default": true,
-      "name": "JavaSE-17",
-      "path": "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
-    },
-    {
       "default": false,
-      "name": "JavaSE-18",
-      "path": "/Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home"
-    },
-    {
-      "default": false,
-      "name": "JavaSE-20",
+      "name": "JavaSE-21",
       "path": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
     }
   ],
@@ -159,7 +149,7 @@
       "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06"
     }
   ],
-  "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home",
+  "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home",
   "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/Users/xavier.riu/.vscode/extensions/vscjava.vscode-lombok-1.0.1/server/lombok.jar\"",
   "java.project.importHint": false,
   "java.project.importOnFirstTimeStartup": "automatic",
