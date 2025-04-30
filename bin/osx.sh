@@ -118,7 +118,7 @@ function brew_setup() {
     brew install rustscan # Modern port scanner
     brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
     brew install starship # The cross-shell prompt for astronauts
-    brew install suzuki-shunsuke/tfmv/tfmv # tfmv is a CLI to rename Terraform resources
+    brew install tfmv # tfmv is a CLI to rename Terraform resources
     brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install tealdeer # Tldr client in Rust
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
