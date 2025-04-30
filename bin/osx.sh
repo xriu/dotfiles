@@ -72,7 +72,6 @@ function brew_setup() {
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zen-browser --force # Firefox based browser
 
-    # brew install ollama # Create, run, and share large language models (LLMs)
     # brew install openfortivpn # Open Fortinet VPN client
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install wireguard-go # Fast, modern, secure VPN tunnel
@@ -110,6 +109,7 @@ function brew_setup() {
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
     brew install nvm # Manage multiple Node.js versions
+    brew install ollama # Create, run, and share large language models (LLMs)
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pnpm # Fast, disk space efficient package manager
     brew install protobuf # Protocol buffers (Google's data interchange format)
