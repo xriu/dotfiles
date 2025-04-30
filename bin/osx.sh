@@ -124,7 +124,6 @@ function brew_setup() {
     brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install tealdeer # Tldr client in Rust
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
-    brew install tldr # Simplified and community-driven man pages
     brew install tree # Display directories as trees (with optional color/HTML output)
     brew install uv # Universal Version Manager
     brew install vim # Vi 'workalike' with many additional features
