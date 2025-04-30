@@ -114,6 +114,7 @@ function brew_setup() {
     brew install pnpm # Fast, disk space efficient package manager
     brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
+    brew install redis # Persistent key-value database with built-in net interface
     brew install rust # Safe, concurrent, practical language
     brew install rustscan # Modern port scanner
     brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
@@ -124,6 +125,7 @@ function brew_setup() {
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
     brew install tldr # Simplified and community-driven man pages
     brew install tree # Display directories as trees (with optional color/HTML output)
+    brew install uv # Universal Version Manager
     brew install uv # Universal Version Manager
     brew install vim # Vi 'workalike' with many additional features
     brew install vivid # Generator for LS_COLORS with support for multiple color themes
