@@ -24,6 +24,7 @@ function install_osx_packages() {
     brew tap homebrew/cask-fonts
 
     brew_setup
+    npm_packages
     mac_setup
     zsh_setup
 
@@ -116,7 +117,6 @@ function brew_setup() {
     brew install rust # Safe, concurrent, practical language
     brew install rustscan # Modern port scanner
     brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
-    brew install serverless # Build applications with serverless architectures
     brew install starship # The cross-shell prompt for astronauts
     brew install suzuki-shunsuke/tfmv/tfmv # tfmv is a CLI to rename Terraform resources
     brew install svn # Bidirectional operation between a Subversion repository and Git
@@ -138,6 +138,15 @@ function brew_setup() {
     brew install font-fira-code-nerd-font
     brew install font-fira-mono
     brew install font-fira-mono-for-powerline
+
+}
+
+function npm_packages() {
+
+    echo "NPM packages"
+
+    npm install -g @task-master/ai # Task Master AI
+    npm install -g serverless # Build applications with serverless architectures
 
 }
 
