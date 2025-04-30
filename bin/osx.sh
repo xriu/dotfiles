@@ -41,8 +41,6 @@ function brew_setup() {
     softwareupdate --install-rosetta --agree-to-license
 
     # brew install --cask onyx --force # Multifunction utility for macOS
-    # brew install --cask temurin@17 --force # JDK from the Eclipse Foundation (Adoptium)
-    # brew install --cask temurin@18 --force # JDK from the Eclipse Foundation (Adoptium)
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask amazon-chime --force # Unified communications service that transforms online meetings with a secure, easy-to-use application
@@ -66,6 +64,8 @@ function brew_setup() {
     brew install --cask soundsource --force # Sound and audio controller
     brew install --cask stats --force # System monitor for the menu bar
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask temurin@17 --force # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask temurin@18 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-code --force # Open-source code editor
     brew install --cask windsurf --force # Agentic IDE powered by AI Flow paradigm
