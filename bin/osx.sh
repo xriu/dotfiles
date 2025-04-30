@@ -64,8 +64,6 @@ function brew_setup() {
     brew install --cask soundsource --force # Sound and audio controller
     brew install --cask stats --force # System monitor for the menu bar
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
-    brew install --cask temurin@17 --force # JDK from the Eclipse Foundation (Adoptium)
-    brew install --cask temurin@18 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask visual-studio-code --force # Open-source code editor
     brew install --cask windsurf --force # Agentic IDE powered by AI Flow paradigm
