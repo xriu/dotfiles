@@ -73,7 +73,6 @@ function brew_setup() {
 
     # brew install openfortivpn # Open Fortinet VPN client
     # brew install openssl # Cryptography and SSL/TLS Toolkit
-    # brew install wireguard-go # Fast, modern, secure VPN tunnel
     brew install angular-cli # CLI tool for Angular
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
