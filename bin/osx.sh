@@ -71,7 +71,6 @@ function brew_setup() {
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zen-browser --force # Firefox based browser
 
-    # brew install openfortivpn # Open Fortinet VPN client
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     brew install angular-cli # CLI tool for Angular
     brew install atuin # Magical shell history
