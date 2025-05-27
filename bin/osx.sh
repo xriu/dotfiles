@@ -108,7 +108,6 @@ function brew_setup() {
     brew install ollama # Create, run, and share large language models (LLMs)
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pnpm # Fast, disk space efficient package manager
-    brew install prettier # Opinionated code formatter
     brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install redis # Persistent key-value database with built-in net interface
