@@ -108,6 +108,7 @@ function brew_setup() {
     brew install ollama # Create, run, and share large language models (LLMs)
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pnpm # Fast, disk space efficient package manager
+    brew install prettier # Opinionated code formatter
     brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install redis # Persistent key-value database with built-in net interface
@@ -115,10 +116,10 @@ function brew_setup() {
     brew install rustscan # Modern port scanner
     brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
     brew install starship # The cross-shell prompt for astronauts
-    brew install tfmv # tfmv is a CLI to rename Terraform resources
     brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install tealdeer # Tldr client in Rust
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
+    brew install tfmv # tfmv is a CLI to rename Terraform resources
     brew install tree # Display directories as trees (with optional color/HTML output)
     brew install uv # Universal Version Manager
     brew install vim # Vi 'workalike' with many additional features
