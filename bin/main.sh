@@ -34,6 +34,7 @@ function common_configuration() {
         ~/.config/ \
         ~/.aws/ \
         ~/.nvm/ \
+        ~/.n8n/ \
         ~/.jenv/ \
         ~/.GIS-lm-build/ \
         ${HOME}/Pictures/screenshots/
