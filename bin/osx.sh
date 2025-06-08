@@ -144,6 +144,7 @@ function npm_packages() {
 
     npm install -g @task-master/ai # Task Master AI
     npm install -g serverless # Build applications with serverless architectures
+    npm install -g n8n # Workflow automation tool
 
 }
 
