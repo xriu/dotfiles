@@ -1,0 +1,57 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+---
+description: AWS CDK Deployment Guide
+globs:
+alwaysApply: true
+---
+
+# AWS CDK Deployment Guide
+
+This rule provides guidance for deploying AWS CDK applications in this codebase.
+
+## Key Files
+- Main environment configuration: [projects/aws-cdk/dispatch-backup/src/lib/config/environment.ts](mdc:projects/aws-cdk/dispatch-backup/src/lib/config/environment.ts)
+- CDK app entry point: [projects/aws-cdk/dispatch-backup/src/bin/app.ts](mdc:projects/aws-cdk/dispatch-backup/src/bin/app.ts)
+
+## Deployment Process
+
+### Environment Structure
+Each environment (staging, prod) has its own:
+- VPC configuration
+- Security groups
+- AWS account and region
+- Team and product tags
+
+### Deployment Commands
+1. First login to AWS SSO:
+```bash
+aws sso login --profile backup-{env}  # where env is staging or prod
+```
+
+2. Deploy using CDK:
+```bash
+AWS_PROFILE=backup-{env} npm run cdk deploy -c stage={env}
+```
+
+### Available Environments
+
+1. Staging:
+   - Account: 861276075964
+   - Region: eu-west-1
+   - VPC: vpc-0ea9882e5ffe72986
+
+2. Production:
+   - Account: 456486264762
+   - Region: us-east-1
+   - VPC: vpc-899588ec
+
+## Best Practices
+1. Always deploy to staging first
+2. Run `npm run build` before deployment
+3. Check `cdk diff` before deploying to production
+4. Use AWS SSO profiles for authentication
+5. Never deploy directly to production without testing in staging

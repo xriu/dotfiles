@@ -1,0 +1,45 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Utilities & Shared Helpers Guide
+
+This rule defines how to create, organize, and use utility functions and shared modules in AWS Lambda and serverless projects.
+
+## Purpose
+
+- Promote code reuse and DRY principles
+- Ensure consistency in error handling, logging, tracing, and AWS SDK usage
+- Make utilities discoverable and easy to test
+
+## Guidelines
+
+1. **Always use Node.js built-in modules and APIs (such as `fetch`, `fs`, etc.) for all utility code. Do not use third-party libraries like `axios` for HTTP requests. Assume the project always uses the latest Node.js LTS version.**
+2. **Location:**
+   - Place all shared utilities in a `src/utils/` or `src/shared/` directory within each project.
+   - Group by domain (e.g., `aws/`, `logger/`, `tracing/`, `validation/`).
+
+3. **Powertools Integration:**
+   - Utilities should accept a logger/tracer instance as a parameter or import a shared instance.
+   - Use Powertools Logger for all logs inside utilities.
+   - Use Powertools Tracer for all AWS SDK calls and custom subsegments.
+
+4. **X-Ray Tracing:**
+   - Use Powertools Tracer to instrument all utility functions that interact with AWS services.
+   - Annotate and add metadata for important operations.
+
+5. **Testing:**
+   - All utilities must have unit tests in `__tests__/` or `test/` directories.
+   - Mock AWS SDK and Powertools in tests.
+
+6. **Error Handling:**
+   - Throw custom errors for domain-specific issues.
+   - Log errors with context using Powertools Logger.
+
+## Best Practices
+
+- Keep utilities small and focused.
+- Document all exported functions.
+- Avoid business logic in utilities—keep them generic.
+- Reuse utilities across Lambdas to reduce duplication.

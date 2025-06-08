@@ -1,0 +1,95 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# AWS API Gateway Guide
+
+This rule defines how to design, configure, and use AWS API Gateway in this codebase, especially in combination with AWS Lambda, Powertools, and CDK.
+
+## Purpose
+- Provide a secure, scalable, and observable API layer
+- Standardize API Gateway configuration and usage
+- Ensure best practices for integration with Lambda and tracing
+
+## Guidelines
+
+1. **API Gateway Type:**
+   - Use HTTP API for most new workloads (lower cost, better performance)
+   - Use REST API only if advanced features (e.g., usage plans, API keys, request validation) are required
+
+2. **CDK Patterns:**
+   - Define API Gateway resources in `lib/stacks/` or `lib/constructs/`
+   - Use constructs for reusable API patterns
+   - Configure CORS explicitly (never use wildcards in production)
+
+3. **Security:**
+   - Require authentication (Cognito, JWT authorizer, or Lambda authorizer) for all endpoints except public health checks
+   - Validate all input (query, path, body) in Lambda using a schema (e.g., Joi, Zod)
+   - Never expose internal errors or stack traces in API responses
+
+4. **Integration with Lambda:**
+   - Use Lambda Proxy integration for flexibility
+   - Always parse and validate the event body
+   - Return proper HTTP status codes and structured JSON responses
+   - Use Powertools Logger for all request/response logs
+   - Use Powertools Tracer to instrument handler and downstream calls
+
+5. **Observability:**
+   - Enable X-Ray tracing for API Gateway and Lambda
+   - Log all requests and responses (mask sensitive data)
+   - Add correlation IDs to all logs and responses
+
+6. **Error Handling:**
+   - Map Lambda errors to appropriate HTTP status codes
+   - Return error responses in a consistent JSON format:
+     ```json
+     {
+       "message": "Error description",
+       "code": "ERROR_CODE",
+       "requestId": "..."
+     }
+     ```
+
+7. **Testing:**
+   - Write integration tests for all API endpoints
+   - Use contract testing for request/response schemas
+
+## Example Lambda Handler
+
+```typescript
+import { Logger } from '@aws-lambda-powertools/logger';
+import { Tracer } from '@aws-lambda-powertools/tracer';
+
+const logger = new Logger({ serviceName: 'api-service' });
+const tracer = new Tracer();
+
+export const handler = async (event: any, context: any) => {
+  logger.addContext(context);
+  tracer.captureLambdaHandler(handler);
+  try {
+    // Validate and parse event
+    // ... business logic ...
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: 'Success' })
+    };
+  } catch (error) {
+    logger.error('API error', { error });
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: 'Internal server error', code: 'INTERNAL_ERROR', requestId: context.awsRequestId })
+    };
+  }
+};
+```
+
+## Best Practices
+- Use stage variables for environment-specific config
+- Document all endpoints with OpenAPI/Swagger
+- Use throttling and WAF for public APIs
+- Keep API Gateway and Lambda permissions minimal (least privilege)
+
+## References
+- [API Gateway HTTP API vs REST API](mdc:https:/docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html)
+- [Powertools for API Gateway](mdc:https:/awslabs.github.io/aws-lambda-powertools-typescript/latest/utilities/middleware)

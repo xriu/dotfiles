@@ -1,0 +1,60 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Logging Standard: AWS Lambda Powertools Logger
+
+This rule defines how to implement logging in AWS Lambda and serverless projects using [AWS Lambda Powertools for TypeScript](mdc:https:/awslabs.github.io/aws-lambda-powertools-typescript/latest).
+
+## Why Powertools Logger?
+- Structured, JSON logging for observability
+- Automatic correlation IDs and context injection
+- Consistent log format across all Lambdas
+- Easy integration with AWS services
+
+## Usage Guidelines
+
+1. **Always use Powertools Logger for new Lambda functions.**
+2. **Do not use `console.log` for application logs.** Use it only for local debugging if necessary.
+3. **Log at the appropriate level:**
+   - `logger.info` for business events
+   - `logger.warn` for recoverable issues
+   - `logger.error` for errors/exceptions
+   - `logger.debug` for verbose, dev-only details
+4. **Inject context:** Always inject Lambda context and event for correlation.
+5. **Mask sensitive data:** Never log secrets, PII, or credentials.
+
+## Example Setup
+
+```typescript
+import { Logger } from '@aws-lambda-powertools/logger';
+
+const logger = new Logger({ serviceName: 'my-service' });
+
+export const handler = async (event: any, context: any) => {
+  logger.addContext(context);
+  logger.info('Lambda invoked', { event });
+  try {
+    // ... business logic ...
+    logger.info('Success', { result: 'something' });
+  } catch (error) {
+    logger.error('Error occurred', { error });
+    throw error;
+  }
+};
+```
+
+## Best Practices
+- Place logger initialization at the top of your Lambda file
+- Use structured objects for log details (not string interpolation)
+- Add context (request IDs, user IDs) to logs for traceability
+- Use environment variables to control log level (e.g., `LOG_LEVEL=INFO`)
+
+## Migration
+- Refactor existing Lambdas to use Powertools Logger when making changes
+- Remove legacy logging libraries and `console.log` calls
+
+## References
+- [AWS Lambda Powertools Logger Docs](mdc:https:/awslabs.github.io/aws-lambda-powertools-typescript/latest/core/logger)
+- [Powertools GitHub](mdc:https:/github.com/awslabs/aws-lambda-powertools-typescript)

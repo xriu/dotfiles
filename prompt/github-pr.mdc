@@ -1,3 +1,8 @@
+---
+description:
+globs:
+alwaysApply: false
+---
 # PR Changelog Generation Process
 
 1. Compare changes between current branch and main branch
@@ -14,13 +19,13 @@
 Content format:
 
 ```
-## Description
+## [Icon] Description
 - New workflow authentication system, minor fixes
 
-## Features
+## [Icon] Features
 - Add user authentication system (#123)
 - Implement password reset flow (#124)
 
-## Fixes
+## [Icon] Fixes
 - Fix login validation error (#125)
 ```
