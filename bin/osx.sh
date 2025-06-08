@@ -56,7 +56,6 @@ function brew_setup() {
     brew install --cask httpie --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask intellij-idea-ce --force # IDE for Java development - community edition
     brew install --cask leapp --force # Cloud credentials manager
-    brew install --cask microsoft-remote-desktop --force # Remote desktop client
     brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
     brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
     brew install --cask orbstack --force # Replacement for Docker Desktop
@@ -66,6 +65,7 @@ function brew_setup() {
     brew install --cask stats --force # System monitor for the menu bar
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask windows-app --force # Windows app for macOS
     brew install --cask windsurf --force # Agentic IDE powered by AI Flow paradigm
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zen-browser --force # Firefox based browser
