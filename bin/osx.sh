@@ -155,11 +155,6 @@ function mac_setup() {
 
     echo "JENV set java virtual machines"
     jenv add /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
-
-    echo "Remove big default apps"
-    sudo rm -rf /Applications/GarageBand.app
-    sudo rm -rf /Applications/iMovie.app
-
 }
 
 function zsh_setup() {
