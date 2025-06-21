@@ -66,7 +66,6 @@ function brew_setup() {
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask windows-app --force # Windows app for macOS
-    brew install --cask windsurf --force # Agentic IDE powered by AI Flow paradigm
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zen-browser --force # Firefox based browser
 
