@@ -40,6 +40,13 @@ jenv add /Library/Java/JavaVirtualMachines/temurin-22.jdk/Contents/Home
 jenv add /Library/Java/JavaVirtualMachines/temurin-24.jdk/Contents/Home
 ```
 
+## PostgreSQL
+
+```
+brew services stop postgresql@14
+brew services start postgresql@14
+```
+
 ## LM-Build
 
 ```
