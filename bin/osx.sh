@@ -53,7 +53,7 @@ function brew_setup() {
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask finch --force # Open source container development tool
     brew install --cask ghostty --force # Ghostty is a tool for managing your GitHub repositories
-    brew install --cask httpie --force # Testing client for REST, GraphQL, and HTTP APIs
+    brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask intellij-idea-ce --force # IDE for Java development - community edition
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
@@ -107,6 +107,7 @@ function brew_setup() {
     brew install ollama # Create, run, and share large language models (LLMs)
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pnpm # Fast, disk space efficient package manager
+    brew install postgresql # Object-relational database management system
     brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install redis # Persistent key-value database with built-in net interface
@@ -115,6 +116,7 @@ function brew_setup() {
     brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
     brew install starship # The cross-shell prompt for astronauts
     brew install svn # Bidirectional operation between a Subversion repository and Git
+    brew install ta-lib # Technical Analysis Library
     brew install tealdeer # Tldr client in Rust
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
     brew install tfmv # tfmv is a CLI to rename Terraform resources

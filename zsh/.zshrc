@@ -172,4 +172,3 @@ setup_carapace
 
 # End by setting the prompt for the shell.
 PROMPT="${PROMPT}"$'\n'
-

@@ -42,3 +42,7 @@ alias update-npm="npm update -g; npm install task-master-ai@latest -g"
 
 # LM internal alias
 if alias lm > /dev/null; then unalias lm; fi
+
+# Task Master aliases
+alias tm='task-master'
+alias taskmaster='task-master'
