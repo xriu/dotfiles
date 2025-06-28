@@ -42,8 +42,9 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
+    # brew install --cask antigravity --force # AI Coding Agent IDE
+    # brew install --cask zen-browser --force # Firefox based browser
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
-    brew install --cask antigravity --force # AI Coding Agent IDE
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask claude-code --force # Claude Code CLI
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
@@ -70,7 +71,6 @@ function brew_setup() {
     brew install --cask visual-studio-code --force # Code editor for the modern web
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed --force # Multiplayer code editor
-    brew install --cask zen-browser --force # Firefox based browser
 
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
