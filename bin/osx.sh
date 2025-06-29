@@ -129,6 +129,8 @@ function brew_setup() {
     brew install zoxide # A faster way to navigate your filesystem
     brew install zsh # UNIX shell (command interpreter)
     brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
+    brew install swaks # SMTP client
+
 
     # Fonts
     brew install font-fira-code
