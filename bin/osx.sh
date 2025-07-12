@@ -106,6 +106,7 @@ function brew_setup() {
     brew install ollama # Create, run, and share large language models (LLMs)
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pnpm # Fast, disk space efficient package manager
+    brew install poetry # Python package manager
     brew install postgresql # Object-relational database management system
     brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
@@ -115,6 +116,7 @@ function brew_setup() {
     brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
     brew install starship # The cross-shell prompt for astronauts
     brew install svn # Bidirectional operation between a Subversion repository and Git
+    brew install swaks # SMTP client
     brew install ta-lib # Technical Analysis Library
     brew install tealdeer # Tldr client in Rust
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
@@ -129,7 +131,6 @@ function brew_setup() {
     brew install zoxide # A faster way to navigate your filesystem
     brew install zsh # UNIX shell (command interpreter)
     brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
-    brew install swaks # SMTP client
 
 
     # Fonts
