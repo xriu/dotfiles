@@ -42,7 +42,6 @@ function brew_setup() {
     softwareupdate --install-rosetta --agree-to-license
 
     # brew install --cask apidog --force # API Client for REST, GraphQL, and SOAP
-    # brew install --cask visual-studio-code --force # Open-source code editor
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
