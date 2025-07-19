@@ -113,6 +113,11 @@ setup_github_cli() {
     eval "$(gh copilot alias -- zsh)"
 }
 
+# Sets up kiro for the zsh shell.
+setup_kiro() {
+    [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+}
+
 # Sets up environment variables and exports them.
 setup_export
 
@@ -154,6 +159,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # - setup_zoxide: Sets up Zoxide, a fast directory jumper that tracks your most used directories.
 # - setup_atuin: Sets up Atuin, a directory navigation tool for shells.
 # - setup_carapace: Sets up Carapace, a tool for tab completion.
+# - setup_kiro: Sets up kiro, AWS editor (vscode fork).
 
 setup_terminal
 setup_fzf
@@ -168,6 +174,8 @@ setup_starship
 setup_zoxide
 setup_atuin
 setup_carapace
+setup_kiro
 
 # End by setting the prompt for the shell.
 PROMPT="${PROMPT}"$'\n'
+
