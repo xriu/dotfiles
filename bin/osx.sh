@@ -115,6 +115,7 @@ function brew_setup() {
     brew install rust # Safe, concurrent, practical language
     brew install rustscan # Modern port scanner
     brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
+    brew install serverless # Build applications with serverless architectures
     brew install starship # The cross-shell prompt for astronauts
     brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install swaks # SMTP client
@@ -147,7 +148,6 @@ function npm_packages() {
     echo "NPM packages"
     # npm install -g n8n # Workflow automation tool
     npm install -g @task-master/ai # Task Master AI
-    npm install -g serverless # Build applications with serverless architectures
 
 }
 
