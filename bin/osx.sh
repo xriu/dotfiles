@@ -51,6 +51,7 @@ function brew_setup() {
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask finch --force # Open source container development tool
     brew install --cask ghostty --force # Ghostty is a tool for managing your GitHub repositories
+    brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask intellij-idea-ce --force # IDE for Java development - community edition
     brew install --cask leapp --force # Cloud credentials manager
