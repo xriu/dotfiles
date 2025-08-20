@@ -57,6 +57,12 @@ rm -rf local
 bin/lm install
 ```
 
+## Kiro
+
+```
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+```
+
 ## NX
 
 ```
