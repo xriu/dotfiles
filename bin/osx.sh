@@ -71,6 +71,7 @@ function brew_setup() {
     brew install --cask zen-browser --force # Firefox based browser
 
     # brew install openssl # Cryptography and SSL/TLS Toolkit
+    # brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install angular-cli # CLI tool for Angular
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
@@ -124,12 +125,12 @@ function brew_setup() {
     brew install ta-lib # Technical Analysis Library
     brew install tealdeer # Tldr client in Rust
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
+    brew install tfenv # Terraform version manager
     brew install tfmv # tfmv is a CLI to rename Terraform resources
     brew install tree # Display directories as trees (with optional color/HTML output)
     brew install uv # Universal Version Manager
     brew install vim # Vi 'workalike' with many additional features
     brew install vivid # Generator for LS_COLORS with support for multiple color themes
-    brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install wget # Internet file retriever
     brew install z # Tracks most-used directories to make cd smarter
     brew install zoxide # A faster way to navigate your filesystem
