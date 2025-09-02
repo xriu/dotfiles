@@ -42,6 +42,8 @@ function brew_setup() {
     softwareupdate --install-rosetta --agree-to-license
 
     # brew install --cask apidog --force # API Client for REST, GraphQL, and SOAP
+    # brew install --cask soundsource --force # Sound and audio controller
+    # brew install --cask trae --force # Adaptive AI IDE
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
@@ -60,11 +62,9 @@ function brew_setup() {
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
-    brew install --cask soundsource --force # Sound and audio controller
     brew install --cask stats --force # System monitor for the menu bar
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
-    brew install --cask trae --force # Adaptive AI IDE
     brew install --cask warp --force # The terminal for the modern internet
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed --force # Multiplayer code editor
