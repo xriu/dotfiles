@@ -57,9 +57,13 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
+truncation_length = 26
 style = "bg:color_blue"
 format = '[[ $symbol $branch ](bold fg:color_fg0 bg:color_blue)]($style)'
 
 [git_status]
 style = "bg:color_aqua"
 format = '[[($all_status$ahead_behind )](bold fg:color_fg0 bg:color_aqua)]($style)'
+
+[aws]
+disabled = true
