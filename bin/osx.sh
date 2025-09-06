@@ -58,6 +58,7 @@ function brew_setup() {
     brew install --cask intellij-idea-ce --force # IDE for Java development - community edition
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
+    brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
     brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask raycast --force # Control your tools with a few keystrokes
@@ -70,6 +71,7 @@ function brew_setup() {
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zen-browser --force # Firefox based browser
 
+    # brew install ollama # Create, run, and share large language models (LLMs)
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install angular-cli # CLI tool for Angular
@@ -107,7 +109,6 @@ function brew_setup() {
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
     brew install nvm # Manage multiple Node.js versions
-    brew install ollama # Create, run, and share large language models (LLMs)
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pnpm # Fast, disk space efficient package manager
     brew install poetry # Python package manager
