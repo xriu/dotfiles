@@ -96,7 +96,6 @@ function brew_setup() {
     brew install fd # Simple, fast and user-friendly alternative to find
     brew install findutils # Collection of GNU find, xargs, and locate
     brew install fzf # Command-line fuzzy finder
-    brew install gemini-cli # Gemini CLI
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
@@ -152,7 +151,8 @@ function npm_packages() {
     echo "NPM packages"
     # npm install -g @task-master/ai # Task Master AI
     # npm install -g n8n # Workflow automation tool
-    npm install -g @anthropic-ai/claude-code # Claude Code is a tool for writing code with Claude
+    npm install -g @anthropic-ai/claude-code # Claude Code CLI
+    npm install -g @google/gemini-cli@preview # Gemini CLI
 
 }
 
