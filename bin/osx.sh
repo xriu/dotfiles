@@ -150,8 +150,9 @@ function brew_setup() {
 function npm_packages() {
 
     echo "NPM packages"
+    # npm install -g @task-master/ai # Task Master AI
     # npm install -g n8n # Workflow automation tool
-    npm install -g @task-master/ai # Task Master AI
+    npm install -g @anthropic-ai/claude-code # Claude Code is a tool for writing code with Claude
 
 }
 
