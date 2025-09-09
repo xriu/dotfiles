@@ -39,6 +39,9 @@ function common_configuration() {
         ~/.GIS-lm-build/ \
         ${HOME}/Pictures/screenshots/
 
+    # Create .hushlogin file to hide login message
+    touch ~/.hushlogin
+
     # Configure Git with basic settings
     git config --global push.default simple
     git config --global pull.rebase merges
