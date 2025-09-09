@@ -44,6 +44,7 @@ error_symbol = '[➜](bold red)'
 disabled = false
 
 [username]
+disabled = true
 show_always = true
 style_user = "bold fg:color_fg0 bg:color_green"
 style_root = "bold fg:color_fg0 bg:color_red"

@@ -41,9 +41,8 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask apidog --force # API Client for REST, GraphQL, and SOAP
+    # brew install --cask intellij-idea-ce --force # IDE for Java development - community edition
     # brew install --cask soundsource --force # Sound and audio controller
-    # brew install --cask trae --force # Adaptive AI IDE
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
@@ -55,7 +54,6 @@ function brew_setup() {
     brew install --cask ghostty --force # Ghostty is a tool for managing your GitHub repositories
     brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
-    brew install --cask intellij-idea-ce --force # IDE for Java development - community edition
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
     brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
@@ -71,7 +69,6 @@ function brew_setup() {
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zen-browser --force # Firefox based browser
 
-    # brew install ollama # Create, run, and share large language models (LLMs)
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install angular-cli # CLI tool for Angular
@@ -149,8 +146,6 @@ function brew_setup() {
 function npm_packages() {
 
     echo "NPM packages"
-    # npm install -g @task-master/ai # Task Master AI
-    # npm install -g n8n # Workflow automation tool
     npm install -g @anthropic-ai/claude-code # Claude Code CLI
     npm install -g @google/gemini-cli@preview # Gemini CLI
 
