@@ -38,11 +38,7 @@ alias bu="brew uninstall --zap --force"
 alias bt="brew tap"
 alias btu="brew untap"
 alias update="brew update; brew upgrade; brew cleanup; brew autoremove"
-alias update-npm="npm update -g; npm install task-master-ai@latest -g"
+alias update-npm="npm update -g"
 
 # LM internal alias
 if alias lm > /dev/null; then unalias lm; fi
-
-# Task Master aliases
-alias tm='task-master'
-alias taskmaster='task-master'
