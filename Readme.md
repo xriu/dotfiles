@@ -63,12 +63,6 @@ bin/lm install
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 ```
 
-## NX
-
-```
-pnpm add --global nx@latest
-```
-
 ## VSCode workspace cleanup
 
 ```
