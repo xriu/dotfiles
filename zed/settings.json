@@ -1,94 +1,76 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run the `open default settings` command
-// from the command palette or from `Zed` application menu.
 {
-  "icon_theme": "Catppuccin Mocha",
+  "git_panel": {
+    "dock": "right"
+  },
+  "agent": {
+    "dock": "left",
+    "always_allow_tool_actions": true,
+    "commit_message_model": {
+      "model": "claude-3-5-sonnet",
+      "provider": "anthropic"
+    },
+    "default_model": {
+      "model": "glm-4.5",
+      "provider": "anthropic"
+    },
+    "default_profile": "ask",
+    "enable_feedback": false,
+    "inline_assistant_model": {
+      "model": "gpt-4.1",
+      "provider": "copilot_chat"
+    },
+    "play_sound_when_agent_done": true
+  },
+  "auto_update": false,
+  "base_keymap": "VSCode",
+  "buffer_font_size": 13,
+  "buffer_line_height": {
+    "custom": 1.5
+  },
+  "chat_panel": {
+    "dock": "left"
+  },
+  "confirm_quit": true,
   "disable_ai": false,
+  "enable_language_server": true,
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "agent": {
-    "default_profile": "ask",
-    "enable_feedback": false,
-    "play_sound_when_agent_done": true,
-    "always_allow_tool_actions": true,
-    "default_model": {
-      "provider": "anthropic",
-      "model": "glm-4.5"
-    },
-    "commit_message_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4.1"
+  "formatter": "auto",
+  "format_on_save": "on",
+  "git": {
+    "inline_blame": {
+      "delay_ms": 500,
+      "enabled": true
     }
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "indent_guides": {
+    "background_coloring": "disabled",
+    "coloring": "indent_aware",
+    "enabled": true
   },
   "language_models": {
     "anthropic": {
       "api_url": "https://api.z.ai/api/anthropic",
       "available_models": [
         {
-          "name": "glm-4.5",
           "display_name": "GLM 4.5",
           "max_tokens": 131072,
           "mode": {
             "type": "thinking"
-          }
-        },
-        {
-          "name": "glm-4.5-air",
-          "display_name": "GLM 4.5 Air",
-          "max_tokens": 131072,
-          "mode": {
-            "type": "thinking"
-          }
+          },
+          "name": "glm-4.5"
         }
       ]
     }
   },
-  "theme": {
-    "mode": "system",
-    "dark": "Catppuccin Mocha",
-    "light": "One Light"
-  },
-  "terminal": {
-    "dock": "bottom",
-    "alternate_scroll": "off",
-    "blinking": "terminal_controlled",
-    "copy_on_select": true,
-    "env": {},
-    "shell": "system",
-    "font_size": 13,
-    "option_as_meta": false,
-    "button": true,
-    "font_family": "FiraCode Nerd Font Mono",
-    "working_directory": "current_project_directory",
-    "detect_venv": {
-      "on": {
-        "directories": [".env", "env", ".venv", "venv"],
-        "activate_script": "default"
-      }
-    }
-  },
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
-  "indent_guides": {
-    "enabled": true,
-    "coloring": "indent_aware",
-    "background_coloring": "disabled"
-  },
-  "git": {
-    "inline_blame": {
-      "enabled": true,
-      "delay_ms": 500
-    }
-  },
   "languages": {
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
     "JSON": {
       "tab_size": 4
     },
@@ -96,13 +78,9 @@
       "code_actions_on_format": {
         "source.organizeImports": true
       }
-    },
-    "JavaScript": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
     }
   },
+  "load_direnv": "direct",
   "lsp": {
     "eslint": {
       "settings": {
@@ -112,45 +90,65 @@
       }
     }
   },
-  "formatter": "auto",
-  "format_on_save": "on",
-  "enable_language_server": true,
-  "toolbar": {
-    "breadcrumbs": true,
-    "quick_actions": true
-  },
-  "tabs": {
-    "close_position": "right",
-    "file_icons": true,
-    "git_status": true
-  },
-  "auto_update": false,
-  "confirm_quit": true,
-  "buffer_line_height": {
-    "custom": 1.5
-  },
   "minimap": {
-    "show": "auto",
-    "current_line_highlight": "line"
+    "current_line_highlight": "line",
+    "show": "auto"
   },
   "notification_panel": {
-    "dock": "left"
-  },
-  "chat_panel": {
-    "dock": "left"
+    "dock": "right"
   },
   "outline_panel": {
     "dock": "right"
   },
   "project_panel": {
+    "starts_open": true,
+    "button": true,
     "dock": "right",
     "file_icons": true,
     "folder_icons": true,
     "git_status": true,
-    "button": true,
-    "scrollbar": { "show": "never" }
+    "scrollbar": {
+      "show": "never"
+    }
   },
-  "base_keymap": "VSCode",
+  "show_wrap_guides": false,
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "terminal": {
+    "alternate_scroll": "off",
+    "blinking": "terminal_controlled",
+    "button": true,
+    "copy_on_select": true,
+    "detect_venv": {
+      "on": {
+        "activate_script": "default",
+        "directories": [".env", "env", ".venv", "venv"]
+      }
+    },
+    "dock": "bottom",
+    "env": {},
+    "font_family": "FiraCode Nerd Font Mono",
+    "font_size": 13,
+    "option_as_meta": false,
+    "shell": "system",
+    "working_directory": "current_project_directory"
+  },
+  "theme": {
+    "dark": "Ayu Dark",
+    "light": "One Light",
+    "mode": "system"
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": true
+  },
   "ui_font_size": 15,
-  "buffer_font_size": 13
+  "wrap_guides": [80, 120]
 }
