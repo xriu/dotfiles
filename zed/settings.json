@@ -7,19 +7,51 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "icon_theme": "Catppuccin Mocha",
   "disable_ai": false,
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
   "agent": {
+    "default_profile": "ask",
     "enable_feedback": false,
     "play_sound_when_agent_done": true,
     "always_allow_tool_actions": true,
     "default_model": {
+      "provider": "anthropic",
+      "model": "glm-4.5"
+    },
+    "commit_message_model": {
       "provider": "copilot_chat",
       "model": "gpt-4.1"
     }
   },
+  "language_models": {
+    "anthropic": {
+      "api_url": "https://api.z.ai/api/anthropic",
+      "available_models": [
+        {
+          "name": "glm-4.5",
+          "display_name": "GLM 4.5",
+          "max_tokens": 131072,
+          "mode": {
+            "type": "thinking"
+          }
+        },
+        {
+          "name": "glm-4.5-air",
+          "display_name": "GLM 4.5 Air",
+          "max_tokens": 131072,
+          "mode": {
+            "type": "thinking"
+          }
+        }
+      ]
+    }
+  },
   "theme": {
     "mode": "system",
-    "dark": "Vercel Dark",
+    "dark": "Catppuccin Mocha",
     "light": "One Light"
   },
   "terminal": {
@@ -31,9 +63,15 @@
     "shell": "system",
     "font_size": 13,
     "option_as_meta": false,
-    "button": false,
+    "button": true,
     "font_family": "FiraCode Nerd Font Mono",
-    "working_directory": "current_project_directory"
+    "working_directory": "current_project_directory",
+    "detect_venv": {
+      "on": {
+        "directories": [".env", "env", ".venv", "venv"],
+        "activate_script": "default"
+      }
+    }
   },
   "telemetry": {
     "diagnostics": false,
@@ -91,6 +129,19 @@
   "buffer_line_height": {
     "custom": 1.5
   },
+  "minimap": {
+    "show": "auto",
+    "current_line_highlight": "line"
+  },
+  "notification_panel": {
+    "dock": "left"
+  },
+  "chat_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
   "project_panel": {
     "dock": "right",
     "file_icons": true,
@@ -99,6 +150,7 @@
     "button": true,
     "scrollbar": { "show": "never" }
   },
+  "base_keymap": "VSCode",
   "ui_font_size": 15,
   "buffer_font_size": 13
 }
