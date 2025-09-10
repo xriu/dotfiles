@@ -1,7 +1,4 @@
 {
-  "git_panel": {
-    "dock": "right"
-  },
   "agent": {
     "dock": "left",
     "always_allow_tool_actions": true,
@@ -43,6 +40,9 @@
       "delay_ms": 500,
       "enabled": true
     }
+  },
+  "git_panel": {
+    "dock": "right"
   },
   "icon_theme": "Catppuccin Mocha",
   "indent_guides": {
