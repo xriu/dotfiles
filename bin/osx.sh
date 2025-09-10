@@ -146,8 +146,9 @@ function brew_setup() {
 function npm_packages() {
 
     echo "NPM packages"
-    npm install -g @anthropic-ai/claude-code # Claude Code CLI
+    npm install -g @openai/codex # OpenAI Codex CLI
     npm install -g @google/gemini-cli@preview # Gemini CLI
+    npm install -g @anthropic-ai/claude-code # Claude Code CLI
 
 }
 
