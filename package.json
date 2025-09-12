@@ -1,9 +1,9 @@
 {
-  "name": "dotfiles",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:xriu/dotfiles.git",
-  "author": "Xavier Riu <xriu87@gmail.com>",
-  "license": "MIT",
-  "devDependencies": {}
+    "name": "dotfiles",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:xriu/dotfiles.git",
+    "author": "Xavier Riu <xriu87@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {}
 }
