@@ -40,5 +40,8 @@ alias btu="brew untap"
 alias update="brew update; brew upgrade; brew cleanup; brew autoremove"
 alias update-npm="npm update -g"
 
+# Zed
+alias zed="/Applications/Zed.app/Contents/MacOS/cli"
+
 # LM internal alias
 if alias lm > /dev/null; then unalias lm; fi
