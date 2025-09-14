@@ -7,13 +7,6 @@
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
       "env": {}
     },
-    "mcp-deepwiki": {
-      "source": "custom",
-      "enabled": true,
-      "command": "npx",
-      "args": ["-y", "mcp-deepwiki@latest"],
-      "env": {}
-    },
     "filesystem": {
       "source": "custom",
       "enabled": true,
@@ -23,6 +16,20 @@
         "@modelcontextprotocol/server-filesystem",
         "/Users/xavier.riu/Develop"
       ],
+      "env": {}
+    },
+    "mcp-deepwiki": {
+      "source": "custom",
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "mcp-deepwiki@latest"],
+      "env": {}
+    },
+    "browser-tools": {
+      "source": "custom",
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@agentdeskai/browser-tools-mcp@1.2.0"],
       "env": {}
     },
     "playwright": {

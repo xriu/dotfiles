@@ -40,6 +40,12 @@ jenv add /Library/Java/JavaVirtualMachines/temurin-22.jdk/Contents/Home
 jenv add /Library/Java/JavaVirtualMachines/temurin-24.jdk/Contents/Home
 ```
 
+## Beep
+
+```
+sudo nvram SystemAudioVolume=%80
+```
+
 ## File ~/.bashrc
 
 ```
