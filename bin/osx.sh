@@ -134,7 +134,6 @@ function brew_setup() {
     brew install zsh # UNIX shell (command interpreter)
     brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
 
-
     # Fonts
     brew install font-fira-code
     brew install font-fira-code-nerd-font

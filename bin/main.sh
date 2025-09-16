@@ -67,4 +67,7 @@ function common_configuration() {
     sudo ln -s /opt/homebrew/bin/aws /usr/local/bin/aws
     sudo ln -s /opt/homebrew/bin/session-manager-plugin /usr/local/bin/session-manager-plugin
 
+    # Disable beep sound
+    sudo nvram SystemAudioVolume=%80
+
 }
