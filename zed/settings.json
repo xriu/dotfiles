@@ -77,9 +77,6 @@
   "buffer_line_height": {
     "custom": 1.5
   },
-  "chat_panel": {
-    "dock": "left"
-  },
   "confirm_quit": true,
   "disable_ai": false,
   "enable_language_server": true,
