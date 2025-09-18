@@ -7,7 +7,7 @@
 1.0.0.1
 ```
 
-## Christitus (Enable Hyper-V)
+## Christitus
 
 ```
 iwr -useb https://christitus.com/win | iex
