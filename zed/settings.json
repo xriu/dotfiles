@@ -2,14 +2,14 @@
   "context_servers": {
     "sequential-thinking": {
       "source": "custom",
-      "enabled": false,
+      "enabled": true,
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
       "env": {}
     },
     "filesystem": {
       "source": "custom",
-      "enabled": false,
+      "enabled": true,
       "command": "npx",
       "args": [
         "-y",
@@ -20,31 +20,26 @@
     },
     "mcp-deepwiki": {
       "source": "custom",
-      "enabled": false,
+      "enabled": true,
       "command": "npx",
       "args": ["-y", "mcp-deepwiki@latest"],
       "env": {}
     },
     "browser-tools": {
       "source": "custom",
-      "enabled": false,
+      "enabled": true,
       "command": "npx",
       "args": ["-y", "@agentdeskai/browser-tools-mcp@1.2.0"],
       "env": {}
     },
-    "playwright": {
-      "source": "custom",
-      "enabled": false,
-      "command": "npx",
-      "args": ["@playwright/mcp@latest"],
-      "env": {}
-    },
     "@21st-dev/magic": {
       "source": "custom",
-      "enabled": false,
+      "enabled": true,
       "command": "npx",
-      "args": ["-y", "@21st-dev/magic@latest", "API_KEY=$API_KEY_21ST"],
-      "env": {}
+      "args": ["-y", "@21st-dev/magic@latest"],
+      "env": {
+        "API_KEY": "$API_KEY_21ST"
+      }
     }
   },
   "use_system_window_tabs": true,
@@ -60,8 +55,8 @@
       "provider": "anthropic"
     },
     "default_model": {
-      "model": "gpt-5-nano",
-      "provider": "openai"
+      "model": "glm-4.5",
+      "provider": "anthropic"
     },
     "default_profile": "ask",
     "enable_feedback": false,

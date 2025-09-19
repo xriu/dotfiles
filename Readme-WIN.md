@@ -16,7 +16,7 @@ iwr -useb https://christitus.com/win | iex
 ## WinGet Upgrade
 
 ```
-winget upgrade
+winget upgrade --include-unknown --all
 ```
 
 ## WinGet Install
