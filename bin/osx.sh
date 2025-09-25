@@ -25,6 +25,7 @@ function install_osx_packages() {
 
     brew_setup
     npm_packages
+    # bun_packages
     mac_setup
     zsh_setup
 
@@ -148,7 +149,17 @@ function npm_packages() {
     npm install -g @anthropic-ai/claude-code # Claude Code CLI
     npm install -g @google/gemini-cli # Gemini CLI
     npm install -g @openai/codex # OpenAI Codex CLI
-    # npm install -g opencode-ai # OpenCode CLI
+    npm install -g opencode-ai # OpenCode CLI
+
+}
+
+function bun_packages() {
+
+    echo "Bun packages"
+    bun install -g @anthropic-ai/claude-code # Claude Code CLI
+    bun install -g @google/gemini-cli # Gemini CLI
+    bun install -g @openai/codex # OpenAI Codex CLI
+    bun install -g opencode-ai # OpenCode CLI
 
 }
 
