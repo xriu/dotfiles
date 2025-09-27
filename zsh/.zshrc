@@ -11,6 +11,7 @@ setup_export() {
     export PATH="$HOME/.jenv/bin:$PATH"
     export PATH="$HOME/.GIS-lm-build/bin:$PATH"
     export PATH="$HOME/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
     export PATH=~/.console-ninja/.bin:$PATH
 }
 
