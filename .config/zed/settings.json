@@ -1,0 +1,199 @@
+{
+  "context_servers": {
+    "sequential-thinking": {
+      "source": "custom",
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "env": {}
+    },
+    "filesystem": {
+      "source": "custom",
+      "enabled": true,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/xavier.riu/Develop"
+      ],
+      "env": {}
+    },
+    "mcp-deepwiki": {
+      "source": "custom",
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "mcp-deepwiki@latest"],
+      "env": {}
+    },
+    "browser-tools": {
+      "source": "custom",
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@agentdeskai/browser-tools-mcp@1.2.0"],
+      "env": {}
+    },
+    "@21st-dev/magic": {
+      "source": "custom",
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "@21st-dev/magic@latest"],
+      "env": {
+        "API_KEY": "$API_KEY_21ST"
+      }
+    }
+  },
+  "use_system_window_tabs": true,
+  "status_bar": {
+    "active_language_button": true,
+    "cursor_position_button": true
+  },
+  "agent": {
+    "dock": "left",
+    "always_allow_tool_actions": true,
+    "commit_message_model": {
+      "model": "claude-3-5-sonnet",
+      "provider": "anthropic"
+    },
+    "default_model": {
+      "model": "glm-4.5",
+      "provider": "anthropic"
+    },
+    "default_profile": "ask",
+    "enable_feedback": false,
+    "inline_assistant_model": {
+      "model": "gpt-4.1",
+      "provider": "copilot_chat"
+    },
+    "play_sound_when_agent_done": true
+  },
+  "auto_update": false,
+  "base_keymap": "VSCode",
+  "buffer_font_size": 13,
+  "buffer_line_height": {
+    "custom": 1.5
+  },
+  "confirm_quit": true,
+  "disable_ai": false,
+  "enable_language_server": true,
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "formatter": "auto",
+  "format_on_save": "on",
+  "git": {
+    "inline_blame": {
+      "delay_ms": 500,
+      "enabled": true
+    }
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "indent_guides": {
+    "background_coloring": "disabled",
+    "coloring": "indent_aware",
+    "enabled": true
+  },
+  "language_models": {
+    "anthropic": {
+      "api_url": "https://api.z.ai/api/anthropic",
+      "available_models": [
+        {
+          "display_name": "GLM 4.5",
+          "max_tokens": 131072,
+          "mode": {
+            "type": "thinking"
+          },
+          "name": "glm-4.5"
+        }
+      ]
+    }
+  },
+  "languages": {
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "JSON": {
+      "tab_size": 4
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      }
+    }
+  },
+  "load_direnv": "direct",
+  "lsp": {
+    "eslint": {
+      "settings": {
+        "codeActionOnSave": {
+          "rules": ["import/order"]
+        }
+      }
+    }
+  },
+  "minimap": {
+    "current_line_highlight": "line",
+    "show": "auto"
+  },
+  "notification_panel": {
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "starts_open": true,
+    "button": true,
+    "dock": "right",
+    "file_icons": true,
+    "folder_icons": true,
+    "git_status": true,
+    "scrollbar": {
+      "show": "never"
+    }
+  },
+  "show_wrap_guides": false,
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "terminal": {
+    "alternate_scroll": "off",
+    "blinking": "terminal_controlled",
+    "button": true,
+    "copy_on_select": true,
+    "detect_venv": {
+      "on": {
+        "activate_script": "default",
+        "directories": [".env", "env", ".venv", "venv"]
+      }
+    },
+    "dock": "bottom",
+    "env": {},
+    "font_family": "FiraCode Nerd Font Mono",
+    "font_size": 13,
+    "option_as_meta": false,
+    "shell": "system",
+    "working_directory": "current_project_directory"
+  },
+  "theme": {
+    "dark": "Catppuccin Mocha",
+    "light": "One Light",
+    "mode": "system"
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": true
+  },
+  "ui_font_size": 15,
+  "wrap_guides": [80, 120]
+}
