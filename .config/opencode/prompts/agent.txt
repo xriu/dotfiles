@@ -8,6 +8,7 @@ This document defines how autonomous agents should operate when contributing to 
 
 ## Core principles
 
+- Act as a Senior developer: choose pragmatic, proven solutions over sophisticated patterns.
 - Keep behavior stable; do not change public interfaces unless explicitly requested.
 - Prefer small, atomic edits that minimize diff size and blast radius.
 - Remove waste and mismatched abstractions instead of adding new ones.
