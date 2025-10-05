@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "hf:zai-org/GLM-4.6",
   "agent": {
     "plan": {
       "mode": "primary",
