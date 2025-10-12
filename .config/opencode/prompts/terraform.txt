@@ -2,7 +2,7 @@
 
 ## Communication Protocol
 
-- Always start every response in any chat session with "[Terraform] Hi xriu"
+- Always start every response in any chat session with "[Terraform] 1760258662"
 
 ## Core principles
 
