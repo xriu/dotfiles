@@ -158,15 +158,15 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # - setup_carapace: Sets up Carapace, a tool for tab completion.
 
 # setup_terminal
-setup_fzf
+# setup_fzf
 # setup_github_cli
-setup_zsh_autosuggestions
+# setup_zsh_autosuggestions
 setup_nvm
 setup_pnpm
 # setup_angular
 # setup_jenv
 setup_terragrunt
-# setup_starship
+setup_starship
 setup_zoxide
 setup_atuin
 setup_carapace
