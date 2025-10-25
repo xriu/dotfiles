@@ -157,9 +157,9 @@ function npm_packages() {
 function bun_packages() {
 
     echo "Bun packages"
+    # bun install -g @openai/codex # OpenAI Codex CLI
     bun install -g @anthropic-ai/claude-code # Claude Code CLI
     bun install -g @google/gemini-cli # Gemini CLI
-    bun install -g @openai/codex # OpenAI Codex CLI
     bun install -g opencode-ai # OpenCode CLI
 
 }
