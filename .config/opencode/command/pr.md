@@ -19,7 +19,7 @@ agent: build
 Content in Markdown format:
 
 ```
-Title
+Brief Title
 
 ## [Icon] Description
 - New workflow authentication system, minor fixes
