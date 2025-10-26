@@ -45,6 +45,11 @@
       "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
       "enabled": false
     },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"],
+      "enabled": false
+    },
     "filesystem": {
       "type": "local",
       "command": [
