@@ -25,13 +25,6 @@
       "args": ["-y", "mcp-deepwiki@latest"],
       "env": {}
     },
-    "browser-tools": {
-      "source": "custom",
-      "enabled": true,
-      "command": "npx",
-      "args": ["-y", "@agentdeskai/browser-tools-mcp@1.2.0"],
-      "env": {}
-    },
     "@21st-dev/magic": {
       "source": "custom",
       "enabled": true,
