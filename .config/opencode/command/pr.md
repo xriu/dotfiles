@@ -16,7 +16,7 @@ agent: build
    - Use bullet points for individual changes
    - Include ticket/issue references if present
 
-Content format:
+Content in Markdown format:
 
 ```
 Title
