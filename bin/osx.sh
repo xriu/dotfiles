@@ -107,6 +107,7 @@ function brew_setup() {
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
     brew install nvm # Manage multiple Node.js versions
+    brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pnpm # Fast, disk space efficient package manager
     brew install poetry # Python package manager
@@ -150,7 +151,6 @@ function npm_packages() {
     # npm install -g @openai/codex # OpenAI Codex CLI
     npm install -g @anthropic-ai/claude-code # Claude Code CLI
     npm install -g @google/gemini-cli # Gemini CLI
-    npm install -g opencode-ai # OpenCode CLI
 
 }
 
@@ -160,7 +160,6 @@ function bun_packages() {
     # bun install -g @openai/codex # OpenAI Codex CLI
     bun install -g @anthropic-ai/claude-code # Claude Code CLI
     bun install -g @google/gemini-cli # Gemini CLI
-    bun install -g opencode-ai # OpenCode CLI
 
 }
 

@@ -58,7 +58,7 @@
         "@modelcontextprotocol/server-filesystem",
         "/Users/xavier.riu/Develop"
       ],
-      "enabled": false
+      "enabled": true
     },
     "sequential-thinking": {
       "type": "local",
