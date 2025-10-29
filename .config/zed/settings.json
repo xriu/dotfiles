@@ -1,4 +1,10 @@
 {
+  "agent_servers": {
+    "OpenCode": {
+      "command": "opencode",
+      "args": ["acp"]
+    }
+  },
   "context_servers": {
     "sequential-thinking": {
       "source": "custom",
@@ -41,21 +47,23 @@
     "cursor_position_button": true
   },
   "agent": {
-    "dock": "left",
     "always_allow_tool_actions": true,
+    "enabled": true,
+    "button": true,
+    "dock": "left",
     "commit_message_model": {
-      "model": "claude-3-5-sonnet",
-      "provider": "anthropic"
+      "model": "hf:zai-org/GLM-4.6",
+      "provider": "Synthetic"
     },
     "default_model": {
-      "model": "glm-4.5",
-      "provider": "anthropic"
+      "model": "hf:zai-org/GLM-4.6",
+      "provider": "Synthetic"
     },
     "default_profile": "ask",
     "enable_feedback": false,
     "inline_assistant_model": {
-      "model": "gpt-4.1",
-      "provider": "copilot_chat"
+      "model": "hf:zai-org/GLM-4.6",
+      "provider": "Synthetic"
     },
     "play_sound_when_agent_done": true
   },
@@ -90,17 +98,39 @@
   },
   "language_models": {
     "anthropic": {
-      "api_url": "https://api.z.ai/api/anthropic",
+      "api_url": "https://api.synthetic.new/anthropic/v1",
       "available_models": [
         {
-          "display_name": "GLM 4.5",
-          "max_tokens": 131072,
+          "display_name": "GLM 4.6",
+          "max_tokens": 200000, // 200k
+          "max_output_tokens": 128000, // 128k
+          "default_temperature": 0.1,
           "mode": {
             "type": "thinking"
           },
-          "name": "glm-4.5"
+          "name": "hf:zai-org/GLM-4.6"
         }
       ]
+    },
+    "openai_compatible": {
+      "Synthetic": {
+        "api_url": "https://api.synthetic.new/openai/v1",
+        "available_models": [
+          {
+            "name": "hf:zai-org/GLM-4.6",
+            "display_name": "GLM 4.6",
+            "max_tokens": 200000, // 200k
+            "max_output_tokens": 128000, // 128k
+            "max_completion_tokens": 128000, // 128k
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true
+            }
+          }
+        ]
+      }
     }
   },
   "languages": {
@@ -179,7 +209,7 @@
     "working_directory": "current_project_directory"
   },
   "theme": {
-    "dark": "Catppuccin Mocha",
+    "dark": "Ayu Dark",
     "light": "One Light",
     "mode": "system"
   },
