@@ -49,10 +49,12 @@ function brew_setup() {
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask chatgpt-atlas --force # ChatGPT client for macOS
+    brew install --cask claude-code --force # Claude Code CLI
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask finch --force # Open source container development tool
+    brew install --cask gemini-cli --force # Gemini CLI
     brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask leapp --force # Cloud credentials manager
@@ -148,18 +150,14 @@ function brew_setup() {
 function npm_packages() {
 
     echo "NPM packages" # npm list -g --depth=0 --json
-    # npm install -g @openai/codex # OpenAI Codex CLI
-    npm install -g @anthropic-ai/claude-code # Claude Code CLI
-    npm install -g @google/gemini-cli # Gemini CLI
+    # npm install -g @anthropic-ai/claude-code # Claude Code CLI
 
 }
 
 function bun_packages() {
 
     echo "Bun packages"
-    # bun install -g @openai/codex # OpenAI Codex CLI
-    bun install -g @anthropic-ai/claude-code # Claude Code CLI
-    bun install -g @google/gemini-cli # Gemini CLI
+    # bun install -g @anthropic-ai/claude-code # Claude Code CLI
 
 }
 
