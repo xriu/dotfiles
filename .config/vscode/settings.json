@@ -1,0 +1,198 @@
+{
+    "[hcl]": {
+        "editor.defaultFormatter": "jkillian.custom-local-formatters"
+    },
+    "[html]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit"
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+    },
+    "[javascript]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit"
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[terraform]": {
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit"
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "amazonQ.telemetry": false,
+    "breadcrumbs.enabled": false,
+    "chat.commandCenter.enabled": true,
+    "console-ninja.featureSet": "Community",
+    "customLocalFormatters.formatters": [
+        {
+            "command": "terraform fmt -",
+            "languages": ["hcl"]
+        }
+    ],
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.accessibilitySupport": "off",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.cursorBlinking": "expand",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.detectIndentation": false,
+    "editor.experimental.asyncTokenization": true,
+    "editor.folding": true,
+    "editor.fontFamily": "FiraCodeNerdFont-Retina",
+    "editor.fontLigatures": false,
+    "editor.fontWeight": "300",
+    "editor.formatOnSave": true,
+    "editor.glyphMargin": false,
+    "editor.guides.bracketPairs": true,
+    "editor.guides.highlightActiveBracketPair": true,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.inlineSuggest.edits.experimental.enabled": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.insertSpaces": true,
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": "off",
+    "editor.overviewRulerBorder": false,
+    "editor.renderLineHighlight": "none",
+    "editor.renderWhitespace": "none",
+    "editor.stickyScroll.enabled": true,
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 4,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.openEditors.visible": 1,
+    "extensions.autoUpdate": true,
+    "extensions.ignoreRecommendations": true,
+    "files.associations": {
+        "*.tf": "terraform",
+        "*.tftpl": "hcl",
+        "*.tfvars": "terraform-vars"
+    },
+    "files.autoSave": "afterDelay",
+    "files.exclude": {
+        "**/node_modules/": true,
+        "wp-admin/": true,
+        "wp-config.*": false,
+        "wp-includes/": true,
+        "xmlrpc.php": true
+    },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": false,
+    "files.trimTrailingWhitespace": true,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/node_modules/**": true
+    },
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "git.ignoreLimitWarning": true,
+    "git.openRepositoryInParentFolders": "always",
+    "github.copilot.advanced": {
+        "enabled": true,
+        "useLocalModel": false
+    },
+    "github.copilot.chat.edits.enabled": true,
+    "github.copilot.chat.generateTests.codeLens": true,
+    "github.copilot.chat.inlineChatCompletionTrigger.enabled": true,
+    "github.copilot.chat.inlineChatHint.enabled": true,
+    "github.copilot.chat.reviewSelection.instructions": [
+        {
+            "file": ".ai/code-style.md"
+        }
+    ],
+    "github.copilot.chat.search.semanticTextResults": true,
+    "github.copilot.chat.testGeneration.instructions": [],
+    "github.copilot.editor.enableAutoCompletions": true,
+    "github.copilot.enable": {
+        "*": true,
+        "markdown": true,
+        "plaintext": true,
+        "scminput": true
+    },
+    "githubPullRequests.createOnPublishBranch": "never",
+    "githubPullRequests.pullBranch": "never",
+    "hadolint.cliOptions": [],
+    "java.configuration.runtimes": [
+        {
+            "default": false,
+            "name": "JavaSE-21",
+            "path": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
+        }
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+    "java.import.generatesMetadataFilesAtProjectRoot": false,
+    "java.import.gradle.java.home": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home",
+    "java.imports.gradle.wrapper.checksums": [
+        {
+            "allowed": true,
+            "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06"
+        }
+    ],
+    "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home",
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/Users/xavier.riu/.vscode/extensions/vscjava.vscode-lombok-1.0.1/server/lombok.jar\"",
+    "java.project.importHint": false,
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "java.saveActions.organizeImports": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "oneDarkPro.bold": true,
+    "oneDarkPro.editorTheme": "One Dark Pro Darker",
+    "oneDarkPro.vivid": true,
+    "python.formatting.autopep8Args": ["--max-line-length=120"],
+    "python.formatting.provider": "autopep8",
+    "python.languageServer": "Pylance",
+    "quarkus.tools.alwaysShowWelcomePage": false,
+    "redhat.telemetry.enabled": false,
+    "scm.experimental.showHistoryGraph": true,
+    "search.exclude": {
+        "**/.git": true,
+        "**/bower_components": true,
+        "**/build": true,
+        "**/node_modules": true,
+        "**/tmp": true
+    },
+    "telemetry.telemetryLevel": "off",
+    "terminal.external.osxExec": "warp.app",
+    "terminal.integrated.env.osx": {},
+    "terminal.integrated.fontFamily": "FiraCodeNerdFont-Retina",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "window.commandCenter": true,
+    "window.restoreFullscreen": true,
+    "window.titleBarStyle": "custom",
+    "workbench.activityBar.location": "top",
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editor.showIcons": false,
+    "workbench.editor.tabActionCloseVisibility": false,
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "workbench.panel.showLabels": false,
+    "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "newUntitledFile",
+    "github.copilot.chat.editor.temporalContext.enabled": true
+}

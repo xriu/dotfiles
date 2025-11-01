@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Create New Prefixed Git Branch",
+            "type": "shell",
+            "command": "git checkout master && git pull && git checkout -b \"xriu/${input:branchName}\" && echo \"✅ Branch created xriu/${input:branchName}\"",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Switch to Master and Pull",
+            "type": "shell",
+            "command": "git checkout main && git pull && echo \"✅ Switched to main branch and pulled latest changes\"",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "branchName",
+            "description": "Enter the branch name",
+            "default": "",
+            "options": []
+        }
+    ]
+}
