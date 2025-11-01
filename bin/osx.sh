@@ -150,14 +150,12 @@ function brew_setup() {
 function npm_packages() {
 
     echo "NPM packages" # npm list -g --depth=0 --json
-    # npm install -g @anthropic-ai/claude-code # Claude Code CLI
 
 }
 
 function bun_packages() {
 
     echo "Bun packages"
-    # bun install -g @anthropic-ai/claude-code # Claude Code CLI
 
 }
 
