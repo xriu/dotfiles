@@ -200,7 +200,7 @@
   "terminal.integrated.env.osx": {
     "SHELL": "/opt/homebrew/bin/zsh"
   },
-  "terminal.integrated.fontFamily": "FiraCodeNerdFont-Retina",
+  "terminal.integrated.fontFamily": "monospace",
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.profiles.osx": {
     "zsh": {
