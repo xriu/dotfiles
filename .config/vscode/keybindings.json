@@ -45,6 +45,11 @@
   },
   {
     "key": "cmd+shift+1",
+    "command": "workbench.action.toggleZenMode",
+    "when": "inZenMode"
+  },
+  {
+    "key": "cmd+shift+1",
     "command": "runCommands",
     "args": {
       "commands": [
@@ -54,10 +59,5 @@
       ]
     },
     "when": "!inZenMode"
-  },
-  {
-    "key": "cmd+shift+1",
-    "command": "workbench.action.toggleZenMode",
-    "when": "inZenMode"
   }
 ]
