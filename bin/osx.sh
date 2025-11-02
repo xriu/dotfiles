@@ -43,8 +43,6 @@ function brew_setup() {
     softwareupdate --install-rosetta --agree-to-license
 
     # brew install --cask ghostty --force # Ghostty is a tool for managing your GitHub repositories
-    # brew install --cask intellij-idea-ce --force # IDE for Java development - community edition
-    # brew install --cask soundsource --force # Sound and audio controller
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
