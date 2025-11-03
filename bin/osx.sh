@@ -114,7 +114,6 @@ function brew_setup() {
     brew install postgresql # Object-relational database management system
     brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
-    brew install redis # Persistent key-value database with built-in net interface
     brew install rust # Safe, concurrent, practical language
     brew install rustscan # Modern port scanner
     brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
