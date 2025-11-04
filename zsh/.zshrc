@@ -166,7 +166,7 @@ setup_pnpm
 # setup_angular
 # setup_jenv
 setup_terragrunt
-setup_starship
+# setup_starship
 setup_zoxide
 setup_atuin
 setup_carapace
