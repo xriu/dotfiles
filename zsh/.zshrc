@@ -1,3 +1,6 @@
+# Enable zsh profiling to diagnose slow initialization
+# zmodload zsh/zprof
+
 # Set up environment variables for the shell.
 setup_export() {
     export LC_ALL=$LANG
@@ -24,16 +27,23 @@ setup_terminal() {
     export LS_COLORS="$(vivid generate molokai)"
 }
 
-# Function to set up NVM (Node Version Manager)
-# This function sets the NVM_DIR environment variable to the path of the NVM directory.
-# It then sources the nvm.sh and nvm bash completion scripts from the specified locations.
-# Finally, it uses the default Node.js version specified by NVM.
+# Function to set up NVM (Node Version Manager) - LAZY LOADED
+# NVM is only loaded when first used, improving shell startup time.
 setup_nvm() {
     export NVM_DIR="$HOME/.nvm"
-    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-    export PATH="$PATH:$NVM_DIR/versions/node/$(nvm current)/bin"
-    nvm use node > /dev/null
+
+    # Helper function to load NVM (called on first use)
+    _nvm() {
+        unset -f nvm node npm npx _nvm
+        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+    }
+
+    # Wrapper functions that trigger lazy loading
+    nvm() { _nvm && nvm "$@"; }
+    node() { _nvm && node "$@"; }
+    npm() { _nvm && npm "$@"; }
+    npx() { _nvm && npx "$@"; }
 }
 
 # Sets up jenv by initializing it and enabling the export plugin.
@@ -110,11 +120,6 @@ setup_fzf() {
     export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 }
 
-# Sets up the GitHub CLI for the zsh shell.
-setup_github_cli() {
-    eval "$(gh copilot alias -- zsh)"
-}
-
 # Sets up environment variables and exports them.
 setup_export
 
@@ -157,20 +162,21 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # - setup_atuin: Sets up Atuin, a directory navigation tool for shells.
 # - setup_carapace: Sets up Carapace, a tool for tab completion.
 
-# setup_terminal
-# setup_fzf
-# setup_github_cli
-# setup_zsh_autosuggestions
-setup_nvm
-setup_pnpm
-# setup_angular
-# setup_jenv
-setup_terragrunt
-# setup_starship
-setup_zoxide
-setup_atuin
-setup_carapace
+# setup_terminal              # 6.54ms (0.54%)
+# setup_fzf                   # 1.80ms (0.15%)
+# setup_zsh_autosuggestions   # 98.12ms (8.05%)
+setup_nvm                     # 0.01ms (0.00%)
+setup_pnpm                    # 0.01ms (0.00%)
+# setup_angular               # 290.39ms (23.82%)
+# setup_jenv                  # 17.11ms (1.40%)
+setup_terragrunt              # 0.11ms (0.01%)
+# setup_starship              # 43.79ms (3.59%)
+setup_zoxide                  # 4.95ms (0.41%)
+# setup_atuin                 # 83.84ms (6.88%)
+# setup_carapace              # 105.34ms (8.64%)
 
 # End by setting the prompt for the shell.
 PROMPT="${PROMPT}"$'\n'
 
+# Display profiling results
+# zprof
