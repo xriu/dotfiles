@@ -21,7 +21,7 @@
       "env": {}
     },
     "sequential-thinking": {
-      "disabled": false,
+      "disabled": true,
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     },

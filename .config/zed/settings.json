@@ -8,7 +8,7 @@
   "context_servers": {
     "sequential-thinking": {
       "source": "custom",
-      "enabled": true,
+      "enabled": false,
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
       "env": {}

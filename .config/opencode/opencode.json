@@ -76,7 +76,7 @@
         "-y",
         "@modelcontextprotocol/server-sequential-thinking"
       ],
-      "enabled": true
+      "enabled": false
     },
     "mcp-deepwiki": {
       "type": "local",
