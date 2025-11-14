@@ -310,5 +310,6 @@
   "workbench.panel.showLabels": false,
   "workbench.editor.enablePreview": false,
   "workbench.sideBar.location": "right",
-  "workbench.colorTheme": "Mermaid Dark"
+  "workbench.colorTheme": "Mermaid Dark",
+  "explorer.confirmPasteNative": false
 }
