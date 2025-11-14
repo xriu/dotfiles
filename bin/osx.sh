@@ -42,11 +42,11 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
+    # brew install --cask chatgpt-atlas --force # ChatGPT client for macOS
     # brew install --cask ghostty --force # Ghostty is a tool for managing your GitHub repositories
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
-    brew install --cask chatgpt-atlas --force # ChatGPT client for macOS
     brew install --cask claude-code --force # Claude Code CLI
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
