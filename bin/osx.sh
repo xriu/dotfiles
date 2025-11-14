@@ -54,6 +54,7 @@ function brew_setup() {
     brew install --cask finch --force # Open source container development tool
     brew install --cask gemini-cli --force # Gemini CLI
     brew install --cask google-chrome --force # Google Chrome browser
+    brew install --cask helium-browser --force # Browser for the modern internet
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
