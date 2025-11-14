@@ -243,7 +243,7 @@
 
   // YAML
   "yaml.schemas": {
-    "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.7-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.8-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   },
 
   // AWS
