@@ -63,6 +63,12 @@ bin/lm install
 /Users/.../Library/Application Support/Code/User
 ```
 
+## Warp
+
+```
+rm -fR "$HOME/Library/Group Containers/2BBY89MBSN.dev.warp/Library/Application Support/dev.warp.Warp-Stable/warp.sqlite"
+```
+
 ## Ghostty
 
 ```

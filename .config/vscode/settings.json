@@ -283,7 +283,7 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
 
   // Update
-  "update.releaseTrack": "prerelease",
+  "update.releaseTrack": "dev",
 
   // VS Code Custom CSS
   "vscode_custom_css.imports": [
@@ -314,6 +314,7 @@
 
   // YAML
   "yaml.schemas": {
-    "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.8-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  }
+    "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.9-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "update.mode": "silentlyApplyOnQuit"
 }
