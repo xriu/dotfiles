@@ -40,15 +40,6 @@ jenv add /Library/Java/JavaVirtualMachines/temurin-22.jdk/Contents/Home
 jenv add /Library/Java/JavaVirtualMachines/temurin-24.jdk/Contents/Home
 ```
 
-## File ~/.bashrc
-
-```
-if [ -n "$CURSOR_TRACE_ID" ] && [ -z "$BASH_TO_ZSH" ]; then
-    export BASH_TO_ZSH=1
-    exec zsh
-fi
-```
-
 ## LM-Build
 
 ```
