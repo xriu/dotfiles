@@ -6,31 +6,6 @@
     }
   },
   "context_servers": {
-    "sequential-thinking": {
-      "source": "custom",
-      "enabled": false,
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
-      "env": {}
-    },
-    "filesystem": {
-      "source": "custom",
-      "enabled": false,
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "/Users/xavier.riu/Develop"
-      ],
-      "env": {}
-    },
-    "mcp-deepwiki": {
-      "source": "custom",
-      "enabled": false,
-      "command": "npx",
-      "args": ["-y", "mcp-deepwiki@latest"],
-      "env": {}
-    },
     "@21st-dev/magic": {
       "source": "custom",
       "enabled": false,
