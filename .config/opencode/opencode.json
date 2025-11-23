@@ -54,6 +54,14 @@
       "url": "https://mcp.linear.app/mcp",
       "enabled": false
     },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
+      },
+      "enabled": true
+    },
     "chrome-devtools": {
       "type": "local",
       "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
@@ -63,17 +71,6 @@
       "type": "local",
       "command": ["npx", "-y", "@playwright/mcp@latest"],
       "enabled": false
-    },
-    "context7": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@upstash/context7-mcp",
-        "--api-key",
-        "$CONTEXT7_API_KEY"
-      ],
-      "enabled": true
     }
   }
 }
