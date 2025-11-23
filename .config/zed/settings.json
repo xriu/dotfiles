@@ -15,7 +15,7 @@
     },
     "filesystem": {
       "source": "custom",
-      "enabled": true,
+      "enabled": false,
       "command": "npx",
       "args": [
         "-y",
@@ -26,14 +26,14 @@
     },
     "mcp-deepwiki": {
       "source": "custom",
-      "enabled": true,
+      "enabled": false,
       "command": "npx",
       "args": ["-y", "mcp-deepwiki@latest"],
       "env": {}
     },
     "@21st-dev/magic": {
       "source": "custom",
-      "enabled": true,
+      "enabled": false,
       "command": "npx",
       "args": ["-y", "@21st-dev/magic@latest"],
       "env": {
