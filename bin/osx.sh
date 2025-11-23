@@ -102,6 +102,7 @@ function brew_setup() {
     brew install hadolint # Smarter Dockerfile linter to validate best practices
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
+    brew install lazydocker # A tool for managing docker containers with a simple, intuitive interface.
     brew install leapp-cli # Cloud credentials manager cli
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
