@@ -60,7 +60,6 @@ function brew_setup() {
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
     brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
-    brew install --cask openvpn-connect --force # Client program for the OpenVPN Access Server
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
@@ -78,7 +77,6 @@ function brew_setup() {
     brew install angular-cli # CLI tool for Angular
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
-    brew install aws-sam-cli # CLI tool for AWS SAM
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
     brew install bash-completion # Programmable completion for Bash 4.2+
