@@ -46,7 +46,7 @@ function brew_setup() {
     # brew install --cask ghostty --force # Ghostty is a tool for managing your GitHub repositories
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
-    brew install --cask antigravity --force # Antigravity is a tool for managing your GitHub repositories
+    brew install --cask antigravity --force # AI Coding Agent IDE
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask claude-code --force # Claude Code CLI
     brew install --cask conductor --force # Claude code parallelisation
