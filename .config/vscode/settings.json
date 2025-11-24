@@ -282,6 +282,7 @@
 
   // TypeScript
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.referencesCodeLens.enabled": true,
 
   // VS Code Custom CSS
   "vscode_custom_css.imports": [
