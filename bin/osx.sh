@@ -68,6 +68,7 @@ function brew_setup() {
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask twingate --force # Secure network access to cloud resources
+    brew install --cask visual-studio-code --force # Visual Studio Code
     brew install --cask warp --force # The terminal for the modern internet
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed --force # Multiplayer code editor
