@@ -1,5 +1,6 @@
 {
   // AWS
+  "aws.cloudformation.telemetry.enabled": false,
   "aws.telemetry": false,
 
   // Atlas Code (Jira/Bitbucket)
