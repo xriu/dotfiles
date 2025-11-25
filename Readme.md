@@ -8,21 +8,7 @@ cd ~/dotfiles
 ./setup.sh
 ```
 
-## FZF
-
-#### To install useful key bindings and fuzzy completion
-
-```
-/opt/homebrew/opt/fzf/install
-```
-
 ## Github Copilot CLI
-
-#### Execute manually for first time
-
-```
-gh copilot alias -- zsh
-```
 
 ## NVM
 
