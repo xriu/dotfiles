@@ -77,7 +77,6 @@ function brew_setup() {
 
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
-    brew install angular-cli # CLI tool for Angular
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface

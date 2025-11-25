@@ -4,13 +4,13 @@
 # ==============================================================================
 # Feature Toggles (override in ~/.zshrc.local)
 # ==============================================================================
+
 # Set to "true" to enable, "false" to disable
 : ${ENABLE_TERMINAL:=false}            # 6.54ms - Terminal colors with vivid
 : ${ENABLE_FZF:=false}                 # 1.80ms - Fuzzy finder
 : ${ENABLE_ZSH_AUTOSUGGESTIONS:=false} # 98.12ms - Fish-like autosuggestions
 : ${ENABLE_NVM:=true}                  # 0.01ms - Node Version Manager (lazy)
 : ${ENABLE_PNPM:=true}                 # 0.01ms - pnpm package manager
-: ${ENABLE_ANGULAR:=false}             # 290.39ms - Angular CLI completion
 : ${ENABLE_JENV:=false}                # 17.11ms - Java Version Manager
 : ${ENABLE_TERRAGRUNT:=true}           # 0.11ms - Terragrunt completion
 : ${ENABLE_STARSHIP:=false}            # 43.79ms - Starship prompt
@@ -87,12 +87,6 @@ setup_pnpm() {
     esac
 }
 
-# Sets up Angular completion by sourcing the ng completion script.
-setup_angular() {
-    command -v ng &>/dev/null || return
-    source <(ng completion script)
-}
-
 # Configures tab completion for the terragrunt command.
 # It uses the terragrunt binary located at /opt/homebrew/bin/terragrunt.
 setup_terragrunt() {
@@ -155,8 +149,6 @@ setup_zsh_autosuggestions() {
     local _brew_prefix="${HOMEBREW_PREFIX:-$(brew --prefix)}"
     [[ -f "$_brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && \
         source "$_brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-    [[ -f "$_brew_prefix/etc/profile.d/z.sh" ]] && \
-        source "$_brew_prefix/etc/profile.d/z.sh"
 }
 
 # Sets up fzf for the zsh shell.
@@ -184,9 +176,6 @@ DISABLE_UPDATE_PROMPT=true # Disable update prompts
 # in the current shell session.
 source $HOME/dotfiles/zsh/base.zsh
 
-# Add functions directory to fpath and autoload
-fpath=($HOME/dotfiles/zsh/functions $fpath)
-# Or if you want to keep sourcing, use a more robust pattern:
 for script in $HOME/dotfiles/zsh/functions/*.zsh(N); do
     source "$script"
 done
@@ -213,7 +202,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 [[ "$ENABLE_ZSH_AUTOSUGGESTIONS" == "true" ]] && setup_zsh_autosuggestions
 [[ "$ENABLE_NVM" == "true" ]] && setup_nvm
 [[ "$ENABLE_PNPM" == "true" ]] && setup_pnpm
-[[ "$ENABLE_ANGULAR" == "true" ]] && setup_angular
 [[ "$ENABLE_JENV" == "true" ]] && setup_jenv
 [[ "$ENABLE_TERRAGRUNT" == "true" ]] && setup_terragrunt
 [[ "$ENABLE_STARSHIP" == "true" ]] && setup_starship
