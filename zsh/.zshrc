@@ -1,6 +1,10 @@
 # Enable zsh profiling to diagnose slow initialization
 # zmodload zsh/zprof
 
+# ==============================================================================
+# Setup Functions
+# ==============================================================================
+
 # Set up environment variables for the shell.
 setup_export() {
     export LC_ALL=$LANG
@@ -16,8 +20,7 @@ setup_export() {
     export PATH="$HOME/bin:$PATH"
     export PATH="$HOME/.local/bin:$PATH"
     export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
-    export PATH=~/.local/bin:$PATH
-    export PATH=~/.console-ninja/.bin:$PATH
+    export PATH="$HOME/.console-ninja/.bin:$PATH"
 }
 
 # Configures the terminal settings for a better visual experience.
@@ -103,6 +106,23 @@ setup_carapace() {
     fi
 }
 
+# Sets up zsh options for better behavior.
+setup_zsh_options() {
+    setopt AUTO_CD                # cd into directory by typing its name
+    setopt AUTO_PUSHD             # Push directories onto stack
+    setopt PUSHD_IGNORE_DUPS      # Don't push duplicates
+    setopt CORRECT                # Spell correction for commands
+    setopt NO_BEEP                # Disable beep on error
+    setopt EXTENDED_GLOB          # Extended globbing syntax
+    setopt INTERACTIVE_COMMENTS   # Allow comments in interactive shell
+    setopt EXTENDED_HISTORY       # Write timestamp to history
+    setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicates first
+    setopt HIST_IGNORE_DUPS       # Don't record duplicates
+    setopt HIST_IGNORE_SPACE      # Don't record commands starting with space
+    setopt HIST_VERIFY            # Show command before executing from history
+    setopt SHARE_HISTORY          # Share history across sessions
+}
+
 # Sets up zsh-autosuggestions for the zsh shell.
 # Zsh-autosuggestions is a Fish-like autosuggestions for zsh.
 setup_zsh_autosuggestions() {
@@ -121,6 +141,13 @@ setup_fzf() {
     export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
 }
 
+# ==============================================================================
+# Initialization
+# ==============================================================================
+
+# Zsh options for better behavior
+setup_zsh_options
+
 # Sets up environment variables and exports them.
 setup_export
 
@@ -132,12 +159,11 @@ for script in $HOME/dotfiles/zsh/functions/*; do
     source $script
 done
 
-DISABLE_AUTO_UPDATE=true # Disable automatic updates
+DISABLE_AUTO_UPDATE=true   # Disable automatic updates
 DISABLE_UPDATE_PROMPT=true # Disable update prompts
 
 # Enables zsh completion by loading and initializing the `compinit` function.
-if type brew &>/dev/null
-then
+if type brew &>/dev/null; then
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
@@ -148,6 +174,9 @@ autoload -U +X bashcompinit && bashcompinit
 # Homebrew shellenv
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# ==============================================================================
+# Tool Setup
+# ==============================================================================
 # This section sets up various aliases, exports, and configurations for the Zsh shell.
 # The following functions are called to set up the environment:
 # - setup_terminal: Configures the terminal settings for a better visual experience.
@@ -175,6 +204,10 @@ setup_terragrunt              # 0.11ms (0.01%)
 setup_zoxide                  # 4.95ms (0.41%)
 # setup_atuin                 # 83.84ms (6.88%)
 # setup_carapace              # 105.34ms (8.64%)
+
+# ==============================================================================
+# Final Configuration
+# ==============================================================================
 
 # End by setting the prompt for the shell.
 PROMPT="${PROMPT}"$'\n'
