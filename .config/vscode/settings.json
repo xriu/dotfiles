@@ -1,8 +1,4 @@
 {
-  // AWS
-  "aws.cloudformation.telemetry.enabled": false,
-  "aws.telemetry": false,
-
   // Atlas Code (Jira/Bitbucket)
   "atlascode.bitbucket.enabled": false,
   "atlascode.jira.enabled": true,
@@ -27,6 +23,10 @@
   "atlascode.jira.statusbar.showUser": false,
   "atlascode.jira.todoIssues.enabled": false,
   "atlascode.jira.todoIssues.triggers": [],
+
+  // AWS
+  "aws.cloudformation.telemetry.enabled": false,
+  "aws.telemetry": false,
 
   // Breadcrumbs
   "breadcrumbs.enabled": false,
@@ -128,6 +128,30 @@
   "github.copilot.editor.enableAutoCompletions": true,
   "githubPullRequests.createOnPublishBranch": "never",
   "githubPullRequests.pullBranch": "never",
+
+  // GitHub Copilot Custom Models
+  "github.copilot.chat.customOAIModels": {
+    "hf:moonshotai/Kimi-K2-Thinking": {
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 262144,
+      "name": "hf:moonshotai/Kimi-K2-Thinking",
+      "requiresAPIKey": true,
+      "thinking": true,
+      "toolCalling": true,
+      "url": "https://api.synthetic.new/openai/v1",
+      "vision": true
+    },
+    "hf:zai-org/GLM-4.6": {
+      "maxInputTokens": 200000,
+      "maxOutputTokens": 132000,
+      "name": "hf:zai-org/GLM-4.6",
+      "requiresAPIKey": true,
+      "thinking": true,
+      "toolCalling": true,
+      "url": "https://api.synthetic.new/openai/v1",
+      "vision": true
+    }
+  },
 
   // Hadolint
   "hadolint.cliOptions": [],
@@ -268,9 +292,9 @@
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.profiles.osx": {
     "zsh": {
-      "path": "/opt/homebrew/bin/zsh",
       "args": ["-l"],
-      "overrideName": true
+      "overrideName": true,
+      "path": "/opt/homebrew/bin/zsh"
     }
   },
   "terminal.integrated.sendKeybindingsToShell": true,
@@ -281,8 +305,8 @@
   "terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
 
   // TypeScript
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.referencesCodeLens.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
 
   // VS Code Custom CSS
   "vscode_custom_css.imports": [
@@ -292,10 +316,11 @@
   // VS IntelliCode
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
-  // Window
+  // Window & Workbench
   "window.commandCenter": true,
   "window.restoreFullscreen": true,
   "window.titleBarStyle": "custom",
+  "workbench.activityBar.location": "top",
   "workbench.colorTheme": "Mermaid Dark",
   "workbench.editor.associations": {
     "*.ipynb": "jupyter-notebook"
@@ -310,6 +335,7 @@
   "workbench.iconTheme": "symbols",
   "workbench.panel.showLabels": false,
   "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
 
   // YAML
   "yaml.schemas": {
