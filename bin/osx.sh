@@ -65,6 +65,7 @@ function brew_setup() {
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask stats --force # System monitor for the menu bar
+    brew install --cask swiftbar --force # SwiftBar is a fast, flexible, and powerful macOS menu bar app
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask twingate --force # Secure network access to cloud resources
