@@ -49,7 +49,6 @@ function brew_setup() {
     brew install --cask antigravity --force # AI Coding Agent IDE
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask claude-code --force # Claude Code CLI
-    brew install --cask conductor --force # Claude code parallelisation
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
@@ -108,6 +107,7 @@ function brew_setup() {
     brew install leapp-cli # Cloud credentials manager cli
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
+    brew install meltylabs/tap/conductor # Claude code parallelisation
     brew install nvm # Manage multiple Node.js versions
     brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
