@@ -339,6 +339,6 @@
 
   // YAML
   "yaml.schemas": {
-    "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.9-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.11-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   }
 }
