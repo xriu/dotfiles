@@ -125,11 +125,6 @@
   "git.openRepositoryInParentFolders": "always",
 
   // GitHub
-  "github.copilot.editor.enableAutoCompletions": true,
-  "githubPullRequests.createOnPublishBranch": "never",
-  "githubPullRequests.pullBranch": "never",
-
-  // GitHub Copilot Custom Models
   "github.copilot.chat.customOAIModels": {
     "hf:moonshotai/Kimi-K2-Thinking": {
       "maxInputTokens": 262144,
@@ -152,6 +147,9 @@
       "vision": true
     }
   },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "githubPullRequests.createOnPublishBranch": "never",
+  "githubPullRequests.pullBranch": "never",
 
   // Hadolint
   "hadolint.cliOptions": [],
@@ -334,6 +332,7 @@
   "workbench.experimental.share.enabled": true,
   "workbench.iconTheme": "symbols",
   "workbench.panel.showLabels": false,
+  "workbench.secondarySideBar.defaultVisibility": "visible",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
 
