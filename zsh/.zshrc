@@ -50,7 +50,7 @@ setup_terminal() {
     command -v vivid &>/dev/null && export LS_COLORS="$(vivid generate molokai)"
 }
 
-# Function to set up NVM (Node Version Manager) - LAZY LOADED
+# Function to set up NVM (Node Version Manager) - Lazy Loaded
 # NVM is only loaded when first used, improving shell startup time.
 setup_nvm() {
     export NVM_DIR="$HOME/.nvm"
