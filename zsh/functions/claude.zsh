@@ -30,7 +30,10 @@ _configure_claude_provider() {
     export ANTHROPIC_DEFAULT_HAIKU_MODEL="$model"
     export ANTHROPIC_DEFAULT_SONNET_MODEL="$model"
     export ANTHROPIC_DEFAULT_OPUS_MODEL="$model"
+    export CLAUDE_CODE_ENABLE_TELEMETRY=0
     export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+    export DISABLE_TELEMETRY=1
+    export DISABLE_ERROR_REPORTING=1
 
     # Execute claude with any remaining arguments
     if [[ $# -gt 0 ]]; then

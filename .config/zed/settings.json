@@ -23,7 +23,7 @@
       }
     },
     "chrome-devtools": {
-      "enabled": false,
+      "enabled": true,
       "command": "npx",
       "args": ["-y", "chrome-devtools-mcp@latest"]
     },
@@ -44,8 +44,8 @@
     "button": true,
     "dock": "left",
     "commit_message_model": {
-      "model": "hf:zai-org/GLM-4.6",
-      "provider": "Synthetic"
+      "model": "gemma3:270m",
+      "provider": "ollama"
     },
     "default_model": {
       "model": "hf:zai-org/GLM-4.6",
@@ -54,8 +54,8 @@
     "default_profile": "ask",
     "enable_feedback": false,
     "inline_assistant_model": {
-      "model": "hf:zai-org/GLM-4.6",
-      "provider": "Synthetic"
+      "model": "gemma3:270m",
+      "provider": "ollama"
     },
     "play_sound_when_agent_done": true
   },
