@@ -43,7 +43,6 @@ function brew_setup() {
     softwareupdate --install-rosetta --agree-to-license
 
     # brew install --cask chatgpt-atlas --force # ChatGPT client for macOS
-    # brew install --cask ghostty --force # Ghostty is a tool for managing your GitHub repositories
     # brew install --cask zoom --force # Video communication and virtual meeting platform
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask antigravity --force # AI Coding Agent IDE
@@ -54,6 +53,7 @@ function brew_setup() {
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask finch --force # Open source container development tool
     brew install --cask gemini-cli --force # Gemini CLI
+    brew install --cask ghostty --force # Ghostty is a tool for managing your GitHub repositories
     brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask helium-browser --force # Browser for the modern internet
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
