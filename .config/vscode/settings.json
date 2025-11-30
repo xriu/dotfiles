@@ -276,8 +276,8 @@
   "telemetry.telemetryLevel": "off",
 
   // Terminal
-  "terminal.external.linuxExec": "Warp.app",
-  "terminal.external.osxExec": "Warp.app",
+  "terminal.external.linuxExec": "Ghostty.app",
+  "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.automationProfile.osx": {
     "path": "/opt/homebrew/bin/zsh"
   },
