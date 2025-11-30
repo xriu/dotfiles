@@ -1,19 +1,30 @@
 {
-  "mcpServers": {
-    "playwright": {
-      "disabled": true,
-      "command": "npx",
-      "args": ["@playwright/mcp@latest"]
-    },
-    "chrome-devtools": {
-      "disabled": true,
-      "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest"]
-    },
-    "aws-knowledge-mcp": {
-      "disabled": false,
-      "url": "https://knowledge-mcp.global.api.aws",
-      "headers": {}
+    "mcpServers": {
+        "aws-knowledge-mcp": {
+            "disabled": false,
+            "url": "https://knowledge-mcp.global.api.aws",
+            "headers": {}
+        },
+        "linear": {
+            "disabled": true,
+            "url": "https://mcp.linear.app/mcp"
+        },
+        "context7": {
+            "disabled": false,
+            "url": "https://mcp.context7.com/mcp",
+            "headers": {
+                "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
+            }
+        },
+        "chrome-devtools": {
+            "disabled": true,
+            "command": "npx",
+            "args": ["-y", "chrome-devtools-mcp@latest"]
+        },
+        "playwright": {
+            "disabled": true,
+            "command": "npx",
+            "args": ["@playwright/mcp@latest"]
+        }
     }
-  }
 }
