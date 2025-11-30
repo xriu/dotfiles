@@ -44,6 +44,7 @@ function brew_setup() {
 
     # brew install --cask chatgpt-atlas --force # ChatGPT client for macOS
     # brew install --cask zoom --force # Video communication and virtual meeting platform
+    # brew install --cask warp --force # The terminal for the modern internet
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask antigravity --force # AI Coding Agent IDE
     brew install --cask appcleaner --force # Application uninstaller
@@ -68,11 +69,11 @@ function brew_setup() {
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask twingate --force # Secure network access to cloud resources
-    brew install --cask warp --force # The terminal for the modern internet
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zen-browser --force # Firefox based browser
 
+    # brew install meltylabs/tap/conductor # Claude code parallelisation
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install atuin # Magical shell history
@@ -107,7 +108,6 @@ function brew_setup() {
     brew install leapp-cli # Cloud credentials manager cli
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
-    brew install meltylabs/tap/conductor # Claude code parallelisation
     brew install nvm # Manage multiple Node.js versions
     brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
