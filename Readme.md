@@ -50,6 +50,7 @@ rm -fR "$HOME/Library/Group Containers/2BBY89MBSN.dev.warp/Library/Application S
 
 ```
 font-size = 13
+theme = dark:Catppuccin Frappe,light:Catppuccin Latte
 theme = GruvboxDarkHard
 background = 1C2021
 window-padding-balance = true
@@ -61,6 +62,6 @@ keybind = global:º=toggle_visibility
 
 ```
 keybind = global:º=toggle_quick_terminal
-quick-terminal-size = 25%,75%
+quick-terminal-size = 85%
 quick-terminal-position = top
 ```
