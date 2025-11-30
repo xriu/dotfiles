@@ -1,6 +1,7 @@
 {
-  "statusLine": {
-    "type": "command",
-    "command": "input=$(cat); model=\"$(echo \"$input\" | jq -r '.model.display_name' 2>/dev/null || echo 'Claude')\"; cwd=\"$(echo \"$input\" | jq -r '.workspace.current_dir' 2>/dev/null || echo '.')\"; branch=\"$(cd \"$cwd\" 2>/dev/null && git symbolic-ref --short HEAD 2>/dev/null || echo '')\"; if [ -n \"$branch\" ]; then printf '\\e[36m%s\\e[0m in \\e[33m%s\\e[0m on \\e[32m%s\\e[0m' \"$model\" \"$(basename \"$cwd\")\" \"$branch\"; else printf '\\e[36m%s\\e[0m in \\e[33m%s\\e[0m' \"$model\" \"$(basename \"$cwd\")\"; fi"
-  }
+    "alwaysThinkingEnabled": true,
+    "statusLine": {
+        "command": "input=$(cat); model=\"$(echo \"$input\" | jq -r '.model.display_name' 2>/dev/null || echo 'Claude')\"; cwd=\"$(echo \"$input\" | jq -r '.workspace.current_dir' 2>/dev/null || echo '.')\"; branch=\"$(cd \"$cwd\" 2>/dev/null && git symbolic-ref --short HEAD 2>/dev/null || echo '')\"; if [ -n \"$branch\" ]; then printf '\\e[36m%s\\e[0m in \\e[33m%s\\e[0m on \\e[32m%s\\e[0m' \"$model\" \"$(basename \"$cwd\")\" \"$branch\"; else printf '\\e[36m%s\\e[0m in \\e[33m%s\\e[0m' \"$model\" \"$(basename \"$cwd\")\"; fi",
+        "type": "command"
+    }
 }
