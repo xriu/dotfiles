@@ -13,7 +13,7 @@
 : ${ENABLE_PNPM:=true}                 # 0.01ms - pnpm package manager
 : ${ENABLE_JENV:=false}                # 17.11ms - Java Version Manager
 : ${ENABLE_TERRAGRUNT:=true}           # 0.11ms - Terragrunt completion
-: ${ENABLE_STARSHIP:=false}            # 43.79ms - Starship prompt
+: ${ENABLE_STARSHIP:=true}             # 43.79ms - Starship prompt
 : ${ENABLE_ZOXIDE:=true}               # 4.95ms - Smart directory jumper
 : ${ENABLE_ATUIN:=false}               # 83.84ms - Shell history search
 : ${ENABLE_CARAPACE:=false}            # 105.34ms - Tab completion
