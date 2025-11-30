@@ -2,6 +2,12 @@
     "$schema": "https://opencode.ai/config.json",
     "model": "hf:zai-org/GLM-4.6",
     "autoupdate": true,
+    "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false,
+        "webfetch": true
+    },
     "agent": {
         "plan": {
             "mode": "primary",
