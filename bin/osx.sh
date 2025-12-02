@@ -95,6 +95,7 @@ function brew_setup() {
     brew install eslint # AST-based pattern checker for JavaScript
     brew install fd # Simple, fast and user-friendly alternative to find
     brew install findutils # Collection of GNU find, xargs, and locate
+    brew install fnm # Fast Node Manager
     brew install fzf # Command-line fuzzy finder
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
