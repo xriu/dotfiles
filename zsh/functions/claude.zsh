@@ -48,7 +48,7 @@ _configure_claude_provider() {
 # --- DeepSeek Configuration ---
 # Usage: deepseek [-- args...]
 deepseek() {
-    _configure_claude_provider "deepseek" "DEEPSEEK_API_KEY" "hf:deepseek-ai/DeepSeek-V3.1-Terminus" "$@"
+    _configure_claude_provider "deepseek" "DEEPSEEK_API_KEY" "hf:deepseek-ai/DeepSeek-V3.2" "$@"
 }
 
 # --- z.ai (GLM) Configuration ---
