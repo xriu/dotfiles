@@ -149,7 +149,7 @@ function brew_setup() {
 
 function npm_packages() {
 
-    echo "NPM packages" # npm list -g --depth=0 --json
+    echo "NPM packages"
 
 }
 
