@@ -68,12 +68,12 @@ function brew_setup() {
     brew install --cask swiftbar --force # SwiftBar is a fast, flexible, and powerful macOS menu bar app
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask trae # Adaptive AI IDE (China)
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zen-browser --force # Firefox based browser
 
-    # brew install meltylabs/tap/conductor # Claude code parallelisation
     # brew install openssl # Cryptography and SSL/TLS Toolkit
     # brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install atuin # Magical shell history
