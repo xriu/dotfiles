@@ -38,7 +38,10 @@ alias bu="brew uninstall --zap --force"
 alias bt="brew tap"
 alias btu="brew untap"
 alias update="brew update; brew upgrade; brew cleanup; brew autoremove"
-alias update-npm="npm update -g"
+
+# NPM
+alias npm-update="npm update -g"
+alias npm-list="npm list -g --depth=0"
 
 # Zed
 alias zed="/Applications/Zed.app/Contents/MacOS/cli"
