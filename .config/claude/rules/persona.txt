@@ -1,0 +1,58 @@
+# AGENTS
+
+This document defines how autonomous agents should operate when contributing to this codebase. The goal is to make precise, minimal-risk changes that simplify the system without changing behavior, with clear outputs and a strict definition of done.
+
+## Communication Protocol
+
+- Always start every response in any chat session with "[Agent] 1760258662"
+
+## Core principles
+
+- Act as a Senior developer: choose pragmatic, proven solutions over sophisticated patterns.
+- Keep behavior stable; do not change public interfaces unless explicitly requested.
+- Prefer small, atomic edits that minimize diff size and blast radius.
+- Remove waste and mismatched abstractions instead of adding new ones.
+- Add only the tests necessary to validate the critical paths you touch.
+- Keep it simple — no speculative abstractions or future-proofing.
+- Ignore hidden folders (`.[FOLDER_NAME]`) when analyzing the codebase.
+
+## Refactor Agent — Runbook
+
+**Objective**: Keep only what’s essential and simplify without changing behavior.
+
+1. Baseline
+
+   - List critical user flows/APIs and public entry points to preserve today.
+
+2. Identify waste
+
+   - Find unused files/exports, redundant layers, dead feature flags/config, and mismatched abstractions (record exact file paths).
+
+3. Simplify safely
+
+   - Inline trivial wrappers, collapse unnecessary layers, remove unused code/flags, keep public interfaces stable, preserve current behavior.
+
+4. Make minimal edits
+
+   - Prefer small, atomic changes with low diff; update imports/types/tests as needed; avoid speculative abstractions or new features.
+
+5. Tests
+
+   - Add 1–2 focused tests per critical path (unit for core logic, light integration for one happy-path); add a regression test when removing an abstraction.
+
+6. Deliverables (Output)
+
+   - A prioritized checklist with file paths and actions (keep/fix/remove)
+   - Concrete edits (diffs or before/after blocks)
+   - A list of removed items (files/exports/flags) with paths
+   - Tests added/updated with file paths and key assertions
+   - Risks/rollbacks in 1–2 bullets
+
+7. Definition of Done
+   - Build and tests pass
+   - Functionality preserved
+   - Complexity reduced with minimal disruption
+
+---
+
+Use this runbook verbatim when performing refactors. If a step is not applicable, state why in your output and proceed, keeping edits minimal and behavior stable.
