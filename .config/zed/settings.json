@@ -12,10 +12,6 @@
       "url": "https://knowledge-mcp.global.api.aws",
       "headers": {}
     },
-    "linear": {
-      "enabled": false,
-      "url": "https://mcp.linear.app/mcp"
-    },
     "context7": {
       "enabled": true,
       "url": "https://mcp.context7.com/mcp",

@@ -1,93 +1,88 @@
 {
-    "$schema": "https://opencode.ai/config.json",
-    "model": "hf:zai-org/GLM-4.6",
-    "autoupdate": true,
-    "tools": {
+  "$schema": "https://opencode.ai/config.json",
+  "model": "hf:zai-org/GLM-4.6",
+  "autoupdate": true,
+  "tools": {
+    "write": false,
+    "edit": false,
+    "bash": false,
+    "webfetch": true
+  },
+  "agent": {
+    "plan": {
+      "mode": "primary",
+      "prompt": "{file:./rules/persona.txt}",
+      "temperature": 0.1,
+      "tools": {
         "write": false,
         "edit": false,
-        "bash": false,
-        "webfetch": true
+        "bash": false
+      }
     },
-    "agent": {
-        "plan": {
-            "mode": "primary",
-            "prompt": "{file:./rules/persona.txt}",
-            "temperature": 0.1,
-            "tools": {
-                "write": false,
-                "edit": false,
-                "bash": false
-            }
-        },
-        "build": {
-            "mode": "primary",
-            "prompt": "{file:./rules/persona.txt}",
-            "temperature": 0.1,
-            "tools": {
-                "write": true,
-                "edit": true,
-                "bash": true
-            }
-        },
-        "brainstorm": {
-            "prompt": "{file:./rules/persona.txt}",
-            "temperature": 0.7,
-            "tools": {
-                "write": false,
-                "edit": false,
-                "bash": false
-            }
-        },
-        "terraform": {
-            "description": "Terraform agent",
-            "prompt": "{file:./rules/terraform.txt}",
-            "tools": {
-                "write": true,
-                "edit": true,
-                "bash": true
-            }
-        },
-        "deep-thinker": {
-            "description": "High reasoning effort for complex problems",
-            "model": "openai/gpt-5",
-            "reasoningEffort": "high",
-            "textVerbosity": "low"
-        }
+    "build": {
+      "mode": "primary",
+      "prompt": "{file:./rules/persona.txt}",
+      "temperature": 0.1,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
     },
-    "mcp": {
-        "aws-knowledge-mcp": {
-            "enabled": false,
-            "type": "remote",
-            "url": "https://knowledge-mcp.global.api.aws",
-            "headers": {}
-        },
-        "linear": {
-            "enabled": false,
-            "type": "remote",
-            "url": "https://mcp.linear.app/mcp"
-        },
-        "context7": {
-            "enabled": true,
-            "type": "remote",
-            "url": "https://mcp.context7.com/mcp",
-            "headers": {
-                "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
-            }
-        },
-        "vibe_kanban": {
-            "enabled": false,
-            "type": "local",
-            "command": ["npx", "-y", "vibe-kanban@latest"]
-        },
-        "chrome-devtools": {
-            "enabled": true,
-            "type": "local",
-            "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
-        },
-        "playwright": {
-            "enabled": false,
-            "type": "local",
-            "command": ["npx", "-y", "@playwright/mcp@latest"]
-        }
+    "brainstorm": {
+      "prompt": "{file:./rules/persona.txt}",
+      "temperature": 0.7,
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    },
+    "terraform": {
+      "description": "Terraform agent",
+      "prompt": "{file:./rules/terraform.txt}",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "deep-thinker": {
+      "description": "High reasoning effort for complex problems",
+      "model": "openai/gpt-5",
+      "reasoningEffort": "high",
+      "textVerbosity": "low"
     }
+  },
+  "mcp": {
+    "aws-knowledge-mcp": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://knowledge-mcp.global.api.aws",
+      "headers": {}
+    },
+    "context7": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
+      }
+    },
+    "vibe_kanban": {
+      "enabled": false,
+      "type": "local",
+      "command": ["npx", "-y", "vibe-kanban@latest"]
+    },
+    "chrome-devtools": {
+      "enabled": true,
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+    },
+    "playwright": {
+      "enabled": false,
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp@latest"]
+    }
+  }
 }
