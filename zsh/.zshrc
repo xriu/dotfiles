@@ -9,7 +9,7 @@
 : ${ENABLE_TERMINAL:=false}            # 6.54ms - Terminal colors with vivid
 : ${ENABLE_FZF:=false}                 # 1.80ms - Fuzzy finder
 : ${ENABLE_ZSH_AUTOSUGGESTIONS:=false} # 98.12ms - Fish-like autosuggestions
-: ${ENABLE_NVM:=true}                  # 0.01ms - Node Version Manager (lazy)
+: ${ENABLE_FNM:=true}                  # 0.01ms - Fast Node Manager
 : ${ENABLE_PNPM:=true}                 # 0.01ms - pnpm package manager
 : ${ENABLE_JENV:=false}                # 17.11ms - Java Version Manager
 : ${ENABLE_TERRAGRUNT:=true}           # 0.11ms - Terragrunt completion
@@ -38,6 +38,7 @@ setup_export() {
     export PATH="$HOME/.GIS-lm-build/bin:$PATH"
     export PATH="$HOME/bin:$PATH"
     export PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/share/fnm:$PATH"
     export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
     export PATH="$HOME/.console-ninja/.bin:$PATH"
 }
@@ -48,25 +49,6 @@ setup_terminal() {
     export CLICOLOR=1
     export CLICOLOR_FORCE=1
     command -v vivid &>/dev/null && export LS_COLORS="$(vivid generate molokai)"
-}
-
-# Function to set up NVM (Node Version Manager) - Lazy Loaded
-# NVM is only loaded when first used, improving shell startup time.
-setup_nvm() {
-    export NVM_DIR="$HOME/.nvm"
-
-    # Helper function to load NVM (called on first use)
-    _nvm() {
-        unset -f nvm node npm npx _nvm
-        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-    }
-
-    # Wrapper functions that trigger lazy loading
-    nvm() { _nvm && nvm "$@"; }
-    node() { _nvm && node "$@"; }
-    npm() { _nvm && npm "$@"; }
-    npx() { _nvm && npx "$@"; }
 }
 
 # Sets up jenv by initializing it and enabling the export plugin.
@@ -99,6 +81,13 @@ setup_terragrunt() {
 setup_starship() {
     command -v starship &>/dev/null || return
     eval "$(starship init zsh)"
+}
+
+# Initializes fnm for the zsh shell.
+# Fnm is a fast node manager that can be used with any node version.
+setup_fnm() {
+    command -v fnm &>/dev/null || return
+    eval "$(fnm env --use-on-cd --shell zsh)"
 }
 
 # Initializes zoxide for zsh shell.
@@ -200,7 +189,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 [[ "$ENABLE_TERMINAL" == "true" ]] && setup_terminal
 [[ "$ENABLE_FZF" == "true" ]] && setup_fzf
 [[ "$ENABLE_ZSH_AUTOSUGGESTIONS" == "true" ]] && setup_zsh_autosuggestions
-[[ "$ENABLE_NVM" == "true" ]] && setup_nvm
+[[ "$ENABLE_FNM" == "true" ]] && setup_fnm
 [[ "$ENABLE_PNPM" == "true" ]] && setup_pnpm
 [[ "$ENABLE_JENV" == "true" ]] && setup_jenv
 [[ "$ENABLE_TERRAGRUNT" == "true" ]] && setup_terragrunt

@@ -8,15 +8,6 @@ cd ~/dotfiles
 ./setup.sh
 ```
 
-## Github Copilot CLI
-
-## NVM
-
-```
-nvm install node
-nvm use system
-```
-
 ## Jenv
 
 ```

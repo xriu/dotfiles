@@ -109,7 +109,6 @@ function brew_setup() {
     brew install leapp-cli # Cloud credentials manager cli
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
-    brew install nvm # Manage multiple Node.js versions
     brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pnpm # Fast, disk space efficient package manager
@@ -162,12 +161,9 @@ function bun_packages() {
 # Prepare mac
 function mac_setup() {
 
-    echo "NVM set alias default system"
-    nvm install node
-    nvm alias default system
-
     echo "JENV set java virtual machines"
     jenv add /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
+
 }
 
 function zsh_setup() {

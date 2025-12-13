@@ -33,8 +33,6 @@ function common_configuration() {
         ~/.ssh/ \
         ~/.config/ \
         ~/.aws/ \
-        ~/.nvm/ \
-        ~/.n8n/ \
         ~/.jenv/ \
         ~/.GIS-lm-build/ \
         ${HOME}/Pictures/screenshots/
