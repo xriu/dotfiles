@@ -70,7 +70,7 @@
       }
     },
     "vibe_kanban": {
-      "enabled": false,
+      "enabled": true,
       "type": "local",
       "command": ["npx", "-y", "vibe-kanban@latest", "--mcp"]
     },
