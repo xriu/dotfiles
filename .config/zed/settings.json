@@ -24,7 +24,7 @@
       }
     },
     "vibe_kanban": {
-      "enabled": true,
+      "enabled": false,
       "command": "npx",
       "args": ["-y", "vibe-kanban@latest"]
     },
