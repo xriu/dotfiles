@@ -72,7 +72,7 @@
     "vibe_kanban": {
       "enabled": false,
       "type": "local",
-      "command": ["npx", "-y", "vibe-kanban@latest"]
+      "command": ["npx", "-y", "vibe-kanban@latest", "--mcp"]
     },
     "chrome-devtools": {
       "enabled": true,

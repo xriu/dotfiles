@@ -22,7 +22,7 @@
     "vibe_kanban": {
       "enabled": false,
       "command": "npx",
-      "args": ["-y", "vibe-kanban@latest"]
+      "args": ["-y", "vibe-kanban@latest", "--mcp"]
     },
     "chrome-devtools": {
       "enabled": true,
