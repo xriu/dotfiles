@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # === CLAUDE CODE MULTI-PROVIDER SWITCHER ===
 # Assumes 'claude' is in your PATH (e.g., installed via `npm install -g @anthropic-ai/claude-code`)
 

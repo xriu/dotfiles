@@ -48,3 +48,4 @@ alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
 # LM internal alias
 if alias lm > /dev/null; then unalias lm; fi
+
