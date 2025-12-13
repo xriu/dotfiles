@@ -16,6 +16,11 @@
                 "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
             }
         },
+        "vibe_kanban": {
+            "disabled": true,
+            "command": "npx",
+            "args": ["-y", "vibe-kanban@latest"]
+        },
         "chrome-devtools": {
             "disabled": true,
             "command": "npx",
