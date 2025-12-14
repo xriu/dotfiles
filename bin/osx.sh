@@ -42,9 +42,6 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask chatgpt-atlas --force # ChatGPT client for macOS
-    # brew install --cask zoom --force # Video communication and virtual meeting platform
-    # brew install --cask warp --force # The terminal for the modern internet
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask antigravity --force # AI Coding Agent IDE
     brew install --cask appcleaner --force # Application uninstaller
@@ -75,8 +72,6 @@ function brew_setup() {
     brew install --cask zed --force # Multiplayer code editor
     brew install --cask zen-browser --force # Firefox based browser
 
-    # brew install openssl # Cryptography and SSL/TLS Toolkit
-    # brew install warrensbox/tap/tfswitch # The tfswitch command line tool lets you switch between different versions of terraform
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
