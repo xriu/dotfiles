@@ -102,6 +102,7 @@ function brew_setup() {
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
     brew install lazydocker # A tool for managing docker containers with a simple, intuitive interface.
+    brew install lazygit # Simple terminal UI for git commands
     brew install leapp-cli # Cloud credentials manager cli
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
@@ -125,6 +126,7 @@ function brew_setup() {
     brew install tfenv # Terraform version manager
     brew install tfmv # tfmv is a CLI to rename Terraform resources
     brew install tree # Display directories as trees (with optional color/HTML output)
+    brew install tw93/tap/mole # Deep clean and optimize your Mac
     brew install uv # Universal Version Manager
     brew install vim # Vi 'workalike' with many additional features
     brew install vivid # Generator for LS_COLORS with support for multiple color themes

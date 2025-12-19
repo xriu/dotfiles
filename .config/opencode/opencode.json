@@ -2,6 +2,11 @@
   "$schema": "https://opencode.ai/config.json",
   "model": "hf:zai-org/GLM-4.6",
   "autoupdate": true,
+  "plugin": [
+    "oh-my-opencode",
+    "opencode-skills",
+    "@franlol/opencode-md-table-formatter@0.0.3"
+  ],
   "tools": {
     "write": false,
     "edit": false,
@@ -16,7 +21,8 @@
       "tools": {
         "write": false,
         "edit": false,
-        "bash": false
+        "bash": false,
+        "webfetch": true
       }
     },
     "build": {
@@ -26,7 +32,8 @@
       "tools": {
         "write": true,
         "edit": true,
-        "bash": true
+        "bash": true,
+        "webfetch": true
       }
     },
     "brainstorm": {
@@ -35,7 +42,8 @@
       "tools": {
         "write": false,
         "edit": false,
-        "bash": false
+        "bash": false,
+        "webfetch": true
       }
     },
     "terraform": {
@@ -44,7 +52,8 @@
       "tools": {
         "write": true,
         "edit": true,
-        "bash": true
+        "bash": true,
+        "webfetch": true
       }
     },
     "deep-thinker": {
