@@ -72,6 +72,7 @@ function brew_setup() {
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed --force # Multiplayer code editor
 
+    # brew install vivid # Generator for LS_COLORS with support for multiple color themes
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
@@ -103,7 +104,6 @@ function brew_setup() {
     brew install jq # Lightweight and flexible command-line JSON processor
     brew install lazydocker # A tool for managing docker containers with a simple, intuitive interface.
     brew install lazygit # Simple terminal UI for git commands
-    brew install leapp-cli # Cloud credentials manager cli
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
     brew install opencode # OpenCode CLI
@@ -111,11 +111,9 @@ function brew_setup() {
     brew install pnpm # Fast, disk space efficient package manager
     brew install poetry # Python package manager
     brew install postgresql # Object-relational database management system
-    brew install protobuf # Protocol buffers (Google's data interchange format)
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install rust # Safe, concurrent, practical language
     brew install rustscan # Modern port scanner
-    brew install s-nail # Fork of Heirloom mailx (formerly known as nail)
     brew install serverless # Build applications with serverless architectures
     brew install starship # The cross-shell prompt for astronauts
     brew install svn # Bidirectional operation between a Subversion repository and Git
@@ -129,7 +127,6 @@ function brew_setup() {
     brew install tw93/tap/mole # Deep clean and optimize your Mac
     brew install uv # Universal Version Manager
     brew install vim # Vi 'workalike' with many additional features
-    brew install vivid # Generator for LS_COLORS with support for multiple color themes
     brew install wget # Internet file retriever
     brew install z # Tracks most-used directories to make cd smarter
     brew install zoxide # A faster way to navigate your filesystem
