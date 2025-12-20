@@ -49,6 +49,7 @@
     "terraform": {
       "description": "Terraform agent",
       "prompt": "{file:./rules/terraform.txt}",
+      "temperature": 0.1,
       "tools": {
         "write": true,
         "edit": true,
