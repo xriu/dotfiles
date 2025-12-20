@@ -6,7 +6,6 @@
 # ==============================================================================
 
 # Set to "true" to enable, "false" to disable
-: ${ENABLE_TERMINAL:=false}            # 6.54ms - Terminal colors with vivid
 : ${ENABLE_FZF:=false}                 # 1.80ms - Fuzzy finder
 : ${ENABLE_ZSH_AUTOSUGGESTIONS:=false} # 98.12ms - Fish-like autosuggestions
 : ${ENABLE_FNM:=true}                  # 0.01ms - Fast Node Manager
@@ -34,21 +33,14 @@ setup_export() {
     export PATH="/usr/bin:$PATH"
     export PATH="/usr/local/bin:$PATH"
     export PATH="$JAVA_HOME/bin:$PATH"
-    export PATH="$HOME/.jenv/bin:$PATH"
-    export PATH="$HOME/.GIS-lm-build/bin:$PATH"
     export PATH="$HOME/bin:$PATH"
-    export PATH="$HOME/.local/bin:$PATH"
-    export PATH="$HOME/.local/share/fnm:$PATH"
     export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
     export PATH="$HOME/.console-ninja/.bin:$PATH"
-}
-
-# Configures the terminal settings for a better visual experience.
-setup_terminal() {
-    unset LSCOLORS
-    export CLICOLOR=1
-    export CLICOLOR_FORCE=1
-    command -v vivid &>/dev/null && export LS_COLORS="$(vivid generate molokai)"
+    export PATH="$HOME/.GIS-lm-build/bin:$PATH"
+    export PATH="$HOME/.jenv/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/share/fnm:$PATH"
+    export PATH="$HOME/.pixi/bin:$PATH"
 }
 
 # Sets up jenv by initializing it and enabling the export plugin.
@@ -186,7 +178,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Tool Setup (controlled by feature toggles above)
 # ==============================================================================
 
-[[ "$ENABLE_TERMINAL" == "true" ]] && setup_terminal
 [[ "$ENABLE_FZF" == "true" ]] && setup_fzf
 [[ "$ENABLE_ZSH_AUTOSUGGESTIONS" == "true" ]] && setup_zsh_autosuggestions
 [[ "$ENABLE_FNM" == "true" ]] && setup_fnm

@@ -42,7 +42,6 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask swiftbar --force # SwiftBar is a fast, flexible, and powerful macOS menu bar app
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask claude-code --force # Claude Code CLI
@@ -72,7 +71,6 @@ function brew_setup() {
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed --force # Multiplayer code editor
 
-    # brew install vivid # Generator for LS_COLORS with support for multiple color themes
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
@@ -108,8 +106,8 @@ function brew_setup() {
     brew install maven # Java-based project management
     brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
+    brew install pixi # Package management made easy
     brew install pnpm # Fast, disk space efficient package manager
-    brew install poetry # Python package manager
     brew install postgresql # Object-relational database management system
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install rust # Safe, concurrent, practical language
