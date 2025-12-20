@@ -3,9 +3,9 @@
   "model": "hf:zai-org/GLM-4.6",
   "autoupdate": true,
   "plugin": [
+    "@franlol/opencode-md-table-formatter@0.0.3",
     "oh-my-opencode",
-    "opencode-skills",
-    "@franlol/opencode-md-table-formatter@0.0.3"
+    "opencode-skills"
   ],
   "tools": {
     "write": false,
