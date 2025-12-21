@@ -49,7 +49,6 @@ function brew_setup() {
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask finch --force # Open source container development tool
-    brew install --cask gemini-cli --force # Gemini CLI
     brew install --cask ghostty --force # Terminal emulator that uses platform-native UI and GPU acceleration
     brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask helium-browser --force # Browser for the modern internet
@@ -92,6 +91,7 @@ function brew_setup() {
     brew install findutils # Collection of GNU find, xargs, and locate
     brew install fnm # Fast Node Manager
     brew install fzf # Command-line fuzzy finder
+    brew install gemini-cli # Interact with Google Gemini AI models from the command-line
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
