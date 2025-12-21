@@ -42,17 +42,6 @@
         "webfetch": true
       }
     },
-    "terraform": {
-      "description": "Terraform agent",
-      "prompt": "{file:./rules/terraform.txt}",
-      "temperature": 0.1,
-      "tools": {
-        "write": true,
-        "edit": true,
-        "bash": true,
-        "webfetch": true
-      }
-    },
     "deep-thinker": {
       "description": "High reasoning effort for complex problems",
       "model": "openai/gpt-5",
