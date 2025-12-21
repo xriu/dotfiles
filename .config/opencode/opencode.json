@@ -77,14 +77,6 @@
       "url": "https://knowledge-mcp.global.api.aws",
       "headers": {}
     },
-    "context7": {
-      "enabled": false,
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
-      }
-    },
     "vibe_kanban": {
       "enabled": true,
       "type": "local",
