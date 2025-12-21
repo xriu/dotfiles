@@ -1,0 +1,23 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "general": {
+    "previewFeatures": true
+  },
+  "ui": {
+    "showModelInfoInChat": true
+  },
+  "mcpServers": {
+    "gh_grep": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.grep.app"]
+    },
+    "vibe_kanban": {
+      "command": "npx",
+      "args": ["-y", "vibe-kanban@latest", "--mcp"]
+    }
+  }
+}

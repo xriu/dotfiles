@@ -7,7 +7,7 @@
     }
   },
   "model": "synthetic/hf:zai-org/GLM-4.6",
-  "plugin": ["@franlol/opencode-md-table-formatter@0.0.3", "opencode-skills"],
+  "plugin": ["@franlol/opencode-md-table-formatter@0.0.3"],
   "tools": {
     "write": false,
     "edit": false,
@@ -37,9 +37,9 @@
         "webfetch": true
       }
     },
-    "doc-writer": {
+    "document-writer": {
       "model": "opencode/big-pickle",
-      "prompt": "{file:./rules/doc-writer.txt}",
+      "prompt": "{file:./rules/document-writer.txt}",
       "temperature": 0.1,
       "tools": {
         "write": true,
