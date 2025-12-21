@@ -27,7 +27,6 @@
       }
     },
     "build": {
-      "mode": "primary",
       "prompt": "{file:./rules/persona.txt}",
       "temperature": 0.3,
       "tools": {
