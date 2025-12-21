@@ -12,6 +12,13 @@ alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 
+# Git
+alias gpull="git pull"
+alias gpush="git push"
+alias gcommit="git commit"
+alias gadd="git add"
+alias gstatus="git status"
+
 # Cat with syntax highlighting
 alias cat="bat"
 
