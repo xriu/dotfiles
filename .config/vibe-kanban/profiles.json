@@ -1,0 +1,287 @@
+{
+  "executors": {
+    "AMP": {
+      "DEFAULT": {
+        "AMP": {
+          "append_prompt": null,
+          "dangerously_allow_all": true
+        }
+      }
+    },
+    "CLAUDE_CODE": {
+      "OPUS": {
+        "CLAUDE_CODE": {
+          "append_prompt": null,
+          "model": "opus"
+        }
+      },
+      "APPROVALS": {
+        "CLAUDE_CODE": {
+          "append_prompt": null,
+          "approvals": true
+        }
+      },
+      "DEFAULT": {
+        "CLAUDE_CODE": {
+          "append_prompt": null,
+          "dangerously_skip_permissions": true
+        }
+      },
+      "PLAN": {
+        "CLAUDE_CODE": {
+          "append_prompt": null,
+          "plan": true
+        }
+      }
+    },
+    "COPILOT": {
+      "CLAUDE_SONNET_4_5": {
+        "COPILOT": {
+          "append_prompt": null,
+          "model": "claude-sonnet-4.5",
+          "allow_all_tools": true
+        }
+      },
+      "DEFAULT": {
+        "COPILOT": {
+          "append_prompt": null,
+          "allow_all_tools": true
+        }
+      },
+      "CLAUDE_SONNET_4": {
+        "COPILOT": {
+          "append_prompt": null,
+          "model": "claude-sonnet-4",
+          "allow_all_tools": true
+        }
+      },
+      "GPT_5": {
+        "COPILOT": {
+          "append_prompt": null,
+          "model": "gpt-5",
+          "allow_all_tools": true
+        }
+      }
+    },
+    "QWEN_CODE": {
+      "DEFAULT": {
+        "QWEN_CODE": {
+          "append_prompt": null,
+          "yolo": true
+        }
+      },
+      "APPROVALS": {
+        "QWEN_CODE": {
+          "append_prompt": null,
+          "yolo": false
+        }
+      }
+    },
+    "OPENCODE": {
+      "DEFAULT": {
+        "OPENCODE": {
+          "append_prompt": null,
+          "model": "cerebras/zai-glm-4.6",
+          "auto_approve": true
+        }
+      },
+      "PLAN": {
+        "OPENCODE": {
+          "append_prompt": null,
+          "model": "cerebras/zai-glm-4.6",
+          "mode": "plan",
+          "auto_approve": true
+        }
+      },
+      "APPROVALS": {
+        "OPENCODE": {
+          "append_prompt": null,
+          "auto_approve": false
+        }
+      },
+      "PLAN_FALLBACK": {
+        "OPENCODE": {
+          "append_prompt": null,
+          "model": "opencode/big-pickle",
+          "mode": "plan",
+          "auto_approve": true
+        }
+      },
+      "DEFAULT_FALLBACK": {
+        "OPENCODE": {
+          "append_prompt": null,
+          "model": "synthetic/hf:zai-org/GLM-4.6",
+          "auto_approve": true
+        }
+      }
+    },
+    "GEMINI": {
+      "APPROVALS": {
+        "GEMINI": {
+          "append_prompt": null,
+          "yolo": false
+        }
+      },
+      "PRO": {
+        "GEMINI": {
+          "append_prompt": null,
+          "model": "gemini-3-pro-preview",
+          "yolo": true
+        }
+      },
+      "FLASH": {
+        "GEMINI": {
+          "append_prompt": null,
+          "model": "gemini-3-flash-preview",
+          "yolo": true
+        }
+      },
+      "DEFAULT": {
+        "GEMINI": {
+          "append_prompt": null,
+          "yolo": true
+        }
+      }
+    },
+    "CODEX": {
+      "DEFAULT": {
+        "CODEX": {
+          "append_prompt": null,
+          "sandbox": "danger-full-access",
+          "model": "gpt-5.2"
+        }
+      },
+      "MAX": {
+        "CODEX": {
+          "append_prompt": null,
+          "sandbox": "danger-full-access",
+          "model": "gpt-5.1-codex-max"
+        }
+      },
+      "APPROVALS": {
+        "CODEX": {
+          "append_prompt": null,
+          "sandbox": "workspace-write",
+          "ask_for_approval": "unless-trusted",
+          "model": "gpt-5.2"
+        }
+      },
+      "HIGH": {
+        "CODEX": {
+          "append_prompt": null,
+          "sandbox": "danger-full-access",
+          "model": "gpt-5.2",
+          "model_reasoning_effort": "high"
+        }
+      },
+      "CODEX": {
+        "CODEX": {
+          "append_prompt": null,
+          "sandbox": "danger-full-access",
+          "model": "gpt-5.2-codex"
+        }
+      }
+    },
+    "DROID": {
+      "GPT_5_1_CODEX": {
+        "DROID": {
+          "append_prompt": null,
+          "autonomy": "skip-permissions-unsafe",
+          "model": "gpt-5.1-codex"
+        }
+      },
+      "GLM_4_6": {
+        "DROID": {
+          "append_prompt": null,
+          "autonomy": "skip-permissions-unsafe",
+          "model": "glm-4.6"
+        }
+      },
+      "CLAUDE_SONNET_4_5": {
+        "DROID": {
+          "append_prompt": null,
+          "autonomy": "skip-permissions-unsafe",
+          "model": "claude-sonnet-4-5-20250929"
+        }
+      },
+      "GPT_5_1": {
+        "DROID": {
+          "append_prompt": null,
+          "autonomy": "skip-permissions-unsafe",
+          "model": "gpt-5.1"
+        }
+      },
+      "GEMINI_3_PRO": {
+        "DROID": {
+          "append_prompt": null,
+          "autonomy": "skip-permissions-unsafe",
+          "model": "gemini-3-pro-preview"
+        }
+      },
+      "DEFAULT": {
+        "DROID": {
+          "append_prompt": null,
+          "autonomy": "skip-permissions-unsafe"
+        }
+      },
+      "CLAUDE_HAIKU_4_5": {
+        "DROID": {
+          "append_prompt": null,
+          "autonomy": "skip-permissions-unsafe",
+          "model": "claude-haiku-4-5-20251001"
+        }
+      },
+      "CLAUDE_OPUS_4_1": {
+        "DROID": {
+          "append_prompt": null,
+          "autonomy": "skip-permissions-unsafe",
+          "model": "claude-opus-4-1-20250805"
+        }
+      }
+    },
+    "CURSOR_AGENT": {
+      "DEFAULT": {
+        "CURSOR_AGENT": {
+          "append_prompt": null,
+          "force": true,
+          "model": "auto"
+        }
+      },
+      "SONNET_4_5_THINKING": {
+        "CURSOR_AGENT": {
+          "append_prompt": null,
+          "force": true,
+          "model": "sonnet-4.5-thinking"
+        }
+      },
+      "GPT_5": {
+        "CURSOR_AGENT": {
+          "append_prompt": null,
+          "force": true,
+          "model": "gpt-5"
+        }
+      },
+      "GROK": {
+        "CURSOR_AGENT": {
+          "append_prompt": null,
+          "force": true,
+          "model": "grok"
+        }
+      },
+      "SONNET_4_5": {
+        "CURSOR_AGENT": {
+          "append_prompt": null,
+          "force": true,
+          "model": "sonnet-4.5"
+        }
+      },
+      "OPUS_4_1": {
+        "CURSOR_AGENT": {
+          "append_prompt": null,
+          "force": true,
+          "model": "opus-4.1"
+        }
+      }
+    }
+  }
+}
