@@ -6,7 +6,7 @@
       "git push": "ask"
     }
   },
-  "model": "cerebras/zai-glm-4.6",
+  "model": "synthetic/hf:zai-org/GLM-4.6",
   "plugin": ["@franlol/opencode-md-table-formatter@0.0.3", "opencode-skills"],
   "tools": {
     "write": false,
