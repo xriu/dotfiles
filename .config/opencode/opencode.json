@@ -7,7 +7,7 @@
     }
   },
   "model": "synthetic/hf:zai-org/GLM-4.6",
-  "plugin": ["@franlol/opencode-md-table-formatter@0.0.3"],
+  "plugin": ["opencode-skills"],
   "tools": {
     "write": false,
     "edit": false,
@@ -27,6 +27,7 @@
       }
     },
     "build": {
+      "mode": "primary",
       "prompt": "{file:./rules/persona.txt}",
       "temperature": 0.3,
       "tools": {
@@ -90,7 +91,7 @@
       "command": ["npx", "-y", "vibe-kanban@latest", "--mcp"]
     },
     "chrome-devtools": {
-      "enabled": true,
+      "enabled": false,
       "type": "local",
       "command": ["npx", "-y", "chrome-devtools-mcp@latest"]
     },
