@@ -53,6 +53,12 @@ alias npm-list="npm list -g --depth=0"
 # Zed
 alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
+# Synthetic
+alias q_synthetic='curl -s https://api.synthetic.new/v2/quotas \
+  -H "Authorization: Bearer ${Z_AI_API_KEY}" \
+  | jq --color-output .'
+
+
 # LM internal alias
 if alias lm > /dev/null; then unalias lm; fi
 
