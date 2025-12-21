@@ -5,27 +5,29 @@
       "url": "https://knowledge-mcp.global.api.aws",
       "headers": {}
     },
-    "context7": {
-      "disabled": false,
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
-      }
-    },
     "vibe_kanban": {
       "disabled": true,
       "command": "npx",
-      "args": ["-y", "vibe-kanban@latest", "--mcp"]
+      "args": [
+        "-y",
+        "vibe-kanban@latest",
+        "--mcp"
+      ]
     },
     "chrome-devtools": {
       "disabled": true,
       "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest"]
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ]
     },
     "playwright": {
       "disabled": true,
       "command": "npx",
-      "args": ["@playwright/mcp@latest"]
+      "args": [
+        "@playwright/mcp@latest"
+      ]
     }
   }
 }
