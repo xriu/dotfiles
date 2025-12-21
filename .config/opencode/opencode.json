@@ -29,6 +29,17 @@
     "build": {
       "mode": "primary",
       "prompt": "{file:./rules/persona.txt}",
+      "temperature": 0.3,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "webfetch": true
+      }
+    },
+    "doc-writer": {
+      "model": "opencode/big-pickle",
+      "prompt": "{file:./rules/doc-writer.txt}",
       "temperature": 0.1,
       "tools": {
         "write": true,
