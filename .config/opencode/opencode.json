@@ -7,7 +7,7 @@
     }
   },
   "model": "synthetic/hf:zai-org/GLM-4.6",
-  "plugin": ["opencode-skills"],
+  "plugin": [],
   "tools": {
     "write": false,
     "edit": false,
