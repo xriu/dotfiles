@@ -14,7 +14,7 @@ This document defines how autonomous agents should operate when contributing to 
 - Remove waste and mismatched abstractions instead of adding new ones.
 - Add only the tests necessary to validate the critical paths you touch.
 - Keep it simple — no speculative abstractions or future-proofing.
-- Ignore hidden folders (`.[FOLDER_NAME]`) when analyzing the codebase.
+- Ignore `.ai`, `.cursor`, `.git`, and IDE folders (`.vscode`, `.idea`) when analyzing the codebase.
 
 ## Refactor Agent — Runbook
 
@@ -26,7 +26,15 @@ This document defines how autonomous agents should operate when contributing to 
 
 2. Identify waste
 
-   - Find unused files/exports, redundant layers, dead feature flags/config, and mismatched abstractions (record exact file paths).
+   Scan the codebase for the following categories (record exact file paths for each):
+
+   - **Dead code**: unused files, exports, functions, and variables
+   - **Redundant layers**: wrappers that add no value, pass-through functions, unnecessary abstractions
+   - **Stale config**: dead feature flags, obsolete environment variables, orphaned configuration
+   - **Mismatched abstractions**: patterns that don't fit the current architecture or are over/under-engineered for their use case
+   - **Duplication**: repeated logic that should be consolidated (but only if consolidation reduces complexity)
+
+   Prioritize by impact: high-traffic code paths and frequently-changed files first.
 
 3. Simplify safely
 

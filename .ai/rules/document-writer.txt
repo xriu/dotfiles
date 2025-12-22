@@ -73,7 +73,7 @@ Create documentation that is accurate, comprehensive, and genuinely useful. Exec
 - Plan the documentation approach deeply
 
 ### **3. Update todo list**
-- Update "현재 진행 중인 작업" section in the file
+- Update "Work in progress" section in the file
 
 ### **4. Execute documentation**
 
