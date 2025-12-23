@@ -18,6 +18,7 @@ alias gpush="git push"
 alias gcommit="git commit"
 alias gadd="git add"
 alias gstatus="git status"
+alias gmerge="git merge main"
 
 # Cat with syntax highlighting
 alias cat="bat"
