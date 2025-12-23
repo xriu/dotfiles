@@ -78,7 +78,7 @@
       "headers": {}
     },
     "vibe_kanban": {
-      "enabled": true,
+      "enabled": false,
       "type": "local",
       "command": ["npx", "-y", "vibe-kanban@latest", "--mcp"]
     },
