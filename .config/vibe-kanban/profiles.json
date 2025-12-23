@@ -81,14 +81,14 @@
       "DEFAULT": {
         "OPENCODE": {
           "append_prompt": null,
-          "model": "synthetic/hf:zai-org/GLM-4.6",
+          "model": "synthetic/hf:zai-org/GLM-4.7",
           "auto_approve": true
         }
       },
       "PLAN": {
         "OPENCODE": {
           "append_prompt": null,
-          "model": "synthetic/hf:zai-org/GLM-4.6",
+          "model": "synthetic/hf:zai-org/GLM-4.7",
           "mode": "plan",
           "auto_approve": true
         }
