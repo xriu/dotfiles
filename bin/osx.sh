@@ -42,6 +42,7 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
+    # brew install --cask zed --force # Multiplayer code editor
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask claude-code --force # Claude Code CLI
@@ -54,21 +55,20 @@ function brew_setup() {
     brew install --cask helium-browser --force # Browser for the modern internet
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask leapp --force # Cloud credentials manager
-    brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
+    brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
     brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
     brew install --cask opencode-desktop # OpenCode Desktop
     brew install --cask orbstack --force # Replacement for Docker Desktop
-    brew install --cask productdevbook/tap/portkiller # Port Killer is a tool for killing ports on macOS
+    brew install --cask productdevbook/tap/portkiller --force # Port Killer is a tool for killing ports on macOS
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask stats --force # System monitor for the menu bar
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
-    brew install --cask thebrowsercompany-dia # Dia Web browser
+    brew install --cask thebrowsercompany-dia --force # Dia Web browser
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask visual-studio-code --force # Code editor for the modern web
     brew install --cask windows-app --force # Windows app for macOS
-    brew install --cask zed --force # Multiplayer code editor
 
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
