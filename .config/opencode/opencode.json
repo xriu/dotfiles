@@ -23,6 +23,7 @@
         "write": false,
         "edit": false,
         "bash": false,
+        "skill": true,
         "webfetch": true
       }
     },
@@ -34,6 +35,7 @@
         "write": true,
         "edit": true,
         "bash": true,
+        "skill": true,
         "webfetch": true
       }
     },
@@ -45,6 +47,7 @@
         "write": true,
         "edit": true,
         "bash": true,
+        "skill": true,
         "webfetch": true
       }
     },
@@ -55,6 +58,7 @@
         "write": false,
         "edit": false,
         "bash": false,
+        "skill": true,
         "webfetch": true
       }
     },
