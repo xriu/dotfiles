@@ -22,7 +22,7 @@
       "tools": {
         "write": false,
         "edit": false,
-        "bash": false,
+        "bash": true,
         "skill": true,
         "webfetch": true
       }
