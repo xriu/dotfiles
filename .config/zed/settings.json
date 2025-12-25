@@ -19,7 +19,7 @@
         "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
       }
     },
-    "vibe_kanban": {
+    "vibe-kanban": {
       "enabled": false,
       "command": "npx",
       "args": ["-y", "vibe-kanban@latest", "--mcp"]

@@ -72,10 +72,20 @@
     }
   },
   "mcp": {
-    "gh_grep": {
+    "gh-grep": {
       "enabled": true,
       "type": "remote",
       "url": "https://mcp.grep.app"
+    },
+    "sqlite": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "uvx",
+        "mcp-server-sqlite",
+        "--db-path",
+        "backend/api/data/xriu.db"
+      ]
     },
     "aws-knowledge-mcp": {
       "enabled": false,
@@ -83,7 +93,7 @@
       "url": "https://knowledge-mcp.global.api.aws",
       "headers": {}
     },
-    "vibe_kanban": {
+    "vibe-kanban": {
       "enabled": false,
       "type": "local",
       "command": ["npx", "-y", "vibe-kanban@latest", "--mcp"]
