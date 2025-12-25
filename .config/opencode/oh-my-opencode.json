@@ -1,13 +1,32 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "sisyphus_agent": {
-    "disabled": true
+    "disabled": false
   },
+  "google_auth": false,
   "agents": {
     "Planner-Sisyphus": {
-      "model": "cerebras/zai-glm-4.6"
+      "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "Sisyphus": {
+      "model": "synthetic/hf:zai-org/GLM-4.7"
+    },
+    "oracle": {
+      "model": "synthetic/hf:zai-org/GLM-4.7"
+    },
+    "librarian": {
+      "model": "synthetic/hf:zai-org/GLM-4.7"
+    },
+    "explore": {
+      "model": "synthetic/hf:zai-org/GLM-4.7"
+    },
+    "frontend-ui-ux-engineer": {
+      "model": "synthetic/hf:zai-org/GLM-4.7"
+    },
+    "document-writer": {
+      "model": "cerebras/zai-glm-4.6"
+    },
+    "multimodal-looker": {
       "model": "cerebras/zai-glm-4.6"
     }
   }
