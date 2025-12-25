@@ -12,6 +12,7 @@
     "write": false,
     "edit": false,
     "bash": false,
+    "skill": true,
     "webfetch": true
   },
   "agent": {
@@ -71,7 +72,7 @@
   },
   "mcp": {
     "gh_grep": {
-      "enabled": false,
+      "enabled": true,
       "type": "remote",
       "url": "https://mcp.grep.app"
     },
