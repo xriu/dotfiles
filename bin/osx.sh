@@ -49,7 +49,6 @@ function brew_setup() {
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
-    brew install --cask finch --force # Open source container development tool
     brew install --cask ghostty --force # Terminal emulator that uses platform-native UI and GPU acceleration
     brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask helium-browser --force # Browser for the modern internet
