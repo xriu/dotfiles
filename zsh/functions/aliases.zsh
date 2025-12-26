@@ -50,6 +50,7 @@ alias update="brew update; brew upgrade; brew cleanup; brew autoremove"
 # NPM
 alias npm-update="npm update -g"
 alias npm-list="npm list -g --depth=0"
+alias npm-cache-clean="npm cache clean --force"
 
 # BUN
 alias bun-update="bun update -g"
