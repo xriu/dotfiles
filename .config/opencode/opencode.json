@@ -8,7 +8,7 @@
     }
   },
   "model": "synthetic/hf:zai-org/GLM-4.7",
-  "plugin": [], // "oh-my-opencode", "opencode-antigravity-auth@1.1.2"
+  "plugin": [],
   "tools": {
     "write": false,
     "edit": false,
