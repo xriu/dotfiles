@@ -53,7 +53,11 @@ alias npm-list="npm list -g --depth=0"
 
 # BUN
 alias bun-update="bun update -g"
-alias bun-list="bun list --depth=0"
+alias bun-list="bun list -g --depth=0"
+
+# PNPM
+alias pnpm-update="pnpm update -g"
+alias pnpm-list="pnpm list -g --depth=0"
 
 # Zed
 alias zed="/Applications/Zed.app/Contents/MacOS/cli"
