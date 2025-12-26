@@ -51,6 +51,10 @@ alias update="brew update; brew upgrade; brew cleanup; brew autoremove"
 alias npm-update="npm update -g"
 alias npm-list="npm list -g --depth=0"
 
+# BUN
+alias bun-update="bun update -g"
+alias bun-list="bun list --depth=0"
+
 # Zed
 alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
