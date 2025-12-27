@@ -19,7 +19,7 @@
   "agent": {
     "plan": {
       "mode": "primary",
-      "prompt": "{file:./rules/persona.txt}",
+      "prompt": "{file:./prompts/persona.txt}",
       "temperature": 0.1,
       "tools": {
         "write": false,
@@ -31,7 +31,7 @@
     },
     "build": {
       "mode": "primary",
-      "prompt": "{file:./rules/persona.txt}",
+      "prompt": "{file:./prompts/persona.txt}",
       "temperature": 0.3,
       "tools": {
         "write": true,
@@ -43,7 +43,7 @@
     },
     "document-writer": {
       "model": "cerebras/zai-glm-4.6",
-      "prompt": "{file:./rules/document-writer.txt}",
+      "prompt": "{file:./prompts/document-writer.txt}",
       "temperature": 0.1,
       "tools": {
         "write": true,
@@ -55,7 +55,7 @@
     },
     "brainstorm": {
       "model": "opencode/big-pickle",
-      "prompt": "{file:./rules/persona.txt}",
+      "prompt": "{file:./prompts/persona.txt}",
       "temperature": 0.7,
       "tools": {
         "write": false,
