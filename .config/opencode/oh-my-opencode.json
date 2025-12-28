@@ -3,21 +3,18 @@
   "sisyphus_agent": {
     "disabled": false
   },
-  "google_auth": false,
+  "google_auth": true,
   "agents": {
     "Sisyphus": {
       "model": "synthetic/hf:zai-org/GLM-4.7"
     },
-    "Builder-Sisyphus": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
-    },
-    "Planner-Sisyphus": {
+    "oracle": {
       "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "librarian": {
       "model": "synthetic/hf:zai-org/GLM-4.7"
     },
-    "oracle": {
+    "explore": {
       "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "frontend-ui-ux-engineer": {

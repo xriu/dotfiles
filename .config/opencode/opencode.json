@@ -9,13 +9,6 @@
   },
   "model": "synthetic/hf:zai-org/GLM-4.7",
   "plugin": ["oh-my-opencode"],
-  "tools": {
-    "write": false,
-    "edit": false,
-    "bash": false,
-    "skill": true,
-    "webfetch": true
-  },
   "agent": {
     "plan": {
       "mode": "primary",
@@ -44,7 +37,7 @@
   },
   "mcp": {
     "gh-grep": {
-      "enabled": true,
+      "enabled": false,
       "type": "remote",
       "url": "https://mcp.grep.app"
     },
