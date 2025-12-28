@@ -8,7 +8,7 @@
     }
   },
   "model": "synthetic/hf:zai-org/GLM-4.7",
-  "plugin": [],
+  "plugin": ["oh-my-opencode"],
   "tools": {
     "write": false,
     "edit": false,
