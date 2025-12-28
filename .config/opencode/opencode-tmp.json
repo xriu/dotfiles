@@ -40,6 +40,36 @@
         "skill": true,
         "webfetch": true
       }
+    },
+    "document-writer": {
+      "model": "cerebras/zai-glm-4.6",
+      "prompt": "{file:./prompts/document-writer.txt}",
+      "temperature": 0.1,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "skill": true,
+        "webfetch": true
+      }
+    },
+    "brainstorm": {
+      "model": "opencode/big-pickle",
+      "prompt": "{file:./prompts/persona.txt}",
+      "temperature": 0.7,
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false,
+        "skill": true,
+        "webfetch": true
+      }
+    },
+    "deep-thinker": {
+      "description": "High reasoning effort for complex problems",
+      "model": "openai/gpt-5",
+      "reasoningEffort": "high",
+      "textVerbosity": "low"
     }
   },
   "mcp": {
