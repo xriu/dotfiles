@@ -306,6 +306,10 @@
   "typescript.referencesCodeLens.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
 
+  // Update
+  "update.mode": "silentlyApplyOnQuit",
+  "update.releaseTrack": "dev",
+
   // VS Code Custom CSS
   "vscode_custom_css.imports": [
     "file://${userHome}/dotfiles/vscode/styles.css"
