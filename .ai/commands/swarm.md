@@ -10,7 +10,7 @@ $ARGUMENTS
 
 ## CRITICAL: Coordinator Role Boundaries
 
-**⚠️ COORDINATORS NEVER EXECUTE WORK DIRECTLY**
+**â ï¸ COORDINATORS NEVER EXECUTE WORK DIRECTLY**
 
 Your role is **ONLY** to:
 1. **Clarify** - Ask questions to understand scope
@@ -41,7 +41,7 @@ Your role is **ONLY** to:
 
 ## CRITICAL: NEVER Fetch Documentation Directly
 
-**⚠️ COORDINATORS DO NOT CALL RESEARCH TOOLS DIRECTLY**
+**â ï¸ COORDINATORS DO NOT CALL RESEARCH TOOLS DIRECTLY**
 
 The following tools are **FORBIDDEN** for coordinators to call:
 
@@ -55,7 +55,7 @@ The following tools are **FORBIDDEN** for coordinators to call:
 
 **INSTEAD:** Use `swarm_spawn_researcher` (see Phase 1.5 below) to spawn a researcher worker who:
 - Fetches documentation in disposable context
-- Stores full details in semantic-memory
+- Stores full details in hivemind
 - Returns a condensed summary for shared_context
 
 ## Workflow
@@ -65,9 +65,9 @@ The following tools are **FORBIDDEN** for coordinators to call:
 **Before decomposing, clarify the task with the user.**
 
 Check for flags in the task:
-- `--fast` → Skip questions, use reasonable defaults
-- `--auto` → Zero interaction, heuristic decisions
-- `--confirm-only` → Show plan, get yes/no only
+- `--fast` â Skip questions, use reasonable defaults
+- `--auto` â Zero interaction, heuristic decisions
+- `--confirm-only` â Show plan, get yes/no only
 
 **Default (no flags): Full Socratic Mode**
 
@@ -106,7 +106,7 @@ Check for flags in the task:
 
 ### Phase 1.5: Research Phase (FOR COMPLEX TASKS)
 
-**⚠️ If the task requires understanding unfamiliar technologies, APIs, or libraries, spawn a researcher FIRST.**
+**â ï¸ If the task requires understanding unfamiliar technologies, APIs, or libraries, spawn a researcher FIRST.**
 
 **DO NOT call documentation tools directly.** Instead:
 
@@ -120,7 +120,7 @@ swarm_spawn_researcher(
 )
 
 // 2. Spawn researcher as Task subagent
-const researchFindings = await Task(subagent_type="swarm/researcher", prompt="<from above>")
+const researchFindings = await Task(subagent_type="swarm-researcher", prompt="<from above>")
 
 // 3. Researcher returns condensed summary
 // Use this summary in shared_context for workers
@@ -135,10 +135,10 @@ const researchFindings = await Task(subagent_type="swarm/researcher", prompt="<f
 **When NOT to spawn a researcher:**
 - Using well-known stable APIs (React hooks, Express middleware)
 - Task is purely refactoring existing code
-- You already have relevant findings from semantic-memory or CASS
+- You already have relevant findings from hivemind
 
 **Researcher output:**
-- Full findings stored in semantic-memory (searchable by future agents)
+- Full findings stored in hivemind (searchable by future agents)
 - Condensed 3-5 bullet summary returned for shared_context
 
 ### Phase 2: Knowledge Gathering (MANDATORY)
@@ -146,9 +146,9 @@ const researchFindings = await Task(subagent_type="swarm/researcher", prompt="<f
 **Before decomposing, query ALL knowledge sources:**
 
 ```
-semantic-memory_find(query="<task keywords>", limit=5)   # Past learnings
-cass_search(query="<task description>", limit=5)         # Similar past tasks  
-skills_list()                                            # Available skills
+hivemind_find(query="<task keywords>", limit=5)                              # Past learnings
+hivemind_find(query="<task description>", limit=5, collection="sessions")    # Similar past tasks  
+skills_list()                                                                # Available skills
 ```
 
 Synthesize findings into shared_context for workers.
@@ -165,12 +165,12 @@ swarm_validate_decomposition(response="<CellTree JSON>")
 
 ### Phase 5: DO NOT Reserve Files
 
-> **⚠️ Coordinator NEVER reserves files.** Workers reserve their own files.
+> **â ï¸ Coordinator NEVER reserves files.** Workers reserve their own files.
 > If coordinator reserves, workers get blocked and swarm stalls.
 
 ### Phase 6: Spawn Workers for ALL Subtasks (MANDATORY)
 
-> **⚠️ ALWAYS spawn workers, even for sequential tasks.**
+> **â ï¸ ALWAYS spawn workers, even for sequential tasks.**
 > - Parallel tasks: Spawn ALL in a single message
 > - Sequential tasks: Spawn one, wait for completion, spawn next
 
@@ -178,20 +178,20 @@ swarm_validate_decomposition(response="<CellTree JSON>")
 ```
 // Single message with multiple Task calls
 swarm_spawn_subtask(bead_id_1, epic_id, title_1, files_1, shared_context, project_path="$PWD")
-Task(subagent_type="swarm/worker", prompt="<from above>")
+Task(subagent_type="swarm-worker", prompt="<from above>")
 swarm_spawn_subtask(bead_id_2, epic_id, title_2, files_2, shared_context, project_path="$PWD")
-Task(subagent_type="swarm/worker", prompt="<from above>")
+Task(subagent_type="swarm-worker", prompt="<from above>")
 ```
 
 **For sequential work:**
 ```
 // Spawn worker 1, wait for completion
 swarm_spawn_subtask(bead_id_1, ...)
-const result1 = await Task(subagent_type="swarm/worker", prompt="<from above>")
+const result1 = await Task(subagent_type="swarm-worker", prompt="<from above>")
 
 // THEN spawn worker 2 with context from worker 1
 swarm_spawn_subtask(bead_id_2, ..., shared_context="Worker 1 completed: " + result1)
-const result2 = await Task(subagent_type="swarm/worker", prompt="<from above>")
+const result2 = await Task(subagent_type="swarm-worker", prompt="<from above>")
 ```
 
 **NEVER do the work yourself.** Even if it seems faster, spawn a worker.
@@ -200,7 +200,7 @@ const result2 = await Task(subagent_type="swarm/worker", prompt="<from above>")
 
 ### Phase 7: MANDATORY Review Loop (NON-NEGOTIABLE)
 
-**⚠️ AFTER EVERY Task() RETURNS, YOU MUST:**
+**â ï¸ AFTER EVERY Task() RETURNS, YOU MUST:**
 
 1. **CHECK INBOX** - Worker may have sent messages
    `swarmmail_inbox()`
@@ -235,10 +235,10 @@ const result2 = await Task(subagent_type="swarm/worker", prompt="<from above>")
 **DO NOT skip this. DO NOT batch reviews. Review EACH worker IMMEDIATELY after return.**
 
 **Intervene if:**
-- Worker blocked >5min → unblock or reassign
-- File conflicts → mediate between workers
-- Scope creep → approve or reject expansion
-- Review fails 3x → mark task blocked, escalate to human
+- Worker blocked >5min â unblock or reassign
+- File conflicts â mediate between workers
+- Scope creep â approve or reject expansion
+- Review fails 3x â mark task blocked, escalate to human
 
 ### Phase 8: Complete
 ```
