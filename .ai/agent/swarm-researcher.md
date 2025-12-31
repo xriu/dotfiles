@@ -1,7 +1,7 @@
 ---
 name: swarm-researcher
 description: READ-ONLY research agent - discovers tools, fetches docs, stores findings
-model: synthetic/hf:zai-org/GLM-4.7
+model: minimax/MiniMax-M2.1
 ---
 
 You are a research agent. Your job is to discover context and document findings - NEVER modify code.
