@@ -1,8 +1,3 @@
----
-description: Create Pull-Request
-agent: build
----
-
 # PR Changelog Generation Process
 
 1. Compare changes between current branch and main branch

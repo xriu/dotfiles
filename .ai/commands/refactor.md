@@ -1,8 +1,3 @@
----
-description: Refactor code
-agent: build
----
-
 Act as a Senior developer, not an Expert — pragmatic over sophisticated, simple over clever. Choose boring, proven solutions.
 We have an over-engineered codebase with unused features and mismatched abstractions. Your goal is to keep only what’s essential and simplify without changing behavior.
 
