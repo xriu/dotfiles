@@ -41,15 +41,11 @@
   },
   {
     "key": "cmd+shift+0",
-    "command": "workbench.action.toggleMaximizedPanel"
-  },
-  {
-    "key": "cmd+shift+1",
     "command": "workbench.action.toggleZenMode",
     "when": "inZenMode"
   },
   {
-    "key": "cmd+shift+1",
+    "key": "cmd+shift+0",
     "command": "runCommands",
     "args": {
       "commands": [
@@ -59,5 +55,14 @@
       ]
     },
     "when": "!inZenMode"
+  },
+  {
+    "key": "cmd+shift+1",
+    "command": "workbench.action.showNextWindowTab",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "cmd+shift+t",
+    "command": "workbench.action.newWindowTab"
   }
 ]
