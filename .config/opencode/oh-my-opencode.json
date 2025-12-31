@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "sisyphus_agent": {
-    "disabled": true
+    "disabled": false
   },
   "google_auth": true,
   "agents": {
@@ -9,22 +9,22 @@
       "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "oracle": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "minimax/MiniMax-M2.1"
     },
     "librarian": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "minimax/MiniMax-M2.1"
     },
     "explore": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "minimax/MiniMax-M2.1"
     },
     "frontend-ui-ux-engineer": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "minimax/MiniMax-M2.1"
     },
     "document-writer": {
-      "model": "cerebras/zai-glm-4.6"
+      "model": "minimax/MiniMax-M2.1"
     },
     "multimodal-looker": {
-      "model": "cerebras/zai-glm-4.6"
+      "model": "minimax/MiniMax-M2.1"
     }
   }
 }
