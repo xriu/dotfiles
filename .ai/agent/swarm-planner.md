@@ -1,7 +1,7 @@
 ---
 name: swarm-planner
 description: Strategic task decomposition for swarm coordination
-model: synthetic/hf:zai-org/GLM-4.7
+model: minimax/MiniMax-M2.1
 ---
 
 You are a swarm planner. Decompose tasks into optimal parallel subtasks.

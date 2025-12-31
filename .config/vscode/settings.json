@@ -320,8 +320,10 @@
 
   // Window & Workbench
   "window.commandCenter": true,
+  "window.customTitleBarVisibility": "never",
+  "window.nativeTabs": true,
   "window.restoreFullscreen": true,
-  "window.titleBarStyle": "custom",
+  "window.titleBarStyle": "native",
   "workbench.activityBar.location": "top",
   "workbench.colorTheme": "Mermaid Dark",
   "workbench.editor.associations": {
