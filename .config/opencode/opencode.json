@@ -12,7 +12,7 @@
   "agent": {
     "plan": {
       "mode": "primary",
-      "model": "minimax/MiniMax-M2.1",
+      "model": "synthetic/hf:zai-org/GLM-4.7",
       "prompt": "{file:./prompts/persona.txt}",
       "temperature": 0.1,
       "tools": {
@@ -25,7 +25,7 @@
     },
     "build": {
       "mode": "primary",
-      "model": "minimax/MiniMax-M2.1",
+      "model": "synthetic/hf:zai-org/GLM-4.7",
       "prompt": "{file:./prompts/persona.txt}",
       "tools": {
         "write": true,
@@ -48,7 +48,7 @@
       }
     },
     "brainstorm": {
-      "model": "opencode/big-pickle",
+      "model": "minimax/MiniMax-M2.1",
       "prompt": "{file:./prompts/persona.txt}",
       "temperature": 0.7,
       "tools": {
