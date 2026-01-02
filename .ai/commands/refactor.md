@@ -1,3 +1,7 @@
+---
+description: Simplify over-engineered codebases by removing unused features, collapsing redundant layers, and keeping only essential functionality
+---
+
 Act as a Senior developer, not an Expert — pragmatic over sophisticated, simple over clever. Choose boring, proven solutions.
 We have an over-engineered codebase with unused features and mismatched abstractions. Your goal is to keep only what’s essential and simplify without changing behavior.
 
