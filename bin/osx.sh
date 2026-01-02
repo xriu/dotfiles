@@ -106,7 +106,6 @@ function brew_setup() {
     brew install maven # Java-based project management
     brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
-    brew install pixi # Package management made easy
     brew install pnpm # Fast, disk space efficient package manager
     brew install postgresql # Object-relational database management system
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
