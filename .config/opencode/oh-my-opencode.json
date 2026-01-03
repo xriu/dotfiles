@@ -8,13 +8,13 @@
     "Sisyphus": {
       "model": "minimax/MiniMax-M2.1"
     },
-    "oracle": {
-      "model": "minimax/MiniMax-M2.1"
-    },
     "librarian": {
       "model": "minimax/MiniMax-M2.1"
     },
     "explore": {
+      "model": "minimax/MiniMax-M2.1"
+    },
+    "oracle": {
       "model": "minimax/MiniMax-M2.1"
     },
     "frontend-ui-ux-engineer": {
