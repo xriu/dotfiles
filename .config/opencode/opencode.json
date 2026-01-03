@@ -4,7 +4,8 @@
   "default_agent": "plan",
   "permission": {
     "bash": {
-      "git push": "ask"
+      "git": "ask",
+      "rm": "ask"
     }
   },
   "model": "minimax/MiniMax-M2.1",
@@ -62,7 +63,7 @@
   },
   "mcp": {
     "gh-grep": {
-      "enabled": false,
+      "enabled": true,
       "type": "remote",
       "url": "https://mcp.grep.app"
     },
