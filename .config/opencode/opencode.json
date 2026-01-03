@@ -7,8 +7,8 @@
       "git push": "ask"
     }
   },
-  "model": "synthetic/hf:zai-org/GLM-4.7",
-  "plugin": [],
+  "model": "minimax/MiniMax-M2.1",
+  "plugin": ["oh-my-opencode"],
   "agent": {
     "plan": {
       "mode": "primary",

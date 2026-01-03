@@ -6,7 +6,7 @@
   "google_auth": true,
   "agents": {
     "Sisyphus": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "minimax/MiniMax-M2.1"
     },
     "oracle": {
       "model": "minimax/MiniMax-M2.1"
