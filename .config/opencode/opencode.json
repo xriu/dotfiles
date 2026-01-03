@@ -4,8 +4,21 @@
   "default_agent": "plan",
   "permission": {
     "bash": {
-      "git": "ask",
-      "rm": "ask"
+      "rm": "ask",
+      "git add": "ask",
+      "git commit": "ask",
+      "git push": "ask",
+      "git pull": "ask",
+      "git fetch": "ask",
+      "git merge": "ask",
+      "git rebase": "ask",
+      "git reset": "ask",
+      "git checkout": "ask",
+      "git diff": "allow",
+      "git status": "allow",
+      "git log": "allow",
+      "git show": "allow",
+      "git branch": "allow"
     }
   },
   "model": "minimax/MiniMax-M2.1",
