@@ -26,5 +26,15 @@
     "multimodal-looker": {
       "model": "minimax/MiniMax-M2.1"
     }
+  },
+  "lsp": {
+    "typescript-language-server": {
+      "command": ["typescript-language-server", "--stdio"],
+      "extensions": [".ts", ".tsx"],
+      "priority": 10
+    },
+    "pylsp": {
+      "disabled": false
+    }
   }
 }
