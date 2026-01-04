@@ -76,6 +76,7 @@ function brew_setup() {
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
     brew install bash-completion # Programmable completion for Bash 4.2+
     brew install bat # Clone of cat(1) with syntax highlighting and Git integration
+    brew install biome # Toolchain of the web
     brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
     brew install carapace # Carapace is a completion system for any shell
