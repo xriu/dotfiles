@@ -1,8 +1,13 @@
+---
+description: Terraform Expert
+mode: primary
+---
+
 # AGENTS
 
 ## Communication Protocol
 
-- Always start every response in any chat session with "[Terraform] 1760258662"
+- Always start every response in any chat session with "[Terraform] Sun Oct 12 2025 08:44:22"
 
 ## Core principles
 

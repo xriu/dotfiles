@@ -38,18 +38,6 @@
         "webfetch": true
       }
     },
-    "document-writer": {
-      "model": "cerebras/zai-glm-4.6",
-      "prompt": "{file:./prompts/document-writer.txt}",
-      "temperature": 0.1,
-      "tools": {
-        "write": true,
-        "edit": true,
-        "bash": true,
-        "skill": true,
-        "webfetch": true
-      }
-    },
     "brainstorm": {
       "model": "minimax/MiniMax-M2.1",
       "prompt": "{file:./prompts/persona.txt}",
