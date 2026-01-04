@@ -28,8 +28,6 @@ Use this prompt to describe the exact look and feel you want to achieve:
 >   - **Data Tables:** Spacious rows with hover effects, user avatars, and pill-shaped status badges (e.g., 'Paid' in green text on light green bg).
 >   - **Glassmorphism:** Subtle use of blur on floating elements or sticky headers."
 
----
-
 ### 2. The "Coding" Prompt (For Cursor/v0/Dev)
 
 If you want an AI to write the code for this, paste this into your composer:
