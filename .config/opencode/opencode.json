@@ -17,7 +17,6 @@
       "mode": "primary",
       "model": "synthetic/hf:zai-org/GLM-4.7",
       "prompt": "{file:./prompts/persona.txt}",
-      "temperature": 0.1,
       "tools": {
         "write": false,
         "edit": false,
