@@ -225,6 +225,9 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "darkriszty.markdown-table-prettify"
+  },
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
@@ -306,6 +309,10 @@
   "typescript.referencesCodeLens.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
 
+  // Update
+  "update.mode": "silentlyApplyOnQuit",
+  "update.releaseTrack": "dev",
+
   // VS Code Custom CSS
   "vscode_custom_css.imports": [
     "file://${userHome}/dotfiles/vscode/styles.css"
@@ -340,7 +347,5 @@
   // YAML
   "yaml.schemas": {
     "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.13-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  },
-  "update.mode": "silentlyApplyOnQuit",
-  "update.releaseTrack": "dev"
+  }
 }
