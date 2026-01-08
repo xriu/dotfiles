@@ -3,7 +3,7 @@
   "sisyphus_agent": {
     "disabled": false
   },
-  "disabled_mcps": ["context7", "websearch_exa", "grep_app"],
+  "disabled_mcps": [],
   "google_auth": true,
   "agents": {
     "Sisyphus": {
