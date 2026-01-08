@@ -332,6 +332,7 @@
     "*.ipynb": "jupyter-notebook"
   },
   "workbench.editor.empty.hint": "hidden",
+  "workbench.editor.enablePreview": false,
   "workbench.editor.showIcons": false,
   "workbench.editor.tabActionCloseVisibility": false,
   "workbench.editor.tabCloseButton": "off",
@@ -346,6 +347,5 @@
   // YAML
   "yaml.schemas": {
     "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.14-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-  },
-  "workbench.editor.enablePreview": false
+  }
 }
