@@ -1,192 +1,4 @@
 {
-  // Atlas Code (Jira/Bitbucket)
-  "atlascode.bitbucket.enabled": false,
-  "atlascode.jira.enabled": true,
-  "atlascode.jira.explorer.enabled": true,
-  "atlascode.jira.explorer.monitorEnabled": false,
-  "atlascode.jira.explorer.nestSubtasks": true,
-  "atlascode.jira.hover.enabled": false,
-  "atlascode.jira.jqlList": [
-    {
-      "enabled": true,
-      "id": "49f2cfc2-f659-44ec-b3c0-7e94dd659479",
-      "monitor": false,
-      "name": "My launchmetrics Issues",
-      "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
-      "siteId": "2b665b4d-6ecc-4eb5-b847-ad071bf66683"
-    }
-  ],
-  "atlascode.jira.startWorkBranchTemplate.customTemplate": "xriu-{{{issueKey}}}-{{{summary}}}",
-  "atlascode.jira.statusbar.enabled": false,
-  "atlascode.jira.statusbar.showLogin": false,
-  "atlascode.jira.statusbar.showProduct": false,
-  "atlascode.jira.statusbar.showUser": false,
-  "atlascode.jira.todoIssues.enabled": false,
-  "atlascode.jira.todoIssues.triggers": [],
-
-  // AWS
-  "aws.cloudformation.telemetry.enabled": false,
-  "aws.telemetry": false,
-
-  // Breadcrumbs
-  "breadcrumbs.enabled": false,
-
-  // Console Ninja
-  "console-ninja.featureSet": "Community",
-
-  // Cursor
-  "cursor.cmdk.useThemedDiffBackground": true,
-  "cursor.composer.shouldAllowCustomModes": true,
-  "cursor.composer.shouldChimeAfterChatFinishes": true,
-  "cursor.composer.usageSummaryDisplay": "always",
-  "cursor.enable_agent_window_setting": true,
-  "cursor.general.gitGraphIndexing": "enabled",
-
-  // Custom Local Formatters
-  "customLocalFormatters.formatters": [
-    {
-      "command": "terraform fmt -",
-      "languages": ["hcl"]
-    }
-  ],
-
-  // Diff Editor
-  "diffEditor.ignoreTrimWhitespace": false,
-  "diffEditor.maxComputationTime": 0,
-
-  // Editor Settings
-  "editor.accessibilitySupport": "off",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-  "editor.cursorBlinking": "expand",
-  "editor.cursorSmoothCaretAnimation": "on",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.detectIndentation": false,
-  "editor.experimental.asyncTokenization": true,
-  "editor.folding": true,
-  "editor.fontFamily": "FiraCodeNerdFont-Retina",
-  "editor.fontLigatures": false,
-  "editor.fontWeight": "300",
-  "editor.formatOnPaste": false,
-  "editor.formatOnSave": true,
-  "editor.glyphMargin": false,
-  "editor.guides.bracketPairs": true,
-  "editor.guides.highlightActiveBracketPair": true,
-  "editor.hideCursorInOverviewRuler": true,
-  "editor.inlineSuggest.enabled": true,
-  "editor.insertSpaces": true,
-  "editor.minimap.enabled": false,
-  "editor.occurrencesHighlight": "off",
-  "editor.overviewRulerBorder": false,
-  "editor.renderLineHighlight": "none",
-  "editor.renderWhitespace": "none",
-  "editor.stickyScroll.enabled": true,
-  "editor.suggestSelection": "first",
-
-  // Explorer Settings
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmPasteNative": false,
-  "explorer.openEditors.visible": 1,
-
-  // Extensions
-  "extensions.autoUpdate": true,
-  "extensions.ignoreRecommendations": true,
-
-  // File Settings
-  "files.associations": {
-    "*.tf": "terraform",
-    "*.tftpl": "hcl",
-    "*.tfvars": "terraform-vars"
-  },
-  "files.autoSave": "afterDelay",
-  "files.exclude": {
-    "**/node_modules/": true,
-    "wp-admin/": true,
-    "wp-config.*": false,
-    "wp-includes/": true,
-    "xmlrpc.php": true
-  },
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": false,
-  "files.trimTrailingWhitespace": true,
-  "files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/node_modules/**": true
-  },
-
-  // Git Settings
-  "git.autofetch": true,
-  "git.blame.editorDecoration.enabled": true,
-  "git.blame.statusBarItem.enabled": true,
-  "git.confirmSync": false,
-  "git.enableSmartCommit": true,
-  "git.ignoreLimitWarning": true,
-  "git.openRepositoryInParentFolders": "always",
-
-  // GitHub
-  "github.copilot.chat.customOAIModels": {
-    "hf:moonshotai/Kimi-K2-Thinking": {
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 262144,
-      "name": "hf:moonshotai/Kimi-K2-Thinking",
-      "requiresAPIKey": true,
-      "thinking": true,
-      "toolCalling": true,
-      "url": "https://api.synthetic.new/openai/v1",
-      "vision": true
-    },
-    "hf:zai-org/GLM-4.6": {
-      "maxInputTokens": 200000,
-      "maxOutputTokens": 132000,
-      "name": "hf:zai-org/GLM-4.6",
-      "requiresAPIKey": true,
-      "thinking": true,
-      "toolCalling": true,
-      "url": "https://api.synthetic.new/openai/v1",
-      "vision": true
-    }
-  },
-  "github.copilot.editor.enableAutoCompletions": true,
-  "githubPullRequests.createOnPublishBranch": "never",
-  "githubPullRequests.pullBranch": "never",
-
-  // Hadolint
-  "hadolint.cliOptions": [],
-
-  // Java Settings
-  "java.configuration.runtimes": [
-    {
-      "default": false,
-      "name": "JavaSE-20",
-      "path": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
-    }
-  ],
-  "java.configuration.updateBuildConfiguration": "interactive",
-  "java.errors.incompleteClasspath.severity": "ignore",
-  "java.format.settings.url": ".settings/org.eclipse.jdt.core.prefs",
-  "java.import.generatesMetadataFilesAtProjectRoot": false,
-  "java.import.gradle.java.home": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home",
-  "java.imports.gradle.wrapper.checksums": [
-    {
-      "allowed": true,
-      "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06"
-    }
-  ],
-  "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home",
-  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/Users/xavier.riu/.vscode/extensions/vscjava.vscode-lombok-1.0.1/server/lombok.jar\"",
-  "java.project.importHint": false,
-  "java.project.importOnFirstTimeStartup": "automatic",
-  "java.saveActions.organizeImports": true,
-
-  // JavaScript/TypeScript
-  "javascript.updateImportsOnFileMove.enabled": "always",
-
-  // Kilo Code
-  "kilo-code.allowedCommands": ["git log", "git diff", "git show"],
-  "kilo-code.deniedCommands": [],
-
-  // Language-Specific Settings
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -248,25 +60,169 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-
-  // Prettier
+  "amp.tab.enabled": true,
+  "amp.url": "https://ampcode.com/",
+  "atlascode.bitbucket.enabled": false,
+  "atlascode.jira.enabled": true,
+  "atlascode.jira.explorer.enabled": true,
+  "atlascode.jira.explorer.monitorEnabled": false,
+  "atlascode.jira.explorer.nestSubtasks": true,
+  "atlascode.jira.hover.enabled": false,
+  "atlascode.jira.jqlList": [
+    {
+      "enabled": true,
+      "id": "49f2cfc2-f659-44ec-b3c0-7e94dd659479",
+      "monitor": false,
+      "name": "My launchmetrics Issues",
+      "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+      "siteId": "2b665b4d-6ecc-4eb5-b847-ad071bf66683"
+    }
+  ],
+  "atlascode.jira.startWorkBranchTemplate.customTemplate": "xriu-{{{issueKey}}}-{{{summary}}}",
+  "atlascode.jira.statusbar.enabled": false,
+  "atlascode.jira.statusbar.showLogin": false,
+  "atlascode.jira.statusbar.showProduct": false,
+  "atlascode.jira.statusbar.showUser": false,
+  "atlascode.jira.todoIssues.enabled": false,
+  "atlascode.jira.todoIssues.triggers": [],
+  "aws.cloudformation.telemetry.enabled": false,
+  "aws.telemetry": false,
+  "breadcrumbs.enabled": false,
+  "console-ninja.featureSet": "Community",
+  "cursor.cmdk.useThemedDiffBackground": true,
+  "cursor.composer.shouldAllowCustomModes": true,
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
+  "cursor.composer.usageSummaryDisplay": "always",
+  "cursor.enable_agent_window_setting": true,
+  "cursor.general.gitGraphIndexing": "enabled",
+  "customLocalFormatters.formatters": [
+    {
+      "command": "terraform fmt -",
+      "languages": ["hcl"]
+    }
+  ],
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.maxComputationTime": 0,
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.detectIndentation": false,
+  "editor.experimental.asyncTokenization": true,
+  "editor.folding": true,
+  "editor.fontFamily": "FiraCodeNerdFont-Retina",
+  "editor.fontLigatures": false,
+  "editor.fontWeight": "300",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "editor.glyphMargin": false,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.highlightActiveBracketPair": true,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.insertSpaces": true,
+  "editor.minimap.enabled": false,
+  "editor.occurrencesHighlight": "off",
+  "editor.overviewRulerBorder": false,
+  "editor.renderLineHighlight": "none",
+  "editor.renderWhitespace": "none",
+  "editor.stickyScroll.enabled": true,
+  "editor.suggestSelection": "first",
+  "editor.wordBasedSuggestions": "off",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
+  "explorer.openEditors.visible": 1,
+  "extensions.autoUpdate": true,
+  "extensions.ignoreRecommendations": true,
+  "files.associations": {
+    "*.tf": "terraform",
+    "*.tftpl": "hcl",
+    "*.tfvars": "terraform-vars"
+  },
+  "files.autoSave": "afterDelay",
+  "files.exclude": {
+    "**/node_modules/": true,
+    "wp-admin/": true,
+    "wp-config.*": false,
+    "wp-includes/": true,
+    "xmlrpc.php": true
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": false,
+  "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true
+  },
+  "git.autofetch": true,
+  "git.blame.editorDecoration.enabled": true,
+  "git.blame.statusBarItem.enabled": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.ignoreLimitWarning": true,
+  "git.openRepositoryInParentFolders": "always",
+  "github.copilot.chat.customOAIModels": {
+    "hf:moonshotai/Kimi-K2-Thinking": {
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 262144,
+      "name": "hf:moonshotai/Kimi-K2-Thinking",
+      "requiresAPIKey": true,
+      "thinking": true,
+      "toolCalling": true,
+      "url": "https://api.synthetic.new/openai/v1",
+      "vision": true
+    },
+    "hf:zai-org/GLM-4.6": {
+      "maxInputTokens": 200000,
+      "maxOutputTokens": 132000,
+      "name": "hf:zai-org/GLM-4.6",
+      "requiresAPIKey": true,
+      "thinking": true,
+      "toolCalling": true,
+      "url": "https://api.synthetic.new/openai/v1",
+      "vision": true
+    }
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+  "githubPullRequests.createOnPublishBranch": "never",
+  "githubPullRequests.pullBranch": "never",
+  "hadolint.cliOptions": [],
+  "java.configuration.runtimes": [
+    {
+      "default": false,
+      "name": "JavaSE-20",
+      "path": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
+    }
+  ],
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "java.format.settings.url": ".settings/org.eclipse.jdt.core.prefs",
+  "java.import.generatesMetadataFilesAtProjectRoot": false,
+  "java.import.gradle.java.home": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home",
+  "java.imports.gradle.wrapper.checksums": [
+    {
+      "allowed": true,
+      "sha256": "1cef53de8dc192036e7b0cc47584449b0cf570a00d560bfaa6c9eabe06e1fc06"
+    }
+  ],
+  "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home",
+  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/Users/xavier.riu/.vscode/extensions/vscjava.vscode-lombok-1.0.1/server/lombok.jar\"",
+  "java.project.importHint": false,
+  "java.project.importOnFirstTimeStartup": "automatic",
+  "java.saveActions.organizeImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "kilo-code.allowedCommands": ["git log", "git diff", "git show"],
+  "kilo-code.deniedCommands": [],
   "prettier.useEditorConfig": false,
-
-  // Python
   "python.formatting.autopep8Args": ["--max-line-length=120"],
   "python.formatting.provider": "autopep8",
   "python.languageServer": "None",
-
-  // Quarkus
   "quarkus.tools.alwaysShowWelcomePage": false,
-
-  // Red Hat
   "redhat.telemetry.enabled": false,
-
-  // SCM
   "scm.experimental.showHistoryGraph": true,
-
-  // Search Settings
   "search.exclude": {
     "**/.git": true,
     "**/bower_components": true,
@@ -274,11 +230,7 @@
     "**/node_modules": true,
     "**/tmp": true
   },
-
-  // Telemetry
   "telemetry.telemetryLevel": "off",
-
-  // Terminal
   "terminal.external.linuxExec": "Ghostty.app",
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.automationProfile.osx": {
@@ -301,27 +253,15 @@
   "terminal.integrated.sendKeybindingsToShell": true,
   "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.usePreviewBox": true,
-
-  // Terraform
   "terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
-
-  // TypeScript
   "typescript.referencesCodeLens.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-
-  // Update
   "update.mode": "silentlyApplyOnQuit",
   "update.releaseTrack": "dev",
-
-  // VS Code Custom CSS
   "vscode_custom_css.imports": [
     "file://${userHome}/dotfiles/vscode/styles.css"
   ],
-
-  // VS IntelliCode
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-
-  // Window & Workbench
   "window.commandCenter": true,
   "window.customTitleBarVisibility": "never",
   "window.nativeTabs": true,
@@ -343,8 +283,6 @@
   "workbench.secondarySideBar.defaultVisibility": "visible",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
-
-  // YAML
   "yaml.schemas": {
     "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.14-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
   }

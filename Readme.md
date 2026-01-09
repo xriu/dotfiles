@@ -51,9 +51,3 @@ quick-terminal-size = 85%
 quick-terminal-position = top
 ```
 
-## OpenCode
-
-```
-"oh-my-opencode", "opencode-antigravity-auth@1.1.2"
-```
-

@@ -35,6 +35,7 @@ setup_export() {
     export PATH="$JAVA_HOME/bin:$PATH"
     export PATH="$HOME/bin:$PATH"
     export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+    export PATH="$HOME/.amp/bin:$PATH"
     export PATH="$HOME/.bun/bin:$PATH"
     export PATH="$HOME/.console-ninja/.bin:$PATH"
     export PATH="$HOME/.GIS-lm-build/bin:$PATH"
