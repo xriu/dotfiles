@@ -8,6 +8,12 @@
   "disabled_mcps": [],
   "google_auth": true,
   "agents": {
+    "orchestrator-sisyphus": {
+      "model": "minimax/MiniMax-M2.1"
+    },
+    "Prometheus (Planner)": {
+      "model": "minimax/MiniMax-M2.1"
+    },
     "Sisyphus": {
       "model": "minimax/MiniMax-M2.1"
     },
