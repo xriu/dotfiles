@@ -1,7 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "sisyphus_agent": {
-    "disabled": false
+    "disabled": false,
+    "planner_enabled": true,
+    "replace_plan": true
   },
   "disabled_mcps": [],
   "google_auth": true,
