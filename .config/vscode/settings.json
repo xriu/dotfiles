@@ -138,17 +138,14 @@
 	"extensions.autoUpdate": true,
 	"extensions.ignoreRecommendations": true,
 	"files.associations": {
+		"*.css": "tailwindcss",
 		"*.tf": "terraform",
 		"*.tftpl": "hcl",
 		"*.tfvars": "terraform-vars"
 	},
 	"files.autoSave": "afterDelay",
 	"files.exclude": {
-		"**/node_modules/": true,
-		"wp-admin/": true,
-		"wp-config.*": false,
-		"wp-includes/": true,
-		"xmlrpc.php": true
+		"**/node_modules/": true
 	},
 	"files.insertFinalNewline": true,
 	"files.saveConflictResolution": "overwriteFileOnDisk",
