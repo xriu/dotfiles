@@ -12,7 +12,13 @@
       "model": "minimax/MiniMax-M2.1"
     },
     "Prometheus (Planner)": {
-      "model": "minimax/MiniMax-M2.1"
+      "model": "synthetic/hf:zai-org/GLM-4.7"
+    },
+    "Metis (Plan Consultant)": {
+      "model": "synthetic/hf:zai-org/GLM-4.7"
+    },
+    "Momus (Plan Reviewer)": {
+      "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "Sisyphus": {
       "model": "minimax/MiniMax-M2.1"
