@@ -151,6 +151,7 @@
     "xmlrpc.php": true
   },
   "files.insertFinalNewline": true,
+  "files.saveConflictResolution": "overwriteFileOnDisk",
   "files.trimFinalNewlines": false,
   "files.trimTrailingWhitespace": true,
   "files.watcherExclude": {
