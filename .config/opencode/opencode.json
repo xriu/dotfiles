@@ -38,7 +38,7 @@
 			}
 		},
 		"ask": {
-			"model": "minimax/MiniMax-M2.1",
+			"model": "synthetic/hf:zai-org/GLM-4.7",
 			"prompt": "{file:./prompts/persona.txt}",
 			"tools": {
 				"write": false,
