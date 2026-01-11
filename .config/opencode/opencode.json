@@ -37,7 +37,7 @@
 				"webfetch": true
 			}
 		},
-		"brainstorm": {
+		"xriu": {
 			"model": "minimax/MiniMax-M2.1",
 			"prompt": "{file:./prompts/persona.txt}",
 			"tools": {
