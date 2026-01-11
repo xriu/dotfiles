@@ -38,7 +38,7 @@
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[markdown]": {
-		"editor.defaultFormatter": "darkriszty.markdown-table-prettify"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[python]": {
 		"editor.defaultFormatter": "ms-python.black-formatter"
@@ -108,7 +108,7 @@
 	"editor.bracketPairColorization.independentColorPoolPerBracketType": true,
 	"editor.cursorBlinking": "expand",
 	"editor.cursorSmoothCaretAnimation": "on",
-	"editor.defaultFormatter": "biomejs.biome",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.detectIndentation": false,
 	"editor.experimental.asyncTokenization": true,
 	"editor.folding": true,
