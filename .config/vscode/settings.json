@@ -282,6 +282,6 @@
 	"workbench.sideBar.location": "right",
 	"workbench.startupEditor": "none",
 	"yaml.schemas": {
-		"file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.14-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-	}
+        "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.14-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    }
 }
