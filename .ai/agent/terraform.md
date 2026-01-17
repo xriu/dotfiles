@@ -1,6 +1,6 @@
 ---
 description: Terraform Expert
-mode: primary
+mode: subagent
 ---
 
 # AGENTS
