@@ -45,7 +45,6 @@ function brew_setup() {
     # brew install --cask zed --force # Multiplayer code editor
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
-    brew install --cask claude-code --force # Claude Code CLI
     brew install --cask comet --force # Web browser with integrated AI assistant
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
