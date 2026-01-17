@@ -1,5 +1,5 @@
 ---
-description: Generate a formatted changelog from git commits for pull requests with proper categorization and icons
+description: (xriu) Generate a formatted changelog from git commits for pull requests with proper categorization and icons
 ---
 
 # PR Changelog Generation Process

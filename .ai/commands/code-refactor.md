@@ -1,5 +1,5 @@
 ---
-description: Simplify over-engineered codebases by removing unused features, collapsing redundant layers, and keeping only essential functionality
+description: (xriu) Simplify over-engineered codebases by removing unused features, collapsing redundant layers, and keeping only essential functionality
 ---
 
 Act as a Senior developer, not an Expert — pragmatic over sophisticated, simple over clever. Choose boring, proven solutions.

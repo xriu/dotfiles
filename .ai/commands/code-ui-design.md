@@ -1,5 +1,5 @@
 ---
-description: Generate comprehensive design and coding prompts for modern SaaS dashboard UIs based on visual analysis
+description: (xriu) Generate comprehensive design and coding prompts for modern SaaS dashboard UIs based on visual analysis
 ---
 
 Based on the visual analysis of the provided screenshots, here is a comprehensive prompt you can use. This is designed to be effective for both **AI Image Generators** (like Midjourney/DALL-E) to recreate the visual style, and **AI Coding Assistants** (like v0 or Cursor) to generate the code.

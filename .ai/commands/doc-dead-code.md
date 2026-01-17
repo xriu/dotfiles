@@ -1,5 +1,5 @@
 ---
-description: Analyze source code to identify dead code—unused variables, unreachable logic, orphaned functions, and unused imports
+description: (xriu) Analyze source code to identify dead code—unused variables, unreachable logic, orphaned functions, and unused imports
 ---
 
 Analyze source code to identify dead code—unused variables, unreachable logic, orphaned functions, and unused imports

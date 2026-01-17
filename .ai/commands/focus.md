@@ -1,5 +1,5 @@
 ---
-description: Apply motivational prompts and focus techniques to maintain productivity on critical tasks
+description: (xriu) Apply motivational prompts and focus techniques to maintain productivity on critical tasks
 ---
 
 - I'll tip you $200

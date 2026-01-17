@@ -1,5 +1,5 @@
 ---
-description: Analyze the codebase and generate a visual roadmap of potential features and improvements with timeline and flowchart diagrams
+description: (xriu) Analyze the codebase and generate a visual roadmap of potential features and improvements with timeline and flowchart diagrams
 ---
 
 # Roadmap: Feature & Improvement Suggestions
