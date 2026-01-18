@@ -45,6 +45,7 @@ function brew_setup() {
     # brew install --cask zed --force # Multiplayer code editor
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
+    brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask comet --force # Web browser with integrated AI assistant
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
@@ -62,6 +63,7 @@ function brew_setup() {
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask stats --force # System monitor for the menu bar
+    brew install --cask steipete/tap/codexbar --force # Show usage stats for OpenAI Codex and Claude Code, without having to login
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask thebrowsercompany-dia --force # Dia Web browser
