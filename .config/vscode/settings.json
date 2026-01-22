@@ -256,9 +256,8 @@
 	"terminal.integrated.usePreviewBox": true,
 	"terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
 	"typescript.referencesCodeLens.enabled": true,
-	"typescript.updateImportsOnFileMove.enabled": "always",
-	"update.mode": "silentlyApplyOnQuit",
-	"update.releaseTrack": "dev",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+	"update.releaseTrack": "prerelease",
 	"vscode_custom_css.imports": [
 		"file://${userHome}/dotfiles/vscode/styles.css"
 	],
