@@ -8,7 +8,7 @@
   "disabled_mcps": [],
   "google_auth": true,
   "agents": {
-    "orchestrator-sisyphus": {
+    "Atlas": {
       "model": "minimax/MiniMax-M2.1"
     },
     "Prometheus (Planner)": {
@@ -42,7 +42,9 @@
       "model": "minimax/MiniMax-M2.1"
     }
   },
-  "ralph_loop": { "enabled": true },
+  "ralph_loop": {
+    "enabled": true
+  },
   "lsp": {
     "typescript-language-server": {
       "command": ["typescript-language-server", "--stdio"],
