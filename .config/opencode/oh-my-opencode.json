@@ -8,19 +8,19 @@
   "disabled_mcps": [],
   "google_auth": true,
   "agents": {
-    "Atlas": {
+    "atlas": {
       "model": "minimax/MiniMax-M2.1"
     },
-    "Prometheus (Planner)": {
+    "prometheus": {
       "model": "synthetic/hf:zai-org/GLM-4.7"
     },
-    "Metis (Plan Consultant)": {
+    "metis": {
       "model": "synthetic/hf:zai-org/GLM-4.7"
     },
-    "Momus (Plan Reviewer)": {
+    "momus": {
       "model": "synthetic/hf:zai-org/GLM-4.7"
     },
-    "Sisyphus": {
+    "sisyphus": {
       "model": "minimax/MiniMax-M2.1"
     },
     "librarian": {
@@ -47,8 +47,14 @@
   },
   "lsp": {
     "typescript-language-server": {
-      "command": ["typescript-language-server", "--stdio"],
-      "extensions": [".ts", ".tsx"],
+      "command": [
+        "typescript-language-server",
+        "--stdio"
+      ],
+      "extensions": [
+        ".ts",
+        ".tsx"
+      ],
       "priority": 10
     },
     "pylsp": {
