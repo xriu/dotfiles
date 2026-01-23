@@ -133,6 +133,7 @@
 	"editor.renderWhitespace": "none",
 	"editor.stickyScroll.enabled": true,
 	"editor.suggestSelection": "first",
+	"editor.wordWrap": "on",
 	"editor.wordBasedSuggestions": "off",
 	"explorer.confirmDelete": false,
 	"explorer.confirmDragAndDrop": false,
@@ -256,7 +257,7 @@
 	"terminal.integrated.usePreviewBox": true,
 	"terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
 	"typescript.referencesCodeLens.enabled": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
+	"typescript.updateImportsOnFileMove.enabled": "always",
 	"update.releaseTrack": "prerelease",
 	"vscode_custom_css.imports": [
 		"file://${userHome}/dotfiles/vscode/styles.css"
@@ -284,6 +285,6 @@
 	"workbench.sideBar.location": "right",
 	"workbench.startupEditor": "none",
 	"yaml.schemas": {
-        "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.14-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-    }
+		"file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.17-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+	}
 }
