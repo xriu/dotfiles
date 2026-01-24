@@ -120,22 +120,22 @@ quick-terminal-size = 85%
 # Theme & Colors
 # =============================================================================
 # Custom background color (slightly darker than default Frappe)
-background = 1C2021
+background = 1e2030
 background-opacity = 1.0
 # Ensure text is always readable regardless of theme colors
 minimum-contrast = 1.2
 # Catppuccin theme with automatic dark/light mode switching
-theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+theme = Catppuccin Macchiato
 
 # =============================================================================
 # Window Appearance
 # =============================================================================
 # Use display-p3 color space for wider gamut
-window-colorspace = display-p3
-window-decoration = true
+# window-colorspace = display-p3
+# window-decoration = true
 # No padding (Zellij handles its own borders)
-window-padding-balance = true
-window-padding-color = background
+# window-padding-balance = true
+# window-padding-color = background
 window-padding-x = 0
 window-padding-y = 0
 
