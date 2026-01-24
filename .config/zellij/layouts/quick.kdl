@@ -16,8 +16,4 @@ layout {
   tab name="btop" {
     pane command="btop"
   }
-
-  tab focus=true {
-    pane
-  }
 }
