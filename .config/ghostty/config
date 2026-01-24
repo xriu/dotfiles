@@ -1,0 +1,26 @@
+# https://ghostty.org/docs/config
+
+background = 1C2021
+copy-on-select = clipboard
+font-feature = -liga
+font-size = 13
+keybind = cmd+c=unbind
+keybind = cmd+n=unbind
+keybind = cmd+opt+left=unbind
+keybind = cmd+opt+right=unbind
+keybind = cmd+t=unbind
+keybind = cmd+w=unbind
+keybind = global:º=toggle_quick_terminal
+keybind = shift+enter=text:\x1b\r
+macos-option-as-alt = left
+macos-titlebar-style = transparent
+mouse-scroll-multiplier = 0.5
+quick-terminal-position = top
+quick-terminal-size = 85%
+scrollback-limit = 4294967295
+theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+window-decoration = true
+window-padding-balance = true
+window-padding-x = 8
+window-padding-y = 8
+window-save-state = always
