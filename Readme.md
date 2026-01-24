@@ -30,24 +30,3 @@ bin/lm install
 ```
 /Users/.../Library/Application Support/Code/User
 ```
-
-## Ghostty
-
-```
-font-size = 13
-theme = dark:Catppuccin Frappe,light:Catppuccin Latte
-theme = GruvboxDarkHard
-background = 1C2021
-window-padding-balance = true
-window-save-state = always
-scrollback-limit = 4294967295
-copy-on-select = clipboard
-keybind = global:º=toggle_visibility
-```
-
-```
-keybind = global:º=toggle_quick_terminal
-quick-terminal-size = 85%
-quick-terminal-position = top
-```
-

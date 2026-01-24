@@ -34,7 +34,7 @@ alias dcupd='docker-compose up -d'
 alias dcdn='docker-compose down'
 
 # Zellij
-alias zj-kill='zellij kill-all-sessions -y; zellij delete-all-sessions -y'
+alias zj-kill='zellij delete-all-sessions -y --force'
 
 # IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

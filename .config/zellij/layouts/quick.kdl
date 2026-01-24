@@ -6,5 +6,24 @@ ui {
 }
 
 layout {
-  pane borderless=true
+  tab_template name="default_tab" {
+    pane size=1 borderless=true {
+      plugin location="tab-bar"
+    }
+    children
+  }
+
+  default_tab name="Tab 1" focus=true {
+    pane split_direction="vertical" {
+      pane
+      pane
+    }
+  }
+
+  default_tab name="Tab 2" {
+    pane split_direction="vertical" {
+      pane
+      pane
+    }
+  }
 }
