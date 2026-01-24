@@ -6,17 +6,17 @@
 # ==============================================================================
 
 # Set to "true" to enable, "false" to disable
-: ${ENABLE_ZELLIJ:=true}               # Terminal multiplexer auto-start
-: ${ENABLE_FZF:=false}                 # 1.80ms - Fuzzy finder
-: ${ENABLE_ZSH_AUTOSUGGESTIONS:=false} # 98.12ms - Fish-like autosuggestions
-: ${ENABLE_FNM:=true}                  # 0.01ms - Fast Node Manager
-: ${ENABLE_PNPM:=true}                 # 0.01ms - pnpm package manager
-: ${ENABLE_JENV:=false}                # 17.11ms - Java Version Manager
-: ${ENABLE_TERRAGRUNT:=true}           # 0.11ms - Terragrunt completion
-: ${ENABLE_STARSHIP:=true}             # 43.79ms - Starship prompt
-: ${ENABLE_ZOXIDE:=true}               # 4.95ms - Smart directory jumper
 : ${ENABLE_ATUIN:=false}               # 83.84ms - Shell history search
 : ${ENABLE_CARAPACE:=false}            # 105.34ms - Tab completion
+: ${ENABLE_FNM:=true}                  # 0.01ms - Fast Node Manager
+: ${ENABLE_FZF:=false}                 # 1.80ms - Fuzzy finder
+: ${ENABLE_JENV:=false}                # 17.11ms - Java Version Manager
+: ${ENABLE_PNPM:=true}                 # 0.01ms - pnpm package manager
+: ${ENABLE_STARSHIP:=true}             # 43.79ms - Starship prompt
+: ${ENABLE_TERRAGRUNT:=true}           # 0.11ms - Terragrunt completion
+: ${ENABLE_ZELLIJ:=true}               # Terminal multiplexer auto-start
+: ${ENABLE_ZOXIDE:=true}               # 4.95ms - Smart directory jumper
+: ${ENABLE_ZSH_AUTOSUGGESTIONS:=false} # 98.12ms - Fish-like autosuggestions
 
 # Load local overrides (machine-specific settings)
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

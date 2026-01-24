@@ -115,16 +115,27 @@ keybind = cmd+w=text:\x10x
 keybind = cmd+left_bracket=text:\x14h
 keybind = cmd+right_bracket=text:\x14l
 
-# Tab navigation: Ctrl+t then <number>
-keybind = cmd+1=text:\x141
-keybind = cmd+2=text:\x142
-keybind = cmd+3=text:\x143
-keybind = cmd+4=text:\x144
-keybind = cmd+5=text:\x145
-keybind = cmd+6=text:\x146
-keybind = cmd+7=text:\x147
-keybind = cmd+8=text:\x148
-keybind = cmd+9=text:\x149
+# Tab navigation: Send Alt+number (Zellij handles directly, no mode switching)
+# First unbind Ghostty's default tab switching (requires digit_N format)
+keybind = cmd+digit_1=unbind
+keybind = cmd+digit_2=unbind
+keybind = cmd+digit_3=unbind
+keybind = cmd+digit_4=unbind
+keybind = cmd+digit_5=unbind
+keybind = cmd+digit_6=unbind
+keybind = cmd+digit_7=unbind
+keybind = cmd+digit_8=unbind
+keybind = cmd+digit_9=unbind
+# Send Alt+number (\x1b = ESC, which terminals interpret as Alt modifier)
+keybind = cmd+one=text:\x1b1
+keybind = cmd+two=text:\x1b2
+keybind = cmd+three=text:\x1b3
+keybind = cmd+four=text:\x1b4
+keybind = cmd+five=text:\x1b5
+keybind = cmd+six=text:\x1b6
+keybind = cmd+seven=text:\x1b7
+keybind = cmd+eight=text:\x1b8
+keybind = cmd+nine=text:\x1b9
 
 # =============================================================================
 # Optional / Experimental

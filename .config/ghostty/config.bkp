@@ -1,14 +1,18 @@
 # Ghostty Configuration
 # https://ghostty.org/docs/config
 
+# =============================================================================
+# Command / Shell
+# =============================================================================
 # Auto-launch Zellij (attach to existing session or create new)
 command = /opt/homebrew/bin/zellij attach --create main
-
-# =============================================================================
-# Shell Integration
-# =============================================================================
 # Enable zsh integration (semantic prompts, command tracking)
 shell-integration = zsh
+
+# =============================================================================
+# Cursor
+# =============================================================================
+cursor-style-blink = true
 
 # =============================================================================
 # Font Settings
@@ -19,47 +23,60 @@ font-size = 13
 font-thicken = true
 
 # =============================================================================
-# Cursor
+# Input & Clipboard
 # =============================================================================
-cursor-style-blink = true
+# Auto-copy selected text to system clipboard
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
+# Slower scroll for better control
+mouse-scroll-multiplier = 0.5
+
+# =============================================================================
+# macOS Options
+# =============================================================================
+# Use left Option key as Alt for terminal escape sequences
+macos-option-as-alt = left
+macos-titlebar-proxy-icon = hidden
+# Transparent titlebar for cleaner macOS integration
+macos-titlebar-style = transparent
+# Hide cursor while typing for less distraction
+mouse-hide-while-typing = true
 
 # =============================================================================
 # Theme & Colors
 # =============================================================================
-# Catppuccin theme with automatic dark/light mode switching
-theme = dark:Catppuccin Frappe,light:Catppuccin Latte
 # Custom background color (slightly darker than default Frappe)
 background = 1C2021
-# Fully opaque background
 background-opacity = 1.0
 # Ensure text is always readable regardless of theme colors
 minimum-contrast = 1.2
+# Catppuccin theme with automatic dark/light mode switching
+theme = dark:Catppuccin Frappe,light:Catppuccin Latte
 
 # =============================================================================
 # Window Appearance
 # =============================================================================
-window-decoration = true
-# Transparent titlebar for cleaner macOS integration
-macos-titlebar-style = transparent
-# Hide proxy icon in titlebar
-macos-titlebar-proxy-icon = hidden
 # Use display-p3 color space for wider gamut
 window-colorspace = display-p3
+window-decoration = true
 # No padding (Zellij handles its own borders)
-window-padding-x = 0
-window-padding-y = 0
 window-padding-balance = true
 window-padding-color = background
+window-padding-x = 0
+window-padding-y = 0
 
 # =============================================================================
 # Window Behavior
 # =============================================================================
-# Restore windows on app restart
-window-save-state = always
+confirm-close-surface = true
+fullscreen = false
+maximize = true
 # Keep Ghostty running when last window closes (Zellij manages sessions)
-quit-after-last-window-closed = true
+quit-after-last-window-closed = false
 # Dim unfocused Zellij panes for better visual focus
 unfocused-split-opacity = 0.97
+window-save-state = never
 
 # =============================================================================
 # Quick Terminal (Drop-down)
@@ -70,66 +87,65 @@ quick-terminal-position = top
 quick-terminal-size = 85%
 
 # =============================================================================
-# Input & Clipboard
-# =============================================================================
-# Auto-copy selected text to system clipboard
-copy-on-select = clipboard
-# Explicit clipboard permissions for Zellij OSC 52 support
-clipboard-read = allow
-clipboard-write = allow
-# Slower scroll for better control
-mouse-scroll-multiplier = 0.5
-
-# =============================================================================
-# macOS Options
-# =============================================================================
-# Use Option key as Alt for terminal escape sequences
-macos-option-as-alt = true
-# Hide cursor while typing for less distraction
-mouse-hide-while-typing = true
-
-# =============================================================================
-# Keybind Overrides (Zellij Integration)
+# Keybinds (Zellij Integration)
 # =============================================================================
 # Pass Cmd keys through to Zellij via escape sequences
-# Alt+t = tab mode, Alt+Shift+p = pane mode in Zellij
+# Alt+t = tab mode, Ctrl+p = pane mode in Zellij
 
-# Tab management: Alt+t then n/x
-keybind = cmd+t=text:\x14n
-keybind = cmd+w=text:\x10x
-
-# Pane splits: Alt+Shift+p then r/d
-# keybind = cmd+d=text:\x1bPr
-# keybind = cmd+shift+d=text:\x1bPd
-
-# New pane (quick): Alt+n
-keybind = cmd+n=text:\x1bn
-
-# Tab navigation: Alt+t then <number>
-keybind = cmd+1=text:\x141
-keybind = cmd+2=text:\x142
-keybind = cmd+3=text:\x143
-keybind = cmd+4=text:\x144
-keybind = cmd+5=text:\x145
-keybind = cmd+6=text:\x146
-keybind = cmd+7=text:\x147
-keybind = cmd+8=text:\x148
-keybind = cmd+9=text:\x149
-
-# Tab cycling: Alt+t then l/h
-keybind = cmd+left_bracket=text:\x14h
-keybind = cmd+right_bracket=text:\x14l
-
-# Keep copy unbind (Zellij handles it via OSC 52)
+# Unbind defaults (Zellij handles these)
 keybind = cmd+c=unbind
 keybind = cmd+opt+left=unbind
 keybind = cmd+opt+right=unbind
 
+# Clear screen
+keybind = cmd+k=text:\x0c\x1b[3J
+
+# New pane: Alt+n
+keybind = cmd+n=text:\x1bn
+
+# Pane splits: Alt+r / Alt+d (direct Zellij bindings)
+keybind = cmd+d=text:\x1br
+keybind = cmd+shift+d=text:\x1bd
+
+# Tab management: Ctrl+t then n/x
+keybind = cmd+t=text:\x14n
+keybind = cmd+w=text:\x10x
+
+# Tab cycling: Ctrl+t then h/l
+keybind = cmd+left_bracket=text:\x14h
+keybind = cmd+right_bracket=text:\x14l
+
+# Tab navigation: Ctrl+t then <number>
+# First unbind Ghostty's default tab switching (requires digit_N format)
+keybind = cmd+digit_1=unbind
+keybind = cmd+digit_2=unbind
+keybind = cmd+digit_3=unbind
+keybind = cmd+digit_4=unbind
+keybind = cmd+digit_5=unbind
+keybind = cmd+digit_6=unbind
+keybind = cmd+digit_7=unbind
+keybind = cmd+digit_8=unbind
+keybind = cmd+digit_9=unbind
+# Then remap using spelled-out names (literal numbers like working keybinds)
+keybind = cmd+one=text:\x141
+keybind = cmd+two=text:\x142
+keybind = cmd+three=text:\x143
+keybind = cmd+four=text:\x144
+keybind = cmd+five=text:\x145
+keybind = cmd+six=text:\x146
+keybind = cmd+seven=text:\x147
+keybind = cmd+eight=text:\x148
+keybind = cmd+nine=text:\x149
+
 # =============================================================================
 # Optional / Experimental
 # =============================================================================
+# Pane splits: Alt+Shift+p then r/d
+# keybind = cmd+d=text:\x1bPr
+# keybind = cmd+shift+d=text:\x1bPd
+
 # Send escape before enter (useful for some terminal apps)
 # keybind = shift+enter=text:\x1b\r
 
-# Scrollback not needed if Zellij handles it; uncomment to restore
+# Scrollback not needed if Zellij handles it
 # scrollback-limit = 4294967295
