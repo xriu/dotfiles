@@ -103,8 +103,9 @@ keybind = cmd+k=text:\x0c\x1b[3J
 # New pane: Alt+n
 keybind = cmd+n=text:\x1bn
 
-# Pane splits: Alt+r / Alt+d (direct Zellij bindings)
-keybind = cmd+d=text:\x1br
+# Pane splits: Alt+n for auto-layout, Alt+r/d for explicit direction
+keybind = cmd+d=text:\x1bn
+keybind = cmd+shift+r=text:\x1br
 keybind = cmd+shift+d=text:\x1bd
 
 # Tab management: Ctrl+t then n/x
