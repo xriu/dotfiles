@@ -6,12 +6,18 @@ ui {
 }
 
 layout {
-  pane size=1 borderless=true {
-    plugin location="tab-bar"
+  tab_template name="default_tab" {
+    pane size=1 borderless=true {
+      plugin location="tab-bar"
+    }
+    children
   }
-  pane
-  pane split_direction="vertical" {
-      pane
-      pane command="btop"
+
+  default_tab name="btop" {
+    pane command="btop"
+  }
+
+  default_tab name="shell" focus=true {
+    pane
   }
 }
