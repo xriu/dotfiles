@@ -112,8 +112,11 @@ setup_carapace() {
 
 # Sets up Zellij auto-start for the zsh shell.
 # Zellij is a terminal multiplexer with a user-friendly interface.
+# Skips auto-start in Ghostty quick terminal to avoid session conflicts.
 setup_zellij() {
     command -v zellij &>/dev/null || return
+    # Skip Zellij in Ghostty quick terminal (set by Ghostty when using toggle_quick_terminal)
+    [[ -n "$GHOSTTY_QUICK_TERMINAL" ]] && return
     eval "$(zellij setup --generate-auto-start zsh)"
 }
 

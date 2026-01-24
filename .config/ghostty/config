@@ -4,8 +4,7 @@
 # =============================================================================
 # Command / Shell
 # =============================================================================
-# Auto-launch Zellij (attach to existing session or create new)
-command = /opt/homebrew/bin/zellij attach --create main
+# Zellij auto-start is handled in .zshrc (skipped for quick terminal)
 # Enable zsh integration (semantic prompts, command tracking)
 shell-integration = zsh
 
@@ -44,6 +43,14 @@ macos-titlebar-style = transparent
 mouse-hide-while-typing = true
 
 # =============================================================================
+# Quick Terminal (Drop-down)
+# =============================================================================
+# Toggle with º key (global hotkey works even when Ghostty isn't focused)
+keybind = global:º=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-size = 85%
+
+# =============================================================================
 # Theme & Colors
 # =============================================================================
 # Custom background color (slightly darker than default Frappe)
@@ -79,23 +86,10 @@ unfocused-split-opacity = 0.97
 window-save-state = never
 
 # =============================================================================
-# Quick Terminal (Drop-down)
-# =============================================================================
-# Toggle with º key (global hotkey works even when Ghostty isn't focused)
-keybind = global:º=toggle_quick_terminal
-quick-terminal-position = top
-quick-terminal-size = 85%
-
-# =============================================================================
 # Keybinds (Zellij Integration)
 # =============================================================================
 # Pass Cmd keys through to Zellij via escape sequences
 # Alt+t = tab mode, Ctrl+p = pane mode in Zellij
-
-# Unbind defaults (Zellij handles these)
-keybind = cmd+c=unbind
-keybind = cmd+opt+left=unbind
-keybind = cmd+opt+right=unbind
 
 # Clear screen
 keybind = cmd+k=text:\x0c\x1b[3J
@@ -105,19 +99,19 @@ keybind = cmd+n=text:\x1bn
 
 # Pane splits: Alt+n for auto-layout, Alt+r/d for explicit direction
 keybind = cmd+d=text:\x1bn
-keybind = cmd+shift+r=text:\x1br
 keybind = cmd+shift+d=text:\x1bd
-
-# Tab management: Ctrl+t then n/x
-keybind = cmd+t=text:\x14n
-keybind = cmd+w=text:\x10x
+keybind = cmd+shift+r=text:\x1br
 
 # Tab cycling: Ctrl+t then h/l
 keybind = cmd+left_bracket=text:\x14h
 keybind = cmd+right_bracket=text:\x14l
 
-# Tab navigation: Send Alt+number (Zellij handles directly, no mode switching)
-# First unbind Ghostty's default tab switching (requires digit_N format)
+# Tab management: Ctrl+t then n/x
+keybind = cmd+t=text:\x14n
+keybind = cmd+w=text:\x10x
+
+# 1. Unbind defaults (Zellij handles these)
+keybind = cmd+c=unbind
 keybind = cmd+digit_1=unbind
 keybind = cmd+digit_2=unbind
 keybind = cmd+digit_3=unbind
@@ -127,7 +121,10 @@ keybind = cmd+digit_6=unbind
 keybind = cmd+digit_7=unbind
 keybind = cmd+digit_8=unbind
 keybind = cmd+digit_9=unbind
-# Send Alt+number (\x1b = ESC, which terminals interpret as Alt modifier)
+keybind = cmd+opt+left=unbind
+keybind = cmd+opt+right=unbind
+
+# 2. Tab navigation: Send Alt+number (Zellij handles directly, no mode switching)
 keybind = cmd+one=text:\x1b1
 keybind = cmd+two=text:\x1b2
 keybind = cmd+three=text:\x1b3
@@ -145,8 +142,11 @@ keybind = cmd+nine=text:\x1b9
 # keybind = cmd+d=text:\x1bPr
 # keybind = cmd+shift+d=text:\x1bPd
 
+# Scrollback not needed if Zellij handles it
+# scrollback-limit = 4294967295
+
 # Send escape before enter (useful for some terminal apps)
 # keybind = shift+enter=text:\x1b\r
 
-# Scrollback not needed if Zellij handles it
-# scrollback-limit = 4294967295
+# Always show ghostty as the title
+title = ghostty
