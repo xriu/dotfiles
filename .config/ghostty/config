@@ -1,26 +1,101 @@
+# Ghostty Configuration
 # https://ghostty.org/docs/config
 
-background = 1C2021
-copy-on-select = clipboard
-font-feature = -liga
+# =============================================================================
+# Shell Integration
+# =============================================================================
+# Enable zsh integration (semantic prompts, command tracking)
+shell-integration = zsh
+
+# =============================================================================
+# Font Settings
+# =============================================================================
+# Disable ligatures for cleaner code readability
+font-feature = +liga
 font-size = 13
-keybind = cmd+c=unbind
-keybind = cmd+n=unbind
-keybind = cmd+opt+left=unbind
-keybind = cmd+opt+right=unbind
-keybind = cmd+t=unbind
-keybind = cmd+w=unbind
-keybind = global:º=toggle_quick_terminal
-keybind = shift+enter=text:\x1b\r
-macos-option-as-alt = left
+
+# =============================================================================
+# Cursor
+# =============================================================================
+cursor-style-blink = true
+
+# =============================================================================
+# Theme & Colors
+# =============================================================================
+# Catppuccin theme with automatic dark/light mode switching
+theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+# Custom background color (slightly darker than default Frappe)
+background = 1C2021
+# Fully opaque background
+background-opacity = 1.0
+
+# =============================================================================
+# Window Appearance
+# =============================================================================
+window-decoration = true
+# Transparent titlebar for cleaner macOS integration
 macos-titlebar-style = transparent
-mouse-scroll-multiplier = 0.5
+# Hide proxy icon in titlebar
+macos-titlebar-proxy-icon = hidden
+# Use display-p3 color space for wider gamut
+window-colorspace = display-p3
+# No padding (Zellij handles its own borders)
+window-padding-x = 0
+window-padding-y = 0
+window-padding-balance = true
+window-padding-color = background
+
+# =============================================================================
+# Window Behavior
+# =============================================================================
+# Restore windows on app restart
+window-save-state = always
+# Keep Ghostty running when last window closes (Zellij manages sessions)
+quit-after-last-window-closed = true
+# Dim unfocused Zellij panes for better visual focus
+unfocused-split-opacity = 0.97
+
+# =============================================================================
+# Quick Terminal (Drop-down)
+# =============================================================================
+# Toggle with º key (global hotkey works even when Ghostty isn't focused)
+keybind = global:º=toggle_quick_terminal
 quick-terminal-position = top
 quick-terminal-size = 85%
-scrollback-limit = 4294967295
-theme = dark:Catppuccin Frappe,light:Catppuccin Latte
-window-decoration = true
-window-padding-balance = true
-window-padding-x = 8
-window-padding-y = 8
-window-save-state = always
+
+# =============================================================================
+# Input & Clipboard
+# =============================================================================
+# Auto-copy selected text to system clipboard
+copy-on-select = clipboard
+# Explicit clipboard permissions for Zellij OSC 52 support
+clipboard-read = allow
+clipboard-write = allow
+# Slower scroll for better control
+mouse-scroll-multiplier = 0.5
+
+# =============================================================================
+# macOS Options
+# =============================================================================
+# Use Option key as Alt for terminal escape sequences
+macos-option-as-alt = true
+
+# =============================================================================
+# Keybind Overrides (Zellij Compatibility)
+# =============================================================================
+# Unbind Ghostty shortcuts to let Zellij handle tabs/windows/navigation
+keybind = cmd+t=unbind
+keybind = cmd+w=unbind
+keybind = cmd+n=unbind
+keybind = cmd+c=unbind
+keybind = cmd+opt+left=unbind
+keybind = cmd+opt+right=unbind
+
+# =============================================================================
+# Optional / Experimental
+# =============================================================================
+# Send escape before enter (useful for some terminal apps)
+# keybind = shift+enter=text:\x1b\r
+
+# Scrollback not needed if Zellij handles it; uncomment to restore
+# scrollback-limit = 4294967295
