@@ -114,7 +114,7 @@ mouse-hide-while-typing = true
 # Toggle with º key (global hotkey works even when Ghostty isn't focused)
 keybind = global:º=toggle_quick_terminal
 quick-terminal-position = top
-quick-terminal-size = 85%
+quick-terminal-size = 95%
 
 # =============================================================================
 # Theme & Colors
@@ -146,7 +146,7 @@ confirm-close-surface = true
 fullscreen = false
 maximize = true
 # Keep Ghostty running when last window closes (Zellij manages sessions)
-quit-after-last-window-closed = false
+quit-after-last-window-closed = true
 # Dim unfocused Zellij panes for better visual focus
 unfocused-split-opacity = 0.97
 window-save-state = never

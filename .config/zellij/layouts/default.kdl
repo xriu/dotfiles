@@ -13,10 +13,6 @@ layout {
     children
   }
 
-  default_tab name="btop" {
-    pane command="btop"
-  }
-
   default_tab name="shell" focus=true {
     pane
   }

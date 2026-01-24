@@ -13,17 +13,11 @@ layout {
     children
   }
 
-  default_tab name="Tab 1" focus=true {
-    pane split_direction="vertical" {
-      pane
-      pane
-    }
+  default_tab name="btop" {
+    pane command="btop"
   }
 
-  default_tab name="Tab 2" {
-    pane split_direction="vertical" {
-      pane
-      pane
-    }
+  default_tab name="shell" focus=true {
+    pane
   }
 }
