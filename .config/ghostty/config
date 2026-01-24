@@ -150,5 +150,5 @@ maximize = true
 # Keep Ghostty running when last window closes (Zellij manages sessions)
 quit-after-last-window-closed = true
 # Dim unfocused Zellij panes for better visual focus
-unfocused-split-opacity = 0.97
+unfocused-split-opacity = 0.50
 window-save-state = never
