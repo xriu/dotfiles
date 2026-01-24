@@ -134,7 +134,7 @@ theme = Catppuccin Macchiato
 # =============================================================================
 # Use display-p3 color space for wider gamut
 # window-colorspace = display-p3
-window-decoration = true
+window-decoration = false
 # No padding (Zellij handles its own borders)
 window-padding-balance = false
 window-padding-color = background
