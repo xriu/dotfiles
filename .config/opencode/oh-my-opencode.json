@@ -22,7 +22,7 @@
       "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "sisyphus": {
-      "model": "minimax/MiniMax-M2.1"
+      "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "sisyphus-junior": {
       "model": "minimax/MiniMax-M2.1"
