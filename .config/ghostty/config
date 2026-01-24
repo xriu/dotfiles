@@ -106,8 +106,8 @@ keybind = cmd+shift+r=text:\x1br
 keybind = cmd+left_bracket=text:\x14h
 keybind = cmd+right_bracket=text:\x14l
 
-# Tab management: Ctrl+t then n/x
-keybind = cmd+t=text:\x14n
+# Tab management: Alt+Shift+t for new tab, Ctrl+p then x to close
+keybind = cmd+t=text:\x1bT
 keybind = cmd+w=text:\x10x
 
 # 1. Unbind defaults (Zellij handles these)

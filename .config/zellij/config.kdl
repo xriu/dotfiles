@@ -193,6 +193,8 @@ keybinds {
         bind "Alt ]" { NextSwapLayout; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
+        // Direct new tab (Cmd+t via Ghostty sends Alt+Shift+t)
+        bind "Alt Shift t" { NewTab; }
         // Direct tab navigation (Cmd+1-9 via Ghostty sends Alt+1-9)
         bind "Alt 1" { GoToTab 1; }
         bind "Alt 2" { GoToTab 2; }
