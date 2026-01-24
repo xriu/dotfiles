@@ -273,6 +273,9 @@ load_plugins {
 //
 // simplified_ui true
 
+// Disable tips shown in the status bar
+show_tips false
+
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
