@@ -129,6 +129,7 @@ function brew_setup() {
     brew install vim # Vi 'workalike' with many additional features
     brew install wget # Internet file retriever
     brew install z # Tracks most-used directories to make cd smarter
+    brew install zellij # Terminal multiplexer
     brew install zoxide # A faster way to navigate your filesystem
     brew install zsh # UNIX shell (command interpreter)
     brew install zsh-autosuggestions # Fish-like autosuggestions for zsh

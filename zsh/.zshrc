@@ -6,6 +6,7 @@
 # ==============================================================================
 
 # Set to "true" to enable, "false" to disable
+: ${ENABLE_ZELLIJ:=true}               # Terminal multiplexer auto-start
 : ${ENABLE_FZF:=false}                 # 1.80ms - Fuzzy finder
 : ${ENABLE_ZSH_AUTOSUGGESTIONS:=false} # 98.12ms - Fish-like autosuggestions
 : ${ENABLE_FNM:=true}                  # 0.01ms - Fast Node Manager
@@ -109,6 +110,13 @@ setup_carapace() {
     fi
 }
 
+# Sets up Zellij auto-start for the zsh shell.
+# Zellij is a terminal multiplexer with a user-friendly interface.
+setup_zellij() {
+    command -v zellij &>/dev/null || return
+    eval "$(zellij setup --generate-auto-start zsh)"
+}
+
 # Sets up zsh options for better behavior.
 setup_zsh_options() {
     setopt AUTO_CD                # cd into directory by typing its name
@@ -181,6 +189,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Tool Setup (controlled by feature toggles above)
 # ==============================================================================
 
+[[ "$ENABLE_ZELLIJ" == "true" ]] && setup_zellij
 [[ "$ENABLE_FZF" == "true" ]] && setup_fzf
 [[ "$ENABLE_ZSH_AUTOSUGGESTIONS" == "true" ]] && setup_zsh_autosuggestions
 [[ "$ENABLE_FNM" == "true" ]] && setup_fnm
