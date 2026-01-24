@@ -1,6 +1,9 @@
 # Ghostty Configuration
 # https://ghostty.org/docs/config
 
+# Auto-launch Zellij (attach to existing session or create new)
+command = /opt/homebrew/bin/zellij attach --create main
+
 # =============================================================================
 # Shell Integration
 # =============================================================================
