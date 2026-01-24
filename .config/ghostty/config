@@ -55,8 +55,10 @@ keybind = cmd+shift+r=text:\x1br
 keybind = cmd+left_bracket=text:\x14h
 keybind = cmd+right_bracket=text:\x14l
 
-# Tab management: Alt+Shift+t for new tab, Ctrl+p then x to close
-keybind = cmd+t=text:\x1bT
+# Tab management: cmd+shift+t for new Zellij tab, Ctrl+p then x to close
+# Note: cmd+t may be intercepted by Ghostty's native tab feature
+keybind = cmd+t=text:\x1bN
+keybind = cmd+shift+t=text:\x1bN
 keybind = cmd+w=text:\x10x
 
 # Unbind defaults (Zellij handles these)
@@ -132,7 +134,7 @@ theme = Catppuccin Macchiato
 # =============================================================================
 # Use display-p3 color space for wider gamut
 # window-colorspace = display-p3
-window-decoration = none
+window-decoration = true
 # No padding (Zellij handles its own borders)
 window-padding-balance = false
 window-padding-color = background

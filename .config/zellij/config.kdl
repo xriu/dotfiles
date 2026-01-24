@@ -170,7 +170,7 @@ keybinds clear-defaults=true {
         bind "Alt Shift p" { ToggleGroupMarking; }
         bind "Ctrl q" { Quit; }
         bind "Alt r" { NewPane "right"; }
-        bind "Alt Shift t" { NewTab; }
+        bind "Alt Shift n" { NewTab; }
     }
     shared_except "locked" "move" {
         bind "Ctrl h" { SwitchToMode "move"; }
