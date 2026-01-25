@@ -1,24 +1,7 @@
 {
-  "mcpServers": {
-    "aws-knowledge-mcp": {
-      "disabled": false,
-      "url": "https://knowledge-mcp.global.api.aws",
-      "headers": {}
-    },
-    "vibe-kanban": {
-      "disabled": true,
-      "command": "npx",
-      "args": ["-y", "vibe-kanban@latest", "--mcp"]
-    },
-    "chrome-devtools": {
-      "disabled": true,
-      "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest"]
-    },
-    "playwright": {
-      "disabled": true,
-      "command": "npx",
-      "args": ["@playwright/mcp@latest"]
-    }
-  }
+	"mcpServers": {
+		"agent-browser": {
+			"url": "http://localhost:8087/sse"
+		}
+	}
 }

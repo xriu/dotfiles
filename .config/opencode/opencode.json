@@ -50,6 +50,11 @@
     }
   },
   "mcp": {
+    "agent-browser": {
+      "enabled": true,
+      "type": "remote",
+      "url": "http://localhost:8087/sse"
+    },
     "gh-grep": {
       "enabled": false,
       "type": "remote",
@@ -58,21 +63,12 @@
     "context7": {
       "enabled": false,
       "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
-      }
+      "url": "https://mcp.context7.com/mcp"
     },
     "aws-knowledge-mcp": {
       "enabled": false,
       "type": "remote",
-      "url": "https://knowledge-mcp.global.api.aws",
-      "headers": {}
-    },
-    "vibe-kanban": {
-      "enabled": false,
-      "type": "local",
-      "command": ["npx", "-y", "vibe-kanban@latest", "--mcp"]
+      "url": "https://knowledge-mcp.global.api.aws"
     },
     "chrome-devtools": {
       "enabled": false,
@@ -83,6 +79,11 @@
       "enabled": false,
       "type": "local",
       "command": ["npx", "-y", "@playwright/mcp@latest"]
+    },
+    "vibe-kanban": {
+      "enabled": false,
+      "type": "local",
+      "command": ["npx", "-y", "vibe-kanban@latest", "--mcp"]
     }
   }
 }

@@ -45,6 +45,7 @@ function brew_setup() {
     # brew install --cask zed --force # Multiplayer code editor
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
+    brew install --cask beekeeper-studio --force # Database management tool
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
@@ -70,6 +71,7 @@ function brew_setup() {
     brew install --cask visual-studio-code --force # Code editor for the modern web
     brew install --cask windows-app --force # Windows app for macOS
 
+    # brew install cob-packages/agent-browser/agent-browser # Agent Browser
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
