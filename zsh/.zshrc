@@ -117,11 +117,12 @@ setup_zellij() {
     command -v zellij &>/dev/null || return
     [[ -n "$ZELLIJ" ]] && return  # Already inside zellij, don't nest
 
+    export ZELLIJ_AUTO_ATTACH=false
+    export ZELLIJ_AUTO_EXIT=true
+
     if [[ -n "$GHOSTTY_QUICK_TERMINAL" ]]; then
-        # Attach to existing "quick" session or create it with the quick layout
         zellij -l ~/.config/zellij/layouts/quick.kdl attach quick -c
     else
-        # Attach to existing "main" session or create it with default layout
         zellij -l ~/.config/zellij/layouts/default.kdl attach main -c
     fi
 }
