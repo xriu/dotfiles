@@ -50,11 +50,6 @@
     }
   },
   "mcp": {
-    "agent-browser": {
-      "enabled": true,
-      "type": "remote",
-      "url": "http://localhost:8087/sse"
-    },
     "gh-grep": {
       "enabled": false,
       "type": "remote",
