@@ -68,7 +68,6 @@ function brew_setup() {
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask thebrowsercompany-dia --force # Dia Web browser
     brew install --cask twingate --force # Secure network access to cloud resources
-    brew install --cask visual-studio-code --force # Code editor for the modern web
     brew install --cask windows-app --force # Windows app for macOS
 
     # brew install cob-packages/agent-browser/agent-browser # Agent Browser
