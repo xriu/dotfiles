@@ -171,6 +171,7 @@ keybinds clear-defaults=true {
         bind "Ctrl q" { Quit; }
         bind "Alt r" { NewPane "right"; }
         bind "Alt Shift n" { NewTab; }
+        bind "Ctrl k" { Clear; }
     }
     shared_except "locked" "move" {
         bind "Ctrl h" { SwitchToMode "move"; }
@@ -418,7 +419,7 @@ on_force_close "quit"
 // if it is already running or creates it otherwise.
 // Default: false
 //
-attach_to_session false
+// attach_to_session false
 
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
@@ -432,7 +433,7 @@ attach_to_session false
 //   - true (default)
 //   - false
 //
-session_serialization false
+// session_serialization false
 
 // Whether pane viewports are serialized along with the session, default is false
 // Options:

@@ -117,8 +117,8 @@ setup_zellij() {
     command -v zellij &>/dev/null || return
     [[ -n "$ZELLIJ" ]] && return  # Already inside zellij, don't nest
 
-    export ZELLIJ_AUTO_ATTACH=false
-    export ZELLIJ_AUTO_EXIT=true
+    # export ZELLIJ_AUTO_ATTACH=false
+    # export ZELLIJ_AUTO_EXIT=true
 
     if [[ -n "$GHOSTTY_QUICK_TERMINAL" ]]; then
         zellij -l ~/.config/zellij/layouts/quick.kdl attach quick -c

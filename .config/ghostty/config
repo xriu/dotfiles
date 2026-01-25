@@ -41,7 +41,7 @@ mouse-scroll-multiplier = 0.5
 # Alt+t = tab mode, Ctrl+p = pane mode in Zellij
 
 # Clear screen
-keybind = cmd+k=text:\x0c\x1b[3J
+keybind = cmd+k=text:\x0b
 
 # New pane: Alt+n
 keybind = cmd+n=text:\x1bn
