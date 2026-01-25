@@ -19,7 +19,7 @@ cursor-style-blink = true
 # =============================================================================
 # Font Settings
 # =============================================================================
-font-feature = +calt,+liga
+# font-feature = +calt,+liga
 font-size = 13
 # Slightly bolder fonts on Retina displays
 font-thicken = true
