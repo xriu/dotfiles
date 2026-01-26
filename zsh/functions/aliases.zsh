@@ -66,6 +66,9 @@ alias pnpm-list="pnpm list -g --depth=0"
 # Zed
 alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
+# OpenCode
+alias oc="OPENCODE_EXPERIMENTAL_PLAN_MODE=1 opencode"
+
 # Synthetic
 alias q_synthetic='curl -s https://api.synthetic.new/v2/quotas \
   -H "Authorization: Bearer ${Z_AI_API_KEY}" \
