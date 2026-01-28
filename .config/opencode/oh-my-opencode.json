@@ -10,43 +10,43 @@
   "google_auth": true,
   "agents": {
     "atlas": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "kimi-for-coding/k2p5"
     },
     "prometheus": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "kimi-for-coding/k2p5"
     },
     "metis": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "kimi-for-coding/k2p5"
     },
     "momus": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "kimi-for-coding/k2p5"
     },
     "sisyphus": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "kimi-for-coding/k2p5"
     },
     "sisyphus-junior": {
-      "model": "minimax/MiniMax-M2.1"
+      "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "librarian": {
-      "model": "minimax/MiniMax-M2.1"
+      "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "explore": {
-      "model": "minimax/MiniMax-M2.1"
+      "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "oracle": {
-      "model": "minimax/MiniMax-M2.1"
+      "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "multimodal-looker": {
-      "model": "minimax/MiniMax-M2.1"
+      "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "build": {
-      "model": "minimax/MiniMax-M2.1"
+      "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "plan": {
-      "model": "minimax/MiniMax-M2.1"
+      "model": "synthetic/hf:zai-org/GLM-4.7"
     },
     "OpenCode-Builder": {
-      "model": "minimax/MiniMax-M2.1"
+      "model": "synthetic/hf:zai-org/GLM-4.7"
     }
   },
   "ralph_loop": {
