@@ -11,7 +11,7 @@
     }
   },
   "model": "minimax/MiniMax-M2.1",
-  "plugin": ["oh-my-opencode@3.1.6"],
+  "plugin": ["oh-my-opencode@3.1.7"],
   "agent": {
     "plan": {
       "mode": "primary",
