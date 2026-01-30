@@ -283,8 +283,5 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-	"workbench.startupEditor": "none",
-	"yaml.schemas": {
-        "file:///Users/xavier.riu/.cursor/extensions/atlassian.atlascode-4.0.17-universal/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-    }
+    "workbench.startupEditor": "none"
 }
