@@ -10,43 +10,43 @@
   "google_auth": true,
   "agents": {
     "atlas": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "prometheus": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "metis": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "momus": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus-junior": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "librarian": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "explore": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "oracle": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "multimodal-looker": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "build": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "plan": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "OpenCode-Builder": {
-      "model": "synthetic/hf:zai-org/GLM-4.7"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     }
   },
   "ralph_loop": {

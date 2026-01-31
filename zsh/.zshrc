@@ -121,9 +121,9 @@ setup_zellij() {
     # export ZELLIJ_AUTO_EXIT=true
 
     if [[ -n "$GHOSTTY_QUICK_TERMINAL" ]]; then
-        zellij -l ~/.config/zellij/layouts/quick.kdl attach quick -c
+        sleep 1 && zellij -l ~/.config/zellij/layouts/quick.kdl attach quick -c
     else
-        zellij -l ~/.config/zellij/layouts/default.kdl attach main -c
+        sleep 1 && zellij -l ~/.config/zellij/layouts/default.kdl attach main -c
     fi
 }
 

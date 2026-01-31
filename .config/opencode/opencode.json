@@ -10,12 +10,12 @@
       "git branch": "allow"
     }
   },
-  "model": "minimax/MiniMax-M2.1",
-  "plugin": ["oh-my-opencode@3.1.7"],
+  "model": "synthetic/hf:moonshotai/Kimi-K2.5",
+  "plugin": ["oh-my-opencode@3.1.10"],
   "agent": {
     "plan": {
       "mode": "primary",
-      "model": "synthetic/hf:zai-org/GLM-4.7",
+      "model": "kimi-for-coding/k2p5",
       "prompt": "{file:./prompts/persona.txt}",
       "tools": {
         "write": false,
@@ -27,7 +27,7 @@
     },
     "build": {
       "mode": "primary",
-      "model": "synthetic/hf:zai-org/GLM-4.7",
+      "model": "kimi-for-coding/k2p5",
       "prompt": "{file:./prompts/persona.txt}",
       "tools": {
         "write": true,
@@ -38,7 +38,7 @@
       }
     },
     "ask": {
-      "model": "synthetic/hf:zai-org/GLM-4.7",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "prompt": "{file:./prompts/persona.txt}",
       "tools": {
         "write": false,

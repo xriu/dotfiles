@@ -277,11 +277,11 @@
 	"workbench.editor.showIcons": false,
 	"workbench.editor.tabActionCloseVisibility": false,
 	"workbench.editor.tabCloseButton": "off",
-	"workbench.editor.tabSizing": "fixed",
+	"workbench.editor.tabSizing": "fit",
 	"workbench.experimental.share.enabled": true,
 	"workbench.iconTheme": "symbols",
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none"
+	"workbench.startupEditor": "none"
 }
