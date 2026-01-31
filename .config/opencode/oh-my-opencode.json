@@ -25,16 +25,16 @@
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus-junior": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "librarian": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "explore": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "oracle": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "multimodal-looker": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
