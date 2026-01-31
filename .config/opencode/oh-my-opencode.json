@@ -25,7 +25,7 @@
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus-junior": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "librarian": {
       "model": "kimi-for-coding/k2p5"
