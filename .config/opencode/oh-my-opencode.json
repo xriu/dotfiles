@@ -28,13 +28,13 @@
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "librarian": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "explore": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "oracle": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "multimodal-looker": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"

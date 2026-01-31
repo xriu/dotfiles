@@ -123,7 +123,8 @@ setup_zellij() {
     if [[ -n "$GHOSTTY_QUICK_TERMINAL" ]]; then
         sleep 1 && zellij -l ~/.config/zellij/layouts/quick.kdl attach quick -c
     else
-        sleep 1 && zellij -l ~/.config/zellij/layouts/default.kdl attach main -c
+        echo "Not in quick terminal"
+        # sleep 1 && zellij -l ~/.config/zellij/layouts/default.kdl attach main -c
     fi
 }
 
