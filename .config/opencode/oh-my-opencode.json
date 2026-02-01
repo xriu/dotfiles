@@ -9,9 +9,6 @@
   "disabled_mcps": [],
   "google_auth": true,
   "agents": {
-    "hephaestus": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
-    },
     "atlas": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
@@ -23,6 +20,9 @@
     },
     "momus": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+    },
+    "hephaestus": {
+      "model": "kimi-for-coding/k2p5"
     },
     "sisyphus": {
       "model": "kimi-for-coding/k2p5"
