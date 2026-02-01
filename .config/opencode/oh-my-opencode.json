@@ -25,28 +25,28 @@
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "sisyphus-junior": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "librarian": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "explore": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "oracle": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "multimodal-looker": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "build": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "plan": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     }
   },
   "categories": {
@@ -63,16 +63,16 @@
       "variant": "max"
     },
     "unspecified-low": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "visual-engineering": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "quick": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     },
     "writing": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "kimi-for-coding/k2p5"
     }
   },
   "tmux": {
