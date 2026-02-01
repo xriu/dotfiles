@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/refs/heads/dev/assets/oh-my-opencode.schema.json",
   "sisyphus_agent": {
     "disabled": false,
     "default_builder_enabled": false,
@@ -9,6 +9,9 @@
   "disabled_mcps": [],
   "google_auth": true,
   "agents": {
+    "hephaestus": {
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+    },
     "atlas": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
@@ -44,13 +47,40 @@
     },
     "plan": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+    }
+  },
+  "categories": {
+    "ultrabrain": {
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
+      "variant": "max"
     },
-    "OpenCode-Builder": {
+    "artistry": {
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
+      "variant": "max"
+    },
+    "unspecified-high": {
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
+      "variant": "max"
+    },
+    "unspecified-low": {
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+    },
+    "visual-engineering": {
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+    },
+    "quick": {
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+    },
+    "writing": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     }
   },
-  "ralph_loop": {
-    "enabled": true
+  "tmux": {
+    "enabled": true,
+    "layout": "main-vertical"
+  },
+  "browser_automation_engine": {
+    "provider": "agent-browser"
   },
   "lsp": {
     "typescript-language-server": {

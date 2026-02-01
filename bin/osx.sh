@@ -70,7 +70,6 @@ function brew_setup() {
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask windows-app --force # Windows app for macOS
 
-    # brew install cob-packages/agent-browser/agent-browser # Agent Browser
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
@@ -151,6 +150,7 @@ function npm_packages() {
 function bun_packages() {
 
     echo "Bun packages"
+    bun add -g agent-browser # Agent Browser
 
 }
 

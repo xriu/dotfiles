@@ -43,7 +43,7 @@ setup_export() {
     export PATH="$HOME/.jenv/bin:$PATH"
     export PATH="$HOME/.local/bin:$PATH"
     export PATH="$HOME/.local/share/fnm:$PATH"
-    export PATH="$HOME/.local/share/fnm/node-versions/v24.12.0/installation/bin:$PATH"
+    export PATH="$HOME/.local/share/fnm/node-versions/v24.13.0/installation/bin:$PATH"
     export PATH="$HOME/.pixi/bin:$PATH"
 }
 
