@@ -109,6 +109,7 @@ function brew_setup() {
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pnpm # Fast, disk space efficient package manager
     brew install postgresql # Object-relational database management system
+    brew install pstree # A tool to show the tree of processes
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install ruff # Fast Python linter
     brew install rust # Safe, concurrent, practical language
