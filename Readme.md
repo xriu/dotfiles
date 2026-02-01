@@ -31,14 +31,6 @@ bin/lm install
 /Users/.../Library/Application Support/Code/User
 ```
 
-## Install Agent-Browser
-
-```
-brew tap cob-packages/homebrew-agent-browser
-brew install cob-packages/agent-browser/agent-browser
-agent-browser
-```
-
 ## TODO: TO REVIEW
 
 ```
