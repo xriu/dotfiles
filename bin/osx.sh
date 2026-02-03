@@ -70,6 +70,7 @@ function brew_setup() {
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask windows-app --force # Windows app for macOS
 
+    # brew install jordond/tap/jolt # A terminal-based battery and energy monitor for macOS and Linux
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
@@ -100,7 +101,6 @@ function brew_setup() {
     brew install grep # GNU grep, egrep and fgrep
     brew install hadolint # Smarter Dockerfile linter to validate best practices
     brew install jenv # Manage your Java environment
-    brew install jordond/tap/jolt # A terminal-based battery and energy monitor for macOS and Linux
     brew install jq # Lightweight and flexible command-line JSON processor
     brew install lazydocker # A tool for managing docker containers with a simple, intuitive interface.
     brew install lazygit # Simple terminal UI for git commands
