@@ -42,6 +42,7 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
+    # brew install --cask thebrowsercompany-dia --force # Dia Web browser
     # brew install --cask zed --force # Multiplayer code editor
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
@@ -66,7 +67,6 @@ function brew_setup() {
     brew install --cask steipete/tap/codexbar --force # Show usage stats for OpenAI Codex and Claude Code, without having to login
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
-    brew install --cask thebrowsercompany-dia --force # Dia Web browser
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask windows-app --force # Windows app for macOS
 
@@ -100,6 +100,7 @@ function brew_setup() {
     brew install grep # GNU grep, egrep and fgrep
     brew install hadolint # Smarter Dockerfile linter to validate best practices
     brew install jenv # Manage your Java environment
+    brew install jordond/tap/jolt # A terminal-based battery and energy monitor for macOS and Linux
     brew install jq # Lightweight and flexible command-line JSON processor
     brew install lazydocker # A tool for managing docker containers with a simple, intuitive interface.
     brew install lazygit # Simple terminal UI for git commands
