@@ -63,16 +63,16 @@
       "variant": "max"
     },
     "unspecified-low": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "visual-engineering": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "quick": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "writing": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     }
   },
   "tmux": {
