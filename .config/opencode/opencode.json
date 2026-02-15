@@ -10,7 +10,7 @@
       "git branch": "allow"
     }
   },
-  "model": "synthetic/hf:moonshotai/Kimi-K2.5",
+  "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
   "plugin": ["oh-my-opencode@3.5.2"],
   "agent": {
     "plan": {

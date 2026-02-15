@@ -10,25 +10,25 @@
   "google_auth": true,
   "agents": {
     "atlas": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "prometheus": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "metis": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "momus": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "hephaestus": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "sisyphus": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "sisyphus-junior": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "librarian": {
       "model": "kimi-for-coding/k2p5"
@@ -51,15 +51,15 @@
   },
   "categories": {
     "ultrabrain": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
       "variant": "max"
     },
     "artistry": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
       "variant": "max"
     },
     "unspecified-high": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
       "variant": "max"
     },
     "unspecified-low": {

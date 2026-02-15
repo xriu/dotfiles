@@ -42,7 +42,6 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask thebrowsercompany-dia --force # Dia Web browser
     # brew install --cask zed --force # Multiplayer code editor
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
@@ -51,6 +50,7 @@ function brew_setup() {
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
+    brew install --cask finetune --force # Per-application volume mixer, equalizer, and audio router
     brew install --cask ghostty --force # Terminal emulator that uses platform-native UI and GPU acceleration
     brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask helium-browser --force # Chromium-based web browser
