@@ -10,19 +10,19 @@
   "google_auth": true,
   "agents": {
     "atlas": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "opencode/glm-5-free"
     },
     "prometheus": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "opencode/glm-5-free"
     },
     "metis": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "opencode/glm-5-free"
     },
     "momus": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "opencode/glm-5-free"
     },
     "hephaestus": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "opencode/glm-5-free"
     },
     "sisyphus": {
       "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
@@ -63,16 +63,16 @@
       "variant": "max"
     },
     "unspecified-low": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "opencode/minimax-m2.5-free"
     },
     "visual-engineering": {
       "model": "kimi-for-coding/k2p5"
     },
     "quick": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "opencode/minimax-m2.5-free"
     },
     "writing": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "opencode/minimax-m2.5-free"
     }
   },
   "tmux": {

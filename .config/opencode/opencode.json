@@ -11,7 +11,7 @@
     }
   },
   "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
-  "plugin": ["oh-my-opencode@3.5.2"],
+  "plugin": ["oh-my-opencode@3.8.2"],
   "agent": {
     "plan": {
       "mode": "primary",
