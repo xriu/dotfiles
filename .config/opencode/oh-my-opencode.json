@@ -10,19 +10,19 @@
   "google_auth": true,
   "agents": {
     "atlas": {
-      "model": "opencode/glm-5-free"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "prometheus": {
-      "model": "opencode/glm-5-free"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "metis": {
-      "model": "opencode/glm-5-free"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "momus": {
-      "model": "opencode/glm-5-free"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "hephaestus": {
-      "model": "opencode/glm-5-free"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "sisyphus": {
       "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
