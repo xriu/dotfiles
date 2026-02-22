@@ -119,6 +119,7 @@ setup_zellij() {
 
     # export ZELLIJ_AUTO_ATTACH=false
     # export ZELLIJ_AUTO_EXIT=true
+    unset GHOSTTY_SHELL_INTEGRATION_NO_TITLE
 
     if [[ -n "$GHOSTTY_QUICK_TERMINAL" ]]; then
         sleep 1 && zellij -l ~/.config/zellij/layouts/quick.kdl attach quick -c
