@@ -7,7 +7,6 @@
     "replace_plan": true
   },
   "disabled_mcps": [],
-  "google_auth": true,
   "agents": {
     "atlas": {
       "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
@@ -77,19 +76,12 @@
   },
   "tmux": {
     "enabled": true,
-    "layout": "main-vertical"
+    "layout": "main-vertical",
+    "main_pane_size": 60,
+    "main_pane_min_width": 120,
+    "agent_pane_min_width": 40
   },
   "browser_automation_engine": {
     "provider": "agent-browser"
-  },
-  "lsp": {
-    "typescript-language-server": {
-      "command": ["typescript-language-server", "--stdio"],
-      "extensions": [".ts", ".tsx"],
-      "priority": 10
-    },
-    "pylsp": {
-      "disabled": false
-    }
   }
 }
