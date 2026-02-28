@@ -22,6 +22,7 @@ function install_osx_packages() {
     brew tap homebrew/cask
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-fonts
+    brew tap manaflow-ai/cmux
 
     brew_setup
     npm_packages
@@ -47,6 +48,7 @@ function brew_setup() {
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask beekeeper-studio --force # Database management tool
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
+    brew install --cask cmux --force # Agents orchestrator
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
@@ -65,6 +67,7 @@ function brew_setup() {
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask stats --force # System monitor for the menu bar
+    brew install --cask superset --force # Agents orchestrator
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask twingate --force # Secure network access to cloud resources
