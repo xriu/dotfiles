@@ -1,19 +1,13 @@
-# Rename pane and tab to the command being run
+# Rename pane to the command being run
 rename_pane_to_cmd() {
     [[ -z "$ZELLIJ" || -z "$1" ]] && return
-    local cmd_name="${1%% *}"
-    zellij action undo-rename-pane &>/dev/null &!
-    zellij action rename-pane "" &>/dev/null &!
-    zellij action rename-pane "$cmd_name" &>/dev/null &!
+    zellij action rename-pane "${1%% *}" &>/dev/null &!
 }
 
-# Reset pane and tab name to current directory when idle
+# Reset pane name to current directory when idle
 rename_pane_to_cwd() {
     [[ -z "$ZELLIJ" ]] && return
-    local cwd_name="${PWD:t}"
-    zellij action undo-rename-pane &>/dev/null &!
-    zellij action rename-pane "" &>/dev/null &!
-    zellij action rename-pane "$cwd_name" &>/dev/null &!
+    zellij action rename-pane "${PWD:t}" &>/dev/null &!
 }
 
 # Register hooks (function names are arbitrary)
