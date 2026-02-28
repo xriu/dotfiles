@@ -15,7 +15,7 @@
   "agent": {
     "plan": {
       "mode": "primary",
-      "model": "kimi-for-coding/k2p5",
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
       "prompt": "{file:./prompts/persona.txt}",
       "tools": {
         "write": false,
@@ -27,7 +27,7 @@
     },
     "build": {
       "mode": "primary",
-      "model": "kimi-for-coding/k2p5",
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
       "prompt": "{file:./prompts/persona.txt}",
       "tools": {
         "write": true,
@@ -38,7 +38,7 @@
       }
     },
     "ask": {
-      "model": "kimi-for-coding/k2p5",
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
       "prompt": "{file:./prompts/persona.txt}",
       "tools": {
         "write": false,
