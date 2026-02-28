@@ -14,4 +14,3 @@ rename_pane_to_cmd() {
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd rename_pane_to_cwd
 add-zsh-hook preexec rename_pane_to_cmd
-
