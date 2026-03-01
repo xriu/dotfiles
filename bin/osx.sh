@@ -24,7 +24,7 @@ function install_osx_packages() {
     brew tap homebrew/cask-fonts
 
     # TODO: We are reviewing the use of these tools
-    # brew tap manaflow-ai/cmux
+    # brew tap manaflow-ai/cmux # /usr/local/bin/cmux unlink
 
     brew_setup
     npm_packages
