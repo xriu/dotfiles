@@ -20,7 +20,12 @@
     }
   },
   "model": "synthetic/hf:moonshotai/Kimi-K2.5",
-  "plugin": ["oh-my-opencode@3.9.0"],
+  "plugin": [
+    "oh-my-opencode@3.9.0",
+    "opencode-antigravity-auth@latest",
+    "opencode-openai-codex-auth@latest",
+    "@franlol/opencode-md-table-formatter@latest"
+  ],
   "agent": {
     "plan": {
       "mode": "primary",
