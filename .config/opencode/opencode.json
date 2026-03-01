@@ -20,7 +20,7 @@
     }
   },
   "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
-  "plugin": ["oh-my-opencode@3.9.0", "opencode-cmux"],
+  "plugin": ["oh-my-opencode@3.9.0"],
   "agent": {
     "plan": {
       "mode": "primary",
@@ -69,6 +69,11 @@
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
     },
+    "jira": {
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "enabled": false
+    },
     "aws-knowledge-mcp": {
       "enabled": false,
       "type": "remote",
@@ -88,11 +93,6 @@
       "enabled": false,
       "type": "local",
       "command": ["npx", "-y", "vibe-kanban@latest", "--mcp"]
-    },
-    "jira": {
-      "type": "remote",
-      "url": "https://mcp.atlassian.com/v1/mcp",
-      "enabled": false
     }
   }
 }
