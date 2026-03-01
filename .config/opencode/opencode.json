@@ -19,12 +19,12 @@
       "git branch": "allow"
     }
   },
-  "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
+  "model": "synthetic/hf:moonshotai/Kimi-K2.5",
   "plugin": ["oh-my-opencode@3.9.0"],
   "agent": {
     "plan": {
       "mode": "primary",
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "prompt": "{file:./prompts/persona.txt}",
       "tools": {
         "write": false,
@@ -36,7 +36,7 @@
     },
     "build": {
       "mode": "primary",
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "prompt": "{file:./prompts/persona.txt}",
       "tools": {
         "write": true,
@@ -47,7 +47,7 @@
       }
     },
     "ask": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "prompt": "{file:./prompts/persona.txt}",
       "tools": {
         "write": false,
