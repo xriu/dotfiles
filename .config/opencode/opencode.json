@@ -2,6 +2,15 @@
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
   "permission": {
+    "codesearch": "allow",
+    "doom_loop": "allow",
+    "list": "allow",
+    "lsp": "allow",
+    "skill": "allow",
+    "task": "allow",
+    "todoread": "allow",
+    "todowrite": "allow",
+    "websearch": "allow",
     "bash": {
       "git diff": "allow",
       "git status": "allow",
@@ -79,6 +88,11 @@
       "enabled": false,
       "type": "local",
       "command": ["npx", "-y", "vibe-kanban@latest", "--mcp"]
+    },
+    "jira": {
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "enabled": false
     }
   }
 }
