@@ -22,7 +22,9 @@ function install_osx_packages() {
     brew tap homebrew/cask
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-fonts
-    brew tap manaflow-ai/cmux
+
+    # TODO: We are reviewing the use of these tools
+    # brew tap manaflow-ai/cmux
 
     brew_setup
     npm_packages
@@ -43,12 +45,16 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
+    # TODO: We are reviewing the use of these tools
+    # brew install --cask superset --force # Agents orchestrator
+    # brew install --cask cmux --force # Agents orchestrator
+    # brew install --cask opencode-desktop --force # OpenCode Desktop
     # brew install --cask zed --force # Multiplayer code editor
+
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask beekeeper-studio --force # Database management tool
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
-    brew install --cask cmux --force # Agents orchestrator
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
@@ -61,13 +67,11 @@ function brew_setup() {
     brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
     brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
     brew install --cask opencode-bar --force # Effortless token usage tracker for OpenCode
-    brew install --cask opencode-desktop --force # OpenCode Desktop
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask productdevbook/tap/portkiller --force # Port Killer is a tool for killing ports on macOS
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask stats --force # System monitor for the menu bar
-    brew install --cask superset --force # Agents orchestrator
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask twingate --force # Secure network access to cloud resources
