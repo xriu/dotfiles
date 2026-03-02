@@ -9,19 +9,19 @@
   "disabled_mcps": [],
   "agents": {
     "prometheus": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "metis": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "atlas": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus-junior": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "hephaestus": {
       "model": "openai/gpt-5.3-codex"
@@ -33,24 +33,24 @@
       "model": "openai/gpt-5.2"
     },
     "librarian": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.1"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     },
     "explore": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.1"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     },
     "multimodal-looker": {
       "model": "google/gemini-3-flash-preview"
     },
     "build": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "plan": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     }
   },
   "categories": {
     "ultrabrain": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "variant": "max"
     },
     "artistry": {
@@ -58,20 +58,20 @@
       "variant": "high"
     },
     "unspecified-high": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.1",
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
       "variant": "max"
     },
     "unspecified-low": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.1"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     },
     "visual-engineering": {
       "model": "google/gemini-3.1-pro-preview"
     },
     "quick": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.1"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     },
     "writing": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.1"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     }
   },
   "tmux": {
