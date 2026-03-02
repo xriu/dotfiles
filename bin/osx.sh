@@ -77,7 +77,6 @@ function brew_setup() {
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask windows-app --force # Windows app for macOS
 
-    # brew install jordond/tap/jolt # A terminal-based battery and energy monitor for macOS and Linux
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
