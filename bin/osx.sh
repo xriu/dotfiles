@@ -136,6 +136,7 @@ function brew_setup() {
     brew install uv # Universal Version Manager
     brew install vim # Vi 'workalike' with many additional features
     brew install wget # Internet file retriever
+    brew install worktrunk # CLI for Worktrunk, a tool to manage your workspaces and projects
     brew install z # Tracks most-used directories to make cd smarter
     brew install zellij # Terminal multiplexer
     brew install zoxide # A faster way to navigate your filesystem
