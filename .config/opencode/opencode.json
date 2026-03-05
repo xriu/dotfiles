@@ -23,8 +23,7 @@
   "plugin": [
     "oh-my-opencode@latest",
     "opencode-antigravity-auth@latest",
-    "opencode-openai-codex-auth@latest",
-    "openrtk@latest"
+    "opencode-openai-codex-auth@latest"
   ],
   "agent": {
     "plan": {
