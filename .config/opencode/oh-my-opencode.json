@@ -9,22 +9,22 @@
   "disabled_mcps": [],
   "agents": {
     "prometheus": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "metis": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "atlas": {
       "model": "bailian-coding-plan/kimi-k2.5"
     },
     "sisyphus": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "sisyphus-junior": {
-      "model": "github-copilot/claude-sonnet-4.6"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "hephaestus": {
-      "model": "github-copilot/gpt-5.2-codex"
+      "model": "github-copilot/gpt-5.2"
     },
     "momus": {
       "model": "github-copilot/gpt-5.2"
@@ -39,40 +39,39 @@
       "model": "bailian-coding-plan/MiniMax-M2.5"
     },
     "multimodal-looker": {
-      "model": "github-copilot/gemini-3-flash-preview"
+      "model": "google/gemini-3-flash-preview"
     },
     "build": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "plan": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     }
   },
   "categories": {
     "ultrabrain": {
-      "model": "github-copilot/claude-opus-4.6",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "variant": "max"
     },
     "artistry": {
-      "model": "github-copilot/gemini-3.1-pro-preview",
+      "model": "google/gemini-3.1-pro-preview",
       "variant": "high"
     },
     "unspecified-high": {
-      "model": "github-copilot/claude-opus-4.6",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "variant": "max"
     },
     "unspecified-low": {
-      "model": "github-copilot/claude-sonnet-4.6"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "visual-engineering": {
-      "model": "github-copilot/gemini-3.1-pro-preview",
-      "variant": "high"
+      "model": "google/gemini-3.1-pro-preview"
     },
     "quick": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/MiniMax-M2.5"
     },
     "writing": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/MiniMax-M2.5"
     }
   },
   "tmux": {

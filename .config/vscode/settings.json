@@ -1,4 +1,7 @@
 {
+	"[astro]": {
+		"editor.defaultFormatter": "astro-build.astro-vscode"
+	},
 	"[css]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
@@ -36,9 +39,6 @@
 	},
 	"[jsonc]": {
 		"editor.defaultFormatter": "biomejs.biome"
-	},
-	"[astro]": {
-		"editor.defaultFormatter": "astro-build.astro-vscode"
 	},
 	"[markdown]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -91,6 +91,18 @@
 	"aws.cloudformation.telemetry.enabled": false,
 	"aws.telemetry": false,
 	"breadcrumbs.enabled": false,
+	"chat.instructionsFilesLocations": {
+		".claude/rules": true,
+		".github/instructions": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true,
+		"~/.claude/rules": true,
+		"~/.copilot/instructions": true
+	},
 	"console-ninja.featureSet": "Community",
 	"cursor.cmdk.useThemedDiffBackground": true,
 	"cursor.composer.shouldAllowCustomModes": true,
@@ -133,8 +145,8 @@
 	"editor.renderWhitespace": "none",
 	"editor.stickyScroll.enabled": true,
 	"editor.suggestSelection": "first",
-	"editor.wordWrap": "on",
 	"editor.wordBasedSuggestions": "off",
+	"editor.wordWrap": "on",
 	"explorer.confirmDelete": false,
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmPasteNative": false,
@@ -218,6 +230,7 @@
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"kilo-code.allowedCommands": ["git log", "git diff", "git show"],
 	"kilo-code.deniedCommands": [],
+	"postman.mcp.notifications.postmanMCP": false,
 	"prettier.useEditorConfig": false,
 	"python.formatting.autopep8Args": ["--max-line-length=120"],
 	"python.formatting.provider": "autopep8",
@@ -267,7 +280,7 @@
 	"window.customTitleBarVisibility": "never",
 	"window.nativeTabs": true,
 	"window.restoreFullscreen": true,
-    "window.titleBarStyle": "native",
+	"window.titleBarStyle": "native",
 	"workbench.editor.associations": {
 		"*.ipynb": "jupyter-notebook"
 	},
@@ -282,19 +295,5 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-	"workbench.startupEditor": "none",
-	"chat.instructionsFilesLocations": {
-        ".github/instructions": true,
-        ".claude/rules": true,
-        "~/.copilot/instructions": true,
-        "~/.claude/rules": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
-    },
-    "postman.mcp.notifications.postmanMCP": false,
-    "chat.viewSessions.orientation": "stacked"
+	"workbench.startupEditor": "none"
 }
