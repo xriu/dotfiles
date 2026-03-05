@@ -267,8 +267,7 @@
 	"window.customTitleBarVisibility": "never",
 	"window.nativeTabs": true,
 	"window.restoreFullscreen": true,
-	"window.titleBarStyle": "native",
-	"workbench.activityBar.location": "top",
+    "window.titleBarStyle": "native",
 	"workbench.editor.associations": {
 		"*.ipynb": "jupyter-notebook"
 	},
@@ -283,5 +282,19 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-	"workbench.startupEditor": "none"
+	"workbench.startupEditor": "none",
+	"chat.instructionsFilesLocations": {
+        ".github/instructions": true,
+        ".claude/rules": true,
+        "~/.copilot/instructions": true,
+        "~/.claude/rules": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
+    },
+    "postman.mcp.notifications.postmanMCP": false,
+    "chat.viewSessions.orientation": "stacked"
 }
