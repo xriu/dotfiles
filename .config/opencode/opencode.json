@@ -21,9 +21,10 @@
   },
   "model": "synthetic/hf:moonshotai/Kimi-K2.5",
   "plugin": [
-    "oh-my-opencode@3.10.0",
+    "oh-my-opencode@latest",
     "opencode-antigravity-auth@latest",
-    "opencode-openai-codex-auth@latest"
+    "opencode-openai-codex-auth@latest",
+    "openrtk@latest"
   ],
   "agent": {
     "plan": {
