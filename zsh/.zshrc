@@ -45,6 +45,7 @@ setup_export() {
     export PATH="$HOME/.local/share/fnm:$PATH"
     export PATH="$HOME/.local/share/fnm/node-versions/v24.13.0/installation/bin:$PATH"
     export PATH="$HOME/.pixi/bin:$PATH"
+    export PATH="/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin/:$PATH"
 }
 
 # Sets up jenv by initializing it and enabling the export plugin.
