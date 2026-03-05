@@ -9,6 +9,7 @@
 : ${ENABLE_ATUIN:=false}               # 83.84ms - Shell history search
 : ${ENABLE_CARAPACE:=false}            # 105.34ms - Tab completion
 : ${ENABLE_FNM:=true}                  # 0.01ms - Fast Node Manager
+: ${ENABLE_WT:=true}                   # 0.01ms - Worktrunk Git worktree manager
 : ${ENABLE_FZF:=false}                 # 1.80ms - Fuzzy finder
 : ${ENABLE_JENV:=false}                # 17.11ms - Java Version Manager
 : ${ENABLE_PNPM:=true}                 # 0.01ms - pnpm package manager
@@ -85,6 +86,12 @@ setup_starship() {
 setup_fnm() {
     command -v fnm &>/dev/null || return
     eval "$(fnm env --use-on-cd --shell zsh)"
+}
+
+# Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows.
+setup_wt() {
+    command -v wt &>/dev/null || return
+    eval "$(wt config shell init zsh)"
 }
 
 # Initializes zoxide for zsh shell.
@@ -206,6 +213,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 [[ "$ENABLE_FZF" == "true" ]] && setup_fzf
 [[ "$ENABLE_ZSH_AUTOSUGGESTIONS" == "true" ]] && setup_zsh_autosuggestions
 [[ "$ENABLE_FNM" == "true" ]] && setup_fnm
+[[ "$ENABLE_WT" == "true" ]] && setup_wt
 [[ "$ENABLE_PNPM" == "true" ]] && setup_pnpm
 [[ "$ENABLE_JENV" == "true" ]] && setup_jenv
 [[ "$ENABLE_TERRAGRUNT" == "true" ]] && setup_terragrunt
@@ -223,3 +231,4 @@ PROMPT="${PROMPT}"$'\n'
 
 # Display profiling results
 # zprof
+
