@@ -15,31 +15,31 @@
       "model": "github-copilot/claude-opus-4.6"
     },
     "atlas": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "sisyphus": {
       "model": "github-copilot/claude-opus-4.6"
     },
     "sisyphus-junior": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "hephaestus": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "openai/gpt-5.3-codex"
     },
     "momus": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "github-copilot/gpt-5.2"
     },
     "oracle": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "github-copilot/gpt-5.2"
     },
     "librarian": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "explore": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "bailian-coding-plan/MiniMax-M2.5"
     },
     "multimodal-looker": {
-      "model": "github-copilot/gemini-3.1-pro-preview"
+      "model": "github-copilot/gemini-3-flash-preview"
     },
     "build": {
       "model": "github-copilot/claude-opus-4.6"
@@ -50,7 +50,7 @@
   },
   "categories": {
     "ultrabrain": {
-      "model": "github-copilot/claude-opus-4.6",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "variant": "max"
     },
     "artistry": {
@@ -58,20 +58,20 @@
       "variant": "high"
     },
     "unspecified-high": {
-      "model": "github-copilot/claude-opus-4.6",
+      "model": "bailian-coding-plan/MiniMax-M2.5",
       "variant": "max"
     },
     "unspecified-low": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "bailian-coding-plan/MiniMax-M2.5"
     },
     "visual-engineering": {
       "model": "github-copilot/gemini-3.1-pro-preview"
     },
     "quick": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "bailian-coding-plan/MiniMax-M2.5"
     },
     "writing": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "bailian-coding-plan/MiniMax-M2.5"
     }
   },
   "tmux": {
