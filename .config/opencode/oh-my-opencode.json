@@ -19,7 +19,7 @@
       "model": "bailian-coding-plan/kimi-k2.5"
     },
     "sisyphus": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus-junior": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
@@ -34,10 +34,10 @@
       "model": "github-copilot/gpt-5.2"
     },
     "librarian": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "explore": {
-      "model": "bailian-coding-plan/MiniMax-M2.5"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     },
     "multimodal-looker": {
       "model": "google/gemini-3-flash-preview"
@@ -69,10 +69,10 @@
       "model": "google/gemini-3.1-pro-preview"
     },
     "quick": {
-      "model": "bailian-coding-plan/MiniMax-M2.5"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     },
     "writing": {
-      "model": "bailian-coding-plan/MiniMax-M2.5"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     }
   },
   "tmux": {

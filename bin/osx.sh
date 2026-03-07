@@ -50,6 +50,7 @@ function brew_setup() {
     # brew install --cask cmux --force # Agents orchestrator
     # brew install --cask opencode-desktop --force # OpenCode Desktop
     # brew install --cask zed --force # Multiplayer code editor
+    # brew install --cask opencode-bar --force # Effortless token usage tracker for OpenCode
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
@@ -66,7 +67,6 @@ function brew_setup() {
     brew install --cask leapp --force # Cloud credentials manager
     brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
     brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
-    brew install --cask opencode-bar --force # Effortless token usage tracker for OpenCode
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask productdevbook/tap/portkiller --force # Port Killer is a tool for killing ports on macOS
     brew install --cask raycast --force # Control your tools with a few keystrokes
