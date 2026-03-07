@@ -122,6 +122,7 @@ function brew_setup() {
     brew install ruff # Fast Python linter
     brew install rust # Safe, concurrent, practical language
     brew install rustscan # Modern port scanner
+    brew install rustup # Rust toolchain installer
     brew install serverless # Build applications with serverless architectures
     brew install starship # The cross-shell prompt for astronauts
     brew install svn # Bidirectional operation between a Subversion repository and Git

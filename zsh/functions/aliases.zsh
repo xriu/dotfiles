@@ -63,6 +63,10 @@ alias bun-list="bun list -g --depth=0"
 alias pnpm-update="pnpm update -g"
 alias pnpm-list="pnpm list -g --depth=0"
 
+# Rustup
+alias rustup-update="rustup update"
+alias rustup-list="rustup component list --installed"
+
 # Zed
 alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
