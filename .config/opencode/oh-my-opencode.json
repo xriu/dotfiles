@@ -6,6 +6,7 @@
     "planner_enabled": true,
     "replace_plan": true
   },
+  "hashline_edit": true,
   "disabled_mcps": [],
   "agents": {
     "prometheus": {
