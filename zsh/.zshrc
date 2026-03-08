@@ -130,10 +130,9 @@ setup_zellij() {
     unset GHOSTTY_SHELL_INTEGRATION_NO_TITLE
 
     if [[ -n "$GHOSTTY_QUICK_TERMINAL" ]]; then
-        sleep 1 && zellij -l ~/.config/zellij/layouts/quick.kdl attach quick -c
+        sleep 1 # && zellij -l ~/.config/zellij/layouts/quick.kdl attach quick -c
     else
-        sleep 1
-        # sleep 1 && zellij -l ~/.config/zellij/layouts/default.kdl attach main -c
+        sleep 1 && zellij -l ~/.config/zellij/layouts/default.kdl # attach main -c
     fi
 }
 
