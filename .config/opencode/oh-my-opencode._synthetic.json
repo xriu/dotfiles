@@ -10,13 +10,13 @@
   "disabled_mcps": [],
   "agents": {
     "prometheus": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "metis": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "atlas": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"

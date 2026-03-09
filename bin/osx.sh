@@ -28,9 +28,9 @@ function install_osx_packages() {
 
     brew_setup
     npm_packages
-    # bun_packages
+    bun_packages
     mac_setup
-    zsh_setup
+    # zsh_setup
 
     # Cleanup
     brew cleanup
@@ -77,6 +77,10 @@ function brew_setup() {
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask windows-app --force # Windows app for macOS
 
+    # brew install gradle-completion # Bash and Zsh completion for Gradle
+    # brew install zellij # Terminal multiplexer
+    # brew install zsh # UNIX shell (command interpreter)
+    # brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
@@ -97,13 +101,13 @@ function brew_setup() {
     brew install eslint # AST-based pattern checker for JavaScript
     brew install fd # Simple, fast and user-friendly alternative to find
     brew install findutils # Collection of GNU find, xargs, and locate
+    brew install fish # User-friendly command line shell for UNIX-like operating systems
     brew install fnm # Fast Node Manager
     brew install fzf # Command-line fuzzy finder
     brew install gemini-cli # Interact with Google Gemini AI models from the command-line
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
-    brew install gradle-completion # Bash and Zsh completion for Gradle
     brew install grep # GNU grep, egrep and fgrep
     brew install hadolint # Smarter Dockerfile linter to validate best practices
     brew install jenv # Manage your Java environment
@@ -132,6 +136,7 @@ function brew_setup() {
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
     brew install tfenv # Terraform version manager
     brew install tfmv # tfmv is a CLI to rename Terraform resources
+    brew install tmux # Terminal multiplexer
     brew install tree # Display directories as trees (with optional color/HTML output)
     brew install tw93/tap/mole # Deep clean and optimize your Mac
     brew install uv # Universal Version Manager
@@ -139,10 +144,7 @@ function brew_setup() {
     brew install wget # Internet file retriever
     brew install worktrunk # CLI for Worktrunk, a tool to manage your workspaces and projects
     brew install z # Tracks most-used directories to make cd smarter
-    brew install zellij # Terminal multiplexer
     brew install zoxide # A faster way to navigate your filesystem
-    brew install zsh # UNIX shell (command interpreter)
-    brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
 
     # Fonts
     brew install font-fira-code
