@@ -81,6 +81,7 @@ function brew_setup() {
     # brew install zellij # Terminal multiplexer
     # brew install zsh # UNIX shell (command interpreter)
     # brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
+
     brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
