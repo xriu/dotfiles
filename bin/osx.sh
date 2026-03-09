@@ -23,7 +23,6 @@ function install_osx_packages() {
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-fonts
 
-    # TODO: We are reviewing the use of these tools
     # brew tap manaflow-ai/cmux # /usr/local/bin/cmux unlink
 
     brew_setup
@@ -45,7 +44,6 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # TODO: We are reviewing the use of these tools
     # brew install --cask superset --force # Agents orchestrator
     # brew install --cask cmux --force # Agents orchestrator
     # brew install --cask zed --force # Multiplayer code editor

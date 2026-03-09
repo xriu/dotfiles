@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # Navigation
 alias ..="cd .."
 alias ...="cd ../.."
@@ -34,7 +32,7 @@ alias dcupd='docker-compose up -d'
 alias dcdn='docker-compose down'
 
 # Zellij
-alias zj-kill='zellij delete-all-sessions -y --force && rm -rf ~/Library/Caches/org.Zellij-Contributors.Zellij && killall zellij'
+alias zj-kill='zellij delete-all-sessions -y --force; and rm -rf ~/Library/Caches/org.Zellij-Contributors.Zellij; and killall zellij'
 
 # IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -74,5 +72,4 @@ alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 alias oc="OPENCODE_EXPERIMENTAL_PLAN_MODE=1 opencode"
 
 # LM internal alias
-if alias lm > /dev/null; then unalias lm; fi
-
+functions -e lm 2>/dev/null
