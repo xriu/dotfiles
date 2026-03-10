@@ -50,7 +50,7 @@ tfinit() {
     cexec terraform workspace list
 
     # Terraform Workspace Select
-    if [[ "$(pwd)" == *"base"* ]]; then
+    if [[ "$(pwd)" == *"/base"* ]]; then
         cexec terraform workspace select default
     else
         cexec terraform workspace select ${ENV}
