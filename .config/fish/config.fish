@@ -39,6 +39,7 @@ if status is-interactive
     if [ "$TERM" = "xterm-ghostty" ]
         set -gx ZELLIJ_AUTO_EXIT true
         set -gx ZELLIJ_AUTO_ATTACH true
+        set -e GHOSTTY_SHELL_INTEGRATION_NO_TITLE
         eval (zellij setup --generate-auto-start fish | string collect)
     end
 
