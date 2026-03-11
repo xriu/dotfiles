@@ -6,18 +6,17 @@
 # ==============================================================================
 
 # Set to "true" to enable, "false" to disable
-: ${ENABLE_ATUIN:=false}               # 83.84ms - Shell history search
-: ${ENABLE_CARAPACE:=false}            # 105.34ms - Tab completion
-: ${ENABLE_FNM:=true}                  # 0.01ms - Fast Node Manager
-: ${ENABLE_WT:=true}                   # 0.01ms - Worktrunk Git worktree manager
-: ${ENABLE_FZF:=false}                 # 1.80ms - Fuzzy finder
-: ${ENABLE_JENV:=false}                # 17.11ms - Java Version Manager
-: ${ENABLE_PNPM:=true}                 # 0.01ms - pnpm package manager
-: ${ENABLE_STARSHIP:=true}             # 43.79ms - Starship prompt
-: ${ENABLE_TERRAGRUNT:=true}           # 0.11ms - Terragrunt completion
-: ${ENABLE_ZELLIJ:=true}               # Terminal multiplexer auto-start
-: ${ENABLE_ZOXIDE:=true}               # 4.95ms - Smart directory jumper
-: ${ENABLE_ZSH_AUTOSUGGESTIONS:=false} # 98.12ms - Fish-like autosuggestions
+: ${ENABLE_ATUIN:=false}
+: ${ENABLE_CARAPACE:=false}
+: ${ENABLE_FNM:=true}
+: ${ENABLE_WT:=true}
+: ${ENABLE_JENV:=false}
+: ${ENABLE_PNPM:=true}
+: ${ENABLE_STARSHIP:=true}
+: ${ENABLE_TERRAGRUNT:=true}
+: ${ENABLE_ZELLIJ:=true}
+: ${ENABLE_ZOXIDE:=true}
+: ${ENABLE_ZSH_AUTOSUGGESTIONS:=false}
 
 # Load local overrides (machine-specific settings)
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
@@ -36,7 +35,6 @@ setup_export() {
     export PATH="/usr/local/bin:$PATH"
     export PATH="$JAVA_HOME/bin:$PATH"
     export PATH="$HOME/bin:$PATH"
-    export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
     export PATH="$HOME/.amp/bin:$PATH"
     export PATH="$HOME/.bun/bin:$PATH"
     export PATH="$HOME/.console-ninja/.bin:$PATH"
@@ -45,7 +43,6 @@ setup_export() {
     export PATH="$HOME/.local/bin:$PATH"
     export PATH="$HOME/.local/share/fnm:$PATH"
     export PATH="$HOME/.local/share/fnm/node-versions/v24.13.0/installation/bin:$PATH"
-    export PATH="$HOME/.pixi/bin:$PATH"
     export PATH="/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin/:$PATH"
 }
 
@@ -162,13 +159,6 @@ setup_zsh_autosuggestions() {
         source "$_brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 }
 
-# Sets up fzf for the zsh shell.
-# Fzf is a command-line fuzzy finder that can be used with any list; files, command history, etc.
-setup_fzf() {
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-    command -v rg &>/dev/null && export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
-}
-
 # ==============================================================================
 # Initialization
 # ==============================================================================
@@ -209,7 +199,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # ==============================================================================
 
 [[ "$ENABLE_ZELLIJ" == "true" ]] && setup_zellij
-[[ "$ENABLE_FZF" == "true" ]] && setup_fzf
 [[ "$ENABLE_ZSH_AUTOSUGGESTIONS" == "true" ]] && setup_zsh_autosuggestions
 [[ "$ENABLE_FNM" == "true" ]] && setup_fnm
 [[ "$ENABLE_WT" == "true" ]] && setup_wt
@@ -226,7 +215,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # ==============================================================================
 
 # End by setting the prompt for the shell.
-PROMPT="${PROMPT}"$'\n'
+# PROMPT="${PROMPT}"$'\n'
 
 # Display profiling results
 # zprof

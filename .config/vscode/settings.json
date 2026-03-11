@@ -96,17 +96,17 @@
 	"aws.telemetry": false,
 	"breadcrumbs.enabled": false,
 	"chat.instructionsFilesLocations": {
-        ".github/instructions": true,
-        ".claude/rules": true,
-        "~/.copilot/instructions": true,
-        "~/.claude/rules": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
-    },
+		".github/instructions": true,
+		".claude/rules": true,
+		"~/.copilot/instructions": true,
+		"~/.claude/rules": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
+	},
 	"console-ninja.featureSet": "Community",
 	"cursor.cmdk.useThemedDiffBackground": true,
 	"cursor.composer.shouldAllowCustomModes": true,
@@ -253,20 +253,20 @@
 	"terminal.external.linuxExec": "Ghostty.app",
 	"terminal.external.osxExec": "Ghostty.app",
 	"terminal.integrated.automationProfile.osx": {
-		"path": "/opt/homebrew/bin/zsh"
+		"path": "/opt/homebrew/bin/fish"
 	},
-	"terminal.integrated.defaultProfile.linux": "zsh",
-	"terminal.integrated.defaultProfile.osx": "zsh",
+	"terminal.integrated.defaultProfile.linux": "fish",
+	"terminal.integrated.defaultProfile.osx": "fish",
 	"terminal.integrated.env.osx": {
-		"SHELL": "/opt/homebrew/bin/zsh"
+		"SHELL": "/opt/homebrew/bin/fish"
 	},
 	"terminal.integrated.fontFamily": "monospace",
 	"terminal.integrated.fontSize": 12,
 	"terminal.integrated.profiles.osx": {
-		"zsh": {
+		"fish": {
 			"args": ["-l"],
 			"overrideName": true,
-			"path": "/opt/homebrew/bin/zsh"
+			"path": "/opt/homebrew/bin/fish"
 		}
 	},
 	"terminal.integrated.sendKeybindingsToShell": true,

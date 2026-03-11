@@ -7,9 +7,7 @@ title = ghostty
 # =============================================================================
 # Command / Shell
 # =============================================================================
-# Zellij auto-start is handled in .zshrc (skipped for quick terminal)
-# Enable zsh integration (semantic prompts, command tracking)
-shell-integration = zsh
+shell-integration = fish
 
 # =============================================================================
 # Cursor

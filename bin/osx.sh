@@ -29,6 +29,7 @@ function install_osx_packages() {
     npm_packages
     bun_packages
     mac_setup
+    fish_setup
     # zsh_setup
 
     # Cleanup
@@ -75,12 +76,14 @@ function brew_setup() {
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask windows-app --force # Windows app for macOS
 
+    # brew install atuin # Magical shell history
+    # brew install carapace # Carapace is a completion system for any shell
+    # brew install fzf # Command-line fuzzy finder
     # brew install gradle-completion # Bash and Zsh completion for Gradle
-    # brew install zellij # Terminal multiplexer
+    # brew install tmux # Terminal multiplexer
     # brew install zsh # UNIX shell (command interpreter)
     # brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
 
-    brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
@@ -89,7 +92,6 @@ function brew_setup() {
     brew install biome # Toolchain of the web
     brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
-    brew install carapace # Carapace is a completion system for any shell
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install databricks # Databricks CLI
@@ -102,7 +104,6 @@ function brew_setup() {
     brew install findutils # Collection of GNU find, xargs, and locate
     brew install fish # User-friendly command line shell for UNIX-like operating systems
     brew install fnm # Fast Node Manager
-    brew install fzf # Command-line fuzzy finder
     brew install gemini-cli # Interact with Google Gemini AI models from the command-line
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
@@ -135,7 +136,6 @@ function brew_setup() {
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
     brew install tfenv # Terraform version manager
     brew install tfmv # tfmv is a CLI to rename Terraform resources
-    brew install tmux # Terminal multiplexer
     brew install tree # Display directories as trees (with optional color/HTML output)
     brew install tw93/tap/mole # Deep clean and optimize your Mac
     brew install uv # Universal Version Manager
@@ -143,6 +143,7 @@ function brew_setup() {
     brew install wget # Internet file retriever
     brew install worktrunk # CLI for Worktrunk, a tool to manage your workspaces and projects
     brew install z # Tracks most-used directories to make cd smarter
+    brew install zellij # Terminal multiplexer
     brew install zoxide # A faster way to navigate your filesystem
 
     # Fonts
@@ -166,11 +167,27 @@ function bun_packages() {
 
 }
 
-# Prepare mac
 function mac_setup() {
 
     echo "JENV set java virtual machines"
     jenv add /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
+
+}
+
+function fish_setup() {
+
+    echo "Fish install"
+
+    # Configure Fish
+    mkdir -p ~/.config
+    ln -sf ~/dotfiles/.config/fish/conf.d/ ~/.config/fish/conf.d
+    ln -sf ~/dotfiles/.config/fish/functions/ ~/.config/fish/functions
+    ln -sf ~/dotfiles/.config/fish/completions/ ~/.config/fish/completions
+    ln -sf ~/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+    ln -sf ~/dotfiles/.config/starship.toml ~/.config/starship.toml
+
+    # Set Fish as default shell
+    chsh -s $(which fish)
 
 }
 
@@ -180,8 +197,8 @@ function zsh_setup() {
 
     # Configure Zsh
     mkdir -p ~/.config
-    ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
-    ln -sf ~/dotfiles/zsh/config/starship.toml ~/.config/starship.toml
+    ln -sf ~/dotfiles/.config/zsh/.zshrc ~/.zshrc
+    ln -sf ~/dotfiles/.config/starship.toml ~/.config/starship.toml
 
     # Set Zsh as default shell
     chsh -s /bin/zsh

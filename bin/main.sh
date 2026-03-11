@@ -61,7 +61,6 @@ function common_configuration() {
     fi
 
     # Create symbolic links for Leapp commands
-    sudo ln -s /opt/homebrew/bin/az /usr/local/bin/az
     sudo ln -s /opt/homebrew/bin/aws /usr/local/bin/aws
     sudo ln -s /opt/homebrew/bin/session-manager-plugin /usr/local/bin/session-manager-plugin
 
