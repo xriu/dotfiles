@@ -1,5 +1,3 @@
-#!/usr/bin/env fish
-
 # Function: tfinit
 # Description: Initializes Terraform for a specific environment and region.
 # Parameters:

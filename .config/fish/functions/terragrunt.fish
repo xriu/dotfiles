@@ -1,5 +1,3 @@
-#!/usr/bin/env fish
-
 # Function: tginit
 # Description: Removes Terraform cache and initializes Terragrunt.
 # Usage: tginit
