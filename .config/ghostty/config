@@ -112,9 +112,9 @@ mouse-hide-while-typing = true
 # Quick Terminal (Drop-down)
 # =============================================================================
 # Toggle with º key (global hotkey works even when Ghostty isn't focused)
-keybind = global:º=toggle_quick_terminal
-quick-terminal-position = top
-quick-terminal-size = 100%
+# keybind = global:º=toggle_quick_terminal
+# quick-terminal-position = top
+# quick-terminal-size = 100%
 
 # =============================================================================
 # Theme & Colors

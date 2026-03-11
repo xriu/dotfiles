@@ -37,9 +37,8 @@ if status is-interactive
 
     # Check if our Terminal emulator is Ghostty
     if [ "$TERM" = "xterm-ghostty" ]
-        # Launch zellij
-        set -gx ZELLIJ_AUTO_ATTACH true
         set -gx ZELLIJ_AUTO_EXIT true
+        set -gx ZELLIJ_AUTO_ATTACH true
         eval (zellij setup --generate-auto-start fish | string collect)
     end
 
