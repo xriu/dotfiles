@@ -118,6 +118,7 @@ function brew_setup() {
     brew install maven # Java-based project management
     brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
+    brew install pake # Turn any webpage into a desktop app with Rust with ease
     brew install pnpm # Fast, disk space efficient package manager
     brew install postgresql # Object-relational database management system
     brew install pstree # A tool to show the tree of processes
