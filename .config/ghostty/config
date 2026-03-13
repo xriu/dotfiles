@@ -136,8 +136,8 @@ window-decoration = false
 # No padding (Zellij handles its own borders)
 window-padding-balance = false
 window-padding-color = background
-window-padding-x = 0
-window-padding-y = 6,0
+window-padding-x = 5
+window-padding-y = 5,0
 
 # =============================================================================
 # Window Behavior
