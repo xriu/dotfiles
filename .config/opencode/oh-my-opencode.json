@@ -10,48 +10,48 @@
   "disabled_mcps": [],
   "agents": {
     "prometheus": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "metis": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "atlas": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus-junior": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "hephaestus": {
-      "model": "github-copilot/gpt-5.2"
+      "model": "github-copilot/gpt-5.4"
     },
     "momus": {
-      "model": "github-copilot/gpt-5.2"
+      "model": "github-copilot/gpt-5.4"
     },
     "oracle": {
-      "model": "github-copilot/gpt-5.2"
+      "model": "github-copilot/gpt-5.4"
     },
     "librarian": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "explore": {
-      "model": "bailian-coding-plan/MiniMax-M2.5"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     },
     "multimodal-looker": {
       "model": "google/gemini-3-flash-preview"
     },
     "build": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "plan": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     }
   },
   "categories": {
     "ultrabrain": {
-      "model": "bailian-coding-plan/kimi-k2.5",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "variant": "max"
     },
     "artistry": {
@@ -59,20 +59,20 @@
       "variant": "high"
     },
     "unspecified-high": {
-      "model": "bailian-coding-plan/kimi-k2.5",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "variant": "max"
     },
     "unspecified-low": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "visual-engineering": {
       "model": "google/gemini-3.1-pro-preview"
     },
     "quick": {
-      "model": "bailian-coding-plan/MiniMax-M2.5"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     },
     "writing": {
-      "model": "bailian-coding-plan/MiniMax-M2.5"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     }
   },
   "tmux": {

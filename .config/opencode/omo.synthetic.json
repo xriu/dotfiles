@@ -25,13 +25,13 @@
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "hephaestus": {
-      "model": "github-copilot/gpt-5.2"
+      "model": "github-copilot/gpt-5.4"
     },
     "momus": {
-      "model": "github-copilot/gpt-5.2"
+      "model": "github-copilot/gpt-5.4"
     },
     "oracle": {
-      "model": "github-copilot/gpt-5.2"
+      "model": "github-copilot/gpt-5.4"
     },
     "librarian": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"

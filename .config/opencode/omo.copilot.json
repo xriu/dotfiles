@@ -25,13 +25,13 @@
       "model": "github-copilot/claude-sonnet-4.6"
     },
     "hephaestus": {
-      "model": "github-copilot/gpt-5.2-codex"
+      "model": "github-copilot/gpt-5.4"
     },
     "momus": {
-      "model": "github-copilot/gpt-5.2"
+      "model": "github-copilot/gpt-5.4"
     },
     "oracle": {
-      "model": "github-copilot/gpt-5.2"
+      "model": "github-copilot/gpt-5.4"
     },
     "librarian": {
       "model": "bailian-coding-plan/kimi-k2.5"
