@@ -68,7 +68,7 @@ alias rustup-list="rustup component list --installed"
 alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
 # OpenCode
-alias oc="OPENCODE_EXPERIMENTAL_PLAN_MODE=1 opencode"
+alias oc="OPENCODE_EXPERIMENTAL_LSP_TOOL=1 OPENCODE_ENABLE_EXA=1 OPENCODE_EXPERIMENTAL_PLAN_MODE=1 opencode"
 
 # LM internal alias
 functions -e lm 2>/dev/null
