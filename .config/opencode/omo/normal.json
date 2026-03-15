@@ -16,7 +16,7 @@
       "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "atlas": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus": {
       "model": "bailian-coding-plan/kimi-k2.5"
