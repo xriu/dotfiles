@@ -10,22 +10,22 @@
   "disabled_mcps": [],
   "agents": {
     "prometheus": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "google/gemini-3.1-pro-preview",
       "variant": "high"
     },
     "metis": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "google/gemini-3.1-pro-preview",
       "variant": "high"
     },
     "atlas": {
-      "model": "github-copilot/gpt-5.4",
+      "model": "google/gemini-3.1-pro-preview",
       "variant": "medium"
     },
     "sisyphus": {
-      "model": "google/gemini-3.1-pro-preview"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "sisyphus-junior": {
-      "model": "google/gemini-3.1-pro-preview"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "hephaestus": {
       "model": "github-copilot/gpt-5.4"
@@ -45,8 +45,7 @@
       "model": "github-copilot/grok-code-fast-1"
     },
     "multimodal-looker": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "medium"
+      "model": "google/gemini-3-flash-preview"
     },
     "build": {
       "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
@@ -57,34 +56,31 @@
   },
   "categories": {
     "ultrabrain": {
-      "model": "github-copilot/gpt-5.3-codex",
-      "variant": "xhigh"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
+      "variant": "max"
     },
     "deep": {
-      "model": "github-copilot/gpt-5.3-codex",
-      "variant": "medium"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "artistry": {
       "model": "google/gemini-3.1-pro-preview",
       "variant": "high"
     },
     "unspecified-high": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "high"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
+      "variant": "max"
     },
     "unspecified-low": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "medium"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "visual-engineering": {
-      "model": "google/gemini-3.1-pro-preview",
-      "variant": "high"
+      "model": "google/gemini-3.1-pro-preview"
     },
     "quick": {
-      "model": "github-copilot/claude-haiku-4.5"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     },
     "writing": {
-      "model": "github-copilot/claude-haiku-4.5"
+      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
     }
   },
   "tmux": {

@@ -25,7 +25,7 @@
       "model": "google/gemini-3.1-pro-preview"
     },
     "sisyphus-junior": {
-      "model": "google/gemini-3.1-pro-preview"
+      "model": "google/gemini-3-flash-preview"
     },
     "hephaestus": {
       "model": "github-copilot/gpt-5.4"
@@ -49,10 +49,10 @@
       "variant": "medium"
     },
     "build": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "google/gemini-3.1-pro-preview"
     },
     "plan": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "google/gemini-3.1-pro-preview"
     }
   },
   "categories": {
