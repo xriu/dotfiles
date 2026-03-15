@@ -45,7 +45,8 @@
       "model": "github-copilot/grok-code-fast-1"
     },
     "multimodal-looker": {
-      "model": "google/gemini-3-flash-preview"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "medium"
     },
     "build": {
       "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
