@@ -39,10 +39,10 @@
       "variant": "high"
     },
     "librarian": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
+      "model": "github-copilot/gemini-3-flash-preview"
     },
     "explore": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
+      "model": "github-copilot/grok-code-fast-1"
     },
     "multimodal-looker": {
       "model": "google/gemini-3-flash-preview"

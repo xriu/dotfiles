@@ -65,7 +65,7 @@
       "variant": "medium"
     },
     "artistry": {
-      "model": "google/gemini-3.1-pro-preview",
+      "model": "github-copilot/gemini-3.1-pro-preview",
       "variant": "high"
     },
     "unspecified-high": {
@@ -77,7 +77,7 @@
       "variant": "medium"
     },
     "visual-engineering": {
-      "model": "google/gemini-3.1-pro-preview",
+      "model": "github-copilot/gemini-3.1-pro-preview",
       "variant": "high"
     },
     "quick": {
