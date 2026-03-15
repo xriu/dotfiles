@@ -10,19 +10,19 @@
   "disabled_mcps": [],
   "agents": {
     "prometheus": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "metis": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "atlas": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "sisyphus": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "sisyphus-junior": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "hephaestus": {
       "model": "github-copilot/gpt-5.4"
@@ -34,24 +34,24 @@
       "model": "github-copilot/gpt-5.4"
     },
     "librarian": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "explore": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
+      "model": "bailian-coding-plan/MiniMax-M2.5"
     },
     "multimodal-looker": {
       "model": "google/gemini-3-flash-preview"
     },
     "build": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "plan": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     }
   },
   "categories": {
     "ultrabrain": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
+      "model": "bailian-coding-plan/kimi-k2.5",
       "variant": "max"
     },
     "artistry": {
@@ -59,20 +59,20 @@
       "variant": "high"
     },
     "unspecified-high": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
+      "model": "bailian-coding-plan/kimi-k2.5",
       "variant": "max"
     },
     "unspecified-low": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "visual-engineering": {
       "model": "google/gemini-3.1-pro-preview"
     },
     "quick": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
+      "model": "bailian-coding-plan/MiniMax-M2.5"
     },
     "writing": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
+      "model": "bailian-coding-plan/MiniMax-M2.5"
     }
   },
   "tmux": {

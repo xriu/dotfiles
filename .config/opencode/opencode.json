@@ -75,6 +75,16 @@
     }
   },
   "mcp": {
+    "solo": {
+      "enabled": true,
+      "type": "remote",
+      "url": "http://localhost:45678"
+    },
+    "aws-knowledge-mcp": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://knowledge-mcp.global.api.aws"
+    },
     "gh-grep": {
       "enabled": false,
       "type": "remote",
@@ -89,11 +99,6 @@
       "type": "remote",
       "url": "https://mcp.atlassian.com/v1/mcp",
       "enabled": false
-    },
-    "aws-knowledge-mcp": {
-      "enabled": false,
-      "type": "remote",
-      "url": "https://knowledge-mcp.global.api.aws"
     },
     "chrome-devtools": {
       "enabled": false,
