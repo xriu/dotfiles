@@ -18,14 +18,13 @@
       "variant": "high"
     },
     "atlas": {
-      "model": "google/gemini-3.1-pro-preview",
-      "variant": "medium"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "sisyphus-junior": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "hephaestus": {
       "model": "github-copilot/gpt-5.4"
@@ -48,30 +47,30 @@
       "model": "google/gemini-3-flash-preview"
     },
     "build": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "plan": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     }
   },
   "categories": {
     "ultrabrain": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "variant": "max"
     },
     "deep": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "artistry": {
       "model": "google/gemini-3.1-pro-preview",
       "variant": "high"
     },
     "unspecified-high": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "variant": "max"
     },
     "unspecified-low": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
     },
     "visual-engineering": {
       "model": "google/gemini-3.1-pro-preview"
