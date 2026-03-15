@@ -10,15 +10,16 @@
   "disabled_mcps": [],
   "agents": {
     "prometheus": {
-      "model": "google/gemini-3.1-pro-preview",
+      "model": "github-copilot/gpt-5.4",
       "variant": "high"
     },
     "metis": {
-      "model": "google/gemini-3.1-pro-preview",
+      "model": "github-copilot/gpt-5.4",
       "variant": "high"
     },
     "atlas": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "medium"
     },
     "sisyphus": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
@@ -44,7 +45,8 @@
       "model": "github-copilot/grok-code-fast-1"
     },
     "multimodal-looker": {
-      "model": "google/gemini-3-flash-preview"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "medium"
     },
     "build": {
       "model": "synthetic/hf:moonshotai/Kimi-K2.5"
@@ -55,31 +57,34 @@
   },
   "categories": {
     "ultrabrain": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
-      "variant": "max"
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "xhigh"
     },
     "deep": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "medium"
     },
     "artistry": {
-      "model": "google/gemini-3.1-pro-preview",
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
       "variant": "high"
     },
     "unspecified-high": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
-      "variant": "max"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "high"
     },
     "unspecified-low": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "medium"
     },
     "visual-engineering": {
-      "model": "google/gemini-3.1-pro-preview"
+      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
+      "variant": "high"
     },
     "quick": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
+      "model": "github-copilot/claude-haiku-4.5"
     },
     "writing": {
-      "model": "synthetic/hf:MiniMaxAI/MiniMax-M2.5"
+      "model": "github-copilot/claude-haiku-4.5"
     }
   },
   "tmux": {
