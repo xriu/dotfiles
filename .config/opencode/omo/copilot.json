@@ -10,69 +10,80 @@
   "disabled_mcps": [],
   "agents": {
     "prometheus": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "high"
     },
     "metis": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "high"
     },
     "atlas": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "medium"
     },
     "sisyphus": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "github-copilot/claude-opus-4.6"
     },
     "sisyphus-junior": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "github-copilot/claude-sonnet-4.6"
     },
     "hephaestus": {
       "model": "github-copilot/gpt-5.4"
     },
     "momus": {
-      "model": "github-copilot/gpt-5.4"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "xhigh"
     },
     "oracle": {
-      "model": "github-copilot/gpt-5.4"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "high"
     },
     "librarian": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "github-copilot/gemini-3-flash-preview"
     },
     "explore": {
-      "model": "bailian-coding-plan/MiniMax-M2.5"
+      "model": "github-copilot/grok-code-fast-1"
     },
     "multimodal-looker": {
       "model": "google/gemini-3-flash-preview"
     },
     "build": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "github-copilot/claude-sonnet-4.6"
     },
     "plan": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "github-copilot/claude-sonnet-4.6"
     }
   },
   "categories": {
     "ultrabrain": {
-      "model": "bailian-coding-plan/kimi-k2.5",
-      "variant": "max"
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "xhigh"
+    },
+    "deep": {
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "medium"
     },
     "artistry": {
       "model": "google/gemini-3.1-pro-preview",
       "variant": "high"
     },
     "unspecified-high": {
-      "model": "bailian-coding-plan/kimi-k2.5",
-      "variant": "max"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "high"
     },
     "unspecified-low": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "medium"
     },
     "visual-engineering": {
-      "model": "google/gemini-3.1-pro-preview"
+      "model": "google/gemini-3.1-pro-preview",
+      "variant": "high"
     },
     "quick": {
-      "model": "bailian-coding-plan/MiniMax-M2.5"
+      "model": "github-copilot/claude-haiku-4.5"
     },
     "writing": {
-      "model": "bailian-coding-plan/MiniMax-M2.5"
+      "model": "github-copilot/claude-haiku-4.5"
     }
   },
   "tmux": {

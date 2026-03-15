@@ -10,70 +10,80 @@
   "disabled_mcps": [],
   "agents": {
     "prometheus": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "high"
     },
     "metis": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "high"
     },
     "atlas": {
-      "model": "bailian-coding-plan/kimi-k2.5"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "medium"
     },
     "sisyphus": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "sisyphus-junior": {
-      "model": "github-copilot/claude-sonnet-4.6"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "hephaestus": {
       "model": "github-copilot/gpt-5.4"
     },
     "momus": {
-      "model": "github-copilot/gpt-5.4"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "xhigh"
     },
     "oracle": {
-      "model": "github-copilot/gpt-5.4"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "high"
     },
     "librarian": {
-      "model": "bailian-coding-plan/kimi-k2.5"
-    },
-    "explore": {
-      "model": "bailian-coding-plan/MiniMax-M2.5"
-    },
-    "multimodal-looker": {
       "model": "github-copilot/gemini-3-flash-preview"
     },
+    "explore": {
+      "model": "github-copilot/grok-code-fast-1"
+    },
+    "multimodal-looker": {
+      "model": "google/gemini-3-flash-preview"
+    },
     "build": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     },
     "plan": {
-      "model": "github-copilot/claude-opus-4.6"
+      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
     }
   },
   "categories": {
     "ultrabrain": {
-      "model": "github-copilot/claude-opus-4.6",
-      "variant": "max"
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "xhigh"
+    },
+    "deep": {
+      "model": "github-copilot/gpt-5.3-codex",
+      "variant": "medium"
     },
     "artistry": {
-      "model": "github-copilot/gemini-3.1-pro-preview",
+      "model": "google/gemini-3.1-pro-preview",
       "variant": "high"
     },
     "unspecified-high": {
-      "model": "github-copilot/claude-opus-4.6",
-      "variant": "max"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "high"
     },
     "unspecified-low": {
-      "model": "github-copilot/claude-sonnet-4.6"
+      "model": "github-copilot/gpt-5.4",
+      "variant": "medium"
     },
     "visual-engineering": {
-      "model": "github-copilot/gemini-3.1-pro-preview",
+      "model": "google/gemini-3.1-pro-preview",
       "variant": "high"
     },
     "quick": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "github-copilot/claude-haiku-4.5"
     },
     "writing": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "github-copilot/claude-haiku-4.5"
     }
   },
   "tmux": {

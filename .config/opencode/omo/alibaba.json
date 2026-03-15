@@ -10,13 +10,13 @@
   "disabled_mcps": [],
   "agents": {
     "prometheus": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "metis": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "atlas": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "sisyphus": {
       "model": "bailian-coding-plan/kimi-k2.5"
@@ -53,6 +53,9 @@
     "ultrabrain": {
       "model": "bailian-coding-plan/kimi-k2.5",
       "variant": "max"
+    },
+    "deep": {
+      "model": "bailian-coding-plan/kimi-k2.5"
     },
     "artistry": {
       "model": "google/gemini-3.1-pro-preview",
