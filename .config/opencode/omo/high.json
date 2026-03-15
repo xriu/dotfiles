@@ -22,10 +22,10 @@
       "variant": "medium"
     },
     "sisyphus": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "google/gemini-3.1-pro-preview"
     },
     "sisyphus-junior": {
-      "model": "synthetic/hf:nvidia/Kimi-K2.5-NVFP4"
+      "model": "google/gemini-3.1-pro-preview"
     },
     "hephaestus": {
       "model": "github-copilot/gpt-5.4"
