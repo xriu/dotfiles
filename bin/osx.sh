@@ -47,8 +47,6 @@ function brew_setup() {
 
     # brew install --cask superset --force # Agents orchestrator
     # brew install --cask cmux --force # Agents orchestrator
-    # brew install --cask zed --force # Multiplayer code editor
-    # brew install --cask opencode-bar --force # Effortless token usage tracker for OpenCode
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
@@ -131,6 +129,7 @@ function brew_setup() {
     brew install rustup # Rust toolchain installer
     brew install serverless # Build applications with serverless architectures
     brew install starship # The cross-shell prompt for astronauts
+    brew install steipete/tap/codexbar # Menu bar usage monitor for Codex and Claude
     brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install swaks # SMTP client
     brew install ta-lib # Technical Analysis Library
