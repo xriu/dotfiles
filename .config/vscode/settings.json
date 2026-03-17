@@ -108,12 +108,12 @@
         "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
     },
 	"chat.tools.urls.autoApprove": {
-        "https://code.visualstudio.com": true,
-        "https://github.com/microsoft/vscode/wiki/*": true,
-        "https://*.leapp.cloud": true,
-        "https://*.github.io": true,
-        "https://starship.rs": true
-    },
+		"https://code.visualstudio.com": true,
+		"https://github.com/microsoft/vscode/wiki/*": true,
+		"https://*.leapp.cloud": true,
+		"https://*.github.io": true,
+		"https://starship.rs": true
+	},
 	"console-ninja.featureSet": "Community",
 	"cursor.cmdk.useThemedDiffBackground": true,
 	"cursor.composer.shouldAllowCustomModes": true,
@@ -306,6 +306,5 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none",
-    "chat.viewSessions.orientation": "stacked"
+    "workbench.startupEditor": "none"
 }
