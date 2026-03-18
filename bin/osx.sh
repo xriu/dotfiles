@@ -76,6 +76,8 @@ function brew_setup() {
     # brew install fzf # Command-line fuzzy finder
     # brew install gradle-completion # Bash and Zsh completion for Gradle
     # brew install tmux # Terminal multiplexer
+
+    # Zsh plugins
     # brew install zsh # UNIX shell (command interpreter)
     # brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
 

@@ -1,0 +1,8 @@
+{
+  "lastChangelogVersion": "0.60.0",
+  "packages": [
+    "npm:@aliou/pi-synthetic"
+  ],
+  "defaultProvider": "synthetic",
+  "defaultModel": "hf:zai-org/GLM-4.7"
+}
