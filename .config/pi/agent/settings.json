@@ -1,7 +1,10 @@
 {
-	"lastChangelogVersion": "0.60.0",
-	"packages": ["npm:@aliou/pi-synthetic"],
-	"defaultProvider": "github-copilot",
-	"defaultModel": "gemini-2.5-pro",
-	"defaultThinkingLevel": "medium"
+  "lastChangelogVersion": "0.60.0",
+  "packages": [
+    "npm:@aliou/pi-synthetic",
+    "git:github.com/HazAT/pi-interactive-subagents"
+  ],
+  "defaultProvider": "github-copilot",
+  "defaultModel": "gemini-2.5-pro",
+  "defaultThinkingLevel": "medium"
 }
