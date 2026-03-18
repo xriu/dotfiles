@@ -4,12 +4,7 @@ command_timeout = 1000
 add_newline = true
 
 format = """
-$directory\
-$git_branch\
-$git_status\
-$cmd_duration\
-$all\
-$line_break\
+$directory $git_branch $git_status $cmd_duration $all $line_break\
 $character
 """
 
