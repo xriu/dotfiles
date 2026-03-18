@@ -1,8 +1,7 @@
 {
-  "lastChangelogVersion": "0.60.0",
-  "packages": [
-    "npm:@aliou/pi-synthetic"
-  ],
-  "defaultProvider": "synthetic",
-  "defaultModel": "hf:zai-org/GLM-4.7"
+	"lastChangelogVersion": "0.60.0",
+	"packages": ["npm:@aliou/pi-synthetic"],
+	"defaultProvider": "github-copilot",
+	"defaultModel": "gemini-2.5-pro",
+	"defaultThinkingLevel": "medium"
 }
