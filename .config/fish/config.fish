@@ -31,16 +31,23 @@ fish_add_path "/Applications/Visual Studio Code - Insiders.app/Contents/Resource
 
 # Check if we're in an interactive shell
 if status is-interactive
+    # 1. Define config but don't force export every time if not needed
+    set -gx ZELLIJ_CONFIG_DIR $HOME/.config/zellij
 
-    # At this point, specify the Zellij config dir, so we can launch it manually if we want to
-    export ZELLIJ_CONFIG_DIR=$HOME/.config/zellij
+    # 2. Only run if NOT already in Zellij AND NOT in a CMUX-managed task
+    # This prevents the infinite loop and CMUX conflicts
+    if not set -q ZELLIJ; and not set -q CMUX_SOCKET_PATH
 
-    # Check if our Terminal emulator is Ghostty
-    if [ "$TERM" = "xterm-ghostty" ]
-        set -gx ZELLIJ_AUTO_EXIT true
-        set -gx ZELLIJ_AUTO_ATTACH true
-        set -e GHOSTTY_SHELL_INTEGRATION_NO_TITLE
-        eval (zellij setup --generate-auto-start fish | string collect)
+        # 3. Use a broader check or remove the Ghostty-only restriction
+        # if you want Zellij everywhere.
+        if [ "$TERM" = "xterm-ghostty" ]
+            set -gx ZELLIJ_AUTO_EXIT true
+            set -gx ZELLIJ_AUTO_ATTACH true
+
+            # Use 'exec' to replace the fish process with zellij
+            # This is cleaner than eval for auto-starting
+            exec zellij
+        end
     end
-
 end
+
