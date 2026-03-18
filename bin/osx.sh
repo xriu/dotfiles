@@ -22,8 +22,7 @@ function install_osx_packages() {
     brew tap homebrew/cask
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-fonts
-
-    # brew tap manaflow-ai/cmux # /usr/local/bin/cmux unlink
+    brew tap manaflow-ai/cmux
 
     brew_setup
     npm_packages
@@ -45,13 +44,11 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask superset --force # Agents orchestrator
-    # brew install --cask cmux --force # Agents orchestrator
-
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask beekeeper-studio --force # Database management tool
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
+    brew install --cask cmux --force # Agents orchestrator
     brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
@@ -118,6 +115,7 @@ function brew_setup() {
     brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pake # Turn any webpage into a desktop app with Rust with ease
+    brew install pi-coding-agent # AI agent toolkit
     brew install pnpm # Fast, disk space efficient package manager
     brew install postgresql # Object-relational database management system
     brew install pstree # A tool to show the tree of processes
