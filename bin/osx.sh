@@ -75,7 +75,6 @@ function brew_setup() {
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
     # brew install gradle-completion # Bash and Zsh completion for Gradle
-    # brew install tmux # Terminal multiplexer
 
     # Zsh plugins
     # brew install zsh # UNIX shell (command interpreter)
@@ -137,6 +136,7 @@ function brew_setup() {
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
     brew install tfenv # Terraform version manager
     brew install tfmv # tfmv is a CLI to rename Terraform resources
+    brew install tmux # Terminal multiplexer
     brew install tree # Display directories as trees (with optional color/HTML output)
     brew install tw93/tap/mole # Deep clean and optimize your Mac
     brew install uv # Universal Version Manager
