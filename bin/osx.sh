@@ -77,6 +77,7 @@ function brew_setup() {
     # brew install gradle-completion # Bash and Zsh completion for Gradle
 
     # Zsh plugins
+    # brew install tmux # Terminal multiplexer
     # brew install zsh # UNIX shell (command interpreter)
     # brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
 
@@ -136,7 +137,6 @@ function brew_setup() {
     brew install terragrunt # Thin wrapper for Terraform e.g. for locking state
     brew install tfenv # Terraform version manager
     brew install tfmv # tfmv is a CLI to rename Terraform resources
-    brew install tmux # Terminal multiplexer
     brew install tree # Display directories as trees (with optional color/HTML output)
     brew install tw93/tap/mole # Deep clean and optimize your Mac
     brew install uv # Universal Version Manager
