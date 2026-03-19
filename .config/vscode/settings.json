@@ -306,7 +306,7 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-	"workbench.startupEditor": "none",
-    "chat.viewSessions.orientation": "stacked",
-    "workbench.colorTheme": "Dark Modern"
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Dark Modern",
+    "chat.viewSessions.orientation": "stacked"
 }
