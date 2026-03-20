@@ -2,7 +2,7 @@
   "lastChangelogVersion": "0.60.0",
   "packages": [
     "npm:@aliou/pi-synthetic",
-    "git:github.com/HazAT/pi-interactive-subagents"
+    "npm:pi-subagents"
   ],
   "defaultProvider": "github-copilot",
   "defaultModel": "claude-sonnet-4.6",
