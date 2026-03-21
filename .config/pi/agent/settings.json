@@ -1,10 +1,14 @@
 {
-  "lastChangelogVersion": "0.60.0",
+  "lastChangelogVersion": "0.61.1",
   "packages": [
     "npm:@aliou/pi-synthetic",
     "npm:pi-subagents"
   ],
+  "extensions": [
+    "~/dotfiles/.config/pi/agent/extensions"
+  ],
   "defaultProvider": "github-copilot",
-  "defaultModel": "claude-sonnet-4.6",
-  "defaultThinkingLevel": "medium"
+  "defaultModel": "gpt-5.4",
+  "defaultThinkingLevel": "medium",
+  "customProfileFooter": true
 }
