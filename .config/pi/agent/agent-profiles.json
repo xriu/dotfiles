@@ -27,10 +27,10 @@
         "thinkingLevel": "medium"
       },
       "agents": {
-        "context-builder": "dashscope/minimax-m2.5",
-        "delegate": "dashscope/minimax-m2.5",
+        "context-builder": "dashscope/kimi-k2.5",
+        "delegate": "dashscope/kimi-k2.5",
         "researcher": "dashscope/glm-5",
-        "scout": "dashscope/minimax-m2.5",
+        "scout": "dashscope/kimi-k2.5",
         "planner": "dashscope/glm-5",
         "reviewer": "dashscope/kimi-k2.5",
         "worker": "dashscope/glm-5",

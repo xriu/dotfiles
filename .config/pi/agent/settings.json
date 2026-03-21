@@ -1,14 +1,16 @@
 {
-	"lastChangelogVersion": "0.61.1",
-	"packages": [
-		"npm:@aliou/pi-synthetic",
-		"npm:pi-dashscope",
-		"npm:pi-subagents",
-		"npm:pi-web-access"
-	],
-	"extensions": ["~/dotfiles/.config/pi/agent/extensions"],
-	"defaultProvider": "github-copilot",
-	"defaultModel": "gpt-5.4",
-	"defaultThinkingLevel": "medium",
-	"customProfileFooter": true
+  "lastChangelogVersion": "0.61.1",
+  "packages": [
+    "npm:@aliou/pi-synthetic",
+    "npm:pi-dashscope",
+    "npm:pi-subagents",
+    "npm:pi-web-access"
+  ],
+  "extensions": [
+    "~/dotfiles/.config/pi/agent/extensions"
+  ],
+  "defaultProvider": "dashscope",
+  "defaultModel": "glm-5",
+  "defaultThinkingLevel": "medium",
+  "customProfileFooter": true
 }
