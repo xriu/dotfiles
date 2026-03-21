@@ -16,7 +16,7 @@ interface MainProfile {
 interface Profile {
   description?: string;
   main?: MainProfile;
-  agents?: Record<string, string>;
+  agents?: Record<string, string | false>;
 }
 
 interface ProfileConfig {
@@ -74,11 +74,20 @@ function getActiveProfileName(config: ProfileConfig): string | undefined {
   return Object.keys(config.profiles)[0];
 }
 
-function upsertAgentModel(content: string, model: string): string {
+function upsertAgentModel(content: string, model: string | false): string {
   const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
   if (!frontmatterMatch) return content;
 
   const frontmatter = frontmatterMatch[1];
+
+  if (model === false) {
+    const updatedFrontmatter = frontmatter
+      .replace(/^model:\s*.*\n?/m, "")
+      .replace(/\n{3,}/g, "\n\n")
+      .replace(/\n+$/g, "");
+    return content.replace(frontmatterMatch[0], `---\n${updatedFrontmatter}\n---`);
+  }
+
   const updatedFrontmatter = /^model:\s*.+$/m.test(frontmatter)
     ? frontmatter.replace(/^model:\s*.+$/m, `model: ${model}`)
     : `${frontmatter}\nmodel: ${model}`;

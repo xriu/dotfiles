@@ -99,6 +99,7 @@ function brew_setup() {
     brew install docker-slim # Minify and secure Docker images
     brew install eslint # AST-based pattern checker for JavaScript
     brew install fd # Simple, fast and user-friendly alternative to find
+    brew install ffmpeg # Frame extraction, video thumbnails, local video duration
     brew install findutils # Collection of GNU find, xargs, and locate
     brew install fish # User-friendly command line shell for UNIX-like operating systems
     brew install fnm # Fast Node Manager
@@ -143,6 +144,7 @@ function brew_setup() {
     brew install vim # Vi 'workalike' with many additional features
     brew install wget # Internet file retriever
     brew install worktrunk # CLI for Worktrunk, a tool to manage your workspaces and projects
+    brew install yt-dlp # YouTube stream URLs for frame extraction
     brew install z # Tracks most-used directories to make cd smarter
     brew install zellij # Terminal multiplexer
     brew install zoxide # A faster way to navigate your filesystem

@@ -2,7 +2,7 @@
   "defaultProfile": "high",
   "profiles": {
     "hybrid": {
-      "description": "Mixes Copilot coding strengths with Synthetic reasoning and multimodal models",
+      "description": "Best-of-breed mixed profile: fast Synthetic models for scouting and research, plus Copilot GPT/Codex for planning, implementation, and review.",
       "main": {
         "provider": "github-copilot",
         "model": "gpt-5.4",
@@ -19,8 +19,38 @@
         "visual-tester": "synthetic/hf:moonshotai/Kimi-K2.5"
       }
     },
+    "alibaba": {
+      "description": "DashScope-first profile using MiniMax for scouting, GLM-5 for planning and implementation, and Kimi K2.5 for review and visual tasks.",
+      "main": {
+        "provider": "dashscope",
+        "model": "glm-5",
+        "thinkingLevel": "medium"
+      },
+      "agents": {
+        "context-builder": "dashscope/minimax-m2.5",
+        "delegate": "dashscope/minimax-m2.5",
+        "researcher": "dashscope/glm-5",
+        "scout": "dashscope/minimax-m2.5",
+        "planner": "dashscope/glm-5",
+        "reviewer": "dashscope/kimi-k2.5",
+        "worker": "dashscope/glm-5",
+        "visual-tester": "dashscope/kimi-k2.5"
+      }
+    },
+    "copilot": {
+      "description": "Closest match to the official pi-subagents built-in defaults, translated to GitHub Copilot model IDs from `pi list models`.",
+      "agents": {
+        "context-builder": "github-copilot/claude-sonnet-4.6",
+        "delegate": false,
+        "researcher": "github-copilot/claude-sonnet-4.6",
+        "scout": "github-copilot/claude-haiku-4.5",
+        "planner": "github-copilot/claude-opus-4.6",
+        "reviewer": "github-copilot/gpt-5.3-codex",
+        "worker": "github-copilot/claude-sonnet-4.6"
+      }
+    },
     "high": {
-      "description": "Higher-quality profile with stronger reasoning and coding models",
+      "description": "Premium Copilot profile with stronger planning and research models, plus GPT-5.3 Codex for implementation and review.",
       "main": {
         "provider": "github-copilot",
         "model": "gpt-5.4",
@@ -38,7 +68,7 @@
       }
     },
     "medium": {
-      "description": "Balanced profile with good quality at moderate cost",
+      "description": "Balanced Copilot profile for everyday work: mostly GPT-5.4 Mini, with Codex reserved for implementation.",
       "main": {
         "provider": "github-copilot",
         "model": "gpt-5.4-mini",
@@ -56,7 +86,7 @@
       }
     },
     "low": {
-      "description": "Budget profile with lower-cost models for day-to-day work",
+      "description": "Low-cost Copilot profile for routine tasks, using mini models broadly and Codex Mini for coding.",
       "main": {
         "provider": "github-copilot",
         "model": "gpt-5.4-mini",
