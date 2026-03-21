@@ -4,7 +4,8 @@
     "npm:@aliou/pi-synthetic",
     "npm:pi-dashscope",
     "npm:pi-subagents",
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "npm:pi-bash-live-view"
   ],
   "extensions": [
     "~/dotfiles/.config/pi/agent/extensions"
