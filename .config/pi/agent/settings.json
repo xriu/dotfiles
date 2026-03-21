@@ -1,14 +1,9 @@
 {
-  "lastChangelogVersion": "0.61.1",
-  "packages": [
-    "npm:@aliou/pi-synthetic",
-    "npm:pi-subagents"
-  ],
-  "extensions": [
-    "~/dotfiles/.config/pi/agent/extensions"
-  ],
-  "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-5.4",
-  "defaultThinkingLevel": "medium",
-  "customProfileFooter": true
+	"lastChangelogVersion": "0.61.1",
+	"packages": ["npm:@aliou/pi-synthetic", "npm:pi-subagents"],
+	"extensions": ["~/dotfiles/.config/pi/agent/extensions"],
+	"defaultProvider": "github-copilot",
+	"defaultModel": "gpt-5.4",
+	"defaultThinkingLevel": "medium",
+	"customProfileFooter": true
 }
