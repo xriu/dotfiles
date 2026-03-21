@@ -1,34 +1,19 @@
 {
   "defaultProfile": "high",
   "profiles": {
-    "low": {
-      "description": "Budget profile with lower-cost models for day-to-day work",
+    "hybrid": {
+      "description": "Mixes Copilot coding strengths with Synthetic reasoning and multimodal models",
       "main": {
         "provider": "github-copilot",
-        "model": "gpt-5.4-mini",
-        "thinkingLevel": "minimal"
+        "model": "gpt-5.4",
+        "thinkingLevel": "medium"
       },
       "agents": {
-        "scout": "github-copilot/gpt-5.4-mini",
-        "planner": "github-copilot/gpt-5-mini",
-        "reviewer": "github-copilot/gpt-5-mini",
-        "worker": "github-copilot/gpt-5.1-codex-mini",
-        "visual-tester": "github-copilot/gpt-5.4-mini"
-      }
-    },
-    "medium": {
-      "description": "Balanced profile with good quality at moderate cost",
-      "main": {
-        "provider": "github-copilot",
-        "model": "gpt-5.4-mini",
-        "thinkingLevel": "low"
-      },
-      "agents": {
-        "scout": "github-copilot/gpt-5.4-mini",
-        "planner": "github-copilot/gpt-5.4-mini",
-        "reviewer": "github-copilot/gpt-5.4-mini",
-        "worker": "github-copilot/gpt-5.1-codex",
-        "visual-tester": "github-copilot/gpt-5.4-mini"
+        "scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
+        "planner": "github-copilot/gpt-5.4",
+        "reviewer": "github-copilot/gpt-5.4",
+        "worker": "synthetic/hf:moonshotai/Kimi-K2.5",
+        "visual-tester": "synthetic/hf:moonshotai/Kimi-K2.5"
       }
     },
     "high": {
@@ -46,19 +31,34 @@
         "visual-tester": "github-copilot/gpt-5.4"
       }
     },
-    "hybrid": {
-      "description": "Mixes Copilot coding strengths with Synthetic reasoning and multimodal models",
+    "medium": {
+      "description": "Balanced profile with good quality at moderate cost",
       "main": {
         "provider": "github-copilot",
-        "model": "gpt-5.4",
-        "thinkingLevel": "medium"
+        "model": "gpt-5.4-mini",
+        "thinkingLevel": "low"
       },
       "agents": {
-        "scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
-        "planner": "github-copilot/gpt-5.4",
-        "reviewer": "github-copilot/gpt-5.4",
-        "worker": "synthetic/hf:moonshotai/Kimi-K2.5",
-        "visual-tester": "synthetic/hf:moonshotai/Kimi-K2.5"
+        "scout": "github-copilot/gpt-5.4-mini",
+        "planner": "github-copilot/gpt-5.4-mini",
+        "reviewer": "github-copilot/gpt-5.4-mini",
+        "worker": "github-copilot/gpt-5.1-codex",
+        "visual-tester": "github-copilot/gpt-5.4-mini"
+      }
+    },
+    "low": {
+      "description": "Budget profile with lower-cost models for day-to-day work",
+      "main": {
+        "provider": "github-copilot",
+        "model": "gpt-5.4-mini",
+        "thinkingLevel": "minimal"
+      },
+      "agents": {
+        "scout": "github-copilot/gpt-5.4-mini",
+        "planner": "github-copilot/gpt-5-mini",
+        "reviewer": "github-copilot/gpt-5-mini",
+        "worker": "github-copilot/gpt-5.1-codex-mini",
+        "visual-tester": "github-copilot/gpt-5.4-mini"
       }
     }
   }
