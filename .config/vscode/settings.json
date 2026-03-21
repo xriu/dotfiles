@@ -287,8 +287,7 @@
 		"file://${userHome}/dotfiles/vscode/styles.css"
 	],
 	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-	"window.commandCenter": true,
-	"window.customTitleBarVisibility": "never",
+    "window.commandCenter": false,
 	"window.nativeTabs": true,
 	"window.restoreFullscreen": true,
 	"window.titleBarStyle": "native",
@@ -307,5 +306,6 @@
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Dark Modern"
+    "workbench.colorTheme": "Dark Modern",
+    "workbench.layoutControl.enabled": false
 }
