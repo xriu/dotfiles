@@ -9,10 +9,13 @@
         "thinkingLevel": "medium"
       },
       "agents": {
+        "context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
+        "delegate": "github-copilot/gpt-5.4",
+        "researcher": "synthetic/hf:moonshotai/Kimi-K2.5",
         "scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
         "planner": "github-copilot/gpt-5.4",
-        "reviewer": "github-copilot/gpt-5.4",
-        "worker": "synthetic/hf:moonshotai/Kimi-K2.5",
+        "reviewer": "github-copilot/gpt-5.3-codex",
+        "worker": "github-copilot/gpt-5.3-codex",
         "visual-tester": "synthetic/hf:moonshotai/Kimi-K2.5"
       }
     },
@@ -24,9 +27,12 @@
         "thinkingLevel": "medium"
       },
       "agents": {
+        "context-builder": "github-copilot/gpt-5.4",
+        "delegate": "github-copilot/gpt-5.4",
+        "researcher": "github-copilot/gpt-5.4",
         "scout": "github-copilot/gpt-5.4-mini",
         "planner": "github-copilot/gpt-5.4",
-        "reviewer": "github-copilot/gpt-5.4",
+        "reviewer": "github-copilot/gpt-5.3-codex",
         "worker": "github-copilot/gpt-5.3-codex",
         "visual-tester": "github-copilot/gpt-5.4"
       }
@@ -39,6 +45,9 @@
         "thinkingLevel": "low"
       },
       "agents": {
+        "context-builder": "github-copilot/gpt-5.4-mini",
+        "delegate": "github-copilot/gpt-5.4-mini",
+        "researcher": "github-copilot/gpt-5.4-mini",
         "scout": "github-copilot/gpt-5.4-mini",
         "planner": "github-copilot/gpt-5.4-mini",
         "reviewer": "github-copilot/gpt-5.4-mini",
@@ -54,6 +63,9 @@
         "thinkingLevel": "minimal"
       },
       "agents": {
+        "context-builder": "github-copilot/gpt-5-mini",
+        "delegate": "github-copilot/gpt-5.4-mini",
+        "researcher": "github-copilot/gpt-5-mini",
         "scout": "github-copilot/gpt-5.4-mini",
         "planner": "github-copilot/gpt-5-mini",
         "reviewer": "github-copilot/gpt-5-mini",
