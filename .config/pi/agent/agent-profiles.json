@@ -39,6 +39,11 @@
     },
     "copilot": {
       "description": "Closest match to the official pi-subagents built-in defaults, translated to GitHub Copilot model IDs from `pi list models`.",
+      "main": {
+        "provider": "github-copilot",
+        "model": "claude-sonnet-4.6",
+        "thinkingLevel": "medium"
+      },
       "agents": {
         "context-builder": "github-copilot/claude-sonnet-4.6",
         "delegate": false,
