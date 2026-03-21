@@ -37,7 +37,7 @@
         "visual-tester": "dashscope/kimi-k2.5"
       }
     },
-    "copilot": {
+    "max": {
       "description": "Closest match to the official pi-subagents built-in defaults, translated to GitHub Copilot model IDs from `pi list models`.",
       "main": {
         "provider": "github-copilot",
