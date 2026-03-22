@@ -1,19 +1,21 @@
 {
-	"lastChangelogVersion": "0.61.1",
-	"packages": [
-		"https://github.com/davebcn87/pi-autoresearch",
-		"npm:@aliou/pi-synthetic",
-		"npm:@plannotator/pi-extension",
-		"npm:pi-bash-live-view",
-		"npm:pi-dashscope",
-		"npm:pi-markdown-preview",
-		"npm:pi-prompt-template-model",
-		"npm:pi-subagents",
-		"npm:pi-web-access"
-	],
-	"extensions": ["~/dotfiles/home/.config/pi/agent/extensions"],
-	"defaultProvider": "dashscope",
-	"defaultModel": "glm-5",
-	"defaultThinkingLevel": "medium",
-	"customProfileFooter": true
+  "lastChangelogVersion": "0.61.1",
+  "packages": [
+    "https://github.com/davebcn87/pi-autoresearch",
+    "npm:@aliou/pi-synthetic",
+    "npm:@plannotator/pi-extension",
+    "npm:pi-bash-live-view",
+    "npm:pi-dashscope",
+    "npm:pi-markdown-preview",
+    "npm:pi-prompt-template-model",
+    "npm:pi-subagents",
+    "npm:pi-web-access"
+  ],
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "defaultProvider": "dashscope",
+  "defaultModel": "glm-5",
+  "defaultThinkingLevel": "medium",
+  "customProfileFooter": true
 }
