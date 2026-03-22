@@ -1,5 +1,5 @@
 ---
-description: (xriu) Analyze the codebase and generate a visual roadmap of potential features and improvements with timeline and flowchart diagrams
+description: (xriu) Generate a visual roadmap of features, improvements, and implementation phases
 ---
 
 # Roadmap: Feature & Improvement Suggestions
@@ -36,21 +36,21 @@ A phased roadmap showing features by effort level.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {
-  'primaryColor': '#F7F7F4',
-  'primaryBorderColor': '#D4D4D0',
-  'primaryTextColor': '#333',
-  'secondaryColor': '#EAEBE7',
-  'tertiaryColor': '#FEF0ED'
+  'primaryColor': '#F7F7F4',
+  'primaryBorderColor': '#D4D4D0',
+  'primaryTextColor': '#333',
+  'secondaryColor': '#EAEBE7',
+  'tertiaryColor': '#FEF0ED'
 }}}%%
 timeline
-    title Feature Roadmap
-    section Quick Wins
-        Feature A : Low effort, high impact
-        Feature B : Simple addition
-    section Medium Effort
-        Feature C : Requires some refactoring
-    section Strategic
-        Feature D : Architectural change
+    title Feature Roadmap
+    section Quick Wins
+        Feature A : Low effort, high impact
+        Feature B : Simple addition
+    section Medium Effort
+        Feature C : Requires some refactoring
+    section Strategic
+        Feature D : Architectural change
 ```
 
 ## Diagram 2: Current vs Proposed Flowchart
@@ -64,22 +64,22 @@ Visual distinction between existing and suggested features.
 
 ```mermaid
 flowchart TB
-    subgraph Current["Current Features"]
-        direction LR
-        A[Existing A]
-        B[Existing B]
-    end
-    subgraph Proposed["Proposed Features"]
-        direction LR
-        C[Suggested A]
-        D[Suggested B]
-    end
+    subgraph Current["Current Features"]
+        direction LR
+        A[Existing A]
+        B[Existing B]
+    end
+    subgraph Proposed["Proposed Features"]
+        direction LR
+        C[Suggested A]
+        D[Suggested B]
+    end
 
-    A --> C
-    B .-> D
+    A --> C
+    B .-> D
 
-    style A fill:#F7F7F4,stroke:#D4D4D0
-    style B fill:#F7F7F4,stroke:#D4D4D0
-    style C fill:#FEF0ED,stroke:#F34F1D,stroke-dasharray:5 5
-    style D fill:#FEF0ED,stroke:#F34F1D,stroke-dasharray:5 5
+    style A fill:#F7F7F4,stroke:#D4D4D0
+    style B fill:#F7F7F4,stroke:#D4D4D0
+    style C fill:#FEF0ED,stroke:#F34F1D,stroke-dasharray:5 5
+    style D fill:#FEF0ED,stroke:#F34F1D,stroke-dasharray:5 5
 ```

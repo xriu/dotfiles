@@ -1,5 +1,5 @@
 ---
-description: (xriu) Finalize current work safely for the current repository workflow
+description: (xriu) Finalize repository work safely using the current workflow
 ---
 
 Finalize the current work safely:

@@ -1,5 +1,5 @@
 ---
-description: Generate a comprehensive, detailed pull request description with full context, verification results, and impact analysis
+description: (xriu) Generate a comprehensive pull request description with verification and impact details
 categories: [git, documentation]
 ---
 
@@ -166,7 +166,7 @@ None - all changes maintain backward compatibility.
 ## Generation Steps
 
 1. **Analyze git commits**: `git log --oneline <base>..<head>`
-2. **Categorize changes**: Group by type (fix, refactor, feat, etc.)
+2. **Categorize changes**: Group by type (`fix`, `refactor`, `feat`, etc.)
 3. **Gather metrics**: Before/after comparisons
 4. **Run verification**: Tests, build, lint checks
 5. **Format output**: Use template above with actual data
