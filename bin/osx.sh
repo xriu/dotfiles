@@ -118,6 +118,7 @@ function brew_setup() {
     brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pake # Turn any webpage into a desktop app with Rust with ease
+    brew install pandoc # Universal document converter
     brew install pi-coding-agent # AI agent toolkit
     brew install pnpm # Fast, disk space efficient package manager
     brew install postgresql # Object-relational database management system
