@@ -5,7 +5,6 @@
     "npm:@aliou/pi-synthetic",
     "npm:@plannotator/pi-extension",
     "npm:pi-bash-live-view",
-    "npm:pi-cmux",
     "npm:pi-dashscope",
     "npm:pi-markdown-preview",
     "npm:pi-prompt-template-model",
