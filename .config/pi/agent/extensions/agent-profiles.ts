@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { ExtensionAPI, ExtensionContext } from "@mariozechner/pi-coding-agent";
@@ -30,9 +30,35 @@ interface ProfileState {
 
 const extensionDir = dirname(fileURLToPath(import.meta.url));
 const globalConfigPath = join(dirname(extensionDir), "agent-profiles.json");
+const templatesDir = join(extensionDir, "agent-templates");
 const statePath = join(getAgentDir(), "agent-profile-state.json");
 const settingsPath = join(getAgentDir(), "settings.json");
 const globalAgentsDir = join(getAgentDir(), "agents");
+
+// Load agent templates from agent-templates/*.md files
+function loadAgentTemplates(): Record<string, string> {
+  const templates: Record<string, string> = {};
+
+  if (!existsSync(templatesDir)) return templates;
+
+  for (const file of readdirSync(templatesDir)) {
+    if (!file.endsWith(".md")) continue;
+    const agentName = file.slice(0, -3); // Remove .md extension
+    templates[agentName] = readFileSync(join(templatesDir, file), "utf8");
+  }
+
+  return templates;
+}
+
+// Lazy-loaded templates cache
+let _agentTemplates: Record<string, string> | null = null;
+
+function getAgentTemplates(): Record<string, string> {
+  if (_agentTemplates === null) {
+    _agentTemplates = loadAgentTemplates();
+  }
+  return _agentTemplates;
+}
 
 function readJson<T>(path: string): T | undefined {
   if (!existsSync(path)) return undefined;
@@ -95,15 +121,26 @@ function upsertAgentModel(content: string, model: string | false): string {
   return content.replace(frontmatterMatch[0], `---\n${updatedFrontmatter}\n---`);
 }
 
-function syncAgentModels(profile: Profile): { updated: string[]; missing: string[] } {
+function syncAgentModels(profile: Profile): { updated: string[]; created: string[]; missing: string[] } {
   mkdirSync(globalAgentsDir, { recursive: true });
 
   const updated: string[] = [];
+  const created: string[] = [];
   const missing: string[] = [];
 
   for (const [agentName, model] of Object.entries(profile.agents ?? {})) {
     const agentPath = join(globalAgentsDir, `${agentName}.md`);
+
     if (!existsSync(agentPath)) {
+      // Try to create from template
+      const templates = getAgentTemplates();
+      const template = templates[agentName];
+      if (template) {
+        const content = upsertAgentModel(template, model);
+        writeFileSync(agentPath, content, "utf8");
+        created.push(agentName);
+        continue;
+      }
       missing.push(agentName);
       continue;
     }
@@ -114,7 +151,7 @@ function syncAgentModels(profile: Profile): { updated: string[]; missing: string
     updated.push(agentName);
   }
 
-  return { updated, missing };
+  return { updated, created, missing };
 }
 
 function persistMainSettings(profile: Profile) {
@@ -178,7 +215,7 @@ export default function agentProfilesExtension(pi: ExtensionAPI) {
       return false;
     }
 
-    const { updated, missing } = syncAgentModels(profile);
+    const { updated, created, missing } = syncAgentModels(profile);
 
     if (options.persistSettings !== false) {
       persistMainSettings(profile);
@@ -197,9 +234,10 @@ export default function agentProfilesExtension(pi: ExtensionAPI) {
 
     if (options.notify !== false) {
       const mainText = profile.main ? `main=${profile.main.provider}/${profile.main.model}` : "main=unchanged";
+      const createdText = created.length > 0 ? ` · created ${created.length} agent(s)` : "";
       const missingText = missing.length > 0 ? ` · missing agents: ${missing.join(", ")}` : "";
       ctx.ui.notify(
-        `Profile \"${name}\" active · ${mainText} · synced ${updated.length} agent(s)${missingText}`,
+        `Profile \"${name}\" active · ${mainText} · synced ${updated.length} agent(s)${createdText}${missingText}`,
         "info",
       );
     }
