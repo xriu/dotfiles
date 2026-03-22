@@ -15,8 +15,7 @@
         "scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
         "planner": "github-copilot/gpt-5.4",
         "reviewer": "github-copilot/gpt-5.3-codex",
-        "worker": "github-copilot/gpt-5.3-codex",
-        "visual-tester": "synthetic/hf:moonshotai/Kimi-K2.5"
+        "worker": "github-copilot/gpt-5.3-codex"
       }
     },
     "alibaba": {
@@ -33,8 +32,7 @@
         "scout": "dashscope/kimi-k2.5",
         "planner": "dashscope/glm-5",
         "reviewer": "dashscope/kimi-k2.5",
-        "worker": "dashscope/glm-5",
-        "visual-tester": "dashscope/kimi-k2.5"
+        "worker": "dashscope/glm-5"
       }
     },
     "max": {
@@ -68,8 +66,7 @@
         "scout": "github-copilot/gpt-5.4-mini",
         "planner": "github-copilot/gpt-5.4",
         "reviewer": "github-copilot/gpt-5.3-codex",
-        "worker": "github-copilot/gpt-5.3-codex",
-        "visual-tester": "github-copilot/gpt-5.4"
+        "worker": "github-copilot/gpt-5.3-codex"
       }
     },
     "medium": {
@@ -86,8 +83,7 @@
         "scout": "github-copilot/gpt-5.4-mini",
         "planner": "github-copilot/gpt-5.4-mini",
         "reviewer": "github-copilot/gpt-5.4-mini",
-        "worker": "github-copilot/gpt-5.1-codex",
-        "visual-tester": "github-copilot/gpt-5.4-mini"
+        "worker": "github-copilot/gpt-5.1-codex"
       }
     },
     "low": {
@@ -104,8 +100,7 @@
         "scout": "github-copilot/gpt-5.4-mini",
         "planner": "github-copilot/gpt-5-mini",
         "reviewer": "github-copilot/gpt-5-mini",
-        "worker": "github-copilot/gpt-5.1-codex-mini",
-        "visual-tester": "github-copilot/gpt-5.4-mini"
+        "worker": "github-copilot/gpt-5.1-codex-mini"
       }
     }
   }
