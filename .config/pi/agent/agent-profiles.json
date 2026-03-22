@@ -22,8 +22,8 @@
     "alibaba": {
       "description": "DashScope-first profile using MiniMax for scouting, GLM-5 for planning and implementation, and Kimi K2.5 for review and visual tasks.",
       "main": {
-        "provider": "github-copilot",
-        "model": "gpt-5.4",
+        "provider": "dashscope",
+        "model": "glm-5",
         "thinkingLevel": "medium"
       },
       "agents": {
