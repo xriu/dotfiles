@@ -18,7 +18,7 @@ alias gstatus="git status"
 alias gmerge="git merge main"
 
 # Cat with syntax highlighting
-alias cat="bat"
+# alias cat="bat"
 
 # List
 alias ls="lla"
