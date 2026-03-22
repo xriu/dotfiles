@@ -183,11 +183,11 @@ function fish_setup() {
 
     # Configure Fish
     mkdir -p ~/.config
-    ln -sf ~/dotfiles/.config/fish/conf.d/ ~/.config/fish/conf.d
-    ln -sf ~/dotfiles/.config/fish/functions/ ~/.config/fish/functions
-    ln -sf ~/dotfiles/.config/fish/completions/ ~/.config/fish/completions
-    ln -sf ~/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
-    ln -sf ~/dotfiles/.config/starship.toml ~/.config/starship.toml
+    ln -sf ~/dotfiles/home/.config/fish/conf.d/ ~/.config/fish/conf.d
+    ln -sf ~/dotfiles/home/.config/fish/functions/ ~/.config/fish/functions
+    ln -sf ~/dotfiles/home/.config/fish/completions/ ~/.config/fish/completions
+    ln -sf ~/dotfiles/home/.config/fish/config.fish ~/.config/fish/config.fish
+    ln -sf ~/dotfiles/home/.config/starship.toml ~/.config/starship.toml
 
     # Set Fish as default shell
     chsh -s $(which fish)
@@ -200,8 +200,8 @@ function zsh_setup() {
 
     # Configure Zsh
     mkdir -p ~/.config
-    ln -sf ~/dotfiles/.config/zsh/.zshrc ~/.zshrc
-    ln -sf ~/dotfiles/.config/starship.toml ~/.config/starship.toml
+    ln -sf ~/dotfiles/home/.config/zsh/.zshrc ~/.zshrc
+    ln -sf ~/dotfiles/home/.config/starship.toml ~/.config/starship.toml
 
     # Set Zsh as default shell
     chsh -s /bin/zsh
