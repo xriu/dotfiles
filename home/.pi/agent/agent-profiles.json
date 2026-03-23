@@ -4,8 +4,8 @@
     "hybrid": {
       "description": "Best-of-breed mixed profile: fast Synthetic models for scouting and research, plus Copilot GPT/Codex for planning, implementation, and review.",
       "main": {
-        "provider": "github-copilot",
-        "model": "gpt-5.4",
+        "provider": "synthetic",
+        "model": "hf:moonshotai/Kimi-K2.5",
         "thinkingLevel": "medium"
       },
       "agents": {

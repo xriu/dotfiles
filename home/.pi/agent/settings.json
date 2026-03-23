@@ -1,18 +1,17 @@
 {
-  "lastChangelogVersion": "0.61.1",
-  "packages": [
-    "https://github.com/davebcn87/pi-autoresearch",
-    "npm:@aliou/pi-synthetic",
-    "npm:@plannotator/pi-extension",
-    "npm:pi-bash-live-view",
-    "npm:pi-dashscope",
-    "npm:pi-markdown-preview"
-  ],
-  "extensions": [
-    "~/dotfiles/home/.pi/agent/extensions"
-  ],
-  "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-5.4",
-  "defaultThinkingLevel": "medium",
-  "customProfileFooter": true
+	"lastChangelogVersion": "0.62.0",
+	"packages": [
+		"https://github.com/davebcn87/pi-autoresearch",
+		"npm:@aliou/pi-synthetic",
+		"npm:@plannotator/pi-extension",
+		"npm:pi-bash-live-view",
+		"npm:pi-dashscope",
+		"npm:pi-markdown-preview",
+		"npm:pi-rewind-hook"
+	],
+	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
+	"defaultProvider": "dashscope",
+	"defaultModel": "glm-5",
+	"defaultThinkingLevel": "high",
+	"customProfileFooter": true
 }

@@ -307,6 +307,6 @@
 	"workbench.sideBar.location": "right",
 	"workbench.startupEditor": "none",
 	"workbench.colorTheme": "Dark Modern",
-	"workbench.layoutControl.enabled": false,
-	"chat.viewSessions.orientation": "stacked"
+    "workbench.layoutControl.enabled": false,
+    "chat.viewSessions.orientation": "stacked"
 }
