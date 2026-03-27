@@ -112,7 +112,10 @@
 		"https://github.com/microsoft/vscode/wiki/*": true,
 		"https://*.leapp.cloud": true,
 		"https://*.github.io": true,
-		"https://starship.rs": true
+		"https://starship.rs": true,
+		"https://registry.terraform.io": true,
+		"https://docs.twingate.com": true,
+		"https://www.twingate.com": true
 	},
 	"console-ninja.featureSet": "Community",
 	"cursor.cmdk.useThemedDiffBackground": true,

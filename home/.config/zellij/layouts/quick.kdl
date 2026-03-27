@@ -21,4 +21,7 @@ layout {
   tab name="btop" {
     pane command="btop" borderless=true name="xavier.riu"
   }
+  tab name="dotfiles" {
+    pane cwd="$HOME/dotfiles" borderless=true name="dotfiles"
+  }
 }
