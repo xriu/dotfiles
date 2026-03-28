@@ -14,7 +14,6 @@ This document defines how autonomous agents should operate when contributing to 
 - Remove waste and mismatched abstractions instead of adding new ones.
 - Add only the tests necessary to validate the critical paths you touch.
 - Keep it simple — no speculative abstractions or future-proofing.
-- Ignore `.ai`, `.cursor`, `.git`, and IDE folders (`.vscode`, `.idea`) when analyzing the codebase.
 
 ## Refactor Agent — Runbook
 

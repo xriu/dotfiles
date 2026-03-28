@@ -49,7 +49,6 @@ function brew_setup() {
     brew install --cask beekeeper-studio --force # Database management tool
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask cmux --force # Agents orchestrator
-    brew install --cask cursor --force # Write, edit, and chat about your code with AI
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask droid --force # AI-powered software engineering agent by Factory

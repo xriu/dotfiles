@@ -166,9 +166,6 @@ override.tf.json
 .claude/
 .claude_history
 
-# Cursor
-.cursorignore.local
-
 # Aider
 .aider*
 

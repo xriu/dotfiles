@@ -25,7 +25,6 @@ winget upgrade --include-unknown --all
 winget install -e --id Git.Git
 winget install -e --id Zen-Team.Zen-Browser
 winget install -e --id Microsoft.PowerToys
-winget install -e --id Anysphere.Cursor
 winget install -e --id CPUID.HWMonitor
 winget install -e --id CrystalDewWorld.CrystalDiskInfo
 winget install -e --id Guru3D.Afterburner
