@@ -1,4 +1,5 @@
 {
+	// Language-specific editor overrides.
 	"[astro]": {
 		"editor.defaultFormatter": "astro-build.astro-vscode"
 	},
@@ -67,8 +68,58 @@
 		"editor.defaultFormatter": "biomejs.biome",
 		"editor.formatOnSave": true
 	},
+
+	// AI, chat, and assistant integrations.
 	"amp.tab.enabled": true,
 	"amp.url": "https://ampcode.com/",
+	"chat.instructionsFilesLocations": {
+		".github/instructions": true,
+		".claude/rules": true,
+		"~/.copilot/instructions": true,
+		"~/.claude/rules": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
+	},
+	"chat.tools.urls.autoApprove": {
+		"https://code.visualstudio.com": true,
+		"https://github.com/microsoft/vscode/wiki/*": true,
+		"https://*.leapp.cloud": true,
+		"https://*.github.io": true,
+		"https://starship.rs": true,
+		"https://registry.terraform.io": true,
+		"https://docs.twingate.com": true,
+		"https://www.twingate.com": true
+	},
+	"github.copilot.chat.customOAIModels": {
+		"hf:moonshotai/Kimi-K2-Thinking": {
+			"maxInputTokens": 262144,
+			"maxOutputTokens": 262144,
+			"name": "hf:moonshotai/Kimi-K2-Thinking",
+			"requiresAPIKey": true,
+			"thinking": true,
+			"toolCalling": true,
+			"url": "https://api.synthetic.new/openai/v1",
+			"vision": true
+		},
+		"hf:zai-org/GLM-4.6": {
+			"maxInputTokens": 200000,
+			"maxOutputTokens": 132000,
+			"name": "hf:zai-org/GLM-4.6",
+			"requiresAPIKey": true,
+			"thinking": true,
+			"toolCalling": true,
+			"url": "https://api.synthetic.new/openai/v1",
+			"vision": true
+		}
+	},
+	"github.copilot.editor.enableAutoCompletions": true,
+	"postman.mcp.notifications.postmanMCP": false,
+
+	// Atlassian and cloud integrations.
 	"atlascode.bitbucket.enabled": false,
 	"atlascode.jira.enabled": true,
 	"atlascode.jira.explorer.enabled": true,
@@ -94,29 +145,8 @@
 	"atlascode.jira.todoIssues.triggers": [],
 	"aws.cloudformation.telemetry.enabled": false,
 	"aws.telemetry": false,
-	"breadcrumbs.enabled": false,
-	"chat.instructionsFilesLocations": {
-		".github/instructions": true,
-		".claude/rules": true,
-		"~/.copilot/instructions": true,
-		"~/.claude/rules": true,
-		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
-		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
-		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
-		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
-		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
-		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
-	},
-	"chat.tools.urls.autoApprove": {
-		"https://code.visualstudio.com": true,
-		"https://github.com/microsoft/vscode/wiki/*": true,
-		"https://*.leapp.cloud": true,
-		"https://*.github.io": true,
-		"https://starship.rs": true,
-		"https://registry.terraform.io": true,
-		"https://docs.twingate.com": true,
-		"https://www.twingate.com": true
-	},
+
+	// Extension-specific preferences.
 	"console-ninja.featureSet": "Community",
 	"cursor.cmdk.useThemedDiffBackground": true,
 	"cursor.composer.shouldAllowCustomModes": true,
@@ -130,6 +160,17 @@
 			"languages": ["hcl"]
 		}
 	],
+	"hadolint.cliOptions": [],
+	"kilo-code.allowedCommands": ["git log", "git diff", "git show"],
+	"kilo-code.deniedCommands": [],
+	"quarkus.tools.alwaysShowWelcomePage": false,
+	"vscode_custom_css.imports": [
+		"file://${userHome}/dotfiles/vscode/styles.css"
+	],
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+	// Editor and diff behavior.
+	"breadcrumbs.enabled": false,
 	"diffEditor.ignoreTrimWhitespace": false,
 	"diffEditor.maxComputationTime": 0,
 	"editor.accessibilitySupport": "off",
@@ -161,6 +202,9 @@
 	"editor.suggestSelection": "first",
 	"editor.wordBasedSuggestions": "off",
 	"editor.wordWrap": "on",
+	"prettier.useEditorConfig": false,
+
+	// Explorer and file management.
 	"explorer.confirmDelete": false,
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmPasteNative": false,
@@ -185,6 +229,8 @@
 		"**/.git/objects/**": true,
 		"**/node_modules/**": true
 	},
+
+	// Git and source control workflow.
 	"git.autofetch": true,
 	"git.blame.editorDecoration.enabled": true,
 	"git.blame.statusBarItem.enabled": true,
@@ -192,32 +238,12 @@
 	"git.enableSmartCommit": true,
 	"git.ignoreLimitWarning": true,
 	"git.openRepositoryInParentFolders": "always",
-	"github.copilot.chat.customOAIModels": {
-		"hf:moonshotai/Kimi-K2-Thinking": {
-			"maxInputTokens": 262144,
-			"maxOutputTokens": 262144,
-			"name": "hf:moonshotai/Kimi-K2-Thinking",
-			"requiresAPIKey": true,
-			"thinking": true,
-			"toolCalling": true,
-			"url": "https://api.synthetic.new/openai/v1",
-			"vision": true
-		},
-		"hf:zai-org/GLM-4.6": {
-			"maxInputTokens": 200000,
-			"maxOutputTokens": 132000,
-			"name": "hf:zai-org/GLM-4.6",
-			"requiresAPIKey": true,
-			"thinking": true,
-			"toolCalling": true,
-			"url": "https://api.synthetic.new/openai/v1",
-			"vision": true
-		}
-	},
-	"github.copilot.editor.enableAutoCompletions": true,
+	"git.replaceTagsWhenPull": true,
 	"githubPullRequests.createOnPublishBranch": "never",
 	"githubPullRequests.pullBranch": "never",
-	"hadolint.cliOptions": [],
+	"scm.experimental.showHistoryGraph": true,
+
+	// Language and toolchain integration.
 	"java.configuration.runtimes": [
 		{
 			"default": false,
@@ -242,16 +268,15 @@
 	"java.project.importOnFirstTimeStartup": "automatic",
 	"java.saveActions.organizeImports": true,
 	"javascript.updateImportsOnFileMove.enabled": "always",
-	"kilo-code.allowedCommands": ["git log", "git diff", "git show"],
-	"kilo-code.deniedCommands": [],
-	"postman.mcp.notifications.postmanMCP": false,
-	"prettier.useEditorConfig": false,
 	"python.formatting.autopep8Args": ["--max-line-length=120"],
 	"python.formatting.provider": "autopep8",
 	"python.languageServer": "None",
-	"quarkus.tools.alwaysShowWelcomePage": false,
+	"terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
+	"typescript.referencesCodeLens.enabled": true,
+	"typescript.updateImportsOnFileMove.enabled": "always",
+
+	// Search, telemetry, and update channel.
 	"redhat.telemetry.enabled": false,
-	"scm.experimental.showHistoryGraph": true,
 	"search.exclude": {
 		"**/.git": true,
 		"**/bower_components": true,
@@ -260,6 +285,9 @@
 		"**/tmp": true
 	},
 	"telemetry.telemetryLevel": "off",
+	"update.releaseTrack": "prerelease",
+
+	// Terminal profiles and shell integration.
 	"terminal.external.linuxExec": "Ghostty.app",
 	"terminal.external.osxExec": "Ghostty.app",
 	"terminal.integrated.automationProfile.osx": {
@@ -282,18 +310,13 @@
 	"terminal.integrated.sendKeybindingsToShell": true,
 	"terminal.integrated.shellIntegration.enabled": false,
 	"terminal.integrated.usePreviewBox": true,
-	"terraform.languageServer.terraform.path": "/Users/xavier.riu/bin/terraform",
-	"typescript.referencesCodeLens.enabled": true,
-	"typescript.updateImportsOnFileMove.enabled": "always",
-	"update.releaseTrack": "prerelease",
-	"vscode_custom_css.imports": [
-		"file://${userHome}/dotfiles/vscode/styles.css"
-	],
-	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+	// Window and workbench layout.
 	"window.commandCenter": false,
 	"window.nativeTabs": true,
 	"window.restoreFullscreen": true,
 	"window.titleBarStyle": "native",
+	"workbench.colorTheme": "Dark Modern",
 	"workbench.editor.associations": {
 		"*.ipynb": "jupyter-notebook"
 	},
@@ -305,11 +328,10 @@
 	"workbench.editor.tabSizing": "fit",
 	"workbench.experimental.share.enabled": true,
 	"workbench.iconTheme": "symbols",
+	"workbench.layoutControl.enabled": false,
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
 	"workbench.startupEditor": "none",
-	"workbench.colorTheme": "Dark Modern",
-	"workbench.layoutControl.enabled": false,
 	"chat.viewSessions.orientation": "stacked"
 }
