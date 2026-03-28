@@ -333,5 +333,7 @@
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
 	"workbench.startupEditor": "none",
+
+	// Chat and AI interaction layout.
 	"chat.viewSessions.orientation": "stacked"
 }
