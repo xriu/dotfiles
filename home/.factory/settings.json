@@ -5,7 +5,7 @@
 	"awaitingInputSound": "off",
 	"todoDisplayMode": "pinned",
 	"hasSeenMissionOnboarding": true,
-	"showThinkingInMainView": true,
+	"showThinkingInMainView": false,
 	"enabledPlugins": {
 		"core@factory-plugins": true
 	},
