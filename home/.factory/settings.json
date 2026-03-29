@@ -12,10 +12,7 @@
 	"sessionDefaultSettings": {
 		"model": "custom:GPT-5.4-(copilot)",
 		"reasoningEffort": "high",
-		"autonomyMode": "auto-high",
-		"specModeReasoningEffort": "low",
-		"interactionMode": "auto",
-		"autonomyLevel": "high"
+		"autonomyMode": "spec"
 	},
 	"missionModelSettings": {
 		"workerModel": "custom:GLM-5",
