@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.63.1",
+  "lastChangelogVersion": "0.63.2",
   "packages": [
     "https://github.com/davebcn87/pi-autoresearch",
     "npm:@aliou/pi-synthetic",
