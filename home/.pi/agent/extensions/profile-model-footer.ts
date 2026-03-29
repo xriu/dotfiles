@@ -150,7 +150,7 @@ export default function profileModelFooter(pi: ExtensionAPI) {
 					let statsLeftWidth = visibleWidth(statsLeft);
 
 					// Right margin to prevent text from touching the terminal edge
-					const RIGHT_MARGIN = 1;
+					const RIGHT_MARGIN = 2;
 					const effectiveWidth = width - RIGHT_MARGIN;
 
 					if (statsLeftWidth > effectiveWidth) {
