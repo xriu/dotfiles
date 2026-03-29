@@ -1,18 +1,23 @@
 {
-	"model": "custom-model",
-	"autonomyMode": "spec",
 	"diffMode": "github",
-	"reasoningEffort": "high",
 	"logoAnimation": "off",
 	"completionSound": "off",
 	"awaitingInputSound": "off",
+	"hasSeenMissionOnboarding": true,
 	"showThinkingInMainView": true,
 	"enabledPlugins": {
 		"core@factory-plugins": true
 	},
 	"sessionDefaultSettings": {
-		"model": "custom:GLM-5-5",
-		"reasoningEffort": "high"
+		"model": "custom:GLM-5",
+		"reasoningEffort": "high",
+		"autonomyMode": "spec"
+	},
+	"missionModelSettings": {
+		"workerModel": "custom:GLM-5",
+		"workerReasoningEffort": "none",
+		"validationWorkerModel": "custom:Kimi-K2.5-7",
+		"validationWorkerReasoningEffort": "none"
 	},
 	"customModels": [
 		{
@@ -79,7 +84,7 @@
 		},
 		{
 			"model": "glm-5",
-			"id": "custom:GLM-5-5",
+			"id": "custom:GLM-5",
 			"index": 5,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
