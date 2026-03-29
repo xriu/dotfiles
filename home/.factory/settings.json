@@ -3,6 +3,7 @@
 	"logoAnimation": "off",
 	"completionSound": "off",
 	"awaitingInputSound": "off",
+	"todoDisplayMode": "pinned",
 	"hasSeenMissionOnboarding": true,
 	"showThinkingInMainView": true,
 	"enabledPlugins": {
@@ -11,7 +12,10 @@
 	"sessionDefaultSettings": {
 		"model": "custom:GLM-5",
 		"reasoningEffort": "high",
-		"autonomyMode": "spec"
+		"autonomyMode": "auto-high",
+		"specModeReasoningEffort": "low",
+		"interactionMode": "auto",
+		"autonomyLevel": "high"
 	},
 	"missionModelSettings": {
 		"workerModel": "custom:GLM-5",
@@ -19,11 +23,65 @@
 		"validationWorkerModel": "custom:Kimi-K2.5-7",
 		"validationWorkerReasoningEffort": "none"
 	},
+	"commandAllowlist": [
+		"ls",
+		"pwd",
+		"dir",
+		"git status",
+		"git diff",
+		"git log",
+		"git show",
+		"git blame",
+		"git ls-files"
+	],
+	"commandDenylist": [
+		"rm -rf /",
+		"rm -rf /*",
+		"rm -rf .",
+		"rm -rf ~",
+		"rm -rf ~/*",
+		"rm -rf $HOME",
+		"rm -r /",
+		"rm -r /*",
+		"rm -r ~",
+		"rm -r ~/*",
+		"mkfs",
+		"mkfs.ext4",
+		"mkfs.ext3",
+		"mkfs.vfat",
+		"mkfs.ntfs",
+		"dd if=/dev/zero of=/dev",
+		"dd of=/dev",
+		"shutdown",
+		"reboot",
+		"halt",
+		"poweroff",
+		"init 0",
+		"init 6",
+		":(){ :|: & };:",
+		":() { :|:& };:",
+		"chmod -R 777 /",
+		"chmod -R 000 /",
+		"chown -R",
+		"powershell Remove-Item -Recurse -Force",
+		"Format-Volume",
+		"format.com"
+	],
 	"customModels": [
+		{
+			"model": "gpt-5.4",
+			"id": "custom:GPT-5.4-(copilot)-12",
+			"index": 0,
+			"baseUrl": "http://localhost:8317/v1",
+			"apiKey": "dummy-not-used",
+			"displayName": "GPT-5.4 (copilot)",
+			"noImageSupport": false,
+			"provider": "openai"
+		},
 		{
 			"model": "qwen3.5-plus",
 			"id": "custom:Qwen3.5-Plus-0",
-			"index": 0,
+			"index": 1,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3.5 Plus",
@@ -39,7 +97,7 @@
 		{
 			"model": "qwen3-max-2026-01-23",
 			"id": "custom:Qwen3-Max-2026-01-23-1",
-			"index": 1,
+			"index": 2,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3 Max 2026-01-23",
@@ -49,7 +107,7 @@
 		{
 			"model": "qwen3-coder-next",
 			"id": "custom:Qwen3-Coder-Next-2",
-			"index": 2,
+			"index": 3,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3 Coder Next",
@@ -59,7 +117,7 @@
 		{
 			"model": "qwen3-coder-plus",
 			"id": "custom:Qwen3-Coder-Plus-3",
-			"index": 3,
+			"index": 4,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3 Coder Plus",
@@ -69,7 +127,7 @@
 		{
 			"model": "MiniMax-M2.5",
 			"id": "custom:MiniMax-M2.5-4",
-			"index": 4,
+			"index": 5,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "MiniMax M2.5",
@@ -85,7 +143,7 @@
 		{
 			"model": "glm-5",
 			"id": "custom:GLM-5",
-			"index": 5,
+			"index": 6,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "GLM-5",
@@ -101,7 +159,7 @@
 		{
 			"model": "glm-4.7",
 			"id": "custom:GLM-4.7-6",
-			"index": 6,
+			"index": 7,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "GLM-4.7",
@@ -117,7 +175,7 @@
 		{
 			"model": "kimi-k2.5",
 			"id": "custom:Kimi-K2.5-7",
-			"index": 7,
+			"index": 8,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Kimi K2.5",
