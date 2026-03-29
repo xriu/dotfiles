@@ -23,17 +23,7 @@
 		"validationWorkerModel": "custom:Kimi-K2.5-7",
 		"validationWorkerReasoningEffort": "none"
 	},
-	"commandAllowlist": [
-		"ls",
-		"pwd",
-		"dir",
-		"git status",
-		"git diff",
-		"git log",
-		"git show",
-		"git blame",
-		"git ls-files"
-	],
+	"commandAllowlist": ["ls", "pwd", "dir"],
 	"commandDenylist": [
 		"rm -rf /",
 		"rm -rf /*",
