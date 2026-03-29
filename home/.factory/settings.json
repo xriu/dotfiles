@@ -1,8 +1,15 @@
 {
+	"model": "custom-model",
+	"autonomyMode": "spec",
+	"diffMode": "github",
+	"reasoningEffort": "high",
+	"logoAnimation": "off",
+	"completionSound": "off",
+	"awaitingInputSound": "off",
+	"showThinkingInMainView": true,
 	"enabledPlugins": {
 		"core@factory-plugins": true
 	},
-	"logoAnimation": "off",
 	"sessionDefaultSettings": {
 		"model": "custom:GLM-5-5",
 		"reasoningEffort": "high"
@@ -18,7 +25,7 @@
 			"extraArgs": {
 				"thinking": {
 					"type": "enabled",
-					"budgetTokens": 1024
+					"budgetTokens": 8192
 				}
 			},
 			"noImageSupport": false,
@@ -64,7 +71,7 @@
 			"extraArgs": {
 				"thinking": {
 					"type": "enabled",
-					"budgetTokens": 1024
+					"budgetTokens": 8192
 				}
 			},
 			"noImageSupport": false,
@@ -80,7 +87,7 @@
 			"extraArgs": {
 				"thinking": {
 					"type": "enabled",
-					"budgetTokens": 1024
+					"budgetTokens": 8192
 				}
 			},
 			"noImageSupport": false,
@@ -96,7 +103,7 @@
 			"extraArgs": {
 				"thinking": {
 					"type": "enabled",
-					"budgetTokens": 1024
+					"budgetTokens": 8192
 				}
 			},
 			"noImageSupport": false,
@@ -112,7 +119,7 @@
 			"extraArgs": {
 				"thinking": {
 					"type": "enabled",
-					"budgetTokens": 1024
+					"budgetTokens": 8192
 				}
 			},
 			"noImageSupport": false,
