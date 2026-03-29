@@ -10,15 +10,18 @@
 		"core@factory-plugins": true
 	},
 	"sessionDefaultSettings": {
-		"model": "custom:GLM-5",
+		"model": "custom:GPT-5.4-(copilot)",
 		"reasoningEffort": "high",
-		"autonomyMode": "spec"
+		"autonomyMode": "auto-high",
+		"specModeReasoningEffort": "low",
+		"interactionMode": "auto",
+		"autonomyLevel": "high"
 	},
 	"missionModelSettings": {
 		"workerModel": "custom:GLM-5",
-		"workerReasoningEffort": "none",
+		"workerReasoningEffort": "high",
 		"validationWorkerModel": "custom:Kimi-K2.5-7",
-		"validationWorkerReasoningEffort": "none"
+		"validationWorkerReasoningEffort": "high"
 	},
 	"commandAllowlist": ["ls", "pwd", "dir"],
 	"commandDenylist": [
@@ -54,11 +57,34 @@
 		"Format-Volume",
 		"format.com"
 	],
+	"hooks": {
+		"Notification": [
+			{
+				"matcher": "*",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "open raycast://confetti"
+					}
+				]
+			}
+		]
+	},
 	"customModels": [
 		{
-			"model": "gpt-5.4",
-			"id": "custom:GPT-5.4-(copilot)-12",
+			"model": "claude-opus-4.6",
+			"id": "custom:Claude-Opus-4.6-(copilot)",
 			"index": 0,
+			"baseUrl": "http://localhost:8317/v1",
+			"apiKey": "dummy-not-used",
+			"displayName": "Claude Opus 4.6 (copilot)",
+			"noImageSupport": false,
+			"provider": "openai"
+		},
+		{
+			"model": "gpt-5.4",
+			"id": "custom:GPT-5.4-(copilot)",
+			"index": 1,
 			"baseUrl": "http://localhost:8317/v1",
 			"apiKey": "dummy-not-used",
 			"displayName": "GPT-5.4 (copilot)",
@@ -68,7 +94,7 @@
 		{
 			"model": "qwen3.5-plus",
 			"id": "custom:Qwen3.5-Plus-0",
-			"index": 1,
+			"index": 2,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3.5 Plus",
@@ -84,7 +110,7 @@
 		{
 			"model": "qwen3-max-2026-01-23",
 			"id": "custom:Qwen3-Max-2026-01-23-1",
-			"index": 2,
+			"index": 3,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3 Max 2026-01-23",
@@ -94,7 +120,7 @@
 		{
 			"model": "qwen3-coder-next",
 			"id": "custom:Qwen3-Coder-Next-2",
-			"index": 3,
+			"index": 4,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3 Coder Next",
@@ -104,7 +130,7 @@
 		{
 			"model": "qwen3-coder-plus",
 			"id": "custom:Qwen3-Coder-Plus-3",
-			"index": 4,
+			"index": 5,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3 Coder Plus",
@@ -114,7 +140,7 @@
 		{
 			"model": "MiniMax-M2.5",
 			"id": "custom:MiniMax-M2.5-4",
-			"index": 5,
+			"index": 6,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "MiniMax M2.5",
@@ -130,7 +156,7 @@
 		{
 			"model": "glm-5",
 			"id": "custom:GLM-5",
-			"index": 6,
+			"index": 7,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "GLM-5",
@@ -146,7 +172,7 @@
 		{
 			"model": "glm-4.7",
 			"id": "custom:GLM-4.7-6",
-			"index": 7,
+			"index": 8,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "GLM-4.7",
@@ -162,7 +188,7 @@
 		{
 			"model": "kimi-k2.5",
 			"id": "custom:Kimi-K2.5-7",
-			"index": 8,
+			"index": 9,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Kimi K2.5",
