@@ -6,7 +6,7 @@
       "main": {
         "provider": "synthetic",
         "model": "hf:moonshotai/Kimi-K2.5",
-        "thinkingLevel": "medium"
+        "thinkingLevel": "high"
       },
       "agents": {
         "context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
@@ -23,7 +23,7 @@
       "main": {
         "provider": "dashscope",
         "model": "glm-5",
-        "thinkingLevel": "medium"
+        "thinkingLevel": "high"
       },
       "agents": {
         "context-builder": "dashscope/kimi-k2.5",
@@ -40,7 +40,7 @@
       "main": {
         "provider": "github-copilot",
         "model": "claude-sonnet-4.6",
-        "thinkingLevel": "medium"
+        "thinkingLevel": "high"
       },
       "agents": {
         "context-builder": "github-copilot/claude-sonnet-4.6",
