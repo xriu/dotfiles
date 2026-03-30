@@ -106,6 +106,7 @@ function brew_setup() {
     brew install gemini-cli # Interact with Google Gemini AI models from the command-line
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
+    brew install go # Open source programming language to build simple/reliable/efficient software
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
     brew install grep # GNU grep, egrep and fgrep
     brew install hadolint # Smarter Dockerfile linter to validate best practices
