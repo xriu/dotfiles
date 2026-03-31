@@ -211,3 +211,6 @@ service-account*.json
 # Various tokens
 .netrc
 .npmrc.local
+
+# Custom
+home/.factory/settings.json
