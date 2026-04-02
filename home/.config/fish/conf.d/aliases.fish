@@ -45,7 +45,7 @@ alias bi="brew install"
 alias bu="brew uninstall --zap --force"
 alias bt="brew tap"
 alias btu="brew untap"
-alias update="brew update; brew upgrade; brew cleanup; brew autoremove; pi update; opencode upgrade; rustup-update; npm-update; bun-update; pnpm-update"
+alias update="brew update; brew upgrade; brew cleanup; brew autoremove; pi update; rustup-update; npm-update; bun-update; pnpm-update"
 
 # NPM
 alias npm-update="npm update -g"
