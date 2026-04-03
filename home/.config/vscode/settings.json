@@ -97,6 +97,13 @@
 		"https://docs.twingate.com": true,
 		"https://www.twingate.com": true
 	},
+	"chat.tools.terminal.autoApprove": {
+		"cargo check": true,
+		"cargo init": true,
+		"cargo build": true,
+		"npx astro": true,
+		"bun": true
+	},
 	"github.copilot.chat.customOAIModels": {
 		"hf:moonshotai/Kimi-K2-Thinking": {
 			"maxInputTokens": 262144,
