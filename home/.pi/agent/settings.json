@@ -13,8 +13,8 @@
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
-  "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-5.4",
-  "defaultThinkingLevel": "medium",
+  "defaultProvider": "dashscope",
+  "defaultModel": "glm-5",
+  "defaultThinkingLevel": "high",
   "customProfileFooter": true
 }
