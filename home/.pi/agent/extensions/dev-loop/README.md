@@ -72,14 +72,15 @@ A pi extension implementing an iterative development workflow: plan → build �
 
 ## Prompt Files
 
-Phase prompts are loaded from:
+Phase prompts are loaded from the extension's prompts directory:
 
 ```
-~/.pi/agent/prompts/xplan.md      # Planning phase
-~/.pi/agent/prompts/xbuild.md     # Building phase
-~/.pi/agent/prompts/xdebug.md     # Debugging phase
-~/.pi/agent/prompts/xsimplify.md  # Simplification phase
-~/.pi/agent/prompts/xloop.md      # Loop phase
+~/.pi/agent/extensions/dev-loop/prompts/
+├── xplan.md     # Planning phase
+├── xbuild.md    # Building phase
+├── xdebug.md    # Debugging phase
+├── xsimplify.md # Simplification phase
+└── xloop.md     # Loop phase
 ```
 
 Edit these files to customize phase behavior.
@@ -90,16 +91,15 @@ Files are located at:
 
 ```
 ~/.pi/agent/extensions/dev-loop/
-├── index.ts     # Main extension (13.5KB)
+├── index.ts     # Main extension
 ├── AGENTS.md    # Agent guidance documentation
-└── README.md    # This file
-
-~/.pi/agent/prompts/
-├── xplan.md     # Planning prompt
-├── xbuild.md    # Building prompt
-├── xdebug.md    # Debugging prompt
-├── xsimplify.md # Simplification prompt
-└── xloop.md     # Loop prompt
+├── README.md    # This file
+└── prompts/
+    ├── xplan.md     # Planning prompt
+    ├── xbuild.md    # Building prompt
+    ├── xdebug.md    # Debugging prompt
+    ├── xsimplify.md # Simplification prompt
+    └── xloop.md     # Loop prompt
 ```
 
 ## Usage Example
@@ -193,10 +193,10 @@ Edit the prompt files to change phase behavior:
 
 ```bash
 # Example: Make planning more thorough
-vim ~/.pi/agent/prompts/xplan.md
+vim ~/.pi/agent/extensions/dev-loop/prompts/xplan.md
 
 # Example: Add specific debugging techniques
-vim ~/.pi/agent/prompts/xdebug.md
+vim ~/.pi/agent/extensions/dev-loop/prompts/xdebug.md
 ```
 
 The prompts are loaded at runtime with caching, so changes take effect immediately after `/reload`.

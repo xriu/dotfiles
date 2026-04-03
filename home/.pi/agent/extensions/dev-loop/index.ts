@@ -6,7 +6,7 @@
  *
  * Features:
  * - Workflow phases with specific guidance for each
- * - Prompts loaded from ~/.pi/agent/prompts/ files
+ * - Prompts loaded from extension directory
  * - Status widget showing current phase
  * - Commands to transition between phases
  * - Session persistence
@@ -19,7 +19,6 @@ import type {
 import { Key, truncateToWidth, matchesKey } from "@mariozechner/pi-tui";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { homedir } from "node:os";
 
 // Workflow phases
 type Phase = "idle" | "plan" | "build" | "debug" | "simplify" | "loop";
@@ -74,8 +73,8 @@ const loadPrompt = (phase: Phase): string => {
 		return promptCache[filename];
 	}
 
-	// Load from file
-	const promptsDir = join(homedir(), ".pi", "agent", "prompts");
+	// Load from prompts subdirectory in extension directory
+	const promptsDir = join(__dirname, "prompts");
 	const filePath = join(promptsDir, filename);
 
 	if (existsSync(filePath)) {
