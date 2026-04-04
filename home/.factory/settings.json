@@ -10,7 +10,7 @@
 		"core@factory-plugins": true
 	},
 	"sessionDefaultSettings": {
-		"model": "custom:GPT-5.4-(copilot)",
+		"model": "custom:Kimi-K2.5-7",
 		"reasoningEffort": "high",
 		"autonomyMode": "spec",
 		"specModeReasoningEffort": "xhigh",
@@ -75,7 +75,7 @@
 			"id": "custom:Claude-Opus-4.6-(copilot)",
 			"index": 0,
 			"baseUrl": "http://localhost:8317/v1",
-			"apiKey": "dummy-not-used",
+			"apiKey": "CLI_PROXY_API_KEY",
 			"displayName": "Claude Opus 4.6 (copilot)",
 			"noImageSupport": false,
 			"provider": "openai"
@@ -85,7 +85,7 @@
 			"id": "custom:GPT-5.4-(copilot)",
 			"index": 1,
 			"baseUrl": "http://localhost:8317/v1",
-			"apiKey": "dummy-not-used",
+			"apiKey": "CLI_PROXY_API_KEY",
 			"displayName": "GPT-5.4 (copilot)",
 			"noImageSupport": false,
 			"provider": "openai"
