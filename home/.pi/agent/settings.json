@@ -1,9 +1,9 @@
 {
 	"lastChangelogVersion": "0.65.0",
 	"packages": [
+		"git:github.com/tmustier/pi-extensions",
 		"https://github.com/davebcn87/pi-autoresearch",
 		"npm:@plannotator/pi-extension",
-		"npm:@tmustier/pi-ralph-wiggum",
 		"npm:pi-bash-live-view",
 		"npm:pi-markdown-preview",
 		"npm:pi-rewind-hook",
