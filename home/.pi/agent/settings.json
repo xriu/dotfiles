@@ -1,11 +1,9 @@
 {
-  "lastChangelogVersion": "0.64.0",
+  "lastChangelogVersion": "0.65.0",
   "packages": [
     "https://github.com/davebcn87/pi-autoresearch",
-    "npm:@aliou/pi-synthetic",
     "npm:@plannotator/pi-extension",
     "npm:pi-bash-live-view",
-    "npm:pi-dashscope",
     "npm:pi-markdown-preview",
     "npm:pi-rewind-hook",
     "npm:pi-universal-view"
@@ -13,8 +11,8 @@
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
-  "defaultProvider": "dashscope",
-  "defaultModel": "glm-5",
+  "defaultProvider": "synthetic",
+  "defaultModel": "hf:moonshotai/Kimi-K2.5",
   "defaultThinkingLevel": "high",
   "customProfileFooter": true
 }

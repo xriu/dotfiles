@@ -10,7 +10,7 @@
 		"core@factory-plugins": true
 	},
 	"sessionDefaultSettings": {
-		"model": "custom:GPT-5.4-(copilot)",
+		"model": "custom:Kimi-K2.5",
 		"reasoningEffort": "high",
 		"autonomyMode": "spec",
 		"specModeReasoningEffort": "xhigh",
@@ -19,7 +19,7 @@
 	"missionModelSettings": {
 		"workerModel": "custom:GLM-5",
 		"workerReasoningEffort": "high",
-		"validationWorkerModel": "custom:Kimi-K2.5-7",
+		"validationWorkerModel": "custom:Kimi-K2.5",
 		"validationWorkerReasoningEffort": "high"
 	},
 	"commandAllowlist": ["ls", "pwd", "dir"],
@@ -75,7 +75,7 @@
 			"id": "custom:Claude-Opus-4.6-(copilot)",
 			"index": 0,
 			"baseUrl": "http://localhost:8317/v1",
-			"apiKey": "dummy-not-used",
+			"apiKey": "CLI_PROXY_API_KEY",
 			"displayName": "Claude Opus 4.6 (copilot)",
 			"noImageSupport": false,
 			"provider": "openai"
@@ -85,18 +85,22 @@
 			"id": "custom:GPT-5.4-(copilot)",
 			"index": 1,
 			"baseUrl": "http://localhost:8317/v1",
-			"apiKey": "dummy-not-used",
+			"apiKey": "CLI_PROXY_API_KEY",
 			"displayName": "GPT-5.4 (copilot)",
 			"noImageSupport": false,
 			"provider": "openai"
 		},
 		{
 			"model": "qwen3.5-plus",
-			"id": "custom:Qwen3.5-Plus-0",
+			"id": "custom:Qwen3.5-Plus",
 			"index": 2,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3.5 Plus",
+			"maxContextLimit": 1000000,
+			"enableThinking": true,
+			"thinkingMaxTokens": 8192,
+			"maxOutputTokens": 65536,
 			"extraArgs": {
 				"thinking": {
 					"type": "enabled",
@@ -108,48 +112,58 @@
 		},
 		{
 			"model": "qwen3-max-2026-01-23",
-			"id": "custom:Qwen3-Max-2026-01-23-1",
+			"id": "custom:Qwen3-Max-2026-01-23",
 			"index": 3,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3 Max 2026-01-23",
-			"noImageSupport": false,
+			"maxContextLimit": 262144,
+			"maxOutputTokens": 32768,
+			"noImageSupport": true,
 			"provider": "anthropic"
 		},
 		{
 			"model": "qwen3-coder-next",
-			"id": "custom:Qwen3-Coder-Next-2",
+			"id": "custom:Qwen3-Coder-Next",
 			"index": 4,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3 Coder Next",
-			"noImageSupport": false,
+			"maxContextLimit": 262144,
+			"maxOutputTokens": 65536,
+			"noImageSupport": true,
 			"provider": "anthropic"
 		},
 		{
 			"model": "qwen3-coder-plus",
-			"id": "custom:Qwen3-Coder-Plus-3",
+			"id": "custom:Qwen3-Coder-Plus",
 			"index": 5,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Qwen3 Coder Plus",
-			"noImageSupport": false,
+			"maxContextLimit": 1000000,
+			"maxOutputTokens": 65536,
+			"noImageSupport": true,
 			"provider": "anthropic"
 		},
 		{
 			"model": "MiniMax-M2.5",
-			"id": "custom:MiniMax-M2.5-4",
+			"id": "custom:MiniMax-M2.5",
 			"index": 6,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "MiniMax M2.5",
+			"maxContextLimit": 196608,
+			"enableThinking": true,
+			"thinkingMaxTokens": 8192,
+			"maxOutputTokens": 24576,
 			"extraArgs": {
 				"thinking": {
 					"type": "enabled",
 					"budgetTokens": 8192
 				}
 			},
-			"noImageSupport": false,
+			"noImageSupport": true,
 			"provider": "anthropic"
 		},
 		{
@@ -159,38 +173,50 @@
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "GLM-5",
+			"maxContextLimit": 202752,
+			"enableThinking": true,
+			"thinkingMaxTokens": 8192,
+			"maxOutputTokens": 16384,
 			"extraArgs": {
 				"thinking": {
 					"type": "enabled",
 					"budgetTokens": 8192
 				}
 			},
-			"noImageSupport": false,
+			"noImageSupport": true,
 			"provider": "anthropic"
 		},
 		{
 			"model": "glm-4.7",
-			"id": "custom:GLM-4.7-6",
+			"id": "custom:GLM-4.7",
 			"index": 8,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "GLM-4.7",
+			"maxContextLimit": 202752,
+			"enableThinking": true,
+			"thinkingMaxTokens": 8192,
+			"maxOutputTokens": 16384,
 			"extraArgs": {
 				"thinking": {
 					"type": "enabled",
 					"budgetTokens": 8192
 				}
 			},
-			"noImageSupport": false,
+			"noImageSupport": true,
 			"provider": "anthropic"
 		},
 		{
 			"model": "kimi-k2.5",
-			"id": "custom:Kimi-K2.5-7",
+			"id": "custom:Kimi-K2.5",
 			"index": 9,
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"apiKey": "${ALIBABA_API_KEY}",
 			"displayName": "Kimi K2.5",
+			"maxContextLimit": 262144,
+			"enableThinking": true,
+			"thinkingMaxTokens": 8192,
+			"maxOutputTokens": 32768,
 			"extraArgs": {
 				"thinking": {
 					"type": "enabled",
