@@ -11,8 +11,8 @@
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
-  "defaultProvider": "synthetic",
-  "defaultModel": "hf:moonshotai/Kimi-K2.5",
+  "defaultProvider": "alibaba",
+  "defaultModel": "glm-5",
   "defaultThinkingLevel": "high",
   "customProfileFooter": true
 }
