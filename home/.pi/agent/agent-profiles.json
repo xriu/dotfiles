@@ -21,18 +21,18 @@
     "alibaba": {
       "description": "DashScope-first profile using MiniMax for scouting, GLM-5 for planning and implementation, and Kimi K2.5 for review and visual tasks.",
       "main": {
-        "provider": "dashscope",
+        "provider": "alibaba",
         "model": "glm-5",
         "thinkingLevel": "high"
       },
       "agents": {
-        "context-builder": "dashscope/kimi-k2.5",
-        "delegate": "dashscope/kimi-k2.5",
-        "researcher": "dashscope/glm-5",
-        "scout": "dashscope/kimi-k2.5",
-        "planner": "dashscope/glm-5",
-        "reviewer": "dashscope/kimi-k2.5",
-        "worker": "dashscope/glm-5"
+        "context-builder": "alibaba/kimi-k2.5",
+        "delegate": "alibaba/kimi-k2.5",
+        "researcher": "alibaba/glm-5",
+        "scout": "alibaba/kimi-k2.5",
+        "planner": "alibaba/glm-5",
+        "reviewer": "alibaba/kimi-k2.5",
+        "worker": "alibaba/glm-5"
       }
     },
     "max": {
