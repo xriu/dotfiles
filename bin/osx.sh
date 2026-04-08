@@ -83,6 +83,7 @@ function brew_setup() {
     # brew install zsh # UNIX shell (command interpreter)
     # brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
 
+    brew install act # Run your GitHub Actions locally
     brew install agent-browser # Browser automation CLI for AI agents
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
