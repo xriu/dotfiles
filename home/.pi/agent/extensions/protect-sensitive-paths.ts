@@ -23,7 +23,6 @@ export default function (pi: ExtensionAPI) {
 
 	const blockedReadRoots = [
 		".env",
-		"config.toml",
 		".git-credentials",
 		".npmrc",
 		"secrets",
@@ -44,7 +43,6 @@ export default function (pi: ExtensionAPI) {
 
 	const bashSensitivePatterns = [
 		/(^|\s)(cat|less|more|head|tail|grep|rg|sed|awk|find|ls|cp|mv)\s+.*(^|\s)(\.env(\.[^\s/]+)?)(\s|$)/,
-		/(^|\s)(cat|less|more|head|tail|grep|rg|sed|awk|find|ls|cp|mv)\s+.*(^|\s)(config\.toml)(\s|$)/,
 		/(^|\s)(cat|less|more|head|tail|grep|rg|sed|awk|find|ls|cp|mv)\s+.*(~\/\.ssh|\$HOME\/\.ssh|\/\.ssh\/)/,
 		/(^|\s)(cat|less|more|head|tail|grep|rg|sed|awk|find|ls|cp|mv)\s+.*(~\/\.aws|\$HOME\/\.aws|\/\.aws\/)/,
 		/(^|\s)(cat|less|more|head|tail|grep|rg|sed|awk|find|ls|cp|mv)\s+.*(~\/\.gnupg|\$HOME\/\.gnupg|\/\.gnupg\/)/,
@@ -88,7 +86,6 @@ export default function (pi: ExtensionAPI) {
 
 		const name = basename(target);
 		if (name === ".env" || name.startsWith(".env.")) return true;
-		if (name === "config.toml") return true;
 		if (blockedExtensions.some((ext) => name.endsWith(ext))) return true;
 
 		const roots = mode === "read" ? blockedReadRoots : blockedWriteRoots;
