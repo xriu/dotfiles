@@ -6,6 +6,14 @@
 			"apiKey": "ALIBABA_API_KEY",
 			"models": [
 				{
+					"id": "qwen3.6-plus",
+					"name": "Qwen3.6 Plus",
+					"reasoning": true,
+					"input": ["text", "image"],
+					"contextWindow": 1000000,
+					"maxTokens": 65536
+				},
+				{
 					"id": "qwen3.5-plus",
 					"name": "Qwen3.5 Plus",
 					"reasoning": true,

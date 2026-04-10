@@ -1,16 +1,18 @@
 {
-	"lastChangelogVersion": "0.65.2",
-	"packages": [
-		"https://github.com/davebcn87/pi-autoresearch",
-		"npm:@plannotator/pi-extension",
-		"npm:pi-bash-live-view",
-		"npm:pi-markdown-preview",
-		"npm:pi-rewind-hook",
-		"npm:pi-universal-view"
-	],
-	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "alibaba",
-	"defaultModel": "glm-5",
-	"defaultThinkingLevel": "high",
-	"customProfileFooter": true
+  "lastChangelogVersion": "0.66.0",
+  "packages": [
+    "https://github.com/davebcn87/pi-autoresearch",
+    "npm:@plannotator/pi-extension",
+    "npm:pi-bash-live-view",
+    "npm:pi-markdown-preview",
+    "npm:pi-rewind-hook",
+    "npm:pi-universal-view"
+  ],
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "defaultProvider": "alibaba",
+  "defaultModel": "glm-5",
+  "defaultThinkingLevel": "high",
+  "customProfileFooter": true
 }

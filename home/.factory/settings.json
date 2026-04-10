@@ -91,6 +91,26 @@
 			"provider": "openai"
 		},
 		{
+			"model": "qwen3.6-plus",
+			"id": "custom:Qwen3.6-Plus",
+			"index": 2,
+			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
+			"apiKey": "${ALIBABA_API_KEY}",
+			"displayName": "Qwen3.6 Plus",
+			"maxContextLimit": 1000000,
+			"enableThinking": true,
+			"thinkingMaxTokens": 8192,
+			"maxOutputTokens": 65536,
+			"extraArgs": {
+				"thinking": {
+					"type": "enabled",
+					"budgetTokens": 8192
+				}
+			},
+			"noImageSupport": false,
+			"provider": "anthropic"
+		},
+		{
 			"model": "qwen3.5-plus",
 			"id": "custom:Qwen3.5-Plus",
 			"index": 2,
