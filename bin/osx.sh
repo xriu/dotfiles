@@ -134,6 +134,7 @@ function brew_setup() {
     brew install rust # Safe, concurrent, practical language
     brew install rustscan # Modern port scanner
     brew install rustup # Rust toolchain installer
+    brew install sentry-cli # Sentry command-line interface
     brew install serverless # Build applications with serverless architectures
     brew install starship # The cross-shell prompt for astronauts
     brew install steipete/tap/codexbar # Menu bar usage monitor for Codex and Claude
