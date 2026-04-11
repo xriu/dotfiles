@@ -10,7 +10,7 @@
 		"core@factory-plugins": true
 	},
 	"sessionDefaultSettings": {
-		"model": "custom:Kimi-K2.5",
+		"model": "custom:GLM-5",
 		"reasoningEffort": "high",
 		"autonomyMode": "spec",
 		"specModeReasoningEffort": "xhigh",
@@ -19,7 +19,7 @@
 	"missionModelSettings": {
 		"workerModel": "custom:GLM-5",
 		"workerReasoningEffort": "high",
-		"validationWorkerModel": "custom:Kimi-K2.5",
+		"validationWorkerModel": "custom:GLM-5",
 		"validationWorkerReasoningEffort": "high"
 	},
 	"commandAllowlist": ["ls", "pwd", "dir"],
