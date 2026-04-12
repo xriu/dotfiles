@@ -4,8 +4,12 @@
 		"https://github.com/barapa/pi-review-loop.git",
 		"https://github.com/davebcn87/pi-autoresearch",
 		"npm:@plannotator/pi-extension",
+		"npm:pi-bash-live-view",
+		"npm:pi-interactive-shell",
 		"npm:pi-interview",
-		"npm:pi-rewind-hook"
+		"npm:pi-markdown-preview",
+		"npm:pi-rewind-hook",
+		"npm:pi-universal-view"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
 	"defaultProvider": "alibaba",
