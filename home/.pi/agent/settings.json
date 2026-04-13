@@ -1,15 +1,17 @@
 {
-	"lastChangelogVersion": "0.66.1",
-	"packages": [
-		"https://github.com/barapa/pi-review-loop.git",
-		"https://github.com/davebcn87/pi-autoresearch",
-		"npm:@plannotator/pi-extension",
-		"npm:pi-interview",
-		"npm:pi-rewind-hook"
-	],
-	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "alibaba",
-	"defaultModel": "glm-5",
-	"defaultThinkingLevel": "high",
-	"customProfileFooter": true
+  "lastChangelogVersion": "0.66.1",
+  "packages": [
+    "https://github.com/barapa/pi-review-loop.git",
+    "https://github.com/davebcn87/pi-autoresearch",
+    "npm:@plannotator/pi-extension",
+    "npm:pi-interview",
+    "npm:pi-rewind-hook"
+  ],
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "defaultProvider": "alibaba",
+  "defaultModel": "glm-5",
+  "defaultThinkingLevel": "high",
+  "customProfileFooter": true
 }
