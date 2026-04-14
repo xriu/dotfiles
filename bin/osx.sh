@@ -50,6 +50,7 @@ function brew_setup() {
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask beekeeper-studio --force # Database management tool
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
+    brew install --cask claude --force # Anthropic's official Claude AI desktop app
     brew install --cask cmux --force # Agents orchestrator
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
