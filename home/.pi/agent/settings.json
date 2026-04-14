@@ -11,7 +11,7 @@
   ],
   "defaultProvider": "github-copilot",
   "defaultModel": "gpt-5.4",
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "high",
   "customProfileFooter": true,
   "treeFilterMode": "default",
   "theme": "dark"
