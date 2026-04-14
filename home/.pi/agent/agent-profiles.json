@@ -39,7 +39,7 @@
 			"description": "Closest match to the official pi-subagents built-in defaults, translated to GitHub Copilot model IDs from `pi list models`.",
 			"main": {
 				"provider": "github-copilot",
-				"model": "claude-sonnet-4.6",
+				"model": "claude-opus-4.6",
 				"thinkingLevel": "high"
 			},
 			"agents": {
@@ -57,7 +57,7 @@
 			"main": {
 				"provider": "github-copilot",
 				"model": "gpt-5.4",
-				"thinkingLevel": "medium"
+				"thinkingLevel": "high"
 			},
 			"agents": {
 				"context-builder": "github-copilot/gpt-5.4",
