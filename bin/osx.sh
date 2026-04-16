@@ -50,6 +50,7 @@ function brew_setup() {
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask beekeeper-studio --force # Database management tool
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
+    brew install --cask claude --force # Anthropic's official Claude AI desktop app
     brew install --cask cmux --force # Agents orchestrator
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
@@ -71,6 +72,7 @@ function brew_setup() {
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask twingate --force # Secure network access to cloud resources
+    brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
     brew install --cask windows-app --force # Windows app for macOS
 
     # brew install atuin # Magical shell history
@@ -108,6 +110,8 @@ function brew_setup() {
     brew install gemini-cli # Interact with Google Gemini AI models from the command-line
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
+    brew install git-delta # A syntax-highlighting pager for git and diff output
+    brew install glow # Terminal markdown reader designed for developers
     brew install go # Open source programming language to build simple/reliable/efficient software
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
     brew install grep # GNU grep, egrep and fgrep
@@ -132,6 +136,7 @@ function brew_setup() {
     brew install rust # Safe, concurrent, practical language
     brew install rustscan # Modern port scanner
     brew install rustup # Rust toolchain installer
+    brew install sentry-cli # Sentry command-line interface
     brew install serverless # Build applications with serverless architectures
     brew install starship # The cross-shell prompt for astronauts
     brew install steipete/tap/codexbar # Menu bar usage monitor for Codex and Claude

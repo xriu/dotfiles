@@ -29,6 +29,9 @@ fish_add_path $HOME/.local/share/fnm
 fish_add_path $HOME/.local/share/fnm/node-versions/v24.13.0/installation/bin
 fish_add_path "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
 
+# Ensure cargo/rustup takes precedence over Homebrew's rust
+set -gx PATH $HOME/.cargo/bin $PATH
+
 # Check if we're in an interactive shell
 if status is-interactive
     # 1. Define config but don't force export every time if not needed

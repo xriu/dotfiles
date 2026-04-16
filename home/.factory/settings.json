@@ -10,7 +10,7 @@
 		"core@factory-plugins": true
 	},
 	"sessionDefaultSettings": {
-		"model": "custom:Kimi-K2.5",
+		"model": "custom:GLM-5",
 		"reasoningEffort": "high",
 		"autonomyMode": "spec",
 		"specModeReasoningEffort": "xhigh",
@@ -19,7 +19,7 @@
 	"missionModelSettings": {
 		"workerModel": "custom:GLM-5",
 		"workerReasoningEffort": "high",
-		"validationWorkerModel": "custom:Kimi-K2.5",
+		"validationWorkerModel": "custom:GLM-5",
 		"validationWorkerReasoningEffort": "high"
 	},
 	"commandAllowlist": ["ls", "pwd", "dir"],
@@ -89,6 +89,26 @@
 			"displayName": "GPT-5.4 (copilot)",
 			"noImageSupport": false,
 			"provider": "openai"
+		},
+		{
+			"model": "qwen3.6-plus",
+			"id": "custom:Qwen3.6-Plus",
+			"index": 2,
+			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
+			"apiKey": "${ALIBABA_API_KEY}",
+			"displayName": "Qwen3.6 Plus",
+			"maxContextLimit": 1000000,
+			"enableThinking": true,
+			"thinkingMaxTokens": 8192,
+			"maxOutputTokens": 65536,
+			"extraArgs": {
+				"thinking": {
+					"type": "enabled",
+					"budgetTokens": 8192
+				}
+			},
+			"noImageSupport": false,
+			"provider": "anthropic"
 		},
 		{
 			"model": "qwen3.5-plus",

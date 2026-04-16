@@ -36,12 +36,15 @@
 		"editor.formatOnSave": false
 	},
 	"[json]": {
-		"editor.defaultFormatter": "biomejs.biome"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[jsonc]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[skill]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[python]": {
@@ -342,6 +345,5 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none",
-    "chat.viewSessions.orientation": "stacked"
+    "workbench.startupEditor": "none"
 }
