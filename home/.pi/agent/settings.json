@@ -3,6 +3,7 @@
 	"packages": [
 		"https://github.com/davebcn87/pi-autoresearch",
 		"npm:@plannotator/pi-extension",
+		"npm:pi-interview",
 		"npm:pi-review-loop",
 		"npm:pi-rewind-hook"
 	],
