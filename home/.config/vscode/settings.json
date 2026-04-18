@@ -343,7 +343,8 @@
 	"workbench.iconTheme": "symbols",
 	"workbench.layoutControl.enabled": false,
 	"workbench.panel.showLabels": false,
-	"workbench.secondarySideBar.defaultVisibility": "visible",
-	"workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none"
+    "workbench.secondarySideBar.defaultVisibility": "visible",
+    "workbench.startupEditor": "none",
+    "workbench.sideBar.location": "right",
+    "chat.viewSessions.orientation": "stacked"
 }
