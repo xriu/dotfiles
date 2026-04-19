@@ -1,19 +1,35 @@
 {
-  "lastChangelogVersion": "0.67.6",
-  "packages": [
-    "https://github.com/davebcn87/pi-autoresearch",
-    "npm:@plannotator/pi-extension",
-    "npm:pi-interview",
-    "npm:pi-review-loop",
-    "npm:pi-rewind-hook"
-  ],
-  "extensions": [
-    "~/dotfiles/home/.pi/agent/extensions"
-  ],
-  "defaultProvider": "alibaba",
-  "defaultModel": "glm-5",
-  "defaultThinkingLevel": "high",
-  "customProfileFooter": true,
-  "treeFilterMode": "default",
-  "theme": "dark"
+	"lastChangelogVersion": "0.67.68",
+	"packages": [
+		"https://github.com/davebcn87/pi-autoresearch",
+		"npm:@plannotator/pi-extension",
+		"npm:pi-interview",
+		"npm:pi-review-loop",
+		"npm:pi-rewind-hook"
+	],
+	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
+	"defaultProvider": "alibaba",
+	"defaultModel": "glm-5",
+	"defaultThinkingLevel": "high",
+	"customProfileFooter": true,
+	"treeFilterMode": "default",
+	"theme": "dark",
+	"reviewerLoop": {
+		"maxIterations": 7,
+		"autoTrigger": true,
+		"freshContext": true,
+		"reviewPrompt": "template:double-check",
+		"triggerPatterns": {
+			"mode": "extend",
+			"patterns": ["execute the plan"]
+		},
+		"exitPatterns": {
+			"mode": "extend",
+			"patterns": ["ship it", "ready to merge"]
+		},
+		"issuesFixedPatterns": {
+			"mode": "extend",
+			"patterns": ["addressed the following"]
+		}
+	}
 }
