@@ -1,5 +1,8 @@
 {
 	"lastChangelogVersion": "0.67.68",
+	"compaction": {
+		"reserveTokens": 20000
+	},
 	"packages": [
 		"https://github.com/davebcn87/pi-autoresearch",
 		"npm:@plannotator/pi-extension",
