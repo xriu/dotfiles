@@ -69,7 +69,7 @@
         "worker": "github-copilot/gpt-5.3-codex"
       }
     },
-    "medium": {
+    "low": {
       "description": "Balanced Copilot profile for everyday work: mostly GPT-5.4 Mini, with Codex reserved for implementation.",
       "main": {
         "provider": "github-copilot",
@@ -84,23 +84,6 @@
         "planner": "github-copilot/gpt-5.4-mini",
         "reviewer": "github-copilot/gpt-5.4-mini",
         "worker": "github-copilot/gpt-5.1-codex"
-      }
-    },
-    "low": {
-      "description": "Low-cost Copilot profile for routine tasks, using mini models broadly and Codex Mini for coding.",
-      "main": {
-        "provider": "github-copilot",
-        "model": "gpt-5.4-mini",
-        "thinkingLevel": "minimal"
-      },
-      "agents": {
-        "context-builder": "github-copilot/gpt-5-mini",
-        "delegate": "github-copilot/gpt-5.4-mini",
-        "researcher": "github-copilot/gpt-5-mini",
-        "scout": "github-copilot/gpt-5.4-mini",
-        "planner": "github-copilot/gpt-5-mini",
-        "reviewer": "github-copilot/gpt-5-mini",
-        "worker": "github-copilot/gpt-5.1-codex-mini"
       }
     }
   }
