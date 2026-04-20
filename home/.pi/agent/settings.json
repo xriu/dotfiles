@@ -13,8 +13,8 @@
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
-  "defaultProvider": "alibaba",
-  "defaultModel": "glm-5",
+  "defaultProvider": "synthetic",
+  "defaultModel": "hf:zai-org/GLM-5.1",
   "defaultThinkingLevel": "high",
   "customProfileFooter": true,
   "treeFilterMode": "default",
