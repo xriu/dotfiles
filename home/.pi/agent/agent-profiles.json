@@ -11,11 +11,11 @@
       "agents": {
         "context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
         "delegate": "synthetic/hf:moonshotai/Kimi-K2.5",
-        "researcher": "synthetic/hf:zai-org/GLM-5",
+        "researcher": "synthetic/hf:zai-org/GLM-5.1",
         "scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
-        "planner": "synthetic/hf:zai-org/GLM-5",
+        "planner": "synthetic/hf:zai-org/GLM-5.1",
         "reviewer": "synthetic/hf:moonshotai/Kimi-K2.5",
-        "worker": "synthetic/hf:zai-org/GLM-5"
+        "worker": "synthetic/hf:zai-org/GLM-5.1"
       }
     },
     "alibaba": {
