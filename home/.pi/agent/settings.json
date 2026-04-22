@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.67.68",
+  "lastChangelogVersion": "0.68.0",
   "compaction": {
     "reserveTokens": 20000
   },
@@ -14,8 +14,8 @@
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
-  "defaultProvider": "synthetic",
-  "defaultModel": "hf:zai-org/GLM-5.1",
+  "defaultProvider": "alibaba",
+  "defaultModel": "glm-5",
   "defaultThinkingLevel": "high",
   "customProfileFooter": true,
   "treeFilterMode": "default",
