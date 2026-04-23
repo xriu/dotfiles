@@ -36,7 +36,7 @@
 		"editor.formatOnSave": false
 	},
 	"[json]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "biomejs.biome"
 	},
 	"[jsonc]": {
 		"editor.defaultFormatter": "biomejs.biome"
@@ -79,17 +79,17 @@
 	"amp.tab.enabled": true,
 	"amp.url": "https://ampcode.com/",
 	"chat.instructionsFilesLocations": {
-        ".github/instructions": true,
-        ".claude/rules": true,
-        "~/.copilot/instructions": true,
-        "~/.claude/rules": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
-    },
+		".github/instructions": true,
+		".claude/rules": true,
+		"~/.copilot/instructions": true,
+		"~/.claude/rules": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
+	},
 	"chat.tools.urls.autoApprove": {
 		"https://code.visualstudio.com": true,
 		"https://github.com/microsoft/vscode/wiki/*": true,
@@ -343,7 +343,8 @@
 	"workbench.iconTheme": "symbols",
 	"workbench.layoutControl.enabled": false,
 	"workbench.panel.showLabels": false,
-    "workbench.secondarySideBar.defaultVisibility": "visible",
-    "workbench.startupEditor": "none",
-    "workbench.sideBar.location": "right"
+	"workbench.secondarySideBar.defaultVisibility": "visible",
+	"workbench.startupEditor": "none",
+	"workbench.sideBar.location": "right",
+	"chat.viewSessions.orientation": "stacked"
 }
