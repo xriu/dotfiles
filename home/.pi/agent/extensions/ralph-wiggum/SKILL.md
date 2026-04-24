@@ -49,18 +49,22 @@ Press ESC to interrupt streaming, send a normal message to resume, and run `/ral
 Brief description.
 
 ## Goals
+
 - Goal 1
 - Goal 2
 
 ## Checklist
+
 - [ ] Item 1
 - [ ] Item 2
 - [x] Completed item
 
 ## Verification
+
 - Evidence, commands run, or file paths
 
 ## Notes
+
 (Update with progress, decisions, blockers)
 ```
 

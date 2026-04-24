@@ -1,0 +1,10 @@
+name: dotfiles
+icon: null
+processes:
+  List:
+    command: reset; ll; sleep 14400
+    working_dir: null
+    auto_start: false
+    auto_restart: false
+    restart_when_changed: []
+    env: {}

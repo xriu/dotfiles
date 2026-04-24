@@ -5,17 +5,17 @@
 			"description": "Best-of-breed mixed profile: fast Synthetic models for scouting and research, plus Copilot GPT/Codex for planning, implementation, and review.",
 			"main": {
 				"provider": "synthetic",
-				"model": "hf:zai-org/GLM-5",
+				"model": "hf:zai-org/GLM-5.1",
 				"thinkingLevel": "high"
 			},
 			"agents": {
 				"context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
 				"delegate": "synthetic/hf:moonshotai/Kimi-K2.5",
-				"researcher": "synthetic/hf:zai-org/GLM-5",
+				"researcher": "synthetic/hf:zai-org/GLM-5.1",
 				"scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
-				"planner": "synthetic/hf:zai-org/GLM-5",
+				"planner": "synthetic/hf:zai-org/GLM-5.1",
 				"reviewer": "synthetic/hf:moonshotai/Kimi-K2.5",
-				"worker": "synthetic/hf:zai-org/GLM-5"
+				"worker": "synthetic/hf:zai-org/GLM-5.1"
 			}
 		},
 		"alibaba": {
@@ -69,7 +69,7 @@
 				"worker": "github-copilot/gpt-5.3-codex"
 			}
 		},
-		"medium": {
+		"low": {
 			"description": "Balanced Copilot profile for everyday work: mostly GPT-5.4 Mini, with Codex reserved for implementation.",
 			"main": {
 				"provider": "github-copilot",
@@ -84,23 +84,6 @@
 				"planner": "github-copilot/gpt-5.4-mini",
 				"reviewer": "github-copilot/gpt-5.4-mini",
 				"worker": "github-copilot/gpt-5.1-codex"
-			}
-		},
-		"low": {
-			"description": "Low-cost Copilot profile for routine tasks, using mini models broadly and Codex Mini for coding.",
-			"main": {
-				"provider": "github-copilot",
-				"model": "gpt-5.4-mini",
-				"thinkingLevel": "minimal"
-			},
-			"agents": {
-				"context-builder": "github-copilot/gpt-5-mini",
-				"delegate": "github-copilot/gpt-5.4-mini",
-				"researcher": "github-copilot/gpt-5-mini",
-				"scout": "github-copilot/gpt-5.4-mini",
-				"planner": "github-copilot/gpt-5-mini",
-				"reviewer": "github-copilot/gpt-5-mini",
-				"worker": "github-copilot/gpt-5.1-codex-mini"
 			}
 		}
 	}

@@ -39,7 +39,7 @@ if status is-interactive
 
     # 2. Only run if NOT already in Zellij AND NOT in a CMUX-managed task
     # This prevents the infinite loop and CMUX conflicts
-    if not set -q ZELLIJ; and not set -q CMUX_SOCKET_PATH
+    if not set -q ZELLIJ; and not set -q CMUX_SOCKET_PATH; and not set -q SOLO_PROCESS_ID
 
         # 3. Use a broader check or remove the Ghostty-only restriction
         # if you want Zellij everywhere.

@@ -965,8 +965,15 @@ Examples:
 		// This allows user's "stop" message to be processed first
 	});
 
+	// Restore currentLoop from persisted state after session reload (e.g., compaction)
 	pi.on("session_start", async (_event, ctx) => {
 		const active = listLoops(ctx).filter((l) => l.status === "active");
+		
+		// Restore currentLoop if there's exactly one active loop
+		if (active.length === 1 && !currentLoop) {
+			currentLoop = active[0].name;
+		}
+		
 		if (active.length > 0 && ctx.hasUI) {
 			const lines = active.map(
 				(l) =>
@@ -978,6 +985,56 @@ Examples:
 			);
 		}
 		updateUI(ctx);
+	});
+
+	// Ensure loop state is persisted before compaction and restore continuation after
+	pi.on("session_before_compact", async (_event, ctx) => {
+		if (!currentLoop) return;
+		const state = loadState(ctx, currentLoop);
+		if (!state || state.status !== "active") return;
+
+		// Force save state to disk so it survives session reload
+		saveState(ctx, state);
+		
+		if (ctx.hasUI) {
+			ctx.ui.notify(
+				`Preserving Ralph loop state before compaction: ${currentLoop}`,
+				"info",
+			);
+		}
+	});
+
+	// After compaction, re-queue the next iteration to continue the loop
+	pi.on("session_compact", async (_event, ctx) => {
+		if (!currentLoop) return;
+		const state = loadState(ctx, currentLoop);
+		if (!state || state.status !== "active") return;
+
+		// Check if there's already a pending message (avoid double-queue)
+		if (ctx.hasPendingMessages()) return;
+
+		const content = tryRead(path.resolve(ctx.cwd, state.taskFile));
+		if (!content) {
+			pauseLoop(ctx, state, `Could not read task file after compaction: ${state.taskFile}`);
+			return;
+		}
+
+		// Re-queue the iteration prompt to continue the loop
+		const needsReflection =
+			state.reflectEvery > 0 &&
+			(state.iteration - 1) % state.reflectEvery === 0;
+
+		pi.sendUserMessage(buildPrompt(state, content, needsReflection), {
+			deliverAs: "followUp",
+			triggerTurn: true,
+		});
+
+		if (ctx.hasUI) {
+			ctx.ui.notify(
+				`Ralph loop resumed after compaction: ${currentLoop} (iteration ${state.iteration})`,
+				"info",
+			);
+		}
 	});
 
 	pi.on("session_shutdown", async (_event, ctx) => {
