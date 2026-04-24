@@ -1,0 +1,15 @@
+{
+  "model": "sonnet[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/xavier.riu/dotfiles/home/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "ralph-loop@claude-plugins-official": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(/Users/xavier.riu/.claude/plugins/cache/claude-plugins-official/ralph-loop/1.0.0/scripts/setup-ralph-loop.sh)"
+    ]
+  }
+}
