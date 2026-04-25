@@ -14,7 +14,7 @@
 	"defaultThinkingLevel": "high",
 	"customProfileFooter": true,
 	"treeFilterMode": "default",
-	"theme": "dark",
+	"theme": "light",
 	"reviewerLoop": {
 		"maxIterations": 7,
 		"autoTrigger": true,

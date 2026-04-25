@@ -20,7 +20,7 @@ Available help topics: `timers`, `coordination`, `solo.yml`
 
 ## Tool Reference
 
-### Projectss
+### Projects
 
 | Tool | Description |
 |------|-------------|
@@ -49,7 +49,7 @@ Run, monitor, and control child processes and agents.
 
 ### Timers
 
-Schedule one-shot or recurring work. When a timer fires, its `body` is injected into the owning agent's conversation as a fresh user turn.
+Schedule one-shot or recurring work. When a timer fires, Solo injects the `body` into the owning agent's conversation as a **fresh user turn** (e.g. `[Solo timer #4] your body text`). You do NOT need to poll or busy-loop — Solo wakes you up.
 
 | Tool | Description |
 |------|-------------|
@@ -62,10 +62,7 @@ Schedule one-shot or recurring work. When a timer fires, its `body` is injected 
 | `timer_fire_when_idle_any(processes, max_wait_ms, body)` | Fire when ANY of the listed processes go idle |
 | `timer_fire_when_idle_all(processes, max_wait_ms, body)` | Fire when ALL of the listed processes go idle |
 
-**Patterns:**
-- Periodic check-ins: `timer_set(120000, "check agent progress", loop=true)`
-- Wait for worker to finish: `timer_fire_when_idle_any([pid], 600000, "Worker went idle, check results")`
-- Cancel timers when monitored work is done
+**Important:** Write `body` as actionable instructions — include which tools to call and what to check. The agent receiving the timer may have lost context.
 
 **Note:** Idle-triggered timers only support running Solo terminals and Solo agents that expose Solo runtime idle state.
 
@@ -177,3 +174,222 @@ timer_set(120000, "Check all worker progress and report status", loop=true)
 
 - Use `wait_for_bound_port` for services that listen on a port
 - Use `timer_fire_when_idle_any` for worker processes that will eventually go idle
+
+## Examples
+
+### Todos: Task Pipeline with Dependencies
+
+Create a chain of tasks where each step blocks the next:
+
+```
+# 1. Create the tasks
+todo_create(title="Research zsh plugin options",
+  body="Compare zinit vs antidote vs sheldon. Check startup time benchmarks.",
+  priority="high", tags=["research", "zsh"])
+→ returns id=3
+
+todo_create(title="Migrate zsh plugins to new manager",
+  body="Based on research, migrate all plugins. Update .zshrc.",
+  priority="high", tags=["implementation", "zsh"])
+→ returns id=4
+
+todo_create(title="Test shell startup time",
+  body="Measure before and after. Target: under 200ms.",
+  priority="medium", tags=["testing", "zsh"])
+→ returns id=5
+
+# 2. Set up the dependency chain: research → migrate → test
+todo_add_blocker(todo_id=4, blocker_id=3)   # migrate blocked by research
+todo_add_blocker(todo_id=5, blocker_id=4)   # test blocked by migrate
+
+# 3. Add progress notes as comments
+todo_comment(todo_id=3, body="zinit loads 47 plugins in ~80ms. Sheldon is newer but promising.")
+todo_comment(todo_id=3, body="antidote is pure-zsh, no binary deps. Better for dotfiles portability.")
+
+# 4. Claim a task, work on it, complete it
+todo_lock(todo_id=3)         # claim exclusive ownership
+# ... do the research ...
+todo_complete(todo_id=3)     # marks done, unblocks todo #4
+
+# 5. Hand off the next task to another agent
+todo_transfer(todo_id=4, to_agent="impl-agent")
+```
+
+### Scratchpads: Sharing Context Between Agents
+
+Use scratchpads as shared documents that agents read and write:
+
+```
+# Agent A writes research findings
+scratchpad_write(name="zsh-plugin-research", content="
+# Zsh Plugin Manager Research
+
+## 1. zinit
+- Startup: ~80ms with 47 plugins
+- Pros: Turbo mode, very fast
+- Cons: Complex syntax
+
+## 2. antidote
+- Startup: ~120ms with 47 plugins
+- Pros: Pure zsh, simple config
+
+## 3. sheldon
+- Startup: ~60ms with 47 plugins
+- Pros: Rust binary, TOML config
+
+## Recommendation
+Sheldon for speed, antidote for portability.
+")
+scratchpad_add_tags(name="zsh-plugin-research", tags=["research", "zsh"])
+
+# Agent B reads it later and appends
+scratchpad_read(name="zsh-plugin-research")
+scratchpad_append(name="zsh-plugin-research", content="
+## Update from Agent B
+Confirmed sheldon benchmarks. Proceeding with migration.
+")
+
+# Create a checklist scratchpad for tracking migration steps
+scratchpad_write(name="migration-checklist", content="
+- [ ] Backup current .zshrc
+- [ ] Install new plugin manager
+- [ ] Port plugin list
+- [ ] Test each plugin loads
+- [ ] Measure startup time
+- [ ] Commit changes
+")
+
+# Save to file when done
+scratchpad_save_to_file(name="zsh-plugin-research", path="./docs/research.md")
+
+# List all scratchpads in the project
+scratchpad_list()
+```
+
+### Timers: Scheduling and Coordination
+
+Timers are Solo's wake-up mechanism. When a timer fires, Solo injects the timer's
+`body` text into the owning agent's conversation as a **new user turn**, like:
+
+```
+[Solo timer #4] ⏰ Wake up! Your 5-second timer fired!
+```
+
+This means:
+- You do NOT need to poll, sleep, or busy-loop — Solo wakes you up.
+- The `body` should contain **actionable instructions** telling the agent what to do
+  when it wakes up (which tools to call, what to check).
+- The agent that set the timer is the one that receives it.
+
+#### One-shot timer (simplest)
+
+Fire once after a delay:
+
+```
+# Wake me up in 5 seconds
+timer_set(5000, "Check the build output and report if tests passed.")
+→ returns {project_id: 4, timer_id: 1}
+
+# 5 seconds later, Solo injects into your conversation:
+#   [Solo timer #1] Check the build output and report if tests passed.
+```
+
+#### Recurring timer (loop)
+
+Fire repeatedly at a fixed interval:
+
+```
+# Status check every 2 minutes
+timer_set(120000,
+  "Periodic check: call todo_list to report progress. Check if any blockers resolved.",
+  loop=true)
+→ returns timer_id=2
+
+# Every 2 minutes Solo injects the body as a new turn.
+# The timer keeps firing until you cancel it.
+```
+
+#### Deadline timer
+
+Escalate if work isn't done in time:
+
+```
+# If research isn't done in 30 minutes, take over
+timer_set(1800000,
+  "DEADLINE: Research should be done by now. Check todo #3 — if still open, complete it directly.")
+→ returns timer_id=3
+```
+
+#### Idle-triggered timers
+
+Fire when specific processes go idle (instead of guessing a delay):
+
+```
+# Fire when a worker agent finishes and goes idle
+timer_fire_when_idle_any([worker_pid], 600000,
+  "Worker went idle. Call get_process_output(process_id=42, lines=60) and check the scratchpad for results.")
+
+# Fire when ALL workers are idle (e.g. wait for parallel tasks to finish)
+timer_fire_when_idle_all([pid1, pid2], 600000,
+  "All workers idle. Read scratchpads and synthesize results.")
+```
+
+Note: Idle-triggered timers only work with Solo terminals and agents that expose idle state.
+
+#### Managing timers
+
+```
+timer_list()              # see all active timers
+timer_pause(timer_id=2)   # pause a recurring check
+timer_resume(timer_id=2)  # resume it
+timer_cancel(timer_id=3)  # cancel (e.g. work finished early)
+```
+
+#### Tips for writing good timer bodies
+
+- Be specific: tell the agent exactly what tools to call when woken up.
+- Include context: the agent may have forgotten what it was doing.
+- For recurring timers, include a stop condition: "If all todos are complete, cancel this timer."
+
+### Full Workflow: Coordinator + Workers
+
+Putting it all together — a coordinator spawns workers, assigns tasks, and collects results:
+
+```
+# 1. Set project scope
+select_project(project_id=4)
+
+# 2. Store shared config
+kv_set(key="target_startup_ms", value="200")
+kv_set(key="migration_status", value="starting")
+
+# 3. Create todos
+todo_create(title="Research plugin managers", priority="high")
+todo_create(title="Implement migration", priority="high")
+todo_create(title="Validate results", priority="medium")
+todo_add_blocker(todo_id=2, blocker_id=1)
+todo_add_blocker(todo_id=3, blocker_id=2)
+
+# 4. Spawn a worker agent
+spawn_process(command="pi --prompt 'You are a research agent...'")
+→ returns process_id=42
+
+# 5. Transfer the research task
+todo_transfer(todo_id=1, to_agent="agent-42")
+
+# 6. Set a timer to check when worker finishes
+timer_fire_when_idle_any([42], 600000,
+  "Research worker is idle. Read scratchpad 'research-results' and proceed.")
+
+# 7. Set a recurring progress monitor
+timer_set(120000, "Check todo_list and kv_get('migration_status')", loop=true)
+
+# 8. Use locks for exclusive file access
+lock_acquire(lock_key="zshrc-edit")
+# ... edit .zshrc ...
+lock_release(lock_key="zshrc-edit")
+
+# 9. When done, update status and cancel timers
+kv_set(key="migration_status", value="complete")
+timer_cancel(timer_id=1)
+```
