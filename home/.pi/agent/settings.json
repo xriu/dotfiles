@@ -1,5 +1,5 @@
 {
-	"lastChangelogVersion": "0.69.0",
+	"lastChangelogVersion": "0.70.0",
 	"packages": [
 		"https://github.com/davebcn87/pi-autoresearch",
 		"https://github.com/badlogic/pi-diff-review",
