@@ -18,6 +18,11 @@ Solo is a multi-agent orchestration platform. It provides tools for running and 
 
 Available help topics: `timers`, `coordination`, `solo.yml`
 
+## Critical Rules
+
+- **"All" means current project only.** When the user says "delete all todos", "list all scratchpads", etc., always scope to the current project. NEVER operate across projects. Use `WHERE project_id = <current>` or pass `project_id` to every call.
+- **Always confirm the project scope** before destructive operations (delete, clear, cancel). State which project you're acting on.
+
 ## Tool Reference
 
 ### Projects
