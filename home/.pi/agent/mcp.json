@@ -10,7 +10,8 @@
 		},
 		"solo": {
 			"command": "/Applications/Solo.app/Contents/MacOS/mcp",
-			"args": []
+			"args": [],
+			"lifecycle": "eager"
 		}
 	}
 }
