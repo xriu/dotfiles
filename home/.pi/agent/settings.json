@@ -1,5 +1,5 @@
 {
-	"lastChangelogVersion": "0.70.0",
+	"lastChangelogVersion": "0.70.2",
 	"packages": [
 		"https://github.com/davebcn87/pi-autoresearch",
 		"https://github.com/badlogic/pi-diff-review",
@@ -9,8 +9,8 @@
 		"npm:pi-rewind-hook"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "github-copilot",
-	"defaultModel": "claude-opus-4.6",
+	"defaultProvider": "synthetic",
+	"defaultModel": "hf:zai-org/GLM-5.1",
 	"defaultThinkingLevel": "high",
 	"customProfileFooter": true,
 	"treeFilterMode": "default",

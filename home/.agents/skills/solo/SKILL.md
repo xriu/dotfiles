@@ -45,12 +45,41 @@ Run, monitor, and control child processes and agents.
 | `stop_process` | Stop a running process |
 | `restart_process` | Restart a process |
 | `close_process` | Close and remove a process |
-| `spawn_process` | Spawn a new process |
+| `spawn_process` | Spawn a new process (see details below) |
+| `list_agent_tools` | List agent runtimes available to `spawn_process` |
 | `rename_process` | Rename a process |
 | `send_input` | Send input to a running process's stdin |
 | `bind_session_process(process_id)` | Bind this MCP session to a Solo-managed process |
 | `wait_for_bound_port` | Wait for a process to bind a port (listener readiness) |
 | `search_output` | Search through process output |
+
+#### `spawn_process` Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `kind` | string | **Yes** | `"terminal"` for an interactive shell, or `"agent"` for an agent process |
+| `name` | string | No | Custom name for the spawned process (auto-generated if omitted) |
+| `agent_tool_id` | integer | No* | Agent runtime ID from `list_agent_tools` (required when `kind="agent"`) |
+| `include_agent_instructions` | boolean | No | For agents: include Solo orchestration context in response (default: true) |
+| `project_id` | integer | No | Override project scope (defaults to selected project) |
+
+*Use `list_agent_tools` to discover available runtimes (e.g., pi, claude, gemini) and their IDs.
+
+**Response:** Returns `{ process_id, name, agent_instructions }`. Spawned agents receive `SOLO_PROCESS_ID` and `SOLO_PROJECT_ID` environment variables, plus bootstrap instructions about available Solo MCP coordination tools. The `_meta.solo/spawn_process.hint` field suggests follow-up tools like `timer_fire_when_idle_any`.
+
+#### `list_agent_tools` Response
+
+Returns available agent runtimes with their `id`, `name`, `command`, `tool_type`, and `enabled` status. Example:
+
+```json
+[
+  {"id": 1, "name": "Gemini", "command": "gemini", "tool_type": "gemini", "enabled": true},
+  {"id": 3, "name": "Claude", "command": "claude", "tool_type": "claude", "enabled": true},
+  {"id": 11, "name": "Pi", "command": "pi", "tool_type": "generic", "enabled": true}
+]
+```
+
+Use the `id` as `agent_tool_id` when calling `spawn_process(kind="agent", ...)`. The IDs are project-scoped and may differ across projects.
 
 ### Timers
 
@@ -157,7 +186,7 @@ Coordinate exclusive access to resources between agents.
 
 A coordinator agent spawns worker agents, assigns todos, and waits for them to finish:
 
-1. `spawn_process` for each worker
+1. `list_agent_tools` to discover runtimes, then `spawn_process(kind="agent", agent_tool_id=<id>)` for each worker
 2. `todo_create` tasks and assign via `todo_transfer`
 3. `timer_fire_when_idle_all(worker_pids, timeout, "All workers idle, collect results")`
 4. Workers write results to scratchpads
@@ -375,9 +404,11 @@ todo_create(title="Validate results", priority="medium")
 todo_add_blocker(todo_id=2, blocker_id=1)
 todo_add_blocker(todo_id=3, blocker_id=2)
 
-# 4. Spawn a worker agent
-spawn_process(command="pi --prompt 'You are a research agent...'")
-→ returns process_id=42
+# 4. Discover agent runtimes, then spawn a worker
+list_agent_tools()
+→ returns [{"id": 11, "name": "Pi", ...}, ...]
+spawn_process(kind="agent", name="research-worker", agent_tool_id=11)
+→ returns {process_id: 42, name: "research-worker", agent_instructions: "..."}
 
 # 5. Transfer the research task
 todo_transfer(todo_id=1, to_agent="agent-42")
