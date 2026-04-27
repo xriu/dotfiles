@@ -102,17 +102,17 @@
 	"aws.telemetry": false,
 	"breadcrumbs.enabled": false,
 	"chat.instructionsFilesLocations": {
-        ".github/instructions": true,
-        ".claude/rules": true,
-        "~/.copilot/instructions": true,
-        "~/.claude/rules": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
-    },
+		".github/instructions": true,
+		".claude/rules": true,
+		"~/.copilot/instructions": true,
+		"~/.claude/rules": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
+	},
 	"chat.tools.terminal.autoApprove": {
 		"cargo check": true,
 		"cargo init": true,
@@ -140,9 +140,7 @@
 	"customLocalFormatters.formatters": [
 		{
 			"command": "terraform fmt -",
-			"languages": [
-				"hcl"
-			]
+			"languages": ["hcl"]
 		}
 	],
 	"diffEditor.ignoreTrimWhitespace": false,
@@ -258,17 +256,11 @@
 	"java.project.importOnFirstTimeStartup": "automatic",
 	"java.saveActions.organizeImports": true,
 	"javascript.updateImportsOnFileMove.enabled": "always",
-	"kilo-code.allowedCommands": [
-		"git log",
-		"git diff",
-		"git show"
-	],
+	"kilo-code.allowedCommands": ["git log", "git diff", "git show"],
 	"kilo-code.deniedCommands": [],
 	"postman.mcp.notifications.postmanMCP": false,
 	"prettier.useEditorConfig": false,
-	"python.formatting.autopep8Args": [
-		"--max-line-length=120"
-	],
+	"python.formatting.autopep8Args": ["--max-line-length=120"],
 	"python.formatting.provider": "autopep8",
 	"python.languageServer": "None",
 	"quarkus.tools.alwaysShowWelcomePage": false,
@@ -296,9 +288,7 @@
 	"terminal.integrated.fontSize": 12,
 	"terminal.integrated.profiles.osx": {
 		"fish": {
-			"args": [
-				"-l"
-			],
+			"args": ["-l"],
 			"overrideName": true,
 			"path": "/opt/homebrew/bin/fish"
 		}
@@ -336,6 +326,6 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none",
-    "chat.viewSessions.orientation": "stacked"
+	"workbench.startupEditor": "none",
+	"chat.viewSessions.orientation": "stacked"
 }
