@@ -1,0 +1,10 @@
+{
+	"model": "opus[1m]",
+	"statusLine": {
+		"type": "command",
+		"command": "bash /Users/xavier.riu/dotfiles/home/.claude/statusline.sh"
+	},
+	"enabledPlugins": {
+		"ralph-loop@claude-plugins-official": true
+	}
+}

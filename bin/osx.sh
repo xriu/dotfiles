@@ -73,6 +73,7 @@ function brew_setup() {
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
+    brew install --cask visual-studio-code@insiders --force # Visual Studio Code Insiders Edition
     brew install --cask windows-app --force # Windows app for macOS
 
     # brew install atuin # Magical shell history
@@ -94,6 +95,7 @@ function brew_setup() {
     brew install biome # Toolchain of the web
     brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
+    brew install cirruslabs/cli/tart # Tart is a CLI tool to manage your local and remote development environments in a single workflow
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install databricks # Databricks CLI
@@ -116,6 +118,7 @@ function brew_setup() {
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
     brew install grep # GNU grep, egrep and fgrep
     brew install hadolint # Smarter Dockerfile linter to validate best practices
+    brew install hudochenkov/sshpass/sshpass # Non-interactive ssh password authentication
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
     brew install lazydocker # A tool for managing docker containers with a simple, intuitive interface.
