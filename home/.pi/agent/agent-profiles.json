@@ -20,7 +20,7 @@
 		"alibaba": {
 			"main": {
 				"provider": "alibaba",
-				"model": "glm-5",
+				"model": "qwen3.6-plus",
 				"thinkingLevel": "high"
 			},
 			"agents": {

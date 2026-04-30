@@ -6,11 +6,12 @@
 		"npm:pi-interview",
 		"npm:pi-mcp-adapter",
 		"npm:pi-review-loop",
-		"npm:pi-subagents"
+		"npm:pi-subagents",
+		"npm:pi-lens"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "github-copilot",
-	"defaultModel": "claude-opus-4.6",
+	"defaultProvider": "alibaba",
+	"defaultModel": "qwen3.6-plus",
 	"defaultThinkingLevel": "high",
 	"customProfileFooter": true,
 	"treeFilterMode": "no-tools",
