@@ -2,7 +2,6 @@
 	"defaultProfile": "high",
 	"profiles": {
 		"synthetic": {
-			"description": "Best-of-breed mixed profile: fast Synthetic models for scouting and research, plus Copilot GPT/Codex for planning, implementation, and review.",
 			"main": {
 				"provider": "synthetic",
 				"model": "hf:zai-org/GLM-5.1",
@@ -19,10 +18,9 @@
 			}
 		},
 		"alibaba": {
-			"description": "DashScope-first profile using MiniMax for scouting, GLM-5 for planning and implementation, and Kimi K2.5 for review and visual tasks.",
 			"main": {
 				"provider": "alibaba",
-				"model": "glm-5",
+				"model": "qwen3.6-plus",
 				"thinkingLevel": "high"
 			},
 			"agents": {
@@ -36,7 +34,6 @@
 			}
 		},
 		"max": {
-			"description": "Closest match to the official pi-subagents built-in defaults, translated to GitHub Copilot model IDs from `pi list models`.",
 			"main": {
 				"provider": "github-copilot",
 				"model": "claude-opus-4.6",
@@ -53,7 +50,6 @@
 			}
 		},
 		"high": {
-			"description": "Premium Copilot profile with stronger planning and research models, plus GPT-5.3 Codex for implementation and review.",
 			"main": {
 				"provider": "github-copilot",
 				"model": "gpt-5.4",
@@ -70,7 +66,6 @@
 			}
 		},
 		"low": {
-			"description": "Balanced Copilot profile for everyday work: mostly GPT-5.4 Mini, with Codex reserved for implementation.",
 			"main": {
 				"provider": "github-copilot",
 				"model": "gpt-5.4-mini",

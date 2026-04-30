@@ -1,13 +1,5 @@
 {
 	"mcpServers": {
-		"context7": {
-			"url": "https://mcp.context7.com/mcp",
-			"lifecycle": "eager"
-		},
-		"grep_app": {
-			"url": "https://mcp.grep.app",
-			"lifecycle": "eager"
-		},
 		"solo": {
 			"command": "/Applications/Solo.app/Contents/MacOS/mcp",
 			"args": [],

@@ -30,11 +30,3 @@ bin/lm install
 ```
 /Users/.../Library/Application Support/Code/User
 ```
-
-## Pi
-
-Diagram architecture visual-explainer
-
-```
-curl -fsSL https://raw.githubusercontent.com/nicobailon/visual-explainer/main/install-pi.sh | bash
-```
