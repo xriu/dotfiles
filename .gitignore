@@ -207,3 +207,4 @@ service-account*.json
 
 # Custom
 home/.factory/settings.json
+.pi-lens/
