@@ -44,6 +44,8 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
+    # brew install --cask droid --force # AI-powered software engineering agent by Factory
+
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask beekeeper-studio --force # Database management tool
@@ -54,7 +56,6 @@ function brew_setup() {
     brew install --cask cmux --force # Agents orchestrator
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
-    brew install --cask droid --force # AI-powered software engineering agent by Factory
     brew install --cask finetune --force # Per-application volume mixer, equalizer, and audio router
     brew install --cask ghostty --force # Terminal emulator that uses platform-native UI and GPU acceleration
     brew install --cask google-chrome --force # Google Chrome browser
