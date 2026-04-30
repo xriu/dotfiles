@@ -4,7 +4,9 @@
 		"npm:@plannotator/pi-extension",
 		"npm:pi-autoresearch",
 		"npm:pi-interview",
-		"npm:pi-review-loop"
+		"npm:pi-mcp-adapter",
+		"npm:pi-review-loop",
+		"npm:pi-subagents"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
 	"defaultProvider": "github-copilot",
