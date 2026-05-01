@@ -15,7 +15,7 @@
 	"defaultModel": "qwen3.6-plus",
 	"defaultThinkingLevel": "high",
 	"customProfileFooter": true,
-	"treeFilterMode": "user-only",
+	"treeFilterMode": "no-tools",
 	"theme": "dark",
 	"reviewerLoop": {
 		"maxIterations": 7,
