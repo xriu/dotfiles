@@ -20,18 +20,6 @@
 		"maxIterations": 7,
 		"autoTrigger": true,
 		"freshContext": true,
-		"reviewPrompt": "template:double-check",
-		"triggerPatterns": {
-			"mode": "extend",
-			"patterns": ["execute the plan"]
-		},
-		"exitPatterns": {
-			"mode": "extend",
-			"patterns": ["ship it", "ready to merge"]
-		},
-		"issuesFixedPatterns": {
-			"mode": "extend",
-			"patterns": ["addressed the following"]
-		}
+		"reviewPrompt": "template:double-check"
 	}
 }
