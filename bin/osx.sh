@@ -81,6 +81,7 @@ function brew_setup() {
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
     # brew install gradle-completion # Bash and Zsh completion for Gradle
+    # brew install pnpm # Fast, disk space efficient package manager
 
     # Zsh plugins
     # brew install tmux # Terminal multiplexer
@@ -131,7 +132,6 @@ function brew_setup() {
     brew install pake # Turn any webpage into a desktop app with Rust with ease
     brew install pandoc # Universal document converter
     brew install pi-coding-agent # AI agent toolkit
-    brew install pnpm # Fast, disk space efficient package manager
     brew install postgresql # Object-relational database management system
     brew install pstree # A tool to show the tree of processes
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
