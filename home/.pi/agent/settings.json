@@ -4,17 +4,18 @@
 		"npm:@plannotator/pi-extension",
 		"npm:pi-autoresearch",
 		"npm:pi-interview",
+		"npm:pi-lens",
 		"npm:pi-mcp-adapter",
 		"npm:pi-review-loop",
-		"npm:pi-subagents",
-		"npm:pi-lens"
+		"npm:pi-rewind",
+		"npm:pi-subagents"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
 	"defaultProvider": "alibaba",
 	"defaultModel": "qwen3.6-plus",
 	"defaultThinkingLevel": "high",
 	"customProfileFooter": true,
-	"treeFilterMode": "no-tools",
+	"treeFilterMode": "user-only",
 	"theme": "dark",
 	"reviewerLoop": {
 		"maxIterations": 7,
