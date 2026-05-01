@@ -1,38 +1,46 @@
 {
-	"lastChangelogVersion": "0.70.6",
-	"packages": [
-		"npm:@plannotator/pi-extension",
-		"npm:pi-autoresearch",
-		"npm:pi-interview",
-		"npm:pi-lens",
-		"npm:pi-mcp-adapter",
-		"npm:pi-review-loop",
-		"npm:pi-rewind",
-		"npm:pi-subagents"
-	],
-	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "alibaba",
-	"defaultModel": "qwen3.6-plus",
-	"defaultThinkingLevel": "high",
-	"customProfileFooter": true,
-	"treeFilterMode": "no-tools",
-	"theme": "dark",
-	"reviewerLoop": {
-		"maxIterations": 7,
-		"autoTrigger": true,
-		"freshContext": true,
-		"reviewPrompt": "template:double-check",
-		"triggerPatterns": {
-			"mode": "extend",
-			"patterns": ["execute the plan"]
-		},
-		"exitPatterns": {
-			"mode": "extend",
-			"patterns": ["ship it", "ready to merge"]
-		},
-		"issuesFixedPatterns": {
-			"mode": "extend",
-			"patterns": ["addressed the following"]
-		}
-	}
+  "lastChangelogVersion": "0.70.6",
+  "packages": [
+    "npm:@plannotator/pi-extension",
+    "npm:pi-autoresearch",
+    "npm:pi-interview",
+    "npm:pi-lens",
+    "npm:pi-mcp-adapter",
+    "npm:pi-review-loop",
+    "npm:pi-rewind"
+  ],
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "defaultProvider": "github-copilot",
+  "defaultModel": "claude-opus-4.6",
+  "defaultThinkingLevel": "high",
+  "customProfileFooter": true,
+  "treeFilterMode": "no-tools",
+  "theme": "dark",
+  "reviewerLoop": {
+    "maxIterations": 7,
+    "autoTrigger": true,
+    "freshContext": true,
+    "reviewPrompt": "template:double-check",
+    "triggerPatterns": {
+      "mode": "extend",
+      "patterns": [
+        "execute the plan"
+      ]
+    },
+    "exitPatterns": {
+      "mode": "extend",
+      "patterns": [
+        "ship it",
+        "ready to merge"
+      ]
+    },
+    "issuesFixedPatterns": {
+      "mode": "extend",
+      "patterns": [
+        "addressed the following"
+      ]
+    }
+  }
 }
