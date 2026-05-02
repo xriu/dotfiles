@@ -174,6 +174,17 @@ export default function (pi: ExtensionAPI) {
 
 	// --- State management ---
 
+	function safeJsonParse(filePath: string): unknown | null {
+		try {
+			const raw = tryRead(filePath);
+			if (!raw) return null;
+			return JSON.parse(raw);
+		} catch {
+			/* corrupted or invalid JSON */
+			return null;
+		}
+	}
+
 	function migrateState(raw: Partial<LoopState> & { name: string }): LoopState {
 		if (!raw.status) raw.status = raw.active ? "active" : "paused";
 		raw.active = raw.status === "active";
@@ -201,9 +212,11 @@ export default function (pi: ExtensionAPI) {
 
 			// Check plan-level state
 			const planStateFile = path.join(planDir, ".ralph.state.json");
-			const planState = tryRead(planStateFile);
-			if (planState) {
-				const state = migrateState(JSON.parse(planState));
+			const raw = safeJsonParse(planStateFile);
+			if (raw) {
+				const state = migrateState(
+					raw as Partial<LoopState> & { name: string },
+				);
 				if (state.name === name) return state;
 			}
 
@@ -212,9 +225,11 @@ export default function (pi: ExtensionAPI) {
 			if (fs.existsSync(issuesDir)) {
 				for (const issueFile of fs.readdirSync(issuesDir)) {
 					if (!issueFile.endsWith(".state.json")) continue;
-					const content = tryRead(path.join(issuesDir, issueFile));
-					if (!content) continue;
-					const state = migrateState(JSON.parse(content));
+					const raw = safeJsonParse(path.join(issuesDir, issueFile));
+					if (!raw) continue;
+					const state = migrateState(
+						raw as Partial<LoopState> & { name: string },
+					);
 					if (state.name === name) return state;
 				}
 			}
@@ -258,9 +273,11 @@ export default function (pi: ExtensionAPI) {
 
 			// Plan-level state
 			const planStateFile = path.join(planDir, ".ralph.state.json");
-			const planContent = tryRead(planStateFile);
-			if (planContent) {
-				results.push(migrateState(JSON.parse(planContent)));
+			const raw = safeJsonParse(planStateFile);
+			if (raw) {
+				results.push(
+					migrateState(raw as Partial<LoopState> & { name: string }),
+				);
 			}
 
 			// Issue-level states
@@ -268,9 +285,11 @@ export default function (pi: ExtensionAPI) {
 			if (fs.existsSync(issuesDir)) {
 				for (const issueFile of fs.readdirSync(issuesDir)) {
 					if (!issueFile.endsWith(".state.json")) continue;
-					const content = tryRead(path.join(issuesDir, issueFile));
-					if (!content) continue;
-					results.push(migrateState(JSON.parse(content)));
+					const raw = safeJsonParse(path.join(issuesDir, issueFile));
+					if (!raw) continue;
+					results.push(
+						migrateState(raw as Partial<LoopState> & { name: string }),
+					);
 				}
 			}
 		}
@@ -332,9 +351,9 @@ export default function (pi: ExtensionAPI) {
 					if (!f.endsWith(".md") || f.endsWith(".state.json")) continue;
 					const issueName = f.replace(/\.md$/, "");
 					const stateFile = path.join(issuesDir, `${issueName}.state.json`);
-					const stateContent = tryRead(stateFile);
-					const state = stateContent
-						? migrateState(JSON.parse(stateContent))
+					const raw = safeJsonParse(stateFile);
+					const state = raw
+						? migrateState(raw as Partial<LoopState> & { name: string })
 						: null;
 					issues.push({ fileName: f, name: issueName, state });
 				}
@@ -399,11 +418,11 @@ export default function (pi: ExtensionAPI) {
 		const files = fs
 			.readdirSync(issuesDir)
 			.filter((f) => f.endsWith(".md"))
-			.sort();
+			.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
 		for (const f of files) {
 			const content = tryRead(path.join(issuesDir, f));
-			if (!content) continue;
+			if (content === null) continue;
 			const { total, checked } = parseCheckboxes(content);
 			if (total === 0 || checked < total) {
 				return path.join(SCRATCH_DIR, planName, "issues", f);
@@ -669,13 +688,25 @@ export default function (pi: ExtensionAPI) {
 			// TypeScript narrowing: taskFile is definitely a string past this point
 			if (!taskFile) return;
 
-			// Check for existing active loop with same name
+			// Check for existing loop with same name
 			const existing = loadState(ctx, loopName);
-			if (existing?.status === "active") {
-				ctx.ui.notify(
-					`Loop "${loopName}" is already active. Use /ralph resume ${loopName}`,
-					"warning",
-				);
+			if (existing) {
+				if (existing.status === "active") {
+					ctx.ui.notify(
+						`Loop "${loopName}" is already active. Use /ralph resume ${loopName}`,
+						"warning",
+					);
+				} else if (existing.status === "paused") {
+					ctx.ui.notify(
+						`Loop "${loopName}" is paused. Use /ralph resume ${loopName} to continue`,
+						"warning",
+					);
+				} else {
+					ctx.ui.notify(
+						`Loop "${loopName}" is completed. Use /ralph cancel ${loopName} then start again`,
+						"warning",
+					);
+				}
 				return;
 			}
 
@@ -698,7 +729,7 @@ export default function (pi: ExtensionAPI) {
 				reflectInstructions: args.reflectInstructions,
 				active: true,
 				status: "active",
-				startedAt: existing?.startedAt || new Date().toISOString(),
+				startedAt: new Date().toISOString(),
 				lastReflectionAt: 0,
 			};
 
@@ -707,7 +738,7 @@ export default function (pi: ExtensionAPI) {
 			updateUI(ctx);
 
 			const content = tryRead(fullPath);
-			if (!content) {
+			if (content === null) {
 				ctx.ui.notify(`Could not read task file: ${taskFile}`, "error");
 				return;
 			}
@@ -740,6 +771,13 @@ export default function (pi: ExtensionAPI) {
 					state,
 					`Paused Ralph loop: ${currentLoop} (iteration ${state.iteration})`,
 				);
+			} else {
+				const missingName = currentLoop;
+				currentLoop = null;
+				ctx.ui.notify(
+					`Loop "${missingName}" state file missing. Cleared reference.`,
+					"warning",
+				);
 			}
 		},
 
@@ -763,6 +801,19 @@ export default function (pi: ExtensionAPI) {
 				return;
 			}
 
+			if (state.maxIterations > 0 && state.iteration >= state.maxIterations) {
+				completeLoop(
+					ctx,
+					state,
+					`───────────────────────────────────────────────────────────────────────\n⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached\n───────────────────────────────────────────────────────────────────────`,
+				);
+				ctx.ui.notify(
+					`Loop "${loopName}" already reached max ${state.maxIterations} iterations.`,
+					"warning",
+				);
+				return;
+			}
+
 			if (currentLoop && currentLoop !== loopName) {
 				const curr = loadState(ctx, currentLoop);
 				if (curr) pauseLoop(ctx, curr);
@@ -781,7 +832,7 @@ export default function (pi: ExtensionAPI) {
 			);
 
 			const content = tryRead(path.resolve(ctx.cwd, state.taskFile));
-			if (!content) {
+			if (content === null) {
 				ctx.ui.notify(`Could not read task file: ${state.taskFile}`, "error");
 				return;
 			}
@@ -1044,9 +1095,9 @@ export default function (pi: ExtensionAPI) {
 					if (!f.endsWith(".md") || f.endsWith(".state.json")) continue;
 					const issueName = f.replace(/\.md$/, "");
 					const stateFile = path.join(issuesDir, `${issueName}.state.json`);
-					const stateContent = tryRead(stateFile);
-					const state = stateContent
-						? migrateState(JSON.parse(stateContent))
+					const raw = safeJsonParse(stateFile);
+					const state = raw
+						? migrateState(raw as Partial<LoopState> & { name: string })
 						: null;
 					const icon = state ? STATUS_ICONS[state.status] : "○";
 					const iterInfo = state ? ` (iter ${state.iteration})` : "";
@@ -1093,9 +1144,9 @@ export default function (pi: ExtensionAPI) {
 				if (!f.endsWith(".md") || f.endsWith(".state.json")) continue;
 				const issueName = f.replace(/\.md$/, "");
 				const stateFile = path.join(issuesDir, `${issueName}.state.json`);
-				const stateContent = tryRead(stateFile);
-				const state = stateContent
-					? migrateState(JSON.parse(stateContent))
+				const raw = safeJsonParse(stateFile);
+				const state = raw
+					? migrateState(raw as Partial<LoopState> & { name: string })
 					: null;
 
 				const icon = state ? STATUS_ICONS[state.status] : "○";
@@ -1291,10 +1342,14 @@ Examples:
 					? `${parsed.planName}/${parsed.issueName}`
 					: parsed.planName;
 
-			if (loadState(ctx, loopName)?.status === "active") {
+			const existing = loadState(ctx, loopName);
+			if (existing) {
 				return {
 					content: [
-						{ type: "text", text: `Loop "${loopName}" already active.` },
+						{
+							type: "text",
+							text: `Loop "${loopName}" already exists (${existing.status}). Cancel or archive it first.`,
+						},
 					],
 					details: {},
 				};
@@ -1429,9 +1484,11 @@ Examples:
 			const isPlanLevel = !state.name.includes("/");
 			if (isPlanLevel) {
 				const currentContent = tryRead(path.resolve(ctx.cwd, state.taskFile));
-				if (currentContent) {
+				if (currentContent !== null) {
 					const { total, checked } = parseCheckboxes(currentContent);
-					if (total > 0 && checked >= total) {
+					const issueDone =
+						total === 0 ? state.iteration > 1 : checked >= total;
+					if (issueDone) {
 						// Current issue is complete — find next incomplete issue
 						const nextIssue = findNextIncompleteIssue(ctx, state.name);
 						if (nextIssue) {
@@ -1463,7 +1520,7 @@ Examples:
 			updateUI(ctx);
 
 			const content = tryRead(path.resolve(ctx.cwd, state.taskFile));
-			if (!content) {
+			if (content === null) {
 				pauseLoop(ctx, state);
 				return {
 					content: [
@@ -1568,7 +1625,7 @@ Examples:
 	pi.on("session_start", async (_event, ctx) => {
 		const active = listLoops(ctx).filter((l) => l.status === "active");
 
-		if (active.length === 1 && !currentLoop) {
+		if (!currentLoop && active.length > 0) {
 			currentLoop = active[0].name;
 		}
 
@@ -1608,7 +1665,7 @@ Examples:
 		if (ctx.hasPendingMessages()) return;
 
 		const content = tryRead(path.resolve(ctx.cwd, state.taskFile));
-		if (!content) {
+		if (content === null) {
 			pauseLoop(
 				ctx,
 				state,
