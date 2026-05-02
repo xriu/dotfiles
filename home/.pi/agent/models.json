@@ -1,202 +1,152 @@
 {
-  "providers": {
-    "alibaba": {
-      "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
-      "api": "anthropic-messages",
-      "apiKey": "ALIBABA_API_KEY",
-      "models": [
-        {
-          "id": "qwen3.6-plus",
-          "name": "Qwen3.6 Plus",
-          "reasoning": true,
-          "input": ["text", "image"],
-          "contextWindow": 1000000,
-          "maxTokens": 65536
-        },
-        {
-          "id": "qwen3.5-plus",
-          "name": "Qwen3.5 Plus",
-          "reasoning": true,
-          "input": ["text", "image"],
-          "contextWindow": 1000000,
-          "maxTokens": 65536
-        },
-        {
-          "id": "qwen3-max-2026-01-23",
-          "name": "Qwen3 Max 2026-01-23",
-          "input": ["text"],
-          "contextWindow": 262144,
-          "maxTokens": 32768
-        },
-        {
-          "id": "qwen3-coder-next",
-          "name": "Qwen3 Coder Next",
-          "input": ["text"],
-          "contextWindow": 262144,
-          "maxTokens": 65536
-        },
-        {
-          "id": "qwen3-coder-plus",
-          "name": "Qwen3 Coder Plus",
-          "input": ["text"],
-          "contextWindow": 1000000,
-          "maxTokens": 65536
-        },
-        {
-          "id": "MiniMax-M2.5",
-          "name": "MiniMax M2.5",
-          "reasoning": true,
-          "input": ["text"],
-          "contextWindow": 196608,
-          "maxTokens": 65536
-        },
-        {
-          "id": "glm-5",
-          "name": "GLM-5",
-          "reasoning": true,
-          "input": ["text"],
-          "contextWindow": 202752,
-          "maxTokens": 65536
-        },
-        {
-          "id": "glm-4.7",
-          "name": "GLM-4.7",
-          "reasoning": true,
-          "input": ["text"],
-          "contextWindow": 202752,
-          "maxTokens": 65536
-        },
-        {
-          "id": "kimi-k2.5",
-          "name": "Kimi K2.5",
-          "reasoning": true,
-          "input": ["text", "image"],
-          "contextWindow": 262144,
-          "maxTokens": 65536
-        }
-      ]
-    },
-    "synthetic": {
-      "baseUrl": "https://api.synthetic.new/openai/v1",
-      "api": "openai-completions",
-      "apiKey": "SYNTHETIC_API_KEY",
-      "compat": {
-        "supportsDeveloperRole": false,
-        "maxTokensField": "max_tokens"
-      },
-      "models": [
-        {
-          "id": "hf:zai-org/GLM-5.1",
-          "name": "zai-org/GLM-5.1",
-          "reasoning": true,
-          "input": ["text"],
-          "contextWindow": 202752,
-          "maxTokens": 65536,
-          "cost": { "input": 1, "output": 6, "cacheRead": 1, "cacheWrite": 0 },
-          "compat": {
-            "supportsReasoningEffort": true,
-            "reasoningEffortMap": {
-              "minimal": "low",
-              "low": "low",
-              "medium": "medium",
-              "high": "high",
-              "xhigh": "high"
-            }
-          }
-        },
-        {
-          "id": "hf:zai-org/GLM-5",
-          "name": "zai-org/GLM-5",
-          "reasoning": true,
-          "input": ["text"],
-          "contextWindow": 202752,
-          "maxTokens": 65536,
-          "cost": { "input": 1, "output": 6, "cacheRead": 1, "cacheWrite": 0 },
-          "compat": {
-            "supportsReasoningEffort": true,
-            "reasoningEffortMap": {
-              "minimal": "low",
-              "low": "low",
-              "medium": "medium",
-              "high": "high",
-              "xhigh": "high"
-            }
-          }
-        },
-        {
-          "id": "hf:zai-org/GLM-4.7",
-          "name": "zai-org/GLM-4.7",
-          "reasoning": true,
-          "input": ["text"],
-          "contextWindow": 202752,
-          "maxTokens": 65536,
-          "cost": {
-            "input": 0.45,
-            "output": 2.19,
-            "cacheRead": 0.45,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "supportsReasoningEffort": true,
-            "reasoningEffortMap": {
-              "minimal": "low",
-              "low": "low",
-              "medium": "medium",
-              "high": "high",
-              "xhigh": "high"
-            }
-          }
-        },
-        {
-          "id": "hf:moonshotai/Kimi-K2.5",
-          "name": "moonshotai/Kimi-K2.5",
-          "reasoning": true,
-          "input": ["text", "image"],
-          "contextWindow": 262144,
-          "maxTokens": 65536,
-          "cost": {
-            "input": 0.45,
-            "output": 3.4,
-            "cacheRead": 0.45,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "supportsReasoningEffort": true,
-            "reasoningEffortMap": {
-              "minimal": "low",
-              "low": "low",
-              "medium": "medium",
-              "high": "high",
-              "xhigh": "high"
-            }
-          }
-        },
-        {
-          "id": "hf:MiniMaxAI/MiniMax-M2.5",
-          "name": "MiniMaxAI/MiniMax-M2.5",
-          "reasoning": true,
-          "input": ["text"],
-          "contextWindow": 196608,
-          "maxTokens": 65536,
-          "cost": {
-            "input": 0.4,
-            "output": 2,
-            "cacheRead": 0.4,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "supportsReasoningEffort": true,
-            "maxTokensField": "max_completion_tokens",
-            "reasoningEffortMap": {
-              "minimal": "low",
-              "low": "low",
-              "medium": "medium",
-              "high": "high",
-              "xhigh": "high"
-            }
-          }
-        }
-      ]
-    }
-  }
+	"providers": {
+		"alibaba": {
+			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
+			"api": "anthropic-messages",
+			"apiKey": "ALIBABA_API_KEY",
+			"models": [
+				{
+					"id": "qwen3.6-plus",
+					"name": "Qwen3.6 Plus",
+					"reasoning": true,
+					"input": ["text", "image"],
+					"contextWindow": 1000000,
+					"maxTokens": 65536
+				},
+				{
+					"id": "qwen3.5-plus",
+					"name": "Qwen3.5 Plus",
+					"reasoning": true,
+					"input": ["text", "image"],
+					"contextWindow": 1000000,
+					"maxTokens": 65536
+				},
+				{
+					"id": "qwen3-max-2026-01-23",
+					"name": "Qwen3 Max 2026-01-23",
+					"input": ["text"],
+					"contextWindow": 262144,
+					"maxTokens": 32768
+				},
+				{
+					"id": "qwen3-coder-next",
+					"name": "Qwen3 Coder Next",
+					"input": ["text"],
+					"contextWindow": 262144,
+					"maxTokens": 65536
+				},
+				{
+					"id": "qwen3-coder-plus",
+					"name": "Qwen3 Coder Plus",
+					"input": ["text"],
+					"contextWindow": 1000000,
+					"maxTokens": 65536
+				},
+				{
+					"id": "MiniMax-M2.5",
+					"name": "MiniMax M2.5",
+					"reasoning": true,
+					"input": ["text"],
+					"contextWindow": 196608,
+					"maxTokens": 65536
+				},
+				{
+					"id": "glm-5",
+					"name": "GLM-5",
+					"reasoning": true,
+					"input": ["text"],
+					"contextWindow": 202752,
+					"maxTokens": 65536
+				},
+				{
+					"id": "glm-4.7",
+					"name": "GLM-4.7",
+					"reasoning": true,
+					"input": ["text"],
+					"contextWindow": 202752,
+					"maxTokens": 65536
+				},
+				{
+					"id": "kimi-k2.5",
+					"name": "Kimi K2.5",
+					"reasoning": true,
+					"input": ["text", "image"],
+					"contextWindow": 262144,
+					"maxTokens": 65536
+				}
+			]
+		},
+		"synthetic": {
+			"baseUrl": "https://api.synthetic.new/openai/v1",
+			"api": "openai-completions",
+			"apiKey": "SYNTHETIC_API_KEY",
+			"compat": {
+				"supportsDeveloperRole": false,
+				"maxTokensField": "max_tokens"
+			},
+			"models": [
+				{
+					"id": "hf:moonshotai/Kimi-K2.6",
+					"name": "moonshotai/Kimi-K2.6",
+					"reasoning": true,
+					"input": ["text", "image"],
+					"contextWindow": 262144,
+					"maxTokens": 65536,
+					"compat": {
+						"supportsReasoningEffort": true,
+						"reasoningEffortMap": {
+							"minimal": "low",
+							"low": "low",
+							"medium": "medium",
+							"high": "high",
+							"xhigh": "high"
+						}
+					}
+				},
+				{
+					"id": "hf:zai-org/GLM-5.1",
+					"name": "zai-org/GLM-5.1",
+					"reasoning": true,
+					"input": ["text"],
+					"contextWindow": 202752,
+					"maxTokens": 65536,
+					"compat": {
+						"supportsReasoningEffort": true,
+						"reasoningEffortMap": {
+							"minimal": "low",
+							"low": "low",
+							"medium": "medium",
+							"high": "high",
+							"xhigh": "high"
+						}
+					}
+				},
+				{
+					"id": "hf:MiniMaxAI/MiniMax-M2.5",
+					"name": "MiniMaxAI/MiniMax-M2.5",
+					"reasoning": true,
+					"input": ["text"],
+					"contextWindow": 196608,
+					"maxTokens": 65536,
+					"cost": {
+						"input": 0.4,
+						"output": 2,
+						"cacheRead": 0.4,
+						"cacheWrite": 0
+					},
+					"compat": {
+						"supportsReasoningEffort": true,
+						"maxTokensField": "max_completion_tokens",
+						"reasoningEffortMap": {
+							"minimal": "low",
+							"low": "low",
+							"medium": "medium",
+							"high": "high",
+							"xhigh": "high"
+						}
+					}
+				}
+			]
+		}
+	}
 }
