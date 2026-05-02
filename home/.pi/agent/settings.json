@@ -1,5 +1,5 @@
 {
-	"lastChangelogVersion": "0.70.6",
+	"lastChangelogVersion": "0.71.0",
 	"packages": [
 		"npm:@plannotator/pi-extension",
 		"npm:pi-autoresearch",
@@ -7,11 +7,12 @@
 		"npm:pi-lens",
 		"npm:pi-mcp-adapter",
 		"npm:pi-review-loop",
-		"npm:pi-rewind"
+		"npm:pi-rewind",
+		"npm:pi-slop-review"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "github-copilot",
-	"defaultModel": "claude-opus-4.6",
+	"defaultProvider": "alibaba",
+	"defaultModel": "qwen3.6-plus",
 	"defaultThinkingLevel": "high",
 	"customProfileFooter": true,
 	"treeFilterMode": "no-tools",
