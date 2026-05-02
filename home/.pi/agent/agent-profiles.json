@@ -4,7 +4,7 @@
 		"synthetic": {
 			"main": {
 				"provider": "synthetic",
-				"model": "hf:zai-org/GLM-5.1",
+				"model": "hf:moonshotai/Kimi-K2.6",
 				"thinkingLevel": "high"
 			},
 			"agents": {
