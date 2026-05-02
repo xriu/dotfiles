@@ -18,7 +18,7 @@
 	"treeFilterMode": "no-tools",
 	"theme": "dark",
 	"reviewerLoop": {
-		"maxIterations": 7,
+		"maxIterations": 1,
 		"autoTrigger": true,
 		"freshContext": true,
 		"reviewPrompt": "template:double-check"
