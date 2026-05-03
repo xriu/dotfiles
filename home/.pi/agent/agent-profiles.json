@@ -2,11 +2,18 @@
 	"defaultProfile": "high",
 	"profiles": {
 		"synthetic": {
-			"main": {
-				"provider": "synthetic",
-				"model": "hf:zai-org/GLM-5.1",
-				"thinkingLevel": "high"
-			},
+			"main": [
+				{
+					"provider": "synthetic",
+					"model": "hf:moonshotai/Kimi-K2.6",
+					"thinkingLevel": "high"
+				},
+				{
+					"provider": "alibaba",
+					"model": "qwen3.6-plus",
+					"thinkingLevel": "high"
+				}
+			],
 			"agents": {
 				"context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
 				"delegate": "synthetic/hf:moonshotai/Kimi-K2.5",
@@ -18,11 +25,18 @@
 			}
 		},
 		"alibaba": {
-			"main": {
-				"provider": "alibaba",
-				"model": "qwen3.6-plus",
-				"thinkingLevel": "high"
-			},
+			"main": [
+				{
+					"provider": "alibaba",
+					"model": "qwen3.6-plus",
+					"thinkingLevel": "high"
+				},
+				{
+					"provider": "synthetic",
+					"model": "hf:moonshotai/Kimi-K2.6",
+					"thinkingLevel": "high"
+				}
+			],
 			"agents": {
 				"context-builder": "alibaba/kimi-k2.5",
 				"delegate": "alibaba/kimi-k2.5",
@@ -34,11 +48,18 @@
 			}
 		},
 		"max": {
-			"main": {
-				"provider": "github-copilot",
-				"model": "claude-opus-4.6",
-				"thinkingLevel": "high"
-			},
+			"main": [
+				{
+					"provider": "github-copilot",
+					"model": "claude-opus-4.6",
+					"thinkingLevel": "high"
+				},
+				{
+					"provider": "synthetic",
+					"model": "hf:moonshotai/Kimi-K2.6",
+					"thinkingLevel": "high"
+				}
+			],
 			"agents": {
 				"context-builder": "github-copilot/claude-sonnet-4.6",
 				"delegate": false,
@@ -50,11 +71,18 @@
 			}
 		},
 		"high": {
-			"main": {
-				"provider": "github-copilot",
-				"model": "gpt-5.4",
-				"thinkingLevel": "high"
-			},
+			"main": [
+				{
+					"provider": "github-copilot",
+					"model": "gpt-5.4",
+					"thinkingLevel": "high"
+				},
+				{
+					"provider": "synthetic",
+					"model": "hf:moonshotai/Kimi-K2.6",
+					"thinkingLevel": "high"
+				}
+			],
 			"agents": {
 				"context-builder": "github-copilot/gpt-5.4",
 				"delegate": "github-copilot/gpt-5.4",
@@ -66,11 +94,18 @@
 			}
 		},
 		"low": {
-			"main": {
-				"provider": "github-copilot",
-				"model": "gpt-5.4-mini",
-				"thinkingLevel": "low"
-			},
+			"main": [
+				{
+					"provider": "github-copilot",
+					"model": "gpt-5.4-mini",
+					"thinkingLevel": "low"
+				},
+				{
+					"provider": "synthetic",
+					"model": "hf:moonshotai/Kimi-K2.6",
+					"thinkingLevel": "high"
+				}
+			],
 			"agents": {
 				"context-builder": "github-copilot/gpt-5.4-mini",
 				"delegate": "github-copilot/gpt-5.4-mini",
