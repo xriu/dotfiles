@@ -89,6 +89,7 @@ function brew_setup() {
     # brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
 
     brew install agent-browser # Browser automation CLI for AI agents
+    brew install ast-grep # AST-based code search tool
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
