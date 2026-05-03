@@ -1,20 +1,21 @@
 {
-	"lastChangelogVersion": "0.71.0",
+	"lastChangelogVersion": "0.72.1",
 	"packages": [
 		"npm:@plannotator/pi-extension",
 		"npm:pi-autoresearch",
 		"npm:pi-interview",
 		"npm:pi-lens",
 		"npm:pi-mcp-adapter",
+		"npm:pi-powerline-footer",
 		"npm:pi-review-loop",
 		"npm:pi-rewind",
 		"npm:pi-slop-review"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "alibaba",
-	"defaultModel": "qwen3.6-plus",
+	"defaultProvider": "synthetic",
+	"defaultModel": "hf:moonshotai/Kimi-K2.6",
 	"defaultThinkingLevel": "high",
-	"customProfileFooter": true,
+	"customProfileFooter": false,
 	"treeFilterMode": "no-tools",
 	"theme": "dark",
 	"reviewerLoop": {
