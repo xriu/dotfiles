@@ -18,8 +18,14 @@ interface MainProfile {
 
 interface Profile {
 	description?: string;
-	main?: MainProfile;
+	main?: MainProfile | MainProfile[];
 	agents?: Record<string, string | false>;
+}
+
+function getPrimaryMain(profile: Profile): MainProfile | undefined {
+	if (!profile.main) return undefined;
+	if (Array.isArray(profile.main)) return profile.main[0] ?? undefined;
+	return profile.main;
 }
 
 interface ProfileConfig {
@@ -135,13 +141,13 @@ function syncAgentModels(profile: Profile): {
 }
 
 function persistMainSettings(profile: Profile) {
-	if (!profile.main) return;
+	const main = getPrimaryMain(profile);
+	if (!main) return;
 
 	const settings = readJson<Record<string, unknown>>(settingsPath) ?? {};
-	settings.defaultProvider = profile.main.provider;
-	settings.defaultModel = profile.main.model;
-	if (profile.main.thinkingLevel)
-		settings.defaultThinkingLevel = profile.main.thinkingLevel;
+	settings.defaultProvider = main.provider;
+	settings.defaultModel = main.model;
+	if (main.thinkingLevel) settings.defaultThinkingLevel = main.thinkingLevel;
 	writeJson(settingsPath, settings);
 }
 
@@ -150,15 +156,13 @@ async function switchCurrentSessionModel(
 	ctx: ExtensionContext,
 	profile: Profile,
 ) {
-	if (!profile.main) return;
+	const main = getPrimaryMain(profile);
+	if (!main) return;
 
-	const model = ctx.modelRegistry.find(
-		profile.main.provider,
-		profile.main.model,
-	);
+	const model = ctx.modelRegistry.find(main.provider, main.model);
 	if (!model) {
 		ctx.ui.notify(
-			`Profile model not found: ${profile.main.provider}/${profile.main.model}`,
+			`Profile model not found: ${main.provider}/${main.model}`,
 			"warning",
 		);
 		return;
@@ -166,25 +170,17 @@ async function switchCurrentSessionModel(
 
 	const success = await pi.setModel(model);
 	if (!success) {
-		ctx.ui.notify(
-			`No API key for ${profile.main.provider}/${profile.main.model}`,
-			"warning",
-		);
+		ctx.ui.notify(`No API key for ${main.provider}/${main.model}`, "warning");
 	}
 
-	if (profile.main.thinkingLevel) {
-		pi.setThinkingLevel(profile.main.thinkingLevel);
+	if (main.thinkingLevel) {
+		pi.setThinkingLevel(main.thinkingLevel);
 	}
 }
 
 export default function agentProfilesExtension(pi: ExtensionAPI) {
 	let config: ProfileConfig = { profiles: {} };
 	let activeProfileName: string | undefined;
-
-	function updateStatus(ctx: ExtensionContext) {
-		// Profile is rendered by the custom footer extension, not as a separate status item.
-		ctx.ui.setStatus("profile", undefined);
-	}
 
 	function getProfileOrder(): string[] {
 		return Object.keys(config.profiles).sort();
@@ -232,11 +228,11 @@ export default function agentProfilesExtension(pi: ExtensionAPI) {
 		}
 
 		activeProfileName = name;
-		updateStatus(ctx);
 
 		if (options.notify !== false) {
-			const mainText = profile.main
-				? `main=${profile.main.provider}/${profile.main.model}`
+			const main = getPrimaryMain(profile);
+			const mainText = main
+				? `main=${main.provider}/${main.model}`
 				: "main=unchanged";
 			const missingText =
 				missing.length > 0 ? ` · missing agents: ${missing.join(", ")}` : "";
@@ -337,10 +333,7 @@ export default function agentProfilesExtension(pi: ExtensionAPI) {
 		config = loadConfig(ctx.cwd);
 		const desiredProfile = getActiveProfileName(config);
 
-		if (!desiredProfile) {
-			updateStatus(ctx);
-			return;
-		}
+		if (!desiredProfile) return;
 
 		await applyProfile(desiredProfile, ctx, {
 			persistState: false,
