@@ -8,8 +8,6 @@ interface ModelEntry {
 	model: string;
 }
 
-const errorStatuses = [429, 500, 502, 503];
-
 function sendSessionMessage(pi: ExtensionAPI, content: string) {
 	pi.sendMessage(
 		{ customType: "provider-fallback", content, display: true },
@@ -42,83 +40,67 @@ function loadModelChain(): ModelEntry[] {
 	}
 }
 
-const modelChain = loadModelChain();
-
 export default function (pi: ExtensionAPI) {
-	let errorStatus: number | null = null;
 	let fallbackAttempted = false;
-
-	pi.on("after_provider_response", (event) => {
-		if (errorStatuses.includes(event.status)) {
-			errorStatus = event.status;
-		}
-	});
 
 	pi.on("message_end", async (event, ctx) => {
 		const msg = event.message;
+		const provider = (msg as any).provider;
+		const model = (msg as any).model;
+
 		if (msg.role !== "assistant") return;
+		if (msg.stopReason !== "error") return;
 
-		const isModelError = msg.stopReason === "error";
-		if (!isModelError && !errorStatus) return;
-
-		const actualStatus = errorStatus ?? 0;
-		errorStatus = null;
-
-		// Find this model in the priority chain
+		const modelChain = loadModelChain();
 		const chainIndex = modelChain.findIndex(
-			(e) => e.provider === msg.provider && e.model === msg.model,
+			(e) => e.provider === provider && e.model === model,
 		);
 		if (chainIndex === -1) return;
 
-		// Primary model failed — try next fallback
 		if (chainIndex === 0) {
 			if (modelChain.length < 2) return;
 
+			const primary = modelChain[0];
 			const next = modelChain[1];
 			const fallbackModel = ctx.modelRegistry.find(next.provider, next.model);
 
 			if (!fallbackModel) {
-				if (ctx.hasUI)
-					ctx.ui.notify(
-						`Fallback model ${next.provider}/${next.model} not found in registry.`,
-						"error",
-					);
+				ctx.ui.notify(
+					`Fallback model ${next.provider}/${next.model} not found in registry.`,
+					"error",
+				);
 				return;
 			}
 
 			const ok = await pi.setModel(fallbackModel);
 			if (!ok) {
-				if (ctx.hasUI)
-					ctx.ui.notify(
-						`Could not switch to ${next.provider}/${next.model} (no API key).`,
-						"error",
-					);
+				ctx.ui.notify(
+					`Could not switch to ${next.provider}/${next.model} (no API key).`,
+					"error",
+				);
 				return;
 			}
 
 			fallbackAttempted = true;
-
-			const primary = modelChain[0];
 			ctx.ui.notify(
-				`⚠️ ${primary.provider}/${primary.model} failed (HTTP ${actualStatus}). Switched to ${next.provider}/${next.model}.`,
+				`⚠️ ${primary.provider}/${primary.model} failed. Switched to ${next.provider}/${next.model}.`,
 				"warning",
 			);
 			sendSessionMessage(
 				pi,
-				`⚠️ Request to ${primary.provider}/${primary.model} failed with HTTP ${actualStatus}. Switched to ${next.provider}/${next.model}. You can continue your conversation with the fallback model.`,
+				`⚠️ Request to ${primary.provider}/${primary.model} failed. Switched to ${next.provider}/${next.model}. You can continue your conversation with the fallback model.`,
 			);
 			return;
 		}
 
-		// A fallback model also failed
 		if (chainIndex > 0 && fallbackAttempted) {
 			ctx.ui.notify(
-				`⚠️ Fallback also failed (${actualStatus}). No more fallbacks available.`,
+				`⚠️ Fallback also failed. No more fallbacks available.`,
 				"error",
 			);
 			sendSessionMessage(
 				pi,
-				`⚠️ Fallback model also failed with HTTP ${actualStatus}. No more fallbacks configured.`,
+				`⚠️ Fallback model also failed. No more fallbacks configured.`,
 			);
 		}
 	});

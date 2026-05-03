@@ -1,29 +1,26 @@
 {
-  "lastChangelogVersion": "0.72.1",
-  "packages": [
-    "npm:@plannotator/pi-extension",
-    "npm:pi-autoresearch",
-    "npm:pi-interview",
-    "npm:pi-lens",
-    "npm:pi-mcp-adapter",
-    "npm:pi-powerline-footer",
-    "npm:pi-review-loop",
-    "npm:pi-rewind",
-    "npm:pi-slop-review"
-  ],
-  "extensions": [
-    "~/dotfiles/home/.pi/agent/extensions"
-  ],
-  "defaultThinkingLevel": "high",
-  "customProfileFooter": false,
-  "treeFilterMode": "no-tools",
-  "theme": "dark",
-  "reviewerLoop": {
-    "maxIterations": 3,
-    "autoTrigger": true,
-    "freshContext": true,
-    "reviewPrompt": "template:double-check"
-  },
-  "defaultProvider": "synthetic",
-  "defaultModel": "hf:moonshotai/Kimi-K2.6"
+	"lastChangelogVersion": "0.72.1",
+	"packages": [
+		"npm:@plannotator/pi-extension",
+		"npm:pi-autoresearch",
+		"npm:pi-interview",
+		"npm:pi-lens",
+		"npm:pi-mcp-adapter",
+		"npm:pi-powerline-footer",
+		"npm:pi-review-loop",
+		"npm:pi-rewind",
+		"npm:pi-slop-review"
+	],
+	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
+	"defaultProvider": "github-copilot",
+	"defaultModel": "gpt-5.4",
+	"defaultThinkingLevel": "high",
+	"treeFilterMode": "no-tools",
+	"theme": "dark",
+	"reviewerLoop": {
+		"maxIterations": 3,
+		"autoTrigger": true,
+		"freshContext": true,
+		"reviewPrompt": "template:double-check"
+	}
 }
