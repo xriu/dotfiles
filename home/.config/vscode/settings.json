@@ -336,6 +336,5 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none",
-    "chat.viewSessions.orientation": "stacked"
+    "workbench.startupEditor": "none"
 }

@@ -72,6 +72,7 @@ function brew_setup() {
     brew install --cask stats --force # System monitor for the menu bar
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask tolaria --force # Markdown knowledgebase manager
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
     brew install --cask visual-studio-code@insiders --force # Visual Studio Code Insiders Edition
