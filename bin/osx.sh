@@ -29,7 +29,6 @@ function install_osx_packages() {
     bun_packages
     mac_setup
     fish_setup
-    # zsh_setup
 
     # Cleanup
     brew cleanup
@@ -199,19 +198,5 @@ function fish_setup() {
 
     # Set Fish as default shell
     chsh -s $(which fish)
-
-}
-
-function zsh_setup() {
-
-    echo "Zsh install"
-
-    # Configure Zsh
-    mkdir -p ~/.config
-    ln -sf ~/dotfiles/home/.config/zsh/.zshrc ~/.zshrc
-    ln -sf ~/dotfiles/home/.config/starship.toml ~/.config/starship.toml
-
-    # Set Zsh as default shell
-    chsh -s /bin/zsh
 
 }
