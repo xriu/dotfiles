@@ -81,12 +81,6 @@ function brew_setup() {
     # brew install atuin # Magical shell history
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
-    # brew install gradle-completion # Bash and Zsh completion for Gradle
-
-    # Zsh plugins
-    # brew install tmux # Terminal multiplexer
-    # brew install zsh # UNIX shell (command interpreter)
-    # brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
 
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
