@@ -29,7 +29,6 @@ function install_osx_packages() {
     bun_packages
     mac_setup
     fish_setup
-    # zsh_setup
 
     # Cleanup
     brew cleanup
@@ -52,7 +51,6 @@ function brew_setup() {
     brew install --cask beekeeper-studio --force # Database management tool
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask claude --force # Anthropic's official Claude AI desktop app
-    brew install --cask claude --force # Anthropic's official Claude AI desktop app
     brew install --cask cleanshot --force # Screen capture and recording tool
     brew install --cask cmux --force # Agents orchestrator
     brew install --cask cyberduck --force # Server and cloud storage browser
@@ -72,21 +70,16 @@ function brew_setup() {
     brew install --cask stats --force # System monitor for the menu bar
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask tolaria --force # Markdown knowledgebase manager
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
+    brew install --cask visual-studio-code --force # Visual Studio Code
     brew install --cask visual-studio-code@insiders --force # Visual Studio Code Insiders Edition
     brew install --cask windows-app --force # Windows app for macOS
 
     # brew install atuin # Magical shell history
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
-    # brew install gradle-completion # Bash and Zsh completion for Gradle
-    # brew install pnpm # Fast, disk space efficient package manager
-
-    # Zsh plugins
-    # brew install tmux # Terminal multiplexer
-    # brew install zsh # UNIX shell (command interpreter)
-    # brew install zsh-autosuggestions # Fish-like autosuggestions for zsh
 
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
@@ -133,6 +126,7 @@ function brew_setup() {
     brew install pake # Turn any webpage into a desktop app with Rust with ease
     brew install pandoc # Universal document converter
     brew install pi-coding-agent # AI agent toolkit
+    brew install pnpm # Fast, disk space efficient package manager
     brew install postgresql # Object-relational database management system
     brew install pstree # A tool to show the tree of processes
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
@@ -204,19 +198,5 @@ function fish_setup() {
 
     # Set Fish as default shell
     chsh -s $(which fish)
-
-}
-
-function zsh_setup() {
-
-    echo "Zsh install"
-
-    # Configure Zsh
-    mkdir -p ~/.config
-    ln -sf ~/dotfiles/home/.config/zsh/.zshrc ~/.zshrc
-    ln -sf ~/dotfiles/home/.config/starship.toml ~/.config/starship.toml
-
-    # Set Zsh as default shell
-    chsh -s /bin/zsh
 
 }

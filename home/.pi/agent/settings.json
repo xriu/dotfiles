@@ -12,8 +12,8 @@
 		"npm:pi-slop-review"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "synthetic",
-	"defaultModel": "hf:moonshotai/Kimi-K2.6",
+	"defaultProvider": "github-copilot",
+	"defaultModel": "gpt-5.4",
 	"defaultThinkingLevel": "high",
 	"treeFilterMode": "no-tools",
 	"theme": "dark",
