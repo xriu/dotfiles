@@ -129,8 +129,7 @@
 		"https://registry.terraform.io": true,
 		"https://starship.rs": true,
 		"https://www.twingate.com": true
-	},
-	"chat.viewSessions.orientation": "stacked",
+    },
 	"console-ninja.featureSet": "Community",
 	"cursor.cmdk.useThemedDiffBackground": true,
 	"cursor.composer.shouldAllowCustomModes": true,
@@ -337,5 +336,6 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-	"workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "chat.viewSessions.orientation": "stacked"
 }
