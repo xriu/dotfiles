@@ -102,34 +102,35 @@
 	"aws.telemetry": false,
 	"breadcrumbs.enabled": false,
 	"chat.instructionsFilesLocations": {
-        ".github/instructions": true,
-        ".claude/rules": true,
-        "~/.copilot/instructions": true,
-        "~/.claude/rules": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
-    },
+		".claude/rules": true,
+		".github/instructions": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true,
+		"~/.claude/rules": true,
+		"~/.copilot/instructions": true
+	},
 	"chat.tools.terminal.autoApprove": {
+		"bun": true,
+		"cargo build": true,
 		"cargo check": true,
 		"cargo init": true,
-		"cargo build": true,
-		"npx astro": true,
-		"bun": true
+		"npx astro": true
 	},
 	"chat.tools.urls.autoApprove": {
-		"https://code.visualstudio.com": true,
-		"https://github.com/microsoft/vscode/wiki/*": true,
-		"https://*.leapp.cloud": true,
 		"https://*.github.io": true,
-		"https://starship.rs": true,
-		"https://registry.terraform.io": true,
+		"https://*.leapp.cloud": true,
+		"https://code.visualstudio.com": true,
 		"https://docs.twingate.com": true,
+		"https://github.com/microsoft/vscode/wiki/*": true,
+		"https://registry.terraform.io": true,
+		"https://starship.rs": true,
 		"https://www.twingate.com": true
 	},
+	"chat.viewSessions.orientation": "stacked",
 	"console-ninja.featureSet": "Community",
 	"cursor.cmdk.useThemedDiffBackground": true,
 	"cursor.composer.shouldAllowCustomModes": true,
@@ -256,6 +257,16 @@
 	"java.project.importOnFirstTimeStartup": "automatic",
 	"java.saveActions.organizeImports": true,
 	"javascript.updateImportsOnFileMove.enabled": "always",
+	"json.schemaDownload.trustedDomains": {
+		"https://biomejs.dev": true,
+		"https://developer.microsoft.com/json-schemas/": true,
+		"https://json-schema.org/": true,
+		"https://json.schemastore.org/": true,
+		"https://raw.githubusercontent.com/devcontainers/spec/": true,
+		"https://raw.githubusercontent.com/microsoft/vscode/": true,
+		"https://schemastore.azurewebsites.net/": true,
+		"https://www.schemastore.org/": true
+	},
 	"kilo-code.allowedCommands": ["git log", "git diff", "git show"],
 	"kilo-code.deniedCommands": [],
 	"postman.mcp.notifications.postmanMCP": false,
@@ -326,6 +337,5 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none",
-    "chat.viewSessions.orientation": "stacked"
+	"workbench.startupEditor": "none"
 }
