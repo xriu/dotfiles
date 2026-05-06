@@ -121,15 +121,34 @@
 		"npx astro": true
 	},
 	"chat.tools.urls.autoApprove": {
+		"https://code.visualstudio.com": true,
+		"https://github.com/microsoft/vscode/wiki/*": true,
 		"https://*.github.io": true,
 		"https://*.leapp.cloud": true,
-		"https://code.visualstudio.com": true,
 		"https://docs.twingate.com": true,
-		"https://github.com/microsoft/vscode/wiki/*": true,
 		"https://registry.terraform.io": true,
 		"https://starship.rs": true,
-		"https://www.twingate.com": true
-    },
+		"https://www.twingate.com": true,
+		"https://hub.docker.com/v2/repositories/library/node/tags": true,
+		"https://hub.docker.com/v2/repositories/library/node": true,
+		"https://hub.docker.com/v2/repositories/library": true,
+		"https://hub.docker.com/v2/repositories": true,
+		"https://hub.docker.com/v2": true,
+		"https://hub.docker.com": true,
+		"https://*.docker.com": true,
+		"https://registry.npmjs.org/@aws-sdk/client-s3/latest": true,
+		"https://registry.npmjs.org/@aws-sdk/client-s3": true,
+		"https://registry.npmjs.org/@aws-sdk": true,
+		"https://registry.npmjs.org": true,
+		"https://*.npmjs.org": true,
+		"https://registry.npmjs.org/@aws-sdk/credential-provider-ini/latest": true,
+		"https://registry.npmjs.org/@aws-sdk/credential-provider-ini": true,
+		"https://registry.npmjs.org/dayjs/latest": true,
+		"https://registry.npmjs.org/dayjs": true,
+		"https://registry.npmjs.org/fs-readdir-recursive/latest": true,
+		"https://registry.npmjs.org/fs-readdir-recursive": true,
+		"https://registry.npmjs.org/node-fetch": true
+	},
 	"console-ninja.featureSet": "Community",
 	"cursor.cmdk.useThemedDiffBackground": true,
 	"cursor.composer.shouldAllowCustomModes": true,
@@ -336,6 +355,6 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none",
-    "chat.viewSessions.orientation": "stacked"
+	"workbench.startupEditor": "none",
+	"chat.viewSessions.orientation": "stacked"
 }
