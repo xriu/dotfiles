@@ -15,7 +15,7 @@
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
 	"defaultProvider": "github-copilot",
-	"defaultModel": "gpt-5.4",
+	"defaultModel": "claude-opus-4.6",
 	"defaultThinkingLevel": "high",
 	"treeFilterMode": "no-tools",
 	"theme": "dark",
