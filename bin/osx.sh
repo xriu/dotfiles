@@ -74,7 +74,6 @@ function brew_setup() {
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
     brew install --cask visual-studio-code --force # Visual Studio Code
-    brew install --cask visual-studio-code@insiders --force # Visual Studio Code Insiders Edition
     brew install --cask windows-app --force # Windows app for macOS
 
     # brew install atuin # Magical shell history
