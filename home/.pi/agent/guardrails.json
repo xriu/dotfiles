@@ -1,0 +1,104 @@
+{
+	"enabled": true,
+	"features": {
+		"policies": true,
+		"permissionGate": true,
+		"pathAccess": false
+	},
+	"pathAccess": {
+		"mode": "ask",
+		"allowedPaths": []
+	},
+	"policies": {
+		"rules": [
+			{
+				"id": "secret-files",
+				"description": "Files containing secrets",
+				"patterns": [
+					{ "pattern": ".env" },
+					{ "pattern": ".env.*" },
+					{ "pattern": ".env.local" },
+					{ "pattern": ".env.production" },
+					{ "pattern": ".env.prod" },
+					{ "pattern": ".dev.vars" },
+					{ "pattern": ".git-credentials" },
+					{ "pattern": ".npmrc" }
+				],
+				"allowedPatterns": [
+					{ "pattern": ".env.example" },
+					{ "pattern": ".env.sample" },
+					{ "pattern": ".env.test" },
+					{ "pattern": "*.example.env" },
+					{ "pattern": "*.sample.env" },
+					{ "pattern": "*.test.env" }
+				],
+				"protection": "noAccess",
+				"onlyIfExists": true
+			},
+			{
+				"id": "secret-paths",
+				"description": "Project directories and user config paths that may contain secrets",
+				"patterns": [
+					{ "pattern": "secrets" },
+					{ "pattern": "secrets/**" },
+					{ "pattern": "private" },
+					{ "pattern": "private/**" },
+					{ "pattern": "credentials" },
+					{ "pattern": "credentials/**" },
+					{ "pattern": "certs" },
+					{ "pattern": "certs/**" },
+					{ "pattern": "~/.ssh" },
+					{ "pattern": "~/.ssh/**" },
+					{ "pattern": "~/.aws" },
+					{ "pattern": "~/.aws/**" },
+					{ "pattern": "~/.gnupg" },
+					{ "pattern": "~/.gnupg/**" },
+					{ "pattern": "~/.config/gcloud" },
+					{ "pattern": "~/.config/gcloud/**" },
+					{ "pattern": "~/.docker/config.json" },
+					{ "pattern": "~/.npmrc" }
+				],
+				"protection": "noAccess",
+				"onlyIfExists": true
+			},
+			{
+				"id": "private-key-and-cert-files",
+				"description": "Private key and certificate files",
+				"patterns": [
+					{ "pattern": "*.pem" },
+					{ "pattern": "*.key" },
+					{ "pattern": "*.p12" },
+					{ "pattern": "*.pfx" },
+					{ "pattern": "*.crt" }
+				],
+				"protection": "noAccess",
+				"onlyIfExists": true
+			},
+			{
+				"id": "write-protected-paths",
+				"description": "Directories that should not be modified by the agent",
+				"patterns": [
+					{ "pattern": ".git" },
+					{ "pattern": ".git/**" },
+					{ "pattern": "node_modules" },
+					{ "pattern": "node_modules/**" }
+				],
+				"protection": "readOnly",
+				"onlyIfExists": true
+			}
+		]
+	},
+	"permissionGate": {
+		"patterns": [
+			{ "pattern": "rm -rf", "description": "recursive force delete" },
+			{ "pattern": "sudo", "description": "superuser command" }
+		],
+		"customPatterns": [],
+		"requireConfirmation": true,
+		"allowedPatterns": [],
+		"autoDenyPatterns": [],
+		"explainCommands": false,
+		"explainModel": null,
+		"explainTimeout": 5000
+	}
+}

@@ -1,6 +1,7 @@
 {
 	"lastChangelogVersion": "0.73.0",
 	"packages": [
+		"npm:@aliou/pi-guardrails",
 		"npm:@plannotator/pi-extension",
 		"npm:pi-autoresearch",
 		"npm:pi-interview",
@@ -9,7 +10,8 @@
 		"npm:pi-powerline-footer",
 		"npm:pi-review-loop",
 		"npm:pi-rewind",
-		"npm:pi-slop-review"
+		"npm:pi-slop-review",
+		"npm:pi-smart-fetch"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
 	"defaultProvider": "github-copilot",
