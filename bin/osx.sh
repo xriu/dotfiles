@@ -54,6 +54,7 @@ function brew_setup() {
     brew install --cask claude --force # Anthropic's official Claude AI desktop app
     brew install --cask cleanshot --force # Screen capture and recording tool
     brew install --cask cmux --force # Agents orchestrator
+    brew install --cask codex --force # OpenAI's coding agent that runs in your terminal
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask finetune --force # Per-application volume mixer, equalizer, and audio router
