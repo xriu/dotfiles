@@ -15,6 +15,7 @@
 				"id": "secret-files",
 				"description": "Files containing secrets",
 				"patterns": [
+					{ "pattern": "*.env" },
 					{ "pattern": ".env" },
 					{ "pattern": ".env.*" },
 					{ "pattern": ".env.local" },
