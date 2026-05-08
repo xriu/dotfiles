@@ -2,7 +2,6 @@
 	"lastChangelogVersion": "0.74.0",
 	"packages": [
 		"npm:@aliou/pi-guardrails",
-		"npm:@plannotator/pi-extension",
 		"npm:pi-autoresearch",
 		"npm:pi-interview",
 		"npm:pi-lens",
