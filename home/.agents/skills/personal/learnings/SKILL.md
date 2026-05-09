@@ -1,6 +1,7 @@
 ---
 name: learnings
 description: Review the current session and code changes for anything worth codifying in AGENTS.md or README.md. Use before committing/opening a PR, or when the user asks "anything learned?", "anything to note?", "should we update AGENTS.md?", "update the docs with what we learned", or similar.
+disable-model-invocation: true
 ---
 
 # Learnings

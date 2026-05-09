@@ -5,6 +5,7 @@ license: MIT
 metadata:
   version: "1.0"
   author: Cocoon AI (hello@cocoon-ai.com)
+disable-model-invocation: true
 ---
 
 # Diagram Design
