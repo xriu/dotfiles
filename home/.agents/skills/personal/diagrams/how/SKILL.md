@@ -1,6 +1,7 @@
 ---
 name: how
 description: Explain how something works in this codebase by exploring code and producing a clear architectural explanation. Optionally critique the architecture for issues.
+disable-model-invocation: true
 ---
 
 # How

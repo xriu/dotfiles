@@ -45,6 +45,7 @@ function brew_setup() {
 
     # brew install --cask droid --force # AI-powered software engineering agent by Factory
     # brew install --cask opencode-desktop --force # OpenCode Desktop
+    # brew install --cask leapp --force # Cloud credentials manager
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
@@ -53,6 +54,7 @@ function brew_setup() {
     brew install --cask claude --force # Anthropic's official Claude AI desktop app
     brew install --cask cleanshot --force # Screen capture and recording tool
     brew install --cask cmux --force # Agents orchestrator
+    brew install --cask codex --force # OpenAI's coding agent that runs in your terminal
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
     brew install --cask finetune --force # Per-application volume mixer, equalizer, and audio router
@@ -60,7 +62,6 @@ function brew_setup() {
     brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask helium-browser --force # Chromium-based web browser
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
-    brew install --cask leapp --force # Cloud credentials manager
     brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
     brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
     brew install --cask orbstack --force # Replacement for Docker Desktop
@@ -120,6 +121,7 @@ function brew_setup() {
     brew install lazygit # Simple terminal UI for git commands
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
+    brew install mkcert # Simple tool to make locally trusted development certificates
     brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pake # Turn any webpage into a desktop app with Rust with ease

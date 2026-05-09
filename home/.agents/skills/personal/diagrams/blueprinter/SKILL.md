@@ -1,6 +1,7 @@
 ---
 name: blueprinter
 description: Generate technical diagrams using HTML/CSS in Flat Engineering Blueprint style. Use when the user wants to create architecture diagrams, system diagrams, flowcharts, or technical specification sheets that look like engineering blueprints. Triggers on requests for flat diagrams, blueprint-style visualizations, or technical drawings.
+disable-model-invocation: true
 ---
 
 # Blueprinter
