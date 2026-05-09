@@ -16,6 +16,7 @@
 				"description": "Files containing secrets",
 				"patterns": [
 					{ "pattern": "*.env" },
+					{ "pattern": "local.env" },
 					{ "pattern": ".env" },
 					{ "pattern": ".env.*" },
 					{ "pattern": ".env.local" },
@@ -91,7 +92,7 @@
 	},
 	"permissionGate": {
 		"patterns": [
-			{ "pattern": "rm -rf", "description": "recursive force delete" },
+			{ "pattern": "rm", "description": "force delete" },
 			{ "pattern": "sudo", "description": "superuser command" }
 		],
 		"customPatterns": [],
