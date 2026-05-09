@@ -6,7 +6,6 @@ metadata:
   author: DaleStudy
   version: "2.0.0"
 allowed-tools: Bash(gh release:*)
-disable-model-invocation: true
 ---
 
 # GitHub Actions
