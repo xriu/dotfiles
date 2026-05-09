@@ -92,8 +92,27 @@
 	},
 	"permissionGate": {
 		"patterns": [
-			{ "pattern": "rm", "description": "force delete" },
-			{ "pattern": "sudo", "description": "superuser command" }
+			{ "pattern": "rm", "description": "Remove files or directories" },
+			{
+				"pattern": "sudo",
+				"description": "Commands run with superuser privileges"
+			},
+			{
+				"pattern": "git",
+				"description": "Git commands that modify history or force push"
+			},
+			{
+				"pattern": "dd",
+				"description": "Disk copying command that can overwrite data"
+			},
+			{
+				"pattern": "mkfs",
+				"description": "Command to create a filesystem, which can erase data on a disk"
+			},
+			{
+				"pattern": "chmod 777",
+				"description": "Setting read/write/execute permissions for all users"
+			}
 		],
 		"customPatterns": [],
 		"requireConfirmation": true,
