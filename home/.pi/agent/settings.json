@@ -1,27 +1,29 @@
 {
-	"lastChangelogVersion": "0.74.0",
-	"packages": [
-		"npm:@aliou/pi-guardrails",
-		"npm:pi-autoresearch",
-		"npm:pi-interview",
-		"npm:pi-lens",
-		"npm:pi-mcp-adapter",
-		"npm:pi-powerline-footer",
-		"npm:pi-review-loop",
-		"npm:pi-rewind",
-		"npm:pi-slop-review",
-		"npm:pi-smart-fetch"
-	],
-	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "github-copilot",
-	"defaultModel": "claude-opus-4.6",
-	"defaultThinkingLevel": "high",
-	"treeFilterMode": "no-tools",
-	"theme": "dark",
-	"reviewerLoop": {
-		"maxIterations": 3,
-		"autoTrigger": true,
-		"freshContext": true,
-		"reviewPrompt": "template:double-check"
-	}
+  "lastChangelogVersion": "0.74.0",
+  "packages": [
+    "npm:@aliou/pi-guardrails",
+    "npm:pi-autoresearch",
+    "npm:pi-interview",
+    "npm:pi-lens",
+    "npm:pi-mcp-adapter",
+    "npm:pi-powerline-footer",
+    "npm:pi-review-loop",
+    "npm:pi-rewind",
+    "npm:pi-slop-review",
+    "npm:pi-smart-fetch"
+  ],
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "defaultProvider": "github-copilot",
+  "defaultModel": "claude-opus-4.6",
+  "defaultThinkingLevel": "high",
+  "treeFilterMode": "no-tools",
+  "theme": "dark",
+  "reviewerLoop": {
+    "maxIterations": 3,
+    "autoTrigger": true,
+    "freshContext": true,
+    "reviewPrompt": "template:double-check"
+  }
 }
