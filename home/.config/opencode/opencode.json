@@ -32,7 +32,6 @@
 		}
 	},
 	"model": "synthetic/hf:moonshotai/Kimi-K2.6",
-	"plugin": ["oh-my-opencode@latest"],
 	"agent": {
 		"plan": {
 			"mode": "primary",
