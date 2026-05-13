@@ -6,6 +6,7 @@
 		"npm:pi-bash-live-view",
 		"npm:pi-interview",
 		"npm:pi-lens",
+		"npm:pi-markdown-preview",
 		"npm:pi-mcp-adapter",
 		"npm:pi-powerline-footer",
 		"npm:pi-review-loop",
