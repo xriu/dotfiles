@@ -48,7 +48,6 @@ function brew_setup() {
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
-    brew install --cask beekeeper-studio --force # Database management tool
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask claude --force # Anthropic's official Claude AI desktop app
     brew install --cask cleanshot --force # Screen capture and recording tool
