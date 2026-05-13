@@ -45,11 +45,9 @@ function brew_setup() {
 
     # brew install --cask droid --force # AI-powered software engineering agent by Factory
     # brew install --cask opencode-desktop --force # OpenCode Desktop
-    # brew install --cask leapp --force # Cloud credentials manager
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
-    brew install --cask beekeeper-studio --force # Database management tool
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask claude --force # Anthropic's official Claude AI desktop app
     brew install --cask cleanshot --force # Screen capture and recording tool
@@ -69,6 +67,7 @@ function brew_setup() {
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask stats --force # System monitor for the menu bar
+    brew install --cask tablepro --force # Native database client for many database types
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask tolaria --force # Markdown knowledgebase manager

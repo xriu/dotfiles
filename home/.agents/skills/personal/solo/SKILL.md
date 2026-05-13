@@ -1,7 +1,6 @@
 ---
 name: solo
 description: Solo MCP server reference — all available tools with correct names, safety rules, and examples. Use when the user wants to spawn processes, manage todos, share state via scratchpads/kv, coordinate agents with timers and locks, or anything related to the Solo multi-agent orchestration platform.
-disable-model-invocation: true
 ---
 
 # Solo MCP Server
