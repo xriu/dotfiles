@@ -45,7 +45,6 @@ function brew_setup() {
 
     # brew install --cask droid --force # AI-powered software engineering agent by Factory
     # brew install --cask opencode-desktop --force # OpenCode Desktop
-    # brew install --cask leapp --force # Cloud credentials manager
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller

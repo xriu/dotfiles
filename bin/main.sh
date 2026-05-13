@@ -60,7 +60,7 @@ function common_configuration() {
         cat ~/.ssh/id_github.pub
     fi
 
-    # Create symbolic links for Leapp commands
+    # Create symbolic links
     sudo ln -s /opt/homebrew/bin/aws /usr/local/bin/aws
     sudo ln -s /opt/homebrew/bin/session-manager-plugin /usr/local/bin/session-manager-plugin
 
