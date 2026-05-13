@@ -67,6 +67,7 @@ function brew_setup() {
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask stats --force # System monitor for the menu bar
+    brew install --cask tablepro --force # Native database client for many database types
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask tolaria --force # Markdown knowledgebase manager
