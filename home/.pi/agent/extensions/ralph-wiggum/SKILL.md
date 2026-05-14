@@ -103,12 +103,16 @@ ralph_start({
 - `--items-per-iteration N` — Suggest N items per turn (prompt hint)
 - `--reflect-every N` — Reflect every N iterations
 - `--max-iterations N` — Stop after N iterations (default: 50)
+- `--tdd` — Enable Test-Driven Development workflow (red-green-refactor loop, vertical slices)
 
 ## Examples
 
 ```
 /ralph start architecture-deepening
 /ralph start architecture-deepening/01-workflow-context-di --items-per-iteration 3 --reflect-every 5
+/ralph start auth-module --tdd                    # TDD workflow (auto-detected if plan name/content includes "tdd")
+/ralph start tdd-checkout-flow                    # Auto-enables TDD (name contains "tdd")
+/ralph start checkout-flow/01-validate-cart --tdd # Issue-level TDD loop
 /ralph plans
 /ralph issues architecture-deepening
 /ralph plan cloudfront-auto-update
