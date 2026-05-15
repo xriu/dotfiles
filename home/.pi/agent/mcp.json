@@ -1,9 +1,0 @@
-{
-	"mcpServers": {
-		"solo": {
-			"command": "/Applications/Solo.app/Contents/MacOS/mcp",
-			"args": [],
-			"lifecycle": "eager"
-		}
-	}
-}
