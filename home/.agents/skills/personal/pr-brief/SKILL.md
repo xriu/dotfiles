@@ -1,6 +1,7 @@
 ---
 name: pr-brief
 description: Generate a concise pull request changelog from commits. Use when asked to summarize PR changes, generate a quick PR changelog, list commit summaries grouped by type, or produce a brief PR description without full verification/metrics.
+disable-model-invocation: true
 ---
 
 # PR Summary — Concise Changelog
