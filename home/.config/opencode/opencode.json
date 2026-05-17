@@ -67,11 +67,6 @@
 		}
 	},
 	"mcp": {
-		"solo": {
-			"enabled": true,
-			"type": "remote",
-			"url": "http://localhost:45678"
-		},
 		"aws-knowledge-mcp": {
 			"enabled": true,
 			"type": "remote",
