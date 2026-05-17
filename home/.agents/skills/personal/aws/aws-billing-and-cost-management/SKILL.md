@@ -9,6 +9,7 @@ description: |
   right-size, budget alert, cost optimization, pricing, free tier, cost
   anomaly, CUR, cost audit, billing view, billing view ARN.
 version: 1
+disable-model-invocation: true
 ---
 
 # Billing and Cost Management
