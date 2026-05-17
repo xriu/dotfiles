@@ -74,6 +74,7 @@ interface LoopState {
 	startedAt: string;
 	completedAt?: string;
 	lastReflectionAt: number;
+	tddMode?: boolean;
 }
 
 const STATUS_ICONS: Record<LoopStatus, string> = {
@@ -86,6 +87,8 @@ export default function (pi: ExtensionAPI) {
 	let currentLoop: string | null = null;
 	// Tracks cross-project scratch dirs for active loops.
 	const loopScratchDirs = new Map<string, string>();
+	// Set by ralph_done tool, read/cleared by agent_end to prevent double-advance.
+	let ralphDoneThisTurn = false;
 
 	// --- File helpers ---
 
@@ -511,16 +514,20 @@ export default function (pi: ExtensionAPI) {
 
 	/**
 	 * Find the first incomplete issue in a plan's issues/ directory.
-	 * Returns the relative path to the issue file, or null if all done.
+	 * Returns the absolute path to the issue file, or null if all done.
+	 * @param skipFile Absolute path to skip (prevents returning the current issue as "next").
 	 */
 	function findNextIncompleteIssue(
 		ctx: ExtensionContext,
 		planName: string,
 		scratchOverride?: string,
+		skipFile?: string,
 	): string | null {
 		const sd = scratchOverride ?? scratchDir(ctx);
 		const issuesDir = path.join(sd, planName, "issues");
 		if (!fs.existsSync(issuesDir)) return null;
+
+		const skipAbs = skipFile ? path.resolve(skipFile) : undefined;
 
 		const files = fs
 			.readdirSync(issuesDir)
@@ -528,15 +535,51 @@ export default function (pi: ExtensionAPI) {
 			.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
 
 		for (const f of files) {
-			const content = tryRead(path.join(issuesDir, f));
+			const absPath = path.join(issuesDir, f);
+			if (skipAbs && path.resolve(absPath) === skipAbs) continue;
+			const content = tryRead(absPath);
 			if (content === null) continue;
 			const { total, checked } = parseCheckboxes(content);
 			if (total === 0 || checked < total) {
-				return path.join(sd, planName, "issues", f);
+				return absPath;
 			}
 		}
 
 		return null; // all issues complete
+	}
+
+	/**
+	 * For plan-level loops: if current issue is done, advance to next incomplete issue.
+	 * Returns true if the loop should continue (issue advanced or not plan-level),
+	 * false if all issues are done and the loop should complete.
+	 * Skips the current file to prevent cycling back.
+	 */
+	function tryAdvancePlanIssue(
+		ctx: ExtensionContext,
+		state: LoopState,
+	): boolean {
+		const isPlanLevel = !state.name.includes("/");
+		if (!isPlanLevel) return true;
+
+		const currentContent = tryRead(path.resolve(ctx.cwd, state.taskFile));
+		if (currentContent === null) return true;
+
+		const { total, checked } = parseCheckboxes(currentContent);
+		const issueDone = total === 0 ? state.iteration > 1 : checked >= total;
+		if (!issueDone) return true;
+
+		const sd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
+		const nextIssue = findNextIncompleteIssue(
+			ctx,
+			state.name,
+			sd,
+			state.taskFile,
+		);
+		if (nextIssue) {
+			state.taskFile = nextIssue;
+			return true;
+		}
+		return false; // all issues done
 	}
 
 	// --- Loop state transitions ---
@@ -565,7 +608,7 @@ export default function (pi: ExtensionAPI) {
 		saveState(ctx, state);
 		currentLoop = null;
 		updateUI(ctx);
-		pi.sendUserMessage(banner);
+		if (banner) pi.sendUserMessage(banner);
 	}
 
 	function stopLoop(
@@ -573,12 +616,7 @@ export default function (pi: ExtensionAPI) {
 		state: LoopState,
 		message?: string,
 	): void {
-		state.status = "completed";
-		state.completedAt = new Date().toISOString();
-		state.active = false;
-		saveState(ctx, state);
-		currentLoop = null;
-		updateUI(ctx);
+		completeLoop(ctx, state, "");
 		if (message && ctx.hasUI) ctx.ui.notify(message, "info");
 	}
 
@@ -676,8 +714,13 @@ export default function (pi: ExtensionAPI) {
 
 		if (isReflection) parts.push(state.reflectInstructions, "\n---\n");
 
-		// TDD mode: inject workflow instructions
-		const isTDD = tddMode ?? isTDDLoop(state.name, taskContent);
+		// Priority: explicit param > persisted state > auto-detect
+		let isTDD = state.tddMode === true;
+		if (tddMode !== undefined) {
+			isTDD = tddMode;
+		} else if (!state.tddMode) {
+			isTDD = isTDDLoop(state.name, taskContent);
+		}
 		if (isTDD) parts.push(TDD_INSTRUCTIONS, "\n---\n");
 
 		if (isPlanLevel) {
@@ -868,6 +911,7 @@ export default function (pi: ExtensionAPI) {
 				status: "active",
 				startedAt: new Date().toISOString(),
 				lastReflectionAt: 0,
+				tddMode: args.tdd || undefined,
 			};
 
 			saveState(ctx, state);
@@ -949,19 +993,6 @@ export default function (pi: ExtensionAPI) {
 				return;
 			}
 
-			if (state.maxIterations > 0 && state.iteration >= state.maxIterations) {
-				completeLoop(
-					ctx,
-					state,
-					`───────────────────────────────────────────────────────────────────────\n⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached\n───────────────────────────────────────────────────────────────────────`,
-				);
-				ctx.ui.notify(
-					`Loop "${loopName}" already reached max ${state.maxIterations} iterations.`,
-					"warning",
-				);
-				return;
-			}
-
 			if (currentLoop && currentLoop !== loopName) {
 				const curr = loadState(ctx, currentLoop);
 				if (curr) pauseLoop(ctx, curr);
@@ -970,6 +1001,37 @@ export default function (pi: ExtensionAPI) {
 			state.status = "active";
 			state.active = true;
 			state.iteration++;
+
+			// Match ralph_done: check AFTER increment so agent gets its final
+			// allowed iteration (e.g. max=50 → iteration 50 is allowed,
+			// iteration 51 completes).
+			if (state.maxIterations > 0 && state.iteration > state.maxIterations) {
+				completeLoop(
+					ctx,
+					state,
+					`───────────────────────────────────────────────────────────────────────\n⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached\n───────────────────────────────────────────────────────────────────────`,
+				);
+				ctx.ui.notify(
+					`Loop "${loopName}" exceeded max ${state.maxIterations} iterations.`,
+					"warning",
+				);
+				return;
+			}
+
+			// Plan-level loops: advance past completed issues on resume
+			if (!tryAdvancePlanIssue(ctx, state)) {
+				completeLoop(
+					ctx,
+					state,
+					`───────────────────────────────────────────────────────────────────────\n✅ PLAN COMPLETE: ${state.name} | All issues finished\n───────────────────────────────────────────────────────────────────────`,
+				);
+				ctx.ui.notify(
+					`Loop "${loopName}" has all issues complete. Cannot resume.`,
+					"warning",
+				);
+				return;
+			}
+
 			saveState(ctx, state);
 			const resumeSd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
 			if (resumeSd !== scratchDir(ctx)) {
@@ -1126,18 +1188,7 @@ export default function (pi: ExtensionAPI) {
 		},
 
 		list(_rest, ctx) {
-			const loops = listLoops(ctx);
-			if (loops.length === 0) {
-				ctx.ui.notify(
-					"No loops found. Use /ralph plans to see available plans.",
-					"info",
-				);
-				return;
-			}
-			ctx.ui.notify(
-				`Ralph loops:\n${loops.map((l) => formatLoop(l)).join("\n")}`,
-				"info",
-			);
+			commands.status(_rest, ctx);
 		},
 
 		nuke(rest, ctx) {
@@ -1386,7 +1437,7 @@ Commands:
   /ralph start <plan>/<issue> [options]    Start an issue-level loop
   /ralph stop                              Pause current loop
   /ralph resume <name>                     Resume a paused loop
-  /ralph status                            Show all active loops
+  /ralph status                            Show all loops
   /ralph plans                             List all plans in .scratch/
   /ralph plan <name>                       Show plan summary
   /ralph issues <plan>                     List issues for a plan
@@ -1567,6 +1618,7 @@ Examples:
 				status: "active",
 				startedAt: new Date().toISOString(),
 				lastReflectionAt: 0,
+				tddMode: params.tddMode || undefined,
 			};
 
 			saveState(ctx, state);
@@ -1677,41 +1729,24 @@ Examples:
 				(state.iteration - 1) % state.reflectEvery === 0;
 			if (needsReflection) state.lastReflectionAt = state.iteration;
 
-			// For plan-level loops: check if current issue is done, auto-advance
-			const isPlanLevel = !state.name.includes("/");
-			if (isPlanLevel) {
-				const currentContent = tryRead(path.resolve(ctx.cwd, state.taskFile));
-				if (currentContent !== null) {
-					const { total, checked } = parseCheckboxes(currentContent);
-					const issueDone =
-						total === 0 ? state.iteration > 1 : checked >= total;
-					if (issueDone) {
-						// Current issue is complete — find next incomplete issue
-						const sd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
-						const nextIssue = findNextIncompleteIssue(ctx, state.name, sd);
-						if (nextIssue) {
-							state.taskFile = nextIssue;
-						} else {
-							// All issues done — complete the plan loop
-							completeLoop(
-								ctx,
-								state,
-								`───────────────────────────────────────────────────────────────────────
+			if (!tryAdvancePlanIssue(ctx, state)) {
+				// All issues done — complete the plan loop
+				completeLoop(
+					ctx,
+					state,
+					`───────────────────────────────────────────────────────────────────────
 ✅ PLAN COMPLETE: ${state.name} | All issues finished
 ───────────────────────────────────────────────────────────────────────`,
-							);
-							return {
-								content: [
-									{
-										type: "text",
-										text: `Plan "${state.name}" complete — all issues finished.`,
-									},
-								],
-								details: {},
-							};
-						}
-					}
-				}
+				);
+				return {
+					content: [
+						{
+							type: "text",
+							text: `Plan "${state.name}" complete — all issues finished.`,
+						},
+					],
+					details: {},
+				};
 			}
 
 			saveState(ctx, state);
@@ -1731,7 +1766,7 @@ Examples:
 				};
 			}
 
-			// For plan-level loops, load PRD.md as read-only context
+			const isPlanLevel = !state.name.includes("/");
 			const prdContent = isPlanLevel
 				? (tryRead(
 						path.join(
@@ -1747,6 +1782,8 @@ Examples:
 					deliverAs: "followUp",
 				},
 			);
+
+			ralphDoneThisTurn = true;
 
 			return {
 				content: [
@@ -1764,6 +1801,7 @@ Examples:
 
 	pi.on("before_agent_start", async (event, ctx) => {
 		if (!currentLoop) return;
+		ralphDoneThisTurn = false;
 		const state = loadState(ctx, currentLoop);
 		if (!state || state.status !== "active") return;
 
@@ -1789,6 +1827,18 @@ Examples:
 		const state = loadState(ctx, currentLoop);
 		if (!state || state.status !== "active") return;
 
+		// Enforce max iterations before any other processing
+		if (state.maxIterations > 0 && state.iteration > state.maxIterations) {
+			completeLoop(
+				ctx,
+				state,
+				`───────────────────────────────────────────────────────────────────────
+⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached
+───────────────────────────────────────────────────────────────────────`,
+			);
+			return;
+		}
+
 		const lastAssistant = [...event.messages]
 			.reverse()
 			.find((m) => m.role === "assistant");
@@ -1802,23 +1852,63 @@ Examples:
 						.join("\n")
 				: "";
 
+		// For plan-level loops: COMPLETE_MARKER means "current issue done",
+		// not "entire plan done". Only complete when all issues are finished.
+		const isPlanLevel = !state.name.includes("/");
 		if (text.includes(COMPLETE_MARKER)) {
+			if (isPlanLevel) {
+				// ralph_done already handled advancement this turn — skip
+				if (ralphDoneThisTurn) {
+					ralphDoneThisTurn = false;
+					return;
+				}
+				// Issue advanced to next, still in progress, or not done yet.
+				// Keep the loop alive — only complete when ALL issues are done.
+				if (tryAdvancePlanIssue(ctx, state)) {
+					state.iteration++;
+					if (
+						state.maxIterations > 0 &&
+						state.iteration > state.maxIterations
+					) {
+						completeLoop(
+							ctx,
+							state,
+							`───────────────────────────────────────────────────────────────────────
+⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached
+───────────────────────────────────────────────────────────────────────`,
+						);
+						return;
+					}
+					saveState(ctx, state);
+					updateUI(ctx);
+
+					const sd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
+					const taskContent = tryRead(path.resolve(ctx.cwd, state.taskFile));
+					if (taskContent === null) {
+						pauseLoop(
+							ctx,
+							state,
+							`Could not read task file: ${state.taskFile}`,
+						);
+						return;
+					}
+
+					const prdContent =
+						tryRead(path.join(sd, state.name, "PRD.md")) ?? undefined;
+					pi.sendUserMessage(
+						buildPrompt(state, taskContent, false, prdContent),
+						{ deliverAs: "followUp" },
+					);
+					return;
+				}
+				// Fall through to completeLoop only if no more issues exist
+			}
+
 			completeLoop(
 				ctx,
 				state,
 				`───────────────────────────────────────────────────────────────────────
 ✅ RALPH LOOP COMPLETE: ${state.name} | ${state.iteration} iterations
-───────────────────────────────────────────────────────────────────────`,
-			);
-			return;
-		}
-
-		if (state.maxIterations > 0 && state.iteration >= state.maxIterations) {
-			completeLoop(
-				ctx,
-				state,
-				`───────────────────────────────────────────────────────────────────────
-⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached
 ───────────────────────────────────────────────────────────────────────`,
 			);
 			return;
@@ -1880,6 +1970,25 @@ Examples:
 
 		if (ctx.hasPendingMessages()) return;
 
+		// Plan-level loops: advance past completed issues after compaction
+		const isPlanLevel = !state.name.includes("/");
+		if (isPlanLevel && !tryAdvancePlanIssue(ctx, state)) {
+			completeLoop(
+				ctx,
+				state,
+				`───────────────────────────────────────────────────────────────────────
+✅ PLAN COMPLETE: ${state.name} | All issues finished
+───────────────────────────────────────────────────────────────────────`,
+			);
+			return;
+		}
+
+		// Persist taskFile change only for plan-level loops
+		if (isPlanLevel) {
+			saveState(ctx, state);
+			updateUI(ctx);
+		}
+
 		const content = tryRead(path.resolve(ctx.cwd, state.taskFile));
 		if (content === null) {
 			pauseLoop(
@@ -1894,8 +2003,6 @@ Examples:
 			state.reflectEvery > 0 &&
 			(state.iteration - 1) % state.reflectEvery === 0;
 
-		// For plan-level loops, load PRD.md as read-only context
-		const isPlanLevel = !state.name.includes("/");
 		const sd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
 		const prdContent = isPlanLevel
 			? (tryRead(path.join(sd, state.name, "PRD.md")) ?? undefined)
