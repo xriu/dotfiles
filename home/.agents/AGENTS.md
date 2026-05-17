@@ -84,3 +84,7 @@ Uses default label vocabulary (needs-triage, needs-info, ready-for-agent, ready-
 ### Domain docs
 
 Single-context layout — one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+
+### AWS
+
+Cloud-specific guardrails for AWS work. See `docs/agents/aws.md`.
