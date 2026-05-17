@@ -1,19 +1,17 @@
 {
-  "mcpServers": {
-    "aws": {
-      "disabled": false,
-      "type": "stdio",
-      "command": "uvx",
-      "args": [
-        "mcp-proxy-for-aws@latest",
-        "https://aws-mcp.us-east-1.api.aws/mcp",
-        "--profile",
-        "sre-ops",
-        "--region",
-        "us-east-1",
-        "--metadata",
-        "AWS_REGION=us-east-1"
-      ]
-    }
-  }
+	"mcpServers": {
+		"aws": {
+			"disabled": false,
+			"type": "stdio",
+			"command": "uvx",
+			"args": [
+				"mcp-proxy-for-aws@latest",
+				"https://aws-mcp.us-east-1.api.aws/mcp",
+				"--region",
+				"us-east-1",
+				"--metadata",
+				"AWS_REGION=us-east-1"
+			]
+		}
+	}
 }
