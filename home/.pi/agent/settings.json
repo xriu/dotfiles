@@ -17,8 +17,8 @@
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
-  "defaultProvider": "alibaba",
-  "defaultModel": "qwen3.6-plus",
+  "defaultProvider": "github-copilot",
+  "defaultModel": "claude-opus-4.6",
   "defaultThinkingLevel": "high",
   "treeFilterMode": "no-tools",
   "theme": "dark",
