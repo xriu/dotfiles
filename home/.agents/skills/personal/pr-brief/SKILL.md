@@ -43,7 +43,7 @@ Generate a concise pull request changelog from commits between the current branc
 | `refactor` | 🔧   | Refactoring |
 | `chore`    | ⚙️   | Chores      |
 | `docs`     | 📝   | Docs        |
-| `perf`     | ⚡   | Performance |
+| `perf`     | ⚡    | Performance |
 | `test`     | ✅   | Testing     |
 | `style`    | 💄   | Style       |
 
