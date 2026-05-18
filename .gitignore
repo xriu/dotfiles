@@ -190,9 +190,6 @@ secrets.json
 credentials.json
 credentials/
 
-# Docs
-docs/
-
 # AWS
 .aws/credentials
 .aws/config.local
