@@ -1,11 +1,5 @@
 {
 	"enabled": true,
-	"version": "0.9.0-20260327",
-	"onboarding": {
-		"completed": true,
-		"completedAt": "2026-05-16T14:33:48.971Z",
-		"version": "0.9.0-20260327"
-	},
 	"features": {
 		"policies": true,
 		"permissionGate": true,
@@ -212,10 +206,6 @@
 		"customPatterns": [],
 		"requireConfirmation": true,
 		"allowedPatterns": [],
-		"autoDenyPatterns": [],
-		"explainCommands": false,
-		"explainModel": null,
-		"explainTimeout": 5000
-	},
-	"applyBuiltinDefaults": true
+		"autoDenyPatterns": []
+	}
 }
