@@ -206,3 +206,4 @@ service-account*.json
 home/.factory/settings.json
 .pi-lens/
 .scratch/
+**/skills/private/

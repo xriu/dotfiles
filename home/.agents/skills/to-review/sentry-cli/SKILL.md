@@ -1,10 +1,11 @@
 ---
 name: sentry-cli
-version: 0.26.1
 description: Guide for using the Sentry CLI to interact with Sentry from the command line. Use when the user asks about viewing issues, events, projects, organizations, making API calls, or authenticating with Sentry via CLI.
 requires:
   bins: ["sentry"]
   auth: true
+metadata:
+  version: "0.26.1"
 disable-model-invocation: true
 ---
 

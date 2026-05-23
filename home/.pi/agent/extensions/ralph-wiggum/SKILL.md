@@ -1,7 +1,6 @@
 ---
 name: ralph-wiggum
 description: Long-running iterative development loops with pacing control and verifiable progress. Uses .scratch/<plan>/ structure where each plan has a PRD.md and issues/. Use when tasks require multiple iterations, many discrete steps, or periodic reflection with clear checkpoints; avoid for simple one-shot tasks or quick fixes.
-disable-model-invocation: true
 ---
 
 # Ralph Wiggum - Long-Running Development Loops

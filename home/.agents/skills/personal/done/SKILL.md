@@ -1,7 +1,7 @@
 ---
 name: done
 description: Finalize repository work safely — commit changes and push the current branch. Use when the user says "done", "wrap up", "finalize work", or invokes /done.
-disable-model-invocation: false
+disable-model-invocation: true
 ---
 
 # Done — Finalize Repository Work
