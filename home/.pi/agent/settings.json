@@ -14,9 +14,7 @@
 		"npm:pi-smart-fetch",
 		"npm:pi-design-deck"
 	],
-	"extensions": [
-		"~/dotfiles/home/.pi/agent/extensions"
-	],
+	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
 	"defaultProvider": "alibaba",
 	"defaultModel": "qwen3.6-plus",
 	"defaultThinkingLevel": "high",
