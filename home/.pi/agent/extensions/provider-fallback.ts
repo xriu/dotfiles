@@ -10,8 +10,14 @@ interface ModelEntry {
 
 function sendSessionMessage(pi: ExtensionAPI, content: string) {
 	pi.sendMessage(
-		{ customType: "provider-fallback", content, display: true },
-		{ deliverAs: "nextTurn" },
+		{
+			customType: "provider-fallback",
+			content,
+			display: true,
+		},
+		{
+			deliverAs: "nextTurn",
+		},
 	);
 }
 
@@ -34,7 +40,11 @@ function loadModelChain(): ModelEntry[] {
 		);
 		const main = profiles.profiles?.[profileName]?.main;
 		if (!main) return [];
-		return Array.isArray(main) ? main : [main];
+		return Array.isArray(main)
+			? main
+			: [
+					main,
+				];
 	} catch {
 		return [];
 	}

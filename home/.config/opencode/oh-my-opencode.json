@@ -1,100 +1,100 @@
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/refs/heads/dev/assets/oh-my-opencode.schema.json",
-  "sisyphus_agent": {
-    "disabled": false,
-    "default_builder_enabled": false,
-    "planner_enabled": true,
-    "replace_plan": true
-  },
-  "hashline_edit": true,
-  "disabled_mcps": [],
-  "agents": {
-    "prometheus": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "high"
-    },
-    "metis": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "high"
-    },
-    "atlas": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "medium"
-    },
-    "sisyphus": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
-    },
-    "sisyphus-junior": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
-    },
-    "hephaestus": {
-      "model": "github-copilot/gpt-5.4"
-    },
-    "momus": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "xhigh"
-    },
-    "oracle": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "high"
-    },
-    "librarian": {
-      "model": "github-copilot/gemini-3-flash-preview"
-    },
-    "explore": {
-      "model": "github-copilot/grok-code-fast-1"
-    },
-    "multimodal-looker": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "medium"
-    },
-    "build": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
-    },
-    "plan": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5"
-    }
-  },
-  "categories": {
-    "ultrabrain": {
-      "model": "github-copilot/gpt-5.3-codex",
-      "variant": "xhigh"
-    },
-    "deep": {
-      "model": "github-copilot/gpt-5.3-codex",
-      "variant": "medium"
-    },
-    "artistry": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
-      "variant": "high"
-    },
-    "unspecified-high": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "high"
-    },
-    "unspecified-low": {
-      "model": "github-copilot/gpt-5.4",
-      "variant": "medium"
-    },
-    "visual-engineering": {
-      "model": "synthetic/hf:moonshotai/Kimi-K2.5",
-      "variant": "high"
-    },
-    "quick": {
-      "model": "github-copilot/claude-haiku-4.5"
-    },
-    "writing": {
-      "model": "github-copilot/claude-haiku-4.5"
-    }
-  },
-  "tmux": {
-    "enabled": true,
-    "layout": "main-vertical",
-    "main_pane_size": 60,
-    "main_pane_min_width": 120,
-    "agent_pane_min_width": 40
-  },
-  "browser_automation_engine": {
-    "provider": "agent-browser"
-  }
+	"$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/refs/heads/dev/assets/oh-my-opencode.schema.json",
+	"sisyphus_agent": {
+		"disabled": false,
+		"default_builder_enabled": false,
+		"planner_enabled": true,
+		"replace_plan": true
+	},
+	"hashline_edit": true,
+	"disabled_mcps": [],
+	"agents": {
+		"prometheus": {
+			"model": "github-copilot/gpt-5.4",
+			"variant": "high"
+		},
+		"metis": {
+			"model": "github-copilot/gpt-5.4",
+			"variant": "high"
+		},
+		"atlas": {
+			"model": "github-copilot/gpt-5.4",
+			"variant": "medium"
+		},
+		"sisyphus": {
+			"model": "synthetic/hf:moonshotai/Kimi-K2.6"
+		},
+		"sisyphus-junior": {
+			"model": "synthetic/hf:moonshotai/Kimi-K2.6"
+		},
+		"hephaestus": {
+			"model": "github-copilot/gpt-5.4"
+		},
+		"momus": {
+			"model": "github-copilot/gpt-5.4",
+			"variant": "xhigh"
+		},
+		"oracle": {
+			"model": "github-copilot/gpt-5.4",
+			"variant": "high"
+		},
+		"librarian": {
+			"model": "github-copilot/gemini-3-flash-preview"
+		},
+		"explore": {
+			"model": "github-copilot/grok-code-fast-1"
+		},
+		"multimodal-looker": {
+			"model": "github-copilot/gpt-5.4",
+			"variant": "medium"
+		},
+		"build": {
+			"model": "synthetic/hf:moonshotai/Kimi-K2.6"
+		},
+		"plan": {
+			"model": "synthetic/hf:moonshotai/Kimi-K2.6"
+		}
+	},
+	"categories": {
+		"ultrabrain": {
+			"model": "github-copilot/gpt-5.3-codex",
+			"variant": "xhigh"
+		},
+		"deep": {
+			"model": "github-copilot/gpt-5.3-codex",
+			"variant": "medium"
+		},
+		"artistry": {
+			"model": "synthetic/hf:moonshotai/Kimi-K2.6",
+			"variant": "high"
+		},
+		"unspecified-high": {
+			"model": "github-copilot/gpt-5.4",
+			"variant": "high"
+		},
+		"unspecified-low": {
+			"model": "github-copilot/gpt-5.4",
+			"variant": "medium"
+		},
+		"visual-engineering": {
+			"model": "synthetic/hf:moonshotai/Kimi-K2.6",
+			"variant": "high"
+		},
+		"quick": {
+			"model": "github-copilot/claude-haiku-4.5"
+		},
+		"writing": {
+			"model": "github-copilot/claude-haiku-4.5"
+		}
+	},
+	"tmux": {
+		"enabled": true,
+		"layout": "main-vertical",
+		"main_pane_size": 60,
+		"main_pane_min_width": 120,
+		"agent_pane_min_width": 40
+	},
+	"browser_automation_engine": {
+		"provider": "agent-browser"
+	}
 }

@@ -169,7 +169,11 @@ export default function (pi: ExtensionAPI) {
 
 		const parts = cleaned.split(/[/\\]/).filter(Boolean);
 		if (parts.length === 0) {
-			return { planName: "", issueName: null, isIssue: false };
+			return {
+				planName: "",
+				issueName: null,
+				isIssue: false,
+			};
 		}
 
 		const planName = sanitize(parts[0]);
@@ -181,13 +185,27 @@ export default function (pi: ExtensionAPI) {
 			} else if (parts[1] !== "issues") {
 				issuePart = parts[1];
 			} else {
-				return { planName, issueName: null, isIssue: false };
+				return {
+					planName,
+					issueName: null,
+					isIssue: false,
+				};
 			}
 			const issueName = issuePart.replace(/\.md$/, "");
-			return { planName, issueName, isIssue: true, scratchDirOverride };
+			return {
+				planName,
+				issueName,
+				isIssue: true,
+				scratchDirOverride,
+			};
 		}
 
-		return { planName, issueName: null, isIssue: false, scratchDirOverride };
+		return {
+			planName,
+			issueName: null,
+			isIssue: false,
+			scratchDirOverride,
+		};
 	}
 
 	/**
@@ -224,7 +242,10 @@ export default function (pi: ExtensionAPI) {
 
 	function ensureDir(filePath: string): void {
 		const dir = path.dirname(filePath);
-		if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+		if (!fs.existsSync(dir))
+			fs.mkdirSync(dir, {
+				recursive: true,
+			});
 	}
 
 	function tryDelete(filePath: string): void {
@@ -256,7 +277,11 @@ export default function (pi: ExtensionAPI) {
 		}
 	}
 
-	function migrateState(raw: Partial<LoopState> & { name: string }): LoopState {
+	function migrateState(
+		raw: Partial<LoopState> & {
+			name: string;
+		},
+	): LoopState {
 		if (!raw.status) raw.status = raw.active ? "active" : "paused";
 		raw.active = raw.status === "active";
 		if ("reflectEveryItems" in raw && !raw.reflectEvery) {
@@ -280,7 +305,11 @@ export default function (pi: ExtensionAPI) {
 			const planStateFile = path.join(override, name, ".ralph.state.json");
 			const raw = safeJsonParse(planStateFile);
 			if (raw) {
-				return migrateState(raw as Partial<LoopState> & { name: string });
+				return migrateState(
+					raw as Partial<LoopState> & {
+						name: string;
+					},
+				);
 			}
 			// Also check issue-level states in the override dir
 			const issuesDir = path.join(override, name, "issues");
@@ -290,7 +319,9 @@ export default function (pi: ExtensionAPI) {
 					const raw = safeJsonParse(path.join(issuesDir, issueFile));
 					if (!raw) continue;
 					const state = migrateState(
-						raw as Partial<LoopState> & { name: string },
+						raw as Partial<LoopState> & {
+							name: string;
+						},
 					);
 					if (state.name === name) return state;
 				}
@@ -309,7 +340,9 @@ export default function (pi: ExtensionAPI) {
 			const raw = safeJsonParse(planStateFile);
 			if (raw) {
 				const state = migrateState(
-					raw as Partial<LoopState> & { name: string },
+					raw as Partial<LoopState> & {
+						name: string;
+					},
 				);
 				if (state.name === name) return state;
 			}
@@ -322,7 +355,9 @@ export default function (pi: ExtensionAPI) {
 					const raw = safeJsonParse(path.join(issuesDir, issueFile));
 					if (!raw) continue;
 					const state = migrateState(
-						raw as Partial<LoopState> & { name: string },
+						raw as Partial<LoopState> & {
+							name: string;
+						},
 					);
 					if (state.name === name) return state;
 				}
@@ -371,7 +406,11 @@ export default function (pi: ExtensionAPI) {
 			const raw = safeJsonParse(planStateFile);
 			if (raw) {
 				results.push(
-					migrateState(raw as Partial<LoopState> & { name: string }),
+					migrateState(
+						raw as Partial<LoopState> & {
+							name: string;
+						},
+					),
 				);
 			}
 
@@ -383,7 +422,11 @@ export default function (pi: ExtensionAPI) {
 					const raw = safeJsonParse(path.join(issuesDir, issueFile));
 					if (!raw) continue;
 					results.push(
-						migrateState(raw as Partial<LoopState> & { name: string }),
+						migrateState(
+							raw as Partial<LoopState> & {
+								name: string;
+							},
+						),
 					);
 				}
 			}
@@ -448,9 +491,17 @@ export default function (pi: ExtensionAPI) {
 					const stateFile = path.join(issuesDir, `${issueName}.state.json`);
 					const raw = safeJsonParse(stateFile);
 					const state = raw
-						? migrateState(raw as Partial<LoopState> & { name: string })
+						? migrateState(
+								raw as Partial<LoopState> & {
+									name: string;
+								},
+							)
 						: null;
-					issues.push({ fileName: f, name: issueName, state });
+					issues.push({
+						fileName: f,
+						name: issueName,
+						state,
+					});
 				}
 			}
 
@@ -509,7 +560,10 @@ export default function (pi: ExtensionAPI) {
 					checked++;
 			}
 		}
-		return { total, checked };
+		return {
+			total,
+			checked,
+		};
 	}
 
 	/**
@@ -532,7 +586,11 @@ export default function (pi: ExtensionAPI) {
 		const files = fs
 			.readdirSync(issuesDir)
 			.filter((f) => f.endsWith(".md"))
-			.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+			.sort((a, b) =>
+				a.localeCompare(b, undefined, {
+					numeric: true,
+				}),
+			);
 
 		for (const f of files) {
 			const absPath = path.join(issuesDir, f);
@@ -703,7 +761,10 @@ export default function (pi: ExtensionAPI) {
 🔄 RALPH LOOP: ${state.name} | Iteration ${state.iteration}${maxStr}${isReflection ? " | 🪞 REFLECTION" : ""}${isPlanLevel ? " | 📋 PLAN-LEVEL" : ""}
 ───────────────────────────────────────────────────────────────────────`;
 
-		const parts = [header, ""];
+		const parts = [
+			header,
+			"",
+		];
 
 		// Plan-level loops: include PRD as read-only context
 		if (isPlanLevel && prdContent) {
@@ -1317,7 +1378,11 @@ export default function (pi: ExtensionAPI) {
 					const stateFile = path.join(issuesDir, `${issueName}.state.json`);
 					const raw = safeJsonParse(stateFile);
 					const state = raw
-						? migrateState(raw as Partial<LoopState> & { name: string })
+						? migrateState(
+								raw as Partial<LoopState> & {
+									name: string;
+								},
+							)
 						: null;
 					const icon = state ? STATUS_ICONS[state.status] : "○";
 					const iterInfo = state ? ` (iter ${state.iteration})` : "";
@@ -1366,7 +1431,11 @@ export default function (pi: ExtensionAPI) {
 				const stateFile = path.join(issuesDir, `${issueName}.state.json`);
 				const raw = safeJsonParse(stateFile);
 				const state = raw
-					? migrateState(raw as Partial<LoopState> & { name: string })
+					? migrateState(
+							raw as Partial<LoopState> & {
+								name: string;
+							},
+						)
 					: null;
 
 				const icon = state ? STATUS_ICONS[state.status] : "○";
@@ -1535,10 +1604,14 @@ Examples:
 				description: "Task in markdown with goals and checklist",
 			}),
 			itemsPerIteration: Type.Optional(
-				Type.Number({ description: "Suggest N items per turn (0 = no limit)" }),
+				Type.Number({
+					description: "Suggest N items per turn (0 = no limit)",
+				}),
 			),
 			reflectEvery: Type.Optional(
-				Type.Number({ description: "Reflect every N iterations" }),
+				Type.Number({
+					description: "Reflect every N iterations",
+				}),
 			),
 			tddMode: Type.Optional(
 				Type.Boolean({
@@ -1558,7 +1631,10 @@ Examples:
 			if (!parsed.planName) {
 				return {
 					content: [
-						{ type: "text", text: `Invalid plan name: ${params.name}` },
+						{
+							type: "text",
+							text: `Invalid plan name: ${params.name}`,
+						},
 					],
 					details: {},
 				};
@@ -1594,7 +1670,10 @@ Examples:
 			if (!taskFile) {
 				return {
 					content: [
-						{ type: "text", text: `Plan "${loopName}" has no issues yet.` },
+						{
+							type: "text",
+							text: `Plan "${loopName}" has no issues yet.`,
+						},
 					],
 					details: {},
 				};
@@ -1681,7 +1760,12 @@ Examples:
 		async execute(_toolCallId, _params, _signal, _onUpdate, ctx) {
 			if (!currentLoop) {
 				return {
-					content: [{ type: "text", text: "No active Ralph loop." }],
+					content: [
+						{
+							type: "text",
+							text: "No active Ralph loop.",
+						},
+					],
 					details: {},
 				};
 			}
@@ -1689,7 +1773,12 @@ Examples:
 			const state = loadState(ctx, currentLoop);
 			if (!state || state.status !== "active") {
 				return {
-					content: [{ type: "text", text: "Ralph loop is not active." }],
+					content: [
+						{
+							type: "text",
+							text: "Ralph loop is not active.",
+						},
+					],
 					details: {},
 				};
 			}
@@ -1718,7 +1807,10 @@ Examples:
 				);
 				return {
 					content: [
-						{ type: "text", text: "Max iterations reached. Loop stopped." },
+						{
+							type: "text",
+							text: "Max iterations reached. Loop stopped.",
+						},
 					],
 					details: {},
 				};
@@ -1839,14 +1931,21 @@ Examples:
 			return;
 		}
 
-		const lastAssistant = [...event.messages]
+		const lastAssistant = [
+			...event.messages,
+		]
 			.reverse()
 			.find((m) => m.role === "assistant");
 		const text =
 			lastAssistant && Array.isArray(lastAssistant.content)
 				? lastAssistant.content
 						.filter(
-							(c): c is { type: "text"; text: string } => c.type === "text",
+							(
+								c,
+							): c is {
+								type: "text";
+								text: string;
+							} => c.type === "text",
 						)
 						.map((c) => c.text)
 						.join("\n")
@@ -1897,7 +1996,9 @@ Examples:
 						tryRead(path.join(sd, state.name, "PRD.md")) ?? undefined;
 					pi.sendUserMessage(
 						buildPrompt(state, taskContent, false, prdContent),
-						{ deliverAs: "followUp" },
+						{
+							deliverAs: "followUp",
+						},
 					);
 					return;
 				}

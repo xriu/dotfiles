@@ -118,7 +118,9 @@ function syncAgentModels(profile: Profile): {
 	updated: string[];
 	missing: string[];
 } {
-	mkdirSync(globalAgentsDir, { recursive: true });
+	mkdirSync(globalAgentsDir, {
+		recursive: true,
+	});
 
 	const updated: string[] = [];
 	const missing: string[] = [];
@@ -137,7 +139,10 @@ function syncAgentModels(profile: Profile): {
 		updated.push(agentName);
 	}
 
-	return { updated, missing };
+	return {
+		updated,
+		missing,
+	};
 }
 
 function persistMainSettings(profile: Profile) {
@@ -179,7 +184,9 @@ async function switchCurrentSessionModel(
 }
 
 export default function agentProfilesExtension(pi: ExtensionAPI) {
-	let config: ProfileConfig = { profiles: {} };
+	let config: ProfileConfig = {
+		profiles: {},
+	};
 	let activeProfileName: string | undefined;
 
 	function getProfileOrder(): string[] {
@@ -220,7 +227,9 @@ export default function agentProfilesExtension(pi: ExtensionAPI) {
 		}
 
 		if (options.persistState !== false) {
-			writeJson(statePath, { activeProfile: name });
+			writeJson(statePath, {
+				activeProfile: name,
+			});
 		}
 
 		if (options.switchCurrentModel) {
