@@ -1,7 +1,7 @@
 {
-  "mcpServers": {
-    "Agent Browser": {
-      "url": "http://localhost:8087/sse"
-    }
-  }
+	"mcpServers": {
+		"Agent Browser": {
+			"url": "http://localhost:8087/sse"
+		}
+	}
 }

@@ -1,212 +1,233 @@
 {
-  "agent_servers": {
-    "OpenCode": {
-      "command": "opencode",
-      "args": ["acp"],
-      "type": "custom"
-    }
-  },
-  "context_servers": {
-    "aws-knowledge-mcp": {
-      "enabled": false,
-      "url": "https://knowledge-mcp.global.api.aws",
-      "headers": {}
-    },
-    "context7": {
-      "enabled": true,
-      "url": "https://mcp.context7.com/mcp",
-      "headers": {
-        "CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
-      }
-    },
-    "vibe-kanban": {
-      "enabled": false,
-      "command": "npx",
-      "args": ["-y", "vibe-kanban@latest", "--mcp"]
-    },
-    "chrome-devtools": {
-      "enabled": true,
-      "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest"]
-    },
-    "playwright": {
-      "enabled": false,
-      "command": "npx",
-      "args": ["@playwright/mcp@latest"]
-    }
-  },
-  "use_system_window_tabs": true,
-  "status_bar": {
-    "active_language_button": true,
-    "cursor_position_button": true
-  },
-  "agent": {
-    "always_allow_tool_actions": true,
-    "enabled": true,
-    "button": true,
-    "dock": "left",
-    "commit_message_model": {
-      "model": "gemma3:270m",
-      "provider": "ollama"
-    },
-    "default_model": {
-      "model": "hf:zai-org/GLM-4.6",
-      "provider": "Synthetic"
-    },
-    "default_profile": "ask",
-    "enable_feedback": false,
-    "inline_assistant_model": {
-      "model": "gemma3:270m",
-      "provider": "ollama"
-    },
-    "play_sound_when_agent_done": true
-  },
-  "auto_update": false,
-  "base_keymap": "VSCode",
-  "buffer_font_size": 13,
-  "buffer_line_height": {
-    "custom": 1.5
-  },
-  "confirm_quit": true,
-  "disable_ai": false,
-  "enable_language_server": true,
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
-  "formatter": "auto",
-  "format_on_save": "on",
-  "git": {
-    "inline_blame": {
-      "delay_ms": 500,
-      "enabled": true
-    }
-  },
-  "git_panel": {
-    "dock": "right"
-  },
-  "icon_theme": "Catppuccin Mocha",
-  "indent_guides": {
-    "background_coloring": "disabled",
-    "coloring": "indent_aware",
-    "enabled": true
-  },
-  "language_models": {
-    "anthropic": {
-      "api_url": "https://api.synthetic.new/anthropic/v1",
-      "available_models": [
-        {
-          "display_name": "GLM 4.6",
-          "max_tokens": 200000, // 200k
-          "max_output_tokens": 128000, // 128k
-          "default_temperature": 0.1,
-          "mode": {
-            "type": "thinking"
-          },
-          "name": "hf:zai-org/GLM-4.6"
-        }
-      ]
-    },
-    "openai_compatible": {
-      "Synthetic": {
-        "api_url": "https://api.synthetic.new/openai/v1",
-        "available_models": [
-          {
-            "name": "hf:zai-org/GLM-4.6",
-            "display_name": "GLM 4.6",
-            "max_tokens": 200000, // 200k
-            "max_output_tokens": 128000, // 128k
-            "max_completion_tokens": 128000, // 128k
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": true,
-              "prompt_cache_key": true
-            }
-          }
-        ]
-      }
-    }
-  },
-  "languages": {
-    "JavaScript": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
-    },
-    "JSON": {
-      "tab_size": 4
-    },
-    "TypeScript": {
-      "code_actions_on_format": {
-        "source.organizeImports": true
-      }
-    }
-  },
-  "load_direnv": "direct",
-  "lsp": {
-    "eslint": {
-      "settings": {
-        "codeActionOnSave": {
-          "rules": ["import/order"]
-        }
-      }
-    }
-  },
-  "minimap": {
-    "current_line_highlight": "line",
-    "show": "auto"
-  },
-  "notification_panel": {
-    "dock": "right"
-  },
-  "outline_panel": {
-    "dock": "right"
-  },
-  "project_panel": {
-    "starts_open": true,
-    "button": true,
-    "dock": "right",
-    "file_icons": true,
-    "folder_icons": true,
-    "git_status": true,
-    "scrollbar": {
-      "show": "never"
-    }
-  },
-  "show_wrap_guides": false,
-  "tabs": {
-    "close_position": "right",
-    "file_icons": true,
-    "git_status": true
-  },
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
-  "terminal": {
-    "alternate_scroll": "off",
-    "blinking": "terminal_controlled",
-    "button": true,
-    "copy_on_select": true,
-    "detect_venv": {
-      "on": {
-        "activate_script": "default",
-        "directories": [".env", "env", ".venv", "venv"]
-      }
-    },
-    "dock": "bottom",
-    "env": {},
-    "font_family": "FiraCode Nerd Font Mono",
-    "font_size": 13,
-    "option_as_meta": false,
-    "shell": "system",
-    "working_directory": "current_project_directory"
-  },
-  "theme": "One Dark",
-  "toolbar": {
-    "breadcrumbs": true,
-    "quick_actions": true
-  },
-  "ui_font_size": 15,
-  "wrap_guides": [80, 120]
+	"agent_servers": {
+		"OpenCode": {
+			"command": "opencode",
+			"args": [
+				"acp"
+			],
+			"type": "custom"
+		}
+	},
+	"context_servers": {
+		"aws-knowledge-mcp": {
+			"enabled": false,
+			"url": "https://knowledge-mcp.global.api.aws",
+			"headers": {}
+		},
+		"context7": {
+			"enabled": true,
+			"url": "https://mcp.context7.com/mcp",
+			"headers": {
+				"CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
+			}
+		},
+		"vibe-kanban": {
+			"enabled": false,
+			"command": "npx",
+			"args": [
+				"-y",
+				"vibe-kanban@latest",
+				"--mcp"
+			]
+		},
+		"chrome-devtools": {
+			"enabled": true,
+			"command": "npx",
+			"args": [
+				"-y",
+				"chrome-devtools-mcp@latest"
+			]
+		},
+		"playwright": {
+			"enabled": false,
+			"command": "npx",
+			"args": [
+				"@playwright/mcp@latest"
+			]
+		}
+	},
+	"use_system_window_tabs": true,
+	"status_bar": {
+		"active_language_button": true,
+		"cursor_position_button": true
+	},
+	"agent": {
+		"always_allow_tool_actions": true,
+		"enabled": true,
+		"button": true,
+		"dock": "left",
+		"commit_message_model": {
+			"model": "gemma3:270m",
+			"provider": "ollama"
+		},
+		"default_model": {
+			"model": "hf:zai-org/GLM-4.6",
+			"provider": "Synthetic"
+		},
+		"default_profile": "ask",
+		"enable_feedback": false,
+		"inline_assistant_model": {
+			"model": "gemma3:270m",
+			"provider": "ollama"
+		},
+		"play_sound_when_agent_done": true
+	},
+	"auto_update": false,
+	"base_keymap": "VSCode",
+	"buffer_font_size": 13,
+	"buffer_line_height": {
+		"custom": 1.5
+	},
+	"confirm_quit": true,
+	"disable_ai": false,
+	"enable_language_server": true,
+	"features": {
+		"edit_prediction_provider": "zed"
+	},
+	"formatter": "auto",
+	"format_on_save": "on",
+	"git": {
+		"inline_blame": {
+			"delay_ms": 500,
+			"enabled": true
+		}
+	},
+	"git_panel": {
+		"dock": "right"
+	},
+	"icon_theme": "Catppuccin Mocha",
+	"indent_guides": {
+		"background_coloring": "disabled",
+		"coloring": "indent_aware",
+		"enabled": true
+	},
+	"language_models": {
+		"anthropic": {
+			"api_url": "https://api.synthetic.new/anthropic/v1",
+			"available_models": [
+				{
+					"display_name": "GLM 4.6",
+					"max_tokens": 200000, // 200k
+					"max_output_tokens": 128000, // 128k
+					"default_temperature": 0.1,
+					"mode": {
+						"type": "thinking"
+					},
+					"name": "hf:zai-org/GLM-4.6"
+				}
+			]
+		},
+		"openai_compatible": {
+			"Synthetic": {
+				"api_url": "https://api.synthetic.new/openai/v1",
+				"available_models": [
+					{
+						"name": "hf:zai-org/GLM-4.6",
+						"display_name": "GLM 4.6",
+						"max_tokens": 200000, // 200k
+						"max_output_tokens": 128000, // 128k
+						"max_completion_tokens": 128000, // 128k
+						"capabilities": {
+							"tools": true,
+							"images": false,
+							"parallel_tool_calls": true,
+							"prompt_cache_key": true
+						}
+					}
+				]
+			}
+		}
+	},
+	"languages": {
+		"JavaScript": {
+			"code_actions_on_format": {
+				"source.fixAll.eslint": true
+			}
+		},
+		"JSON": {
+			"tab_size": 4
+		},
+		"TypeScript": {
+			"code_actions_on_format": {
+				"source.organizeImports": true
+			}
+		}
+	},
+	"load_direnv": "direct",
+	"lsp": {
+		"eslint": {
+			"settings": {
+				"codeActionOnSave": {
+					"rules": [
+						"import/order"
+					]
+				}
+			}
+		}
+	},
+	"minimap": {
+		"current_line_highlight": "line",
+		"show": "auto"
+	},
+	"notification_panel": {
+		"dock": "right"
+	},
+	"outline_panel": {
+		"dock": "right"
+	},
+	"project_panel": {
+		"starts_open": true,
+		"button": true,
+		"dock": "right",
+		"file_icons": true,
+		"folder_icons": true,
+		"git_status": true,
+		"scrollbar": {
+			"show": "never"
+		}
+	},
+	"show_wrap_guides": false,
+	"tabs": {
+		"close_position": "right",
+		"file_icons": true,
+		"git_status": true
+	},
+	"telemetry": {
+		"diagnostics": false,
+		"metrics": false
+	},
+	"terminal": {
+		"alternate_scroll": "off",
+		"blinking": "terminal_controlled",
+		"button": true,
+		"copy_on_select": true,
+		"detect_venv": {
+			"on": {
+				"activate_script": "default",
+				"directories": [
+					".env",
+					"env",
+					".venv",
+					"venv"
+				]
+			}
+		},
+		"dock": "bottom",
+		"env": {},
+		"font_family": "FiraCode Nerd Font Mono",
+		"font_size": 13,
+		"option_as_meta": false,
+		"shell": "system",
+		"working_directory": "current_project_directory"
+	},
+	"theme": "One Dark",
+	"toolbar": {
+		"breadcrumbs": true,
+		"quick_actions": true
+	},
+	"ui_font_size": 15,
+	"wrap_guides": [
+		80,
+		120
+	]
 }

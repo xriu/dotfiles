@@ -17,12 +17,12 @@ function buildDenialReason(match: MatchResult, filePath: string) {
 		return {
 			block: true,
 			reason: `Access denied: ${filePath} is read-only (guardrails policy: ${match.ruleId})`,
-		} as const;
+		};
 	}
 	return {
 		block: true,
 		reason: `Access denied by guardrails policy: ${match.ruleId} — ${match.reason}`,
-	} as const;
+	};
 }
 
 function resolvePath(filePath: string, cwd: string): string {
@@ -32,7 +32,7 @@ function resolvePath(filePath: string, cwd: string): string {
 export default function (pi: ExtensionAPI) {
 	// --- Config loading on session start ---
 
-	pi.on("session_start", async (_event, _ctx) => {
+	pi.on("session_start", async () => {
 		try {
 			config = loadConfig();
 			configError = null;
@@ -47,7 +47,7 @@ export default function (pi: ExtensionAPI) {
 
 	// --- Awareness injection on first turn ---
 
-	pi.on("before_agent_start", async (_event, _ctx) => {
+	pi.on("before_agent_start", async () => {
 		if (!config || configError) return;
 		if (!config.enabled) return;
 		if (awarenessSent) return;
@@ -222,6 +222,7 @@ export default function (pi: ExtensionAPI) {
 				try {
 					config = loadConfig();
 					configError = null;
+					awarenessSent = false;
 					denialCount = 0;
 					ctx.ui.notify("Guardrails config reloaded", "info");
 				} catch (err) {

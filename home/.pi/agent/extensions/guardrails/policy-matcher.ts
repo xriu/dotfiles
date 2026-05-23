@@ -13,6 +13,32 @@ export interface MatchPathOptions {
 	existsSync?: (p: string) => boolean;
 }
 
+/** Resolve a pattern to an absolute path, expanding ~ and relative paths. */
+function expandPattern(pattern: string, cwd: string): string {
+	if (pattern.startsWith("~")) {
+		const rest = pattern.slice(1);
+		// Only expand ~ when followed by / or nothing (valid homedir syntax).
+		// ~foo (username expansion) is NOT valid here — treat as relative path.
+		if (rest === "" || rest.startsWith(path.sep)) {
+			const remainder = rest.startsWith(path.sep) ? rest.slice(1) : "";
+			return path.join(os.homedir(), remainder);
+		}
+	}
+	if (!path.isAbsolute(pattern)) {
+		return path.resolve(cwd, pattern);
+	}
+	return pattern;
+}
+
+/** Check if an expanded /** pattern matches as a directory prefix. */
+function matchDirectoryPrefix(expanded: string, absolutePath: string): boolean {
+	if (!expanded.endsWith(`${path.sep}**`) && !expanded.endsWith("/**")) {
+		return false;
+	}
+	const dir = expanded.replace(/[\\/]\*\*$/, "");
+	return absolutePath === dir || absolutePath.startsWith(dir + path.sep);
+}
+
 /** Check if a path is in the global allowedPaths whitelist.
  * Unlike policy patterns, allowedPaths use exact matching for non-glob paths
  * to avoid accidentally whitelisting directory contents when a file is intended.
@@ -35,20 +61,11 @@ function allowedPathMatches(
 	absolutePath: string,
 	cwd: string,
 ): boolean {
-	// Expand ~ to homedir
-	let expanded = pattern;
-	if (pattern.startsWith("~")) {
-		const rest = pattern.slice(1);
-		const remainder = rest.startsWith(path.sep) ? rest.slice(1) : rest;
-		expanded = path.join(os.homedir(), remainder);
-	} else if (!path.isAbsolute(pattern)) {
-		expanded = path.resolve(cwd, pattern);
-	}
+	const expanded = expandPattern(pattern, cwd);
 
 	// Directory prefix patterns (ending with /**)
-	if (expanded.endsWith(`${path.sep}**`) || expanded.endsWith("/**")) {
-		const dir = expanded.replace(/[\\/]\*\*$/, "");
-		return absolutePath === dir || absolutePath.startsWith(dir + path.sep);
+	if (matchDirectoryPrefix(expanded, absolutePath)) {
+		return true;
 	}
 
 	// Patterns with glob chars — glob match against full path
@@ -129,17 +146,7 @@ function patternMatchesPath(
 		!pattern.startsWith("~") &&
 		!pattern.includes("\\");
 
-	// Expand ~ to homedir
-	let expanded = pattern;
-	if (pattern.startsWith("~")) {
-		const rest = pattern.slice(1);
-		// Handle ~/ prefix (not just ~)
-		const remainder = rest.startsWith(path.sep) ? rest.slice(1) : rest;
-		expanded = path.join(os.homedir(), remainder);
-	} else if (!path.isAbsolute(pattern)) {
-		// Resolve relative to cwd
-		expanded = path.resolve(cwd, pattern);
-	}
+	const expanded = expandPattern(pattern, cwd);
 
 	// Simple name (no glob chars, no separator in original) — match any path component
 	if (isSimpleName) {
@@ -154,9 +161,8 @@ function patternMatchesPath(
 	}
 
 	// Directory prefix patterns (ending with /**)
-	if (expanded.endsWith(`${path.sep}**`) || expanded.endsWith("/**")) {
-		const dir = expanded.replace(/[\\/]\*\*$/, "");
-		return absolutePath === dir || absolutePath.startsWith(dir + path.sep);
+	if (matchDirectoryPrefix(expanded, absolutePath)) {
+		return true;
 	}
 
 	// Full path pattern with no glob chars — treat as directory prefix (match dir and contents)
@@ -171,11 +177,16 @@ function patternMatchesPath(
 }
 
 function globMatch(pattern: string, text: string): boolean {
-	// Convert glob pattern to regex
+	// Use null-byte placeholders so ** doesn't get eaten by the * pass
+	const DOUBLE = "\x00\x00";
+	const SINGLE = "\x01";
+
 	const regex = pattern
-		.replace(/[.+?^${}()|[\]\\]/g, "\\$&")
-		.replace(/\*\*/g, "(.*)")
-		.replace(/\*/g, "([^/]*)")
+		.replace(/\*\*/g, DOUBLE)
+		.replace(/\*/g, SINGLE)
+		.replace(/[.+^${}()|[\]\\]/g, "\\$&")
+		.replace(new RegExp(SINGLE, "g"), "([^/]*)")
+		.replace(new RegExp(DOUBLE, "g"), "(.*)")
 		.replace(/\?/g, "([^/])");
 	return new RegExp(`^${regex}$`).test(text);
 }

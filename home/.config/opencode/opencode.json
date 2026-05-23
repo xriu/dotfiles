@@ -90,17 +90,30 @@
 		"chrome-devtools": {
 			"enabled": false,
 			"type": "local",
-			"command": ["npx", "-y", "chrome-devtools-mcp@latest"]
+			"command": [
+				"npx",
+				"-y",
+				"chrome-devtools-mcp@latest"
+			]
 		},
 		"playwright": {
 			"enabled": false,
 			"type": "local",
-			"command": ["npx", "-y", "@playwright/mcp@latest"]
+			"command": [
+				"npx",
+				"-y",
+				"@playwright/mcp@latest"
+			]
 		},
 		"vibe-kanban": {
 			"enabled": false,
 			"type": "local",
-			"command": ["npx", "-y", "vibe-kanban@latest", "--mcp"]
+			"command": [
+				"npx",
+				"-y",
+				"vibe-kanban@latest",
+				"--mcp"
+			]
 		}
 	},
 	"provider": {
@@ -115,8 +128,13 @@
 				"qwen3.5-plus": {
 					"name": "Qwen3.5 Plus",
 					"modalities": {
-						"input": ["text", "image"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"options": {
 						"thinking": {
@@ -132,8 +150,12 @@
 				"qwen3-max-2026-01-23": {
 					"name": "Qwen3 Max 2026-01-23",
 					"modalities": {
-						"input": ["text"],
-						"output": ["text"]
+						"input": [
+							"text"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"limit": {
 						"context": 262144,
@@ -143,8 +165,12 @@
 				"qwen3-coder-next": {
 					"name": "Qwen3 Coder Next",
 					"modalities": {
-						"input": ["text"],
-						"output": ["text"]
+						"input": [
+							"text"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"limit": {
 						"context": 262144,
@@ -154,8 +180,12 @@
 				"qwen3-coder-plus": {
 					"name": "Qwen3 Coder Plus",
 					"modalities": {
-						"input": ["text"],
-						"output": ["text"]
+						"input": [
+							"text"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"limit": {
 						"context": 1000000,
@@ -165,8 +195,12 @@
 				"MiniMax-M2.5": {
 					"name": "MiniMax M2.5",
 					"modalities": {
-						"input": ["text"],
-						"output": ["text"]
+						"input": [
+							"text"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"options": {
 						"thinking": {
@@ -182,8 +216,12 @@
 				"glm-5": {
 					"name": "GLM-5",
 					"modalities": {
-						"input": ["text"],
-						"output": ["text"]
+						"input": [
+							"text"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"options": {
 						"thinking": {
@@ -199,8 +237,12 @@
 				"glm-4.7": {
 					"name": "GLM-4.7",
 					"modalities": {
-						"input": ["text"],
-						"output": ["text"]
+						"input": [
+							"text"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"options": {
 						"thinking": {
@@ -214,10 +256,15 @@
 					}
 				},
 				"kimi-k2.6": {
-					"name": "Kimi K2.5",
+					"name": "Kimi K2.6",
 					"modalities": {
-						"input": ["text", "image"],
-						"output": ["text"]
+						"input": [
+							"text",
+							"image"
+						],
+						"output": [
+							"text"
+						]
 					},
 					"options": {
 						"thinking": {

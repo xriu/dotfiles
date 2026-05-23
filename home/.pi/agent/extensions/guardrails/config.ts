@@ -5,8 +5,12 @@ import * as path from "node:path";
 export interface PolicyRule {
 	id: string;
 	description: string;
-	patterns: Array<{ pattern: string }>;
-	allowedPatterns?: Array<{ pattern: string }>;
+	patterns: Array<{
+		pattern: string;
+	}>;
+	allowedPatterns?: Array<{
+		pattern: string;
+	}>;
 	protection: "noAccess" | "readOnly";
 	onlyIfExists?: boolean;
 }
@@ -25,7 +29,9 @@ export interface GuardrailsConfig {
 	};
 	pathAccess: {
 		mode: string;
-		allowedPaths: Array<{ pattern: string }>;
+		allowedPaths: Array<{
+			pattern: string;
+		}>;
 	};
 	policies: {
 		rules: PolicyRule[];
