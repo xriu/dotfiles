@@ -135,7 +135,6 @@
 		"https://github.com/microsoft/vscode/wiki/*": true,
 		"https://starship.rs": true
 	},
-	"chat.viewSessions.orientation": "stacked",
 	"console-ninja.featureSet": "Community",
 	"cursor.cmdk.useThemedDiffBackground": true,
 	"cursor.composer.shouldAllowCustomModes": true,
