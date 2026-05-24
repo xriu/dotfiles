@@ -11,9 +11,29 @@ import type {
 	ExtensionContext,
 } from "@mariozechner/pi-coding-agent";
 import { Type } from "@sinclair/typebox";
-
-const SCRATCH_DIR = ".scratch";
-const COMPLETE_MARKER = "<promise>COMPLETE</promise>";
+import {
+	parsePlanPath,
+	taskFilePath,
+	scratchDir,
+	resolveScratchDir,
+	scratchDirFromFile,
+	sanitize,
+	SCRATCH_DIR,
+} from "./plan-paths";
+import {
+	LoopStore,
+	type LoopState,
+	type LoopStatus,
+	safeJsonParse,
+	migrateState,
+	extractTitle,
+	extractStatus,
+	tryRead,
+	ensureDir,
+	isPlanLevelLoop,
+} from "./loop-store";
+import { buildPrompt, COMPLETE_MARKER } from "./prompt-builder";
+import { LoopRuntime } from "./loop-runtime";
 
 const ISSUE_TEMPLATE = `## Parent
 
@@ -43,40 +63,6 @@ Pause and reflect on your progress:
 
 Update the task file with your reflection, then continue working.`;
 
-const TDD_INSTRUCTIONS = `## TDD Workflow (Red-Green-Refactor)
-
-You are using Test-Driven Development in this loop. Follow the vertical-slice cycle:
-
-1. **RED**: Write ONE test for the next behavior → test fails
-2. **GREEN**: Write minimal code to pass that test → test passes
-3. **REFACTOR**: Clean up while keeping all tests green
-
-Rules:
-- One test at a time (vertical slices, not horizontal bulk)
-- Tests verify behavior through public interfaces only
-- Don't mock internal collaborators — mock at system boundaries
-- Never refactor while RED
-- Don't anticipate future tests — let each cycle inform the next
-- Each test must survive internal refactors without breaking`;
-
-type LoopStatus = "active" | "paused" | "completed";
-
-interface LoopState {
-	name: string;
-	taskFile: string;
-	iteration: number;
-	maxIterations: number;
-	itemsPerIteration: number;
-	reflectEvery: number;
-	reflectInstructions: string;
-	active: boolean;
-	status: LoopStatus;
-	startedAt: string;
-	completedAt?: string;
-	lastReflectionAt: number;
-	tddMode?: boolean;
-}
-
 const STATUS_ICONS: Record<LoopStatus, string> = {
 	active: "▶",
 	paused: "⏸",
@@ -84,560 +70,30 @@ const STATUS_ICONS: Record<LoopStatus, string> = {
 };
 
 export default function (pi: ExtensionAPI) {
-	let currentLoop: string | null = null;
-	// Tracks cross-project scratch dirs for active loops.
-	const loopScratchDirs = new Map<string, string>();
-	// Set by ralph_done tool, read/cleared by agent_end to prevent double-advance.
-	let ralphDoneThisTurn = false;
-
+	const store = new LoopStore();
+	const runtime = new LoopRuntime(store);
 	// --- File helpers ---
-
-	const scratchDir = (ctx: ExtensionContext) =>
-		path.resolve(ctx.cwd, SCRATCH_DIR);
-
-	/** Resolve the .scratch dir — uses override for absolute/cross-project paths. */
-	const resolveScratchDir = (
-		ctx: ExtensionContext,
-		parsed: ParsedPlanPath,
-	): string => parsed.scratchDirOverride ?? scratchDir(ctx);
-
-	/** Extract scratch dir from a task file path (works for saved state). */
-	const scratchDirFromFile = (taskFile: string, fallback: string): string => {
-		const match = taskFile.match(/^(.+?)[/\\]\.scratch[/\\]/);
-		return match ? path.resolve(match[1], SCRATCH_DIR) : fallback;
-	};
-
-	const CROSS_REFS_FILE = ".ralph.cross-refs.json";
-
-	function saveCrossProjectRefs(ctx: ExtensionContext): void {
-		const refs: Record<string, string> = {};
-		for (const [name, sd] of loopScratchDirs) {
-			refs[name] = sd;
-		}
-		const filePath = path.join(scratchDir(ctx), CROSS_REFS_FILE);
-		ensureDir(filePath);
-		fs.writeFileSync(filePath, JSON.stringify(refs, null, 2), "utf-8");
-	}
-
-	function loadCrossProjectRefs(ctx: ExtensionContext): void {
-		const filePath = path.join(scratchDir(ctx), CROSS_REFS_FILE);
-		const raw = safeJsonParse(filePath);
-		if (raw && typeof raw === "object") {
-			for (const [name, sd] of Object.entries(raw)) {
-				if (typeof sd === "string") {
-					loopScratchDirs.set(name, sd);
-				}
-			}
-		}
-	}
-
-	const sanitize = (name: string) =>
-		name.replace(/[^a-zA-Z0-9_-]/g, "_").replace(/_+/g, "_");
-
-	/**
-	 * Parse a user-provided path into { planName, issueName?, isIssue }.
-	 * Supported formats:
-	 *   "my-plan"                    → plan-level (works through issues sequentially)
-	 *   "my-plan/01-foo"             → issue-level
-	 *   "my-plan/issues/01-foo"      → issue-level
-	 *   ".scratch/my-plan"           → plan-level
-	 *   ".scratch/my-plan/01-foo"    → issue-level
-	 *   ".scratch/my-plan/issues/01-foo" → issue-level
-	 *   "/abs/path/.scratch/my-plan" → plan-level (cross-project)
-	 *   "/abs/path/.scratch/my-plan/01-foo" → issue-level (cross-project)
-	 */
-	interface ParsedPlanPath {
-		planName: string;
-		issueName: string | null;
-		isIssue: boolean;
-		/** Absolute path to the .scratch dir when using cross-project paths. */
-		scratchDirOverride?: string;
-	}
-
-	function parsePlanPath(input: string): ParsedPlanPath {
-		let cleaned = input;
-		let scratchDirOverride: string | undefined;
-
-		// Detect absolute or cross-project paths: /some/path/.scratch/...
-		const absMatch = input.match(/^(.+?)[/\\]\.scratch[/\\](.+)$/);
-		if (absMatch) {
-			scratchDirOverride = path.resolve(absMatch[1], SCRATCH_DIR);
-			cleaned = absMatch[2];
-		} else if (cleaned.startsWith(".scratch/")) {
-			cleaned = cleaned.slice(".scratch/".length);
-		}
-
-		const parts = cleaned.split(/[/\\]/).filter(Boolean);
-		if (parts.length === 0) {
-			return {
-				planName: "",
-				issueName: null,
-				isIssue: false,
-			};
-		}
-
-		const planName = sanitize(parts[0]);
-
-		if (parts.length >= 2) {
-			let issuePart: string;
-			if (parts[1] === "issues" && parts.length >= 3) {
-				issuePart = parts[2];
-			} else if (parts[1] !== "issues") {
-				issuePart = parts[1];
-			} else {
-				return {
-					planName,
-					issueName: null,
-					isIssue: false,
-				};
-			}
-			const issueName = issuePart.replace(/\.md$/, "");
-			return {
-				planName,
-				issueName,
-				isIssue: true,
-				scratchDirOverride,
-			};
-		}
-
-		return {
-			planName,
-			issueName: null,
-			isIssue: false,
-			scratchDirOverride,
-		};
-	}
-
-	/**
-	 * Returns the state file path for a parsed plan path.
-	 * Issue-level: .scratch/<plan>/issues/<issue>.state.json
-	 * Plan-level:  .scratch/<plan>/.ralph.state.json
-	 */
-	function statePathForPath(
-		ctx: ExtensionContext,
-		parsed: ParsedPlanPath,
-	): string {
-		const sd = resolveScratchDir(ctx, parsed);
-		if (parsed.isIssue && parsed.issueName) {
-			const issuesDir = path.join(sd, parsed.planName, "issues");
-			return path.join(issuesDir, `${sanitize(parsed.issueName)}.state.json`);
-		}
-		return path.join(sd, parsed.planName, ".ralph.state.json");
-	}
-
-	/**
-	 * Returns the task file path for an issue-level parsed plan path.
-	 * Issue-level: .scratch/<plan>/issues/<issue>.md
-	 */
-	function taskFilePath(ctx: ExtensionContext, parsed: ParsedPlanPath): string {
-		const sd = resolveScratchDir(ctx, parsed);
-		const issueName = parsed.issueName!;
-		return path.join(
-			sd,
-			parsed.planName,
-			"issues",
-			`${sanitize(issueName)}.md`,
-		);
-	}
-
-	function ensureDir(filePath: string): void {
-		const dir = path.dirname(filePath);
-		if (!fs.existsSync(dir))
-			fs.mkdirSync(dir, {
-				recursive: true,
-			});
-	}
 
 	function tryDelete(filePath: string): void {
 		try {
-			if (fs.existsSync(filePath)) fs.unlinkSync(filePath);
+			fs.unlinkSync(filePath);
 		} catch {
 			/* ignore */
 		}
 	}
 
-	function tryRead(filePath: string): string | null {
-		try {
-			return fs.readFileSync(filePath, "utf-8");
-		} catch {
-			return null;
-		}
-	}
-
-	// --- State management ---
-
-	function safeJsonParse(filePath: string): unknown | null {
-		try {
-			const raw = tryRead(filePath);
-			if (!raw) return null;
-			return JSON.parse(raw);
-		} catch {
-			/* corrupted or invalid JSON */
-			return null;
-		}
-	}
-
-	function migrateState(
-		raw: Partial<LoopState> & {
-			name: string;
-		},
-	): LoopState {
-		if (!raw.status) raw.status = raw.active ? "active" : "paused";
-		raw.active = raw.status === "active";
-		if ("reflectEveryItems" in raw && !raw.reflectEvery) {
-			raw.reflectEvery = (raw as any).reflectEveryItems;
-		}
-		if ("lastReflectionAtItems" in raw && raw.lastReflectionAt === undefined) {
-			raw.lastReflectionAt = (raw as any).lastReflectionAtItems;
-		}
-		return raw as LoopState;
-	}
-
-	/**
-	 * Load state by loop name. Scans .scratch/ for matching state files.
-	 * The loop name is derived from the plan name (for plan-level loops)
-	 * or the issue name (for issue-level loops).
-	 */
-	function loadState(ctx: ExtensionContext, name: string): LoopState | null {
-		// Check cross-project override first
-		const override = loopScratchDirs.get(name);
-		if (override) {
-			const planStateFile = path.join(override, name, ".ralph.state.json");
-			const raw = safeJsonParse(planStateFile);
-			if (raw) {
-				return migrateState(
-					raw as Partial<LoopState> & {
-						name: string;
-					},
-				);
-			}
-			// Also check issue-level states in the override dir
-			const issuesDir = path.join(override, name, "issues");
-			if (fs.existsSync(issuesDir)) {
-				for (const issueFile of fs.readdirSync(issuesDir)) {
-					if (!issueFile.endsWith(".state.json")) continue;
-					const raw = safeJsonParse(path.join(issuesDir, issueFile));
-					if (!raw) continue;
-					const state = migrateState(
-						raw as Partial<LoopState> & {
-							name: string;
-						},
-					);
-					if (state.name === name) return state;
-				}
-			}
-		}
-
-		const sd = scratchDir(ctx);
-		if (!fs.existsSync(sd)) return null;
-
-		for (const planEntry of fs.readdirSync(sd)) {
-			const planDir = path.join(sd, planEntry);
-			if (!fs.statSync(planDir).isDirectory()) continue;
-
-			// Check plan-level state
-			const planStateFile = path.join(planDir, ".ralph.state.json");
-			const raw = safeJsonParse(planStateFile);
-			if (raw) {
-				const state = migrateState(
-					raw as Partial<LoopState> & {
-						name: string;
-					},
-				);
-				if (state.name === name) return state;
-			}
-
-			// Check issue-level states
-			const issuesDir = path.join(planDir, "issues");
-			if (fs.existsSync(issuesDir)) {
-				for (const issueFile of fs.readdirSync(issuesDir)) {
-					if (!issueFile.endsWith(".state.json")) continue;
-					const raw = safeJsonParse(path.join(issuesDir, issueFile));
-					if (!raw) continue;
-					const state = migrateState(
-						raw as Partial<LoopState> & {
-							name: string;
-						},
-					);
-					if (state.name === name) return state;
-				}
-			}
-		}
-
-		return null;
-	}
-
-	function saveState(ctx: ExtensionContext, state: LoopState): void {
-		state.active = state.status === "active";
-
-		// Plan-level loops (name has no "/") save to the plan directory
-		const isPlanLevel = !state.name.includes("/");
-		if (isPlanLevel) {
-			const sd = loopScratchDirs.get(state.name) ?? scratchDir(ctx);
-			const sp = path.join(sd, state.name, ".ralph.state.json");
-			ensureDir(sp);
-			fs.writeFileSync(sp, JSON.stringify(state, null, 2), "utf-8");
-			return;
-		}
-
-		// Issue-level loops: state next to the issue file
-		const relTask = path.relative(ctx.cwd, state.taskFile);
-		const parsed = parsePlanPath(relTask);
-		const sp = statePathForPath(ctx, parsed);
-		ensureDir(sp);
-		fs.writeFileSync(sp, JSON.stringify(state, null, 2), "utf-8");
-	}
-
-	/**
-	 * List all loops by scanning .scratch/<plan>/.ralph.state.json and
-	 * .scratch/<plan>/issues/*.state.json
-	 */
-	function listLoops(ctx: ExtensionContext): LoopState[] {
-		const results: LoopState[] = [];
-		const sd = scratchDir(ctx);
-		if (!fs.existsSync(sd)) return results;
-
-		for (const planEntry of fs.readdirSync(sd)) {
-			const planDir = path.join(sd, planEntry);
-			if (!fs.statSync(planDir).isDirectory()) continue;
-
-			// Plan-level state
-			const planStateFile = path.join(planDir, ".ralph.state.json");
-			const raw = safeJsonParse(planStateFile);
-			if (raw) {
-				results.push(
-					migrateState(
-						raw as Partial<LoopState> & {
-							name: string;
-						},
-					),
-				);
-			}
-
-			// Issue-level states
-			const issuesDir = path.join(planDir, "issues");
-			if (fs.existsSync(issuesDir)) {
-				for (const issueFile of fs.readdirSync(issuesDir)) {
-					if (!issueFile.endsWith(".state.json")) continue;
-					const raw = safeJsonParse(path.join(issuesDir, issueFile));
-					if (!raw) continue;
-					results.push(
-						migrateState(
-							raw as Partial<LoopState> & {
-								name: string;
-							},
-						),
-					);
-				}
-			}
-		}
-
-		return results;
-	}
-
-	// --- Plan discovery ---
-
-	interface PlanInfo {
-		name: string;
-		prdPath: string;
-		prdTitle: string;
-		prdStatus: string;
-		issueCount: number;
-		issues: IssueInfo[];
-		activeLoops: LoopState[];
-	}
-
-	interface IssueInfo {
-		fileName: string;
-		name: string;
-		state: LoopState | null;
-	}
-
-	function discoverPlans(ctx: ExtensionContext): PlanInfo[] {
-		const sd = scratchDir(ctx);
-		if (!fs.existsSync(sd)) return [];
-
-		// Scan all loops once, grouped by plan name
-		const allLoops = listLoops(ctx);
-		const loopsByPlan = new Map<string, LoopState[]>();
-		for (const loop of allLoops) {
-			const rel = path.relative(ctx.cwd, loop.taskFile);
-			const parts = rel.split(/[/\\]/);
-			if (parts[0] === SCRATCH_DIR && parts.length >= 2) {
-				const plan = parts[1];
-				if (!loopsByPlan.has(plan)) loopsByPlan.set(plan, []);
-				loopsByPlan.get(plan)!.push(loop);
-			}
-		}
-
-		const plans: PlanInfo[] = [];
-		for (const entry of fs.readdirSync(sd)) {
-			const planDir = path.join(sd, entry);
-			if (!fs.statSync(planDir).isDirectory()) continue;
-
-			const prdPath = path.join(planDir, "PRD.md");
-			if (!fs.existsSync(prdPath)) continue;
-
-			const prdContent = tryRead(prdPath) || "";
-			const prdTitle = extractTitle(prdContent);
-			const prdStatus = extractStatus(prdContent);
-
-			const issuesDir = path.join(planDir, "issues");
-			const issues: IssueInfo[] = [];
-			if (fs.existsSync(issuesDir)) {
-				for (const f of fs.readdirSync(issuesDir)) {
-					if (!f.endsWith(".md") || f.endsWith(".state.json")) continue;
-					const issueName = f.replace(/\.md$/, "");
-					const stateFile = path.join(issuesDir, `${issueName}.state.json`);
-					const raw = safeJsonParse(stateFile);
-					const state = raw
-						? migrateState(
-								raw as Partial<LoopState> & {
-									name: string;
-								},
-							)
-						: null;
-					issues.push({
-						fileName: f,
-						name: issueName,
-						state,
-					});
-				}
-			}
-
-			plans.push({
-				name: entry,
-				prdPath: path.join(SCRATCH_DIR, entry, "PRD.md"),
-				prdTitle,
-				prdStatus,
-				issueCount: issues.length,
-				issues,
-				activeLoops: loopsByPlan.get(entry) ?? [],
-			});
-		}
-
-		return plans;
-	}
-
-	function extractTitle(prdContent: string): string {
-		// YAML frontmatter
-		const yamlMatch = prdContent.match(/^title:\s*["']?([^"'\n]+)["']?\s*$/m);
-		if (yamlMatch) return yamlMatch[1].trim();
-		// Markdown heading
-		const match = prdContent.match(/^#\s+PRD:\s*(.+)$/m);
-		return match ? match[1].trim() : "Untitled";
-	}
-
-	function extractStatus(prdContent: string): string {
-		// YAML frontmatter
-		const yamlMatch = prdContent.match(/^status:\s*["']?([^"'\n]+)["']?\s*$/m);
-		if (yamlMatch) return yamlMatch[1].trim();
-		// Inline markdown
-		const match = prdContent.match(/\*\*Status:\*\*\s*`([^`]+)`/);
-		return match ? match[1] : "unknown";
-	}
-
-	/**
-	 * Parse acceptance criteria checkboxes from issue content.
-	 * Returns { total, checked } count.
-	 */
-	function parseCheckboxes(content: string): {
-		total: number;
-		checked: number;
-	} {
-		const lines = content.split("\n");
-		let total = 0;
-		let checked = 0;
-		for (const line of lines) {
-			const trimmed = line.trim();
-			if (
-				trimmed.startsWith("- [ ]") ||
-				trimmed.startsWith("- [x]") ||
-				trimmed.startsWith("- [X]")
-			) {
-				total++;
-				if (trimmed.startsWith("- [x]") || trimmed.startsWith("- [X]"))
-					checked++;
-			}
-		}
-		return {
-			total,
-			checked,
-		};
-	}
-
-	/**
-	 * Find the first incomplete issue in a plan's issues/ directory.
-	 * Returns the absolute path to the issue file, or null if all done.
-	 * @param skipFile Absolute path to skip (prevents returning the current issue as "next").
-	 */
-	function findNextIncompleteIssue(
+	function deleteStateFile(
+		loopName: string,
+		taskFile: string,
 		ctx: ExtensionContext,
-		planName: string,
-		scratchOverride?: string,
-		skipFile?: string,
-	): string | null {
-		const sd = scratchOverride ?? scratchDir(ctx);
-		const issuesDir = path.join(sd, planName, "issues");
-		if (!fs.existsSync(issuesDir)) return null;
-
-		const skipAbs = skipFile ? path.resolve(skipFile) : undefined;
-
-		const files = fs
-			.readdirSync(issuesDir)
-			.filter((f) => f.endsWith(".md"))
-			.sort((a, b) =>
-				a.localeCompare(b, undefined, {
-					numeric: true,
-				}),
-			);
-
-		for (const f of files) {
-			const absPath = path.join(issuesDir, f);
-			if (skipAbs && path.resolve(absPath) === skipAbs) continue;
-			const content = tryRead(absPath);
-			if (content === null) continue;
-			const { total, checked } = parseCheckboxes(content);
-			if (total === 0 || checked < total) {
-				return absPath;
-			}
+	): void {
+		if (isPlanLevelLoop(loopName)) {
+			const sd = store.getCrossProjectRef(loopName) ?? scratchDir(ctx);
+			tryDelete(path.join(sd, loopName, ".ralph.state.json"));
+		} else {
+			// Issue-level: state file sits next to the task file
+			tryDelete(taskFile.replace(/\.md$/, ".state.json"));
 		}
-
-		return null; // all issues complete
-	}
-
-	/**
-	 * For plan-level loops: if current issue is done, advance to next incomplete issue.
-	 * Returns true if the loop should continue (issue advanced or not plan-level),
-	 * false if all issues are done and the loop should complete.
-	 * Skips the current file to prevent cycling back.
-	 */
-	function tryAdvancePlanIssue(
-		ctx: ExtensionContext,
-		state: LoopState,
-	): boolean {
-		const isPlanLevel = !state.name.includes("/");
-		if (!isPlanLevel) return true;
-
-		const currentContent = tryRead(path.resolve(ctx.cwd, state.taskFile));
-		if (currentContent === null) return true;
-
-		const { total, checked } = parseCheckboxes(currentContent);
-		const issueDone = total === 0 ? state.iteration > 1 : checked >= total;
-		if (!issueDone) return true;
-
-		const sd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
-		const nextIssue = findNextIncompleteIssue(
-			ctx,
-			state.name,
-			sd,
-			state.taskFile,
-		);
-		if (nextIssue) {
-			state.taskFile = nextIssue;
-			return true;
-		}
-		return false; // all issues done
 	}
 
 	// --- Loop state transitions ---
@@ -647,10 +103,7 @@ export default function (pi: ExtensionAPI) {
 		state: LoopState,
 		message?: string,
 	): void {
-		state.status = "paused";
-		state.active = false;
-		saveState(ctx, state);
-		currentLoop = null;
+		runtime.pauseLoop(ctx, state);
 		updateUI(ctx);
 		if (message && ctx.hasUI) ctx.ui.notify(message, "info");
 	}
@@ -660,11 +113,7 @@ export default function (pi: ExtensionAPI) {
 		state: LoopState,
 		banner: string,
 	): void {
-		state.status = "completed";
-		state.completedAt = new Date().toISOString();
-		state.active = false;
-		saveState(ctx, state);
-		currentLoop = null;
+		runtime.completeLoop(ctx, state);
 		updateUI(ctx);
 		if (banner) pi.sendUserMessage(banner);
 	}
@@ -678,21 +127,94 @@ export default function (pi: ExtensionAPI) {
 		if (message && ctx.hasUI) ctx.ui.notify(message, "info");
 	}
 
+	/**
+	 * Check if max iterations exceeded; if so, completes the loop.
+	 * Returns true if the loop was completed (caller should return).
+	 */
+	function enforceMaxIterations(
+		ctx: ExtensionContext,
+		state: LoopState,
+	): boolean {
+		if (state.maxIterations > 0 && state.iteration > state.maxIterations) {
+			completeLoop(
+				ctx,
+				state,
+				banner(
+					`⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached`,
+				),
+			);
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Load task content, build the prompt, and send it to the user.
+	 * Returns true on success. On missing file, pauses the loop and returns false.
+	 */
+	function sendPrompt(
+		ctx: ExtensionContext,
+		state: LoopState,
+		needsReflection: boolean,
+		options?: { deliverAs?: "followUp"; triggerTurn?: boolean },
+		errorMessage?: string,
+	): boolean {
+		const content = tryRead(path.resolve(ctx.cwd, state.taskFile));
+		if (content === null) {
+			pauseLoop(ctx, state, errorMessage);
+			return false;
+		}
+		const prdContent = loadPrdContent(state, ctx);
+		pi.sendUserMessage(
+			buildPrompt(state, content, needsReflection, prdContent),
+			options,
+		);
+		return true;
+	}
+
+	/** Wrap text in 71-char ruler lines. Handles \n within the text. */
+	function banner(text: string): string {
+		const line =
+			"───────────────────────────────────────────────────────────────────────";
+		return `${line}\n${text}\n${line}`;
+	}
+
+	/** Iteration display: "3/10" or "3". */
+	function formatMaxIter(state: LoopState): string {
+		return state.maxIterations > 0 ? `/${state.maxIterations}` : "";
+	}
+
+	/** Load PRD.md for plan-level loops; returns undefined for issue-level. */
+	function loadPrdContent(
+		state: LoopState,
+		ctx: ExtensionContext,
+	): string | undefined {
+		if (!isPlanLevelLoop(state.name)) return undefined;
+		return (
+			tryRead(
+				path.join(
+					scratchDirFromFile(state.taskFile, scratchDir(ctx)),
+					state.name,
+					"PRD.md",
+				),
+			) ?? undefined
+		);
+	}
+
 	// --- UI ---
 
 	function formatLoop(l: LoopState): string {
 		const status = `${STATUS_ICONS[l.status]} ${l.status}`;
-		const iter =
-			l.maxIterations > 0
-				? `${l.iteration}/${l.maxIterations}`
-				: `${l.iteration}`;
+		const iter = `${l.iteration}${formatMaxIter(l)}`;
 		return `${l.name}: ${status} (iteration ${iter})`;
 	}
 
 	function updateUI(ctx: ExtensionContext): void {
 		if (!ctx.hasUI) return;
 
-		const state = currentLoop ? loadState(ctx, currentLoop) : null;
+		const state = runtime.activeLoop
+			? store.loadState(ctx, runtime.activeLoop)
+			: null;
 		if (!state) {
 			ctx.ui.setStatus("ralph", undefined);
 			ctx.ui.setWidget("ralph", undefined);
@@ -700,7 +222,7 @@ export default function (pi: ExtensionAPI) {
 		}
 
 		const { theme } = ctx.ui;
-		const maxStr = state.maxIterations > 0 ? `/${state.maxIterations}` : "";
+		const maxStr = formatMaxIter(state);
 
 		ctx.ui.setStatus(
 			"ralph",
@@ -730,126 +252,23 @@ export default function (pi: ExtensionAPI) {
 		ctx.ui.setWidget("ralph", lines);
 	}
 
-	/**
-	 * Detect if a loop should use TDD workflow.
-	 * Checks plan name and task content for TDD signals.
-	 */
-	function isTDDLoop(planName: string, taskContent: string): boolean {
-		const name = planName.toLowerCase();
-		const content = taskContent.toLowerCase();
-		return (
-			name.includes("tdd") ||
-			name.includes("test-driven") ||
-			content.includes("red-green") ||
-			content.includes("tdd cycle") ||
-			content.includes("test-driven")
-		);
-	}
-
-	// --- Prompt building ---
-
-	function buildPrompt(
-		state: LoopState,
-		taskContent: string,
-		isReflection: boolean,
-		prdContent?: string,
-		tddMode?: boolean,
-	): string {
-		const maxStr = state.maxIterations > 0 ? `/${state.maxIterations}` : "";
-		const isPlanLevel = !state.name.includes("/");
-		const header = `───────────────────────────────────────────────────────────────────────
-🔄 RALPH LOOP: ${state.name} | Iteration ${state.iteration}${maxStr}${isReflection ? " | 🪞 REFLECTION" : ""}${isPlanLevel ? " | 📋 PLAN-LEVEL" : ""}
-───────────────────────────────────────────────────────────────────────`;
-
-		const parts = [
-			header,
-			"",
-		];
-
-		// Plan-level loops: include PRD as read-only context
-		if (isPlanLevel && prdContent) {
-			parts.push(
-				`## Plan Context (from PRD.md — READ-ONLY, do not modify)\n\n${prdContent}\n\n---`,
-			);
-		}
-
-		if (isReflection) parts.push(state.reflectInstructions, "\n---\n");
-
-		// Priority: explicit param > persisted state > auto-detect
-		let isTDD = state.tddMode === true;
-		if (tddMode !== undefined) {
-			isTDD = tddMode;
-		} else if (!state.tddMode) {
-			isTDD = isTDDLoop(state.name, taskContent);
-		}
-		if (isTDD) parts.push(TDD_INSTRUCTIONS, "\n---\n");
-
-		if (isPlanLevel) {
-			parts.push(
-				`## Current Issue (from ${state.taskFile})\n\n${taskContent}\n\n---`,
-			);
-		} else {
-			parts.push(
-				`## Current Task (from ${state.taskFile})\n\n${taskContent}\n\n---`,
-			);
-		}
-
-		parts.push(`\n## Instructions\n`);
-		parts.push(
-			"User controls: ESC pauses the assistant. Send a message to resume. Run /ralph-stop when idle to stop the loop.\n",
-		);
-		parts.push(
-			`You are in a Ralph loop (iteration ${state.iteration}${state.maxIterations > 0 ? ` of ${state.maxIterations}` : ""}).\n`,
-		);
-
-		if (isPlanLevel) {
-			parts.push(
-				"**PLAN-LEVEL LOOP**: You are working through issues sequentially. PRD.md is read-only context — update the issue file only.\n",
-			);
-			parts.push(`1. Work on the current issue: ${state.taskFile}`);
-			parts.push(
-				`2. Update the issue file (${state.taskFile}) with your progress — check off acceptance criteria as you complete them`,
-			);
-			parts.push(
-				`3. When ALL acceptance criteria are checked, call ralph_done to advance to the next issue`,
-			);
-			parts.push(
-				`4. When ALL issues in the plan are complete, respond with: ${COMPLETE_MARKER}`,
-			);
-		} else {
-			if (state.itemsPerIteration > 0) {
-				parts.push(
-					`**THIS ITERATION: Process approximately ${state.itemsPerIteration} items, then call ralph_done.**\n`,
-				);
-				parts.push(
-					`1. Work on the next ~${state.itemsPerIteration} items from your checklist`,
-				);
-			} else {
-				parts.push(`1. Continue working on the task`);
-			}
-			parts.push(
-				`2. Update the task file (${state.taskFile}) with your progress`,
-			);
-			parts.push(`3. When FULLY COMPLETE, respond with: ${COMPLETE_MARKER}`);
-			parts.push(
-				`4. Otherwise, call the ralph_done tool to proceed to next iteration`,
-			);
-		}
-
-		return parts.join("\n");
-	}
-
 	// --- Arg parsing ---
 
 	function parseArgs(argsStr: string) {
 		const tokens = argsStr.match(/(?:[^\s"]+|"[^"]*")+/g) || [];
-		const result = {
+		const result: {
+			name: string;
+			maxIterations: number;
+			itemsPerIteration: number;
+			reflectEvery: number;
+			reflectInstructions: string;
+			tdd?: boolean;
+		} = {
 			name: "",
 			maxIterations: 50,
 			itemsPerIteration: 0,
 			reflectEvery: 0,
 			reflectInstructions: DEFAULT_REFLECT_INSTRUCTIONS,
-			tdd: false,
 		};
 
 		for (let i = 0; i < tokens.length; i++) {
@@ -903,10 +322,9 @@ export default function (pi: ExtensionAPI) {
 
 			const taskFile = parsed.isIssue
 				? taskFilePath(ctx, parsed)
-				: findNextIncompleteIssue(
-						ctx,
+				: store.findNextIncompleteIssue(
 						parsed.planName,
-						parsed.scratchDirOverride,
+						parsed.scratchDirOverride ?? scratchDir(ctx),
 					);
 
 			// Determine loop name
@@ -928,7 +346,7 @@ export default function (pi: ExtensionAPI) {
 			if (!taskFile) return;
 
 			// Check for existing loop with same name
-			const existing = loadState(ctx, loopName);
+			const existing = store.loadState(ctx, loopName);
 			if (existing) {
 				if (existing.status === "active") {
 					ctx.ui.notify(
@@ -972,15 +390,15 @@ export default function (pi: ExtensionAPI) {
 				status: "active",
 				startedAt: new Date().toISOString(),
 				lastReflectionAt: 0,
-				tddMode: args.tdd || undefined,
+				tddMode: args.tdd,
 			};
 
-			saveState(ctx, state);
+			store.saveState(ctx, state);
 			if (parsed.scratchDirOverride) {
-				loopScratchDirs.set(loopName, parsed.scratchDirOverride);
-				saveCrossProjectRefs(ctx);
+				store.setCrossProjectRef(loopName, parsed.scratchDirOverride);
+				store.saveCrossProjectRefs(ctx);
 			}
-			currentLoop = loopName;
+			runtime.activeLoop = loopName;
 			updateUI(ctx);
 
 			const content = tryRead(fullPath);
@@ -1004,8 +422,8 @@ export default function (pi: ExtensionAPI) {
 		},
 
 		stop(_rest, ctx) {
-			if (!currentLoop) {
-				const active = listLoops(ctx).find((l) => l.status === "active");
+			if (!runtime.activeLoop) {
+				const active = store.listLoops(ctx).find((l) => l.status === "active");
 				if (active) {
 					pauseLoop(
 						ctx,
@@ -1017,16 +435,17 @@ export default function (pi: ExtensionAPI) {
 				}
 				return;
 			}
-			const state = loadState(ctx, currentLoop);
+			const state = store.loadState(ctx, runtime.activeLoop);
 			if (state) {
 				pauseLoop(
 					ctx,
 					state,
-					`Paused Ralph loop: ${currentLoop} (iteration ${state.iteration})`,
+					`Paused Ralph loop: ${state.name} (iteration ${state.iteration})`,
 				);
 			} else {
-				const missingName = currentLoop;
-				currentLoop = null;
+				const missingName = runtime.activeLoop;
+				runtime.activeLoop = null;
+				updateUI(ctx);
 				ctx.ui.notify(
 					`Loop "${missingName}" state file missing. Cleared reference.`,
 					"warning",
@@ -1041,7 +460,7 @@ export default function (pi: ExtensionAPI) {
 				return;
 			}
 
-			const state = loadState(ctx, loopName);
+			const state = store.loadState(ctx, loopName);
 			if (!state) {
 				ctx.ui.notify(`Loop "${loopName}" not found`, "error");
 				return;
@@ -1054,8 +473,8 @@ export default function (pi: ExtensionAPI) {
 				return;
 			}
 
-			if (currentLoop && currentLoop !== loopName) {
-				const curr = loadState(ctx, currentLoop);
+			if (runtime.activeLoop && runtime.activeLoop !== loopName) {
+				const curr = store.loadState(ctx, runtime.activeLoop);
 				if (curr) pauseLoop(ctx, curr);
 			}
 
@@ -1063,15 +482,7 @@ export default function (pi: ExtensionAPI) {
 			state.active = true;
 			state.iteration++;
 
-			// Match ralph_done: check AFTER increment so agent gets its final
-			// allowed iteration (e.g. max=50 → iteration 50 is allowed,
-			// iteration 51 completes).
-			if (state.maxIterations > 0 && state.iteration > state.maxIterations) {
-				completeLoop(
-					ctx,
-					state,
-					`───────────────────────────────────────────────────────────────────────\n⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached\n───────────────────────────────────────────────────────────────────────`,
-				);
+			if (enforceMaxIterations(ctx, state)) {
 				ctx.ui.notify(
 					`Loop "${loopName}" exceeded max ${state.maxIterations} iterations.`,
 					"warning",
@@ -1080,11 +491,11 @@ export default function (pi: ExtensionAPI) {
 			}
 
 			// Plan-level loops: advance past completed issues on resume
-			if (!tryAdvancePlanIssue(ctx, state)) {
+			if (!store.tryAdvancePlanIssue(ctx, state)) {
 				completeLoop(
 					ctx,
 					state,
-					`───────────────────────────────────────────────────────────────────────\n✅ PLAN COMPLETE: ${state.name} | All issues finished\n───────────────────────────────────────────────────────────────────────`,
+					banner(`✅ PLAN COMPLETE: ${state.name} | All issues finished`),
 				);
 				ctx.ui.notify(
 					`Loop "${loopName}" has all issues complete. Cannot resume.`,
@@ -1093,13 +504,13 @@ export default function (pi: ExtensionAPI) {
 				return;
 			}
 
-			saveState(ctx, state);
+			store.saveState(ctx, state);
 			const resumeSd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
 			if (resumeSd !== scratchDir(ctx)) {
-				loopScratchDirs.set(loopName, resumeSd);
-				saveCrossProjectRefs(ctx);
+				store.setCrossProjectRef(loopName, resumeSd);
+				store.saveCrossProjectRefs(ctx);
 			}
-			currentLoop = loopName;
+			runtime.activeLoop = loopName;
 			updateUI(ctx);
 
 			ctx.ui.notify(
@@ -1107,35 +518,25 @@ export default function (pi: ExtensionAPI) {
 				"info",
 			);
 
-			const content = tryRead(path.resolve(ctx.cwd, state.taskFile));
-			if (content === null) {
-				ctx.ui.notify(`Could not read task file: ${state.taskFile}`, "error");
-				return;
-			}
-
 			const needsReflection =
 				state.reflectEvery > 0 &&
-				state.iteration > 1 &&
 				(state.iteration - 1) % state.reflectEvery === 0;
 
-			// For plan-level loops, load PRD.md as read-only context
-			const isPlanLevel = !state.name.includes("/");
-			const prdContent = isPlanLevel
-				? (tryRead(
-						path.join(
-							scratchDirFromFile(state.taskFile, scratchDir(ctx)),
-							state.name,
-							"PRD.md",
-						),
-					) ?? undefined)
-				: undefined;
-			pi.sendUserMessage(
-				buildPrompt(state, content, needsReflection, prdContent),
-			);
+			if (
+				!sendPrompt(
+					ctx,
+					state,
+					needsReflection,
+					undefined,
+					`Could not read task file: ${state.taskFile}`,
+				)
+			) {
+				return;
+			}
 		},
 
 		status(_rest, ctx) {
-			const loops = listLoops(ctx);
+			const loops = store.listLoops(ctx);
 			if (loops.length === 0) {
 				ctx.ui.notify("No Ralph loops found.", "info");
 				return;
@@ -1152,26 +553,19 @@ export default function (pi: ExtensionAPI) {
 				ctx.ui.notify("Usage: /ralph cancel <name>", "warning");
 				return;
 			}
-			const state = loadState(ctx, loopName);
+			if (runtime.activeLoop === loopName) runtime.activeLoop = null;
+
+			const state = store.loadState(ctx, loopName);
 			if (!state) {
 				ctx.ui.notify(`Loop "${loopName}" not found`, "error");
+				updateUI(ctx);
 				return;
 			}
-			if (currentLoop === loopName) currentLoop = null;
 
-			// Delete state file — derive path from loop name, not taskFile
-			const isPlanLevel = !loopName.includes("/");
-			if (isPlanLevel) {
-				const sd = loopScratchDirs.get(loopName) ?? scratchDir(ctx);
-				tryDelete(path.join(sd, loopName, ".ralph.state.json"));
-			} else {
-				const relTask = path.relative(ctx.cwd, state.taskFile);
-				const parsed = parsePlanPath(relTask);
-				tryDelete(statePathForPath(ctx, parsed));
-			}
+			deleteStateFile(loopName, state.taskFile, ctx);
 
-			loopScratchDirs.delete(loopName);
-			saveCrossProjectRefs(ctx);
+			store.deleteCrossProjectRef(loopName);
+			store.saveCrossProjectRefs(ctx);
 
 			ctx.ui.notify(`Cancelled: ${loopName}`, "info");
 			updateUI(ctx);
@@ -1183,9 +577,12 @@ export default function (pi: ExtensionAPI) {
 				ctx.ui.notify("Usage: /ralph archive <name>", "warning");
 				return;
 			}
-			const state = loadState(ctx, loopName);
+
+			const state = store.loadState(ctx, loopName);
 			if (!state) {
+				if (runtime.activeLoop === loopName) runtime.activeLoop = null;
 				ctx.ui.notify(`Loop "${loopName}" not found`, "error");
+				updateUI(ctx);
 				return;
 			}
 			if (state.status === "active") {
@@ -1193,19 +590,11 @@ export default function (pi: ExtensionAPI) {
 				return;
 			}
 
-			if (currentLoop === loopName) currentLoop = null;
-			const isPlanLevel = !loopName.includes("/");
-			if (isPlanLevel) {
-				const sd = loopScratchDirs.get(loopName) ?? scratchDir(ctx);
-				tryDelete(path.join(sd, loopName, ".ralph.state.json"));
-			} else {
-				const relTask = path.relative(ctx.cwd, state.taskFile);
-				const parsed = parsePlanPath(relTask);
-				tryDelete(statePathForPath(ctx, parsed));
-			}
+			if (runtime.activeLoop === loopName) runtime.activeLoop = null;
+			deleteStateFile(loopName, state.taskFile, ctx);
 
-			loopScratchDirs.delete(loopName);
-			saveCrossProjectRefs(ctx);
+			store.deleteCrossProjectRef(loopName);
+			store.saveCrossProjectRefs(ctx);
 
 			ctx.ui.notify(
 				`Archived: ${loopName} (state removed, task file kept in .scratch/)`,
@@ -1214,9 +603,10 @@ export default function (pi: ExtensionAPI) {
 			updateUI(ctx);
 		},
 
-		clean(rest, ctx) {
-			const all = rest.trim() === "--all";
-			const completed = listLoops(ctx).filter((l) => l.status === "completed");
+		clean(_rest, ctx) {
+			const completed = store
+				.listLoops(ctx)
+				.filter((l) => l.status === "completed");
 
 			if (completed.length === 0) {
 				ctx.ui.notify("No completed loops to clean", "info");
@@ -1224,25 +614,14 @@ export default function (pi: ExtensionAPI) {
 			}
 
 			for (const loop of completed) {
-				const isPlanLevel = !loop.name.includes("/");
-				if (isPlanLevel) {
-					const sd = loopScratchDirs.get(loop.name) ?? scratchDir(ctx);
-					tryDelete(path.join(sd, loop.name, ".ralph.state.json"));
-				} else {
-					const relTask = path.relative(ctx.cwd, loop.taskFile);
-					const parsed = parsePlanPath(relTask);
-					tryDelete(statePathForPath(ctx, parsed));
-				}
-				if (currentLoop === loop.name) currentLoop = null;
-				loopScratchDirs.delete(loop.name);
+				deleteStateFile(loop.name, loop.taskFile, ctx);
+				if (runtime.activeLoop === loop.name) runtime.activeLoop = null;
+				store.deleteCrossProjectRef(loop.name);
 			}
-			saveCrossProjectRefs(ctx);
+			store.saveCrossProjectRefs(ctx);
 
-			const suffix = all
-				? " (note: task files in .scratch/ are preserved)"
-				: " (state only)";
 			ctx.ui.notify(
-				`Cleaned ${completed.length} loop(s)${suffix}:\n${completed.map((l) => `  • ${l.name}`).join("\n")}`,
+				`Cleaned ${completed.length} loop(s) (task files preserved):\n${completed.map((l) => `  • ${l.name}`).join("\n")}`,
 				"info",
 			);
 			updateUI(ctx);
@@ -1264,7 +643,9 @@ export default function (pi: ExtensionAPI) {
 					return;
 				}
 
-				currentLoop = null;
+				runtime.activeLoop = null;
+				store.clearCrossProjectRefs();
+				store.saveCrossProjectRefs(ctx);
 
 				// Walk and delete all .state.json files
 				for (const entry of fs.readdirSync(sd)) {
@@ -1317,7 +698,7 @@ export default function (pi: ExtensionAPI) {
 		// --- New: Plan-aware commands ---
 
 		plans(_rest, ctx) {
-			const plans = discoverPlans(ctx);
+			const plans = store.discoverPlans(ctx);
 			if (plans.length === 0) {
 				ctx.ui.notify(
 					"No plans found. Create a plan with: /ralph start <plan-name>",
@@ -1393,7 +774,7 @@ export default function (pi: ExtensionAPI) {
 			const lines = [
 				`Plan: ${title}`,
 				`Status: ${status}`,
-				`Path: ${path.join(SCRATCH_DIR, planName, "PRD.md")}`,
+				`Path: ${path.join(SCRATCH_DIR, sanitize(planName), "PRD.md")}`,
 				"",
 				"Summary:",
 				summary + truncated,
@@ -1440,7 +821,7 @@ export default function (pi: ExtensionAPI) {
 
 				const icon = state ? STATUS_ICONS[state.status] : "○";
 				const iterInfo = state
-					? ` iteration ${state.iteration}${state.maxIterations > 0 ? `/${state.maxIterations}` : ""}`
+					? ` iteration ${state.iteration}${formatMaxIter(state)}`
 					: " (not started)";
 				const statusText = state ? `${state.status}` : "new";
 				issueLines.push(`  ${icon} ${issueName} — ${statusText}${iterInfo}`);
@@ -1458,14 +839,15 @@ export default function (pi: ExtensionAPI) {
 		},
 
 		issue(rest, ctx) {
-			const [planName, issueName] = rest.trim().split(/\s+/);
-			if (!planName || !issueName) {
+			const [planName, issueNameRaw] = rest.trim().split(/\s+/, 2);
+			if (!planName || !issueNameRaw) {
 				ctx.ui.notify(
 					"Usage: /ralph issue <plan> <name>\nExample: /ralph issue my-plan 04-fix-bug",
 					"warning",
 				);
 				return;
 			}
+			const issueName = sanitize(issueNameRaw);
 
 			const sd = scratchDir(ctx);
 			const planDir = path.join(sd, sanitize(planName));
@@ -1480,7 +862,7 @@ export default function (pi: ExtensionAPI) {
 			}
 
 			const issuesDir = path.join(planDir, "issues");
-			const issueFile = path.join(issuesDir, `${sanitize(issueName)}.md`);
+			const issueFile = path.join(issuesDir, `${issueName}.md`);
 
 			if (fs.existsSync(issueFile)) {
 				ctx.ui.notify(
@@ -1493,7 +875,7 @@ export default function (pi: ExtensionAPI) {
 			ensureDir(issueFile);
 			fs.writeFileSync(issueFile, ISSUE_TEMPLATE, "utf-8");
 			ctx.ui.notify(
-				`Created: ${path.join(SCRATCH_DIR, planName, "issues", `${issueName}.md`)}\nStart loop: /ralph start ${planName}/${issueName}`,
+				`Created: ${path.join(SCRATCH_DIR, sanitize(planName), "issues", `${issueName}.md`)}\nStart loop: /ralph start ${sanitize(planName)}/${issueName}`,
 				"info",
 			);
 		},
@@ -1513,7 +895,7 @@ Commands:
   /ralph issue <plan> <name>               Create a new issue from template
   /ralph cancel <name>                     Delete loop state
   /ralph archive <name>                    Archive a completed loop
-  /ralph clean [--all]                     Clean completed loops
+  /ralph clean                             Clean completed loops
   /ralph list                              Show all loops
   /ralph nuke [--yes]                      Delete all state files
   /ralph-stop                              Stop active loop (idle only)
@@ -1558,9 +940,11 @@ Examples:
 				return;
 			}
 
-			let state = currentLoop ? loadState(ctx, currentLoop) : null;
+			let state = runtime.activeLoop
+				? store.loadState(ctx, runtime.activeLoop)
+				: null;
 			if (!state) {
-				const active = listLoops(ctx).find((l) => l.status === "active");
+				const active = store.listLoops(ctx).find((l) => l.status === "active");
 				if (!active) {
 					if (ctx.hasUI) ctx.ui.notify("No active Ralph loop", "warning");
 					return;
@@ -1645,7 +1029,7 @@ Examples:
 					? `${parsed.planName}/${parsed.issueName}`
 					: parsed.planName;
 
-			const existing = loadState(ctx, loopName);
+			const existing = store.loadState(ctx, loopName);
 			if (existing) {
 				return {
 					content: [
@@ -1661,10 +1045,9 @@ Examples:
 			// For plan-level loops, target first incomplete issue
 			const taskFile = parsed.isIssue
 				? taskFilePath(ctx, parsed)
-				: findNextIncompleteIssue(
-						ctx,
+				: store.findNextIncompleteIssue(
 						parsed.planName,
-						parsed.scratchDirOverride,
+						parsed.scratchDirOverride ?? scratchDir(ctx),
 					);
 
 			if (!taskFile) {
@@ -1697,19 +1080,19 @@ Examples:
 				status: "active",
 				startedAt: new Date().toISOString(),
 				lastReflectionAt: 0,
-				tddMode: params.tddMode || undefined,
+				tddMode: params.tddMode,
 			};
 
-			saveState(ctx, state);
+			store.saveState(ctx, state);
 			if (parsed.scratchDirOverride) {
-				loopScratchDirs.set(loopName, parsed.scratchDirOverride);
-				saveCrossProjectRefs(ctx);
+				store.setCrossProjectRef(loopName, parsed.scratchDirOverride);
+				store.saveCrossProjectRefs(ctx);
 			}
-			currentLoop = loopName;
+			runtime.activeLoop = loopName;
 			updateUI(ctx);
 
 			// For plan-level loops, load PRD.md as read-only context
-			const isPlanLevel = !loopName.includes("/");
+			const isPlanLevel = isPlanLevelLoop(loopName);
 			const prdContent = isPlanLevel
 				? (tryRead(
 						path.join(
@@ -1758,7 +1141,7 @@ Examples:
 		],
 		parameters: Type.Object({}),
 		async execute(_toolCallId, _params, _signal, _onUpdate, ctx) {
-			if (!currentLoop) {
+			if (!runtime.activeLoop) {
 				return {
 					content: [
 						{
@@ -1770,7 +1153,7 @@ Examples:
 				};
 			}
 
-			const state = loadState(ctx, currentLoop);
+			const state = store.loadState(ctx, runtime.activeLoop);
 			if (!state || state.status !== "active") {
 				return {
 					content: [
@@ -1797,14 +1180,7 @@ Examples:
 
 			state.iteration++;
 
-			if (state.maxIterations > 0 && state.iteration > state.maxIterations) {
-				completeLoop(
-					ctx,
-					state,
-					`───────────────────────────────────────────────────────────────────────
-⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached
-───────────────────────────────────────────────────────────────────────`,
-				);
+			if (enforceMaxIterations(ctx, state)) {
 				return {
 					content: [
 						{
@@ -1821,14 +1197,12 @@ Examples:
 				(state.iteration - 1) % state.reflectEvery === 0;
 			if (needsReflection) state.lastReflectionAt = state.iteration;
 
-			if (!tryAdvancePlanIssue(ctx, state)) {
+			if (!store.tryAdvancePlanIssue(ctx, state)) {
 				// All issues done — complete the plan loop
 				completeLoop(
 					ctx,
 					state,
-					`───────────────────────────────────────────────────────────────────────
-✅ PLAN COMPLETE: ${state.name} | All issues finished
-───────────────────────────────────────────────────────────────────────`,
+					banner(`✅ PLAN COMPLETE: ${state.name} | All issues finished`),
 				);
 				return {
 					content: [
@@ -1841,12 +1215,10 @@ Examples:
 				};
 			}
 
-			saveState(ctx, state);
+			store.saveState(ctx, state);
 			updateUI(ctx);
 
-			const content = tryRead(path.resolve(ctx.cwd, state.taskFile));
-			if (content === null) {
-				pauseLoop(ctx, state);
+			if (!sendPrompt(ctx, state, needsReflection, { deliverAs: "followUp" })) {
 				return {
 					content: [
 						{
@@ -1858,24 +1230,7 @@ Examples:
 				};
 			}
 
-			const isPlanLevel = !state.name.includes("/");
-			const prdContent = isPlanLevel
-				? (tryRead(
-						path.join(
-							scratchDirFromFile(state.taskFile, scratchDir(ctx)),
-							state.name,
-							"PRD.md",
-						),
-					) ?? undefined)
-				: undefined;
-			pi.sendUserMessage(
-				buildPrompt(state, content, needsReflection, prdContent),
-				{
-					deliverAs: "followUp",
-				},
-			);
-
-			ralphDoneThisTurn = true;
+			runtime.markDoneThisTurn();
 
 			return {
 				content: [
@@ -1892,12 +1247,12 @@ Examples:
 	// --- Event handlers ---
 
 	pi.on("before_agent_start", async (event, ctx) => {
-		if (!currentLoop) return;
-		ralphDoneThisTurn = false;
-		const state = loadState(ctx, currentLoop);
+		if (!runtime.activeLoop) return;
+		runtime.clearDoneThisTurn();
+		const state = store.loadState(ctx, runtime.activeLoop);
 		if (!state || state.status !== "active") return;
 
-		const iterStr = `${state.iteration}${state.maxIterations > 0 ? `/${state.maxIterations}` : ""}`;
+		const iterStr = `${state.iteration}${formatMaxIter(state)}`;
 
 		let instructions = `You are in a Ralph loop working on: ${state.taskFile}\n`;
 		if (state.itemsPerIteration > 0) {
@@ -1915,25 +1270,13 @@ Examples:
 	});
 
 	pi.on("agent_end", async (event, ctx) => {
-		if (!currentLoop) return;
-		const state = loadState(ctx, currentLoop);
+		if (!runtime.activeLoop) return;
+		const state = store.loadState(ctx, runtime.activeLoop);
 		if (!state || state.status !== "active") return;
 
-		// Enforce max iterations before any other processing
-		if (state.maxIterations > 0 && state.iteration > state.maxIterations) {
-			completeLoop(
-				ctx,
-				state,
-				`───────────────────────────────────────────────────────────────────────
-⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached
-───────────────────────────────────────────────────────────────────────`,
-			);
-			return;
-		}
+		if (enforceMaxIterations(ctx, state)) return;
 
-		const lastAssistant = [
-			...event.messages,
-		]
+		const lastAssistant = [...event.messages]
 			.reverse()
 			.find((m) => m.role === "assistant");
 		const text =
@@ -1953,53 +1296,35 @@ Examples:
 
 		// For plan-level loops: COMPLETE_MARKER means "current issue done",
 		// not "entire plan done". Only complete when all issues are finished.
-		const isPlanLevel = !state.name.includes("/");
+		const isPlanLevel = isPlanLevelLoop(state.name);
 		if (text.includes(COMPLETE_MARKER)) {
 			if (isPlanLevel) {
 				// ralph_done already handled advancement this turn — skip
-				if (ralphDoneThisTurn) {
-					ralphDoneThisTurn = false;
+				if (runtime.doneThisTurn) {
+					runtime.clearDoneThisTurn();
 					return;
 				}
 				// Issue advanced to next, still in progress, or not done yet.
 				// Keep the loop alive — only complete when ALL issues are done.
-				if (tryAdvancePlanIssue(ctx, state)) {
-					state.iteration++;
-					if (
-						state.maxIterations > 0 &&
-						state.iteration > state.maxIterations
-					) {
-						completeLoop(
-							ctx,
-							state,
-							`───────────────────────────────────────────────────────────────────────
-⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached
-───────────────────────────────────────────────────────────────────────`,
-						);
-						return;
+				const originalTaskFile = state.taskFile;
+				if (store.tryAdvancePlanIssue(ctx, state)) {
+					if (state.taskFile !== originalTaskFile) {
+						state.iteration++;
+						if (enforceMaxIterations(ctx, state)) return;
 					}
-					saveState(ctx, state);
+					store.saveState(ctx, state);
 					updateUI(ctx);
-
-					const sd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
-					const taskContent = tryRead(path.resolve(ctx.cwd, state.taskFile));
-					if (taskContent === null) {
-						pauseLoop(
+					if (
+						!sendPrompt(
 							ctx,
 							state,
+							false,
+							{ deliverAs: "followUp" },
 							`Could not read task file: ${state.taskFile}`,
-						);
+						)
+					) {
 						return;
 					}
-
-					const prdContent =
-						tryRead(path.join(sd, state.name, "PRD.md")) ?? undefined;
-					pi.sendUserMessage(
-						buildPrompt(state, taskContent, false, prdContent),
-						{
-							deliverAs: "followUp",
-						},
-					);
 					return;
 				}
 				// Fall through to completeLoop only if no more issues exist
@@ -2008,29 +1333,29 @@ Examples:
 			completeLoop(
 				ctx,
 				state,
-				`───────────────────────────────────────────────────────────────────────
-✅ RALPH LOOP COMPLETE: ${state.name} | ${state.iteration} iterations
-───────────────────────────────────────────────────────────────────────`,
+				banner(
+					`✅ RALPH LOOP COMPLETE: ${state.name} | ${state.iteration} iterations`,
+				),
 			);
 			return;
 		}
 	});
 
 	pi.on("session_start", async (_event, ctx) => {
-		loadCrossProjectRefs(ctx);
+		store.loadCrossProjectRefs(ctx);
 
-		const active = listLoops(ctx).filter((l) => l.status === "active");
+		const active = store.listLoops(ctx).filter((l) => l.status === "active");
 
-		if (!currentLoop && active.length > 0) {
-			currentLoop = active[0].name;
+		if (!runtime.activeLoop && active.length > 0) {
+			runtime.activeLoop = active[0].name;
 		}
 
 		// Also check cross-project scratch dirs for active loops
-		if (!currentLoop) {
-			for (const name of loopScratchDirs.keys()) {
-				const state = loadState(ctx, name);
+		if (!runtime.activeLoop) {
+			for (const name of store.getCrossProjectNames()) {
+				const state = store.loadState(ctx, name);
 				if (state && state.status === "active") {
-					currentLoop = name;
+					runtime.activeLoop = name;
 					break;
 				}
 			}
@@ -2038,8 +1363,7 @@ Examples:
 
 		if (active.length > 0 && ctx.hasUI) {
 			const lines = active.map(
-				(l) =>
-					`  • ${l.name} (iteration ${l.iteration}${l.maxIterations > 0 ? `/${l.maxIterations}` : ""})`,
+				(l) => `  • ${l.name} (iteration ${l.iteration}${formatMaxIter(l)})`,
 			);
 			ctx.ui.notify(
 				`Active Ralph loops:\n${lines.join("\n")}\n\nUse /ralph resume <name> to continue`,
@@ -2050,84 +1374,73 @@ Examples:
 	});
 
 	pi.on("session_before_compact", async (_event, ctx) => {
-		if (!currentLoop) return;
-		const state = loadState(ctx, currentLoop);
+		if (!runtime.activeLoop) return;
+		const state = store.loadState(ctx, runtime.activeLoop);
 		if (!state || state.status !== "active") return;
 
-		saveState(ctx, state);
+		store.saveState(ctx, state);
 
 		if (ctx.hasUI) {
 			ctx.ui.notify(
-				`Preserving Ralph loop state before compaction: ${currentLoop}`,
+				`Preserving Ralph loop state before compaction: ${runtime.activeLoop}`,
 				"info",
 			);
 		}
 	});
 
 	pi.on("session_compact", async (_event, ctx) => {
-		if (!currentLoop) return;
-		const state = loadState(ctx, currentLoop);
+		if (!runtime.activeLoop) return;
+		const state = store.loadState(ctx, runtime.activeLoop);
 		if (!state || state.status !== "active") return;
 
 		if (ctx.hasPendingMessages()) return;
 
 		// Plan-level loops: advance past completed issues after compaction
-		const isPlanLevel = !state.name.includes("/");
-		if (isPlanLevel && !tryAdvancePlanIssue(ctx, state)) {
+		const isPlanLevel = isPlanLevelLoop(state.name);
+		if (isPlanLevel && !store.tryAdvancePlanIssue(ctx, state)) {
 			completeLoop(
 				ctx,
 				state,
-				`───────────────────────────────────────────────────────────────────────
-✅ PLAN COMPLETE: ${state.name} | All issues finished
-───────────────────────────────────────────────────────────────────────`,
+				banner(`✅ PLAN COMPLETE: ${state.name} | All issues finished`),
 			);
 			return;
 		}
 
 		// Persist taskFile change only for plan-level loops
 		if (isPlanLevel) {
-			saveState(ctx, state);
+			store.saveState(ctx, state);
 			updateUI(ctx);
-		}
-
-		const content = tryRead(path.resolve(ctx.cwd, state.taskFile));
-		if (content === null) {
-			pauseLoop(
-				ctx,
-				state,
-				`Could not read task file after compaction: ${state.taskFile}`,
-			);
-			return;
 		}
 
 		const needsReflection =
 			state.reflectEvery > 0 &&
 			(state.iteration - 1) % state.reflectEvery === 0;
 
-		const sd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
-		const prdContent = isPlanLevel
-			? (tryRead(path.join(sd, state.name, "PRD.md")) ?? undefined)
-			: undefined;
-		pi.sendUserMessage(
-			buildPrompt(state, content, needsReflection, prdContent),
-			{
-				deliverAs: "followUp",
-				triggerTurn: true,
-			},
-		);
+		if (
+			!sendPrompt(
+				ctx,
+				state,
+				needsReflection,
+				{ deliverAs: "followUp", triggerTurn: true },
+				`Could not read task file after compaction: ${state.taskFile}`,
+			)
+		) {
+			return;
+		}
 
 		if (ctx.hasUI) {
 			ctx.ui.notify(
-				`Ralph loop resumed after compaction: ${currentLoop} (iteration ${state.iteration})`,
+				`Ralph loop resumed after compaction: ${runtime.activeLoop} (iteration ${state.iteration})`,
 				"info",
 			);
 		}
 	});
 
 	pi.on("session_shutdown", async (_event, ctx) => {
-		if (currentLoop) {
-			const state = loadState(ctx, currentLoop);
-			if (state) saveState(ctx, state);
+		const loopName = runtime.activeLoop;
+		if (loopName) {
+			const state = store.loadState(ctx, loopName);
+			if (state) store.saveState(ctx, state);
 		}
 	});
 }

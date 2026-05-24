@@ -102,16 +102,16 @@
 	"aws.telemetry": false,
 	"breadcrumbs.enabled": false,
 	"chat.instructionsFilesLocations": {
-		".github/instructions": true,
 		".claude/rules": true,
-		"~/.copilot/instructions": true,
-		"~/.claude/rules": true,
+		".github/instructions": true,
 		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
 		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
 		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
 		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
 		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
-		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
+		"/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true,
+		"~/.claude/rules": true,
+		"~/.copilot/instructions": true
 	},
 	"chat.mcp.gallery.enabled": true,
 	"chat.tools.terminal.autoApprove": {
@@ -122,19 +122,20 @@
 		"npx astro": true
 	},
 	"chat.tools.urls.autoApprove": {
-		"https://code.visualstudio.com": true,
-		"https://github.com/microsoft/vscode/wiki/*": true,
+		"https://*.amazon.com": true,
+		"https://*.aws.amazon.com": true,
 		"https://*.docker.com": true,
 		"https://*.github.io": true,
 		"https://*.hashicorp.com": true,
 		"https://*.leapp.cloud": true,
 		"https://*.npmjs.org": true,
 		"https://*.terraform.io": true,
-		"https://starship.rs": true,
 		"https://*.twingate.com": true,
-		"https://*.aws.amazon.com": true,
-		"https://*.amazon.com": true
+		"https://code.visualstudio.com": true,
+		"https://github.com/microsoft/vscode/wiki/*": true,
+		"https://starship.rs": true
 	},
+	"chat.viewSessions.orientation": "stacked",
 	"console-ninja.featureSet": "Community",
 	"cursor.cmdk.useThemedDiffBackground": true,
 	"cursor.composer.shouldAllowCustomModes": true,
@@ -288,6 +289,7 @@
 		"**/node_modules": true,
 		"**/tmp": true
 	},
+	"security.workspace.trust.untrustedFiles": "open",
 	"telemetry.telemetryLevel": "off",
 	"terminal.external.linuxExec": "Ghostty.app",
 	"terminal.external.osxExec": "Ghostty.app",
@@ -341,6 +343,5 @@
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.sideBar.location": "right",
-	"workbench.startupEditor": "none",
-	"chat.viewSessions.orientation": "stacked"
+	"workbench.startupEditor": "none"
 }
