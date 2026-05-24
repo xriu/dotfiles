@@ -8,14 +8,22 @@ import { isPlanLevelLoop } from "./loop-store";
 
 export const COMPLETE_MARKER = "<promise>COMPLETE</promise>";
 
-const TDD_INSTRUCTIONS = `## TDD Mode Active
+const TDD_INSTRUCTIONS = `## TDD Workflow (Red-Green-Refactor)
 
-Follow vertical slices: one test → one implementation → repeat.
-- Tests verify behavior through public interfaces, not implementation details.
-- Do not mock internal collaborators. Mock at system boundaries only.
-- Do not write all tests first (horizontal slicing). Write one test, make it pass, repeat.
-- Never refactor while RED — get to GREEN first.
-- Run tests after each step.`;
+You are using Test-Driven Development in this loop. Follow the vertical-slice cycle:
+
+1. **RED**: Write ONE test for the next behavior → test fails
+2. **GREEN**: Write minimal code to pass that test → test passes
+3. **REFACTOR**: Clean up while keeping all tests green
+
+Rules:
+- One test at a time (vertical slices, not horizontal bulk)
+- Tests verify behavior through public interfaces only
+- Don't mock internal collaborators — mock at system boundaries
+- Never refactor while RED — get to GREEN first
+- Don't anticipate future tests — let each cycle inform the next
+- Do not add tests which simply restate the implementation. These provide zero confidence.
+- Each test must survive internal refactors without breaking`;
 
 /**
  * Detect if a loop should use TDD workflow.
