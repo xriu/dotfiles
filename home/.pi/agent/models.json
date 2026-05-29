@@ -3,7 +3,7 @@
 		"alibaba": {
 			"baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
 			"api": "anthropic-messages",
-			"apiKey": "ALIBABA_API_KEY",
+			"apiKey": "$ALIBABA_API_KEY",
 			"models": [
 				{
 					"id": "qwen3.6-plus",
@@ -79,7 +79,7 @@
 		"synthetic": {
 			"baseUrl": "https://api.synthetic.new/openai/v1",
 			"api": "openai-completions",
-			"apiKey": "SYNTHETIC_API_KEY",
+			"apiKey": "$SYNTHETIC_API_KEY",
 			"compat": {
 				"supportsDeveloperRole": false,
 				"maxTokensField": "max_tokens"

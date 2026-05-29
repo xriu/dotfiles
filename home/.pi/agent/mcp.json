@@ -12,6 +12,10 @@
 				"--metadata",
 				"AWS_REGION=us-east-1"
 			]
+		},
+		"costory": {
+			"command": "npx",
+			"args": ["-y", "mcp-remote", "https://app-api.costory.io/mcp"]
 		}
 	}
 }

@@ -3,7 +3,7 @@
  * Owns: currentLoop tracking, ralphDoneThisTurn flag, pause/complete transitions.
  */
 
-import type { ExtensionContext } from "@mariozechner/pi-coding-agent";
+import type { ExtensionContext } from "@earendil-works/pi-coding-agent";
 import type { LoopState, LoopStore } from "./loop-store";
 
 export class LoopRuntime {

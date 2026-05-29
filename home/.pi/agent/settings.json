@@ -1,7 +1,6 @@
 {
-	"lastChangelogVersion": "0.75.5",
+	"lastChangelogVersion": "0.77.0",
 	"packages": [
-		"npm:pi-autoresearch",
 		"npm:pi-bash-live-view",
 		"npm:pi-interview",
 		"npm:pi-lens",
@@ -15,8 +14,8 @@
 		"npm:pi-design-deck"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "synthetic",
-	"defaultModel": "hf:moonshotai/Kimi-K2.6",
+	"defaultProvider": "github-copilot",
+	"defaultModel": "claude-opus-4.6",
 	"defaultThinkingLevel": "high",
 	"treeFilterMode": "no-tools",
 	"theme": "dark",
