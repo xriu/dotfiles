@@ -102,11 +102,17 @@
 	"aws.telemetry": false,
 	"breadcrumbs.enabled": false,
 	"chat.instructionsFilesLocations": {
-		".github/instructions": true,
-		".claude/rules": true,
-		"~/.copilot/instructions": true,
-		"~/.claude/rules": true
-	},
+        ".github/instructions": true,
+        ".claude/rules": true,
+        "~/.copilot/instructions": true,
+        "~/.claude/rules": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
+    },
 	"chat.mcp.gallery.enabled": true,
 	"chat.tools.terminal.autoApprove": {
 		"bun": true,
@@ -116,18 +122,18 @@
 		"npx astro": true
 	},
 	"chat.tools.urls.autoApprove": {
-		"https://code.visualstudio.com": true,
-		"https://github.com/microsoft/vscode/wiki/*": true,
+		"https://*.amazon.com": true,
+		"https://*.aws.amazon.com": true,
 		"https://*.docker.com": true,
 		"https://*.github.io": true,
 		"https://*.hashicorp.com": true,
 		"https://*.leapp.cloud": true,
 		"https://*.npmjs.org": true,
 		"https://*.terraform.io": true,
-		"https://starship.rs": true,
 		"https://*.twingate.com": true,
-		"https://*.aws.amazon.com": true,
-		"https://*.amazon.com": true
+		"https://code.visualstudio.com": true,
+		"https://github.com/microsoft/vscode/wiki/*": true,
+		"https://starship.rs": true
 	},
 	"console-ninja.featureSet": "Community",
 	"cursor.cmdk.useThemedDiffBackground": true,
@@ -139,9 +145,7 @@
 	"customLocalFormatters.formatters": [
 		{
 			"command": "terraform fmt -",
-			"languages": [
-				"hcl"
-			]
+			"languages": ["hcl"]
 		}
 	],
 	"diffEditor.ignoreTrimWhitespace": false,
@@ -267,17 +271,11 @@
 		"https://schemastore.azurewebsites.net/": true,
 		"https://www.schemastore.org/": true
 	},
-	"kilo-code.allowedCommands": [
-		"git log",
-		"git diff",
-		"git show"
-	],
+	"kilo-code.allowedCommands": ["git log", "git diff", "git show"],
 	"kilo-code.deniedCommands": [],
 	"postman.mcp.notifications.postmanMCP": false,
 	"prettier.useEditorConfig": false,
-	"python.formatting.autopep8Args": [
-		"--max-line-length=120"
-	],
+	"python.formatting.autopep8Args": ["--max-line-length=120"],
 	"python.formatting.provider": "autopep8",
 	"python.languageServer": "None",
 	"quarkus.tools.alwaysShowWelcomePage": false,
@@ -290,6 +288,7 @@
 		"**/node_modules": true,
 		"**/tmp": true
 	},
+	"security.workspace.trust.untrustedFiles": "open",
 	"telemetry.telemetryLevel": "off",
 	"terminal.external.linuxExec": "Ghostty.app",
 	"terminal.external.osxExec": "Ghostty.app",
@@ -305,9 +304,7 @@
 	"terminal.integrated.fontSize": 12,
 	"terminal.integrated.profiles.osx": {
 		"fish": {
-			"args": [
-				"-l"
-			],
+			"args": ["-l"],
 			"overrideName": true,
 			"path": "/opt/homebrew/bin/fish"
 		}
@@ -329,7 +326,6 @@
 	"window.nativeTabs": true,
 	"window.restoreFullscreen": true,
 	"window.titleBarStyle": "native",
-	"workbench.colorTheme": "Dark Modern",
 	"workbench.editor.associations": {
 		"*.ipynb": "jupyter-notebook"
 	},
@@ -344,7 +340,8 @@
 	"workbench.layoutControl.enabled": false,
 	"workbench.panel.showLabels": false,
 	"workbench.secondarySideBar.defaultVisibility": "visible",
-	"workbench.sideBar.location": "right",
 	"workbench.startupEditor": "none",
-	"chat.viewSessions.orientation": "stacked"
+	"workbench.sideBar.location": "right",
+	"chat.viewSessions.orientation": "stacked",
+	"workbench.colorTheme": "Dark Modern"
 }
