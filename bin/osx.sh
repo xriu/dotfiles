@@ -127,6 +127,7 @@ function brew_setup() {
     brew install pandoc # Universal document converter
     brew install pi-coding-agent # AI agent toolkit
     brew install pnpm # Fast, disk space efficient package manager
+    brew install portless # Replace port numbers with stable, named local URLs for humans and agents
     brew install postgresql # Object-relational database management system
     brew install pstree # A tool to show the tree of processes
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
