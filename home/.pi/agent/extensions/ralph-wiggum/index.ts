@@ -44,11 +44,8 @@ export default function (pi: ExtensionAPI) {
 
 	// --- Cross-cutting helpers ---
 
-	/** Wrap text in 71-char ruler lines. Handles \n within the text. */
 	function banner(text: string): string {
-		const line =
-			"───────────────────────────────────────────────────────────────────────";
-		return `${line}\n${text}\n${line}`;
+		return text;
 	}
 
 	/** Iteration display: "3/10" or "3". */

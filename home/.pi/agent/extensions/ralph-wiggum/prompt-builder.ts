@@ -50,9 +50,7 @@ export function buildPrompt(
 ): string {
 	const maxStr = state.maxIterations > 0 ? `/${state.maxIterations}` : "";
 	const isPlanLevel = isPlanLevelLoop(state.name);
-	const header = `───────────────────────────────────────────────────────────────────────
-🔄 RALPH LOOP: ${state.name} | Iteration ${state.iteration}${maxStr}${isReflection ? " | 🪞 REFLECTION" : ""}${isPlanLevel ? " | 📋 PLAN-LEVEL" : ""}
-───────────────────────────────────────────────────────────────────────`;
+	const header = `🔄 RALPH LOOP: ${state.name} | Iteration ${state.iteration}${maxStr}${isReflection ? " | 🪞 REFLECTION" : ""}${isPlanLevel ? " | 📋 PLAN-LEVEL" : ""}`;
 
 	const parts = [header, ""];
 
