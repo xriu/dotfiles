@@ -16,6 +16,10 @@
 		"costory": {
 			"command": "npx",
 			"args": ["-y", "mcp-remote", "https://app-api.costory.io/mcp"]
+		},
+		"atlassian": {
+			"command": "npx",
+			"args": ["-y", "mcp-remote", "https://mcp.atlassian.com/v1/mcp"]
 		}
 	}
 }
