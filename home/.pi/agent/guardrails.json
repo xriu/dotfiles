@@ -187,6 +187,14 @@
 				"description": "Commands run with superuser privileges"
 			},
 			{
+				"pattern": "git add",
+				"description": "Stage files for commit"
+			},
+			{
+				"pattern": "git commit",
+				"description": "Create a commit"
+			},
+			{
 				"pattern": "git push",
 				"description": "Push commits to remote"
 			},

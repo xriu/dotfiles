@@ -18,8 +18,10 @@
 			"args": ["-y", "mcp-remote", "https://app-api.costory.io/mcp"]
 		},
 		"atlassian": {
-			"command": "npx",
-			"args": ["-y", "mcp-remote", "https://mcp.atlassian.com/v1/mcp"]
+			"url": "https://mcp.atlassian.com/v1/mcp",
+			"headers": {
+				"Authorization": "Basic BASE64_ENCODED_EMAIL_AND_TOKEN"
+			}
 		}
 	}
 }
