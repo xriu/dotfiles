@@ -99,6 +99,7 @@ DIR_NAME=${DIR##*/}
 BRANCH=""
 git rev-parse --git-dir >/dev/null 2>&1 && BRANCH=$(git branch --show-current 2>/dev/null)
 if [ -n "$BRANCH" ]; then
+    [ ${#BRANCH} -gt 30 ] && BRANCH="${BRANCH:0:30}…"
     OUT="${OUT}${SEP}${TEAL}${DIR_NAME}${DIM}@${RESET}${TEAL}${BRANCH}${RESET}"
 else
     OUT="${OUT}${SEP}${TEAL}${DIR_NAME}${RESET}"

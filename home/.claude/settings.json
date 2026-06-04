@@ -1,7 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/claude-code-settings.json",
 	"cleanupPeriodDays": 365,
-	"model": "claude-opus-4-6",
 	"env": {
 		"CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
 		"CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
@@ -14,54 +13,11 @@
 		"CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-6",
 		"DISABLE_TELEMETRY": "1"
 	},
-	"statusLine": {
-		"type": "command",
-		"command": "bash /Users/xavier.riu/dotfiles/home/.claude/statusline.sh"
-	},
 	"attribution": {
 		"commit": "",
 		"pr": ""
 	},
 	"permissions": {
-		"defaultMode": "acceptEdits",
-		"ask": [
-			"Bash(rm *)",
-			"Bash(sudo *)",
-			"Bash(git push *)",
-			"Bash(git rm *)",
-			"Bash(git reset --hard *)",
-			"Bash(git clean *)",
-			"Bash(git rebase *)",
-			"Bash(git merge *)",
-			"Bash(git checkout -B *)",
-			"Bash(git branch -D *)",
-			"Bash(git branch -d *)",
-			"Bash(git stash drop *)",
-			"Bash(git stash clear *)",
-			"Bash(chmod 777 *)",
-			"Bash(docker run *)",
-			"Bash(docker exec *)",
-			"Bash(docker rm *)",
-			"Bash(docker system *)",
-			"Bash(docker compose up *)",
-			"Bash(docker compose down *)",
-			"Bash(gh pr merge *)",
-			"Bash(gh pr close *)",
-			"Bash(gh pr create *)",
-			"Bash(gh issue close *)",
-			"Bash(gh issue create *)",
-			"Bash(gh repo delete *)",
-			"Bash(gh api -X *)",
-			"Bash(curl *)",
-			"Bash(wget *)",
-			"Bash(npm install *)",
-			"Bash(npm run *)",
-			"Bash(npm publish *)",
-			"Bash(npm exec *)",
-			"Bash(npx *)",
-			"Bash(node *)",
-			"Bash(echo *)"
-		],
 		"allow": [
 			"Read",
 			"Glob",
@@ -123,9 +79,11 @@
 			"Bash(pip show *)",
 			"Bash(python --version *)",
 			"Bash(ruby --version *)",
+			"Bash(find *)",
 			"Bash(mkdir *)",
 			"Bash(which *)",
 			"ExitPlanMode(*)",
+			"Fetch(*)",
 			"WebFetch(domain:*)",
 			"WebSearch",
 			"mcp__plugin_*",
@@ -157,6 +115,68 @@
 			"Bash(sudo rm -rf /*)",
 			"Bash(sudo rm -rf / *)",
 			"Bash(sudo rm -rf /* *)"
-		]
+		],
+		"ask": [
+			"Bash(rm *)",
+			"Bash(sudo *)",
+			"Bash(git push *)",
+			"Bash(git rm *)",
+			"Bash(git reset --hard *)",
+			"Bash(git clean *)",
+			"Bash(git rebase *)",
+			"Bash(git merge *)",
+			"Bash(git checkout -B *)",
+			"Bash(git branch -D *)",
+			"Bash(git branch -d *)",
+			"Bash(git stash drop *)",
+			"Bash(git stash clear *)",
+			"Bash(chmod 777 *)",
+			"Bash(docker run *)",
+			"Bash(docker exec *)",
+			"Bash(docker rm *)",
+			"Bash(docker system *)",
+			"Bash(docker compose up *)",
+			"Bash(docker compose down *)",
+			"Bash(gh pr merge *)",
+			"Bash(gh pr close *)",
+			"Bash(gh pr create *)",
+			"Bash(gh issue close *)",
+			"Bash(gh issue create *)",
+			"Bash(gh repo delete *)",
+			"Bash(gh api -X *)",
+			"Bash(curl *)",
+			"Bash(wget *)",
+			"Bash(npm install *)",
+			"Bash(npm run *)",
+			"Bash(npm publish *)",
+			"Bash(npm exec *)",
+			"Bash(npx *)",
+			"Bash(node *)",
+			"Bash(echo *)"
+		],
+		"defaultMode": "acceptEdits"
+	},
+	"model": "claude-opus-4-6",
+	"statusLine": {
+		"type": "command",
+		"command": "bash /Users/xavier.riu/dotfiles/home/.claude/statusline.sh"
+	},
+	"enabledPlugins": {
+		"slop-review@slop-review": true,
+		"ralph-wiggum@claude-code-plugins": true
+	},
+	"extraKnownMarketplaces": {
+		"slop-review": {
+			"source": {
+				"source": "github",
+				"repo": "dbachelder/slop-review"
+			}
+		},
+		"claude-code-plugins": {
+			"source": {
+				"source": "github",
+				"repo": "anthropics/claude-code"
+			}
+		}
 	}
 }
