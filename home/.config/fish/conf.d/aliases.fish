@@ -45,7 +45,7 @@ alias bi="brew install"
 alias bu="brew uninstall --zap --force"
 alias bt="brew tap"
 alias btu="brew untap"
-alias update="brew update; brew upgrade; brew cleanup; brew autoremove; pi update; rustup-update; npm-update; bun-update"
+alias brew-update="brew update; brew upgrade; brew cleanup; brew autoremove"
 
 # NPM
 alias npm-update="npm update -g"
@@ -69,6 +69,9 @@ alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
 # OpenCode
 alias oc="OPENCODE_EXPERIMENTAL_LSP_TOOL=1 OPENCODE_ENABLE_EXA=1 OPENCODE_EXPERIMENTAL_PLAN_MODE=1 opencode"
+
+# Update
+alias update="brew-update; pi update; claude update; rustup-update; npm-update; bun-update"
 
 # LM internal alias
 functions -e lm 2>/dev/null
