@@ -30,17 +30,3 @@ bin/lm install
 ```
 /Users/.../Library/Application Support/Code/User
 ```
-
-## Solo MCP
-
-```
-{
-	"mcpServers": {
-		"solo": {
-			"command": "/Applications/Solo.app/Contents/MacOS/mcp",
-			"args": [],
-			"lifecycle": "eager"
-		}
-	}
-}
-```
