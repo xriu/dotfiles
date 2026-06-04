@@ -187,8 +187,64 @@
 				"description": "Commands run with superuser privileges"
 			},
 			{
-				"pattern": "git",
-				"description": "Git commands that modify history or force push"
+				"pattern": "git add",
+				"description": "Stage files for commit"
+			},
+			{
+				"pattern": "git commit",
+				"description": "Create a commit"
+			},
+			{
+				"pattern": "git push",
+				"description": "Push commits to remote"
+			},
+			{
+				"pattern": "git push --force",
+				"description": "Force push, can overwrite remote history"
+			},
+			{
+				"pattern": "git push -f",
+				"description": "Force push (short flag)"
+			},
+			{
+				"pattern": "git rm",
+				"description": "Remove files from working tree and index"
+			},
+			{
+				"pattern": "git reset --hard",
+				"description": "Hard reset, discards all uncommitted changes"
+			},
+			{
+				"pattern": "git clean",
+				"description": "Remove untracked files from working tree"
+			},
+			{
+				"pattern": "git rebase",
+				"description": "Rewrite commit history"
+			},
+			{
+				"pattern": "git merge",
+				"description": "Merge branches"
+			},
+			{
+				"pattern": "git checkout -B",
+				"description": "Force create/reset branch"
+			},
+			{
+				"pattern": "git branch -D",
+				"description": "Force delete a branch"
+			},
+			{
+				"pattern": "git branch -d",
+				"description": "Delete a branch"
+			},
+			{
+				"pattern": "git stash drop",
+				"description": "Drop a stash entry"
+			},
+			{
+				"pattern": "git stash clear",
+				"description": "Remove all stash entries"
 			},
 			{
 				"pattern": "dd",

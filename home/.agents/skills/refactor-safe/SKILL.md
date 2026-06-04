@@ -43,6 +43,7 @@ Improve one or more of without changing functionality:
 - Reduce duplication
 - Simplify conditionals and control flow
 - Improve module boundaries
+- Remove tests which simply restate the implementation. These provide zero confidence.
 
 ## Avoid
 

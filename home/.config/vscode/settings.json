@@ -342,6 +342,6 @@
 	"workbench.secondarySideBar.defaultVisibility": "visible",
 	"workbench.startupEditor": "none",
 	"workbench.sideBar.location": "right",
-	"chat.viewSessions.orientation": "stacked",
-	"workbench.colorTheme": "Dark Modern"
+	"workbench.colorTheme": "Dark Modern",
+	"chat.viewSessions.orientation": "stacked"
 }

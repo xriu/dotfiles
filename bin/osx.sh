@@ -50,6 +50,7 @@ function brew_setup() {
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask claude --force # Anthropic's official Claude AI desktop app
+    brew install --cask claude-code --force # Terminal-based AI coding assistant
     brew install --cask cleanshot --force # Screen capture and recording tool
     brew install --cask cmux --force # Agents orchestrator
     brew install --cask codex --force # OpenAI's coding agent that runs in your terminal
