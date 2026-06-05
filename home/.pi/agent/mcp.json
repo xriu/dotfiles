@@ -20,7 +20,7 @@
 		"atlassian": {
 			"url": "https://mcp.atlassian.com/v1/mcp",
 			"headers": {
-				"Authorization": "Basic BASE64_ENCODED_EMAIL_AND_TOKEN"
+				"Authorization": "Basic JIRA_TOKEN"
 			}
 		}
 	}
