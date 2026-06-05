@@ -7,6 +7,7 @@
 		"CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
 		"CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
 		"CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+		"CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
 		"CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
 		"CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
 		"CLAUDE_CODE_NO_FLICKER": "1",
@@ -71,6 +72,12 @@
 			"Bash(yq *)",
 			"Bash(brew info *)",
 			"Bash(brew list *)",
+			"Bash(echo *)",
+			"Bash(rtk ls *)",
+			"Bash(rtk read *)",
+			"Bash(rtk grep *)",
+			"Bash(head *)",
+			"Bash(tail *)",
 			"Bash(npm list *)",
 			"Bash(npm info *)",
 			"Bash(npm outdated *)",
@@ -87,7 +94,9 @@
 			"WebFetch(domain:*)",
 			"WebSearch",
 			"mcp__plugin_*",
-			"mcp__claude_ai_*"
+			"mcp__claude_ai_*",
+			"mcp__atlassian__getTeamworkGraphContext",
+			"mcp__atlassian__getTeamworkGraphObject"
 		],
 		"deny": [
 			"Read(./.env)",
@@ -151,18 +160,31 @@
 			"Bash(npm publish *)",
 			"Bash(npm exec *)",
 			"Bash(npx *)",
-			"Bash(node *)",
-			"Bash(echo *)"
+			"Bash(node *)"
 		],
-		"defaultMode": "acceptEdits"
+		"defaultMode": "acceptEdits",
+		"additionalDirectories": ["~/.claude/"]
 	},
-	"model": "claude-opus-4-6",
+	"hooks": {
+		"PreToolUse": [
+			{
+				"matcher": "Bash",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "rtk hook claude"
+					}
+				]
+			}
+		]
+	},
 	"statusLine": {
 		"type": "command",
 		"command": "bash /Users/xavier.riu/dotfiles/home/.claude/statusline.sh"
 	},
 	"enabledPlugins": {
 		"agent-sdk-dev@claude-code-plugins": true,
+		"plugin-dev@claude-code-plugins": true,
 		"ralph-wiggum@claude-code-plugins": true,
 		"slop-review@slop-review": true
 	},
