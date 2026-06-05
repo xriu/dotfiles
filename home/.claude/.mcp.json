@@ -1,7 +1,7 @@
 {
 	"mcpServers": {
 		"aws": {
-			"disabled": false,
+			"disabled": true,
 			"type": "stdio",
 			"command": "uvx",
 			"args": [
@@ -14,10 +14,12 @@
 			]
 		},
 		"costory": {
+			"disabled": true,
 			"command": "npx",
 			"args": ["-y", "mcp-remote", "https://app-api.costory.io/mcp"]
 		},
 		"atlassian": {
+			"disabled": true,
 			"url": "https://mcp.atlassian.com/v1/mcp",
 			"headers": {
 				"Authorization": "Basic JIRA_TOKEN"

@@ -7,6 +7,7 @@
 		"CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
 		"CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
 		"CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+		"CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
 		"CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
 		"CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
 		"CLAUDE_CODE_NO_FLICKER": "1",
@@ -158,12 +159,26 @@
 		"additionalDirectories": ["~/.claude/"]
 	},
 	"model": "claude-opus-4-6",
+	"hooks": {
+		"PreToolUse": [
+			{
+				"matcher": "Bash",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "rtk hook claude"
+					}
+				]
+			}
+		]
+	},
 	"statusLine": {
 		"type": "command",
 		"command": "bash /Users/xavier.riu/dotfiles/home/.claude/statusline.sh"
 	},
 	"enabledPlugins": {
 		"agent-sdk-dev@claude-code-plugins": true,
+		"plugin-dev@claude-code-plugins": true,
 		"ralph-wiggum@claude-code-plugins": true,
 		"slop-review@slop-review": true
 	},
@@ -180,18 +195,5 @@
 				"repo": "anthropics/claude-code"
 			}
 		}
-	},
-	"hooks": {
-		"PreToolUse": [
-			{
-				"matcher": "Bash",
-				"hooks": [
-					{
-						"type": "command",
-						"command": "rtk hook claude"
-					}
-				]
-			}
-		]
 	}
 }
