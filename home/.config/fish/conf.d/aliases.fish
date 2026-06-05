@@ -71,7 +71,7 @@ alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 alias oc="OPENCODE_EXPERIMENTAL_LSP_TOOL=1 OPENCODE_ENABLE_EXA=1 OPENCODE_EXPERIMENTAL_PLAN_MODE=1 opencode"
 
 # Update
-alias update="brew-update; pi update; claude update; rustup-update; npm-update; bun-update"
+alias update="brew-update; pi update; brew upgrade claude-code; rustup-update; npm-update; bun-update"
 
 # LM internal alias
 functions -e lm 2>/dev/null
