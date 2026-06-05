@@ -154,7 +154,8 @@
 			"Bash(node *)",
 			"Bash(echo *)"
 		],
-		"defaultMode": "acceptEdits"
+		"defaultMode": "acceptEdits",
+		"additionalDirectories": ["~/.claude/"]
 	},
 	"model": "claude-opus-4-6",
 	"statusLine": {
