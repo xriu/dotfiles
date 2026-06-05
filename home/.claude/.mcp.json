@@ -18,12 +18,9 @@
 			"command": "npx",
 			"args": ["-y", "mcp-remote", "https://app-api.costory.io/mcp"]
 		},
-		"atlassian": {
-			"disabled": true,
-			"url": "https://mcp.atlassian.com/v1/mcp",
-			"headers": {
-				"Authorization": "Basic JIRA_TOKEN"
-			}
+		"atlassian-rovo-mcp": {
+			"disabled": false,
+			"url": "https://mcp.atlassian.com/v1/mcp/authv2"
 		}
 	}
 }
