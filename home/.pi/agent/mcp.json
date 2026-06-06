@@ -1,7 +1,6 @@
 {
 	"mcpServers": {
 		"aws": {
-			"disabled": false,
 			"type": "stdio",
 			"command": "uvx",
 			"args": [

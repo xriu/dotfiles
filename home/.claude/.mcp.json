@@ -1,8 +1,6 @@
 {
 	"mcpServers": {
 		"aws": {
-			"disabled": true,
-			"type": "stdio",
 			"command": "uvx",
 			"args": [
 				"mcp-proxy-for-aws@latest",
@@ -14,7 +12,6 @@
 			]
 		},
 		"costory": {
-			"disabled": true,
 			"command": "npx",
 			"args": ["-y", "mcp-remote", "https://app-api.costory.io/mcp"]
 		}

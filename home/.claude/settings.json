@@ -23,6 +23,8 @@
 			"Read",
 			"Glob",
 			"Grep",
+			"Edit(~/.claude/*)",
+			"Write(~/.claude/*)",
 			"ExitPlanMode(*)",
 			"WebFetch(domain:*)",
 			"WebSearch",
