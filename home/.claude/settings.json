@@ -206,7 +206,8 @@
 		"agent-sdk-dev@claude-code-plugins": true,
 		"plugin-dev@claude-code-plugins": true,
 		"ralph-wiggum@claude-code-plugins": true,
-		"slop-review@slop-review": true
+		"slop-review@slop-review": true,
+		"typescript-lsp@claude-plugins-official": true
 	},
 	"extraKnownMarketplaces": {
 		"slop-review": {
