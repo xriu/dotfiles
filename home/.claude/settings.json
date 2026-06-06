@@ -183,7 +183,7 @@
 			"Bash(sudo *)",
 			"Bash(wget *)"
 		],
-		"defaultMode": "acceptEdits",
+		"defaultMode": "bypassPermissions",
 		"additionalDirectories": ["~/.claude/"]
 	},
 	"model": "claude-opus-4-6[1m]",
