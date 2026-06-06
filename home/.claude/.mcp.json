@@ -19,7 +19,7 @@
 			"args": ["-y", "mcp-remote", "https://app-api.costory.io/mcp"]
 		},
 		"atlassian-rovo-mcp": {
-			"disabled": false,
+			"disabled": true,
 			"url": "https://mcp.atlassian.com/v1/mcp/authv2"
 		}
 	}

@@ -14,8 +14,8 @@
 		"npm:pi-design-deck"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "github-copilot",
-	"defaultModel": "claude-opus-4.6",
+	"defaultProvider": "alibaba",
+	"defaultModel": "qwen3.6-plus",
 	"defaultThinkingLevel": "high",
 	"treeFilterMode": "no-tools",
 	"theme": "dark",
