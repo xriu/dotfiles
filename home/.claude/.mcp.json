@@ -1,8 +1,6 @@
 {
 	"mcpServers": {
 		"aws": {
-			"disabled": true,
-			"type": "stdio",
 			"command": "uvx",
 			"args": [
 				"mcp-proxy-for-aws@latest",
@@ -14,13 +12,8 @@
 			]
 		},
 		"costory": {
-			"disabled": true,
 			"command": "npx",
 			"args": ["-y", "mcp-remote", "https://app-api.costory.io/mcp"]
-		},
-		"atlassian-rovo-mcp": {
-			"disabled": false,
-			"url": "https://mcp.atlassian.com/v1/mcp/authv2"
 		}
 	}
 }
