@@ -14,8 +14,8 @@
 		"npm:pi-design-deck"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "alibaba",
-	"defaultModel": "qwen3.6-plus",
+	"defaultProvider": "synthetic",
+	"defaultModel": "hf:moonshotai/Kimi-K2.6",
 	"defaultThinkingLevel": "high",
 	"treeFilterMode": "no-tools",
 	"theme": "dark",
