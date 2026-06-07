@@ -145,6 +145,23 @@
 							"xhigh": "high"
 						}
 					}
+				},
+				{
+					"id": "syn:small:text",
+					"name": "Synthetic Small Text",
+					"reasoning": true,
+					"input": ["text"],
+					"compat": {
+						"supportsReasoningEffort": true,
+						"maxTokensField": "max_completion_tokens",
+						"reasoningEffortMap": {
+							"minimal": "low",
+							"low": "low",
+							"medium": "medium",
+							"high": "high",
+							"xhigh": "high"
+						}
+					}
 				}
 			]
 		}
