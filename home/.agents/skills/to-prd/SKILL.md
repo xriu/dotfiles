@@ -18,6 +18,23 @@ Check with the user that these seams match their expectations.
 
 3. Write the PRD using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
 
+## Output structure
+
+The PRD and its issues must follow this layout:
+
+```
+.scratch/<feature-slug>/
+├── PRD.md
+└── issues/
+    ├── 01-<slug>.md
+    ├── 02-<slug>.md
+    └── ...
+```
+
+- One directory per feature under `.scratch/`.
+- `PRD.md` at the root of that directory.
+- Implementation issues in an `issues/` subdirectory, numbered from `01`.
+
 <prd-template>
 
 ## Problem Statement
