@@ -22,6 +22,9 @@
 						"pattern": "local.env"
 					},
 					{
+						"pattern": ".env"
+					},
+					{
 						"pattern": ".env.*"
 					},
 					{

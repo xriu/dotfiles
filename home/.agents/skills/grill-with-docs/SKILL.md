@@ -4,8 +4,6 @@ description: Grilling session that challenges your plan against the existing dom
 disable-model-invocation: true
 ---
 
-## Prerequisites
-
 <what-to-do>
 
 Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
@@ -89,7 +87,6 @@ Only offer to create an ADR when all three are true:
 If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
 
 </supporting-info>
-
 ## When the session ends
 
-When all branches of the design tree are resolved, suggest the user run `/to-prd` to formalize the plan into a product requirements document.
+Do not implement anything. When all branches of the design tree are resolved, suggest the user run `/to-prd` to formalize the plan into a product requirements document.
