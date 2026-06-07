@@ -1,7 +1,7 @@
 #!/bin/bash
 # Custom status line for Claude Code CLI
-# Place this file at ~/.claude/statusline.sh and make it executable: chmod +x ~/.claude/statusline.sh
-# Configure it in settings.json with: "statusLine": { "type": "command", "command": "~/.claude/statusline.sh" }
+# Place this file at ~/.claude/status-line.sh and make it executable: chmod +x ~/.claude/status-line.sh
+# Configure it in settings.json with: "status-line": { "type": "command", "command": "~/.claude/status-line.sh" }
 #
 # Requires: jq (brew install jq)
 

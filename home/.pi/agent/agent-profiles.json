@@ -10,7 +10,7 @@
 				},
 				{
 					"provider": "alibaba",
-					"model": "qwen3.6-plus",
+					"model": "qwen3.7-plus",
 					"thinkingLevel": "high"
 				}
 			],
@@ -28,7 +28,7 @@
 			"main": [
 				{
 					"provider": "alibaba",
-					"model": "qwen3.6-plus",
+					"model": "qwen3.7-plus",
 					"thinkingLevel": "high"
 				},
 				{

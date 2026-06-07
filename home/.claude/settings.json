@@ -62,7 +62,7 @@
 	},
 	"statusLine": {
 		"type": "command",
-		"command": "bash /Users/xavier.riu/dotfiles/home/.claude/statusline.sh"
+		"command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
 	},
 	"enabledPlugins": {
 		"agent-sdk-dev@claude-code-plugins": true,
