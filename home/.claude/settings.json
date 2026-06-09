@@ -30,12 +30,11 @@
 			"Bash(rm -rf $HOME*)",
 			"Bash(rm -rf .*)",
 			"Bash(sudo rm -rf *)",
-			"Bash(git push *--force*)",
-			"Bash(git push *-f *)",
+			"Bash(git push *)",
 			"Bash(git reset --hard *)",
 			"Bash(npm publish *)",
-			"Bash(*terraform apply *)",
-			"Bash(*terraform destroy *)",
+			"Bash(terraform apply *)",
+			"Bash(terraform destroy *)",
 			"Read(./.env*)",
 			"Read(./config/credentials.json)",
 			"Read(./secrets/**)",
@@ -46,20 +45,7 @@
 		"defaultMode": "bypassPermissions",
 		"additionalDirectories": ["~/.claude/"]
 	},
-	"model": "claude-opus-4-6[1m]",
-	"hooks": {
-		"PreToolUse": [
-			{
-				"matcher": "Bash",
-				"hooks": [
-					{
-						"type": "command",
-						"command": "rtk hook claude"
-					}
-				]
-			}
-		]
-	},
+	"model": "claude-opus-4-7[1m]",
 	"statusLine": {
 		"type": "command",
 		"command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
