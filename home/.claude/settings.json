@@ -45,7 +45,11 @@
 		"defaultMode": "bypassPermissions",
 		"additionalDirectories": ["~/.claude/"]
 	},
-	"model": "claude-opus-4-7[1m]",
+	"model": "claude-opus-4-6[1m]",
+	"fastMode": false,
+	"effortLevel": "high",
+	"alwaysThinkingEnabled": true,
+	"autoCompactWindow": 180000,
 	"statusLine": {
 		"type": "command",
 		"command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
