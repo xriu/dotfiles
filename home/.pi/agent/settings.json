@@ -1,7 +1,9 @@
 {
 	"lastChangelogVersion": "0.79.0",
 	"packages": [
+		"npm:@plannotator/pi-extension",
 		"npm:pi-bash-live-view",
+		"npm:pi-design-deck",
 		"npm:pi-interview",
 		"npm:pi-lens",
 		"npm:pi-markdown-preview",
@@ -10,12 +12,11 @@
 		"npm:pi-review-loop",
 		"npm:pi-rewind",
 		"npm:pi-slop-review",
-		"npm:pi-smart-fetch",
-		"npm:pi-design-deck"
+		"npm:pi-smart-fetch"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "alibaba",
-	"defaultModel": "qwen3.7-plus",
+	"defaultProvider": "synthetic",
+	"defaultModel": "hf:moonshotai/Kimi-K2.6",
 	"defaultThinkingLevel": "high",
 	"treeFilterMode": "no-tools",
 	"theme": "dark",
