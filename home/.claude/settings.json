@@ -1,5 +1,10 @@
 {
 	"$schema": "https://json.schemastore.org/claude-code-settings.json",
+	"model": "claude-opus-4-6[1m]",
+	"fastMode": false,
+	"effortLevel": "high",
+	"alwaysThinkingEnabled": true,
+	"autoCompactWindow": 180000,
 	"cleanupPeriodDays": 365,
 	"env": {
 		"CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
@@ -30,12 +35,11 @@
 			"Bash(rm -rf $HOME*)",
 			"Bash(rm -rf .*)",
 			"Bash(sudo rm -rf *)",
-			"Bash(git push *--force*)",
-			"Bash(git push *-f *)",
+			"Bash(git push *)",
 			"Bash(git reset --hard *)",
 			"Bash(npm publish *)",
-			"Bash(*terraform apply *)",
-			"Bash(*terraform destroy *)",
+			"Bash(terraform apply *)",
+			"Bash(terraform destroy *)",
 			"Read(./.env*)",
 			"Read(./config/credentials.json)",
 			"Read(./secrets/**)",
@@ -46,20 +50,6 @@
 		"defaultMode": "bypassPermissions",
 		"additionalDirectories": ["~/.claude/"]
 	},
-	"model": "claude-opus-4-6[1m]",
-	"hooks": {
-		"PreToolUse": [
-			{
-				"matcher": "Bash",
-				"hooks": [
-					{
-						"type": "command",
-						"command": "rtk hook claude"
-					}
-				]
-			}
-		]
-	},
 	"statusLine": {
 		"type": "command",
 		"command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
@@ -69,7 +59,8 @@
 		"plugin-dev@claude-code-plugins": true,
 		"ralph-wiggum@claude-code-plugins": true,
 		"slop-review@slop-review": true,
-		"typescript-lsp@claude-plugins-official": true
+		"typescript-lsp@claude-plugins-official": true,
+		"supergoal@supergoal": true
 	},
 	"extraKnownMarketplaces": {
 		"slop-review": {
@@ -83,8 +74,14 @@
 				"source": "github",
 				"repo": "anthropics/claude-code"
 			}
+		},
+		"supergoal": {
+			"source": {
+				"source": "git",
+				"url": "https://github.com/robzilla1738/supergoal.git"
+			}
 		}
 	},
-	"theme": "dark",
-	"skipDangerousModePermissionPrompt": true
+	"skipDangerousModePermissionPrompt": true,
+	"theme": "dark"
 }
