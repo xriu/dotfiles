@@ -15,8 +15,8 @@
 		"npm:pi-smart-fetch"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "synthetic",
-	"defaultModel": "hf:moonshotai/Kimi-K2.6",
+	"defaultProvider": "alibaba",
+	"defaultModel": "qwen3.7-plus",
 	"defaultThinkingLevel": "high",
 	"treeFilterMode": "no-tools",
 	"theme": "dark",

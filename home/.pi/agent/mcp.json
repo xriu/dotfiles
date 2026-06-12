@@ -1,6 +1,6 @@
 {
 	"mcpServers": {
-		"dbhub": {
+		"sqlite": {
 			"type": "stdio",
 			"command": "npx",
 			"args": [
