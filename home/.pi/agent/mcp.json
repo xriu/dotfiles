@@ -12,6 +12,10 @@
 				"AWS_REGION=us-east-1"
 			]
 		},
+		"aws-knowledge": {
+			"type": "http",
+			"url": "https://knowledge-mcp.global.api.aws"
+		},
 		"costory": {
 			"command": "npx",
 			"args": ["-y", "mcp-remote", "https://app-api.costory.io/mcp"]
