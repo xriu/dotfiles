@@ -1,5 +1,16 @@
 {
 	"mcpServers": {
+		"dbhub": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@bytebase/dbhub@latest",
+				"--transport",
+				"stdio",
+				"--dsn",
+				"${DATABASE_URL}"
+			]
+		},
 		"aws": {
 			"type": "stdio",
 			"command": "uvx",
