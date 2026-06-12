@@ -1,7 +1,6 @@
 {
 	"mcpServers": {
 		"aws": {
-			"type": "stdio",
 			"command": "uvx",
 			"args": [
 				"mcp-proxy-for-aws@latest",
