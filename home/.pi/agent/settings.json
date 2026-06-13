@@ -1,5 +1,5 @@
 {
-	"lastChangelogVersion": "0.79.1",
+	"lastChangelogVersion": "0.79.2",
 	"packages": [
 		"npm:@plannotator/pi-extension",
 		"npm:pi-bash-live-view",
@@ -15,8 +15,8 @@
 		"npm:pi-smart-fetch"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "alibaba",
-	"defaultModel": "qwen3.7-plus",
+	"defaultProvider": "synthetic",
+	"defaultModel": "hf:MiniMaxAI/MiniMax-M3",
 	"defaultThinkingLevel": "high",
 	"treeFilterMode": "no-tools",
 	"theme": "dark",
