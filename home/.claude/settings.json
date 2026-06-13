@@ -55,7 +55,6 @@
 		"agent-sdk-dev@claude-code-plugins": true,
 		"frontend-design@claude-plugins-official": true,
 		"plugin-dev@claude-code-plugins": true,
-		"ralph-wiggum@claude-code-plugins": true,
 		"slop-review@slop-review": true,
 		"supergoal@supergoal": true,
 		"typescript-lsp@claude-plugins-official": true

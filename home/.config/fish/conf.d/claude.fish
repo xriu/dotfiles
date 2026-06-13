@@ -71,7 +71,7 @@ function kimi
 end
 
 function minimax
-    _configure_claude_provider minimax MINIMAX_API_KEY "hf:MiniMaxAI/MiniMax-M2" $argv
+    _configure_claude_provider minimax MINIMAX_API_KEY "hf:MiniMaxAI/MiniMax-M3" $argv
 end
 
 # --- Reset to Default (Local Anthropic) ---
