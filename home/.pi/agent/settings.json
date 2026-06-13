@@ -15,11 +15,14 @@
 		"npm:pi-smart-fetch"
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "opencode-go",
-	"defaultModel": "deepseek-v4-pro",
+	"defaultProvider": "alibaba",
+	"defaultModel": "qwen3.7-plus",
 	"defaultThinkingLevel": "high",
 	"treeFilterMode": "no-tools",
 	"theme": "dark",
+	"compaction": {
+		"reserveTokens": 20000
+	},
 	"reviewerLoop": {
 		"maxIterations": 3,
 		"autoTrigger": true,
