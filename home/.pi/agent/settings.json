@@ -16,7 +16,7 @@
 	],
 	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
 	"defaultProvider": "opencode-go",
-	"defaultModel": "kimi-k2.7-code",
+	"defaultModel": "deepseek-v4-pro",
 	"defaultThinkingLevel": "high",
 	"treeFilterMode": "no-tools",
 	"theme": "dark",
