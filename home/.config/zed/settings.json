@@ -1,51 +1,6 @@
 {
-	"agent_servers": {
-		"OpenCode": {
-			"command": "opencode",
-			"args": [
-				"acp"
-			],
-			"type": "custom"
-		}
-	},
-	"context_servers": {
-		"aws-knowledge-mcp": {
-			"enabled": false,
-			"url": "https://knowledge-mcp.global.api.aws",
-			"headers": {}
-		},
-		"context7": {
-			"enabled": true,
-			"url": "https://mcp.context7.com/mcp",
-			"headers": {
-				"CONTEXT7_API_KEY": "$CONTEXT7_API_KEY"
-			}
-		},
-		"vibe-kanban": {
-			"enabled": false,
-			"command": "npx",
-			"args": [
-				"-y",
-				"vibe-kanban@latest",
-				"--mcp"
-			]
-		},
-		"chrome-devtools": {
-			"enabled": true,
-			"command": "npx",
-			"args": [
-				"-y",
-				"chrome-devtools-mcp@latest"
-			]
-		},
-		"playwright": {
-			"enabled": false,
-			"command": "npx",
-			"args": [
-				"@playwright/mcp@latest"
-			]
-		}
-	},
+	"agent_servers": {},
+	"context_servers": {},
 	"use_system_window_tabs": true,
 	"status_bar": {
 		"active_language_button": true,
@@ -57,7 +12,7 @@
 		"button": true,
 		"dock": "left",
 		"commit_message_model": {
-			"model": "gemma3:270m",
+			"model": "gemma4:e2b",
 			"provider": "ollama"
 		},
 		"default_model": {
@@ -67,7 +22,7 @@
 		"default_profile": "ask",
 		"enable_feedback": false,
 		"inline_assistant_model": {
-			"model": "gemma3:270m",
+			"model": "gemma4:e2b",
 			"provider": "ollama"
 		},
 		"play_sound_when_agent_done": true
@@ -158,9 +113,7 @@
 		"eslint": {
 			"settings": {
 				"codeActionOnSave": {
-					"rules": [
-						"import/order"
-					]
+					"rules": ["import/order"]
 				}
 			}
 		}
@@ -204,12 +157,7 @@
 		"detect_venv": {
 			"on": {
 				"activate_script": "default",
-				"directories": [
-					".env",
-					"env",
-					".venv",
-					"venv"
-				]
+				"directories": [".env", "env", ".venv", "venv"]
 			}
 		},
 		"dock": "bottom",
@@ -226,8 +174,5 @@
 		"quick_actions": true
 	},
 	"ui_font_size": 15,
-	"wrap_guides": [
-		80,
-		120
-	]
+	"wrap_guides": [80, 120]
 }
