@@ -9,10 +9,10 @@
 		"default_model": {
 			"effort": "xhigh",
 			"enable_thinking": true,
-			"model": "go/deepseek-v4-pro",
+			"model": "go/deepseek-v4-flash",
 			"provider": "opencode"
 		},
-		"default_profile": "ask",
+		"default_profile": "write",
 		"dock": "left",
 		"enable_feedback": false,
 		"enabled": true,
