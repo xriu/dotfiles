@@ -1,6 +1,5 @@
 {
 	"agent": {
-		"always_allow_tool_actions": true,
 		"button": true,
 		"commit_message_model": {
 			"model": "gemma4:e2b",
@@ -12,7 +11,7 @@
 			"model": "go/deepseek-v4-flash",
 			"provider": "opencode"
 		},
-		"default_profile": "ask",
+		"default_profile": "write",
 		"dock": "left",
 		"enable_feedback": false,
 		"enabled": true,
@@ -20,9 +19,13 @@
 			"model": "gemma4:e2b",
 			"provider": "ollama"
 		},
-		"play_sound_when_agent_done": true
+		"play_sound_when_agent_done": "never"
 	},
-	"agent_servers": {},
+	"agent_servers": {
+		"pi-acp": {
+			"type": "registry"
+		}
+	},
 	"auto_indent_on_paste": false,
 	"auto_update": false,
 	"autosave": {
@@ -31,19 +34,23 @@
 		}
 	},
 	"base_keymap": "VSCode",
-	"buffer_font_family": "FiraCodeNerdFont-Retina",
+	"buffer_font_family": "FiraCode Nerd Font",
 	"buffer_font_size": 13,
 	"buffer_line_height": {
 		"custom": 1.5
+	},
+	"collaboration_panel": {
+		"dock": "right"
 	},
 	"colorize_brackets": true,
 	"confirm_quit": true,
 	"context_servers": {},
 	"cursor_blink": true,
+	"diff_view_style": "unified",
 	"disable_ai": false,
 	"enable_language_server": true,
 	"ensure_final_newline_on_save": true,
-	"features": {
+	"feature_flags": {
 		"edit_prediction_provider": "zed"
 	},
 	"file_types": {
@@ -66,7 +73,7 @@
 	"hard_tabs": false,
 	"icon_theme": {
 		"dark": "Catppuccin Mocha",
-		"light": "Catppuccin Mocha",
+		"light": "Material Icon Theme",
 		"mode": "light"
 	},
 	"indent_guides": {
@@ -79,40 +86,19 @@
 			"api_url": "https://opencode.ai/zen/go/v1/messages",
 			"available_models": [
 				{
-					"capabilities": {
-						"images": false,
-						"parallel_tool_calls": true,
-						"prompt_cache_key": true,
-						"tools": true
-					},
 					"display_name": "MiniMax M3",
-					"max_completion_tokens": 65536,
 					"max_output_tokens": 65536,
 					"max_tokens": 196608,
 					"name": "minimax-m3"
 				},
 				{
-					"capabilities": {
-						"images": false,
-						"parallel_tool_calls": true,
-						"prompt_cache_key": true,
-						"tools": true
-					},
 					"display_name": "Qwen3.7 Max",
-					"max_completion_tokens": 65536,
 					"max_output_tokens": 65536,
 					"max_tokens": 262144,
 					"name": "qwen3.7-max"
 				},
 				{
-					"capabilities": {
-						"images": false,
-						"parallel_tool_calls": true,
-						"prompt_cache_key": true,
-						"tools": true
-					},
 					"display_name": "Qwen3.7 Plus",
-					"max_completion_tokens": 65536,
 					"max_output_tokens": 65536,
 					"max_tokens": 1000000,
 					"name": "qwen3.7-plus"
@@ -264,9 +250,6 @@
 		"current_line_highlight": "line",
 		"show": "auto"
 	},
-	"notification_panel": {
-		"dock": "right"
-	},
 	"outline_panel": {
 		"dock": "right"
 	},
@@ -279,7 +262,9 @@
 		"scrollbar": {
 			"show": "never"
 		},
-		"starts_open": true
+		"starts_open": true,
+		"indent_size": 15,
+		"auto_fold_dirs": false
 	},
 	"session": {
 		"trust_all_worktrees": true
