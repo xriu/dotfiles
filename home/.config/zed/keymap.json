@@ -1,0 +1,29 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Global",
+    "bindings": {
+      "cmd cmd": "window::MergeAllWindows",
+      "ctrl-tab": "multi_workspace::NextProject",
+      "ctrl-shift-tab": "multi_workspace::PreviousProject",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+]
