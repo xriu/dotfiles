@@ -12,7 +12,7 @@
 			"model": "go/deepseek-v4-flash",
 			"provider": "opencode"
 		},
-		"default_profile": "write",
+		"default_profile": "ask",
 		"dock": "left",
 		"enable_feedback": false,
 		"enabled": true,
@@ -76,7 +76,7 @@
 	},
 	"language_models": {
 		"anthropic": {
-			"api_url": "https://opencode.ai/zen/go",
+			"api_url": "https://opencode.ai/zen/go/v1/messages",
 			"available_models": [
 				{
 					"capabilities": {
@@ -121,7 +121,7 @@
 		},
 		"openai_compatible": {
 			"OpenCode": {
-				"api_url": "https://opencode.ai/zen/go/v1",
+				"api_url": "https://opencode.ai/zen/go/v1/chat/completions",
 				"available_models": [
 					{
 						"capabilities": {
