@@ -1,5 +1,19 @@
 {
   "agent": {
+    "tool_permissions": {
+      "tools": {
+        "fetch": {
+          "always_allow": [
+            {
+              "pattern": "^https?://github\\.com",
+            },
+            {
+              "pattern": "^https?://raw\\.githubusercontent\\.com",
+            },
+          ],
+        },
+      },
+    },
     "button": true,
     "commit_message_model": {
       "effort": "xhigh",
@@ -8,10 +22,9 @@
       "provider": "opencode",
     },
     "default_model": {
-      "effort": "xhigh",
-      "enable_thinking": true,
-      "model": "go/deepseek-v4-pro",
-      "provider": "opencode",
+      "enable_thinking": false,
+      "model": "hf:MiniMaxAI/MiniMax-M3",
+      "provider": "Synthetic",
     },
     "default_profile": "write",
     "dock": "left",
@@ -19,26 +32,36 @@
     "enabled": true,
     "favorite_models": [
       {
-        "effort": "xhigh",
-        "enable_thinking": true,
+        "provider": "opencode",
         "model": "go/deepseek-v4-pro",
-        "provider": "opencode",
-      },
-      {
-        "effort": "xhigh",
         "enable_thinking": true,
+        "effort": "xhigh",
+      },
+      {
+        "provider": "opencode",
         "model": "go/deepseek-v4-flash",
-        "provider": "opencode",
+        "enable_thinking": true,
+        "effort": "xhigh",
       },
       {
-        "enable_thinking": false,
+        "provider": "opencode",
         "model": "go/qwen3.7-max",
-        "provider": "opencode",
+        "enable_thinking": false,
       },
       {
+        "provider": "opencode",
+        "model": "go/kimi-k2.7",
         "enable_thinking": false,
-        "model": "hf:MiniMaxAI/MiniMax-M3",
+      },
+      {
+        "provider": "opencode",
+        "model": "go/kimi-k2.6",
+        "enable_thinking": false,
+      },
+      {
         "provider": "Synthetic",
+        "model": "hf:MiniMaxAI/MiniMax-M3",
+        "enable_thinking": false,
       },
     ],
     "play_sound_when_agent_done": "never",

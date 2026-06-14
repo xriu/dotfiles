@@ -46,6 +46,7 @@
     "context": "Terminal",
     "bindings": {
       "cmd cmd": "workspace::ToggleZoom",
+      "cmd-t": "workspace::NewTerminal",
     },
   },
   {
