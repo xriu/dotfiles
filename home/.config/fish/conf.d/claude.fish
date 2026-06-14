@@ -52,26 +52,8 @@ function _configure_claude_provider
     end
 end
 
-# --- DeepSeek Configuration ---
-# Usage: deepseek [-- args...]
-function deepseek
-    _configure_claude_provider deepseek DEEPSEEK_API_KEY "hf:deepseek-ai/DeepSeek-V3.2" $argv
-end
-
-# --- z.ai (GLM) Configuration ---
-# Usage: glm [-- args...]
-function glm
-    _configure_claude_provider glm Z_AI_API_KEY "hf:zai-org/GLM-4.6" $argv
-end
-
-# --- Kimi (Moonshot AI) Configuration ---
-# Usage: kimi [-- args...]
-function kimi
-    _configure_claude_provider kimi KIMI_API_KEY "hf:moonshotai/Kimi-K2-Thinking" $argv
-end
-
 function minimax
-    _configure_claude_provider minimax MINIMAX_API_KEY "hf:MiniMaxAI/MiniMax-M3" $argv
+    _configure_claude_provider minimax SYNTHETIC_API_KEY "hf:MiniMaxAI/MiniMax-M3" $argv
 end
 
 # --- Reset to Default (Local Anthropic) ---

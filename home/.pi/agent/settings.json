@@ -18,7 +18,7 @@
     "~/dotfiles/home/.pi/agent/extensions"
   ],
   "defaultProvider": "opencode-go-anthropic",
-  "defaultModel": "qwen3.7-max",
+  "defaultModel": "minimax-m3",
   "defaultThinkingLevel": "high",
   "treeFilterMode": "no-tools",
   "theme": "dark",
