@@ -1,4 +1,5 @@
 {
+  "cli_default_open_behavior": "existing_window",
   "agent": {
     "tool_permissions": {
       "tools": {
@@ -138,7 +139,7 @@
   },
   "language_models": {
     "opencode": {
-      "show_zen_models": false
+      "show_zen_models": false,
     },
     "anthropic": {
       "api_url": "https://opencode.ai/zen/go/v1/messages",
