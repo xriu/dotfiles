@@ -9,6 +9,8 @@
   {
     "context": "Workspace",
     "bindings": {
+      "cmd-shift-r": ["projects::OpenRecent", { "create_new_window": false }],
+      "cmd-1": "multi_workspace::NextProject",
       "cmd cmd": "workspace::ToggleZoom",
       "shift shift": "file_finder::Toggle",
       "cmd-shift-g": "git_panel::ToggleFocus",

@@ -1,11 +1,17 @@
 {
   "agent": {
     "button": true,
+    "commit_message_model": {
+      "effort": "xhigh",
+      "enable_thinking": true,
+      "model": "go/deepseek-v4-flash",
+      "provider": "opencode",
+    },
     "default_model": {
       "effort": "xhigh",
       "enable_thinking": true,
       "model": "go/deepseek-v4-pro",
-      "provider": "opencode"
+      "provider": "opencode",
     },
     "default_profile": "write",
     "dock": "left",
@@ -16,50 +22,50 @@
         "effort": "xhigh",
         "enable_thinking": true,
         "model": "go/deepseek-v4-pro",
-        "provider": "opencode"
+        "provider": "opencode",
       },
       {
         "effort": "xhigh",
         "enable_thinking": true,
         "model": "go/deepseek-v4-flash",
-        "provider": "opencode"
+        "provider": "opencode",
       },
       {
         "enable_thinking": false,
         "model": "go/qwen3.7-max",
-        "provider": "opencode"
+        "provider": "opencode",
       },
       {
         "enable_thinking": false,
         "model": "hf:MiniMaxAI/MiniMax-M3",
-        "provider": "Synthetic"
-      }
+        "provider": "Synthetic",
+      },
     ],
-    "play_sound_when_agent_done": "never"
+    "play_sound_when_agent_done": "never",
   },
   "agent_servers": {
     "claude-acp": {
-      "type": "registry"
+      "type": "registry",
     },
     "pi-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "auto_indent_on_paste": false,
   "auto_update": false,
   "autosave": {
     "after_delay": {
-      "milliseconds": 1000
-    }
+      "milliseconds": 1000,
+    },
   },
   "base_keymap": "VSCode",
   "buffer_font_family": "FiraCode Nerd Font",
   "buffer_font_size": 13,
   "buffer_line_height": {
-    "custom": 1.5
+    "custom": 1.5,
   },
   "collaboration_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "colorize_brackets": true,
   "confirm_quit": true,
@@ -70,50 +76,42 @@
   "edit_predictions": {
     "open_ai_compatible_api": {
       "api_url": "https://opencode.ai/zen/go/v1/chat/completions",
-      "model": "deepseek-v4-flash"
+      "model": "deepseek-v4-flash",
     },
-    "provider": "open_ai_compatible_api"
+    "provider": "open_ai_compatible_api",
   },
   "enable_language_server": true,
   "ensure_final_newline_on_save": true,
   "feature_flags": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "zed",
   },
   "file_types": {
-    "hcl": [
-      "*.tftpl"
-    ],
-    "tailwindcss": [
-      "*.css"
-    ],
-    "terraform": [
-      "*.tf"
-    ],
-    "terraform-vars": [
-      "*.tfvars"
-    ]
+    "hcl": ["*.tftpl"],
+    "tailwindcss": ["*.css"],
+    "terraform": ["*.tf"],
+    "terraform-vars": ["*.tfvars"],
   },
   "format_on_save": "on",
   "formatter": "auto",
   "git": {
     "inline_blame": {
       "delay_ms": 500,
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "git_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "hard_tabs": false,
   "icon_theme": {
     "dark": "Catppuccin Mocha",
     "light": "Material Icon Theme",
-    "mode": "light"
+    "mode": "light",
   },
   "indent_guides": {
     "background_coloring": "disabled",
     "coloring": "indent_aware",
-    "enabled": true
+    "enabled": true,
   },
   "language_models": {
     "anthropic": {
@@ -123,21 +121,21 @@
           "display_name": "MiniMax M3",
           "max_output_tokens": 65536,
           "max_tokens": 196608,
-          "name": "minimax-m3"
+          "name": "minimax-m3",
         },
         {
           "display_name": "Qwen3.7 Max",
           "max_output_tokens": 65536,
           "max_tokens": 262144,
-          "name": "qwen3.7-max"
+          "name": "qwen3.7-max",
         },
         {
           "display_name": "Qwen3.7 Plus",
           "max_output_tokens": 65536,
           "max_tokens": 1000000,
-          "name": "qwen3.7-plus"
-        }
-      ]
+          "name": "qwen3.7-plus",
+        },
+      ],
     },
     "openai_compatible": {
       "OpenCode": {
@@ -148,80 +146,80 @@
               "images": false,
               "parallel_tool_calls": true,
               "prompt_cache_key": true,
-              "tools": true
+              "tools": true,
             },
             "display_name": "DeepSeek V4 Pro",
             "max_completion_tokens": 16384,
             "max_output_tokens": 16384,
             "max_tokens": 128000,
-            "name": "deepseek-v4-pro"
+            "name": "deepseek-v4-pro",
           },
           {
             "capabilities": {
               "images": false,
               "parallel_tool_calls": true,
               "prompt_cache_key": true,
-              "tools": true
+              "tools": true,
             },
             "display_name": "DeepSeek V4 Flash",
             "max_completion_tokens": 16384,
             "max_output_tokens": 16384,
             "max_tokens": 128000,
-            "name": "deepseek-v4-flash"
+            "name": "deepseek-v4-flash",
           },
           {
             "capabilities": {
               "images": false,
               "parallel_tool_calls": true,
               "prompt_cache_key": true,
-              "tools": true
+              "tools": true,
             },
             "display_name": "MiMo V2.5 Pro",
             "max_completion_tokens": 16384,
             "max_output_tokens": 16384,
             "max_tokens": 131072,
-            "name": "mimo-v2.5-pro"
+            "name": "mimo-v2.5-pro",
           },
           {
             "capabilities": {
               "images": false,
               "parallel_tool_calls": true,
               "prompt_cache_key": true,
-              "tools": true
+              "tools": true,
             },
             "display_name": "GLM 5.1",
             "max_completion_tokens": 65536,
             "max_output_tokens": 65536,
             "max_tokens": 202752,
-            "name": "glm-5.1"
+            "name": "glm-5.1",
           },
           {
             "capabilities": {
               "images": true,
               "parallel_tool_calls": true,
               "prompt_cache_key": true,
-              "tools": true
+              "tools": true,
             },
             "display_name": "Kimi K2.7 Code",
             "max_completion_tokens": 65536,
             "max_output_tokens": 65536,
             "max_tokens": 262144,
-            "name": "kimi-k2.7"
+            "name": "kimi-k2.7",
           },
           {
             "capabilities": {
               "images": false,
               "parallel_tool_calls": true,
               "prompt_cache_key": true,
-              "tools": true
+              "tools": true,
             },
             "display_name": "MiMo V2.5",
             "max_completion_tokens": 16384,
             "max_output_tokens": 16384,
             "max_tokens": 131072,
-            "name": "mimo-v2.5"
-          }
-        ]
+            "name": "mimo-v2.5",
+          },
+        ],
       },
       "Synthetic": {
         "api_url": "https://api.synthetic.new/openai/v1",
@@ -231,63 +229,61 @@
               "images": false,
               "parallel_tool_calls": true,
               "prompt_cache_key": true,
-              "tools": true
+              "tools": true,
             },
             "display_name": "MiniMaxAI/MiniMax-M3",
             "max_completion_tokens": 65536,
             "max_output_tokens": 65536,
             "max_tokens": 196608,
-            "name": "hf:MiniMaxAI/MiniMax-M3"
+            "name": "hf:MiniMaxAI/MiniMax-M3",
           },
           {
             "capabilities": {
               "images": true,
               "parallel_tool_calls": true,
               "prompt_cache_key": true,
-              "tools": true
+              "tools": true,
             },
             "display_name": "moonshotai/Kimi-K2.6",
             "max_output_tokens": 65536,
             "max_tokens": 262144,
-            "name": "hf:moonshotai/Kimi-K2.6"
-          }
-        ]
-      }
-    }
+            "name": "hf:moonshotai/Kimi-K2.6",
+          },
+        ],
+      },
+    },
   },
   "languages": {
     "JSON": {
-      "tab_size": 4
+      "tab_size": 4,
     },
     "JavaScript": {
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
+        "source.fixAll.eslint": true,
+      },
     },
     "TypeScript": {
       "code_actions_on_format": {
-        "source.organizeImports": true
-      }
-    }
+        "source.organizeImports": true,
+      },
+    },
   },
   "load_direnv": "direct",
   "lsp": {
     "eslint": {
       "settings": {
         "codeActionOnSave": {
-          "rules": [
-            "import/order"
-          ]
-        }
-      }
-    }
+          "rules": ["import/order"],
+        },
+      },
+    },
   },
   "minimap": {
     "current_line_highlight": "line",
-    "show": "auto"
+    "show": "auto",
   },
   "outline_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "project_panel": {
     "auto_fold_dirs": false,
@@ -298,12 +294,12 @@
     "git_status": true,
     "indent_size": 15,
     "scrollbar": {
-      "show": "never"
+      "show": "never",
     },
-    "starts_open": true
+    "starts_open": true,
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "show_edit_predictions": true,
   "show_whitespaces": "none",
@@ -311,19 +307,19 @@
   "soft_wrap": "editor_width",
   "status_bar": {
     "active_language_button": true,
-    "cursor_position_button": true
+    "cursor_position_button": true,
   },
   "sticky_scroll": {
-    "enabled": true
+    "enabled": true,
   },
   "tabs": {
     "close_position": "right",
     "file_icons": true,
-    "git_status": true
+    "git_status": true,
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "terminal": {
     "alternate_scroll": "off",
@@ -333,37 +329,29 @@
     "detect_venv": {
       "on": {
         "activate_script": "default",
-        "directories": [
-          ".env",
-          "env",
-          ".venv",
-          "venv"
-        ]
-      }
+        "directories": [".env", "env", ".venv", "venv"],
+      },
     },
     "dock": "bottom",
     "env": {
-      "SHELL": "\"/opt/homebrew/bin/fish\""
+      "SHELL": "\"/opt/homebrew/bin/fish\"",
     },
     "font_family": "FiraCode Nerd Font Mono",
     "font_size": 13,
     "option_as_meta": false,
     "shell": "system",
-    "working_directory": "current_project_directory"
+    "working_directory": "current_project_directory",
   },
   "theme": {
     "dark": "GitHub Dark Dimmed",
     "light": "One Light",
-    "mode": "dark"
+    "mode": "dark",
   },
   "toolbar": {
     "breadcrumbs": true,
-    "quick_actions": true
+    "quick_actions": true,
   },
   "ui_font_size": 15,
   "use_system_window_tabs": true,
-  "wrap_guides": [
-    80,
-    120
-  ]
+  "wrap_guides": [80, 120],
 }
