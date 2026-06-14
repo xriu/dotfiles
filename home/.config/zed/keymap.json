@@ -7,23 +7,61 @@
 // from the command palette.
 [
   {
-    "context": "Global",
-    "bindings": {
-      "cmd cmd": "window::MergeAllWindows",
-      "ctrl-tab": "multi_workspace::NextProject",
-      "ctrl-shift-tab": "multi_workspace::PreviousProject",
-    },
-  },
-  {
     "context": "Workspace",
     "bindings": {
+      "cmd cmd": "workspace::ToggleZoom",
       "shift shift": "file_finder::Toggle",
+      "cmd-shift-g": "git_panel::ToggleFocus",
+      "cmd-w": "workspace::CloseActiveDock",
     },
   },
   {
-    "context": "Editor && vim_mode == insert",
+    "context": "Editor",
     "bindings": {
-      // "j k": "vim::NormalBefore"
+      "cmd-w": [
+        "pane::CloseActiveItem",
+        {
+          "close_pinned": false,
+        },
+      ],
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd cmd": "workspace::ToggleZoom",
+    },
+    "unbind": {
+      "cmd-w": [
+        "pane::CloseActiveItem",
+        {
+          "close_pinned": false,
+        },
+      ],
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd cmd": "workspace::ToggleZoom",
+    },
+  },
+  {
+    "context": "Agent",
+    "bindings": {
+      "cmd cmd": "workspace::ToggleZoom",
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "unbind": {
+      "cmd-w": "workspace::CloseActiveDock",
+    },
+  },
+  {
+    "context": "RulesLibrary",
+    "unbind": {
+      "cmd-w": "workspace::CloseActiveDock",
     },
   },
 ]
