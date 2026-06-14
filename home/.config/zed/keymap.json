@@ -1,0 +1,70 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-r": ["projects::OpenRecent", { "create_new_window": false }],
+      "cmd-shift-1": "multi_workspace::NextProject",
+      "cmd cmd": "workspace::ToggleZoom",
+      "shift shift": "file_finder::Toggle",
+      "cmd-shift-g": "git_panel::ToggleFocus",
+      "cmd-w": "workspace::CloseActiveDock",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-w": [
+        "pane::CloseActiveItem",
+        {
+          "close_pinned": false,
+        },
+      ],
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd cmd": "workspace::ToggleZoom",
+    },
+    "unbind": {
+      "cmd-w": [
+        "pane::CloseActiveItem",
+        {
+          "close_pinned": false,
+        },
+      ],
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd cmd": "workspace::ToggleZoom",
+      "cmd-t": "workspace::NewTerminal",
+    },
+  },
+  {
+    "context": "Agent",
+    "bindings": {
+      "cmd cmd": "workspace::ToggleZoom",
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "unbind": {
+      "cmd-w": "workspace::CloseActiveDock",
+    },
+  },
+  {
+    "context": "RulesLibrary",
+    "unbind": {
+      "cmd-w": "workspace::CloseActiveDock",
+    },
+  },
+]

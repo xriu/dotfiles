@@ -9,9 +9,11 @@
 		"CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
 		"CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
 		"CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
+		"CLAUDE_CODE_ENABLE_TELEMETRY": "0",
 		"CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
 		"CLAUDE_CODE_NO_FLICKER": "1",
 		"CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-6",
+		"DISABLE_ERROR_REPORTING": "1",
 		"DISABLE_TELEMETRY": "1"
 	},
 	"attribution": {
@@ -51,11 +53,11 @@
 	},
 	"enabledPlugins": {
 		"agent-sdk-dev@claude-code-plugins": true,
+		"frontend-design@claude-plugins-official": true,
 		"plugin-dev@claude-code-plugins": true,
-		"ralph-wiggum@claude-code-plugins": true,
 		"slop-review@slop-review": true,
-		"typescript-lsp@claude-plugins-official": true,
-		"supergoal@supergoal": true
+		"supergoal@supergoal": true,
+		"typescript-lsp@claude-plugins-official": true
 	},
 	"extraKnownMarketplaces": {
 		"slop-review": {

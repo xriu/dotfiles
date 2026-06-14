@@ -1,11 +1,34 @@
 {
 	"defaultProfile": "high",
 	"profiles": {
+		"opencode": {
+			"main": [
+				{
+					"provider": "opencode-go-anthropic",
+					"model": "minimax-m3",
+					"thinkingLevel": "high"
+				},
+				{
+					"provider": "synthetic",
+					"model": "hf:MiniMaxAI/MiniMax-M3",
+					"thinkingLevel": "high"
+				}
+			],
+			"agents": {
+				"context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
+				"delegate": "synthetic/hf:moonshotai/Kimi-K2.5",
+				"researcher": "synthetic/hf:zai-org/GLM-5.1",
+				"scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
+				"planner": "synthetic/hf:zai-org/GLM-5.1",
+				"reviewer": "synthetic/hf:moonshotai/Kimi-K2.5",
+				"worker": "synthetic/hf:zai-org/GLM-5.1"
+			}
+		},
 		"synthetic": {
 			"main": [
 				{
 					"provider": "synthetic",
-					"model": "hf:moonshotai/Kimi-K2.6",
+					"model": "hf:MiniMaxAI/MiniMax-M3",
 					"thinkingLevel": "high"
 				},
 				{
@@ -33,7 +56,7 @@
 				},
 				{
 					"provider": "synthetic",
-					"model": "hf:moonshotai/Kimi-K2.6",
+					"model": "hf:MiniMaxAI/MiniMax-M3",
 					"thinkingLevel": "high"
 				}
 			],
@@ -56,7 +79,7 @@
 				},
 				{
 					"provider": "synthetic",
-					"model": "hf:moonshotai/Kimi-K2.6",
+					"model": "hf:MiniMaxAI/MiniMax-M3",
 					"thinkingLevel": "high"
 				}
 			],
@@ -79,7 +102,7 @@
 				},
 				{
 					"provider": "synthetic",
-					"model": "hf:moonshotai/Kimi-K2.6",
+					"model": "hf:MiniMaxAI/MiniMax-M3",
 					"thinkingLevel": "high"
 				}
 			],
@@ -102,7 +125,7 @@
 				},
 				{
 					"provider": "synthetic",
-					"model": "hf:moonshotai/Kimi-K2.6",
+					"model": "hf:MiniMaxAI/MiniMax-M3",
 					"thinkingLevel": "high"
 				}
 			],

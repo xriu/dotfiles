@@ -1,7 +1,6 @@
 {
 	"mcpServers": {
 		"aws": {
-			"type": "stdio",
 			"command": "uvx",
 			"args": [
 				"mcp-proxy-for-aws@latest",
@@ -11,6 +10,10 @@
 				"--metadata",
 				"AWS_REGION=us-east-1"
 			]
+		},
+		"aws-knowledge": {
+			"type": "http",
+			"url": "https://knowledge-mcp.global.api.aws"
 		},
 		"costory": {
 			"command": "npx",

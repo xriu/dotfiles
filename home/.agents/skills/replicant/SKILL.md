@@ -2,7 +2,6 @@
 name: replicant
 description: Source-first external repository research using durable, human-findable local clones. Use when the user asks about an open-source repo, GitHub/GitLab URL, library internals, framework behavior, architecture, implementation details, or examples grounded in source code.
 allowed-tools: Bash(git:*), Bash(gh:*), Bash(mkdir:*), Bash(test:*), Bash(find:*), Bash(rg:*), Bash(grep:*), Bash(ls:*), Bash(pwd:*), Bash(date:*), Read, Glob, Grep, Edit, Write
-disable-model-invocation: true
 ---
 
 # Replicant
@@ -12,13 +11,13 @@ Use durable, human-findable local clones of external repositories as source cont
 Replicant is a clone shelf, not a hidden cache, generated-docs system, or custom CLI.
 
 <!-- REPLICANT_CONFIG
-configured: false
+configured: true
 clone_root: ~/clones
-default_update_policy: auto-clean-only
-default_clone_depth: full
-preferred_transport: ssh
+default_update_policy: ask
+default_clone_depth: 1
+preferred_transport: https
 inventory_file: ~/clones/README.md
-last_setup_at:
+last_setup_at: 2026-06-13
 REPLICANT_CONFIG -->
 
 ## Clone layout

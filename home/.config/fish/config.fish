@@ -7,6 +7,7 @@ test -f ~/.config/fish/config.local.fish; and source ~/.config/fish/config.local
 # Exports
 set -gx LC_ALL $LANG
 set -gx GPG_TTY (tty)
+set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
 
 # Source multi-function files (Fish autoloading only works for single-function files)
