@@ -137,6 +137,9 @@
     "enabled": true,
   },
   "language_models": {
+    "opencode": {
+      "show_zen_models": false
+    },
     "anthropic": {
       "api_url": "https://opencode.ai/zen/go/v1/messages",
       "available_models": [
