@@ -130,9 +130,9 @@
   },
   "hard_tabs": false,
   "icon_theme": {
-    "dark": "Catppuccin Mocha",
+    "dark": "Material Icon Theme",
     "light": "Material Icon Theme",
-    "mode": "light",
+    "mode": "dark",
   },
   "indent_guides": {
     "background_coloring": "disabled",
@@ -372,8 +372,8 @@
     "working_directory": "current_project_directory",
   },
   "theme": {
-    "dark": "GitHub Dark Dimmed",
-    "light": "One Light",
+    "dark": "Ayu Dark",
+    "light": "Gruvbox Light",
     "mode": "dark",
   },
   "toolbar": {

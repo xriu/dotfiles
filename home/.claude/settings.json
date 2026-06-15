@@ -59,7 +59,8 @@
     "plugin-dev@claude-code-plugins": true,
     "slop-review@slop-review": true,
     "supergoal@supergoal": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "plannotator@plannotator": true
   },
   "extraKnownMarketplaces": {
     "slop-review": {
@@ -78,6 +79,12 @@
       "source": {
         "source": "git",
         "url": "https://github.com/robzilla1738/supergoal.git"
+      }
+    },
+    "plannotator": {
+      "source": {
+        "source": "github",
+        "repo": "backnotprop/plannotator"
       }
     }
   },
