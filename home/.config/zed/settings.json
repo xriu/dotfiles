@@ -110,9 +110,11 @@
     "edit_prediction_provider": "zed",
   },
   "file_types": {
-    "hcl": ["*.tftpl"],
+    "hcl": ["*.hcl"],
     "tailwindcss": ["*.css"],
-    "terraform": ["*.tf"],
+    "Terraform": ["*.tf", "*.tftpl"],
+    "terraform": ["*.tf", "*.tftpl"],
+    "Terraform-vars": ["*.tfvars"],
     "terraform-vars": ["*.tfvars"],
   },
   "format_on_save": "on",

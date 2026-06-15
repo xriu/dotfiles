@@ -2,6 +2,7 @@
   "lastChangelogVersion": "0.79.3",
   "packages": [
     "npm:@plannotator/pi-extension",
+    "npm:pi-autoresearch",
     "npm:pi-bash-live-view",
     "npm:pi-design-deck",
     "npm:pi-interview",

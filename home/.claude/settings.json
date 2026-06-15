@@ -1,88 +1,90 @@
 {
-	"$schema": "https://json.schemastore.org/claude-code-settings.json",
-	"cleanupPeriodDays": 365,
-	"env": {
-		"CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
-		"CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
-		"CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
-		"CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
-		"CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
-		"CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
-		"CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
-		"CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-		"CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-		"CLAUDE_CODE_NO_FLICKER": "1",
-		"CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-6",
-		"DISABLE_ERROR_REPORTING": "1",
-		"DISABLE_TELEMETRY": "1"
-	},
-	"attribution": {
-		"commit": "",
-		"pr": ""
-	},
-	"permissions": {
-		"allow": [],
-		"deny": [
-			"Bash(dd *)",
-			"Bash(diskutil *)",
-			"Bash(mkfs *)",
-			"Bash(rm -rf /*)",
-			"Bash(rm -rf /)",
-			"Bash(rm -rf ~*)",
-			"Bash(rm -rf $HOME*)",
-			"Bash(rm -rf .*)",
-			"Bash(sudo rm -rf *)",
-			"Bash(git push *)",
-			"Bash(git reset --hard *)",
-			"Bash(npm publish *)",
-			"Bash(terraform apply *)",
-			"Bash(terraform destroy *)",
-			"Read(./.env*)",
-			"Read(./config/credentials.json)",
-			"Read(./secrets/**)",
-			"Read(~/.aws/**)",
-			"Read(~/.ssh/**)"
-		],
-		"ask": [],
-		"defaultMode": "bypassPermissions",
-		"additionalDirectories": ["~/.claude/"]
-	},
-	"statusLine": {
-		"type": "command",
-		"command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
-	},
-	"enabledPlugins": {
-		"agent-sdk-dev@claude-code-plugins": true,
-		"frontend-design@claude-plugins-official": true,
-		"plugin-dev@claude-code-plugins": true,
-		"slop-review@slop-review": true,
-		"supergoal@supergoal": true,
-		"typescript-lsp@claude-plugins-official": true
-	},
-	"extraKnownMarketplaces": {
-		"slop-review": {
-			"source": {
-				"source": "github",
-				"repo": "dbachelder/slop-review"
-			}
-		},
-		"claude-code-plugins": {
-			"source": {
-				"source": "github",
-				"repo": "anthropics/claude-code"
-			}
-		},
-		"supergoal": {
-			"source": {
-				"source": "git",
-				"url": "https://github.com/robzilla1738/supergoal.git"
-			}
-		}
-	},
-	"alwaysThinkingEnabled": true,
-	"effortLevel": "high",
-	"autoCompactWindow": 180000,
-	"fastMode": false,
-	"skipDangerousModePermissionPrompt": true,
-	"theme": "dark"
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "cleanupPeriodDays": 365,
+  "env": {
+    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
+    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
+    "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_NO_FLICKER": "1",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-4-6[1m]",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_TELEMETRY": "1"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [],
+    "deny": [
+      "Bash(dd *)",
+      "Bash(diskutil *)",
+      "Bash(mkfs *)",
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~*)",
+      "Bash(rm -rf $HOME*)",
+      "Bash(rm -rf .*)",
+      "Bash(sudo rm -rf *)",
+      "Bash(git push *)",
+      "Bash(git reset --hard *)",
+      "Bash(npm publish *)",
+      "Bash(terraform apply *)",
+      "Bash(terraform destroy *)",
+      "Read(./.env*)",
+      "Read(./config/credentials.json)",
+      "Read(./secrets/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.ssh/**)"
+    ],
+    "ask": [],
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "~/.claude/"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
+  },
+  "enabledPlugins": {
+    "agent-sdk-dev@claude-code-plugins": true,
+    "frontend-design@claude-plugins-official": true,
+    "plugin-dev@claude-code-plugins": true,
+    "slop-review@slop-review": true,
+    "supergoal@supergoal": true,
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "slop-review": {
+      "source": {
+        "source": "github",
+        "repo": "dbachelder/slop-review"
+      }
+    },
+    "claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
+    },
+    "supergoal": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/robzilla1738/supergoal.git"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "autoCompactWindow": 180000,
+  "fastMode": false,
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark"
 }
