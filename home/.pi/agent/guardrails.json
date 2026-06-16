@@ -252,7 +252,7 @@
         "requireConfirmation": true,
         "allowedPatterns": [
             {
-                "pattern": "rm -f .git/index.lock",
+                "pattern": ".git/index.lock",
                 "description": "Safe: removes a single Git lock file"
             }
         ],

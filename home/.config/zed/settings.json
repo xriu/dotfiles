@@ -12,7 +12,7 @@
       "model": "go/deepseek-v4-pro",
       "provider": "opencode",
     },
-    "default_profile": "write",
+    "default_profile": "ask",
     "dock": "left",
     "enable_feedback": false,
     "enabled": true,
