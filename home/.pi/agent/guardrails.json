@@ -250,7 +250,12 @@
         ],
         "customPatterns": [],
         "requireConfirmation": true,
-        "allowedPatterns": [],
+        "allowedPatterns": [
+            {
+                "pattern": "rm -f .git/index.lock",
+                "description": "Safe: removes a single Git lock file"
+            }
+        ],
         "autoDenyPatterns": []
     }
 }
