@@ -3,8 +3,8 @@
     "button": true,
     "commit_message_instructions": "Use the Conventional Commits format: <type>(<scope>): <description>.",
     "commit_message_model": {
-      "model": "gemma4:e2b",
-      "provider": "ollama",
+      "model": "go/deepseek-v4-flash",
+      "provider": "opencode",
     },
     "default_model": {
       "effort": "xhigh",
@@ -12,7 +12,7 @@
       "model": "go/deepseek-v4-pro",
       "provider": "opencode",
     },
-    "default_profile": "ask",
+    "default_profile": "write",
     "dock": "left",
     "enable_feedback": false,
     "enabled": true,
@@ -126,6 +126,7 @@
     },
   },
   "git_panel": {
+    "default_width": 360,
     "dock": "right",
   },
   "hard_tabs": false,
@@ -317,6 +318,7 @@
   "project_panel": {
     "auto_fold_dirs": false,
     "button": true,
+    "default_width": 360,
     "dock": "right",
     "file_icons": true,
     "folder_icons": true,
