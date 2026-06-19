@@ -126,6 +126,7 @@
     },
   },
   "git_panel": {
+    "default_width": 360,
     "dock": "right",
   },
   "hard_tabs": false,
@@ -317,6 +318,7 @@
   "project_panel": {
     "auto_fold_dirs": false,
     "button": true,
+    "default_width": 360,
     "dock": "right",
     "file_icons": true,
     "folder_icons": true,
