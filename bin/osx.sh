@@ -17,12 +17,12 @@ function install_osx_packages() {
     brew update
 
     # Caskroom
+    # brew tap manaflow-ai/cmux
     brew tap oven-sh/bun
     brew tap databricks/tap
     brew tap homebrew/cask
     brew tap homebrew/cask-versions
     brew tap homebrew/cask-fonts
-    brew tap manaflow-ai/cmux
 
     brew_setup
     npm_packages
@@ -46,13 +46,13 @@ function brew_setup() {
     # brew install --cask droid --force # AI-powered software engineering agent by Factory
     # brew install --cask opencode-desktop --force # OpenCode Desktop
 
+    # brew install --cask cmux --force # Agents orchestrator
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask claude --force # Anthropic's official Claude AI desktop app
     brew install --cask claude-code --force # Terminal-based AI coding assistant
     brew install --cask cleanshot --force # Screen capture and recording tool
-    brew install --cask cmux --force # Agents orchestrator
     brew install --cask codex --force # OpenAI's coding agent that runs in your terminal
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
