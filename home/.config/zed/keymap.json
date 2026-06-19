@@ -29,6 +29,12 @@
     },
   },
   {
+    "context": "GitPanel",
+    "unbind": {
+      "cmd-w": "workspace::CloseActiveDock",
+    },
+  },
+  {
     "context": "Pane",
     "bindings": {
       "shift shift": "workspace::ToggleZoom",
