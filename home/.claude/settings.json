@@ -49,6 +49,7 @@
       "~/.claude/"
     ]
   },
+  "model": "sonnet[1m]",
   "statusLine": {
     "type": "command",
     "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
@@ -59,7 +60,8 @@
     "plannotator@plannotator": true,
     "plugin-dev@claude-code-plugins": true,
     "slop-review@slop-review": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "slop-review": {

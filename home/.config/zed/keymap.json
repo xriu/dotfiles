@@ -19,6 +19,7 @@
   {
     "context": "Editor",
     "bindings": {
+      "cmd-shift-7": "editor::ToggleComments",
       "cmd-w": [
         "pane::CloseActiveItem",
         {

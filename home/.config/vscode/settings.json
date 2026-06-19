@@ -111,7 +111,13 @@
         "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
         "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
         "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true
+        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true,
+        "/private/tmp/postman-collections-post-response.instructions.md": true,
+        "/private/tmp/postman-collections-pre-request.instructions.md": true,
+        "/private/tmp/postman-folder-post-response.instructions.md": true,
+        "/private/tmp/postman-folder-pre-request.instructions.md": true,
+        "/private/tmp/postman-http-request-post-response.instructions.md": true,
+        "/private/tmp/postman-http-request-pre-request.instructions.md": true
     },
 	"chat.mcp.gallery.enabled": true,
 	"chat.tools.terminal.autoApprove": {
@@ -183,7 +189,7 @@
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmPasteNative": false,
 	"explorer.openEditors.visible": 1,
-	"extensions.autoUpdate": true,
+	"extensions.autoUpdate": "on",
 	"extensions.ignoreRecommendations": true,
 	"files.associations": {
 		"*.css": "tailwindcss",
@@ -343,5 +349,6 @@
 	"workbench.startupEditor": "none",
 	"workbench.sideBar.location": "right",
 	"workbench.colorTheme": "Dark Modern",
-	"chat.viewSessions.orientation": "stacked"
+    "chat.viewSessions.orientation": "stacked",
+    "application.shellEnvironmentResolutionTimeout": 30
 }
