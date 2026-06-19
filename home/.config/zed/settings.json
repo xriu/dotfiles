@@ -3,8 +3,8 @@
     "button": true,
     "commit_message_instructions": "Use the Conventional Commits format: <type>(<scope>): <description>.",
     "commit_message_model": {
-      "model": "gemma4:e2b",
-      "provider": "ollama",
+      "model": "go/deepseek-v4-flash",
+      "provider": "opencode",
     },
     "default_model": {
       "effort": "xhigh",
