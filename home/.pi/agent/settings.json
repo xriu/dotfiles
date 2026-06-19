@@ -18,8 +18,8 @@
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
-  "defaultProvider": "opencode-go-anthropic",
-  "defaultModel": "minimax-m3",
+  "defaultProvider": "synthetic",
+  "defaultModel": "hf:moonshotai/Kimi-K2.6",
   "defaultThinkingLevel": "high",
   "treeFilterMode": "no-tools",
   "theme": "dark",
