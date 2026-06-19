@@ -11,9 +11,10 @@
     "bindings": {
       "cmd-shift-r": ["projects::OpenRecent", { "create_new_window": false }],
       "cmd-shift-1": "multi_workspace::NextProject",
-      "shift shift": "workspace::ToggleZoom",
       "cmd-shift-g": "git_panel::ToggleFocus",
+      "cmd cmd": "project_panel::CollapseAllEntries",
       "cmd-w": "workspace::CloseActiveDock",
+      "shift shift": "workspace::ToggleZoom",
     },
   },
   {
@@ -30,6 +31,9 @@
   },
   {
     "context": "GitPanel",
+    "bindings": {
+      "shift shift": "workspace::ToggleZoom",
+    },
     "unbind": {
       "cmd-w": "workspace::CloseActiveDock",
     },
