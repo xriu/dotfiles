@@ -11,8 +11,7 @@
     "bindings": {
       "cmd-shift-r": ["projects::OpenRecent", { "create_new_window": false }],
       "cmd-shift-1": "multi_workspace::NextProject",
-      "cmd cmd": "workspace::ToggleZoom",
-      "shift shift": "file_finder::Toggle",
+      "shift shift": "workspace::ToggleZoom",
       "cmd-shift-g": "git_panel::ToggleFocus",
       "cmd-w": "workspace::CloseActiveDock",
     },
@@ -20,6 +19,7 @@
   {
     "context": "Editor",
     "bindings": {
+      "cmd-shift-7": "editor::ToggleComments",
       "cmd-w": [
         "pane::CloseActiveItem",
         {
@@ -31,7 +31,7 @@
   {
     "context": "Pane",
     "bindings": {
-      "cmd cmd": "workspace::ToggleZoom",
+      "shift shift": "workspace::ToggleZoom",
     },
     "unbind": {
       "cmd-w": [
@@ -45,14 +45,14 @@
   {
     "context": "Terminal",
     "bindings": {
-      "cmd cmd": "workspace::ToggleZoom",
+      "shift shift": "workspace::ToggleZoom",
       "cmd-t": "workspace::NewTerminal",
     },
   },
   {
     "context": "Agent",
     "bindings": {
-      "cmd cmd": "workspace::ToggleZoom",
+      "shift shift": "workspace::ToggleZoom",
     },
   },
   {

@@ -1,7 +1,8 @@
 {
-  "lastChangelogVersion": "0.79.3",
+  "lastChangelogVersion": "0.79.6",
   "packages": [
     "npm:@plannotator/pi-extension",
+    "npm:pi-autoresearch",
     "npm:pi-bash-live-view",
     "npm:pi-design-deck",
     "npm:pi-interview",
@@ -18,7 +19,7 @@
     "~/dotfiles/home/.pi/agent/extensions"
   ],
   "defaultProvider": "opencode-go-anthropic",
-  "defaultModel": "qwen3.7-max",
+  "defaultModel": "minimax-m3",
   "defaultThinkingLevel": "high",
   "treeFilterMode": "no-tools",
   "theme": "dark",
