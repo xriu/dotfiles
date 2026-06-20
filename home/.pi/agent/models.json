@@ -1,5 +1,20 @@
 {
     "providers": {
+        "alibaba": {
+            "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
+            "api": "anthropic-messages",
+            "apiKey": "$ALIBABA_API_KEY",
+            "models": [
+                {
+                    "id": "qwen3.7-plus",
+                    "name": "Qwen3.7 Plus",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 1000000,
+                    "maxTokens": 65536
+                }
+            ]
+        },
         "synthetic": {
             "baseUrl": "https://api.synthetic.new/openai/v1",
             "api": "openai-completions",
