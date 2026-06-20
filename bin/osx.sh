@@ -82,6 +82,8 @@ function brew_setup() {
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
 
+    # brew install nss # Libraries for security-enabled client and server applications
+    # brew install caddy # Powerful, enterprise-ready, open source web server with automatic HTTPS
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
     brew install aws-cdk # Cloud Development Kit for AWS
