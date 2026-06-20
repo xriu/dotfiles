@@ -176,10 +176,6 @@
     "permissionGate": {
         "patterns": [
             {
-                "pattern": "rm",
-                "description": "Remove files or directories"
-            },
-            {
                 "pattern": "sudo",
                 "description": "Commands run with superuser privileges"
             },
