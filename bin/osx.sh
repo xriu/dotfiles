@@ -108,7 +108,6 @@ function brew_setup() {
     brew install findutils # Collection of GNU find, xargs, and locate
     brew install fish # User-friendly command line shell for UNIX-like operating systems
     brew install fnm # Fast Node Manager
-    brew install gemini-cli # Interact with Google Gemini AI models from the command-line
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
     brew install git-delta # A syntax-highlighting pager for git and diff output
