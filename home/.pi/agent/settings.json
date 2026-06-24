@@ -1,34 +1,36 @@
 {
-	"lastChangelogVersion": "0.80.2",
-	"packages": [
-		"npm:@plannotator/pi-extension",
-		"npm:pi-autoresearch",
-		"npm:pi-bash-live-view",
-		"npm:pi-design-deck",
-		"npm:pi-interview",
-		"npm:pi-lens",
-		"npm:pi-markdown-preview",
-		"npm:pi-mcp-adapter",
-		"npm:pi-powerline-footer",
-		"npm:pi-review-loop",
-		"npm:pi-rewind",
-		"npm:pi-slop-review",
-		"npm:pi-smart-fetch"
-	],
-	"extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-	"defaultProvider": "opencode-go-anthropic",
-	"defaultModel": "minimax-m3",
-	"defaultThinkingLevel": "high",
-	"defaultProjectTrust": "always",
-	"treeFilterMode": "no-tools",
-	"theme": "dark",
-	"compaction": {
-		"reserveTokens": 20000
-	},
-	"reviewerLoop": {
-		"maxIterations": 3,
-		"autoTrigger": true,
-		"freshContext": true,
-		"reviewPrompt": "template:double-check"
-	}
+  "lastChangelogVersion": "0.80.2",
+  "packages": [
+    "npm:@plannotator/pi-extension",
+    "npm:pi-autoresearch",
+    "npm:pi-bash-live-view",
+    "npm:pi-design-deck",
+    "npm:pi-interview",
+    "npm:pi-lens",
+    "npm:pi-markdown-preview",
+    "npm:pi-mcp-adapter",
+    "npm:pi-powerline-footer",
+    "npm:pi-review-loop",
+    "npm:pi-rewind",
+    "npm:pi-slop-review",
+    "npm:pi-smart-fetch"
+  ],
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "defaultProvider": "alibaba",
+  "defaultModel": "qwen3.7-plus",
+  "defaultThinkingLevel": "high",
+  "defaultProjectTrust": "always",
+  "treeFilterMode": "no-tools",
+  "theme": "dark",
+  "compaction": {
+    "reserveTokens": 20000
+  },
+  "reviewerLoop": {
+    "maxIterations": 3,
+    "autoTrigger": true,
+    "freshContext": true,
+    "reviewPrompt": "template:double-check"
+  }
 }
