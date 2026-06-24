@@ -642,7 +642,7 @@ export default function (pi: ExtensionAPI) {
 		updateUI(ctx);
 	});
 
-	pi.on("session_before_compact", async (_event, ctx) => {
+	pi.on("session_before_compact", async (event, ctx) => {
 		if (!runtime.activeLoop) return;
 		const state = store.loadState(ctx, runtime.activeLoop);
 		if (!state || state.status !== "active") return;
@@ -651,16 +651,28 @@ export default function (pi: ExtensionAPI) {
 
 		if (ctx.hasUI) {
 			ctx.ui.notify(
-				`Preserving Ralph loop state before compaction: ${runtime.activeLoop}`,
+				`Preserving Ralph loop state before compaction: ${runtime.activeLoop} (reason: ${event.reason ?? "unknown"})`,
 				"info",
 			);
 		}
 	});
 
-	pi.on("session_compact", async (_event, ctx) => {
+	pi.on("session_compact", async (event, ctx) => {
 		if (!runtime.activeLoop) return;
 		const state = store.loadState(ctx, runtime.activeLoop);
 		if (!state || state.status !== "active") return;
+
+		// Overflow compaction that will retry the aborted turn: let pi handle the
+		// retry. Queueing another followUp here would race with the retry.
+		if (event.willRetry === true) {
+			if (ctx.hasUI) {
+				ctx.ui.notify(
+					`Ralph loop waiting for overflow retry: ${runtime.activeLoop} (iteration ${state.iteration}, reason: ${event.reason ?? "unknown"})`,
+					"info",
+				);
+			}
+			return;
+		}
 
 		if (ctx.hasPendingMessages()) return;
 
@@ -697,7 +709,7 @@ export default function (pi: ExtensionAPI) {
 
 		if (ctx.hasUI) {
 			ctx.ui.notify(
-				`Ralph loop resumed after compaction: ${runtime.activeLoop} (iteration ${state.iteration})`,
+				`Ralph loop resumed after compaction: ${runtime.activeLoop} (iteration ${state.iteration}, reason: ${event.reason ?? "unknown"})`,
 				"info",
 			);
 		}
