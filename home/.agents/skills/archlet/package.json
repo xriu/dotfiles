@@ -1,0 +1,38 @@
+{
+  "name": "archlet",
+  "version": "0.1.0",
+  "description": "Generate an interactive, provenance-backed architecture map of a codebase into .archlet/ — layered modules, expand/collapse, PR diff overlays.",
+  "type": "module",
+  "bin": {
+    "archlet": "bin/archlet.mjs"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "viewer",
+    "SKILL.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superdesigndev/archlet.git"
+  },
+  "homepage": "https://github.com/superdesigndev/archlet#readme",
+  "bugs": {
+    "url": "https://github.com/superdesigndev/archlet/issues"
+  },
+  "scripts": {
+    "dev": "node bin/archlet.mjs"
+  },
+  "keywords": [
+    "architecture",
+    "code-graph",
+    "dependency-graph",
+    "diagram",
+    "documentation",
+    "codegraph"
+  ],
+  "license": "MIT"
+}

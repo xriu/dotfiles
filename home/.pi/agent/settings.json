@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.79.8",
+  "lastChangelogVersion": "0.80.2",
   "packages": [
     "npm:@plannotator/pi-extension",
     "npm:pi-autoresearch",
@@ -18,9 +18,10 @@
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
-  "defaultProvider": "synthetic",
-  "defaultModel": "hf:moonshotai/Kimi-K2.6",
+  "defaultProvider": "alibaba",
+  "defaultModel": "qwen3.7-plus",
   "defaultThinkingLevel": "high",
+  "defaultProjectTrust": "always",
   "treeFilterMode": "no-tools",
   "theme": "dark",
   "compaction": {
