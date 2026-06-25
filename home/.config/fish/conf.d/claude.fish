@@ -16,12 +16,8 @@ function _configure_claude_provider
         return 1
     end
 
-    # Validate API key exists (indirect variable expansion)
-    if not set -q $api_key_var
-        echo "Error: API key $api_key_var is not set" >&2
-        return 1
-    end
-    set -l api_key_value (eval "echo \$$api_key_var")
+    # API key is now passed directly as a resolved value from the caller
+    set -l api_key_value $api_key_var
 
     # Set common environment variables
     set -e ANTHROPIC_API_KEY
@@ -55,14 +51,22 @@ function _configure_claude_provider
     end
 end
 
-# Synthetic provider
-function s_minimax
-    _configure_claude_provider s_minimax SYNTHETIC_API_KEY "hf:MiniMaxAI/MiniMax-M3" "https://api.synthetic.new/anthropic" $argv
+# Alibaba provider
+function alibaba
+    set -l provider "alibaba"
+    set -l url "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic"
+    set -l apiKey $ALIBABA_API_KEY
+    set -l model "qwen3.7-plus"
+    _configure_claude_provider $provider $apiKey $model $url $argv
 end
 
-# Opencode Zen provider
-function o_minimax
-    _configure_claude_provider o_minimax OPENCODE_API_KEY "minimax-m3" "https://opencode.ai/zen/go" $argv
+# Opencode provider
+function opencode
+    set -l provider "opencode"
+    set -l url "https://opencode.ai/zen/go/v1/messages"
+    set -l apiKey $OPENCODE_API_KEY
+    set -l model "opencode-go/minimax-m3"
+    _configure_claude_provider $provider $apiKey $model $url $argv
 end
 
 # --- Reset to Default (Local Anthropic) ---

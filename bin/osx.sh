@@ -94,7 +94,6 @@ function brew_setup() {
     brew install biome # Toolchain of the web
     brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
-    brew install cirruslabs/cli/tart # Tart is a CLI tool to manage your local and remote development environments in a single workflow
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install databricks # Databricks CLI
