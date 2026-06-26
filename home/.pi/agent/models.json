@@ -196,7 +196,7 @@
         "opencode-go-openai": {
             "baseUrl": "https://opencode.ai/zen/go/v1",
             "api": "openai-completions",
-            "apiKey": "$OPEN_CODE_API_KEY",
+            "apiKey": "$OPENCODE_API_KEY",
             "models": [
                 {
                     "id": "deepseek-v4-flash",

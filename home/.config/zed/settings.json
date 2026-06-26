@@ -104,7 +104,14 @@
   },
   "colorize_brackets": true,
   "confirm_quit": true,
-  "context_servers": {},
+  "context_servers": {
+    "executor": {
+      "url": "http://localhost:4789/mcp",
+      "headers": {
+        "Authorization": "Bearer $EXECUTOR_API_KEY",
+      },
+    },
+  },
   "cursor_blink": true,
   "diff_view_style": "split",
   "disable_ai": false,
@@ -137,6 +144,7 @@
     },
   },
   "git_panel": {
+    "sort_by_path": false,
     "default_width": 360,
     "dock": "right",
   },
@@ -352,13 +360,30 @@
       "tab_size": 4,
     },
     "JavaScript": {
+      "formatter": {
+        "language_server": { "name": "biome" },
+      },
       "code_actions_on_format": {
-        "source.fixAll.eslint": true,
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true,
       },
     },
     "TypeScript": {
+      "formatter": {
+        "language_server": { "name": "biome" },
+      },
       "code_actions_on_format": {
-        "source.organizeImports": true,
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true,
+      },
+    },
+    "TSX": {
+      "formatter": {
+        "language_server": { "name": "biome" },
+      },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true,
       },
     },
   },

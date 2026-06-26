@@ -43,10 +43,6 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask droid --force # AI-powered software engineering agent by Factory
-    # brew install --cask opencode-desktop --force # OpenCode Desktop
-
-    # brew install --cask cmux --force # Agents orchestrator
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
@@ -56,6 +52,7 @@ function brew_setup() {
     brew install --cask codex --force # OpenAI's coding agent that runs in your terminal
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
+    brew install --cask executor # Tool discovery and execution layer for AI agents
     brew install --cask finetune --force # Per-application volume mixer, equalizer, and audio router
     brew install --cask ghostty --force # Terminal emulator that uses platform-native UI and GPU acceleration
     brew install --cask google-chrome --force # Google Chrome browser
@@ -82,8 +79,6 @@ function brew_setup() {
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
 
-    # brew install nss # Libraries for security-enabled client and server applications
-    # brew install caddy # Powerful, enterprise-ready, open source web server with automatic HTTPS
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
     brew install aws-cdk # Cloud Development Kit for AWS
@@ -94,7 +89,6 @@ function brew_setup() {
     brew install biome # Toolchain of the web
     brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
-    brew install cirruslabs/cli/tart # Tart is a CLI tool to manage your local and remote development environments in a single workflow
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install databricks # Databricks CLI
