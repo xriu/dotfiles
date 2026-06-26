@@ -104,7 +104,14 @@
   },
   "colorize_brackets": true,
   "confirm_quit": true,
-  "context_servers": {},
+  "context_servers": {
+    "executor": {
+      "url": "http://localhost:4789/mcp",
+      "headers": {
+        "Authorization": "Bearer $EXECUTOR_API_KEY",
+      },
+    },
+  },
   "cursor_blink": true,
   "diff_view_style": "split",
   "disable_ai": false,
