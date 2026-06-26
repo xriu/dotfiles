@@ -144,6 +144,7 @@
     },
   },
   "git_panel": {
+    "sort_by_path": false,
     "default_width": 360,
     "dock": "right",
   },
