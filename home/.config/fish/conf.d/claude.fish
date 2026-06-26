@@ -90,6 +90,7 @@ function claude_reset
     set -e CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS
     set -e CLAUDE_CODE_NO_FLICKER
     set -e CLAUDE_CODE_SUBAGENT_MODEL
-    set -e DISABLE_ERROR_REPORTING DISABLE_TELEMETRY
+    set -e DISABLE_ERROR_REPORTING
+    set -e DISABLE_TELEMETRY
     echo "Claude environment has been reset to default."
 end
