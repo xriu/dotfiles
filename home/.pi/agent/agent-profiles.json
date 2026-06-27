@@ -1,6 +1,29 @@
 {
     "defaultProfile": "high",
     "profiles": {
+        "a": {
+            "main": [
+                {
+                    "provider": "alibaba",
+                    "model": "qwen3.7-plus",
+                    "thinkingLevel": "high"
+                },
+                {
+                    "provider": "synthetic",
+                    "model": "hf:MiniMaxAI/MiniMax-M3",
+                    "thinkingLevel": "high"
+                }
+            ],
+            "agents": {
+                "context-builder": "alibaba/kimi-k2.5",
+                "delegate": "alibaba/kimi-k2.5",
+                "researcher": "alibaba/glm-5",
+                "scout": "alibaba/kimi-k2.5",
+                "planner": "alibaba/glm-5",
+                "reviewer": "alibaba/kimi-k2.5",
+                "worker": "alibaba/glm-5"
+            }
+        },
         "o": {
             "main": [
                 {
@@ -45,29 +68,6 @@
                 "planner": "synthetic/hf:zai-org/GLM-5.1",
                 "reviewer": "synthetic/hf:moonshotai/Kimi-K2.5",
                 "worker": "synthetic/hf:zai-org/GLM-5.1"
-            }
-        },
-        "a": {
-            "main": [
-                {
-                    "provider": "alibaba",
-                    "model": "qwen3.7-plus",
-                    "thinkingLevel": "high"
-                },
-                {
-                    "provider": "synthetic",
-                    "model": "hf:MiniMaxAI/MiniMax-M3",
-                    "thinkingLevel": "high"
-                }
-            ],
-            "agents": {
-                "context-builder": "alibaba/kimi-k2.5",
-                "delegate": "alibaba/kimi-k2.5",
-                "researcher": "alibaba/glm-5",
-                "scout": "alibaba/kimi-k2.5",
-                "planner": "alibaba/glm-5",
-                "reviewer": "alibaba/kimi-k2.5",
-                "worker": "alibaba/glm-5"
             }
         }
     }
