@@ -18,8 +18,8 @@
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
-  "defaultProvider": "alibaba",
-  "defaultModel": "qwen3.7-plus",
+  "defaultProvider": "opencode-go-openai",
+  "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "high",
   "defaultProjectTrust": "always",
   "treeFilterMode": "no-tools",
