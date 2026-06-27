@@ -9,8 +9,8 @@
                     "thinkingLevel": "high"
                 },
                 {
-                    "provider": "synthetic",
-                    "model": "hf:MiniMaxAI/MiniMax-M3",
+                    "provider": "opencode-go-anthropic",
+                    "model": "minimax-m3",
                     "thinkingLevel": "high"
                 }
             ],
