@@ -1,143 +1,74 @@
 {
-	"defaultProfile": "high",
-	"profiles": {
-		"opencode": {
-			"main": [
-				{
-					"provider": "opencode-go-anthropic",
-					"model": "minimax-m3",
-					"thinkingLevel": "high"
-				},
-				{
-					"provider": "synthetic",
-					"model": "hf:MiniMaxAI/MiniMax-M3",
-					"thinkingLevel": "high"
-				}
-			],
-			"agents": {
-				"context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
-				"delegate": "synthetic/hf:moonshotai/Kimi-K2.5",
-				"researcher": "synthetic/hf:zai-org/GLM-5.1",
-				"scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
-				"planner": "synthetic/hf:zai-org/GLM-5.1",
-				"reviewer": "synthetic/hf:moonshotai/Kimi-K2.5",
-				"worker": "synthetic/hf:zai-org/GLM-5.1"
-			}
-		},
-		"synthetic": {
-			"main": [
-				{
-					"provider": "synthetic",
-					"model": "hf:MiniMaxAI/MiniMax-M3",
-					"thinkingLevel": "high"
-				},
-				{
-					"provider": "alibaba",
-					"model": "qwen3.7-plus",
-					"thinkingLevel": "high"
-				}
-			],
-			"agents": {
-				"context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
-				"delegate": "synthetic/hf:moonshotai/Kimi-K2.5",
-				"researcher": "synthetic/hf:zai-org/GLM-5.1",
-				"scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
-				"planner": "synthetic/hf:zai-org/GLM-5.1",
-				"reviewer": "synthetic/hf:moonshotai/Kimi-K2.5",
-				"worker": "synthetic/hf:zai-org/GLM-5.1"
-			}
-		},
-		"alibaba": {
-			"main": [
-				{
-					"provider": "alibaba",
-					"model": "qwen3.7-plus",
-					"thinkingLevel": "high"
-				},
-				{
-					"provider": "synthetic",
-					"model": "hf:MiniMaxAI/MiniMax-M3",
-					"thinkingLevel": "high"
-				}
-			],
-			"agents": {
-				"context-builder": "alibaba/kimi-k2.5",
-				"delegate": "alibaba/kimi-k2.5",
-				"researcher": "alibaba/glm-5",
-				"scout": "alibaba/kimi-k2.5",
-				"planner": "alibaba/glm-5",
-				"reviewer": "alibaba/kimi-k2.5",
-				"worker": "alibaba/glm-5"
-			}
-		},
-		"max": {
-			"main": [
-				{
-					"provider": "github-copilot",
-					"model": "claude-opus-4.6",
-					"thinkingLevel": "high"
-				},
-				{
-					"provider": "synthetic",
-					"model": "hf:MiniMaxAI/MiniMax-M3",
-					"thinkingLevel": "high"
-				}
-			],
-			"agents": {
-				"context-builder": "github-copilot/claude-sonnet-4.6",
-				"delegate": false,
-				"researcher": "github-copilot/claude-sonnet-4.6",
-				"scout": "github-copilot/claude-haiku-4.5",
-				"planner": "github-copilot/claude-opus-4.6",
-				"reviewer": "github-copilot/gpt-5.3-codex",
-				"worker": "github-copilot/claude-sonnet-4.6"
-			}
-		},
-		"high": {
-			"main": [
-				{
-					"provider": "github-copilot",
-					"model": "gpt-5.4",
-					"thinkingLevel": "high"
-				},
-				{
-					"provider": "synthetic",
-					"model": "hf:MiniMaxAI/MiniMax-M3",
-					"thinkingLevel": "high"
-				}
-			],
-			"agents": {
-				"context-builder": "github-copilot/gpt-5.4",
-				"delegate": "github-copilot/gpt-5.4",
-				"researcher": "github-copilot/gpt-5.4",
-				"scout": "github-copilot/gpt-5.4-mini",
-				"planner": "github-copilot/gpt-5.4",
-				"reviewer": "github-copilot/gpt-5.3-codex",
-				"worker": "github-copilot/gpt-5.3-codex"
-			}
-		},
-		"low": {
-			"main": [
-				{
-					"provider": "github-copilot",
-					"model": "gpt-5.4-mini",
-					"thinkingLevel": "low"
-				},
-				{
-					"provider": "synthetic",
-					"model": "hf:MiniMaxAI/MiniMax-M3",
-					"thinkingLevel": "high"
-				}
-			],
-			"agents": {
-				"context-builder": "github-copilot/gpt-5.4-mini",
-				"delegate": "github-copilot/gpt-5.4-mini",
-				"researcher": "github-copilot/gpt-5.4-mini",
-				"scout": "github-copilot/gpt-5.4-mini",
-				"planner": "github-copilot/gpt-5.4-mini",
-				"reviewer": "github-copilot/gpt-5.4-mini",
-				"worker": "github-copilot/gpt-5.1-codex"
-			}
-		}
-	}
+    "defaultProfile": "high",
+    "profiles": {
+        "o": {
+            "main": [
+                {
+                    "provider": "opencode-go-anthropic",
+                    "model": "minimax-m3",
+                    "thinkingLevel": "high"
+                },
+                {
+                    "provider": "synthetic",
+                    "model": "hf:MiniMaxAI/MiniMax-M3",
+                    "thinkingLevel": "high"
+                }
+            ],
+            "agents": {
+                "context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
+                "delegate": "synthetic/hf:moonshotai/Kimi-K2.5",
+                "researcher": "synthetic/hf:zai-org/GLM-5.1",
+                "scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
+                "planner": "synthetic/hf:zai-org/GLM-5.1",
+                "reviewer": "synthetic/hf:moonshotai/Kimi-K2.5",
+                "worker": "synthetic/hf:zai-org/GLM-5.1"
+            }
+        },
+        "s": {
+            "main": [
+                {
+                    "provider": "synthetic",
+                    "model": "hf:MiniMaxAI/MiniMax-M3",
+                    "thinkingLevel": "high"
+                },
+                {
+                    "provider": "alibaba",
+                    "model": "qwen3.7-plus",
+                    "thinkingLevel": "high"
+                }
+            ],
+            "agents": {
+                "context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
+                "delegate": "synthetic/hf:moonshotai/Kimi-K2.5",
+                "researcher": "synthetic/hf:zai-org/GLM-5.1",
+                "scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
+                "planner": "synthetic/hf:zai-org/GLM-5.1",
+                "reviewer": "synthetic/hf:moonshotai/Kimi-K2.5",
+                "worker": "synthetic/hf:zai-org/GLM-5.1"
+            }
+        },
+        "a": {
+            "main": [
+                {
+                    "provider": "alibaba",
+                    "model": "qwen3.7-plus",
+                    "thinkingLevel": "high"
+                },
+                {
+                    "provider": "synthetic",
+                    "model": "hf:MiniMaxAI/MiniMax-M3",
+                    "thinkingLevel": "high"
+                }
+            ],
+            "agents": {
+                "context-builder": "alibaba/kimi-k2.5",
+                "delegate": "alibaba/kimi-k2.5",
+                "researcher": "alibaba/glm-5",
+                "scout": "alibaba/kimi-k2.5",
+                "planner": "alibaba/glm-5",
+                "reviewer": "alibaba/kimi-k2.5",
+                "worker": "alibaba/glm-5"
+            }
+        }
+    }
 }
