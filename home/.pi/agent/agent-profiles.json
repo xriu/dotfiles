@@ -33,7 +33,7 @@
                 },
                 {
                     "provider": "synthetic",
-                    "model": "hf:MiniMaxAI/MiniMax-M3",
+                    "model": "qwen3.7-plus",
                     "thinkingLevel": "high"
                 }
             ],
