@@ -1,7 +1,7 @@
 {
   "agent": {
     "button": true,
-    "commit_message_instructions": "Use the Conventional Commits format: <type>(<scope>): <description>.",
+    "commit_message_instructions": "<type>(<scope>): <description>",
     "commit_message_model": {
       "effort": "low",
       "enable_thinking": false,
