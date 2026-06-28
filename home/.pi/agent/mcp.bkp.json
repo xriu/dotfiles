@@ -1,5 +1,9 @@
 {
     "mcpServers": {
+        "aws-knowledge": {
+            "type": "http",
+            "url": "https://knowledge-mcp.global.api.aws"
+        },
         "aws-mcp": {
             "command": "uvx",
             "args": [
@@ -9,12 +13,8 @@
                 "AWS_REGION=us-east-1"
             ]
         },
-        "executor": {
-            "type": "http",
-            "url": "http://localhost:4789/mcp?elicitation_mode=native",
-            "headers": {
-                "Authorization": "Bearer ${EXECUTOR_API_KEY}"
-            }
+        "codebase-memory-mcp": {
+            "command": "/Users/xavier.riu/.local/bin/codebase-memory-mcp"
         }
     }
 }

@@ -2,6 +2,7 @@
 name: replicant
 description: Source-first external repository research using durable, human-findable local clones. Use when the user asks about an open-source repo, GitHub/GitLab URL, library internals, framework behavior, architecture, implementation details, or examples grounded in source code.
 allowed-tools: Bash(git:*), Bash(gh:*), Bash(mkdir:*), Bash(test:*), Bash(find:*), Bash(rg:*), Bash(grep:*), Bash(ls:*), Bash(pwd:*), Bash(date:*), Read, Glob, Grep, Edit, Write
+disable-model-invocation: true
 ---
 
 # Replicant

@@ -28,7 +28,6 @@ fish_add_path $HOME/.jenv/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.local/share/fnm
 fish_add_path $HOME/.local/share/fnm/node-versions/v24.13.0/installation/bin
-fish_add_path "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
 
 # Ensure cargo/rustup takes precedence over Homebrew's rust
 set -gx PATH $HOME/.cargo/bin $PATH
@@ -38,9 +37,8 @@ if status is-interactive
     # 1. Define config but don't force export every time if not needed
     set -gx ZELLIJ_CONFIG_DIR $HOME/.config/zellij
 
-    # 2. Only run if NOT already in Zellij AND NOT in a CMUX-managed task
-    # This prevents the infinite loop and CMUX conflicts
-    if not set -q ZELLIJ; and not set -q CMUX_SOCKET_PATH
+    # 2. Only run if NOT already in Zellij
+    if not set -q ZELLIJ;
 
         # 3. Use a broader check or remove the Ghostty-only restriction
         # if you want Zellij everywhere.
@@ -55,3 +53,5 @@ if status is-interactive
     end
 end
 
+# Added by codebase-memory-mcp install
+fish_add_path /Users/xavier.riu/.local/bin

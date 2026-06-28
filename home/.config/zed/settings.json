@@ -3,8 +3,8 @@
     "button": true,
     "commit_message_instructions": "Use the Conventional Commits format: <type>(<scope>): <description>.",
     "commit_message_model": {
-      "enable_thinking": false,
-      "model": "gemma4:e2b",
+      "enable_thinking": true,
+      "model": "qwen2.5-coder:0.5b",
       "provider": "ollama",
     },
     "default_model": {
