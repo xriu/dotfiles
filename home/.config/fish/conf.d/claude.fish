@@ -41,12 +41,26 @@ function _configure_claude_provider
     set -gx DISABLE_ERROR_REPORTING 1
     set -gx DISABLE_TELEMETRY 1
 
-    # Execute claude with any remaining arguments (skip first 4)
+    # Load provider-specific config if available
+    set -l config_file "$HOME/dotfiles/home/.claude/config/$provider.json"
+    set -l claude_args
+    if test -f "$config_file"
+        set -a claude_args --settings "$config_file"
+    end
+
+    # Append any remaining passthrough arguments (skip first 4)
     if set -q argv[5]
-        claude $argv[5..-1]
+        set -a claude_args $argv[5..-1]
+    end
+
+    if set -q claude_args[1]
+        claude $claude_args
     else
         echo "Claude configured for provider: $provider"
         echo "Model: $model"
+        if test -f "$config_file"
+            echo "Config: $config_file"
+        end
         echo "Run 'claude' to start the interactive session"
     end
 end
@@ -65,7 +79,7 @@ function opencode
     set -l provider "opencode"
     set -l url "https://opencode.ai/zen/go/v1/messages"
     set -l apiKey $OPENCODE_API_KEY
-    set -l model "opencode-go/minimax-m3"
+    set -l model "minimax-m3"
     _configure_claude_provider $provider $apiKey $model $url $argv
 end
 
