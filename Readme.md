@@ -24,15 +24,3 @@ cd ~/.GIS-lm-build
 rm -rf local
 bin/lm install
 ```
-
-## Executor
-
-```
-"executor": {
-    "type": "http",
-    "url": "http://localhost:4789/mcp?elicitation_mode=native",
-    "headers": {
-        "Authorization": "Bearer ${EXECUTOR_API_KEY}"
-    }
-},
-```
