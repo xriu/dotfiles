@@ -25,8 +25,14 @@ rm -rf local
 bin/lm install
 ```
 
-## VSCode workspace cleanup
+## Executor
 
 ```
-/Users/.../Library/Application Support/Code/User
+"executor": {
+    "type": "http",
+    "url": "http://localhost:4789/mcp?elicitation_mode=native",
+    "headers": {
+        "Authorization": "Bearer ${EXECUTOR_API_KEY}"
+    }
+},
 ```

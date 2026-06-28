@@ -1,11 +1,20 @@
 {
     "mcpServers": {
-        "executor": {
+        "aws-knowledge": {
             "type": "http",
-            "url": "http://localhost:4789/mcp?elicitation_mode=native",
-            "headers": {
-                "Authorization": "Bearer ${EXECUTOR_API_KEY}"
-            }
+            "url": "https://knowledge-mcp.global.api.aws"
+        },
+        "aws-mcp": {
+            "command": "uvx",
+            "args": [
+                "mcp-proxy-for-aws==1.6.1",
+                "https://aws-mcp.us-east-1.api.aws/mcp",
+                "--metadata",
+                "AWS_REGION=us-east-1"
+            ]
+        },
+        "codebase-memory-mcp": {
+            "command": "/Users/xavier.riu/.local/bin/codebase-memory-mcp"
         }
     }
 }
