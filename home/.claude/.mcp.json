@@ -1,9 +1,5 @@
 {
     "mcpServers": {
-        "aws-knowledge": {
-            "type": "http",
-            "url": "https://knowledge-mcp.global.api.aws"
-        },
         "aws-mcp": {
             "command": "uvx",
             "args": [
@@ -19,9 +15,6 @@
             "headers": {
                 "Authorization": "Bearer ${EXECUTOR_API_KEY}"
             }
-        },
-        "codebase-memory-mcp": {
-            "command": "/Users/xavier.riu/.local/bin/codebase-memory-mcp"
         }
     }
 }
