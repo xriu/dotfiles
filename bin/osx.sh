@@ -52,7 +52,6 @@ function brew_setup() {
     brew install --cask codex --force # OpenAI's coding agent that runs in your terminal
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
-    brew install --cask executor # Tool discovery and execution layer for AI agents
     brew install --cask finetune --force # Per-application volume mixer, equalizer, and audio router
     brew install --cask ghostty --force # Terminal emulator that uses platform-native UI and GPU acceleration
     brew install --cask google-chrome --force # Google Chrome browser
@@ -61,10 +60,8 @@ function brew_setup() {
     brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
     brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
     brew install --cask orbstack --force # Replacement for Docker Desktop
-    brew install --cask productdevbook/tap/portkiller --force # Port Killer is a tool for killing ports on macOS
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
-    brew install --cask stats --force # System monitor for the menu bar
     brew install --cask tablepro --force # Native database client for many database types
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
@@ -125,7 +122,6 @@ function brew_setup() {
     brew install pi-coding-agent # AI agent toolkit
     brew install pnpm # Fast, disk space efficient package manager
     brew install portless # Replace port numbers with stable, named local URLs for humans and agents
-    brew install postgresql # Object-relational database management system
     brew install pstree # A tool to show the tree of processes
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
     brew install rtk # CLI proxy to minimize LLM token consumption
@@ -134,7 +130,6 @@ function brew_setup() {
     brew install rustscan # Modern port scanner
     brew install rustup # Rust toolchain installer
     brew install sentry-cli # Sentry command-line interface
-    brew install serverless # Build applications with serverless architectures
     brew install starship # The cross-shell prompt for astronauts
     brew install steipete/tap/codexbar # Menu bar usage monitor for Codex and Claude
     brew install svn # Bidirectional operation between a Subversion repository and Git
@@ -166,6 +161,7 @@ function brew_setup() {
 function npm_packages() {
 
     echo "NPM packages"
+    npm install -g executor # Tool discovery and execution layer for AI agents
 
 }
 

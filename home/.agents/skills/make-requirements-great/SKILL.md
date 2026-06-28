@@ -1,6 +1,7 @@
 ---
 name: make-requirements-great
 description: Review existing requirements or convert raw context into requirements that meet 18 quality characteristics (unambiguous, clear, cohesive, consistent, conformant, current, modifiable, traceable, relevant, unique, categorised, complete, correct, concise, testable, implementation-independent, owned, feasible). Use whenever the user mentions requirements, PRDs, specs, user stories, acceptance criteria, requirements review, requirements audit, BRD, FRD, requirements quality, requirements catalogue, requirements traceability, "are my requirements any good", "turn this into requirements", "make these requirements better", or shares meeting notes, interview transcripts, stakeholder input, or feature ideas that need to be formalised. Trigger even when the user does not use the word "requirement" if the artifact they share is functionally a requirement (e.g., "the system should let users export to PDF", "we need a way for admins to revoke access").
+disable-model-invocation: true
 ---
 
 # Make Requirements Great
@@ -45,19 +46,19 @@ If the input is ambiguous about level, ask the user which level they intend befo
 
 The characteristics are universal; the evidence that satisfies them changes.
 
-- **Unambiguous.** Business: two sponsors agree on what outcome is targeted. Stakeholder: two users from the affected group agree on the capability described. Solution: two engineers agree on what to build. A stakeholder requirement using phrases like "any surface" or "all channels" is not ambiguous at its level — the *resolution* of those terms is a downstream task, and listing them is a design output, not a precondition.
+- **Unambiguous.** Business: two sponsors agree on what outcome is targeted. Stakeholder: two users from the affected group agree on the capability described. Solution: two engineers agree on what to build. A stakeholder requirement using phrases like "any surface" or "all channels" is not ambiguous at its level — the _resolution_ of those terms is a downstream task, and listing them is a design output, not a precondition.
 - **Testable.** Business: the outcome metric exists and can be measured (KPI, survey, incident count). Stakeholder: an acceptance test could in principle be written once design exists (e.g., "a customer updates preferences in Domain A; the change is visible to Channel B"). Solution: a concrete test can be written today with concrete inputs and expected outputs. Do not reject a stakeholder requirement for failing the solution-level testability bar.
-- **Implementation-independent.** Strictest at business and stakeholder levels. Looser at solution level (where naming components is the *point*).
-- **Complete.** Business: the outcome statement leaves no major business goal unaddressed. Stakeholder: the capability covers the user's whole journey (happy path, key alternatives, key failure cases at the level of the user's experience, not the system's internals). Solution: every data field, error path, and edge case is enumerated. A stakeholder requirement does not have to spell out the conflict-resolution algorithm; it has to say *that consistency is required*. The algorithm is a solution-level question.
+- **Implementation-independent.** Strictest at business and stakeholder levels. Looser at solution level (where naming components is the _point_).
+- **Complete.** Business: the outcome statement leaves no major business goal unaddressed. Stakeholder: the capability covers the user's whole journey (happy path, key alternatives, key failure cases at the level of the user's experience, not the system's internals). Solution: every data field, error path, and edge case is enumerated. A stakeholder requirement does not have to spell out the conflict-resolution algorithm; it has to say _that consistency is required_. The algorithm is a solution-level question.
 - **Cohesive.** A single high-level requirement may legitimately bundle what later becomes several solution-level requirements, provided the bundled items express **one user intent**. Splitting is appropriate when the bundled items serve different stakeholders or different intents, not merely because they will later decompose into multiple solution requirements.
 - **Feasible.** Business level: directionally achievable. Stakeholder level: no obvious blocker. Solution level: deliverable inside specific constraints (budget, time, team).
-- **Owned, Relevant, Traceable, Categorised, Unique, Consistent, Conformant, Current, Modifiable, Concise, Correct, Clear and understandable.** Apply at every level with the same logic; the difference is mainly that the *audience* changes (sponsor for business-level, stakeholder for user-level, delivery team for solution-level).
+- **Owned, Relevant, Traceable, Categorised, Unique, Consistent, Conformant, Current, Modifiable, Concise, Correct, Clear and understandable.** Apply at every level with the same logic; the difference is mainly that the _audience_ changes (sponsor for business-level, stakeholder for user-level, delivery team for solution-level).
 
 ### Handling open questions at high levels
 
 When auditing a high-level requirement, the things you would have flagged as "missing detail" at solution level become **deferred design decisions**, not defects. Surface them in a separate list — "Decisions to be taken during decomposition" — rather than in the defect log. This preserves the value of the high-level requirement (it captures intent) while still recording what needs to be resolved later.
 
-A defect at high level is something that breaks the requirement *at that level*: a genuine ambiguity in the intent, a real contradiction, a missing stakeholder, an unowned outcome. It is not "you didn't specify the latency".
+A defect at high level is something that breaks the requirement _at that level_: a genuine ambiguity in the intent, a real contradiction, a missing stakeholder, an unowned outcome. It is not "you didn't specify the latency".
 
 ### Default to not decomposing
 
@@ -77,19 +78,21 @@ Per-item characteristics (1–9) apply to each requirement individually. Set-lev
 
 ### 1. Unambiguous
 
-**Test.** Ask: "Can two competent readers, working independently, arrive at different interpretations of what must be built?" If yes, it is ambiguous. A faster mechanical screen: scan for the **weasel word list** — *appropriate, suitable, adequate, reasonable, user-friendly, intuitive, efficient, fast, slow, robust, scalable, secure, modern, simple, easy, seamless, flexible, optimised, high-quality, sufficient, normal, typical, standard, as needed, where applicable, if necessary, etc., and/or, may, might, could.* Each one is a flag, not an automatic fail — quantify it or remove it.
+**Test.** Ask: "Can two competent readers, working independently, arrive at different interpretations of what must be built?" If yes, it is ambiguous. A faster mechanical screen: scan for the **weasel word list** — _appropriate, suitable, adequate, reasonable, user-friendly, intuitive, efficient, fast, slow, robust, scalable, secure, modern, simple, easy, seamless, flexible, optimised, high-quality, sufficient, normal, typical, standard, as needed, where applicable, if necessary, etc., and/or, may, might, could._ Each one is a flag, not an automatic fail — quantify it or remove it.
 
 **Bad.** "The system shall respond to user requests in a reasonable time."
+
 - "Reasonable" = whose definition? 100ms? 5s? 30s?
 
 **Good.** "The system shall return a search results page within 2 seconds at the 95th percentile under a load of 1,000 concurrent users."
 
 **Bad.** "Reports should be available to managers and other relevant staff."
+
 - "Relevant" is a hidden access-control rule with no definition.
 
 **Good.** "Users in the roles {Manager, RegionalDirector, Auditor} shall be able to open the Sales Report. All other roles shall be denied access."
 
-**Decision logic.** If you can quantify it, quantify it. If you cannot quantify it because the stakeholder has not decided, *do not invent a number* — write the requirement as best you can and add an open question: "Pending decision: target latency."
+**Decision logic.** If you can quantify it, quantify it. If you cannot quantify it because the stakeholder has not decided, _do not invent a number_ — write the requirement as best you can and add an open question: "Pending decision: target latency."
 
 ---
 
@@ -98,6 +101,7 @@ Per-item characteristics (1–9) apply to each requirement individually. Set-lev
 **Test.** Read the requirement to a person from each stakeholder group it concerns (business user, developer, tester, ops, regulator). If any of them needs a translator, it fails. Mechanical proxy: (a) is every domain term defined somewhere in the catalogue glossary? (b) is every acronym expanded on first use? (c) is the sentence parseable in one pass without re-reading?
 
 **Bad.** "The CDP shall enrich identified visitors via the RTCDP via the AEP pipeline using the configured FPID-to-ECID stitching rule."
+
 - A business user has no entry point. The reader who knows the acronyms still has to mentally compile the sentence.
 
 **Good.** "When an identified visitor is recognised, the Customer Data Platform shall attach all known profile attributes to the visitor's session, using the configured identity-stitching rule (see Glossary: Identity Stitching) to merge anonymous and known IDs."
@@ -131,9 +135,11 @@ Per-item characteristics (1–9) apply to each requirement individually. Set-lev
 **Test.** Write the test that would prove the requirement is met. If you cannot, the requirement is not testable. The test must be (a) specific (what exactly is being checked), (b) objective (two independent testers reach the same verdict), (c) measurable (the pass condition is a value, not a feeling).
 
 **Bad.** "The system shall be intuitive."
+
 - What is the test? Ask users if it's intuitive? On what scale? With what task?
 
 **Better but still bad.** "The system shall be intuitive — new users should be able to complete onboarding without help."
+
 - Closer. But "without help" is still untestable — what counts as help? What % of users?
 
 **Good.** "80% of users in a moderated usability study (n≥20, no prior exposure) shall complete the onboarding flow without requesting assistance from the moderator, where the flow is defined as Steps 1–5 in the onboarding spec."
@@ -151,11 +157,13 @@ Per-item characteristics (1–9) apply to each requirement individually. Set-lev
 **Test.** Scan for named tech, named UI controls, named data structures, named vendors. For each occurrence, ask: "Is this dictated by an external constraint (regulation, mandated integration, fixed contract) or is this a guess at the design?" If it is a guess, strip it and restate as behaviour.
 
 **Bad.** "The system shall use a Redis cache to store session data for 30 minutes."
+
 - Redis is a design decision. The actual requirement is the behaviour.
 
 **Good.** "Authenticated user sessions shall remain valid without re-authentication for 30 minutes of inactivity."
 
 **Bad.** "Users shall click the 'Submit' button to save the form."
+
 - Locks the UI to a button labelled 'Submit'. Restricts redesign.
 
 **Good.** "Users shall be able to commit the form's contents to persistent storage."
@@ -223,9 +231,11 @@ Per-item characteristics (1–9) apply to each requirement individually. Set-lev
 **Test.** Per-item: each requirement is about one thing. Compound-requirement smell: the word "and", "as well as", "in addition to", a semicolon, or a bullet list inside the statement. Set-level: every requirement contributes to the stated purpose and scope; orphan requirements that wander into unrelated territory fail.
 
 **Bad (compound).** "The system shall authenticate users via SSO and log all login attempts and send an alert to security if more than five failed attempts occur within ten minutes."
+
 - Three requirements pretending to be one. Splitting reveals that the third has its own owner, its own test, and its own priority.
 
 **Good.** Split into:
+
 - REQ-A: "The system shall authenticate users via SSO."
 - REQ-B: "The system shall record an entry in the audit log for every login attempt, successful or failed."
 - REQ-C: "The system shall raise a security alert when a single user account incurs five or more failed login attempts within a 10-minute window."
@@ -239,14 +249,17 @@ Per-item characteristics (1–9) apply to each requirement individually. Set-lev
 **Test.** Three sub-checks.
 
 **12a. Internal consistency.** No requirement contradicts itself.
+
 - Bad: "The report shall be available to all users; access to the report shall require Manager-level permission."
 - Good: Pick one and rewrite. If both are real constraints, the requirement was actually two — split.
 
 **12b. Mutual consistency.** No two requirements contradict each other.
+
 - Bad: REQ-031 "Sessions expire after 30 minutes of inactivity." / REQ-052 "Sessions remain active until the browser closes."
 - Good: Reconcile with the owner. Document the winner; the loser becomes a deliberate change of intent, dated and signed off.
 
 **12c. Terminology consistency.** Every concept has one name and one definition across the catalogue.
+
 - Bad: "user", "customer", "account holder", "end user", "subscriber" all referring to the same person.
 - Good: Define the canonical term ("customer") in the glossary and replace the variants.
 
