@@ -4,7 +4,7 @@
     "commit_message_instructions": "Use the Conventional Commits format: <type>(<scope>): <description>.",
     "commit_message_model": {
       "enable_thinking": true,
-      "model": "qwen3.5:0.8b",
+      "model": "phi4-mini:3.8b",
       "provider": "ollama",
     },
     "default_model": {
