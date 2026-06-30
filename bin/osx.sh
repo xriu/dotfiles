@@ -61,7 +61,6 @@ function brew_setup() {
     brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask raycast --force # Control your tools with a few keystrokes
-    brew install --cask repobar --force # Menu bar dashboard for GitHub repository health
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask tablepro --force # Native database client for many database types
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
