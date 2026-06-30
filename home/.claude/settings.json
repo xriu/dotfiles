@@ -1,6 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/claude-code-settings.json",
-    "cleanupPeriodDays": 365,
+    "cleanupPeriodDays": 30,
     "env": {
         "CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
         "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
@@ -45,63 +45,9 @@
         ],
         "ask": [],
         "defaultMode": "bypassPermissions",
-        "additionalDirectories": [
-            "~/.claude/"
-        ]
+        "additionalDirectories": ["~/.claude/"]
     },
     "model": "sonnet[1m]",
-    "statusLine": {
-        "type": "command",
-        "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
-    },
-    "enabledPlugins": {
-        "agent-sdk-dev@claude-code-plugins": true,
-        "frontend-design@claude-plugins-official": true,
-        "plannotator@plannotator": true,
-        "plugin-dev@claude-code-plugins": true,
-        "slop-review@slop-review": true,
-        "typescript-lsp@claude-plugins-official": true,
-        "rust-analyzer-lsp@claude-plugins-official": true,
-        "visual-explainer@visual-explainer-marketplace": true
-    },
-    "extraKnownMarketplaces": {
-        "slop-review": {
-            "source": {
-                "source": "github",
-                "repo": "dbachelder/slop-review"
-            }
-        },
-        "claude-code-plugins": {
-            "source": {
-                "source": "github",
-                "repo": "anthropics/claude-code"
-            }
-        },
-        "supergoal": {
-            "source": {
-                "source": "git",
-                "url": "https://github.com/robzilla1738/supergoal.git"
-            }
-        },
-        "plannotator": {
-            "source": {
-                "source": "github",
-                "repo": "backnotprop/plannotator"
-            }
-        },
-        "visual-explainer-marketplace": {
-            "source": {
-                "source": "github",
-                "repo": "nicobailon/visual-explainer"
-            }
-        }
-    },
-    "alwaysThinkingEnabled": true,
-    "effortLevel": "high",
-    "autoCompactWindow": 180000,
-    "fastMode": false,
-    "skipDangerousModePermissionPrompt": true,
-    "theme": "dark",
     "hooks": {
         "PreToolUse": [
             {
@@ -153,5 +99,52 @@
                 ]
             }
         ]
-    }
+    },
+    "statusLine": {
+        "type": "command",
+        "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
+    },
+    "enabledPlugins": {
+        "agent-sdk-dev@claude-code-plugins": true,
+        "plannotator@plannotator": true,
+        "plugin-dev@claude-code-plugins": true,
+        "rust-analyzer-lsp@claude-plugins-official": true,
+        "slop-review@slop-review": true,
+        "typescript-lsp@claude-plugins-official": true,
+        "visual-explainer@visual-explainer-marketplace": true,
+        "frontend-design@claude-plugins-official": true
+    },
+    "extraKnownMarketplaces": {
+        "slop-review": {
+            "source": {
+                "source": "github",
+                "repo": "dbachelder/slop-review"
+            }
+        },
+        "claude-code-plugins": {
+            "source": {
+                "source": "github",
+                "repo": "anthropics/claude-code"
+            }
+        },
+        "plannotator": {
+            "source": {
+                "source": "github",
+                "repo": "backnotprop/plannotator"
+            }
+        },
+        "visual-explainer-marketplace": {
+            "source": {
+                "source": "github",
+                "repo": "nicobailon/visual-explainer"
+            }
+        }
+    },
+    "alwaysThinkingEnabled": true,
+    "effortLevel": "high",
+    "autoCompactWindow": 180000,
+    "fastMode": false,
+    "skillListingBudgetFraction": 0.03,
+    "skipDangerousModePermissionPrompt": true,
+    "theme": "dark"
 }

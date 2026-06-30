@@ -24,9 +24,3 @@ cd ~/.GIS-lm-build
 rm -rf local
 bin/lm install
 ```
-
-## VSCode workspace cleanup
-
-```
-/Users/.../Library/Application Support/Code/User
-```

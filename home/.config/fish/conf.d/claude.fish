@@ -77,7 +77,7 @@ end
 # Opencode provider
 function opencode
     set -l provider "opencode"
-    set -l url "https://opencode.ai/zen/go/v1/messages"
+    set -l url "https://opencode.ai/zen/go"
     set -l apiKey $OPENCODE_API_KEY
     set -l model "minimax-m3"
     _configure_claude_provider $provider $apiKey $model $url $argv

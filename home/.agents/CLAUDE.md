@@ -22,7 +22,7 @@ Before implementing:
 - No features beyond what was asked.
 - No abstractions for single-use code.
 - No "flexibility" or "configurability" that wasn't requested.
-- No error handling for impossible scenarios.
+- No error handling for truly unreachable states.
 - If you write 200 lines and it could be 50, rewrite it.
 
 Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
@@ -65,7 +65,25 @@ For multi-step tasks, state a brief plan:
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
 
----
+Prefer test-first when the task has clear inputs and outputs. Use the project's `tdd` skill when appropriate.
+
+## 5. Commit Convention
+
+**Use Conventional Commits for all commit messages.**
+
+Format: `<type>(<scope>): <description>`
+
+- **type:** `feat`, `fix`, `refactor`, `docs`, `test`, `chore`, `style`, `perf`, `ci`, `build`
+- **scope:** optional but encouraged — the module, package, or area changed (e.g., `auth`, `api`, `ui`)
+- **minimal_description:** imperative mood, lowercase, no period at the end. Keep it under 72 characters.
+
+Examples:
+
+- `feat(auth): add magic link login`
+- `fix(api): handle null user in profile endpoint`
+- `refactor(db): extract query builder from handler`
+
+When generating commit messages, always follow this format. If the scope is unclear, omit it (`feat: <description>`).
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
 
@@ -97,7 +115,6 @@ ALWAYS prefer MCP graph tools over grep/glob/file-search for code discovery.
 - Find a handler: `search_graph(name_pattern=".*OrderHandler.*")`
 - Who calls it: `trace_path(function_name="OrderHandler", direction="inbound")`
 - Read source: `get_code_snippet(qualified_name="pkg/orders.OrderHandler")`
-
 <!-- codebase-memory-mcp:end -->
 
 ---
