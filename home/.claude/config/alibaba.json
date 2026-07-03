@@ -61,28 +61,15 @@
         "frontend-design@claude-plugins-official": true,
         "plannotator@plannotator": true,
         "plugin-dev@claude-code-plugins": true,
-        "slop-review@slop-review": true,
         "typescript-lsp@claude-plugins-official": true,
         "rust-analyzer-lsp@claude-plugins-official": true,
         "visual-explainer@visual-explainer-marketplace": true
     },
     "extraKnownMarketplaces": {
-        "slop-review": {
-            "source": {
-                "source": "github",
-                "repo": "dbachelder/slop-review"
-            }
-        },
         "claude-code-plugins": {
             "source": {
                 "source": "github",
                 "repo": "anthropics/claude-code"
-            }
-        },
-        "supergoal": {
-            "source": {
-                "source": "git",
-                "url": "https://github.com/robzilla1738/supergoal.git"
             }
         },
         "plannotator": {
