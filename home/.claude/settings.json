@@ -13,7 +13,7 @@
         "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
         "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
         "CLAUDE_CODE_NO_FLICKER": "1",
-        "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-4-6[1m]",
+        "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5[1m]",
         "DISABLE_ERROR_REPORTING": "1",
         "DISABLE_TELEMETRY": "1"
     },
@@ -48,7 +48,7 @@
         "defaultMode": "bypassPermissions",
         "additionalDirectories": ["~/.claude/"]
     },
-    "model": "sonnet[1m]",
+    "model": "claude-sonnet-5[1m]",
     "hooks": {
         "PreToolUse": [
             {

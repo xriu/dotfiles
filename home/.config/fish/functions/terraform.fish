@@ -13,8 +13,8 @@ function tfinit
     # Find Terraform configuration files
     set -l L_VARS (find "." -type f -name "$ENV.tfvars")
     set -l L_BACKEND (find "." -type f -name "$ENV.tfbackend")
-    set -l TF_VARS (echo $L_VARS | grep -i $REGION; or echo $L_VARS)
-    set -l TF_BACKEND (echo $L_BACKEND | grep -i $REGION; or echo $L_BACKEND)
+    set -l TF_VARS (printf '%s\n' $L_VARS | grep -i $REGION; or echo $L_VARS)
+    set -l TF_BACKEND (printf '%s\n' $L_BACKEND | grep -i $REGION; or echo $L_BACKEND)
 
     # Check if Terraform configuration exists
     if not test -e "terraform.tf"
@@ -89,7 +89,7 @@ function tfchanges
 
     # Find Terraform configuration files
     set -l L_VARS (find "." -type f -name "$ENV.tfvars")
-    set -l TF_VARS (echo $L_VARS | grep -i $REGION; or echo $L_VARS)
+    set -l TF_VARS (printf '%s\n' $L_VARS | grep -i $REGION; or echo $L_VARS)
 
     # Terraform Plan/Apply
     if string match -q "*tfvars*" "$TF_VARS"
