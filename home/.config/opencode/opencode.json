@@ -31,11 +31,11 @@
             ".dev.vars": "ask"
         }
     },
-    "model": "synthetic/hf:moonshotai/Kimi-K2.6",
+    "model": "opencode-go-anthropic/minimax-m3",
     "agent": {
         "plan": {
             "mode": "primary",
-            "model": "synthetic/hf:moonshotai/Kimi-K2.6",
+            "model": "opencode-go-anthropic/minimax-m3",
             "tools": {
                 "write": false,
                 "edit": false,
@@ -46,7 +46,7 @@
         },
         "build": {
             "mode": "primary",
-            "model": "synthetic/hf:moonshotai/Kimi-K2.6",
+            "model": "opencode-go-anthropic/minimax-m3",
             "tools": {
                 "write": true,
                 "edit": true,
@@ -56,7 +56,7 @@
             }
         },
         "ask": {
-            "model": "synthetic/hf:moonshotai/Kimi-K2.6",
+            "model": "opencode-go-anthropic/minimax-m3",
             "tools": {
                 "write": false,
                 "edit": false,

@@ -65,7 +65,6 @@ function brew_setup() {
     brew install --cask tablepro --force # Native database client for many database types
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
-    brew install --cask tolaria --force # Markdown knowledgebase manager
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
     brew install --cask visual-studio-code --force # Visual Studio Code
@@ -86,6 +85,7 @@ function brew_setup() {
     brew install biome # Toolchain of the web
     brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
+    brew install can1357/tap/omp # A coding agent with the IDE wired in
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install databricks # Databricks CLI
@@ -102,11 +102,13 @@ function brew_setup() {
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
     brew install git-delta # A syntax-highlighting pager for git and diff output
+    brew install git-filter-repo # Quickly rewrite git repository history
     brew install glow # Terminal markdown reader designed for developers
     brew install go # Open source programming language to build simple/reliable/efficient software
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
     brew install grep # GNU grep, egrep and fgrep
     brew install hadolint # Smarter Dockerfile linter to validate best practices
+    brew install herdr # Agent multiplexer that lives in your terminal
     brew install hudochenkov/sshpass/sshpass # Non-interactive ssh password authentication
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor

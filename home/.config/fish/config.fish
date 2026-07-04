@@ -32,13 +32,17 @@ fish_add_path $HOME/.local/share/fnm/node-versions/v24.13.0/installation/bin
 # Ensure cargo/rustup takes precedence over Homebrew's rust
 set -gx PATH $HOME/.cargo/bin $PATH
 
+# Toggle Zellij auto-start for normal (non-quick-terminal) Ghostty windows.
+# Quick Terminal always launches Zellij via conf.d/zellij.fish regardless of this flag.
+set -g ZELLIJ_AUTO_START false
+
 # Check if we're in an interactive shell
 if status is-interactive
     # 1. Define config but don't force export every time if not needed
     set -gx ZELLIJ_CONFIG_DIR $HOME/.config/zellij
 
-    # 2. Only run if NOT already in Zellij
-    if not set -q ZELLIJ;
+    # 2. Only run if NOT already in Zellij and auto-start is enabled
+    if test "$ZELLIJ_AUTO_START" = true; and not set -q ZELLIJ;
 
         # 3. Use a broader check or remove the Ghostty-only restriction
         # if you want Zellij everywhere.

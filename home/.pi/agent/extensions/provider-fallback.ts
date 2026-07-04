@@ -24,14 +24,14 @@ function sendSessionMessage(pi: ExtensionAPI, content: string) {
 function loadModelChain(): ModelEntry[] {
 	const piDir = join(homedir(), ".pi", "agent");
 
-	let profileName = "synthetic";
+	let profileName = "o";
 	try {
 		const state = JSON.parse(
 			readFileSync(join(piDir, "agent-profile-state.json"), "utf-8"),
 		);
 		profileName = state.activeProfile;
 	} catch {
-		// default to synthetic
+		// default to profile "o" (opencode-primary)
 	}
 
 	try {
