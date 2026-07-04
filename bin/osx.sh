@@ -65,7 +65,6 @@ function brew_setup() {
     brew install --cask tablepro --force # Native database client for many database types
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
-    brew install --cask tolaria --force # Markdown knowledgebase manager
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
     brew install --cask visual-studio-code --force # Visual Studio Code
@@ -86,6 +85,7 @@ function brew_setup() {
     brew install biome # Toolchain of the web
     brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
+    brew install can1357/tap/omp # A coding agent with the IDE wired in
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install databricks # Databricks CLI

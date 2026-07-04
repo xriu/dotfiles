@@ -32,42 +32,19 @@
                     "thinkingLevel": "high"
                 },
                 {
-                    "provider": "synthetic",
-                    "model": "qwen3.7-plus",
-                    "thinkingLevel": "high"
-                }
-            ],
-            "agents": {
-                "context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
-                "delegate": "synthetic/hf:moonshotai/Kimi-K2.5",
-                "researcher": "synthetic/hf:zai-org/GLM-5.1",
-                "scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
-                "planner": "synthetic/hf:zai-org/GLM-5.1",
-                "reviewer": "synthetic/hf:moonshotai/Kimi-K2.5",
-                "worker": "synthetic/hf:zai-org/GLM-5.1"
-            }
-        },
-        "s": {
-            "main": [
-                {
-                    "provider": "synthetic",
-                    "model": "hf:MiniMaxAI/MiniMax-M3",
-                    "thinkingLevel": "high"
-                },
-                {
                     "provider": "alibaba",
                     "model": "qwen3.7-plus",
                     "thinkingLevel": "high"
                 }
             ],
             "agents": {
-                "context-builder": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
-                "delegate": "synthetic/hf:moonshotai/Kimi-K2.5",
-                "researcher": "synthetic/hf:zai-org/GLM-5.1",
-                "scout": "synthetic/hf:MiniMaxAI/MiniMax-M2.5",
-                "planner": "synthetic/hf:zai-org/GLM-5.1",
-                "reviewer": "synthetic/hf:moonshotai/Kimi-K2.5",
-                "worker": "synthetic/hf:zai-org/GLM-5.1"
+                "context-builder": "opencode-go-anthropic/minimax-m3",
+                "delegate": "opencode-go-anthropic/minimax-m3",
+                "researcher": "opencode-go-anthropic/minimax-m3",
+                "scout": "opencode-go-anthropic/minimax-m3",
+                "planner": "opencode-go-anthropic/minimax-m3",
+                "reviewer": "opencode-go-anthropic/minimax-m3",
+                "worker": "opencode-go-anthropic/minimax-m3"
             }
         }
     }

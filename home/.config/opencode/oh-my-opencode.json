@@ -10,81 +10,81 @@
 	"disabled_mcps": [],
 	"agents": {
 		"prometheus": {
-			"model": "github-copilot/gpt-5.4",
+			"model": "opencode-go-openai/deepseek-v4-pro",
 			"variant": "high"
 		},
 		"metis": {
-			"model": "github-copilot/gpt-5.4",
+			"model": "opencode-go-openai/deepseek-v4-pro",
 			"variant": "high"
 		},
 		"atlas": {
-			"model": "github-copilot/gpt-5.4",
+			"model": "opencode-go-openai/deepseek-v4-flash",
 			"variant": "medium"
 		},
 		"sisyphus": {
-			"model": "synthetic/hf:moonshotai/Kimi-K2.6"
+			"model": "opencode-go-anthropic/minimax-m3"
 		},
 		"sisyphus-junior": {
-			"model": "synthetic/hf:moonshotai/Kimi-K2.6"
+			"model": "opencode-go-anthropic/minimax-m3"
 		},
 		"hephaestus": {
-			"model": "github-copilot/gpt-5.4"
+			"model": "opencode-go-openai/deepseek-v4-flash"
 		},
 		"momus": {
-			"model": "github-copilot/gpt-5.4",
+			"model": "opencode-go-openai/deepseek-v4-pro",
 			"variant": "xhigh"
 		},
 		"oracle": {
-			"model": "github-copilot/gpt-5.4",
+			"model": "opencode-go-openai/deepseek-v4-pro",
 			"variant": "high"
 		},
 		"librarian": {
-			"model": "github-copilot/gemini-3-flash-preview"
+			"model": "opencode-go-openai/deepseek-v4-flash"
 		},
 		"explore": {
-			"model": "github-copilot/grok-code-fast-1"
+			"model": "opencode-go-openai/kimi-k2.7-code"
 		},
 		"multimodal-looker": {
-			"model": "github-copilot/gpt-5.4",
+			"model": "opencode-go-openai/deepseek-v4-flash",
 			"variant": "medium"
 		},
 		"build": {
-			"model": "synthetic/hf:moonshotai/Kimi-K2.6"
+			"model": "opencode-go-anthropic/minimax-m3"
 		},
 		"plan": {
-			"model": "synthetic/hf:moonshotai/Kimi-K2.6"
+			"model": "opencode-go-anthropic/minimax-m3"
 		}
 	},
 	"categories": {
 		"ultrabrain": {
-			"model": "github-copilot/gpt-5.3-codex",
+			"model": "opencode-go-openai/deepseek-v4-pro",
 			"variant": "xhigh"
 		},
 		"deep": {
-			"model": "github-copilot/gpt-5.3-codex",
+			"model": "opencode-go-openai/deepseek-v4-pro",
 			"variant": "medium"
 		},
 		"artistry": {
-			"model": "synthetic/hf:moonshotai/Kimi-K2.6",
+			"model": "opencode-go-openai/glm-5.2",
 			"variant": "high"
 		},
 		"unspecified-high": {
-			"model": "github-copilot/gpt-5.4",
+			"model": "opencode-go-openai/deepseek-v4-flash",
 			"variant": "high"
 		},
 		"unspecified-low": {
-			"model": "github-copilot/gpt-5.4",
+			"model": "opencode-go-openai/deepseek-v4-flash",
 			"variant": "medium"
 		},
 		"visual-engineering": {
-			"model": "synthetic/hf:moonshotai/Kimi-K2.6",
+			"model": "opencode-go-openai/glm-5.2",
 			"variant": "high"
 		},
 		"quick": {
-			"model": "github-copilot/claude-haiku-4.5"
+			"model": "opencode-go-openai/mimo-v2.5"
 		},
 		"writing": {
-			"model": "github-copilot/claude-haiku-4.5"
+			"model": "opencode-go-openai/mimo-v2.5"
 		}
 	},
 	"tmux": {

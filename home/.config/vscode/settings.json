@@ -104,7 +104,6 @@
 	"chat.instructionsFilesLocations": {
         ".github/instructions": true,
         ".claude/rules": true,
-        "~/.copilot/instructions": true,
         "~/.claude/rules": true,
         "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
         "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
@@ -217,29 +216,6 @@
 	"git.ignoreLimitWarning": true,
 	"git.openRepositoryInParentFolders": "always",
 	"git.replaceTagsWhenPull": true,
-	"github.copilot.chat.customOAIModels": {
-		"hf:moonshotai/Kimi-K2-Thinking": {
-			"maxInputTokens": 262144,
-			"maxOutputTokens": 262144,
-			"name": "hf:moonshotai/Kimi-K2-Thinking",
-			"requiresAPIKey": true,
-			"thinking": true,
-			"toolCalling": true,
-			"url": "https://api.synthetic.new/openai/v1",
-			"vision": true
-		},
-		"hf:zai-org/GLM-4.6": {
-			"maxInputTokens": 200000,
-			"maxOutputTokens": 132000,
-			"name": "hf:zai-org/GLM-4.6",
-			"requiresAPIKey": true,
-			"thinking": true,
-			"toolCalling": true,
-			"url": "https://api.synthetic.new/openai/v1",
-			"vision": true
-		}
-	},
-	"github.copilot.editor.enableAutoCompletions": true,
 	"githubPullRequests.createOnPublishBranch": "never",
 	"githubPullRequests.pullBranch": "never",
 	"hadolint.cliOptions": [],
