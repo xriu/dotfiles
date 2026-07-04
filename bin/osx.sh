@@ -102,11 +102,13 @@ function brew_setup() {
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
     brew install git-delta # A syntax-highlighting pager for git and diff output
+    brew install git-filter-repo # Quickly rewrite git repository history
     brew install glow # Terminal markdown reader designed for developers
     brew install go # Open source programming language to build simple/reliable/efficient software
     brew install gradle # Open-source build automation tool based on the Groovy and Kotlin DSL
     brew install grep # GNU grep, egrep and fgrep
     brew install hadolint # Smarter Dockerfile linter to validate best practices
+    brew install herdr # Agent multiplexer that lives in your terminal
     brew install hudochenkov/sshpass/sshpass # Non-interactive ssh password authentication
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
