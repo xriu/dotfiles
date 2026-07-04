@@ -107,7 +107,7 @@
       "api_url": "https://opencode.ai/zen/go/v1/chat/completions",
       "model": "deepseek-v4-flash",
     },
-    "provider": "open_ai_compatible_api",
+    "provider": "zed",
   },
   "enable_language_server": true,
   "ensure_final_newline_on_save": true,
@@ -131,7 +131,6 @@
     },
   },
   "git_panel": {
-    "sort_by_path": false,
     "default_width": 360,
     "dock": "right",
   },
