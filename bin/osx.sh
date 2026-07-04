@@ -163,7 +163,7 @@ function brew_setup() {
 function npm_packages() {
 
     echo "NPM packages"
-    npm install -g executor # Tool discovery and execution layer for AI agents
+    # npm install -g executor # Tool discovery and execution layer for AI agents
 
 }
 
