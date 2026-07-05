@@ -2,7 +2,6 @@
 name: no-mistakes
 description: Validate your code changes through the no-mistakes pipeline - automated code review, tests, lint, docs, push, PR, and CI - before they reach the configured push target. Use when the user asks to run no-mistakes, gate or ship or validate their changes, push safely, asks you to do a task and then validate it, or invokes /no-mistakes.
 user-invocable: true
-disable-model-invocation: true
 ---
 
 # no-mistakes
@@ -57,7 +56,10 @@ repository is not initialized, run `no-mistakes init` first; if the `no-mistakes
 command itself is missing or misbehaving, `no-mistakes doctor` reports what is
 wrong.
 Before starting, run `no-mistakes axi` (home view).
-If it shows an active run on your current branch, resume it or use `axi abort` before starting over.
+If it shows an active run on your current branch, inspect it with `no-mistakes axi status`.
+If it is parked at a gate, drive it with `no-mistakes axi respond`.
+Reattach an in-flight run by re-running `no-mistakes axi run` when it still matches your current `HEAD`.
+Only `no-mistakes axi abort` it when you mean to discard that run before starting over; aborting is a between-runs action, never a way to take over or bypass a gate while a run is still going (see [Validate and decide](#validate-and-decide)).
 If it shows an active run on another branch, leave that run alone and start validation for your current branch with `no-mistakes axi run --intent "..."`.
 
 ## Intent is required
@@ -91,6 +93,14 @@ Run the pipeline and decide on its findings as they come up:
    return for a while. That is normal; allow a long timeout and do not cancel
    or re-issue the command because it seems slow. To check progress without
    disturbing the run, use `no-mistakes axi status` from a separate call.
+   A long-running call is working, not stalled - background it if your harness
+   needs to, but the run **never advances past a gate on its own**. Read every
+   return; on a `gate:`, respond; loop until an `outcome:`. Never idle-wait
+   for the run to move forward by itself.
+   When that status output includes `awaiting_agent: parked <duration>` under the run,
+   the run is parked at an approval or fix-review gate and waiting for you to
+   send `axi respond`. The field is observability only: it does not change
+   gate resolution, auto-resume the run, or make `--yes` the default.
 2. If the output contains a `gate:` object, the pipeline is waiting on you.
    Read its `findings` table. Each finding has an `id`, `severity`,
    `file`, `description`, and an `action` that tells you how the
@@ -101,6 +111,12 @@ Run the pipeline and decide on its findings as they come up:
    - `ask-user` - the finding challenges the user's deliberate intent or
      touches product behavior. This is a call only the user can make - see
      [Escalate `ask-user` findings](#escalate-ask-user-findings) below.
+
+   **Review auto-fix is disabled by default** (`auto_fix.review: 0`; a repo
+   or global `auto_fix.review > 0` override re-enables it), so blocking and
+   ask-user review findings park for your decision rather than being silently
+   self-fixed. (Other steps such as test and lint may auto-fix within the
+   pipeline and re-run before they ever gate.)
 
    Choose one response:
 
@@ -118,7 +134,12 @@ Run the pipeline and decide on its findings as they come up:
    While a run is active, never fix findings by editing the code yourself -
    the pipeline owns both the findings and the fixes. Your job at a gate is to
    decide and respond; `--action fix` has the pipeline apply the fix and
-   re-review the result.
+   re-review the result. For the same reason, while a run is active do **not**
+   `abort` or `rerun` to go fix a finding yourself - even a real bug in
+   your own code - because that discards the pipeline's in-flight work and
+   forces a full re-validation. `abort` and `rerun` are for _between_
+   runs (after a `failed` or `cancelled` outcome), never to circumvent a
+   gate.
 
    Each `respond` blocks until the next `gate:`, `checks-passed` decision point, or final outcome.
 
@@ -136,19 +157,36 @@ Run the pipeline and decide on its findings as they come up:
      not merged yet. **You are done driving the pipeline.** Do not wait for the
      merge: tell the user the PR is ready and ask them to review and merge it
      (the PR link is in the `help` line). no-mistakes keeps monitoring the PR
-     in the background, so a human can watch it in the TUI.
+     in the background until it is merged, closed, or its configured idle
+     timeout elapses, so a human can watch it in the TUI.
    - `passed` - the changes cleared the gate and the PR was merged or closed.
    - `failed` or `cancelled` - they did not; read the output and address it.
      Fix whatever the output points at (a failing test, a lint error, a finding
      you skipped), commit the fix on the same feature branch, then drive the
      pipeline again - `no-mistakes axi run --intent "..."` starts a fresh run,
-     or `no-mistakes rerun` re-runs the pipeline for the current branch. Do not
-     leave the user at a `failed` outcome without either retrying or explaining
-     what blocks it.
+     or `no-mistakes rerun` re-runs the pipeline for the current branch. This
+     is the right place to start over: a fresh run or `rerun` is a
+     _between-runs_ action, correct only after a terminal outcome like this -
+     never mid-run to circumvent a gate. Do not leave the user at a `failed`
+     outcome without either retrying or explaining what blocks it.
 
-The CI step deliberately watches the PR until it is merged or closed, so
+The CI step deliberately keeps watching the PR after checks pass, so
 `axi run` returns `checks-passed` the moment checks are green rather than
 blocking on the human merge. Never poll or re-run waiting for the merge yourself.
+
+Because that monitor stays live, a PR that falls behind the default branch or
+hits a merge conflict after checks pass - commonly because another PR merged
+first - needs **no command from you**: never hand-rebase. When the CI monitor
+sees an actual conflict it **rebases onto the base, resolves it, and re-pushes
+the branch itself**; a PR that is merely behind but still clean needs nothing
+either, since the platform merges it. The one exception is when that monitor is
+no longer running - the PR was closed, the run was aborted or superseded, it
+idle-timed-out, or its auto-fix attempts were exhausted - in which case recover
+with `no-mistakes rerun`, which cancels the stale monitor and re-runs the full
+pipeline including a deterministic rebase step. Do **not** reach for
+`no-mistakes axi run` to refresh a still-active PR: after `checks-passed` it
+reattaches to the running monitor (HEAD unchanged) and returns its output
+without rebasing.
 
 On a successful outcome (`checks-passed` or `passed`), close the loop with the
 user: summarize what happened during the pipeline in a concise, easily readable
@@ -192,27 +230,29 @@ no-mistakes axi               # home view: current branch, active runs, next ste
 no-mistakes axi status        # full detail of the resolved run
 no-mistakes axi logs --step <name> --full   # full log output of one step
 no-mistakes axi abort         # cancel the current-branch active run
+no-mistakes axi abort --run <id>   # cancel a specific run by id (works outside its worktree)
 ```
 
 ## Reading the output
 
 - Output is TOON: `key: value` pairs, `name[N]{cols}:` tables, and `help[N]:` hints.
+- A non-terminal run object may include `awaiting_agent: parked <duration>` immediately after `status`; that means the run is parked at a gate awaiting your `axi respond`.
 - The `help` list at the bottom of most responses tells you the next commands to run.
 - Errors are printed as `error: ...` on stdout with a `help` list; act on the suggestion.
 - Exit codes: `0` success, no-op, or normal decision gates, `1` failed or cancelled final outcomes, `2` bad usage.
 
-A `gate:` waiting on you looks roughly like this - a `gate:` line naming the
-step, a `findings[N]{...}:` table with one row per finding, and a `help[N]:`
-list of next commands:
+A `gate:` waiting on you looks roughly like this - a `gate:` line naming the step, optional step-specific fields such as `note`, a `findings[N]{...}:` table with one row per finding, and a `help[N]:` list of next commands:
 
 ```
 gate: review
-findings[2]{id,severity,file,description,action}:
-  r1,medium,internal/pipeline/executor.go,Error from os.Remove is ignored,auto-fix
-  r2,high,cmd/no-mistakes/main.go,New --force flag bypasses the confirm prompt,ask-user
-help[2]:
+note: Review auto-fix is disabled by default (auto_fix.review: 0; a repo or global auto_fix.review > 0 override re-enables it), so blocking and ask-user review findings park for your decision rather than being silently self-fixed.
+findings[2]{id,severity,file,line,action,description}:
+  r1,warning,internal/pipeline/executor.go,,auto-fix,Error from os.Remove is ignored
+  r2,error,cmd/no-mistakes/main.go,,ask-user,New --force flag bypasses the confirm prompt
+help[3]:
   no-mistakes axi respond --action fix --findings r1
   no-mistakes axi respond --action approve
+  A long-running call is working, not stalled - background it if your harness needs to, but the run never advances past a gate on its own. Read every return; on a gate, respond; loop until an outcome.
 ```
 
 Read the `action` column per row: decide `r1` (auto-fix) on your own
