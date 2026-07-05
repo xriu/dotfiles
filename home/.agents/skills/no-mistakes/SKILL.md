@@ -36,7 +36,7 @@ task along with the command:
      non-default branch, so the work must land there before you run.
   3. **Then validate**, passing the user's task as your `--intent`. The task
      text is exactly what the user set out to accomplish, in their own words, so
-     it _is_ the intent - pass it through, enriched with the decisions and
+     it *is* the intent - pass it through, enriched with the decisions and
      tradeoffs you made while doing the work (see
      [Intent is required](#intent-is-required)).
 
@@ -119,7 +119,6 @@ Run the pipeline and decide on its findings as they come up:
    pipeline and re-run before they ever gate.)
 
    Choose one response:
-
    ```sh
    # accept the step as-is and continue
    no-mistakes axi respond --action approve
@@ -130,27 +129,25 @@ Run the pipeline and decide on its findings as they come up:
    # skip this step
    no-mistakes axi respond --action skip
    ```
-
    While a run is active, never fix findings by editing the code yourself -
    the pipeline owns both the findings and the fixes. Your job at a gate is to
    decide and respond; `--action fix` has the pipeline apply the fix and
    re-review the result. For the same reason, while a run is active do **not**
    `abort` or `rerun` to go fix a finding yourself - even a real bug in
    your own code - because that discards the pipeline's in-flight work and
-   forces a full re-validation. `abort` and `rerun` are for _between_
+   forces a full re-validation. `abort` and `rerun` are for *between*
    runs (after a `failed` or `cancelled` outcome), never to circumvent a
    gate.
 
-   Each `respond` blocks until the next `gate:`, `checks-passed` decision point, or final outcome.
+    Each `respond` blocks until the next `gate:`, `checks-passed` decision point, or final outcome.
 
-   Two extra flags are available on `respond` when you need them:
-   - `--add-finding '<json>'` (with `--action fix`) folds a finding you
-     spotted yourself - one the pipeline did not surface - into the fix round,
-     as a JSON finding object. Use it for a problem you noticed that is not in
-     the gate's own `findings` table.
-   - `--step <name>` responds to a specific step instead of the one currently
-     awaiting approval. You rarely need this; omit it to answer the active gate.
-
+    Two extra flags are available on `respond` when you need them:
+    - `--add-finding '<json>'` (with `--action fix`) folds a finding you
+      spotted yourself - one the pipeline did not surface - into the fix round,
+      as a JSON finding object. Use it for a problem you noticed that is not in
+      the gate's own `findings` table.
+    - `--step <name>` responds to a specific step instead of the one currently
+      awaiting approval. You rarely need this; omit it to answer the active gate.
 3. Repeat step 2 until the output has an `outcome:` instead of a `gate:`. The
    outcomes are:
    - `checks-passed` - the change is validated and CI is green, but the PR is
@@ -166,27 +163,13 @@ Run the pipeline and decide on its findings as they come up:
      pipeline again - `no-mistakes axi run --intent "..."` starts a fresh run,
      or `no-mistakes rerun` re-runs the pipeline for the current branch. This
      is the right place to start over: a fresh run or `rerun` is a
-     _between-runs_ action, correct only after a terminal outcome like this -
+     *between-runs* action, correct only after a terminal outcome like this -
      never mid-run to circumvent a gate. Do not leave the user at a `failed`
      outcome without either retrying or explaining what blocks it.
 
 The CI step deliberately keeps watching the PR after checks pass, so
 `axi run` returns `checks-passed` the moment checks are green rather than
 blocking on the human merge. Never poll or re-run waiting for the merge yourself.
-
-Because that monitor stays live, a PR that falls behind the default branch or
-hits a merge conflict after checks pass - commonly because another PR merged
-first - needs **no command from you**: never hand-rebase. When the CI monitor
-sees an actual conflict it **rebases onto the base, resolves it, and re-pushes
-the branch itself**; a PR that is merely behind but still clean needs nothing
-either, since the platform merges it. The one exception is when that monitor is
-no longer running - the PR was closed, the run was aborted or superseded, it
-idle-timed-out, or its auto-fix attempts were exhausted - in which case recover
-with `no-mistakes rerun`, which cancels the stale monitor and re-runs the full
-pipeline including a deterministic rebase step. Do **not** reach for
-`no-mistakes axi run` to refresh a still-active PR: after `checks-passed` it
-reattaches to the running monitor (HEAD unchanged) and returns its output
-without rebasing.
 
 On a successful outcome (`checks-passed` or `passed`), close the loop with the
 user: summarize what happened during the pipeline in a concise, easily readable
