@@ -248,6 +248,10 @@
         "requireConfirmation": true,
         "allowedPatterns": [
             {
+                "pattern": "git reset --hard HEAD~1",
+                "description": "Safe: git reset --hard HEAD~1"
+            },
+            {
                 "pattern": "no-mistakes",
                 "description": "Safe: no-mistakes PR"
             },
