@@ -164,6 +164,8 @@ function npm_packages() {
 
     echo "NPM packages"
     # npm install -g executor # Tool discovery and execution layer for AI agents
+    # npm install -g gh-axi && gh-axi setup hooks
+    # npm install -g tasks-axi
 
 }
 
