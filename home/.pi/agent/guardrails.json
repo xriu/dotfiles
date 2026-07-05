@@ -248,6 +248,10 @@
         "requireConfirmation": true,
         "allowedPatterns": [
             {
+                "pattern": "no-mistakes",
+                "description": "Safe: no-mistakes PR"
+            },
+            {
                 "pattern": ".git/index.lock",
                 "description": "Safe: removes a single Git lock file"
             }

@@ -35,7 +35,7 @@ function _configure_claude_provider
     set -gx CLAUDE_CODE_ENABLE_AWAY_SUMMARY 0
     set -gx CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION true
     set -gx CLAUDE_CODE_ENABLE_TELEMETRY 0
-    set -gx CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS 1
+    set -gx CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS 0
     set -gx CLAUDE_CODE_NO_FLICKER 1
     set -gx CLAUDE_CODE_SUBAGENT_MODEL "$model"
     set -gx DISABLE_ERROR_REPORTING 1
@@ -79,7 +79,7 @@ function opencode
     set -l provider "opencode"
     set -l url "https://opencode.ai/zen/go"
     set -l apiKey $OPENCODE_API_KEY
-    set -l model "minimax-m3"
+    set -l model "qwen3.7-plus"
     _configure_claude_provider $provider $apiKey $model $url $argv
 end
 

@@ -163,7 +163,16 @@ function brew_setup() {
 function npm_packages() {
 
     echo "NPM packages"
+    # https://github.com/UsefulSoftwareCo/executor
     # npm install -g executor # Tool discovery and execution layer for AI agents
+    #
+    # Firstmate stack solution: https://github.com/kunchenguid
+    # curl -fsSL https://kunchenguid.github.io/treehouse/install.sh | sh
+    # curl -fsSL https://raw.githubusercontent.com/kunchenguid/no-mistakes/main/docs/install.sh | sh
+    # npm install -g lavish-axi && lavish-axi setup hooks
+    # npm install -g chrome-devtools-axi && chrome-devtools-axi setup hooks
+    # npm install -g gh-axi && gh-axi setup hooks
+    # npm install -g tasks-axi
 
 }
 
