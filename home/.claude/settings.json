@@ -123,6 +123,26 @@
           }
         ],
         "matcher": "*"
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "chrome-devtools-axi",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "lavish-axi",
+            "timeout": 10
+          }
+        ]
       }
     ]
   },

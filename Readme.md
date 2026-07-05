@@ -24,10 +24,3 @@ cd ~/.GIS-lm-build
 rm -rf local
 bin/lm install
 ```
-
-## Other
-
-```
-curl -fsSL https://kunchenguid.github.io/treehouse/install.sh | sh
-curl -fsSL https://raw.githubusercontent.com/kunchenguid/no-mistakes/main/docs/install.sh | sh
-```
