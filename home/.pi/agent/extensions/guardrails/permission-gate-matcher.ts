@@ -9,9 +9,7 @@ function escapeRegex(s: string): string {
  * paths like ".git", while \b still catches bare commands and full binary paths.
  */
 function commandContainsPattern(command: string, pattern: string): boolean {
-	return new RegExp(`(?<!\\.)\\b${escapeRegex(pattern.toLowerCase())}\\b`).test(
-		command,
-	);
+	return new RegExp(`(?<!\\.)\\b${escapeRegex(pattern)}\\b`).test(command);
 }
 
 export interface GateMatchResult {
@@ -25,11 +23,8 @@ export function matchCommand(
 	config: GuardrailsConfig,
 ): GateMatchResult | null {
 	const gate = config.permissionGate;
-	const allPatterns = [
-		...gate.patterns,
-		...gate.customPatterns,
-	];
-	const trimmed = command.trim().toLowerCase();
+	const allPatterns = [...gate.patterns, ...gate.customPatterns];
+	const trimmed = command.trim();
 
 	// Check autoDenyPatterns first — these must never be bypassed
 	for (const dp of gate.autoDenyPatterns) {
@@ -47,11 +42,7 @@ export function matchCommand(
 		if (commandContainsPattern(trimmed, p.pattern)) {
 			// AllowedPatterns exempt the entire command only if it exactly matches
 			// (prevents compound commands like "git status && rm -rf /" from bypassing)
-			if (
-				gate.allowedPatterns.some(
-					(ap) => trimmed === ap.pattern.toLowerCase().trim(),
-				)
-			) {
+			if (gate.allowedPatterns.some((ap) => trimmed === ap.pattern.trim())) {
 				return null;
 			}
 			return {
