@@ -9,8 +9,8 @@
                     "thinkingLevel": "high"
                 },
                 {
-                    "provider": "opencode-go-anthropic",
-                    "model": "minimax-m3",
+                    "provider": "opencode-go",
+                    "model": "deepseek-v4-flash",
                     "thinkingLevel": "high"
                 }
             ],
@@ -27,8 +27,8 @@
         "o": {
             "main": [
                 {
-                    "provider": "opencode-go-anthropic",
-                    "model": "minimax-m3",
+                    "provider": "opencode-go",
+                    "model": "deepseek-v4-flash",
                     "thinkingLevel": "high"
                 },
                 {
@@ -38,13 +38,13 @@
                 }
             ],
             "agents": {
-                "context-builder": "opencode-go-anthropic/minimax-m3",
-                "delegate": "opencode-go-anthropic/minimax-m3",
-                "researcher": "opencode-go-anthropic/minimax-m3",
-                "scout": "opencode-go-anthropic/minimax-m3",
-                "planner": "opencode-go-anthropic/minimax-m3",
-                "reviewer": "opencode-go-anthropic/minimax-m3",
-                "worker": "opencode-go-anthropic/minimax-m3"
+                "context-builder": "opencode-go/deepseek-v4-flash",
+                "delegate": "opencode-go/deepseek-v4-flash",
+                "researcher": "opencode-go/deepseek-v4-flash",
+                "scout": "opencode-go/deepseek-v4-flash",
+                "planner": "opencode-go/deepseek-v4-flash",
+                "reviewer": "opencode-go/deepseek-v4-flash",
+                "worker": "opencode-go/deepseek-v4-flash"
             }
         }
     }
