@@ -23,7 +23,8 @@
     "treeFilterMode": "no-tools",
     "theme": "dark",
     "compaction": {
-        "reserveTokens": 20000
+        "reserveTokens": 820000,
+        "keepRecentTokens": 20000
     },
     "reviewerLoop": {
         "maxIterations": 3,
