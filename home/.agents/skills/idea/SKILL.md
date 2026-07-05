@@ -21,7 +21,7 @@ Step 4: Prototype (if needed)
 Step 5: PRD
 Step 6: Types
 Step 7: Issues
-Step 8: Implement
+Step 8: Pre-implementation + Implement
 ```
 
 **Resuming:** If you've already completed steps, say "I'm at step X" to skip ahead.
@@ -87,8 +87,9 @@ Run **`/to-issues`**.
 
 For each issue:
 1. Start a fresh session
-2. Run **`/implement`** (drives **`/tdd`** internally, closes with **`/code-review`**)
-3. Commit when done
+2. **Pre-implementation:** Look for opportunities to prefactor the code to make the change easy. "Make the change easy, then make the easy change." Extract functions, rename for clarity, add missing abstractions in the area you'll touch.
+3. Run **`/implement`** (drives **`/tdd`** internally, closes with **`/code-review`**)
+4. Commit when done
 
 **Gate:** All issues are implemented. Tests pass. Code review is clean. PRD is fully delivered.
 
