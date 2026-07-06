@@ -1,35 +1,37 @@
 {
-    "lastChangelogVersion": "0.80.3",
-    "packages": [
-        "npm:@plannotator/pi-extension",
-        "npm:pi-bash-live-view",
-        "npm:pi-design-deck",
-        "npm:pi-goal",
-        "npm:pi-interview",
-        "npm:pi-lens",
-        "npm:pi-markdown-preview",
-        "npm:pi-mcp-adapter",
-        "npm:pi-powerline-footer",
-        "npm:pi-review-loop",
-        "npm:pi-rewind",
-        "npm:pi-slop-review",
-        "npm:pi-smart-fetch"
-    ],
-    "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-    "defaultProvider": "alibaba",
-    "defaultModel": "qwen3.7-plus",
-    "defaultThinkingLevel": "xhigh",
-    "defaultProjectTrust": "always",
-    "treeFilterMode": "no-tools",
-    "theme": "dark",
-    "compaction": {
-        "reserveTokens": 820000,
-        "keepRecentTokens": 20000
-    },
-    "reviewerLoop": {
-        "maxIterations": 3,
-        "autoTrigger": true,
-        "freshContext": true,
-        "reviewPrompt": "template:double-check"
-    }
+  "lastChangelogVersion": "0.80.3",
+  "packages": [
+    "npm:@plannotator/pi-extension",
+    "npm:pi-bash-live-view",
+    "npm:pi-design-deck",
+    "npm:pi-goal",
+    "npm:pi-interview",
+    "npm:pi-lens",
+    "npm:pi-markdown-preview",
+    "npm:pi-mcp-adapter",
+    "npm:pi-powerline-footer",
+    "npm:pi-review-loop",
+    "npm:pi-rewind",
+    "npm:pi-slop-review",
+    "npm:pi-smart-fetch"
+  ],
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "defaultProvider": "opencode-go",
+  "defaultModel": "deepseek-v4-flash",
+  "defaultThinkingLevel": "high",
+  "defaultProjectTrust": "always",
+  "treeFilterMode": "no-tools",
+  "theme": "dark",
+  "compaction": {
+    "reserveTokens": 820000,
+    "keepRecentTokens": 20000
+  },
+  "reviewerLoop": {
+    "maxIterations": 3,
+    "autoTrigger": true,
+    "freshContext": true,
+    "reviewPrompt": "template:double-check"
+  }
 }

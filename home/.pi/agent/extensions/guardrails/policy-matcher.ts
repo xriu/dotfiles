@@ -14,7 +14,7 @@ export interface MatchPathOptions {
 }
 
 /** Resolve a pattern to an absolute path, expanding ~ and relative paths. */
-function expandPattern(pattern: string, cwd: string): string {
+export function expandPattern(pattern: string, cwd: string): string {
 	if (pattern.startsWith("~")) {
 		const rest = pattern.slice(1);
 		// Only expand ~ when followed by / or nothing (valid homedir syntax).

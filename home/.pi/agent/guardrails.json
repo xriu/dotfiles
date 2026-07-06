@@ -22,6 +22,9 @@
                         "pattern": "local.env"
                     },
                     {
+                        "pattern": ".env"
+                    },
+                    {
                         "pattern": ".env.*"
                     },
                     {
@@ -176,8 +179,20 @@
     "permissionGate": {
         "patterns": [
             {
+                "pattern": "rm",
+                "description": "Remove files or directories"
+            },
+            {
                 "pattern": "sudo",
                 "description": "Commands run with superuser privileges"
+            },
+            {
+                "pattern": "git add",
+                "description": "Stage files for commit"
+            },
+            {
+                "pattern": "git commit",
+                "description": "Create a commit"
             },
             {
                 "pattern": "git push",
