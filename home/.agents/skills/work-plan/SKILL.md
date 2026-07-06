@@ -41,7 +41,7 @@ Write a one-paragraph description of what you're building or fixing. This _ancho
 
 **Gate:** Every major question has been answered or explicitly deferred. You have a `CONTEXT.md` and at least one ADR. If you're uncertain about domain terms or architectural choices, you're not done.
 
-**Next:** Say "ready for requirements" when the _gate_ is met.
+**Next:** Say "/make-requirements-great" when the _gate_ is met.
 
 ## Step 3: Make requirements great
 
@@ -49,7 +49,7 @@ Run **`/make-requirements-great`** in **Author mode**.
 
 **Gate:** Requirements pass the 18 characteristics. Open questions are resolved or explicitly deferred with owner assignment.
 
-**Next:** Say "ready for PRD" when the _gate_ is met.
+**Next:** Say "/to-prd" when the _gate_ is met.
 
 ## Step 4: Prototype (if needed)
 
@@ -59,7 +59,7 @@ If a question needs a runnable answer, run **`/prototype`** and use **`/handoff`
 
 **Gate:** All design questions that needed code answers have been answered.
 
-**Next:** Say "ready for PRD" when the _gate_ is met.
+**Next:** Say "/to-prd" when the _gate_ is met.
 
 ## Step 5: To PRD
 
@@ -67,7 +67,7 @@ Run **`/to-prd`**.
 
 **Gate:** PRD is complete with all sections filled. Scope is clear. Success criteria are measurable.
 
-**Next:** Say "ready for types" when the _gate_ is met.
+**Next:** Say "/docs-to-types" when the _gate_ is met.
 
 ## Step 6: Docs to types
 
@@ -75,7 +75,7 @@ Run **`/docs-to-types`** to build the typed _skeleton_ (domain types, seams, ada
 
 **Gate:** Typed architecture compiles. Domain types reflect CONTEXT.md glossary. Seams match ADRs.
 
-**Next:** Say "ready for issues" when the _gate_ is met.
+**Next:** Say "/to-issues" when the _gate_ is met.
 
 ## Step 7: To issues
 
