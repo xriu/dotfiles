@@ -66,7 +66,7 @@ function _configure_claude_provider
 end
 
 # Alibaba provider
-function alibaba
+function cca
     set -l provider "alibaba"
     set -l url "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic"
     set -l apiKey $ALIBABA_API_KEY
@@ -75,7 +75,7 @@ function alibaba
 end
 
 # Opencode provider
-function opencode
+function cco
     set -l provider "opencode"
     set -l url "https://opencode.ai/zen/go"
     set -l apiKey $OPENCODE_API_KEY
