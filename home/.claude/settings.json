@@ -1,12 +1,15 @@
 {
-    "$schema": "https://json.schemastore.org/claude-code-settings.json",
     "alwaysThinkingEnabled": true,
     "attribution": {
         "commit": "",
         "pr": ""
     },
-    "autoCompactWindow": 180000,
     "cleanupPeriodDays": 30,
+    "disableArtifact": true,
+    "disableBundledSkills": true,
+    "disableClaudeAiConnectors": true,
+    "disableRemoteControl": true,
+    "disableWorkflows": true,
     "effortLevel": "high",
     "enabledPlugins": {
         "agent-sdk-dev@claude-code-plugins": true,
@@ -71,20 +74,22 @@
             {
                 "hooks": [
                     {
-                        "command": "~/.claude/hooks/cbm-session-reminder",
+                        "command": "bash '/Users/xavier.riu/.claude/hooks/herdr-agent-state.sh' session",
+                        "timeout": 10,
                         "type": "command"
                     }
                 ],
-                "matcher": "startup"
+                "matcher": "*"
             },
             {
                 "hooks": [
                     {
-                        "command": "~/.claude/hooks/cbm-session-reminder",
+                        "command": "chrome-devtools-axi",
+                        "timeout": 10,
                         "type": "command"
                     }
                 ],
-                "matcher": "resume"
+                "matcher": ""
             },
             {
                 "hooks": [
@@ -117,61 +122,74 @@
             {
                 "hooks": [
                     {
-                        "command": "bash '/Users/xavier.riu/.claude/hooks/herdr-agent-state.sh' session",
+                        "command": "lavish-axi",
                         "timeout": 10,
                         "type": "command"
                     }
                 ],
-                "matcher": "*"
+                "matcher": ""
             },
             {
-                "matcher": "",
                 "hooks": [
                     {
-                        "type": "command",
-                        "command": "chrome-devtools-axi",
-                        "timeout": 10
+                        "command": "~/.claude/hooks/cbm-session-reminder",
+                        "type": "command"
                     }
-                ]
+                ],
+                "matcher": "resume"
             },
             {
-                "matcher": "",
                 "hooks": [
                     {
-                        "type": "command",
-                        "command": "lavish-axi",
-                        "timeout": 10
+                        "command": "~/.claude/hooks/cbm-session-reminder",
+                        "type": "command"
                     }
-                ]
+                ],
+                "matcher": "startup"
             }
         ]
     },
     "model": "claude-sonnet-5[1m]",
     "permissions": {
-        "additionalDirectories": ["~/.claude/"],
+        "additionalDirectories": [
+            "~/.claude/"
+        ],
         "allow": [],
         "ask": [],
         "defaultMode": "bypassPermissions",
         "deny": [
             "Bash(dd *)",
             "Bash(diskutil *)",
-            "Bash(mkfs *)",
-            "Bash(rm -rf /*)",
-            "Bash(rm -rf /)",
-            "Bash(rm -rf ~*)",
-            "Bash(rm -rf $HOME*)",
-            "Bash(rm -rf .*)",
-            "Bash(sudo rm -rf *)",
             "Bash(git push *)",
             "Bash(git reset --hard *)",
+            "Bash(mkfs *)",
             "Bash(npm publish *)",
+            "Bash(rm -rf /*)",
+            "Bash(rm -rf /)",
+            "Bash(rm -rf .*)",
+            "Bash(rm -rf $HOME*)",
+            "Bash(rm -rf ~*)",
+            "Bash(sudo rm -rf *)",
             "Bash(terraform apply *)",
             "Bash(terraform destroy *)",
             "Read(./.env*)",
             "Read(./config/credentials.json)",
             "Read(./secrets/**)",
             "Read(~/.aws/**)",
-            "Read(~/.ssh/**)"
+            "Read(~/.ssh/**)",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "DesignSync",
+            "EnterPlanMode",
+            "ExitPlanMode",
+            "NotebookEdit",
+            "PushNotification",
+            "RemoteTrigger",
+            "ReportFindings",
+            "ScheduleWakeup",
+            "SendMessage"
         ]
     },
     "skillListingBudgetFraction": 0.03,
