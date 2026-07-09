@@ -7,7 +7,7 @@
     "cleanupPeriodDays": 30,
     "disableArtifact": true,
     "disableBundledSkills": true,
-    "disableClaudeAiConnectors": true,
+    "disableClaudeAiConnectors": false,
     "disableRemoteControl": true,
     "disableWorkflows": true,
     "effortLevel": "high",
@@ -151,9 +151,7 @@
     },
     "model": "claude-sonnet-5[1m]",
     "permissions": {
-        "additionalDirectories": [
-            "~/.claude/"
-        ],
+        "additionalDirectories": ["~/.claude/"],
         "allow": [],
         "ask": [],
         "defaultMode": "bypassPermissions",
