@@ -74,12 +74,12 @@ function cca
     _configure_claude_provider $provider $apiKey $model $url $argv
 end
 
-# Opencode provider
+# Openrouter provider
 function cco
-    set -l provider "opencode"
-    set -l url "https://opencode.ai/zen/go"
-    set -l apiKey $OPENCODE_API_KEY
-    set -l model "qwen3.7-plus"
+    set -l provider "openrouter"
+    set -l url "https://openrouter.ai/api"
+    set -l apiKey $OPENROUTER_API_KEY
+    set -l model "z-ai/glm-5.2"
     _configure_claude_provider $provider $apiKey $model $url $argv
 end
 

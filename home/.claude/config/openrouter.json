@@ -22,10 +22,10 @@
         "visual-explainer@visual-explainer-marketplace": true
     },
     "env": {
-        "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen3.7-plus",
-        "ANTHROPIC_DEFAULT_OPUS_MODEL": "qwen3.7-plus",
-        "ANTHROPIC_DEFAULT_SONNET_MODEL": "qwen3.7-plus",
-        "ANTHROPIC_MODEL": "qwen3.7-plus",
+        "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek/deepseek-v4-flash",
+        "ANTHROPIC_DEFAULT_OPUS_MODEL": "z-ai/glm-5.2",
+        "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek/deepseek-v4-pro",
+        "ANTHROPIC_MODEL": "deepseek/deepseek-v4-pro",
         "CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
         "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
         "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
@@ -36,7 +36,7 @@
         "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
         "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "0",
         "CLAUDE_CODE_NO_FLICKER": "1",
-        "CLAUDE_CODE_SUBAGENT_MODEL": "qwen3.7-plus",
+        "CLAUDE_CODE_SUBAGENT_MODEL": "deepseek/deepseek-v4-pro",
         "DISABLE_ERROR_REPORTING": "1",
         "DISABLE_TELEMETRY": "1"
     },
@@ -154,7 +154,7 @@
             }
         ]
     },
-    "model": "qwen3.7-plus",
+    "model": "deepseek/deepseek-v4-pro",
     "permissions": {
         "additionalDirectories": ["~/.claude/"],
         "allow": [],
