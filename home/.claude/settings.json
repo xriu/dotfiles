@@ -62,7 +62,7 @@
       "~/.claude/"
     ]
   },
-  "model": "haiku",
+  "model": "sonnet",
   "disableClaudeAiConnectors": false,
   "disableBundledSkills": true,
   "hooks": {
