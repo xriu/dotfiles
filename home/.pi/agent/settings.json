@@ -17,8 +17,8 @@
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
-  "defaultProvider": "lm-openrouter",
-  "defaultModel": "minimax/minimax-m3",
+  "defaultProvider": "xriu-opencode-openai",
+  "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "high",
   "defaultProjectTrust": "always",
   "treeFilterMode": "no-tools",
