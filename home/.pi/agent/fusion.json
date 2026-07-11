@@ -1,0 +1,22 @@
+{
+    "defaultPanel": "default",
+    "panels": {
+        "default": {
+            "models": [
+                "lm-openrouter/minimax/minimax-m3",
+                "lm-openrouter/qwen/qwen3.7-plus",
+                "lm-openrouter/google/gemini-3.5-flash"
+            ],
+            "judge": "lm-openrouter/z-ai/glm-5.2:exacto",
+            "panelReasoning": "medium",
+            "judgeReasoning": "high"
+        }
+    },
+    "maxPanelModels": 3,
+    "maxPanelOutputTokens": 2048,
+    "maxCompletionTokens": 4096,
+    "temperature": 0.3,
+    "panelTools": "none",
+    "maxToolCalls": 16,
+    "footerDisplay": "full"
+}

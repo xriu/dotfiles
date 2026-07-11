@@ -51,7 +51,7 @@
             "main": [
                 {
                     "provider": "lm-openrouter",
-                    "model": "moonshotai/kimi-k2.7-code:exacto",
+                    "model": "minimax/minimax-m3",
                     "thinkingLevel": "high"
                 }
             ],
