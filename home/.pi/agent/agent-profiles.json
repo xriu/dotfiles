@@ -1,7 +1,7 @@
 {
     "defaultProfile": "high",
     "profiles": {
-        "a": {
+        "alibaba": {
             "main": [
                 {
                     "provider": "alibaba",
@@ -24,7 +24,7 @@
                 "worker": "alibaba/glm-5"
             }
         },
-        "o": {
+        "opencode": {
             "main": [
                 {
                     "provider": "opencode-go",
