@@ -32,5 +32,10 @@
     "autoTrigger": true,
     "freshContext": true,
     "reviewPrompt": "template:double-check"
-  }
+  },
+  "showCacheMissNotices": true,
+  "followUpMode": "all",
+  "steeringMode": "all",
+  "httpIdleTimeoutMs": 120000,
+  "enableInstallTelemetry": false
 }
