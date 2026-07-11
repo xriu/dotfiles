@@ -1,11 +1,12 @@
 ---
 name: plannotator-compound
-disable-model-invocation: true
 description: >
   Analyze a user's Plannotator plan archive to extract denial patterns, feedback
   taxonomy, evolution over time, and actionable prompt improvements — then produce
   a polished HTML dashboard report. Falls back to Claude Code ExitPlanMode denial
   reasons when Plannotator data is unavailable.
+hidden: true
+disable-model-invocation: true
 ---
 
 # Compound Planning Analysis
@@ -59,6 +60,7 @@ ls ${PLANNOTATOR_DATA_DIR:-~/.plannotator}/plans/compound-planning-report*.html
 ```
 
 Reports follow a versioned naming scheme:
+
 - First report: `compound-planning-report.html`
 - Subsequent reports: `compound-planning-report-v2.html`, `compound-planning-report-v3.html`, etc.
 
@@ -121,6 +123,7 @@ New since {CUTOFF_DATE}:
 ```
 
 If fewer than 3 new denied files exist since the cutoff, warn the user:
+
 > "Only {N} new denied plans since the last report. The incremental analysis may
 > be thin. Would you like to proceed or switch to a full analysis?"
 
@@ -314,33 +317,40 @@ The reduction agent's job is to let the data speak. Do not impose a predetermine
 framework — discover what's actually there. The analysis must produce:
 
 ### 1. Denial Reason Taxonomy
+
 Categorize every denial into a finite set of types that emerge from the data. Count
 occurrences. Show percentages. Include real example quotes for each type. Aim for
 8-15 categories — enough to be specific, few enough to be scannable. Let the user's
 actual feedback determine what the categories are.
 
 ### 2. Top Feedback Patterns (ranked by frequency)
+
 The 5-10 most recurring patterns. For each: what the reviewer consistently asks for,
 3+ example quotes from different files, and whether the pattern changed over time.
 
 ### 3. Recurring Phrases
+
 Exact phrases the reviewer uses repeatedly, with counts and what they signal. These
 are the reviewer's vocabulary — their shorthand for what they care about.
 
 ### 4. What the Reviewer Values (implicit preferences)
+
 Derived from patterns — what does this specific person care about most? Quality?
 Speed? Narrative? Architecture? Process? Simplicity? Rank by evidence strength.
 This section should feel like a personality profile of the reviewer's standards.
 
 ### 5. What Agents Consistently Get Wrong
+
 The flip side — what recurring mistakes trigger denials? What should agents stop
 doing for this reviewer?
 
 ### 6. Structural Requests
+
 What plan structure does the reviewer consistently demand? Required sections,
 ordering, format preferences, level of detail expected.
 
 ### 7. Evolution Over Time
+
 How feedback patterns changed across the time span. Group by whatever natural time
 boundaries exist in the data (weeks for short spans, months for longer ones). Did
 expectations mature? Did new patterns emerge? What shifted? If the dataset spans
@@ -348,6 +358,7 @@ less than a month, note that evolution analysis is limited but still look for an
 progression from early to late files.
 
 ### 8. Actionable Prompt Instructions
+
 The most important output. Based on all patterns: specific numbered instructions
 that could be embedded in a planning prompt to prevent the most common denial
 reasons. Write these as actual directives an agent could follow. Be specific to
@@ -491,6 +502,7 @@ After generating, open the file in the user's browser.
 ## Phase 5: Summary
 
 Tell the user:
+
 - How many denied files were analyzed
 - If incremental: how many were new since the last report
 - The top 3 denial patterns found

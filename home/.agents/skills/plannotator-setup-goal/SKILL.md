@@ -1,7 +1,8 @@
 ---
 name: plannotator-setup-goal
-disable-model-invocation: true
 description: Turn an idea or objective into a goal package for /goal. Interviews the user, builds a reviewed fact sheet via Plannotator, then explores the codebase to produce an execution plan.
+hidden: true
+disable-model-invocation: true
 ---
 
 # Setup Goal
@@ -24,7 +25,7 @@ Use `goals/<slug>/` for both working JSON files and final docs. The JSON files a
 
 **Browser session patience rule:** Plannotator goal setup is a user-driven browser session. After launching an interview or facts command, be absolutely patient and keep waiting on the user until they submit, dismiss, or explicitly ask you to stop. Do not close, kill, restart, refresh, or open a second copy just because the UI is idle or the user is taking time. Never close and reopen the session as a way to update state; if a rerun is needed after the prior session ends, update the working JSON file and launch a new command from that file.
 
-**Optional: grill first (deep, one-at-a-time interview).** Before building the compact interview bundle, *suggest* a grilling pass whenever the goal is vague or carries many interdependent decisions — and run one whenever the user asks for it ("grill me first"). This is opt-in: for a clear, well-scoped goal, skip it and go straight to the bundle, so grilling never fights the bundle's "fewer, higher-leverage questions" philosophy. When you grill, run the protocol below verbatim, then fold the resolved decisions forward into a higher-quality interview bundle (Phase 2) — or, if grilling fully resolves scope, straight into the fact sheet (Phase 3).
+**Optional: grill first (deep, one-at-a-time interview).** Before building the compact interview bundle, _suggest_ a grilling pass whenever the goal is vague or carries many interdependent decisions — and run one whenever the user asks for it ("grill me first"). This is opt-in: for a clear, well-scoped goal, skip it and go straight to the bundle, so grilling never fights the bundle's "fewer, higher-leverage questions" philosophy. When you grill, run the protocol below verbatim, then fold the resolved decisions forward into a higher-quality interview bundle (Phase 2) — or, if grilling fully resolves scope, straight into the fact sheet (Phase 3).
 
 <!-- Grilling protocol below adapted verbatim from the /grill-me skill by Matt Pocock (MIT-licensed):
      https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md -->
@@ -105,7 +106,7 @@ Before moving to facts, read every answer and note carefully:
 
 ### 3. Fact Sheet
 
-A fact is a simple description of each outcome of a goal. It should be easily testable and verifiable. A fact may describe the function of a specific feature or aspect of a system. A fact may determine specific UI and UX. Again, a fact is literally anything that can be tested and verified in automated or manual testing. Keep fact language simple. In a way, a fact sheet is a design spec, but less verbose & using language the human user can easily visualize & rationalize. 
+A fact is a simple description of each outcome of a goal. It should be easily testable and verifiable. A fact may describe the function of a specific feature or aspect of a system. A fact may determine specific UI and UX. Again, a fact is literally anything that can be tested and verified in automated or manual testing. Keep fact language simple. In a way, a fact sheet is a design spec, but less verbose & using language the human user can easily visualize & rationalize.
 
 Prepare a facts review bundle from `goals/<slug>/interview-result.json`. Each fact should include whether automated verification is recommended and preselected.
 

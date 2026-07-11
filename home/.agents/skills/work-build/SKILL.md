@@ -2,6 +2,7 @@
 name: work-build
 description: >-
   Implements a single issue from a PRD. Use after /work-plan when you have a specific issue to build.
+hidden: true
 disable-model-invocation: true
 ---
 

@@ -2,6 +2,7 @@
 name: work-plan
 description: >-
   Guides you from concept to issues. Use when you want to plan a feature, fix a bug, or make any change that needs structured planning before implementation.
+hidden: true
 disable-model-invocation: true
 ---
 

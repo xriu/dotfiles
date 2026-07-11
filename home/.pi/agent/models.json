@@ -1,6 +1,6 @@
 {
     "providers": {
-        "alibaba": {
+        "xriu-alibaba": {
             "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
             "api": "anthropic-messages",
             "apiKey": "$ALIBABA_API_KEY",
@@ -15,7 +15,7 @@
                 }
             ]
         },
-        "opencode-go-openai": {
+        "xriu-opencode-go-openai": {
             "baseUrl": "https://opencode.ai/zen/go/v1",
             "api": "openai-completions",
             "apiKey": "$OPENCODE_API_KEY",
@@ -122,7 +122,7 @@
                 }
             ]
         },
-        "opencode-go-anthropic": {
+        "xriu-opencode-go-anthropic": {
             "baseUrl": "https://opencode.ai/zen/go",
             "api": "anthropic-messages",
             "apiKey": "$OPENCODE_API_KEY",
@@ -167,6 +167,69 @@
                         "output": 1.6,
                         "cacheRead": 0.04,
                         "cacheWrite": 0.5
+                    }
+                }
+            ]
+        },
+        "lm-openrouter": {
+            "api": "anthropic-messages",
+            "baseUrl": "https://openrouter.ai/api",
+            "apiKey": "$OPENROUTER_API_KEY",
+            "models": [
+                {
+                    "id": "z-ai/glm-5.2:exacto",
+                    "name": "GLM 5.2",
+                    "reasoning": true,
+                    "input": ["text"],
+                    "contextWindow": 1048576,
+                    "maxTokens": 131072,
+                    "cost": {
+                        "input": 0.49,
+                        "output": 1.54,
+                        "cacheRead": 0.091,
+                        "cacheWrite": 0
+                    }
+                },
+                {
+                    "id": "moonshotai/kimi-k2.7-code:exacto",
+                    "name": "Kimi K-2.7 Code",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 262144,
+                    "maxTokens": 262144,
+                    "cost": {
+                        "input": 0.72,
+                        "output": 3.49,
+                        "cacheRead": 0.159,
+                        "cacheWrite": 0
+                    }
+                },
+                {
+                    "id": "deepseek/deepseek-v4-flash:exacto",
+                    "name": "DeepSeek V4 Flash",
+                    "reasoning": true,
+                    "input": ["text"],
+                    "contextWindow": 1048576,
+                    "maxTokens": 384000,
+                    "cost": {
+                        "input": 0.084,
+                        "output": 0.168,
+                        "cacheRead": 0.0168,
+                        "cacheWrite": 0
+                    }
+                },
+                {
+                    "id": "deepseek/deepseek-v4-pro:exacto",
+                    "name": "DeepSeek V4 Pro",
+                    "reasoning": true,
+                    "input": ["text"],
+                    "contextWindow": 1048576,
+                    "maxTokens": 384000,
+                    "cost": {
+                        "input": 0.435,
+                        "output": 0.87,
+                        "cacheRead": 0.003625,
+                        "cacheWrite": 0
                     }
                 }
             ]
