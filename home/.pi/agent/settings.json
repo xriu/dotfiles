@@ -1,7 +1,6 @@
 {
     "lastChangelogVersion": "0.80.6",
     "packages": [
-        "npm:@plannotator/pi-extension",
         "npm:pi-bash-live-view",
         "npm:pi-design-deck",
         "npm:pi-goal",
