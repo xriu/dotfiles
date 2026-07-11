@@ -15,7 +15,7 @@
                 }
             ]
         },
-        "xriu-opencode-go-openai": {
+        "xriu-opencode-openai": {
             "baseUrl": "https://opencode.ai/zen/go/v1",
             "api": "openai-completions",
             "apiKey": "$OPENCODE_API_KEY",
@@ -122,7 +122,7 @@
                 }
             ]
         },
-        "xriu-opencode-go-anthropic": {
+        "xriu-opencode-anthropic": {
             "baseUrl": "https://opencode.ai/zen/go",
             "api": "anthropic-messages",
             "apiKey": "$OPENCODE_API_KEY",

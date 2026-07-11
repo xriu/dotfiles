@@ -4,12 +4,12 @@
         "alibaba": {
             "main": [
                 {
-                    "provider": "alibaba",
+                    "provider": "xriu-alibaba",
                     "model": "qwen3.7-plus",
                     "thinkingLevel": "high"
                 },
                 {
-                    "provider": "opencode-go",
+                    "provider": "xriu-opencode-openai",
                     "model": "deepseek-v4-flash",
                     "thinkingLevel": "high"
                 }
@@ -27,12 +27,12 @@
         "opencode": {
             "main": [
                 {
-                    "provider": "opencode-go",
+                    "provider": "xriu-opencode-openai",
                     "model": "deepseek-v4-flash",
                     "thinkingLevel": "high"
                 },
                 {
-                    "provider": "alibaba",
+                    "provider": "xriu-alibaba",
                     "model": "qwen3.7-plus",
                     "thinkingLevel": "high"
                 }
@@ -46,6 +46,16 @@
                 "reviewer": "opencode-go/deepseek-v4-flash",
                 "worker": "opencode-go/deepseek-v4-flash"
             }
+        },
+        "openrouter": {
+            "main": [
+                {
+                    "provider": "lm-openrouter",
+                    "model": "moonshotai/kimi-k2.7-code:exacto",
+                    "thinkingLevel": "high"
+                }
+            ],
+            "agents": {}
         }
     }
 }
