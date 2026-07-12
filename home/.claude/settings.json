@@ -1,170 +1,172 @@
 {
-    "cleanupPeriodDays": 30,
-    "skillListingBudgetFraction": 0.03,
-    "env": {
-        "CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
-        "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
-        "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
-        "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
-        "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
-        "CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
-        "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
-        "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-        "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-        "CLAUDE_CODE_NO_FLICKER": "1",
-        "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5[1m]",
-        "DISABLE_ERROR_REPORTING": "1",
-        "DISABLE_TELEMETRY": "1"
-    },
-    "attribution": {
-        "commit": "",
-        "pr": ""
-    },
-    "permissions": {
-        "allow": [],
-        "deny": [
-            "Bash(dd *)",
-            "Bash(diskutil *)",
-            "Bash(git push *)",
-            "Bash(git reset --hard *)",
-            "Bash(mkfs *)",
-            "Bash(npm publish *)",
-            "Bash(rm -rf /*)",
-            "Bash(rm -rf /)",
-            "Bash(rm -rf .*)",
-            "Bash(rm -rf $HOME*)",
-            "Bash(rm -rf ~*)",
-            "Bash(sudo rm -rf *)",
-            "Bash(terraform apply *)",
-            "Bash(terraform destroy *)",
-            "Read(./.env*)",
-            "Read(./config/credentials.json)",
-            "Read(./secrets/**)",
-            "Read(~/.aws/**)",
-            "Read(~/.ssh/**)",
-            "AskUserQuestion",
-            "CronCreate",
-            "CronDelete",
-            "CronList",
-            "DesignSync",
-            "EnterPlanMode",
-            "ExitPlanMode",
-            "NotebookEdit",
-            "PushNotification",
-            "RemoteTrigger",
-            "ReportFindings",
-            "ScheduleWakeup",
-            "SendMessage"
-        ],
-        "ask": [],
-        "defaultMode": "bypassPermissions",
-        "additionalDirectories": ["~/.claude/"]
-    },
-    "model": "sonnet",
-    "disableClaudeAiConnectors": false,
-    "disableBundledSkills": true,
-    "hooks": {
-        "PreToolUse": [
-            {
-                "matcher": "Grep|Glob",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-code-discovery-gate",
-                        "timeout": 5
-                    }
-                ]
-            }
-        ],
-        "SessionStart": [
-            {
-                "matcher": "*",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "bash '/Users/xavier.riu/.claude/hooks/herdr-agent-state.sh' session",
-                        "timeout": 10
-                    }
-                ]
-            },
-            {
-                "matcher": "startup",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            },
-            {
-                "matcher": "resume",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            },
-            {
-                "matcher": "clear",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            },
-            {
-                "matcher": "compact",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            }
+  "cleanupPeriodDays": 30,
+  "skillListingBudgetFraction": 0.03,
+  "env": {
+    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
+    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
+    "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_NO_FLICKER": "1",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5[1m]",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_TELEMETRY": "1"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [],
+    "deny": [
+      "Bash(dd *)",
+      "Bash(diskutil *)",
+      "Bash(git push *)",
+      "Bash(git reset --hard *)",
+      "Bash(mkfs *)",
+      "Bash(npm publish *)",
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf .*)",
+      "Bash(rm -rf $HOME*)",
+      "Bash(rm -rf ~*)",
+      "Bash(sudo rm -rf *)",
+      "Bash(terraform apply *)",
+      "Bash(terraform destroy *)",
+      "Read(./.env*)",
+      "Read(./config/credentials.json)",
+      "Read(./secrets/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.ssh/**)",
+      "AskUserQuestion",
+      "CronCreate",
+      "CronDelete",
+      "CronList",
+      "DesignSync",
+      "EnterPlanMode",
+      "ExitPlanMode",
+      "NotebookEdit",
+      "PushNotification",
+      "RemoteTrigger",
+      "ReportFindings",
+      "ScheduleWakeup",
+      "SendMessage"
+    ],
+    "ask": [],
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "~/.claude/"
+    ]
+  },
+  "model": "haiku",
+  "disableClaudeAiConnectors": false,
+  "disableBundledSkills": true,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Grep|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-code-discovery-gate",
+            "timeout": 5
+          }
         ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/xavier.riu/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
+        ]
+      },
+      {
+        "matcher": "resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
+        ]
+      },
+      {
+        "matcher": "clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
+        ]
+      },
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
+        ]
+      }
+    ]
+  },
+  "disableRemoteControl": true,
+  "disableWorkflows": true,
+  "disableArtifact": true,
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
+  },
+  "enabledPlugins": {
+    "agent-sdk-dev@claude-code-plugins": true,
+    "frontend-design@claude-plugins-official": true,
+    "plannotator@plannotator": true,
+    "plugin-dev@claude-code-plugins": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "visual-explainer@visual-explainer-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
     },
-    "disableRemoteControl": true,
-    "disableWorkflows": true,
-    "disableArtifact": true,
-    "statusLine": {
-        "type": "command",
-        "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
+    "plannotator": {
+      "source": {
+        "source": "github",
+        "repo": "backnotprop/plannotator"
+      }
     },
-    "enabledPlugins": {
-        "agent-sdk-dev@claude-code-plugins": true,
-        "frontend-design@claude-plugins-official": true,
-        "plannotator@plannotator": true,
-        "plugin-dev@claude-code-plugins": true,
-        "rust-analyzer-lsp@claude-plugins-official": true,
-        "typescript-lsp@claude-plugins-official": true,
-        "visual-explainer@visual-explainer-marketplace": true
-    },
-    "extraKnownMarketplaces": {
-        "claude-code-plugins": {
-            "source": {
-                "source": "github",
-                "repo": "anthropics/claude-code"
-            }
-        },
-        "plannotator": {
-            "source": {
-                "source": "github",
-                "repo": "backnotprop/plannotator"
-            }
-        },
-        "visual-explainer-marketplace": {
-            "source": {
-                "source": "github",
-                "repo": "nicobailon/visual-explainer"
-            }
-        }
-    },
-    "alwaysThinkingEnabled": true,
-    "effortLevel": "high",
-    "fastMode": false,
-    "skipDangerousModePermissionPrompt": true,
-    "theme": "dark",
-    "hasCompletedOnboarding": true
+    "visual-explainer-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "nicobailon/visual-explainer"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "fastMode": false,
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "hasCompletedOnboarding": true
 }
