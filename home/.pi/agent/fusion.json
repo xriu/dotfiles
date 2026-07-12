@@ -7,7 +7,7 @@
                 "lm-openrouter/qwen/qwen3.7-plus",
                 "lm-openrouter/google/gemini-3.5-flash"
             ],
-            "judge": "lm-openrouter/z-ai/glm-5.2:exacto",
+            "judge": "lm-openrouter/z-ai/glm-5.2",
             "panelReasoning": "medium",
             "judgeReasoning": "high"
         }

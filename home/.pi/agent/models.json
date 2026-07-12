@@ -233,20 +233,6 @@
                     }
                 },
                 {
-                    "id": "z-ai/glm-5.2:exacto",
-                    "name": "GLM 5.2 E",
-                    "reasoning": true,
-                    "input": ["text"],
-                    "contextWindow": 1048576,
-                    "maxTokens": 131072,
-                    "cost": {
-                        "input": 0.49,
-                        "output": 1.54,
-                        "cacheRead": 0.091,
-                        "cacheWrite": 0
-                    }
-                },
-                {
                     "id": "deepseek/deepseek-v4-pro",
                     "name": "DeepSeek V4 Pro",
                     "reasoning": true,

@@ -77,44 +77,14 @@
         ],
         "SessionStart": [
             {
+                "matcher": "*",
                 "hooks": [
                     {
+                        "type": "command",
                         "command": "bash '/Users/xavier.riu/.claude/hooks/herdr-agent-state.sh' session",
-                        "timeout": 10,
-                        "type": "command"
+                        "timeout": 10
                     }
-                ],
-                "matcher": "*"
-            },
-            {
-                "hooks": [
-                    {
-                        "command": "chrome-devtools-axi",
-                        "timeout": 10,
-                        "type": "command"
-                    }
-                ],
-                "matcher": ""
-            },
-            {
-                "hooks": [
-                    {
-                        "command": "gh-axi",
-                        "timeout": 10,
-                        "type": "command"
-                    }
-                ],
-                "matcher": ""
-            },
-            {
-                "hooks": [
-                    {
-                        "command": "lavish-axi",
-                        "timeout": 10,
-                        "type": "command"
-                    }
-                ],
-                "matcher": ""
+                ]
             },
             {
                 "matcher": "startup",

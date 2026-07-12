@@ -17,8 +17,8 @@
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
-  "defaultProvider": "xriu-opencode-openai",
-  "defaultModel": "glm-5.2",
+  "defaultProvider": "lm-openrouter",
+  "defaultModel": "deepseek/deepseek-v4-pro",
   "defaultThinkingLevel": "max",
   "defaultProjectTrust": "always",
   "treeFilterMode": "no-tools",
