@@ -1,26 +1,21 @@
-import * as os from "node:os";
-import * as path from "node:path";
 import type {
-	ToolCallEvent,
 	ToolCallContext,
+	ToolCallEvent,
 } from "@earendil-works/pi-coding-agent";
 import { isToolCallEventType } from "@earendil-works/pi-coding-agent";
-import { matchPath, type MatchResult } from "./policy-matcher.js";
+import type { GuardrailsConfig } from "./config.js";
 import { extractPaths } from "./path-extractor.js";
 import { matchCommand } from "./permission-gate-matcher.js";
-import type { GuardrailsConfig } from "./config.js";
+import {
+	expandPattern,
+	type MatchResult,
+	matchPath,
+} from "./policy-matcher.js";
 import type { GuardrailsState } from "./state.js";
 
 // Mutating commands that write to the filesystem.
 const WRITE_COMMANDS =
-	"rm|mv|cp|touch|mkdir|chmod|chown|tee|dd|rsync|tar|zip|unzip|gzip|7z";
-const WRITE_CMD_AT_START = new RegExp(`^\\s*(${WRITE_COMMANDS})\\b`);
-const WRITE_CMD_AFTER_SEPARATOR = new RegExp(
-	`(?:(?:^|\\s)(?:&&|\\|\\|)\\s*|[;&]\\s*)(${WRITE_COMMANDS})\\b`,
-);
-const FD_REDIRECT = />\s*\/dev\/null/;
-const COMBINED_FD_REDIRECT = /&>\s*\/dev\/null/;
-const FD_REDIRECT_TO_NUM = />\s*&\d/;
+	/\b(rm|mv|cp|touch|mkdir|chmod|chown|tee|dd|rsync|tar|zip|unzip|gzip|7z)\b/;
 
 export class Interceptor {
 	constructor(private readonly state: GuardrailsState) {}
@@ -74,15 +69,13 @@ export class Interceptor {
 			const extracted = extractPaths(command);
 			const isWriteCommand = this.detectWrite(command);
 			for (const filePath of extracted) {
-				const absolutePath = this.resolvePath(filePath, ctx.cwd);
-				const match = matchPath(absolutePath, config, ctx.cwd);
-				if (!match) continue;
-
-				// readOnly allows read-like bash commands
-				if (match.protection === "readOnly" && !isWriteCommand) continue;
-
-				this.state.denialCount++;
-				return this.buildDenialReason(match, filePath);
+				const denial = this.checkPathPolicy(
+					filePath,
+					isWriteCommand,
+					config,
+					ctx.cwd,
+				);
+				if (denial) return denial;
 			}
 		}
 	}
@@ -94,57 +87,64 @@ export class Interceptor {
 	) {
 		if (!config.features.policies) return;
 
-		let filePath: string | undefined;
-		let isReadOnlyTool = false;
-
-		if (isToolCallEventType("read", event)) {
-			filePath = event.input.path;
-			isReadOnlyTool = true;
-		} else if (isToolCallEventType("write", event)) {
-			filePath = event.input.path;
-		} else if (isToolCallEventType("edit", event)) {
-			filePath = event.input.path;
-		} else if (isToolCallEventType("find", event)) {
-			filePath = event.input.path;
-			isReadOnlyTool = true;
-		} else if (isToolCallEventType("grep", event)) {
-			filePath = event.input.path;
-			isReadOnlyTool = true;
-		}
-
+		const filePath = this.extractFilePath(event);
 		if (!filePath) return;
 
-		const absolutePath = this.resolvePath(filePath, ctx.cwd);
-		const match = matchPath(absolutePath, config, ctx.cwd);
-		if (!match) return;
-
-		// readOnly allows read/find/grep but blocks write/edit
-		if (match.protection === "readOnly" && isReadOnlyTool) return;
-
-		this.state.denialCount++;
-		return this.buildDenialReason(match, filePath);
-	}
-
-	private detectWrite(command: string): boolean {
-		return (
-			(/>/.test(command) &&
-				!FD_REDIRECT.test(command) &&
-				!COMBINED_FD_REDIRECT.test(command) &&
-				!FD_REDIRECT_TO_NUM.test(command)) ||
-			WRITE_CMD_AT_START.test(command) ||
-			WRITE_CMD_AFTER_SEPARATOR.test(command)
+		return this.checkPathPolicy(
+			filePath.path,
+			!filePath.isReadOnly,
+			config,
+			ctx.cwd,
 		);
 	}
 
-	private resolvePath(filePath: string, cwd: string): string {
-		let resolved = filePath;
-		if (filePath.startsWith("~")) {
-			const rest = filePath.slice(1);
-			if (rest === "" || rest.startsWith("/")) {
-				resolved = rest === "" ? os.homedir() : path.join(os.homedir(), rest);
-			}
+	private extractFilePath(
+		event: ToolCallEvent,
+	): { path: string; isReadOnly: boolean } | null {
+		if (
+			isToolCallEventType("read", event) ||
+			isToolCallEventType("find", event) ||
+			isToolCallEventType("grep", event)
+		) {
+			return { path: event.input.path, isReadOnly: true };
 		}
-		return path.isAbsolute(resolved) ? resolved : path.resolve(cwd, resolved);
+		if (
+			isToolCallEventType("write", event) ||
+			isToolCallEventType("edit", event)
+		) {
+			return { path: event.input.path, isReadOnly: false };
+		}
+		return null;
+	}
+
+	private detectWrite(command: string): boolean {
+		// Check for any redirect (simplified to avoid false negatives)
+		if (/>/.test(command)) {
+			return true;
+		}
+
+		// Check for write commands outside of quotes
+		// This catches commands like "sudo rm file" that were missed by the previous logic
+		const unquotedCommand = command.replace(/"[^"]*"|'[^']*'/g, "");
+		return WRITE_COMMANDS.test(unquotedCommand);
+	}
+
+	/** Check a single path against policy rules. Returns denial or null. */
+	private checkPathPolicy(
+		filePath: string,
+		isWrite: boolean,
+		config: GuardrailsConfig,
+		cwd: string,
+	): { block: true; reason: string } | null {
+		const absolutePath = expandPattern(filePath, cwd);
+		const match = matchPath(absolutePath, config, cwd);
+		if (!match) return null;
+
+		// readOnly allows non-write operations
+		if (match.protection === "readOnly" && !isWrite) return null;
+
+		this.state.denialCount++;
+		return this.buildDenialReason(match, filePath);
 	}
 
 	private buildDenialReason(match: MatchResult, filePath: string) {

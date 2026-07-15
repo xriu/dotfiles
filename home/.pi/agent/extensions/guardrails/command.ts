@@ -1,5 +1,6 @@
-import type { GuardrailsState } from "./state.js";
+import * as path from "node:path";
 import { loadConfig } from "./config.js";
+import type { GuardrailsState } from "./state.js";
 
 export class GuardrailsCommand {
 	constructor(private readonly state: GuardrailsState) {}
@@ -37,6 +38,16 @@ export class GuardrailsCommand {
 		);
 	}
 
+	/** Format a feature status line. */
+	private formatFeatureLine(
+		name: string,
+		enabled: boolean,
+		details?: string,
+	): string {
+		const status = enabled ? "enabled" : "disabled";
+		return details ? `${name}: ${status} (${details})` : `${name}: ${status}`;
+	}
+
 	private showStatus(ctx: {
 		ui: { notify: (msg: string, level: string) => void };
 	}) {
@@ -51,16 +62,28 @@ export class GuardrailsCommand {
 		} else if (!config) {
 			lines.push("Config: Not loaded");
 		} else {
-			lines.push("Config: ~/.pi/agent/guardrails.json (loaded)");
-			lines.push(`Master: ${config.enabled ? "enabled" : "disabled"}`);
+			lines.push("Global: ~/.pi/agent/guardrails.json (loaded)");
+			if (this.state.projectConfigPath) {
+				const rel = path.relative(process.cwd(), this.state.projectConfigPath);
+				lines.push(`Project: ${rel} (loaded)`);
+			}
+			lines.push(this.formatFeatureLine("Master", config.enabled));
 			lines.push(
-				`Policies: ${config.features.policies ? "enabled" : "disabled"} (${config.policies.rules.length} rules)`,
+				this.formatFeatureLine(
+					"Policies",
+					config.features.policies,
+					`${config.policies.rules.length} rules`,
+				),
 			);
 			lines.push(
-				`PermissionGates: ${config.features.permissionGate ? "enabled" : "disabled"} (${config.permissionGate.patterns.length + config.permissionGate.customPatterns.length} patterns)`,
+				this.formatFeatureLine(
+					"PermissionGates",
+					config.features.permissionGate,
+					`${config.permissionGate.patterns.length + config.permissionGate.customPatterns.length} patterns`,
+				),
 			);
 			lines.push(
-				`PathAccess: ${config.features.pathAccess ? "enabled" : "disabled"}`,
+				this.formatFeatureLine("PathAccess", config.features.pathAccess),
 			);
 			lines.push(`Denials this session: ${denialCount}`);
 		}
@@ -71,16 +94,11 @@ export class GuardrailsCommand {
 	private reload(ctx: {
 		ui: { notify: (msg: string, level: string) => void };
 	}) {
-		try {
-			this.state.config = loadConfig();
-			this.state.configError = null;
-			this.state.awarenessSent = false;
-			this.state.denialCount = 0;
+		const error = this.state.reloadConfig(loadConfig);
+		if (error) {
+			ctx.ui.notify(`Reload failed: ${error}`, "error");
+		} else {
 			ctx.ui.notify("Guardrails config reloaded", "info");
-		} catch (err) {
-			this.state.config = null;
-			this.state.configError = err instanceof Error ? err.message : String(err);
-			ctx.ui.notify(`Reload failed: ${this.state.configError}`, "error");
 		}
 	}
 }

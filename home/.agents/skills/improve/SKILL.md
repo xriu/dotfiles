@@ -5,7 +5,8 @@ license: MIT
 metadata:
   author: shadcn
   version: "1.0.0"
-disable-model-invocation: false
+hidden: true
+disable-model-invocation: true
 ---
 
 # Improve

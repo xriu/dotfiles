@@ -2,6 +2,7 @@
 name: docs-to-types
 description: >-
   Converts grill-with-docs output — CONTEXT.md glossaries, ADRs, and approved domain decisions — into typed architecture. Use after grill-with-docs when the user wants domain types, seams, adapters, errors, call stacks, and dependency rules expressed in code before business behavior.
+hidden: true
 disable-model-invocation: true
 ---
 

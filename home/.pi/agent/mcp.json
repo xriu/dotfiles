@@ -1,5 +1,8 @@
 {
     "mcpServers": {
+        "Atlassian": {
+            "url": "https://mcp.atlassian.com/v1/mcp/authv2"
+        },
         "aws-knowledge": {
             "type": "http",
             "url": "https://knowledge-mcp.global.api.aws"
@@ -13,8 +16,12 @@
                 "AWS_REGION=us-east-1"
             ]
         },
-        "codebase-memory-mcp": {
-            "command": "/Users/xavier.riu/.local/bin/codebase-memory-mcp"
+        "executor": {
+            "type": "http",
+            "url": "http://localhost:4789/mcp?elicitation_mode=native",
+            "headers": {
+                "Authorization": "Bearer ${EXECUTOR_API_KEY}"
+            }
         }
     }
 }

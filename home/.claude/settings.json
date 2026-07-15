@@ -1,184 +1,172 @@
 {
-    "$schema": "https://json.schemastore.org/claude-code-settings.json",
-    "alwaysThinkingEnabled": true,
-    "attribution": {
-        "commit": "",
-        "pr": ""
-    },
-    "autoCompactWindow": 180000,
-    "cleanupPeriodDays": 30,
-    "effortLevel": "high",
-    "enabledPlugins": {
-        "agent-sdk-dev@claude-code-plugins": true,
-        "frontend-design@claude-plugins-official": true,
-        "plannotator@plannotator": true,
-        "plugin-dev@claude-code-plugins": true,
-        "rust-analyzer-lsp@claude-plugins-official": true,
-        "typescript-lsp@claude-plugins-official": true,
-        "visual-explainer@visual-explainer-marketplace": true
-    },
-    "env": {
-        "CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
-        "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
-        "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
-        "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
-        "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
-        "CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
-        "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
-        "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-        "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-        "CLAUDE_CODE_NO_FLICKER": "1",
-        "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5[1m]",
-        "DISABLE_ERROR_REPORTING": "1",
-        "DISABLE_TELEMETRY": "1"
-    },
-    "extraKnownMarketplaces": {
-        "claude-code-plugins": {
-            "source": {
-                "repo": "anthropics/claude-code",
-                "source": "github"
-            }
-        },
-        "plannotator": {
-            "source": {
-                "repo": "backnotprop/plannotator",
-                "source": "github"
-            }
-        },
-        "visual-explainer-marketplace": {
-            "source": {
-                "repo": "nicobailon/visual-explainer",
-                "source": "github"
-            }
-        }
-    },
-    "fastMode": false,
-    "hasCompletedOnboarding": true,
-    "hooks": {
-        "PreToolUse": [
-            {
-                "hooks": [
-                    {
-                        "command": "~/.claude/hooks/cbm-code-discovery-gate",
-                        "timeout": 5,
-                        "type": "command"
-                    }
-                ],
-                "matcher": "Grep|Glob"
-            }
-        ],
-        "SessionStart": [
-            {
-                "hooks": [
-                    {
-                        "command": "~/.claude/hooks/cbm-session-reminder",
-                        "type": "command"
-                    }
-                ],
-                "matcher": "startup"
-            },
-            {
-                "hooks": [
-                    {
-                        "command": "~/.claude/hooks/cbm-session-reminder",
-                        "type": "command"
-                    }
-                ],
-                "matcher": "resume"
-            },
-            {
-                "hooks": [
-                    {
-                        "command": "~/.claude/hooks/cbm-session-reminder",
-                        "type": "command"
-                    }
-                ],
-                "matcher": "clear"
-            },
-            {
-                "hooks": [
-                    {
-                        "command": "~/.claude/hooks/cbm-session-reminder",
-                        "type": "command"
-                    }
-                ],
-                "matcher": "compact"
-            },
-            {
-                "hooks": [
-                    {
-                        "command": "gh-axi",
-                        "timeout": 10,
-                        "type": "command"
-                    }
-                ],
-                "matcher": ""
-            },
-            {
-                "hooks": [
-                    {
-                        "command": "bash '/Users/xavier.riu/.claude/hooks/herdr-agent-state.sh' session",
-                        "timeout": 10,
-                        "type": "command"
-                    }
-                ],
-                "matcher": "*"
-            },
-            {
-                "matcher": "",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "chrome-devtools-axi",
-                        "timeout": 10
-                    }
-                ]
-            },
-            {
-                "matcher": "",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "lavish-axi",
-                        "timeout": 10
-                    }
-                ]
-            }
+  "cleanupPeriodDays": 30,
+  "skillListingBudgetFraction": 0.03,
+  "env": {
+    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
+    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
+    "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_NO_FLICKER": "1",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5[1m]",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_TELEMETRY": "1"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [],
+    "deny": [
+      "Bash(dd *)",
+      "Bash(diskutil *)",
+      "Bash(git push *)",
+      "Bash(git reset --hard *)",
+      "Bash(mkfs *)",
+      "Bash(npm publish *)",
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf .*)",
+      "Bash(rm -rf $HOME*)",
+      "Bash(rm -rf ~*)",
+      "Bash(sudo rm -rf *)",
+      "Bash(terraform apply *)",
+      "Bash(terraform destroy *)",
+      "Read(./.env*)",
+      "Read(./config/credentials.json)",
+      "Read(./secrets/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.ssh/**)",
+      "AskUserQuestion",
+      "CronCreate",
+      "CronDelete",
+      "CronList",
+      "DesignSync",
+      "EnterPlanMode",
+      "ExitPlanMode",
+      "NotebookEdit",
+      "PushNotification",
+      "RemoteTrigger",
+      "ReportFindings",
+      "ScheduleWakeup",
+      "SendMessage"
+    ],
+    "ask": [],
+    "defaultMode": "bypassPermissions",
+    "additionalDirectories": [
+      "~/.claude/"
+    ]
+  },
+  "model": "sonnet",
+  "disableClaudeAiConnectors": false,
+  "disableBundledSkills": true,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Grep|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-code-discovery-gate",
+            "timeout": 5
+          }
         ]
-    },
-    "model": "claude-sonnet-5[1m]",
-    "permissions": {
-        "additionalDirectories": ["~/.claude/"],
-        "allow": [],
-        "ask": [],
-        "defaultMode": "bypassPermissions",
-        "deny": [
-            "Bash(dd *)",
-            "Bash(diskutil *)",
-            "Bash(mkfs *)",
-            "Bash(rm -rf /*)",
-            "Bash(rm -rf /)",
-            "Bash(rm -rf ~*)",
-            "Bash(rm -rf $HOME*)",
-            "Bash(rm -rf .*)",
-            "Bash(sudo rm -rf *)",
-            "Bash(git push *)",
-            "Bash(git reset --hard *)",
-            "Bash(npm publish *)",
-            "Bash(terraform apply *)",
-            "Bash(terraform destroy *)",
-            "Read(./.env*)",
-            "Read(./config/credentials.json)",
-            "Read(./secrets/**)",
-            "Read(~/.aws/**)",
-            "Read(~/.ssh/**)"
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/xavier.riu/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
         ]
+      },
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
+        ]
+      },
+      {
+        "matcher": "resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
+        ]
+      },
+      {
+        "matcher": "clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
+        ]
+      },
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/cbm-session-reminder"
+          }
+        ]
+      }
+    ]
+  },
+  "disableRemoteControl": true,
+  "disableWorkflows": true,
+  "disableArtifact": true,
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
+  },
+  "enabledPlugins": {
+    "agent-sdk-dev@claude-code-plugins": true,
+    "frontend-design@claude-plugins-official": true,
+    "plannotator@plannotator": true,
+    "plugin-dev@claude-code-plugins": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "visual-explainer@visual-explainer-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
     },
-    "skillListingBudgetFraction": 0.03,
-    "skipDangerousModePermissionPrompt": true,
-    "statusLine": {
-        "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh",
-        "type": "command"
+    "plannotator": {
+      "source": {
+        "source": "github",
+        "repo": "backnotprop/plannotator"
+      }
     },
-    "theme": "dark"
+    "visual-explainer-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "nicobailon/visual-explainer"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "fastMode": false,
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "hasCompletedOnboarding": true
 }

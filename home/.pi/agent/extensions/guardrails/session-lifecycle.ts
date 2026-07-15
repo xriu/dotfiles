@@ -1,4 +1,4 @@
-import type { loadConfig, GuardrailsConfig } from "./config.js";
+import type { GuardrailsConfig, loadConfig } from "./config.js";
 import type { GuardrailsState } from "./state.js";
 
 export class SessionLifecycle {
@@ -8,18 +8,10 @@ export class SessionLifecycle {
 	) {}
 
 	onSessionStart() {
-		try {
-			this.state.config = this.loadConfigFn();
-			this.state.configError = null;
-		} catch (err) {
-			this.state.config = null;
-			this.state.configError = err instanceof Error ? err.message : String(err);
-			console.warn(
-				`[guardrails] Failed to load config: ${this.state.configError}`,
-			);
+		const error = this.state.reloadConfig(this.loadConfigFn);
+		if (error) {
+			console.warn(`[guardrails] Failed to load config: ${error}`);
 		}
-		this.state.denialCount = 0;
-		this.state.awarenessSent = false;
 	}
 
 	onBeforeAgentStart() {
@@ -45,38 +37,48 @@ export class SessionLifecycle {
 		lines.push("Guardrails are active:");
 
 		if (config.features.policies) {
-			const noAccessRules = config.policies.rules.filter(
-				(r) => r.protection === "noAccess",
-			);
-			const readOnlyRules = config.policies.rules.filter(
-				(r) => r.protection === "readOnly",
-			);
-
-			if (noAccessRules.length > 0) {
-				const patterns = noAccessRules.flatMap((r) =>
-					r.patterns.map((p) => p.pattern),
-				);
-				lines.push(`- Secret files (${patterns.join(", ")}) are inaccessible`);
-			}
-			if (readOnlyRules.length > 0) {
-				const patterns = readOnlyRules.flatMap((r) =>
-					r.patterns.map((p) => p.pattern),
-				);
-				lines.push(`- Protected paths (${patterns.join(", ")}) are read-only`);
-			}
+			this.addPolicyLine(config, lines, "noAccess", "Secret files");
+			this.addPolicyLine(config, lines, "readOnly", "Protected paths");
 		}
+
+		this.addPermissionGateLine(config, lines);
+
+		return lines;
+	}
+
+	/** Add a policy line for rules with the given protection level. */
+	private addPolicyLine(
+		config: GuardrailsConfig,
+		lines: string[],
+		protection: "noAccess" | "readOnly",
+		label: string,
+	): void {
+		const rules = config.policies.rules.filter(
+			(r) => r.protection === protection,
+		);
+		if (rules.length === 0) return;
+		const patterns = rules.flatMap((r) => r.patterns.map((p) => p.pattern));
+		const status = protection === "noAccess" ? "inaccessible" : "read-only";
+		lines.push(`- ${label} (${patterns.join(", ")}) are ${status}`);
+	}
+
+	/** Add permission gate line if enabled and has patterns. */
+	private addPermissionGateLine(
+		config: GuardrailsConfig,
+		lines: string[],
+	): void {
+		if (!config.features.permissionGate) return;
 
 		const allGatePatterns = [
 			...config.permissionGate.patterns,
 			...config.permissionGate.customPatterns,
 		];
-		if (config.features.permissionGate && allGatePatterns.length > 0) {
-			const gatePatterns = allGatePatterns.map((p) => p.pattern);
-			lines.push(
-				`- Dangerous commands (${gatePatterns.join(", ")}) require your confirmation`,
-			);
-		}
 
-		return lines;
+		if (allGatePatterns.length === 0) return;
+
+		const gatePatterns = allGatePatterns.map((p) => p.pattern);
+		lines.push(
+			`- Dangerous commands (${gatePatterns.join(", ")}) require your confirmation`,
+		);
 	}
 }

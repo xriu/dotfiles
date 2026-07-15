@@ -11,11 +11,14 @@ export function extractPaths(command: string): string[] {
 	// Group 2: single-quoted paths
 	// Group 3: bare (unquoted) paths
 	const combinedRe =
-		/"([\/][^"]*|~[^"]*|\.[\/][^"]*|\.\.[\/][^"]*)"|'([\/][^']*|~[^']*|\.[\/][^']*|\.\.[\/][^']*)'|([\/][^\s'"]+|~[^\s'"]*|\.[\/][^\s'"]*|\.\.[\/][^\s'"]*)/g;
+		/"([/][^"]*|~[^"]*|\.[/][^"]*|\.\.[/][^"]*)"|'([/][^']*|~[^']*|\.[/][^']*|\.\.[/][^']*)'|([/][^\s'"]+|~[^\s'"]*|\.[/][^\s'"]*|\.\.[/][^\s'"]*)/g;
 
-	let m: RegExpExecArray | null;
-	while ((m = combinedRe.exec(command)) !== null) {
-		paths.push(m[1] ?? m[2] ?? m[3]);
+	for (
+		let match = combinedRe.exec(command);
+		match !== null;
+		match = combinedRe.exec(command)
+	) {
+		paths.push(match[1] ?? match[2] ?? match[3]);
 	}
 
 	return paths;

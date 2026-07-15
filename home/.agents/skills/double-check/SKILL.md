@@ -1,6 +1,7 @@
 ---
 name: double-check
 description: Double check / review implementation with fresh eyes
+hidden: true
 disable-model-invocation: true
 ---
 
@@ -17,6 +18,7 @@ Fight entropy. Leave the codebase better than you found it.
 You MUST read all relevant code and think deeply (ultrathink!!!) first before you make any edits.
 
 **Response format:**
+
 - If you find ANY issues: fix them, then list what you fixed. Do NOT say "no issues found" - instead end with "Fixed [N] issue(s). Ready for another review."
 - If you find ZERO issues: describe what you examined and verified, then conclude with "No issues found."
 

@@ -1,10 +1,10 @@
 {
-    "lastChangelogVersion": "0.80.3",
+    "lastChangelogVersion": "0.80.6",
     "packages": [
         "npm:@plannotator/pi-extension",
         "npm:pi-bash-live-view",
         "npm:pi-design-deck",
-        "npm:pi-goal",
+        "npm:pi-fusion",
         "npm:pi-interview",
         "npm:pi-lens",
         "npm:pi-markdown-preview",
@@ -13,12 +13,12 @@
         "npm:pi-review-loop",
         "npm:pi-rewind",
         "npm:pi-slop-review",
-        "npm:pi-smart-fetch"
+        "npm:pi-web-access"
     ],
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-    "defaultProvider": "opencode-go",
-    "defaultModel": "deepseek-v4-flash",
-    "defaultThinkingLevel": "high",
+    "defaultProvider": "lm-openrouter",
+    "defaultModel": "deepseek/deepseek-v4-pro",
+    "defaultThinkingLevel": "max",
     "defaultProjectTrust": "always",
     "treeFilterMode": "no-tools",
     "theme": "dark",
@@ -31,5 +31,14 @@
         "autoTrigger": true,
         "freshContext": true,
         "reviewPrompt": "template:double-check"
+    },
+    "showCacheMissNotices": true,
+    "followUpMode": "all",
+    "steeringMode": "all",
+    "httpIdleTimeoutMs": 120000,
+    "enableInstallTelemetry": true,
+    "powerline": {
+        "preset": "default",
+        "welcome": false
     }
 }

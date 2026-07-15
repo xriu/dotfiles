@@ -1,6 +1,7 @@
 ---
 name: make-requirements-great
 description: Review existing requirements or convert raw context into requirements that meet 18 quality characteristics (unambiguous, clear, cohesive, consistent, conformant, current, modifiable, traceable, relevant, unique, categorised, complete, correct, concise, testable, implementation-independent, owned, feasible). Use whenever the user mentions requirements, PRDs, specs, user stories, acceptance criteria, requirements review, requirements audit, BRD, FRD, requirements quality, requirements catalogue, requirements traceability, "are my requirements any good", "turn this into requirements", "make these requirements better", or shares meeting notes, interview transcripts, stakeholder input, or feature ideas that need to be formalised. Trigger even when the user does not use the word "requirement" if the artifact they share is functionally a requirement (e.g., "the system should let users export to PDF", "we need a way for admins to revoke access").
+hidden: true
 disable-model-invocation: true
 ---
 

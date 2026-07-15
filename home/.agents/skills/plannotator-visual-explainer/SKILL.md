@@ -1,11 +1,12 @@
 ---
 name: plannotator-visual-explainer
-disable-model-invocation: true
 description: >
   Generate self-contained HTML visualizations with Plannotator theming. Use for implementation
   plans, PR explainers, architecture diagrams, data tables, slide decks, and any visual
   explanation of technical concepts. Plans and PR explainers follow Plannotator's prescriptive
   approach; all other visual content delegates to nicobailon/visual-explainer.
+hidden: true
+disable-model-invocation: true
 ---
 
 # Plannotator Visual Explainer
@@ -25,11 +26,13 @@ Three paths depending on content type. Each has its own references and structure
 Always deliver via Plannotator's annotation UI. Do NOT use `open` or `xdg-open`.
 
 **Plans/proposals** (user should approve/deny):
+
 ```bash
 plannotator annotate <file> --gate
 ```
 
 **Everything else** (informational):
+
 ```bash
 plannotator annotate <file>
 ```
@@ -41,6 +44,7 @@ plannotator annotate <file>
 For implementation plans, design docs, feature specs, migration guides, and proposals.
 
 **Before generating, read:**
+
 1. `references/design-system.md` — Plannotator theme tokens, typography, component patterns
 2. `references/svg-patterns.md` — inline SVG building blocks for architecture diagrams, flowcharts, data flow
 
@@ -68,6 +72,7 @@ Not every plan needs every section. Skip what doesn't serve the content. Never i
 For PR walkthroughs, diff reviews, code change explainers, and reviewer guides.
 
 **Before generating, read:**
+
 1. `references/design-system.md` — Plannotator theme tokens, typography, component patterns
 2. `references/pr-components.md` — diff rendering, review comment bubbles, risk chips, file cards, before/after panels
 
