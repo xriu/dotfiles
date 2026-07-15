@@ -1,5 +1,5 @@
 {
-    "lastChangelogVersion": "0.80.6",
+    "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
         "npm:@plannotator/pi-extension",
         "npm:pi-bash-live-view",
@@ -15,30 +15,44 @@
         "npm:pi-slop-review",
         "npm:pi-web-access"
     ],
-    "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-    "defaultProvider": "lm-openrouter",
-    "defaultModel": "deepseek/deepseek-v4-pro",
-    "defaultThinkingLevel": "max",
-    "defaultProjectTrust": "always",
-    "treeFilterMode": "no-tools",
-    "theme": "dark",
     "compaction": {
-        "reserveTokens": 820000,
-        "keepRecentTokens": 20000
+        "keepRecentTokens": 20000,
+        "reserveTokens": 820000
+    },
+    "defaultModel": "deepseek-v4-flash",
+    "defaultProjectTrust": "always",
+    "defaultProvider": "xriu-opencode-openai",
+    "defaultThinkingLevel": "max",
+    "enableInstallTelemetry": true,
+    "followUpMode": "all",
+    "httpIdleTimeoutMs": 120000,
+    "lastChangelogVersion": "0.80.6",
+    "powerline": {
+        "layout": {
+            "left": [
+                "model",
+                "thinking",
+                "shell_mode",
+                "path",
+                "context_pct",
+                "cache_read",
+                "cost"
+            ],
+            "right": [],
+            "secondary": ["git", "extension_statuses"]
+        },
+        "placement": "below",
+        "preset": "default",
+        "welcome": false
     },
     "reviewerLoop": {
-        "maxIterations": 3,
         "autoTrigger": true,
         "freshContext": true,
+        "maxIterations": 3,
         "reviewPrompt": "template:double-check"
     },
     "showCacheMissNotices": true,
-    "followUpMode": "all",
     "steeringMode": "all",
-    "httpIdleTimeoutMs": 120000,
-    "enableInstallTelemetry": true,
-    "powerline": {
-        "preset": "default",
-        "welcome": false
-    }
+    "theme": "dark",
+    "treeFilterMode": "no-tools"
 }
