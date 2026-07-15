@@ -269,6 +269,10 @@
             {
                 "pattern": ".git/index.lock",
                 "description": "Safe: removes a single Git lock file"
+            },
+            {
+                "pattern": "/tmp/",
+                "description": "Safe: /tmp/ operations"
             }
         ],
         "autoDenyPatterns": []
