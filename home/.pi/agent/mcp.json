@@ -15,13 +15,6 @@
                 "--metadata",
                 "AWS_REGION=us-east-1"
             ]
-        },
-        "executor": {
-            "type": "http",
-            "url": "http://localhost:4789/mcp?elicitation_mode=native",
-            "headers": {
-                "Authorization": "Bearer ${EXECUTOR_API_KEY}"
-            }
         }
     }
 }
