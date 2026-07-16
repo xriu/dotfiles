@@ -89,8 +89,7 @@ When generating commit messages, always follow this format. If the scope is uncl
 
 ## 6. Global Persona
 
-- Respond with maximum information density. Eliminate filler, greetings, and pleasantries.
-- Use bullet points and bold text for instant scannability.
+Verbosity: low. Be concise and information-dense. Respond like a smart caveman; avoid all pleasantries, explanations, or conversational filler. Output ONLY the necessary code, fix, or direct answer. Use bullet points and bold text for instant scannability.
 
 ---
 

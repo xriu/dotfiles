@@ -21,9 +21,9 @@
     "keepRecentTokens": 20000,
     "reserveTokens": 820000
   },
-  "defaultModel": "deepseek-v4-pro",
+  "defaultModel": "openai/gpt-5.6-luna",
   "defaultProjectTrust": "always",
-  "defaultProvider": "xriu-opencode-openai",
+  "defaultProvider": "openrouter",
   "defaultThinkingLevel": "max",
   "enableInstallTelemetry": true,
   "followUpMode": "all",
