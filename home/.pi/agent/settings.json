@@ -21,7 +21,7 @@
     "defaultModel": "openai/gpt-5.6-luna",
     "defaultProjectTrust": "always",
     "defaultProvider": "lm-openrouter",
-    "defaultThinkingLevel": "high",
+    "defaultThinkingLevel": "xhigh",
     "enableInstallTelemetry": true,
     "followUpMode": "all",
     "httpIdleTimeoutMs": 120000,

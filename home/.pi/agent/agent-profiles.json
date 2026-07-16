@@ -1,17 +1,17 @@
 {
-    "defaultProfile": "max",
+    "defaultProfile": "xhigh",
     "profiles": {
         "alibaba": {
             "main": [
                 {
                     "provider": "xriu-alibaba",
                     "model": "qwen3.7-plus",
-                    "thinkingLevel": "max"
+                    "thinkingLevel": "xhigh"
                 },
                 {
                     "provider": "xriu-opencode-openai",
                     "model": "deepseek-v4-flash",
-                    "thinkingLevel": "max"
+                    "thinkingLevel": "xhigh"
                 }
             ],
             "agents": {
@@ -29,12 +29,12 @@
                 {
                     "provider": "xriu-opencode-openai",
                     "model": "deepseek-v4-flash",
-                    "thinkingLevel": "max"
+                    "thinkingLevel": "xhigh"
                 },
                 {
                     "provider": "xriu-alibaba",
                     "model": "qwen3.7-plus",
-                    "thinkingLevel": "max"
+                    "thinkingLevel": "xhigh"
                 }
             ],
             "agents": {
@@ -52,7 +52,7 @@
                 {
                     "provider": "lm-openrouter",
                     "model": "openai/gpt-5.6-luna",
-                    "thinkingLevel": "max"
+                    "thinkingLevel": "xhigh"
                 }
             ],
             "agents": {}
