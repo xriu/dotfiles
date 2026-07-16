@@ -21,10 +21,10 @@
     "keepRecentTokens": 20000,
     "reserveTokens": 820000
   },
-  "defaultModel": "openai/gpt-5.6-luna",
+  "defaultModel": "z-ai/glm-5.2",
   "defaultProjectTrust": "always",
-  "defaultProvider": "openrouter",
-  "defaultThinkingLevel": "max",
+  "defaultProvider": "lm-openrouter",
+  "defaultThinkingLevel": "high",
   "enableInstallTelemetry": true,
   "followUpMode": "all",
   "httpIdleTimeoutMs": 120000,
