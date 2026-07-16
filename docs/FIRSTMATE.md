@@ -1,4 +1,4 @@
-# HERDR
+# FirstMate
 
 Everything you need is installed, captain. Here's the rundown:
 
