@@ -51,7 +51,7 @@
             "main": [
                 {
                     "provider": "lm-openrouter",
-                    "model": "z-ai/glm-5.2",
+                    "model": "openai/gpt-5.6-luna",
                     "thinkingLevel": "max"
                 }
             ],
