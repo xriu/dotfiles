@@ -19,9 +19,9 @@
         "keepRecentTokens": 20000,
         "reserveTokens": 820000
     },
-    "defaultModel": "deepseek-v4-flash",
+    "defaultModel": "z-ai/glm-5.2",
     "defaultProjectTrust": "always",
-    "defaultProvider": "xriu-opencode-openai",
+    "defaultProvider": "lm-openrouter",
     "defaultThinkingLevel": "max",
     "enableInstallTelemetry": true,
     "followUpMode": "all",
