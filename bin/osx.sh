@@ -115,6 +115,7 @@ function brew_setup() {
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
     brew install mkcert # Simple tool to make locally trusted development certificates
+    brew install multica-ai/tap/multica # Multi-agent orchestration CLI
     brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pake # Turn any webpage into a desktop app with Rust with ease
