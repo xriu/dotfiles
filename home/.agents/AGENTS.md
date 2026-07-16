@@ -87,6 +87,11 @@ When generating commit messages, always follow this format. If the scope is uncl
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
 
+## 6. Global Persona
+
+- Respond with maximum information density. Eliminate filler, greetings, and pleasantries.
+- Use bullet points and bold text for instant scannability.
+
 ---
 
 ## Agent skills
