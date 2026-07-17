@@ -1,6 +1,7 @@
 {
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
+        "npm:@piotr-oles/pi-reflag",
         "npm:@plannotator/pi-extension",
         "npm:pi-bash-live-view",
         "npm:pi-design-deck",
