@@ -27,7 +27,7 @@ Generate a detailed pull request description that provides full context for revi
 ## PR Template
 
 ```markdown
-[PR Title]
+PR Title
 
 ## Summary
 

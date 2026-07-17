@@ -25,7 +25,7 @@ Generate a concise pull request changelog from commits between the current branc
 ## Template
 
 ```md
-[PR Title]
+PR Title
 
 ## [Icon] [Category — e.g., Features]
 

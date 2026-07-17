@@ -69,12 +69,12 @@ function brew_setup() {
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed # Multiplayer code editor
 
-    # brew install atuin # Magical shell history
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
 
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
+    brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
