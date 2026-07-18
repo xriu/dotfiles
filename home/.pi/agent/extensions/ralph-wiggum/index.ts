@@ -36,7 +36,6 @@ export default function (pi: ExtensionAPI) {
 
 	// --- Cross-cutting helpers ---
 
-
 	function updateUI(ctx: ExtensionContext): void {
 		if (!ctx.hasUI) return;
 
@@ -93,11 +92,11 @@ export default function (pi: ExtensionAPI) {
 	function completeLoop(
 		ctx: ExtensionContext,
 		state: LoopState,
-		bannerText: string,
+		message: string,
 	): void {
 		orchestrator.stop(state, "completed", ctx);
 		updateUI(ctx);
-		if (bannerText) pi.sendUserMessage(bannerText);
+		if (message) pi.sendUserMessage(message);
 	}
 
 	function enforceMaxIterations(

@@ -104,7 +104,6 @@ export class LoopOrchestrator {
 			config.taskContent,
 			false,
 			config.prdContent,
-			config.tddMode,
 		);
 
 		return { state, prompt };
