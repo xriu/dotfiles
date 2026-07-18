@@ -24,8 +24,21 @@ export interface LoopState {
 	status: LoopStatus;
 	startedAt: string;
 	completedAt?: string;
-	lastReflectionAt: number;
 	tddMode?: boolean;
+}
+
+// ─── Shared UI utilities ──────────────────────────────────────────
+
+/** Icon per loop status — shared between index.ts and command-handlers.ts. */
+export const STATUS_ICONS: Record<LoopStatus, string> = {
+	active: "▶",
+	paused: "⏸",
+	completed: "✓",
+};
+
+/** Iteration display: "3/10" or "3". */
+export function formatMaxIter(state: LoopState): string {
+	return state.maxIterations > 0 ? `/${state.maxIterations}` : "";
 }
 
 interface PlanInfo {
@@ -82,8 +95,11 @@ export function migrateState(
 	if ("reflectEveryItems" in raw && !raw.reflectEvery) {
 		raw.reflectEvery = (raw as any).reflectEveryItems;
 	}
-	if ("lastReflectionAtItems" in raw && raw.lastReflectionAt === undefined) {
-		raw.lastReflectionAt = (raw as any).lastReflectionAtItems;
+	if (
+		"lastReflectionAtItems" in raw &&
+		(raw as any).lastReflectionAt === undefined
+	) {
+		(raw as any).lastReflectionAt = (raw as any).lastReflectionAtItems;
 	}
 	return raw as LoopState;
 }

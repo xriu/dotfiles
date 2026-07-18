@@ -1,8 +1,8 @@
 /**
  * CommandHandlers — all /ralph CLI command handlers.
  *
- * Extracted from index.ts to isolate command logic from event handlers,
- * tool registrations, and lifecycle management.
+ * Command handlers are thin adapters: parse args → call LoopOrchestrator → notify UI.
+ * Loop lifecycle lives in LoopOrchestrator; this file owns CLI parsing and UX.
  */
 
 import * as fs from "node:fs";
@@ -11,7 +11,8 @@ import type {
 	ExtensionAPI,
 	ExtensionContext,
 } from "@earendil-works/pi-coding-agent";
-import type { LoopRuntime } from "./loop-runtime";
+import type { LoopOrchestrator } from "./loop-orchestrator";
+import { DEFAULT_REFLECT_INSTRUCTIONS } from "./loop-orchestrator";
 import type { LoopState } from "./loop-store";
 import {
 	parsePlanPath,
@@ -23,7 +24,8 @@ import {
 } from "./plan-paths";
 import {
 	type LoopStore,
-	type LoopStatus,
+	STATUS_ICONS,
+	formatMaxIter,
 	safeJsonParse,
 	migrateState,
 	extractTitle,
@@ -32,7 +34,6 @@ import {
 	ensureDir,
 	isPlanLevelLoop,
 } from "./loop-store";
-import { buildPrompt } from "./prompt-builder";
 
 const ISSUE_TEMPLATE = `## Parent
 
@@ -50,12 +51,6 @@ Describe the task here.
 
 None.
 `;
-
-const STATUS_ICONS: Record<LoopStatus, string> = {
-	active: "▶",
-	paused: "⏸",
-	completed: "✓",
-};
 
 // ─── Helpers (command-only) ────────────────────────────────────────
 
@@ -80,17 +75,6 @@ function deleteStateFile(
 		tryDelete(taskFile.replace(/\.md$/, ".state.json"));
 	}
 }
-
-export const DEFAULT_REFLECT_INSTRUCTIONS = `REFLECTION CHECKPOINT
-
-Pause and reflect on your progress:
-1. What has been accomplished so far?
-2. What's working well?
-3. What's not working or blocking progress?
-4. Should the approach be adjusted?
-5. What are the next priorities?
-
-Update the task file with your reflection, then continue working.`;
 
 // ─── Argument parsing ──────────────────────────────────────────────
 
@@ -139,56 +123,20 @@ function parseArgs(argsStr: string): ParsedArgs {
 
 // ─── Formatting helpers (used by commands only) ────────────────────
 
-function formatLoop(
-	l: LoopState,
-	formatMaxIter: (state: LoopState) => string,
-): string {
+function formatLoop(l: LoopState): string {
 	const status = `${STATUS_ICONS[l.status]} ${l.status}`;
 	const iter = `${l.iteration}${formatMaxIter(l)}`;
 	return `${l.name}: ${status} (iteration ${iter})`;
 }
 
-// ─── Command handlers ──────────────────────────────────────────────
-
-export interface CommandDeps {
-	banner: (text: string) => string;
-	formatMaxIter: (state: LoopState) => string;
-	updateUI: (ctx: ExtensionContext) => void;
-	pauseLoop: (
-		ctx: ExtensionContext,
-		state: LoopState,
-		message?: string,
-	) => void;
-	completeLoop: (
-		ctx: ExtensionContext,
-		state: LoopState,
-		bannerText: string,
-	) => void;
-	enforceMaxIterations: (ctx: ExtensionContext, state: LoopState) => boolean;
-	sendPrompt: (
-		ctx: ExtensionContext,
-		state: LoopState,
-		needsReflection: boolean,
-		options?: { deliverAs?: "followUp"; triggerTurn?: boolean },
-		errorMessage?: string,
-	) => boolean;
-}
+// ─── registerCommands ──────────────────────────────────────────────
 
 export function registerCommands(
 	pi: ExtensionAPI,
 	store: LoopStore,
-	runtime: LoopRuntime,
-	deps: CommandDeps,
+	orchestrator: LoopOrchestrator,
+	updateUI: (ctx: ExtensionContext) => void,
 ): void {
-	const {
-		banner,
-		formatMaxIter,
-		updateUI,
-		pauseLoop,
-		completeLoop,
-		enforceMaxIterations,
-		sendPrompt,
-	} = deps;
 	const commands: Record<
 		string,
 		(rest: string, ctx: ExtensionContext) => void
@@ -282,58 +230,66 @@ export function registerCommands(
 						),
 					) ?? undefined);
 
-			const state: LoopState = {
-				name: loopName,
-				taskFile,
-				iteration: 1,
-				maxIterations: args.maxIterations,
-				itemsPerIteration: args.itemsPerIteration,
-				reflectEvery: args.reflectEvery,
-				reflectInstructions: args.reflectInstructions,
-				active: true,
-				status: "active",
-				startedAt: new Date().toISOString(),
-				lastReflectionAt: 0,
-				tddMode: args.tdd,
-			};
+			const result = orchestrator.start(
+				loopName,
+				{
+					taskFile,
+					taskContent: content,
+					maxIterations: args.maxIterations,
+					itemsPerIteration: args.itemsPerIteration,
+					reflectEvery: args.reflectEvery,
+					reflectInstructions: args.reflectInstructions,
+					tddMode: args.tdd,
+					prdContent,
+				},
+				ctx,
+			);
 
-			store.saveState(ctx, state);
+			if (!result) {
+				ctx.ui.notify(
+					`Loop "${loopName}" already exists (race condition).`,
+					"error",
+				);
+				return;
+			}
+
 			if (parsed.scratchDirOverride) {
 				store.setCrossProjectRef(loopName, parsed.scratchDirOverride);
 				store.saveCrossProjectRefs(ctx);
 			}
-			runtime.activeLoop = loopName;
-			updateUI(ctx);
 
-			pi.sendUserMessage(
-				buildPrompt(state, content, false, prdContent, args.tdd),
-			);
+			ctx.ui.notify(`Started: ${loopName} (iteration 1)`, "info");
+
+			updateUI(ctx);
+			pi.sendUserMessage(result.prompt);
 		},
 
 		stop(_rest, ctx) {
-			if (!runtime.activeLoop) {
+			if (!orchestrator.activeLoop) {
 				const active = store.listLoops(ctx).find((l) => l.status === "active");
 				if (active) {
-					pauseLoop(
-						ctx,
-						active,
+					orchestrator.stop(active, "paused", ctx);
+					ctx.ui.notify(
 						`Paused Ralph loop: ${active.name} (iteration ${active.iteration})`,
+						"info",
 					);
+					updateUI(ctx);
 				} else {
 					ctx.ui.notify("No active Ralph loop", "warning");
 				}
 				return;
 			}
-			const state = store.loadState(ctx, runtime.activeLoop);
+			const state = store.loadState(ctx, orchestrator.activeLoop);
 			if (state) {
-				pauseLoop(
-					ctx,
-					state,
+				orchestrator.stop(state, "paused", ctx);
+				ctx.ui.notify(
 					`Paused Ralph loop: ${state.name} (iteration ${state.iteration})`,
+					"info",
 				);
+				updateUI(ctx);
 			} else {
-				const missingName = runtime.activeLoop;
-				runtime.activeLoop = null;
+				const missingName = orchestrator.activeLoop;
+				orchestrator.activeLoop = null;
 				updateUI(ctx);
 				ctx.ui.notify(
 					`Loop "${missingName}" state file missing. Cleared reference.`,
@@ -362,65 +318,50 @@ export function registerCommands(
 				return;
 			}
 
-			if (runtime.activeLoop && runtime.activeLoop !== loopName) {
-				const curr = store.loadState(ctx, runtime.activeLoop);
-				if (curr) pauseLoop(ctx, curr);
+			if (orchestrator.activeLoop && orchestrator.activeLoop !== loopName) {
+				const curr = store.loadState(ctx, orchestrator.activeLoop);
+				if (curr) {
+					orchestrator.stop(curr, "paused", ctx);
+					updateUI(ctx);
+				}
 			}
 
-			state.status = "active";
-			state.active = true;
-			state.iteration++;
-
-			if (enforceMaxIterations(ctx, state)) {
-				ctx.ui.notify(
-					`Loop "${loopName}" exceeded max ${state.maxIterations} iterations.`,
-					"warning",
-				);
+			const taskContent = tryRead(path.resolve(ctx.cwd, state.taskFile));
+			if (taskContent === null) {
+				ctx.ui.notify(`Could not read task file: ${state.taskFile}`, "error");
 				return;
 			}
 
-			if (!store.tryAdvancePlanIssue(ctx, state)) {
-				completeLoop(
-					ctx,
-					state,
-					banner(`✅ PLAN COMPLETE: ${state.name} | All issues finished`),
-				);
-				ctx.ui.notify(
-					`Loop "${loopName}" has all issues complete. Cannot resume.`,
-					"warning",
-				);
-				return;
-			}
+			const prdContent = isPlanLevelLoop(state.name)
+				? (tryRead(
+						path.join(
+							scratchDirFromFile(state.taskFile, scratchDir(ctx)),
+							state.name,
+							"PRD.md",
+						),
+					) ?? undefined)
+				: undefined;
 
-			store.saveState(ctx, state);
+			const { prompt } = orchestrator.resume(
+				state,
+				taskContent,
+				ctx,
+				prdContent,
+			);
+
 			const resumeSd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
 			if (resumeSd !== scratchDir(ctx)) {
 				store.setCrossProjectRef(loopName, resumeSd);
 				store.saveCrossProjectRefs(ctx);
 			}
-			runtime.activeLoop = loopName;
-			updateUI(ctx);
 
 			ctx.ui.notify(
 				`Resumed: ${loopName} (iteration ${state.iteration})`,
 				"info",
 			);
 
-			const needsReflection =
-				state.reflectEvery > 0 &&
-				(state.iteration - 1) % state.reflectEvery === 0;
-
-			if (
-				!sendPrompt(
-					ctx,
-					state,
-					needsReflection,
-					undefined,
-					`Could not read task file: ${state.taskFile}`,
-				)
-			) {
-				return;
-			}
+			updateUI(ctx);
+			pi.sendUserMessage(prompt);
 		},
 
 		status(_rest, ctx) {
@@ -430,7 +371,7 @@ export function registerCommands(
 				return;
 			}
 			ctx.ui.notify(
-				`Ralph loops:\n${loops.map((l) => formatLoop(l, formatMaxIter)).join("\n")}`,
+				`Ralph loops:\n${loops.map((l) => formatLoop(l)).join("\n")}`,
 				"info",
 			);
 		},
@@ -441,12 +382,11 @@ export function registerCommands(
 				ctx.ui.notify("Usage: /ralph cancel <name>", "warning");
 				return;
 			}
-			if (runtime.activeLoop === loopName) runtime.activeLoop = null;
+			if (orchestrator.activeLoop === loopName) orchestrator.activeLoop = null;
 
 			const state = store.loadState(ctx, loopName);
 			if (!state) {
 				ctx.ui.notify(`Loop "${loopName}" not found`, "error");
-				updateUI(ctx);
 				return;
 			}
 
@@ -467,9 +407,9 @@ export function registerCommands(
 
 			const state = store.loadState(ctx, loopName);
 			if (!state) {
-				if (runtime.activeLoop === loopName) runtime.activeLoop = null;
+				if (orchestrator.activeLoop === loopName)
+					orchestrator.activeLoop = null;
 				ctx.ui.notify(`Loop "${loopName}" not found`, "error");
-				updateUI(ctx);
 				return;
 			}
 			if (state.status === "active") {
@@ -477,7 +417,7 @@ export function registerCommands(
 				return;
 			}
 
-			if (runtime.activeLoop === loopName) runtime.activeLoop = null;
+			if (orchestrator.activeLoop === loopName) orchestrator.activeLoop = null;
 			deleteStateFile(loopName, state.taskFile, ctx, store);
 			store.deleteCrossProjectRef(loopName);
 			store.saveCrossProjectRefs(ctx);
@@ -501,7 +441,8 @@ export function registerCommands(
 
 			for (const loop of completed) {
 				deleteStateFile(loop.name, loop.taskFile, ctx, store);
-				if (runtime.activeLoop === loop.name) runtime.activeLoop = null;
+				if (orchestrator.activeLoop === loop.name)
+					orchestrator.activeLoop = null;
 				store.deleteCrossProjectRef(loop.name);
 			}
 			store.saveCrossProjectRefs(ctx);
@@ -529,7 +470,7 @@ export function registerCommands(
 					return;
 				}
 
-				runtime.activeLoop = null;
+				orchestrator.activeLoop = null;
 				store.clearCrossProjectRefs();
 				store.saveCrossProjectRefs(ctx);
 

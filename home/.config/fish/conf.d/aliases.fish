@@ -72,7 +72,7 @@ alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 alias codebase-memory="codebase-memory-mcp --ui=true --port=9749"
 
 # OpenCode
-alias oc="OPENCODE_EXPERIMENTAL_LSP_TOOL=1 OPENCODE_ENABLE_EXA=1 OPENCODE_EXPERIMENTAL_PLAN_MODE=1 opencode"
+alias opencode="opencode"
 
 # Update
 alias update="brew-update; pi update --all; brew upgrade claude-code; rustup-update; npm-update; bun-update"

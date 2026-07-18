@@ -20,12 +20,22 @@ export interface PermissionGatePattern {
 	description: string;
 }
 
+export interface AgentGateConfig {
+	baseUrl: string;
+	apiKey: string;
+	model: string;
+	systemPrompt: string;
+	maxTokens: number;
+	timeoutMs: number;
+}
+
 export interface GuardrailsConfig {
 	enabled: boolean;
 	features: {
 		policies: boolean;
 		permissionGate: boolean;
 		pathAccess: boolean;
+		agentGate: boolean;
 	};
 	pathAccess: {
 		mode: string;
@@ -43,6 +53,7 @@ export interface GuardrailsConfig {
 		allowedPatterns: PermissionGatePattern[];
 		autoDenyPatterns: PermissionGatePattern[];
 	};
+	agentGate: AgentGateConfig;
 }
 
 function defaultConfigPath(): string {
@@ -120,6 +131,10 @@ function mergeConfigs(
 		);
 	}
 
+	if (project.agentGate) {
+		merged.agentGate = { ...merged.agentGate, ...project.agentGate };
+	}
+
 	return merged;
 }
 
@@ -170,6 +185,7 @@ function applyDefaults(partial: Partial<GuardrailsConfig>): GuardrailsConfig {
 			policies: partial.features?.policies ?? true,
 			permissionGate: partial.features?.permissionGate ?? true,
 			pathAccess: partial.features?.pathAccess ?? false,
+			agentGate: partial.features?.agentGate ?? false,
 		},
 		pathAccess: {
 			mode: partial.pathAccess?.mode ?? "ask",
@@ -184,6 +200,14 @@ function applyDefaults(partial: Partial<GuardrailsConfig>): GuardrailsConfig {
 			requireConfirmation: partial.permissionGate?.requireConfirmation ?? true,
 			allowedPatterns: partial.permissionGate?.allowedPatterns ?? [],
 			autoDenyPatterns: partial.permissionGate?.autoDenyPatterns ?? [],
+		},
+		agentGate: {
+			baseUrl: partial.agentGate?.baseUrl ?? "https://api.openai.com/v1",
+			apiKey: partial.agentGate?.apiKey ?? "",
+			model: partial.agentGate?.model ?? "gpt-4o-mini",
+			systemPrompt: partial.agentGate?.systemPrompt ?? "",
+			maxTokens: partial.agentGate?.maxTokens ?? 128,
+			timeoutMs: partial.agentGate?.timeoutMs ?? 10000,
 		},
 	};
 }

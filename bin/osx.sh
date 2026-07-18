@@ -69,12 +69,12 @@ function brew_setup() {
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed # Multiplayer code editor
 
-    # brew install atuin # Magical shell history
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
 
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
+    brew install atuin # Magical shell history
     brew install aws-cdk # Cloud Development Kit for AWS
     brew install awscli # Official Amazon AWS command-line interface
     brew install bash # Bourne-Again SHell, a UNIX command interpreter
@@ -125,6 +125,7 @@ function brew_setup() {
     brew install portless # Replace port numbers with stable, named local URLs for humans and agents
     brew install pstree # A tool to show the tree of processes
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
+    brew install ripgrep # Fast grep replacement with Rust
     brew install rtk # CLI proxy to minimize LLM token consumption
     brew install ruff # Fast Python linter
     brew install rust # Safe, concurrent, practical language
@@ -164,7 +165,7 @@ function npm_packages() {
     echo "NPM packages"
     # https://github.com/UsefulSoftwareCo/executor
     # npm install -g executor # Tool discovery and execution layer for AI agents
-    #
+
     # Firstmate stack solution: https://github.com/kunchenguid
     # curl -fsSL https://kunchenguid.github.io/treehouse/install.sh | sh
     # curl -fsSL https://raw.githubusercontent.com/kunchenguid/no-mistakes/main/docs/install.sh | sh

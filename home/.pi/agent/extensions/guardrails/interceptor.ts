@@ -3,6 +3,7 @@ import type {
 	ToolCallEvent,
 } from "@earendil-works/pi-coding-agent";
 import { isToolCallEventType } from "@earendil-works/pi-coding-agent";
+import { askAgent } from "./agent-gate.js";
 import type { GuardrailsConfig } from "./config.js";
 import { extractPaths } from "./path-extractor.js";
 import { matchCommand } from "./permission-gate-matcher.js";
@@ -52,6 +53,28 @@ export class Interceptor {
 				}
 
 				if (config.permissionGate.requireConfirmation) {
+					// AgentGate: AI decides before asking the user
+					if (config.features.agentGate) {
+						const decision = await askAgent(
+							config.agentGate,
+							command,
+							gateMatch.description,
+							ctx.signal,
+						);
+						if (decision) {
+							if (decision.decision === "deny") {
+								this.state.denialCount++;
+								return {
+									block: true,
+									reason: `Blocked by agent: ${decision.reason}`,
+								};
+							}
+							// Agent allowed — let through without user prompt
+							return undefined;
+						}
+						// Agent unavailable — fall through to user confirmation
+					}
+
 					const allowed = await ctx.ui.confirm(
 						"Dangerous command detected",
 						`${gateMatch.description}\n\nCommand: ${command}\n\nAllow?`,

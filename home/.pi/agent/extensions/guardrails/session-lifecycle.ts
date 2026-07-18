@@ -42,6 +42,7 @@ export class SessionLifecycle {
 		}
 
 		this.addPermissionGateLine(config, lines);
+		this.addAgentGateLine(config, lines);
 
 		return lines;
 	}
@@ -79,6 +80,14 @@ export class SessionLifecycle {
 		const gatePatterns = allGatePatterns.map((p) => p.pattern);
 		lines.push(
 			`- Dangerous commands (${gatePatterns.join(", ")}) require your confirmation`,
+		);
+	}
+
+	/** Add agent gate line if enabled. */
+	private addAgentGateLine(config: GuardrailsConfig, lines: string[]): void {
+		if (!config.features.agentGate) return;
+		lines.push(
+			`- AI agent gate (${config.agentGate.model}) auto-decides permission prompts`,
 		);
 	}
 }

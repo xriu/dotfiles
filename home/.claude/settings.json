@@ -140,8 +140,7 @@
     "plannotator@plannotator": true,
     "plugin-dev@claude-code-plugins": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "visual-explainer@visual-explainer-marketplace": true
+    "typescript-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {

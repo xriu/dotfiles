@@ -21,43 +21,26 @@ import {
 import {
 	LoopStore,
 	type LoopState,
-	type LoopStatus,
+	STATUS_ICONS,
+	formatMaxIter,
 	tryRead,
 	isPlanLevelLoop,
 } from "./loop-store";
 import { buildPrompt, COMPLETE_MARKER } from "./prompt-builder";
-import { LoopRuntime } from "./loop-runtime";
-import {
-	registerCommands,
-	DEFAULT_REFLECT_INSTRUCTIONS,
-} from "./command-handlers";
-
-const STATUS_ICONS: Record<LoopStatus, string> = {
-	active: "▶",
-	paused: "⏸",
-	completed: "✓",
-};
+import { LoopOrchestrator } from "./loop-orchestrator";
+import { registerCommands } from "./command-handlers";
 
 export default function (pi: ExtensionAPI) {
 	const store = new LoopStore();
-	const runtime = new LoopRuntime(store);
+	const orchestrator = new LoopOrchestrator(store);
 
 	// --- Cross-cutting helpers ---
-
-	function banner(text: string): string {
-		return text;
-	}
-
-	/** Iteration display: "3/10" or "3". */
-	function formatMaxIter(state: LoopState): string {
-		return state.maxIterations > 0 ? `/${state.maxIterations}` : "";
-	}
 
 	function updateUI(ctx: ExtensionContext): void {
 		if (!ctx.hasUI) return;
 
-		const state = runtime.activeLoop
-			? store.loadState(ctx, runtime.activeLoop)
+		const state = orchestrator.activeLoop
+			? store.loadState(ctx, orchestrator.activeLoop)
 			: null;
 		if (!state) {
 			ctx.ui.setStatus("ralph", undefined);
@@ -101,7 +84,7 @@ export default function (pi: ExtensionAPI) {
 		state: LoopState,
 		message?: string,
 	): void {
-		runtime.pauseLoop(ctx, state);
+		orchestrator.stop(state, "paused", ctx);
 		updateUI(ctx);
 		if (message && ctx.hasUI) ctx.ui.notify(message, "info");
 	}
@@ -109,11 +92,11 @@ export default function (pi: ExtensionAPI) {
 	function completeLoop(
 		ctx: ExtensionContext,
 		state: LoopState,
-		bannerText: string,
+		message: string,
 	): void {
-		runtime.completeLoop(ctx, state);
+		orchestrator.stop(state, "completed", ctx);
 		updateUI(ctx);
-		if (bannerText) pi.sendUserMessage(bannerText);
+		if (message) pi.sendUserMessage(message);
 	}
 
 	function enforceMaxIterations(
@@ -124,9 +107,7 @@ export default function (pi: ExtensionAPI) {
 			completeLoop(
 				ctx,
 				state,
-				banner(
-					`⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached`,
-				),
+				`⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached`,
 			);
 			return true;
 		}
@@ -169,17 +150,9 @@ export default function (pi: ExtensionAPI) {
 		);
 	}
 
-	// --- Register commands ---
+	// --- Register commands with adapter ---
 
-	registerCommands(pi, store, runtime, {
-		banner,
-		formatMaxIter,
-		updateUI,
-		pauseLoop,
-		completeLoop,
-		enforceMaxIterations,
-		sendPrompt,
-	});
+	registerCommands(pi, store, orchestrator, updateUI);
 
 	// --- Tool: /ralph-stop ---
 
@@ -196,8 +169,8 @@ export default function (pi: ExtensionAPI) {
 				return;
 			}
 
-			let state = runtime.activeLoop
-				? store.loadState(ctx, runtime.activeLoop)
+			let state = orchestrator.activeLoop
+				? store.loadState(ctx, orchestrator.activeLoop)
 				: null;
 			if (!state) {
 				const active = store.listLoops(ctx).find((l) => l.status === "active");
@@ -325,8 +298,6 @@ export default function (pi: ExtensionAPI) {
 				? taskFile
 				: path.resolve(ctx.cwd, taskFile);
 
-			// Use existing file content for plan-level loops with pre-written issues;
-			// only write taskContent when the file doesn't exist yet.
 			let taskContent: string;
 			const existingContent = fs.existsSync(fullPath)
 				? tryRead(fullPath)
@@ -351,29 +322,6 @@ export default function (pi: ExtensionAPI) {
 				};
 			}
 
-			const state: LoopState = {
-				name: loopName,
-				taskFile,
-				iteration: 1,
-				maxIterations: params.maxIterations ?? 50,
-				itemsPerIteration: params.itemsPerIteration ?? 0,
-				reflectEvery: params.reflectEvery ?? 0,
-				reflectInstructions: DEFAULT_REFLECT_INSTRUCTIONS,
-				active: true,
-				status: "active",
-				startedAt: new Date().toISOString(),
-				lastReflectionAt: 0,
-				tddMode: params.tddMode,
-			};
-
-			store.saveState(ctx, state);
-			if (parsed.scratchDirOverride) {
-				store.setCrossProjectRef(loopName, parsed.scratchDirOverride);
-				store.saveCrossProjectRefs(ctx);
-			}
-			runtime.activeLoop = loopName;
-			updateUI(ctx);
-
 			const isPlanLevel = isPlanLevelLoop(loopName);
 			const prdContent = isPlanLevel
 				? (tryRead(
@@ -384,18 +332,48 @@ export default function (pi: ExtensionAPI) {
 						),
 					) ?? undefined)
 				: undefined;
-			pi.sendUserMessage(
-				buildPrompt(state, taskContent, false, prdContent, params.tddMode),
+
+			const result = orchestrator.start(
+				loopName,
 				{
-					deliverAs: "followUp",
+					taskFile,
+					taskContent,
+					maxIterations: params.maxIterations,
+					itemsPerIteration: params.itemsPerIteration,
+					reflectEvery: params.reflectEvery,
+					tddMode: params.tddMode,
+					prdContent,
 				},
+				ctx,
 			);
+
+			if (!result) {
+				return {
+					content: [
+						{
+							type: "text",
+							text: `Loop "${loopName}" already exists (race condition).`,
+						},
+					],
+					details: {},
+				};
+			}
+
+			if (parsed.scratchDirOverride) {
+				store.setCrossProjectRef(loopName, parsed.scratchDirOverride);
+				store.saveCrossProjectRefs(ctx);
+			}
+			updateUI(ctx);
+
+			pi.sendUserMessage(result.prompt, {
+				deliverAs: "followUp",
+			});
 
 			return {
 				content: [
 					{
 						type: "text",
-						text: `Started loop "${loopName}" → ${taskFile} (max ${state.maxIterations} iterations).`,
+						text: `Started loop "${loopName}" → ${taskFile} (max ${result.state.maxIterations} iterations).`,
 					},
 				],
 				details: {},
@@ -418,7 +396,7 @@ export default function (pi: ExtensionAPI) {
 		],
 		parameters: Type.Object({}),
 		async execute(_toolCallId, _params, _signal, _onUpdate, ctx) {
-			if (!runtime.activeLoop) {
+			if (!orchestrator.activeLoop) {
 				return {
 					content: [
 						{
@@ -430,7 +408,7 @@ export default function (pi: ExtensionAPI) {
 				};
 			}
 
-			const state = store.loadState(ctx, runtime.activeLoop);
+			const state = store.loadState(ctx, orchestrator.activeLoop);
 			if (!state || state.status !== "active") {
 				return {
 					content: [
@@ -455,46 +433,9 @@ export default function (pi: ExtensionAPI) {
 				};
 			}
 
-			state.iteration++;
-
-			if (enforceMaxIterations(ctx, state)) {
-				return {
-					content: [
-						{
-							type: "text",
-							text: "Max iterations reached. Loop stopped.",
-						},
-					],
-					details: {},
-				};
-			}
-
-			const needsReflection =
-				state.reflectEvery > 0 &&
-				(state.iteration - 1) % state.reflectEvery === 0;
-			if (needsReflection) state.lastReflectionAt = state.iteration;
-
-			if (!store.tryAdvancePlanIssue(ctx, state)) {
-				completeLoop(
-					ctx,
-					state,
-					banner(`✅ PLAN COMPLETE: ${state.name} | All issues finished`),
-				);
-				return {
-					content: [
-						{
-							type: "text",
-							text: `Plan "${state.name}" complete — all issues finished.`,
-						},
-					],
-					details: {},
-				};
-			}
-
-			store.saveState(ctx, state);
-			updateUI(ctx);
-
-			if (!sendPrompt(ctx, state, needsReflection, { deliverAs: "followUp" })) {
+			const taskContent = tryRead(path.resolve(ctx.cwd, state.taskFile));
+			if (taskContent === null) {
+				pauseLoop(ctx, state, `Could not read task file: ${state.taskFile}`);
 				return {
 					content: [
 						{
@@ -506,7 +447,28 @@ export default function (pi: ExtensionAPI) {
 				};
 			}
 
-			runtime.markDoneThisTurn();
+			const prdContent = loadPrdContent(state, ctx);
+			const result = orchestrator.advance(state, taskContent, ctx, prdContent);
+
+			if (result.complete) {
+				updateUI(ctx);
+				const exceededMax =
+					state.maxIterations > 0 && state.iteration > state.maxIterations;
+				return {
+					content: [
+						{
+							type: "text",
+							text: exceededMax
+								? "Max iterations reached. Loop stopped."
+								: `Plan "${state.name}" complete — all issues finished.`,
+						},
+					],
+					details: {},
+				};
+			}
+
+			updateUI(ctx);
+			pi.sendUserMessage(result.prompt, { deliverAs: "followUp" });
 
 			return {
 				content: [
@@ -523,9 +485,9 @@ export default function (pi: ExtensionAPI) {
 	// --- Event handlers ---
 
 	pi.on("before_agent_start", async (event, ctx) => {
-		if (!runtime.activeLoop) return;
-		runtime.clearDoneThisTurn();
-		const state = store.loadState(ctx, runtime.activeLoop);
+		if (!orchestrator.activeLoop) return;
+		orchestrator.doneThisTurn = false;
+		const state = store.loadState(ctx, orchestrator.activeLoop);
 		if (!state || state.status !== "active") return;
 
 		const iterStr = `${state.iteration}${formatMaxIter(state)}`;
@@ -546,8 +508,8 @@ export default function (pi: ExtensionAPI) {
 	});
 
 	pi.on("agent_end", async (event, ctx) => {
-		if (!runtime.activeLoop) return;
-		const state = store.loadState(ctx, runtime.activeLoop);
+		if (!orchestrator.activeLoop) return;
+		const state = store.loadState(ctx, orchestrator.activeLoop);
 		if (!state || state.status !== "active") return;
 
 		if (enforceMaxIterations(ctx, state)) return;
@@ -573,8 +535,8 @@ export default function (pi: ExtensionAPI) {
 		const isPlanLevel = isPlanLevelLoop(state.name);
 		if (text.includes(COMPLETE_MARKER)) {
 			if (isPlanLevel) {
-				if (runtime.doneThisTurn) {
-					runtime.clearDoneThisTurn();
+				if (orchestrator.doneThisTurn) {
+					orchestrator.doneThisTurn = false;
 					return;
 				}
 				const originalTaskFile = state.taskFile;
@@ -603,9 +565,7 @@ export default function (pi: ExtensionAPI) {
 			completeLoop(
 				ctx,
 				state,
-				banner(
-					`✅ RALPH LOOP COMPLETE: ${state.name} | ${state.iteration} iterations`,
-				),
+				`✅ RALPH LOOP COMPLETE: ${state.name} | ${state.iteration} iterations`,
 			);
 			return;
 		}
@@ -616,15 +576,15 @@ export default function (pi: ExtensionAPI) {
 
 		const active = store.listLoops(ctx).filter((l) => l.status === "active");
 
-		if (!runtime.activeLoop && active.length > 0) {
-			runtime.activeLoop = active[0].name;
+		if (!orchestrator.activeLoop && active.length > 0) {
+			orchestrator.activeLoop = active[0].name;
 		}
 
-		if (!runtime.activeLoop) {
+		if (!orchestrator.activeLoop) {
 			for (const name of store.getCrossProjectNames()) {
 				const state = store.loadState(ctx, name);
 				if (state && state.status === "active") {
-					runtime.activeLoop = name;
+					orchestrator.activeLoop = name;
 					break;
 				}
 			}
@@ -643,31 +603,29 @@ export default function (pi: ExtensionAPI) {
 	});
 
 	pi.on("session_before_compact", async (event, ctx) => {
-		if (!runtime.activeLoop) return;
-		const state = store.loadState(ctx, runtime.activeLoop);
+		if (!orchestrator.activeLoop) return;
+		const state = store.loadState(ctx, orchestrator.activeLoop);
 		if (!state || state.status !== "active") return;
 
 		store.saveState(ctx, state);
 
 		if (ctx.hasUI) {
 			ctx.ui.notify(
-				`Preserving Ralph loop state before compaction: ${runtime.activeLoop} (reason: ${event.reason ?? "unknown"})`,
+				`Preserving Ralph loop state before compaction: ${orchestrator.activeLoop} (reason: ${event.reason ?? "unknown"})`,
 				"info",
 			);
 		}
 	});
 
 	pi.on("session_compact", async (event, ctx) => {
-		if (!runtime.activeLoop) return;
-		const state = store.loadState(ctx, runtime.activeLoop);
+		if (!orchestrator.activeLoop) return;
+		const state = store.loadState(ctx, orchestrator.activeLoop);
 		if (!state || state.status !== "active") return;
 
-		// Overflow compaction that will retry the aborted turn: let pi handle the
-		// retry. Queueing another followUp here would race with the retry.
 		if (event.willRetry === true) {
 			if (ctx.hasUI) {
 				ctx.ui.notify(
-					`Ralph loop waiting for overflow retry: ${runtime.activeLoop} (iteration ${state.iteration}, reason: ${event.reason ?? "unknown"})`,
+					`Ralph loop waiting for overflow retry: ${orchestrator.activeLoop} (iteration ${state.iteration}, reason: ${event.reason ?? "unknown"})`,
 					"info",
 				);
 			}
@@ -681,7 +639,7 @@ export default function (pi: ExtensionAPI) {
 			completeLoop(
 				ctx,
 				state,
-				banner(`✅ PLAN COMPLETE: ${state.name} | All issues finished`),
+				`✅ PLAN COMPLETE: ${state.name} | All issues finished`,
 			);
 			return;
 		}
@@ -709,14 +667,14 @@ export default function (pi: ExtensionAPI) {
 
 		if (ctx.hasUI) {
 			ctx.ui.notify(
-				`Ralph loop resumed after compaction: ${runtime.activeLoop} (iteration ${state.iteration}, reason: ${event.reason ?? "unknown"})`,
+				`Ralph loop resumed after compaction: ${orchestrator.activeLoop} (iteration ${state.iteration}, reason: ${event.reason ?? "unknown"})`,
 				"info",
 			);
 		}
 	});
 
 	pi.on("session_shutdown", async (_event, ctx) => {
-		const loopName = runtime.activeLoop;
+		const loopName = orchestrator.activeLoop;
 		if (loopName) {
 			const state = store.loadState(ctx, loopName);
 			if (state) store.saveState(ctx, state);

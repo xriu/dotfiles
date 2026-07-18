@@ -3,7 +3,8 @@
     "features": {
         "policies": true,
         "permissionGate": true,
-        "pathAccess": false
+        "pathAccess": false,
+        "agentGate": true
     },
     "pathAccess": {
         "mode": "ask",
@@ -276,5 +277,13 @@
             }
         ],
         "autoDenyPatterns": []
+    },
+    "agentGate": {
+        "baseUrl": "https://openrouter.ai/api",
+        "apiKey": "$OPENROUTER_API_KEY",
+        "model": "lm-openrouter/deepseek/deepseek-v4-flash:exacto",
+        "systemPrompt": "You are a security guard for a coding agent. Decide whether a bash command should be allowed. Respond with ONLY \"allow\" or \"deny\" followed by a one-line reason. Consider: is this command destructive? Could it cause data loss? Is it safe in a development context?",
+        "maxTokens": 1024,
+        "timeoutMs": 10000
     }
 }

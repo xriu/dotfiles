@@ -38,6 +38,9 @@ set -g ZELLIJ_AUTO_START false
 
 # Check if we're in an interactive shell
 if status is-interactive
+    # Initialize Atuin for Fish shell
+    atuin init fish | source
+
     # 1. Define config but don't force export every time if not needed
     set -gx ZELLIJ_CONFIG_DIR $HOME/.config/zellij
 

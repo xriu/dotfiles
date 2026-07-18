@@ -14,6 +14,8 @@ disable-model-invocation: true
 
 ## The workflow
 
+If this change spans more than one agent session and the way isn't clear yet, use **`/wayfinder`** to chart a map first.
+
 ```
 Step 1: Anchor the change
 Step 2: Grill (interactive or auto)
@@ -40,7 +42,7 @@ Write a one-paragraph description of what you're building or fixing. This _ancho
 **If `auto` was passed:** Run **`/grill-with-docs-auto`**.
 **Otherwise:** Run **`/grill-with-docs`**.
 
-**Gate:** Every major question has been answered or explicitly deferred. You have a `CONTEXT.md` and at least one ADR. If you're uncertain about domain terms or architectural choices, you're not done.
+**Gate:** Every major question has been answered or explicitly deferred. You have a `CONTEXT.md` and at least one ADR. If the grilling reveals this spans many sessions, pivot to **`/wayfinder`** instead. If you're uncertain about domain terms or architectural choices, you're not done.
 
 **Next:** Say "/make-requirements-great" when the _gate_ is met.
 
