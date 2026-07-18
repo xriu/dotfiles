@@ -225,9 +225,39 @@ describe("LoopOrchestrator", () => {
 
 		it("includes PRD content for plan-level loops", () => {
 			const state = makeState({ status: "paused", name: "my-plan" });
-			const result = orchestrator.resume(state, "Task", ctx, "# PRD\n\nContext.");
+			const result = orchestrator.resume(
+				state,
+				"Task",
+				ctx,
+				"# PRD\n\nContext.",
+			);
 
 			expect(result.prompt).toContain("Context.");
+		});
+
+		it("includes reflection when (iteration-1) % reflectEvery === 0", () => {
+			const state = makeState({
+				status: "paused",
+				iteration: 6,
+				reflectEvery: 5,
+				reflectInstructions: "REFLECT NOW",
+			});
+			const result = orchestrator.resume(state, "Task", ctx);
+
+			expect(result.prompt).toContain("REFLECT NOW");
+			expect(result.prompt).toContain("REFLECTION");
+		});
+
+		it("does not include reflection at non-reflection iterations", () => {
+			const state = makeState({
+				status: "paused",
+				iteration: 5,
+				reflectEvery: 5,
+				reflectInstructions: "REFLECT NOW",
+			});
+			const result = orchestrator.resume(state, "Task", ctx);
+
+			expect(result.prompt).not.toContain("REFLECTION");
 		});
 	});
 
