@@ -24,7 +24,6 @@ export interface LoopState {
 	status: LoopStatus;
 	startedAt: string;
 	completedAt?: string;
-	lastReflectionAt: number;
 	tddMode?: boolean;
 }
 
@@ -96,8 +95,8 @@ export function migrateState(
 	if ("reflectEveryItems" in raw && !raw.reflectEvery) {
 		raw.reflectEvery = (raw as any).reflectEveryItems;
 	}
-	if ("lastReflectionAtItems" in raw && raw.lastReflectionAt === undefined) {
-		raw.lastReflectionAt = (raw as any).lastReflectionAtItems;
+	if ("lastReflectionAtItems" in raw && (raw as any).lastReflectionAt === undefined) {
+		(raw as any).lastReflectionAt = (raw as any).lastReflectionAtItems;
 	}
 	return raw as LoopState;
 }

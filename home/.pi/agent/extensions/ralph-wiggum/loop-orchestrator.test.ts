@@ -40,7 +40,6 @@ function makeState(overrides: Partial<LoopState> = {}): LoopState {
 		active: true,
 		status: "active",
 		startedAt: new Date().toISOString(),
-		lastReflectionAt: 0,
 		...overrides,
 	};
 }
@@ -331,18 +330,6 @@ describe("LoopOrchestrator", () => {
 			const result = orchestrator.advance(state, "Task", ctx);
 
 			expect(result.prompt).not.toContain("REFLECTION");
-		});
-
-		it("updates lastReflectionAt when reflection triggers", () => {
-			const state = makeState({
-				iteration: 5,
-				reflectEvery: 5,
-				lastReflectionAt: 0,
-			});
-
-			orchestrator.advance(state, "Task", ctx);
-
-			expect(state.lastReflectionAt).toBe(6);
 		});
 
 		it("tries to advance plan issue for plan-level loops", () => {

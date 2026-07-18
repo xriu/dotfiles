@@ -92,7 +92,6 @@ export class LoopOrchestrator {
 			active: true,
 			status: "active",
 			startedAt: new Date().toISOString(),
-			lastReflectionAt: 0,
 			tddMode: config.tddMode,
 		};
 
@@ -163,9 +162,6 @@ export class LoopOrchestrator {
 		const needsReflection =
 			state.reflectEvery > 0 &&
 			(state.iteration - 1) % state.reflectEvery === 0;
-		if (needsReflection) {
-			state.lastReflectionAt = state.iteration;
-		}
 
 		// Issue advancement for plan-level loops
 		const isPlanLevel = isPlanLevelLoop(state.name);
