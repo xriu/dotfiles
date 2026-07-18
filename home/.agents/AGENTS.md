@@ -97,7 +97,7 @@ Verbosity: low. Be concise and information-dense. Respond like a smart caveman; 
 
 ### Issue tracker
 
-Local markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
+Issues and PRDs live as local markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
