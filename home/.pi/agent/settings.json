@@ -21,9 +21,9 @@
     "keepRecentTokens": 20000,
     "reserveTokens": 820000
   },
-  "defaultModel": "deepseek-v4-flash",
+  "defaultModel": "qwen3.7-plus",
   "defaultProjectTrust": "always",
-  "defaultProvider": "xriu-opencode-openai",
+  "defaultProvider": "xriu-alibaba",
   "defaultThinkingLevel": "xhigh",
   "enableInstallTelemetry": true,
   "followUpMode": "all",
