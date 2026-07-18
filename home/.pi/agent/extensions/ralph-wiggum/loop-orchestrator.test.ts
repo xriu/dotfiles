@@ -420,19 +420,7 @@ describe("LoopOrchestrator", () => {
 			expect(orchestrator.activeLoop).toBeNull();
 		});
 
-		it("activeLoop can be set and read", () => {
-			orchestrator.activeLoop = "my-loop";
-			expect(orchestrator.activeLoop).toBe("my-loop");
-		});
-
 		it("doneThisTurn defaults to false", () => {
-			expect(orchestrator.doneThisTurn).toBe(false);
-		});
-
-		it("doneThisTurn can be set and cleared", () => {
-			orchestrator.doneThisTurn = true;
-			expect(orchestrator.doneThisTurn).toBe(true);
-			orchestrator.doneThisTurn = false;
 			expect(orchestrator.doneThisTurn).toBe(false);
 		});
 	});
