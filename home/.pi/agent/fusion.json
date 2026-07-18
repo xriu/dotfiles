@@ -10,6 +10,22 @@
             "judge": "lm-openrouter/z-ai/glm-5.2",
             "panelReasoning": "medium",
             "judgeReasoning": "high"
+        },
+        "alibaba": {
+            "models": ["xriu-alibaba/qwen3.7-plus", "xriu-alibaba/glm-5"],
+            "judge": "xriu-alibaba/qwen3.7-plus",
+            "panelReasoning": "medium",
+            "judgeReasoning": "high"
+        },
+        "opencode": {
+            "models": [
+                "xriu-opencode-openai/deepseek-v4-pro",
+                "xriu-opencode-openai/deepseek-v4-flash",
+                "xriu-opencode-openai/mimo-v2.5"
+            ],
+            "judge": "xriu-opencode-anthropic/qwen3.7-plus",
+            "panelReasoning": "medium",
+            "judgeReasoning": "high"
         }
     },
     "maxPanelModels": 3,

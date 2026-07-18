@@ -123,7 +123,6 @@ function parseArgs(argsStr: string): ParsedArgs {
 
 // ─── Formatting helpers (used by commands only) ────────────────────
 
-
 function formatLoop(l: LoopState): string {
 	const status = `${STATUS_ICONS[l.status]} ${l.status}`;
 	const iter = `${l.iteration}${formatMaxIter(l)}`;

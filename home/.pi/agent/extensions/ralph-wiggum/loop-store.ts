@@ -95,7 +95,10 @@ export function migrateState(
 	if ("reflectEveryItems" in raw && !raw.reflectEvery) {
 		raw.reflectEvery = (raw as any).reflectEveryItems;
 	}
-	if ("lastReflectionAtItems" in raw && (raw as any).lastReflectionAt === undefined) {
+	if (
+		"lastReflectionAtItems" in raw &&
+		(raw as any).lastReflectionAt === undefined
+	) {
 		(raw as any).lastReflectionAt = (raw as any).lastReflectionAtItems;
 	}
 	return raw as LoopState;

@@ -40,6 +40,7 @@ Improve one or more of without changing functionality:
 - Rename unclear symbols
 - Extract cohesive helper functions
 - Remove dead code
+- Straighten convoluted logic flows
 - Collapse unnecessary wrappers or layers
 - Reduce duplication
 - Simplify conditionals and control flow
@@ -49,6 +50,7 @@ Improve one or more of without changing functionality:
 ## Avoid
 
 - Speculative abstractions
+  - (open to identifying a genuinely clarifying abstraction and suggesting it briefly)
 - Pattern-driven rewrites without clear payoff
 - Broad architecture changes unless explicitly requested
 - Changing public interfaces unless asked
