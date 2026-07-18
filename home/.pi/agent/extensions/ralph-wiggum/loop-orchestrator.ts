@@ -2,7 +2,7 @@
  * LoopOrchestrator — owns loop lifecycle for ralph-wiggum.
  *
  * start(name, config, ctx) → { state, prompt } | null
- * advance(state, taskContent, prdContent?, ctx) → { prompt, complete? }
+ * advance(state, taskContent, ctx, prdContent?) → { prompt, complete? }
  * stop(state, status, ctx) → void
  *
  * Absorbs the active-loop tracking and done-this-turn flag from LoopRuntime.
@@ -125,7 +125,6 @@ export class LoopOrchestrator {
 		ctx: ExtensionContext,
 		prdContent?: string,
 	): { prompt: string; complete?: boolean } {
-
 		state.iteration++;
 
 		// Max iterations check
