@@ -21,7 +21,7 @@
     "keepRecentTokens": 20000,
     "reserveTokens": 820000
   },
-  "defaultModel": "openai/gpt-5.6-terra",
+  "defaultModel": "openai/gpt-5.6-luna",
   "defaultProjectTrust": "always",
   "defaultProvider": "lm-openrouter",
   "defaultThinkingLevel": "xhigh",
