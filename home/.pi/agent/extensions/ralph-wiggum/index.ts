@@ -26,7 +26,10 @@ import {
 	isPlanLevelLoop,
 } from "./loop-store";
 import { buildPrompt, COMPLETE_MARKER } from "./prompt-builder";
-import { LoopOrchestrator, DEFAULT_REFLECT_INSTRUCTIONS } from "./loop-orchestrator";
+import {
+	LoopOrchestrator,
+	DEFAULT_REFLECT_INSTRUCTIONS,
+} from "./loop-orchestrator";
 import { registerCommands } from "./command-handlers";
 
 const STATUS_ICONS: Record<LoopStatus, string> = {
@@ -168,7 +171,7 @@ export default function (pi: ExtensionAPI) {
 
 	// --- Register commands with adapter ---
 
-	registerCommands(pi, store, orchestrator);
+	registerCommands(pi, store, orchestrator, updateUI);
 
 	// --- Tool: /ralph-stop ---
 
@@ -349,15 +352,19 @@ export default function (pi: ExtensionAPI) {
 					) ?? undefined)
 				: undefined;
 
-			const result = orchestrator.start(loopName, {
-				taskFile,
-				taskContent,
-				maxIterations: params.maxIterations,
-				itemsPerIteration: params.itemsPerIteration,
-				reflectEvery: params.reflectEvery,
-				tddMode: params.tddMode,
-				prdContent,
-			}, ctx);
+			const result = orchestrator.start(
+				loopName,
+				{
+					taskFile,
+					taskContent,
+					maxIterations: params.maxIterations,
+					itemsPerIteration: params.itemsPerIteration,
+					reflectEvery: params.reflectEvery,
+					tddMode: params.tddMode,
+					prdContent,
+				},
+				ctx,
+			);
 
 			if (!result) {
 				return {
@@ -460,7 +467,7 @@ export default function (pi: ExtensionAPI) {
 			}
 
 			const prdContent = loadPrdContent(state, ctx);
-			const result = orchestrator.advance(state, taskContent, prdContent, ctx);
+			const result = orchestrator.advance(state, taskContent, ctx, prdContent);
 
 			if (result.complete) {
 				updateUI(ctx);

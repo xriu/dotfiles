@@ -144,6 +144,7 @@ export function registerCommands(
 	pi: ExtensionAPI,
 	store: LoopStore,
 	orchestrator: LoopOrchestrator,
+	updateUI: (ctx: ExtensionContext) => void,
 ): void {
 	const commands: Record<
 		string,
@@ -238,16 +239,20 @@ export function registerCommands(
 						),
 					) ?? undefined);
 
-			const result = orchestrator.start(loopName, {
-				taskFile,
-				taskContent: content,
-				maxIterations: args.maxIterations,
-				itemsPerIteration: args.itemsPerIteration,
-				reflectEvery: args.reflectEvery,
-				reflectInstructions: args.reflectInstructions,
-				tddMode: args.tdd,
-				prdContent,
-			}, ctx);
+			const result = orchestrator.start(
+				loopName,
+				{
+					taskFile,
+					taskContent: content,
+					maxIterations: args.maxIterations,
+					itemsPerIteration: args.itemsPerIteration,
+					reflectEvery: args.reflectEvery,
+					reflectInstructions: args.reflectInstructions,
+					tddMode: args.tdd,
+					prdContent,
+				},
+				ctx,
+			);
 
 			if (!result) {
 				ctx.ui.notify(
@@ -262,11 +267,9 @@ export function registerCommands(
 				store.saveCrossProjectRefs(ctx);
 			}
 
-			ctx.ui.notify(
-				`Started: ${loopName} (iteration 1)`,
-				"info",
-			);
+			ctx.ui.notify(`Started: ${loopName} (iteration 1)`, "info");
 
+			updateUI(ctx);
 			pi.sendUserMessage(result.prompt);
 		},
 
@@ -279,6 +282,7 @@ export function registerCommands(
 						`Paused Ralph loop: ${active.name} (iteration ${active.iteration})`,
 						"info",
 					);
+					updateUI(ctx);
 				} else {
 					ctx.ui.notify("No active Ralph loop", "warning");
 				}
@@ -291,9 +295,11 @@ export function registerCommands(
 					`Paused Ralph loop: ${state.name} (iteration ${state.iteration})`,
 					"info",
 				);
+				updateUI(ctx);
 			} else {
 				const missingName = orchestrator.activeLoop;
 				orchestrator.activeLoop = null;
+				updateUI(ctx);
 				ctx.ui.notify(
 					`Loop "${missingName}" state file missing. Cleared reference.`,
 					"warning",
@@ -323,7 +329,10 @@ export function registerCommands(
 
 			if (orchestrator.activeLoop && orchestrator.activeLoop !== loopName) {
 				const curr = store.loadState(ctx, orchestrator.activeLoop);
-				if (curr) orchestrator.stop(curr, "paused", ctx);
+				if (curr) {
+					orchestrator.stop(curr, "paused", ctx);
+					updateUI(ctx);
+				}
 			}
 
 			state.status = "active";
@@ -331,10 +340,7 @@ export function registerCommands(
 
 			const taskContent = tryRead(path.resolve(ctx.cwd, state.taskFile));
 			if (taskContent === null) {
-				ctx.ui.notify(
-					`Could not read task file: ${state.taskFile}`,
-					"error",
-				);
+				ctx.ui.notify(`Could not read task file: ${state.taskFile}`, "error");
 				return;
 			}
 
@@ -348,9 +354,10 @@ export function registerCommands(
 					) ?? undefined)
 				: undefined;
 
-			const result = orchestrator.advance(state, taskContent, prdContent, ctx);
+			const result = orchestrator.advance(state, taskContent, ctx, prdContent);
 
 			if (result.complete) {
+				updateUI(ctx);
 				ctx.ui.notify(
 					`Loop "${loopName}" has all issues complete or max iterations reached.`,
 					"warning",
@@ -369,6 +376,7 @@ export function registerCommands(
 				"info",
 			);
 
+			updateUI(ctx);
 			pi.sendUserMessage(result.prompt);
 		},
 
@@ -403,6 +411,7 @@ export function registerCommands(
 			store.saveCrossProjectRefs(ctx);
 
 			ctx.ui.notify(`Cancelled: ${loopName}`, "info");
+			updateUI(ctx);
 		},
 
 		archive(rest, ctx) {
@@ -414,7 +423,8 @@ export function registerCommands(
 
 			const state = store.loadState(ctx, loopName);
 			if (!state) {
-				if (orchestrator.activeLoop === loopName) orchestrator.activeLoop = null;
+				if (orchestrator.activeLoop === loopName)
+					orchestrator.activeLoop = null;
 				ctx.ui.notify(`Loop "${loopName}" not found`, "error");
 				return;
 			}
@@ -432,6 +442,7 @@ export function registerCommands(
 				`Archived: ${loopName} (state removed, task file kept in .scratch/)`,
 				"info",
 			);
+			updateUI(ctx);
 		},
 
 		clean(_rest, ctx) {
@@ -446,7 +457,8 @@ export function registerCommands(
 
 			for (const loop of completed) {
 				deleteStateFile(loop.name, loop.taskFile, ctx, store);
-				if (orchestrator.activeLoop === loop.name) orchestrator.activeLoop = null;
+				if (orchestrator.activeLoop === loop.name)
+					orchestrator.activeLoop = null;
 				store.deleteCrossProjectRef(loop.name);
 			}
 			store.saveCrossProjectRefs(ctx);
@@ -455,6 +467,7 @@ export function registerCommands(
 				`Cleaned ${completed.length} loop(s) (task files preserved):\n${completed.map((l) => `  • ${l.name}`).join("\n")}`,
 				"info",
 			);
+			updateUI(ctx);
 		},
 
 		list(_rest, ctx) {
@@ -499,6 +512,7 @@ export function registerCommands(
 						"info",
 					);
 				}
+				updateUI(ctx);
 			};
 
 			if (!force) {
