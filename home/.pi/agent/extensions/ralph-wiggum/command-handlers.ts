@@ -365,6 +365,8 @@ export function registerCommands(
 				return;
 			}
 
+			orchestrator.activeLoop = loopName;
+
 			const resumeSd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
 			if (resumeSd !== scratchDir(ctx)) {
 				store.setCrossProjectRef(loopName, resumeSd);

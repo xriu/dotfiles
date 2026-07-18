@@ -26,10 +26,7 @@ import {
 	isPlanLevelLoop,
 } from "./loop-store";
 import { buildPrompt, COMPLETE_MARKER } from "./prompt-builder";
-import {
-	LoopOrchestrator,
-	DEFAULT_REFLECT_INSTRUCTIONS,
-} from "./loop-orchestrator";
+import { LoopOrchestrator } from "./loop-orchestrator";
 import { registerCommands } from "./command-handlers";
 
 const STATUS_ICONS: Record<LoopStatus, string> = {
@@ -471,13 +468,15 @@ export default function (pi: ExtensionAPI) {
 
 			if (result.complete) {
 				updateUI(ctx);
+				const exceededMax =
+					state.maxIterations > 0 && state.iteration > state.maxIterations;
 				return {
 					content: [
 						{
 							type: "text",
-							text: isPlanLevelLoop(state.name)
-								? `Plan "${state.name}" complete — all issues finished.`
-								: "Max iterations reached. Loop stopped.",
+							text: exceededMax
+								? "Max iterations reached. Loop stopped."
+								: `Plan "${state.name}" complete — all issues finished.`,
 						},
 					],
 					details: {},
