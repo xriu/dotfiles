@@ -21,9 +21,9 @@
     "keepRecentTokens": 20000,
     "reserveTokens": 820000
   },
-  "defaultModel": "openai/gpt-5.6-luna",
+  "defaultModel": "qwen3.7-plus",
   "defaultProjectTrust": "always",
-  "defaultProvider": "lm-openrouter",
+  "defaultProvider": "xriu-alibaba",
   "defaultThinkingLevel": "xhigh",
   "enableInstallTelemetry": true,
   "followUpMode": "all",
