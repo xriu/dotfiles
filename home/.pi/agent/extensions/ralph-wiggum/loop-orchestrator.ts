@@ -2,6 +2,7 @@
  * LoopOrchestrator — owns loop lifecycle for ralph-wiggum.
  *
  * start(name, config, ctx) → { state, prompt } | null
+ * resume(state, taskContent, ctx, prdContent?) → { prompt }
  * advance(state, taskContent, ctx, prdContent?) → { prompt, complete? }
  * stop(state, status, ctx) → void
  *
@@ -107,6 +108,32 @@ export class LoopOrchestrator {
 		);
 
 		return { state, prompt };
+	}
+
+	// ── resume ─────────────────────────────────────────────────────
+
+	/**
+	 * Resume a paused loop — sets it active and returns the prompt for the
+	 * current iteration WITHOUT incrementing the iteration counter.
+	 */
+	resume(
+		state: LoopState,
+		taskContent: string,
+		ctx: ExtensionContext,
+		prdContent?: string,
+	): { prompt: string } {
+		state.status = "active";
+		state.active = true;
+		this.store.saveState(ctx, state);
+		this._activeLoop = state.name;
+
+		const needsReflection =
+			state.reflectEvery > 0 &&
+			(state.iteration - 1) % state.reflectEvery === 0;
+
+		const prompt = buildPrompt(state, taskContent, needsReflection, prdContent);
+
+		return { prompt };
 	}
 
 	// ── advance ────────────────────────────────────────────────────

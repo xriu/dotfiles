@@ -1,7 +1,10 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { describe, it, expect, beforeEach, vi, afterEach } from "vitest";
-import { LoopOrchestrator, DEFAULT_REFLECT_INSTRUCTIONS } from "./loop-orchestrator";
+import {
+	LoopOrchestrator,
+	DEFAULT_REFLECT_INSTRUCTIONS,
+} from "./loop-orchestrator";
 import type { LoopState } from "./loop-store";
 import { LoopStore } from "./loop-store";
 import type { ExtensionContext } from "@earendil-works/pi-coding-agent";
@@ -183,6 +186,48 @@ describe("LoopOrchestrator", () => {
 			);
 
 			expect(result!.prompt).not.toContain("PLAN-LEVEL");
+		});
+	});
+
+	// ── resume ─────────────────────────────────────────────────────
+
+	describe("resume", () => {
+		it("sets state to active and persists", () => {
+			const state = makeState({ status: "paused", active: false });
+			const result = orchestrator.resume(state, "Task content", ctx);
+
+			expect(state.status).toBe("active");
+			expect(state.active).toBe(true);
+			expect(store.saveState).toHaveBeenCalled();
+			expect(result.prompt).toContain("RALPH LOOP");
+		});
+
+		it("does NOT increment iteration", () => {
+			const state = makeState({ status: "paused", iteration: 5 });
+			orchestrator.resume(state, "Task", ctx);
+
+			expect(state.iteration).toBe(5);
+		});
+
+		it("sets activeLoop to the resumed loop name", () => {
+			const state = makeState({ status: "paused", name: "my-loop" });
+			orchestrator.resume(state, "Task", ctx);
+
+			expect(orchestrator.activeLoop).toBe("my-loop");
+		});
+
+		it("returns a prompt for the current iteration", () => {
+			const state = makeState({ status: "paused", iteration: 3 });
+			const result = orchestrator.resume(state, "Do the work.", ctx);
+
+			expect(result.prompt).toContain("Iteration 3");
+		});
+
+		it("includes PRD content for plan-level loops", () => {
+			const state = makeState({ status: "paused", name: "my-plan" });
+			const result = orchestrator.resume(state, "Task", ctx, "# PRD\n\nContext.");
+
+			expect(result.prompt).toContain("Context.");
 		});
 	});
 

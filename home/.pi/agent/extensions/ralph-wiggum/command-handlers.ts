@@ -335,9 +335,6 @@ export function registerCommands(
 				}
 			}
 
-			state.status = "active";
-			state.active = true;
-
 			const taskContent = tryRead(path.resolve(ctx.cwd, state.taskFile));
 			if (taskContent === null) {
 				ctx.ui.notify(`Could not read task file: ${state.taskFile}`, "error");
@@ -354,18 +351,7 @@ export function registerCommands(
 					) ?? undefined)
 				: undefined;
 
-			const result = orchestrator.advance(state, taskContent, ctx, prdContent);
-
-			if (result.complete) {
-				updateUI(ctx);
-				ctx.ui.notify(
-					`Loop "${loopName}" has all issues complete or max iterations reached.`,
-					"warning",
-				);
-				return;
-			}
-
-			orchestrator.activeLoop = loopName;
+			const { prompt } = orchestrator.resume(state, taskContent, ctx, prdContent);
 
 			const resumeSd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
 			if (resumeSd !== scratchDir(ctx)) {
@@ -379,7 +365,7 @@ export function registerCommands(
 			);
 
 			updateUI(ctx);
-			pi.sendUserMessage(result.prompt);
+			pi.sendUserMessage(prompt);
 		},
 
 		status(_rest, ctx) {
