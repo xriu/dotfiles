@@ -24,7 +24,8 @@ import {
 } from "./plan-paths";
 import {
 	type LoopStore,
-	type LoopStatus,
+	STATUS_ICONS,
+	formatMaxIter,
 	safeJsonParse,
 	migrateState,
 	extractTitle,
@@ -50,12 +51,6 @@ Describe the task here.
 
 None.
 `;
-
-const STATUS_ICONS: Record<LoopStatus, string> = {
-	active: "▶",
-	paused: "⏸",
-	completed: "✓",
-};
 
 // ─── Helpers (command-only) ────────────────────────────────────────
 
@@ -128,9 +123,6 @@ function parseArgs(argsStr: string): ParsedArgs {
 
 // ─── Formatting helpers (used by commands only) ────────────────────
 
-function formatMaxIter(state: LoopState): string {
-	return state.maxIterations > 0 ? `/${state.maxIterations}` : "";
-}
 
 function formatLoop(l: LoopState): string {
 	const status = `${STATUS_ICONS[l.status]} ${l.status}`;
@@ -351,7 +343,12 @@ export function registerCommands(
 					) ?? undefined)
 				: undefined;
 
-			const { prompt } = orchestrator.resume(state, taskContent, ctx, prdContent);
+			const { prompt } = orchestrator.resume(
+				state,
+				taskContent,
+				ctx,
+				prdContent,
+			);
 
 			const resumeSd = scratchDirFromFile(state.taskFile, scratchDir(ctx));
 			if (resumeSd !== scratchDir(ctx)) {

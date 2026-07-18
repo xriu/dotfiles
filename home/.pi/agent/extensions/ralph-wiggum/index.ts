@@ -21,7 +21,8 @@ import {
 import {
 	LoopStore,
 	type LoopState,
-	type LoopStatus,
+	STATUS_ICONS,
+	formatMaxIter,
 	tryRead,
 	isPlanLevelLoop,
 } from "./loop-store";
@@ -29,26 +30,12 @@ import { buildPrompt, COMPLETE_MARKER } from "./prompt-builder";
 import { LoopOrchestrator } from "./loop-orchestrator";
 import { registerCommands } from "./command-handlers";
 
-const STATUS_ICONS: Record<LoopStatus, string> = {
-	active: "▶",
-	paused: "⏸",
-	completed: "✓",
-};
-
 export default function (pi: ExtensionAPI) {
 	const store = new LoopStore();
 	const orchestrator = new LoopOrchestrator(store);
 
 	// --- Cross-cutting helpers ---
 
-	function banner(text: string): string {
-		return text;
-	}
-
-	/** Iteration display: "3/10" or "3". */
-	function formatMaxIter(state: LoopState): string {
-		return state.maxIterations > 0 ? `/${state.maxIterations}` : "";
-	}
 
 	function updateUI(ctx: ExtensionContext): void {
 		if (!ctx.hasUI) return;
@@ -121,9 +108,7 @@ export default function (pi: ExtensionAPI) {
 			completeLoop(
 				ctx,
 				state,
-				banner(
-					`⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached`,
-				),
+				`⚠️ RALPH LOOP STOPPED: ${state.name} | Max iterations (${state.maxIterations}) reached`,
 			);
 			return true;
 		}
@@ -581,9 +566,7 @@ export default function (pi: ExtensionAPI) {
 			completeLoop(
 				ctx,
 				state,
-				banner(
-					`✅ RALPH LOOP COMPLETE: ${state.name} | ${state.iteration} iterations`,
-				),
+				`✅ RALPH LOOP COMPLETE: ${state.name} | ${state.iteration} iterations`,
 			);
 			return;
 		}
@@ -657,7 +640,7 @@ export default function (pi: ExtensionAPI) {
 			completeLoop(
 				ctx,
 				state,
-				banner(`✅ PLAN COMPLETE: ${state.name} | All issues finished`),
+				`✅ PLAN COMPLETE: ${state.name} | All issues finished`,
 			);
 			return;
 		}

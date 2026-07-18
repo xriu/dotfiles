@@ -28,6 +28,20 @@ export interface LoopState {
 	tddMode?: boolean;
 }
 
+// ─── Shared UI utilities ──────────────────────────────────────────
+
+/** Icon per loop status — shared between index.ts and command-handlers.ts. */
+export const STATUS_ICONS: Record<LoopStatus, string> = {
+	active: "▶",
+	paused: "⏸",
+	completed: "✓",
+};
+
+/** Iteration display: "3/10" or "3". */
+export function formatMaxIter(state: LoopState): string {
+	return state.maxIterations > 0 ? `/${state.maxIterations}` : "";
+}
+
 interface PlanInfo {
 	name: string;
 	prdPath: string;
