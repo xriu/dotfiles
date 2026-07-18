@@ -1,66 +1,70 @@
 {
-    "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-    "packages": [
-        "git:github.com/nicobailon/visual-explainer",
-        "npm:@piotr-oles/pi-reflag",
-        "npm:@plannotator/pi-extension",
-        "npm:pi-bash-live-view",
-        "npm:pi-design-deck",
-        "npm:pi-fusion",
-        "npm:pi-interview",
-        "npm:pi-lens",
-        "npm:pi-markdown-preview",
-        "npm:pi-mcp-adapter",
-        "npm:pi-powerline-footer",
-        "npm:pi-review-loop",
-        "npm:pi-rewind",
-        "npm:pi-web-access"
-    ],
-    "compaction": {
-        "keepRecentTokens": 20000,
-        "reserveTokens": 820000
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "packages": [
+    "git:github.com/nicobailon/visual-explainer",
+    "npm:@plannotator/pi-extension",
+    "npm:pi-bash-live-view",
+    "npm:pi-design-deck",
+    "npm:pi-fusion",
+    "npm:pi-interview",
+    "npm:pi-lens",
+    "npm:pi-markdown-preview",
+    "npm:pi-mcp-adapter",
+    "npm:pi-powerline-footer",
+    "npm:pi-review-loop",
+    "npm:pi-rewind",
+    "npm:pi-web-access"
+  ],
+  "compaction": {
+    "keepRecentTokens": 20000,
+    "reserveTokens": 820000
+  },
+  "defaultModel": "openai/gpt-5.6-luna",
+  "defaultProjectTrust": "always",
+  "defaultProvider": "lm-openrouter",
+  "defaultThinkingLevel": "xhigh",
+  "enableInstallTelemetry": true,
+  "followUpMode": "all",
+  "httpIdleTimeoutMs": 120000,
+  "lastChangelogVersion": "0.80.6",
+  "powerline": {
+    "layout": {
+      "left": [
+        "model",
+        "thinking",
+        "shell_mode",
+        "path",
+        "context_pct",
+        "cache_read",
+        "cost"
+      ],
+      "right": [],
+      "secondary": [
+        "git",
+        "extension_statuses"
+      ]
     },
-    "defaultModel": "qwen3.7-plus",
-    "defaultProjectTrust": "always",
-    "defaultProvider": "xriu-alibaba",
-    "defaultThinkingLevel": "xhigh",
-    "enableInstallTelemetry": true,
-    "followUpMode": "all",
-    "httpIdleTimeoutMs": 120000,
-    "lastChangelogVersion": "0.80.6",
-    "powerline": {
-        "layout": {
-            "left": [
-                "model",
-                "thinking",
-                "shell_mode",
-                "path",
-                "context_pct",
-                "cache_read",
-                "cost"
-            ],
-            "right": [],
-            "secondary": ["git", "extension_statuses"]
-        },
-        "placement": "below",
-        "preset": "default",
-        "welcome": false
-    },
-    "powerlineShortcuts": {
-        "jumpPreviousUserMessage": null,
-        "jumpNextUserMessage": null,
-        "jumpPreviousLlmMessage": null,
-        "jumpNextLlmMessage": null,
-        "jumpChatBottom": null
-    },
-    "reviewerLoop": {
-        "autoTrigger": true,
-        "freshContext": true,
-        "maxIterations": 3,
-        "reviewPrompt": "template:double-check"
-    },
-    "showCacheMissNotices": true,
-    "steeringMode": "all",
-    "theme": "dark",
-    "treeFilterMode": "no-tools"
+    "placement": "below",
+    "preset": "default",
+    "welcome": false
+  },
+  "powerlineShortcuts": {
+    "jumpPreviousUserMessage": null,
+    "jumpNextUserMessage": null,
+    "jumpPreviousLlmMessage": null,
+    "jumpNextLlmMessage": null,
+    "jumpChatBottom": null
+  },
+  "reviewerLoop": {
+    "autoTrigger": true,
+    "freshContext": true,
+    "maxIterations": 3,
+    "reviewPrompt": "template:double-check"
+  },
+  "showCacheMissNotices": true,
+  "steeringMode": "all",
+  "theme": "dark",
+  "treeFilterMode": "no-tools"
 }
