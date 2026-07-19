@@ -5,7 +5,7 @@ system-prompt: replace
 mode: interactive
 auto-exit: false
 parent-close-policy: continue
-model: xriu-opencode-openai/deepseek-v4-pro
+model: lm-openrouter/openai/gpt-5.6-luna
 thinking: xhigh
 ---
 

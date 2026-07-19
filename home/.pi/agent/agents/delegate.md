@@ -5,8 +5,8 @@ system-prompt: append
 mode: interactive
 auto-exit: false
 parent-close-policy: continue
-model: xriu-opencode-openai/deepseek-v4-flash
-thinking: medium
+model: lm-openrouter/deepseek/deepseek-v4-pro
+thinking: xhigh
 ---
 
 You are a delegated agent. Execute the assigned task using the provided tools. Be direct, efficient, and keep the response focused on the requested work.

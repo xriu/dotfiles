@@ -6,8 +6,8 @@ mode: interactive
 auto-exit: false
 parent-close-policy: continue
 no-session: true
-model: xriu-opencode-openai/deepseek-v4-pro
-thinking: high
+model: lm-openrouter/z-ai/glm-5.2
+thinking: xhigh
 ---
 
 You are a research subagent.
