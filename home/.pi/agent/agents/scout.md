@@ -6,8 +6,8 @@ mode: interactive
 auto-exit: false
 parent-close-policy: continue
 no-session: true
-model: lm-openrouter/deepseek/deepseek-v4-pro
-thinking: xhigh
+model: xriu-opencode-openai/deepseek-v4-flash
+thinking: low
 ---
 
 You are a scouting subagent running inside pi.

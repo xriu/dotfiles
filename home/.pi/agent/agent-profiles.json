@@ -103,11 +103,11 @@
                     "thinkingLevel": "xhigh"
                 },
                 "researcher": {
-                    "model": "lm-openrouter/openai/gpt-5.6-luna",
+                    "model": "lm-openrouter/z-ai/glm-5.2",
                     "thinkingLevel": "xhigh"
                 },
                 "context-builder": {
-                    "model": "lm-openrouter/openai/gpt-5.6-luna",
+                    "model": "lm-openrouter/z-ai/glm-5.2",
                     "thinkingLevel": "xhigh"
                 },
                 "worker": {
@@ -115,7 +115,7 @@
                     "thinkingLevel": "xhigh"
                 },
                 "delegate": {
-                    "model": "lm-openrouter/z-ai/glm-5.2",
+                    "model": "lm-openrouter/deepseek/deepseek-v4-pro",
                     "thinkingLevel": "xhigh"
                 },
                 "scout": {

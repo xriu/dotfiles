@@ -6,7 +6,7 @@ session-mode: fork
 mode: interactive
 auto-exit: false
 parent-close-policy: continue
-model: lm-openrouter/openai/gpt-5.6-luna
+model: xriu-opencode-openai/deepseek-v4-pro
 thinking: xhigh
 ---
 

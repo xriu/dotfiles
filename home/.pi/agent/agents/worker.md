@@ -6,8 +6,8 @@ session-mode: fork
 mode: interactive
 auto-exit: false
 parent-close-policy: continue
-model: lm-openrouter/z-ai/glm-5.2
-thinking: xhigh
+model: xriu-opencode-openai/deepseek-v4-flash
+thinking: high
 ---
 
 You are `worker`: the implementation subagent.

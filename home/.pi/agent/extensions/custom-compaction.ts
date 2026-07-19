@@ -20,12 +20,15 @@
  *   pi --extension ~/.pi/agent/extensions/custom-compaction.ts
  */
 
-import { complete } from "@earendil-works/pi-ai/compat";
-import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
-import { convertToLlm, serializeConversation } from "@earendil-works/pi-coding-agent";
 import { writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { complete } from "@earendil-works/pi-ai/compat";
+import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import {
+	convertToLlm,
+	serializeConversation,
+} from "@earendil-works/pi-coding-agent";
 
 /** Sanitize a string for use in a filename. */
 function sanitizeFilename(name: string): string {
@@ -36,7 +39,7 @@ export default function (pi: ExtensionAPI) {
 	pi.on("session_before_compact", async (event, ctx) => {
 		ctx.ui.notify("Handoff compaction extension triggered", "info");
 
-		const { preparation, branchEntries: _, signal } = event;
+		const { preparation, signal } = event;
 		const {
 			messagesToSummarize,
 			turnPrefixMessages,
@@ -53,13 +56,27 @@ export default function (pi: ExtensionAPI) {
 			return;
 		}
 
-		const auth = await ctx.modelRegistry.getApiKeyAndHeaders(model);
+		if (signal.aborted) return;
+
+		let auth: Awaited<ReturnType<typeof ctx.modelRegistry.getApiKeyAndHeaders>>;
+		try {
+			auth = await ctx.modelRegistry.getApiKeyAndHeaders(model);
+		} catch (error) {
+			if (!signal.aborted) {
+				const message = error instanceof Error ? error.message : String(error);
+				ctx.ui.notify(`Compaction auth failed: ${message}`, "warning");
+			}
+			return;
+		}
 		if (!auth.ok) {
 			ctx.ui.notify(`Compaction auth failed: ${auth.error}`, "warning");
 			return;
 		}
 		if (!auth.apiKey) {
-			ctx.ui.notify(`No API key for ${model.provider}, using default compaction`, "warning");
+			ctx.ui.notify(
+				`No API key for ${model.provider}, using default compaction`,
+				"warning",
+			);
 			return;
 		}
 
@@ -71,18 +88,21 @@ export default function (pi: ExtensionAPI) {
 		);
 		const modifiedFiles = [...new Set([...fileOps.written, ...fileOps.edited])];
 
-		const artifactSection =
-			readFiles.length > 0 || modifiedFiles.length > 0
-				? [
-						"### Artifact References",
-						readFiles.length > 0
-							? `\n**Files read (not modified):**\n${readFiles.map((f) => `- \`${f}\``).join("\n")}`
-							: "",
-						modifiedFiles.length > 0
-							? `\n**Files modified:**\n${modifiedFiles.map((f) => `- \`${f}\``).join("\n")}`
-							: "",
-					].join("\n")
-				: "";
+		let artifactSection = "";
+		if (readFiles.length > 0 || modifiedFiles.length > 0) {
+			const sections = ["### Artifact References"];
+			if (readFiles.length > 0) {
+				sections.push(
+					`\n**Files read (not modified):**\n${readFiles.map((f) => `- \`${f}\``).join("\n")}`,
+				);
+			}
+			if (modifiedFiles.length > 0) {
+				sections.push(
+					`\n**Files modified:**\n${modifiedFiles.map((f) => `- \`${f}\``).join("\n")}`,
+				);
+			}
+			artifactSection = sections.join("\n");
+		}
 
 		const conversationText = serializeConversation(convertToLlm(allMessages));
 		const previousContext = previousSummary
@@ -160,14 +180,18 @@ ${conversationText}
 				},
 			);
 
+			if (signal.aborted || response.stopReason === "aborted") return;
+
 			const fullText = response.content
-				.filter((c): c is { type: "text"; text: string } => c.type === "text")
-				.map((c) => c.text)
+				.flatMap((content) => (content.type === "text" ? [content.text] : []))
 				.join("\n");
 
 			if (!fullText.trim()) {
 				if (!signal.aborted)
-					ctx.ui.notify("Handoff compaction summary was empty, using default", "warning");
+					ctx.ui.notify(
+						"Handoff compaction summary was empty, using default",
+						"warning",
+					);
 				return;
 			}
 
@@ -177,12 +201,14 @@ ${conversationText}
 			);
 			const handoffMatch = fullText.match(/## Handoff Document\n([\s\S]*)/);
 
-			const condensedSummary = condensedMatch?.[1]?.trim() || fullText.slice(0, 500);
+			const condensedSummary =
+				condensedMatch?.[1]?.trim() || fullText.slice(0, 500);
 			const handoffDoc = handoffMatch?.[1]?.trim() || fullText;
 
 			// Save the full handoff document to OS temp directory
 			const sessionName =
-				ctx.sessionManager.getSessionName() || ctx.sessionManager.getSessionId();
+				ctx.sessionManager.getSessionName() ||
+				ctx.sessionManager.getSessionId();
 			const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
 			const filename = `handoff-${sanitizeFilename(sessionName)}-${timestamp}.md`;
 			const handoffPath = join(tmpdir(), filename);
@@ -192,6 +218,7 @@ ${conversationText}
 				`# Handoff Document — ${sessionName}\n\n${handoffDoc}\n`,
 				"utf-8",
 			);
+			if (signal.aborted) return;
 			ctx.ui.notify(`Handoff document saved to ${handoffPath}`, "info");
 
 			// Return condensed summary to SessionManager for context replacement.
@@ -205,8 +232,10 @@ ${conversationText}
 				},
 			};
 		} catch (error) {
-			const message = error instanceof Error ? error.message : String(error);
-			ctx.ui.notify(`Handoff compaction failed: ${message}`, "error");
+			if (!signal.aborted) {
+				const message = error instanceof Error ? error.message : String(error);
+				ctx.ui.notify(`Handoff compaction failed: ${message}`, "error");
+			}
 			return;
 		}
 	});
