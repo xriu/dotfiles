@@ -20,7 +20,8 @@
  *   pi --extension ~/.pi/agent/extensions/custom-compaction.ts
  */
 
-import { writeFile } from "node:fs/promises";
+import { randomUUID } from "node:crypto";
+import { unlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { complete } from "@earendil-works/pi-ai/compat";
@@ -33,6 +34,28 @@ import {
 /** Sanitize a string for use in a filename. */
 function sanitizeFilename(name: string): string {
 	return name.replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 50);
+}
+
+/** Remove credentials that the model may have copied into its response. */
+function redactSensitiveContent(
+	text: string,
+	secrets: readonly string[],
+): string {
+	let redacted = text;
+	for (const secret of secrets) {
+		if (secret) redacted = redacted.split(secret).join("[REDACTED]");
+	}
+	return redacted
+		.replace(/\bBearer\s+[^\s,;]+/gi, "Bearer [REDACTED]")
+		.replace(
+			/((?:["']?(?:x-)?api[_-]?key|authorization|cookie|password|secret|token)["']?\s*[:=]\s*["']?)[^\s,;"']+/gi,
+			"$1[REDACTED]",
+		)
+		.replace(
+			/([?&](?:api[_-]?key|access[_-]?token|authorization|token|secret|password)=)[^&#\s]+/gi,
+			"$1[REDACTED]",
+		)
+		.replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, "[REDACTED]");
 }
 
 export default function (pi: ExtensionAPI) {
@@ -69,17 +92,11 @@ export default function (pi: ExtensionAPI) {
 			return;
 		}
 		if (!auth.ok) {
-			ctx.ui.notify(`Compaction auth failed: ${auth.error}`, "warning");
+			if (!signal.aborted) {
+				ctx.ui.notify(`Compaction auth failed: ${auth.error}`, "warning");
+			}
 			return;
 		}
-		if (!auth.apiKey) {
-			ctx.ui.notify(
-				`No API key for ${model.provider}, using default compaction`,
-				"warning",
-			);
-			return;
-		}
-
 		const allMessages = [...messagesToSummarize, ...turnPrefixMessages];
 
 		// Build artifact references from fileOps (already extracted by the framework)
@@ -167,6 +184,8 @@ ${conversationText}
 			},
 		];
 
+		let handoffPath: string | undefined;
+
 		try {
 			const response = await complete(
 				model,
@@ -180,11 +199,27 @@ ${conversationText}
 				},
 			);
 
-			if (signal.aborted || response.stopReason === "aborted") return;
+			if (signal.aborted || response.stopReason !== "stop") return;
 
-			const fullText = response.content
-				.flatMap((content) => (content.type === "text" ? [content.text] : []))
-				.join("\n");
+			const authSecrets = [
+				auth.apiKey,
+				...Object.entries(auth.headers ?? {}).flatMap(([name, value]) =>
+					/authorization|api[-_]key|token|secret|password|cookie/i.test(name)
+						? [value]
+						: [],
+				),
+				...Object.entries(auth.env ?? {}).flatMap(([name, value]) =>
+					/key|token|secret|password|credential|auth|cookie/i.test(name)
+						? [value]
+						: [],
+				),
+			].filter((secret): secret is string => Boolean(secret));
+			const fullText = redactSensitiveContent(
+				response.content
+					.flatMap((content) => (content.type === "text" ? [content.text] : []))
+					.join("\n"),
+				authSecrets,
+			);
 
 			if (!fullText.trim()) {
 				if (!signal.aborted)
@@ -196,29 +231,38 @@ ${conversationText}
 			}
 
 			// Split the response into condensed summary and handoff document
-			const condensedMatch = fullText.match(
-				/## Condensed Summary\n([\s\S]*?)(?=\n## Handoff Document)/,
+			const sections = fullText.match(
+				/^\s*## Condensed Summary[ \t]*\r?\n([\s\S]*?)\r?\n## Handoff Document[ \t]*\r?\n([\s\S]*)$/,
 			);
-			const handoffMatch = fullText.match(/## Handoff Document\n([\s\S]*)/);
+			if (!sections?.[1]?.trim() || !sections[2]?.trim()) {
+				if (!signal.aborted) {
+					ctx.ui.notify(
+						"Handoff compaction response had an invalid format, using default",
+						"warning",
+					);
+				}
+				return;
+			}
 
-			const condensedSummary =
-				condensedMatch?.[1]?.trim() || fullText.slice(0, 500);
-			const handoffDoc = handoffMatch?.[1]?.trim() || fullText;
+			const condensedSummary = sections[1].trim();
+			const handoffDoc = sections[2].trim();
 
 			// Save the full handoff document to OS temp directory
-			const sessionName =
-				ctx.sessionManager.getSessionName() ||
-				ctx.sessionManager.getSessionId();
+			const sessionId = ctx.sessionManager.getSessionId();
 			const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-			const filename = `handoff-${sanitizeFilename(sessionName)}-${timestamp}.md`;
-			const handoffPath = join(tmpdir(), filename);
+			const filename = `handoff-${sanitizeFilename(sessionId)}-${timestamp}-${randomUUID()}.md`;
+			handoffPath = join(tmpdir(), filename);
 
-			await writeFile(
-				handoffPath,
-				`# Handoff Document — ${sessionName}\n\n${handoffDoc}\n`,
-				"utf-8",
-			);
 			if (signal.aborted) return;
+			await writeFile(handoffPath, `# Handoff Document\n\n${handoffDoc}\n`, {
+				encoding: "utf-8",
+				mode: 0o600,
+				flag: "wx",
+			});
+			if (signal.aborted) {
+				await unlink(handoffPath).catch(() => undefined);
+				return;
+			}
 			ctx.ui.notify(`Handoff document saved to ${handoffPath}`, "info");
 
 			// Return condensed summary to SessionManager for context replacement.
@@ -232,6 +276,11 @@ ${conversationText}
 				},
 			};
 		} catch (error) {
+			const errorCode =
+				error instanceof Error && "code" in error ? error.code : undefined;
+			if (handoffPath && errorCode !== "EEXIST") {
+				await unlink(handoffPath).catch(() => undefined);
+			}
 			if (!signal.aborted) {
 				const message = error instanceof Error ? error.message : String(error);
 				ctx.ui.notify(`Handoff compaction failed: ${message}`, "error");

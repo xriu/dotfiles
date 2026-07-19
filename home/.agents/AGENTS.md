@@ -1,97 +1,72 @@
 # AGENTS.md
 
-**Always respond in English, regardless of the language I use.** This is a hard rule, not a preference. Never mirror my input language.
+## Communication
 
-Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
+- Respond in English, regardless of the user’s language.
+- Use concise, direct technical prose.
+- Omit fluff and cheerful filler.
+- Use no emojis in commits, issues, PR comments, or code.
+- Answer the user’s question before editing files or running implementation commands.
+- When responding to user feedback or analysis, state whether you agree or disagree before describing changes.
 
-**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
+## Plan before coding
 
-## Conversational Style
+Make assumptions explicit. When requirements have multiple plausible interpretations, list the alternatives and ask for a decision. Surface tradeoffs and prefer the simplest approach that satisfies the request.
 
-- Keep answers short and concise
-- No emojis in commits, issues, PR comments, or code
-- No fluff or cheerful filler text (e.g., "Thanks @user" not "Thanks so much @user!")
-- Technical prose only, be direct
-- When the user asks a question, answer it first before making edits or running implementation commands.
-- When responding to user feedback or an analysis, explicitly say whether you agree or disagree before saying what you changed.
+For multi-step work, state a short plan with a verification criterion for each step:
 
-## 1. Think Before Coding
-
-**Don't assume. Don't hide confusion. Surface tradeoffs.**
-
-Before implementing:
-
-- State your assumptions explicitly. If uncertain, ask.
-- If multiple interpretations exist, present them - don't pick silently.
-- If a simpler approach exists, say so. Push back when warranted.
-- If something is unclear, stop. Name what's confusing. Ask.
-
-## 2. Simplicity First
-
-**Minimum code that solves the problem. Nothing speculative.**
-
-- No features beyond what was asked.
-- No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
-- No error handling for truly unreachable states.
-- If you write 200 lines and it could be 50, rewrite it.
-
-Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
-
-## 3. Surgical Changes
-
-**Touch only what you must. Clean up only your own mess.**
-
-When editing existing code:
-
-- Don't "improve" adjacent code, comments, or formatting.
-- Don't refactor things that aren't broken.
-- Match existing style, even if you'd do it differently.
-- If you notice unrelated dead code, mention it - don't delete it.
-
-When your changes create orphans:
-
-- Remove imports/variables/functions that YOUR changes made unused.
-- Don't remove pre-existing dead code unless asked.
-
-The test: Every changed line should trace directly to the user's request.
-
-## 4. Goal-Driven Execution
-
-**Define success criteria. Loop until verified.**
-
-Transform tasks into verifiable goals:
-
-- "Add validation" → "Write tests for invalid inputs, then make them pass"
-- "Fix the bug" → "Write a test that reproduces it, then make it pass"
-- "Refactor X" → "Ensure tests pass before and after"
-
-For multi-step tasks, state a brief plan:
-
-```
+```text
 1. [Step] → verify: [check]
 2. [Step] → verify: [check]
 3. [Step] → verify: [check]
 ```
 
-Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+Define success as an observable result. Examples:
 
-Prefer test-first when the task has clear inputs and outputs. Use the project's `tdd` skill when appropriate.
+- Validation → tests cover invalid inputs and pass.
+- Bug fix → a regression test reproduces the failure and passes after the fix.
+- Refactor → the relevant tests pass before and after the change.
 
----
+Prefer test-first development when the inputs and outputs are clear. Use the project’s `tdd` skill when appropriate.
+
+## Simplicity
+
+Implement the minimum change that satisfies the request.
+
+- Add no speculative features, abstractions, configurability, or unreachable-state handling.
+- Match the existing style and keep unrelated code unchanged.
+- Remove only imports, variables, or functions made unused by the current change.
+- Mention unrelated dead code instead of removing it.
+
+Before finalizing, ask: “Could this be substantially shorter without losing required behavior?” If yes, simplify it.
+
+## Surgical changes
+
+Every changed line must trace directly to the request or to a necessary consequence of the change. For existing files:
+
+- Inspect the relevant code before editing.
+- Make targeted edits and preserve adjacent comments, formatting, and behavior.
+- Keep each concept in one authoritative location.
+
+## Verification loop
+
+Work toward the defined success criteria and verify them before reporting completion. Check that:
+
+- The requested behavior is implemented.
+- Tests or other relevant checks pass.
+- Changes introduced no new diagnostics or unused code.
+- Every modified file and meaningful verification result is reported.
 
 ## Agent skills
 
 ### Issue tracker
 
-Issues and PRDs live as local markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
+Issues and PRDs live as local Markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
-Default vocabulary: needs-triage, needs-info, ready-for-agent, ready-for-human, wontfix. See `docs/agents/triage-labels.md`.
+Use this vocabulary by default: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 
-Multi-context — `CONTEXT-MAP.md` at root pointing to per-context `CONTEXT.md` files. See `docs/agents/domain.md`.
-
-Single-context — `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+For multi-context projects, `CONTEXT-MAP.md` at the root points to per-context `CONTEXT.md` files. For single-context projects, use the root `CONTEXT.md` and `docs/adr/`. See `docs/agents/domain.md`.
