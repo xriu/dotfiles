@@ -74,6 +74,10 @@ alias codebase-memory="codebase-memory-mcp --ui=true --port=9749"
 # OpenCode
 alias opencode="opencode"
 
+# Pi Herdr
+alias pi1="PI_SUBAGENT_MUX=herdr pi"
+alias pi2="PI_ORCHESTRATOR_MODE=1 PI_SUBAGENT_MUX=herdr pi"
+
 # Update
 alias update="brew-update; pi update --all; brew upgrade claude-code; rustup-update; npm-update; bun-update"
 
