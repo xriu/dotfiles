@@ -1,66 +1,71 @@
 {
-    "compaction": {
-        "keepRecentTokens": 20000,
-        "reserveTokens": 820000
+  "compaction": {
+    "keepRecentTokens": 20000,
+    "reserveTokens": 820000
+  },
+  "defaultModel": "openai/gpt-5.6-luna",
+  "defaultProjectTrust": "always",
+  "defaultProvider": "lm-openrouter",
+  "defaultThinkingLevel": "xhigh",
+  "enableInstallTelemetry": true,
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "followUpMode": "all",
+  "hideThinkingBlock": true,
+  "httpIdleTimeoutMs": 120000,
+  "lastChangelogVersion": "0.80.6",
+  "packages": [
+    "git:github.com/edxeth/pi-ralph-loop",
+    "git:github.com/edxeth/pi-subagents",
+    "npm:@hypabolic/pi-hypa",
+    "npm:@ogulcancelik/pi-auto-permissions",
+    "npm:@ogulcancelik/pi-herdr",
+    "npm:@plannotator/pi-extension",
+    "npm:pi-interview",
+    "npm:pi-lens",
+    "npm:pi-mcp-adapter",
+    "npm:pi-powerline-footer",
+    "npm:pi-review-loop",
+    "npm:pi-rewind",
+    "npm:pi-web-access"
+  ],
+  "powerline": {
+    "layout": {
+      "left": [
+        "model",
+        "thinking",
+        "shell_mode",
+        "path",
+        "context_pct",
+        "cache_read",
+        "cost"
+      ],
+      "right": [],
+      "secondary": [
+        "git",
+        "extension_statuses"
+      ]
     },
-    "defaultModel": "deepseek/deepseek-v4-pro",
-    "defaultProjectTrust": "always",
-    "defaultProvider": "lm-openrouter",
-    "defaultThinkingLevel": "xhigh",
-    "enableInstallTelemetry": true,
-    "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-    "followUpMode": "all",
-    "hideThinkingBlock": true,
-    "httpIdleTimeoutMs": 120000,
-    "lastChangelogVersion": "0.80.6",
-    "packages": [
-        "git:github.com/edxeth/pi-ralph-loop",
-        "git:github.com/edxeth/pi-subagents",
-        "npm:@hypabolic/pi-hypa",
-        "npm:@ogulcancelik/pi-auto-permissions",
-        "npm:@ogulcancelik/pi-herdr",
-        "npm:@plannotator/pi-extension",
-        "npm:pi-interview",
-        "npm:pi-lens",
-        "npm:pi-mcp-adapter",
-        "npm:pi-powerline-footer",
-        "npm:pi-review-loop",
-        "npm:pi-rewind",
-        "npm:pi-web-access"
-    ],
-    "powerline": {
-        "layout": {
-            "left": [
-                "model",
-                "thinking",
-                "shell_mode",
-                "path",
-                "context_pct",
-                "cache_read",
-                "cost"
-            ],
-            "right": [],
-            "secondary": ["git", "extension_statuses"]
-        },
-        "placement": "below",
-        "preset": "default",
-        "welcome": false
-    },
-    "powerlineShortcuts": {
-        "jumpChatBottom": null,
-        "jumpNextLlmMessage": null,
-        "jumpNextUserMessage": null,
-        "jumpPreviousLlmMessage": null,
-        "jumpPreviousUserMessage": null
-    },
-    "reviewerLoop": {
-        "autoTrigger": true,
-        "freshContext": true,
-        "maxIterations": 3,
-        "reviewPrompt": "template:double-check"
-    },
-    "showCacheMissNotices": true,
-    "steeringMode": "all",
-    "theme": "dark",
-    "treeFilterMode": "no-tools"
+    "placement": "below",
+    "preset": "default",
+    "welcome": false
+  },
+  "powerlineShortcuts": {
+    "jumpChatBottom": null,
+    "jumpNextLlmMessage": null,
+    "jumpNextUserMessage": null,
+    "jumpPreviousLlmMessage": null,
+    "jumpPreviousUserMessage": null
+  },
+  "reviewerLoop": {
+    "autoTrigger": true,
+    "freshContext": true,
+    "maxIterations": 3,
+    "reviewPrompt": "template:double-check"
+  },
+  "showCacheMissNotices": true,
+  "steeringMode": "all",
+  "theme": "dark",
+  "treeFilterMode": "no-tools"
 }

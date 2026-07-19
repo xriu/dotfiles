@@ -17,27 +17,17 @@ import { complete, type Message } from "@earendil-works/pi-ai/compat";
 import type { ExtensionAPI, SessionEntry } from "@earendil-works/pi-coding-agent";
 import { BorderedLoader, convertToLlm, serializeConversation } from "@earendil-works/pi-coding-agent";
 
-const SYSTEM_PROMPT = `You are a context transfer assistant. Given a conversation history and the user's goal for a new thread, generate a focused prompt that:
+const SYSTEM_PROMPT = `Write a handoff document summarising the current conversation so a fresh agent can continue the work.
 
-1. Summarizes relevant context from the conversation (decisions made, approaches taken, key findings)
-2. Lists any relevant files that were discussed or modified
-3. Clearly states the next task based on the user's goal
-4. Is self-contained - the new thread should be able to proceed without the old conversation
+Include a "suggested skills" section in the document, which suggests skills that the agent should invoke.
 
-Format your response as a prompt the user can send to start the new thread. Be concise but include all necessary context. Do not include any preamble like "Here's the prompt" - just output the prompt itself.
+Do not duplicate content already captured in other artifacts (specs, plans, ADRs, issues, commits, diffs). Reference them by path or URL instead.
 
-Example output format:
-## Context
-We've been working on X. Key decisions:
-- Decision 1
-- Decision 2
+Redact any sensitive information, such as API keys, passwords, or personally identifiable information.
 
-Files involved:
-- path/to/file1.ts
-- path/to/file2.ts
+If the user passed a goal, treat it as a description of what the next session will focus on and tailor the document accordingly.
 
-## Task
-[Clear description of what to do next based on user's goal]`;
+The document must be self-contained enough for a fresh agent to continue without the original conversation. Include relevant context, decisions, key findings, files discussed or modified, and the next task. Be concise and output only the handoff document, without any preamble.`;
 
 function entryToMessage(entry: SessionEntry): AgentMessage | undefined {
 	if (entry.type === "message") {
