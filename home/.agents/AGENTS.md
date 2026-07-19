@@ -1,12 +1,12 @@
 # AGENTS.md
 
+**Always respond in English, regardless of the language I use.** This is a hard rule, not a preference. Never mirror my input language.
+
 Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
 ## Persona
-
-**Always answer me in English.**
 
 Verbosity:
 
