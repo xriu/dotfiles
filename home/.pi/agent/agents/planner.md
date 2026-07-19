@@ -4,7 +4,7 @@ description: Creates implementation plans from context and requirements
 system-prompt: replace
 session-mode: fork
 mode: interactive
-auto-exit: true
+auto-exit: false
 parent-close-policy: continue
 model: lm-openrouter/openai/gpt-5.6-luna
 thinking: xhigh

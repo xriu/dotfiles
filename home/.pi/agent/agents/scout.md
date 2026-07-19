@@ -3,10 +3,10 @@ name: scout
 description: Fast codebase recon that returns compressed context for handoff
 system-prompt: replace
 mode: interactive
-auto-exit: true
+auto-exit: false
 parent-close-policy: continue
 no-session: true
-model: lm-openrouter/deepseek/deepseek-v4-flash:exacto
+model: lm-openrouter/deepseek/deepseek-v4-pro
 thinking: xhigh
 ---
 

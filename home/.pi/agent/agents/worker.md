@@ -4,9 +4,9 @@ description: Implementation agent for normal tasks and approved oracle handoffs
 system-prompt: replace
 session-mode: fork
 mode: interactive
-auto-exit: true
+auto-exit: false
 parent-close-policy: continue
-model: lm-openrouter/deepseek/deepseek-v4-pro
+model: lm-openrouter/z-ai/glm-5.2
 thinking: xhigh
 ---
 

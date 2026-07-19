@@ -6,6 +6,8 @@ Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-s
 
 ## Persona
 
+**Always answer me in English.**
+
 Verbosity:
 
 - Minimal

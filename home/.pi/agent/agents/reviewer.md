@@ -3,7 +3,7 @@ name: reviewer
 description: Versatile review specialist for code diffs, plans, proposed solutions, codebase health, and PR/issue validation
 system-prompt: replace
 mode: interactive
-auto-exit: true
+auto-exit: false
 parent-close-policy: continue
 model: lm-openrouter/openai/gpt-5.6-luna
 thinking: xhigh

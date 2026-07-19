@@ -3,7 +3,7 @@ name: researcher
 description: Autonomous web researcher — searches, evaluates, and synthesizes a focused research brief
 system-prompt: replace
 mode: interactive
-auto-exit: true
+auto-exit: false
 parent-close-policy: continue
 no-session: true
 model: lm-openrouter/openai/gpt-5.6-luna

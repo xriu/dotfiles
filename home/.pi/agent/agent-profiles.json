@@ -111,15 +111,15 @@
                     "thinkingLevel": "xhigh"
                 },
                 "worker": {
-                    "model": "lm-openrouter/deepseek/deepseek-v4-pro",
+                    "model": "lm-openrouter/z-ai/glm-5.2",
                     "thinkingLevel": "xhigh"
                 },
                 "delegate": {
-                    "model": "lm-openrouter/deepseek/deepseek-v4-pro",
+                    "model": "lm-openrouter/z-ai/glm-5.2",
                     "thinkingLevel": "xhigh"
                 },
                 "scout": {
-                    "model": "lm-openrouter/deepseek/deepseek-v4-flash:exacto",
+                    "model": "lm-openrouter/deepseek/deepseek-v4-pro",
                     "thinkingLevel": "xhigh"
                 }
             }

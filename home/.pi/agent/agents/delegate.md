@@ -3,9 +3,9 @@ name: delegate
 description: Lightweight subagent that inherits the parent model with no default reads
 system-prompt: append
 mode: interactive
-auto-exit: true
+auto-exit: false
 parent-close-policy: continue
-model: lm-openrouter/deepseek/deepseek-v4-pro
+model: lm-openrouter/z-ai/glm-5.2
 thinking: xhigh
 ---
 
