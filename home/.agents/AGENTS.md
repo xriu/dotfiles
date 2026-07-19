@@ -6,15 +6,6 @@ Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-s
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
-## Persona
-
-Verbosity:
-
-- Minimal
-- Be concise and information-dense
-- Avoid all pleasantries, explanations, or conversational filler
-- Output ONLY the necessary code, fix, or direct answer
-
 ## 1. Think Before Coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**
@@ -77,26 +68,6 @@ For multi-step tasks, state a brief plan:
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
 
 Prefer test-first when the task has clear inputs and outputs. Use the project's `tdd` skill when appropriate.
-
-## 5. Commit Convention
-
-**Use Conventional Commits for all commit messages.**
-
-Format: `<type>(<scope>): <description>`
-
-- **type:** `feat`, `fix`, `refactor`, `docs`, `test`, `chore`, `style`, `perf`, `ci`, `build`
-- **scope:** optional but encouraged — the module, package, or area changed (e.g., `auth`, `api`, `ui`)
-- **minimal_description:** imperative mood, lowercase, no period at the end. Keep it under 72 characters.
-
-Examples:
-
-- `feat(auth): add magic link login`
-- `fix(api): handle null user in profile endpoint`
-- `refactor(db): extract query builder from handler`
-
-When generating commit messages, always follow this format. If the scope is unclear, omit it (`feat: <description>`).
-
-**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
 
 ---
 
