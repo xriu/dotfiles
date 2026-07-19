@@ -63,6 +63,7 @@ function brew_setup() {
     brew install --cask tablepro --force # Native database client for many database types
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask tldraw --force # Whiteboard-style drawing app
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
     brew install --cask visual-studio-code --force # Visual Studio Code
@@ -72,6 +73,7 @@ function brew_setup() {
 
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
+    # brew install opensuperwhisper # Whisper dictation/transcription app
 
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
