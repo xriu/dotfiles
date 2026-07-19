@@ -38,3 +38,19 @@ A loop started by plan name (e.g., `my-plan`). The agent works through the plan'
 
 **Issue-level loop**:
 A loop started with an issue path (e.g., `my-plan/01-bugfix`). The agent works on a single issue.
+
+**Agent Profile**:
+A named configuration that selects a model and optional thinking level for the main session and agent roles.
+_Avoid_: Agent model
+
+**Agent Override**:
+A per-role model and optional thinking-level setting that changes an agent's behavior only when explicitly configured in an Agent Profile.
+_Avoid_: Agent preset
+
+**Handoff Document**:
+A structured markdown document saved to the OS temp directory during context compaction, designed for a fresh agent session to pick up the work. Contains: goals, key decisions, current state, next steps, suggested skills, artifact references, and a redaction note.
+_Avoid_: Compaction summary, session export
+
+**Condensed Summary**:
+A 1-2 paragraph prose summary returned to the SessionManager during compaction for inline context replacement. Token-efficient; captures the essential state without the full detail of the handoff document.
+_Avoid_: Summary, tl;dr

@@ -1,7 +1,6 @@
 ---
 name: pr-full
 description: Generate a comprehensive pull request description with verification and impact details. Use when asked to create a detailed PR, write PR descriptions, prepare PRs for review, or generate PR documentation with change categorization, verification results, and impact analysis.
-hidden: true
 disable-model-invocation: true
 ---
 

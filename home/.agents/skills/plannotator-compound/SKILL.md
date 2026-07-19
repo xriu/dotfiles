@@ -5,7 +5,6 @@ description: >
   taxonomy, evolution over time, and actionable prompt improvements — then produce
   a polished HTML dashboard report. Falls back to Claude Code ExitPlanMode denial
   reasons when Plannotator data is unavailable.
-hidden: true
 disable-model-invocation: true
 ---
 

@@ -1,61 +1,128 @@
 {
-    "defaultProfile": "xhigh",
+    "defaultProfile": "openrouter",
     "profiles": {
         "alibaba": {
-            "main": [
-                {
-                    "provider": "xriu-alibaba",
-                    "model": "qwen3.7-plus",
+            "main": {
+                "provider": "xriu-alibaba",
+                "model": "qwen3.7-plus",
+                "thinkingLevel": "xhigh"
+            },
+            "agents": {
+                "oracle": {
+                    "model": "xriu-alibaba/qwen3.7-plus",
                     "thinkingLevel": "xhigh"
                 },
-                {
-                    "provider": "xriu-opencode-openai",
-                    "model": "deepseek-v4-flash",
+                "planner": {
+                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "thinkingLevel": "xhigh"
+                },
+                "reviewer": {
+                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "thinkingLevel": "xhigh"
+                },
+                "researcher": {
+                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "thinkingLevel": "xhigh"
+                },
+                "context-builder": {
+                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "thinkingLevel": "xhigh"
+                },
+                "worker": {
+                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "thinkingLevel": "xhigh"
+                },
+                "delegate": {
+                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "thinkingLevel": "xhigh"
+                },
+                "scout": {
+                    "model": "xriu-alibaba/qwen3.7-plus",
                     "thinkingLevel": "xhigh"
                 }
-            ],
-            "agents": {
-                "context-builder": "alibaba/kimi-k2.5",
-                "delegate": "alibaba/kimi-k2.5",
-                "researcher": "alibaba/glm-5",
-                "scout": "alibaba/kimi-k2.5",
-                "planner": "alibaba/glm-5",
-                "reviewer": "alibaba/kimi-k2.5",
-                "worker": "alibaba/glm-5"
             }
         },
         "opencode": {
-            "main": [
-                {
-                    "provider": "xriu-opencode-openai",
-                    "model": "deepseek-v4-flash",
+            "main": {
+                "provider": "xriu-opencode-openai",
+                "model": "deepseek-v4-flash",
+                "thinkingLevel": "xhigh"
+            },
+            "agents": {
+                "oracle": {
+                    "model": "xriu-opencode-openai/deepseek-v4-pro",
                     "thinkingLevel": "xhigh"
                 },
-                {
-                    "provider": "xriu-alibaba",
-                    "model": "qwen3.7-plus",
+                "planner": {
+                    "model": "xriu-opencode-openai/deepseek-v4-pro",
                     "thinkingLevel": "xhigh"
+                },
+                "reviewer": {
+                    "model": "xriu-opencode-openai/deepseek-v4-pro",
+                    "thinkingLevel": "xhigh"
+                },
+                "researcher": {
+                    "model": "xriu-opencode-openai/deepseek-v4-pro",
+                    "thinkingLevel": "high"
+                },
+                "context-builder": {
+                    "model": "xriu-opencode-openai/deepseek-v4-pro",
+                    "thinkingLevel": "high"
+                },
+                "worker": {
+                    "model": "xriu-opencode-openai/deepseek-v4-flash",
+                    "thinkingLevel": "high"
+                },
+                "delegate": {
+                    "model": "xriu-opencode-openai/deepseek-v4-flash",
+                    "thinkingLevel": "medium"
+                },
+                "scout": {
+                    "model": "xriu-opencode-openai/deepseek-v4-flash",
+                    "thinkingLevel": "low"
                 }
-            ],
-            "agents": {
-                "context-builder": "opencode-go/deepseek-v4-flash",
-                "delegate": "opencode-go/deepseek-v4-flash",
-                "researcher": "opencode-go/deepseek-v4-flash",
-                "scout": "opencode-go/deepseek-v4-flash",
-                "planner": "opencode-go/deepseek-v4-flash",
-                "reviewer": "opencode-go/deepseek-v4-flash",
-                "worker": "opencode-go/deepseek-v4-flash"
             }
         },
         "openrouter": {
-            "main": [
-                {
-                    "provider": "lm-openrouter",
-                    "model": "openai/gpt-5.6-luna",
+            "main": {
+                "provider": "lm-openrouter",
+                "model": "openai/gpt-5.6-luna",
+                "thinkingLevel": "xhigh"
+            },
+            "agents": {
+                "oracle": {
+                    "model": "lm-openrouter/openai/gpt-5.6-luna",
+                    "thinkingLevel": "xhigh"
+                },
+                "planner": {
+                    "model": "lm-openrouter/openai/gpt-5.6-luna",
+                    "thinkingLevel": "xhigh"
+                },
+                "reviewer": {
+                    "model": "lm-openrouter/openai/gpt-5.6-luna",
+                    "thinkingLevel": "xhigh"
+                },
+                "researcher": {
+                    "model": "lm-openrouter/z-ai/glm-5.2",
+                    "thinkingLevel": "xhigh"
+                },
+                "context-builder": {
+                    "model": "lm-openrouter/z-ai/glm-5.2",
+                    "thinkingLevel": "xhigh"
+                },
+                "worker": {
+                    "model": "lm-openrouter/z-ai/glm-5.2",
+                    "thinkingLevel": "xhigh"
+                },
+                "delegate": {
+                    "model": "lm-openrouter/deepseek/deepseek-v4-pro",
+                    "thinkingLevel": "xhigh"
+                },
+                "scout": {
+                    "model": "lm-openrouter/deepseek/deepseek-v4-pro",
                     "thinkingLevel": "xhigh"
                 }
-            ],
-            "agents": {}
+            }
         }
     }
 }

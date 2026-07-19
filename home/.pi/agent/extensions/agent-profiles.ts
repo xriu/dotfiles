@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import type {
@@ -10,8 +10,22 @@ import { Key } from "@earendil-works/pi-tui";
 
 type ThinkingLevel = "off" | "minimal" | "low" | "medium" | "high" | "xhigh";
 
+const THINKING_LEVELS = new Set<ThinkingLevel>([
+	"off",
+	"minimal",
+	"low",
+	"medium",
+	"high",
+	"xhigh",
+]);
+
 interface MainProfile {
 	provider: string;
+	model: string;
+	thinkingLevel?: ThinkingLevel;
+}
+
+interface AgentOverride {
 	model: string;
 	thinkingLevel?: ThinkingLevel;
 }
@@ -19,13 +33,60 @@ interface MainProfile {
 interface Profile {
 	description?: string;
 	main?: MainProfile | MainProfile[];
-	agents?: Record<string, string | false>;
+	agents?: Record<string, string | AgentOverride | false>;
 }
 
 function getPrimaryMain(profile: Profile): MainProfile | undefined {
 	if (!profile.main) return undefined;
-	if (Array.isArray(profile.main)) return profile.main[0] ?? undefined;
-	return profile.main;
+	return Array.isArray(profile.main) ? profile.main[0] : profile.main;
+}
+
+function isValidAgentName(name: string): boolean {
+	return (
+		name.length > 0 &&
+		name !== "." &&
+		name !== ".." &&
+		!name.includes("/") &&
+		!name.includes("\\")
+	);
+}
+
+function isValidProfileMain(profile: Profile): boolean {
+	const main = profile.main;
+	if (!main) return true;
+	return Array.isArray(main)
+		? main.every(isValidMainProfile)
+		: isValidMainProfile(main);
+}
+
+interface SyncResult {
+	updated: string[];
+	missing: string[];
+	invalid: string[];
+}
+
+function notifyProfileApplied(
+	ctx: ExtensionContext,
+	profile: Profile,
+	name: string,
+	result: SyncResult,
+) {
+	const main = getPrimaryMain(profile);
+	const mainText = main
+		? `main=${main.provider}/${main.model}`
+		: "main=unchanged";
+	const missingText =
+		result.missing.length > 0
+			? ` · missing agents: ${result.missing.join(", ")}`
+			: "";
+	const invalidText =
+		result.invalid.length > 0
+			? ` · invalid agents: ${result.invalid.join(", ")}`
+			: "";
+	ctx.ui.notify(
+		`Profile "${name}" active · ${mainText} · synced ${result.updated.length} agent(s)${missingText}${invalidText}`,
+		"info",
+	);
 }
 
 interface ProfileConfig {
@@ -35,6 +96,30 @@ interface ProfileConfig {
 
 interface ProfileState {
 	activeProfile?: string;
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+	return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function normalizeProfileConfig(value: unknown): ProfileConfig {
+	if (!isRecord(value)) return { profiles: {} };
+
+	const profiles = isRecord(value.profiles)
+		? (Object.fromEntries(
+				Object.entries(value.profiles).filter(([, profile]) =>
+					isRecord(profile),
+				),
+			) as Record<string, Profile>)
+		: {};
+
+	return {
+		defaultProfile:
+			typeof value.defaultProfile === "string"
+				? value.defaultProfile
+				: undefined,
+		profiles,
+	};
 }
 
 const extensionDir = dirname(fileURLToPath(import.meta.url));
@@ -48,7 +133,7 @@ function readJson<T>(path: string): T | undefined {
 	try {
 		return JSON.parse(readFileSync(path, "utf8")) as T;
 	} catch (error) {
-		console.error(`[agent-profiles] Failed to read JSON from ${path}:`, error);
+		console.error("[agent-profiles] Failed to read JSON", { path, error });
 		return undefined;
 	}
 }
@@ -61,20 +146,40 @@ function getProjectConfigPath(cwd: string) {
 	return join(cwd, ".pi", "agent-profiles.json");
 }
 
-function loadConfig(cwd: string): ProfileConfig {
-	const globalConfig = readJson<ProfileConfig>(globalConfigPath) ?? {
-		profiles: {},
+function mergeProfiles(
+	globalProfile: Profile | undefined,
+	projectProfile: Profile,
+): Profile {
+	return {
+		...globalProfile,
+		...projectProfile,
+		agents:
+			globalProfile?.agents || projectProfile.agents
+				? { ...globalProfile?.agents, ...projectProfile.agents }
+				: undefined,
 	};
-	const projectConfig = readJson<ProfileConfig>(getProjectConfigPath(cwd));
+}
+
+function loadConfig(cwd: string): ProfileConfig {
+	const globalConfig = normalizeProfileConfig(
+		readJson<unknown>(globalConfigPath),
+	);
+	const projectConfigPath = getProjectConfigPath(cwd);
+	const projectConfigRaw = readJson<unknown>(projectConfigPath);
+	const projectConfig = projectConfigRaw
+		? normalizeProfileConfig(projectConfigRaw)
+		: undefined;
 
 	if (!projectConfig) return globalConfig;
 
+	const profiles: Record<string, Profile> = { ...globalConfig.profiles };
+	for (const [name, projectProfile] of Object.entries(projectConfig.profiles)) {
+		profiles[name] = mergeProfiles(profiles[name], projectProfile);
+	}
+
 	return {
 		defaultProfile: projectConfig.defaultProfile ?? globalConfig.defaultProfile,
-		profiles: {
-			...globalConfig.profiles,
-			...projectConfig.profiles,
-		},
+		profiles,
 	};
 }
 
@@ -87,45 +192,84 @@ function getActiveProfileName(config: ProfileConfig): string | undefined {
 	return Object.keys(config.profiles)[0];
 }
 
-function upsertAgentModel(content: string, model: string | false): string {
+function upsertAgentConfig(
+	content: string,
+	override: AgentOverride | false,
+): string {
 	const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
 	if (!frontmatterMatch) return content;
 
-	const frontmatter = frontmatterMatch[1];
+	let frontmatter = frontmatterMatch[1]
+		.replace(/^(?!\s*#)\s*model:\s*.*\n?/m, "")
+		.replace(/^(?!\s*#)\s*thinking:\s*.*\n?/m, "")
+		.replace(/\n{3,}/g, "\n\n")
+		.replace(/\n+$/g, "");
 
-	if (model === false) {
-		const updatedFrontmatter = frontmatter
-			.replace(/^model:\s*.*\n?/m, "")
-			.replace(/\n{3,}/g, "\n\n")
-			.replace(/\n+$/g, "");
-		return content.replace(
-			frontmatterMatch[0],
-			`---\n${updatedFrontmatter}\n---`,
-		);
+	if (override !== false) {
+		frontmatter += `\nmodel: ${override.model}`;
+		if (override.thinkingLevel) {
+			frontmatter += `\nthinking: ${override.thinkingLevel}`;
+		}
 	}
 
-	const updatedFrontmatter = /^model:\s*.+$/m.test(frontmatter)
-		? frontmatter.replace(/^model:\s*.+$/m, `model: ${model}`)
-		: `${frontmatter}\nmodel: ${model}`;
+	return content.replace(frontmatterMatch[0], `---\n${frontmatter}\n---`);
+}
 
-	return content.replace(
-		frontmatterMatch[0],
-		`---\n${updatedFrontmatter}\n---`,
+function isValidMainProfile(main: unknown): main is MainProfile {
+	return (
+		isRecord(main) &&
+		typeof main.provider === "string" &&
+		main.provider.trim().length > 0 &&
+		typeof main.model === "string" &&
+		main.model.trim().length > 0 &&
+		(main.thinkingLevel === undefined ||
+			THINKING_LEVELS.has(main.thinkingLevel))
 	);
 }
 
-function syncAgentModels(profile: Profile): {
-	updated: string[];
-	missing: string[];
-} {
-	mkdirSync(globalAgentsDir, {
-		recursive: true,
-	});
+function normalizeAgentOverride(
+	value: string | AgentOverride | false,
+): AgentOverride | false | undefined {
+	if (value === false) return false;
 
+	if (typeof value === "string") {
+		const model = value.trim();
+		return model && !/\s/.test(model) ? { model } : undefined;
+	}
+
+	if (
+		!value ||
+		typeof value.model !== "string" ||
+		!value.model.trim() ||
+		/\s/.test(value.model) ||
+		(value.thinkingLevel !== undefined &&
+			!THINKING_LEVELS.has(value.thinkingLevel))
+	) {
+		return undefined;
+	}
+
+	return {
+		...value,
+		model: value.model.trim(),
+	};
+}
+
+function syncAgentModels(profile: Profile): SyncResult {
 	const updated: string[] = [];
 	const missing: string[] = [];
+	const invalid: string[] = [];
 
-	for (const [agentName, model] of Object.entries(profile.agents ?? {})) {
+	for (const [agentName, value] of Object.entries(profile.agents ?? {})) {
+		if (!isValidAgentName(agentName)) {
+			invalid.push(agentName);
+			continue;
+		}
+
+		const override = normalizeAgentOverride(value);
+		if (override === undefined) {
+			invalid.push(agentName);
+			continue;
+		}
 		const agentPath = join(globalAgentsDir, `${agentName}.md`);
 
 		if (!existsSync(agentPath)) {
@@ -134,14 +278,17 @@ function syncAgentModels(profile: Profile): {
 		}
 
 		const content = readFileSync(agentPath, "utf8");
-		const next = upsertAgentModel(content, model);
-		if (next !== content) writeFileSync(agentPath, next, "utf8");
-		updated.push(agentName);
+		const next = upsertAgentConfig(content, override);
+		if (next !== content) {
+			writeFileSync(agentPath, next, "utf8");
+			updated.push(agentName);
+		}
 	}
 
 	return {
 		updated,
 		missing,
+		invalid,
 	};
 }
 
@@ -152,7 +299,7 @@ function persistMainSettings(profile: Profile) {
 	const settings = readJson<Record<string, unknown>>(settingsPath) ?? {};
 	settings.defaultProvider = main.provider;
 	settings.defaultModel = main.model;
-	if (main.thinkingLevel) settings.defaultThinkingLevel = main.thinkingLevel;
+	settings.defaultThinkingLevel = main.thinkingLevel;
 	writeJson(settingsPath, settings);
 }
 
@@ -160,9 +307,9 @@ async function switchCurrentSessionModel(
 	pi: ExtensionAPI,
 	ctx: ExtensionContext,
 	profile: Profile,
-) {
+): Promise<boolean> {
 	const main = getPrimaryMain(profile);
-	if (!main) return;
+	if (!main) return true;
 
 	const model = ctx.modelRegistry.find(main.provider, main.model);
 	if (!model) {
@@ -170,17 +317,19 @@ async function switchCurrentSessionModel(
 			`Profile model not found: ${main.provider}/${main.model}`,
 			"warning",
 		);
-		return;
+		return false;
 	}
 
 	const success = await pi.setModel(model);
 	if (!success) {
 		ctx.ui.notify(`No API key for ${main.provider}/${main.model}`, "warning");
+		return false;
 	}
 
 	if (main.thinkingLevel) {
 		pi.setThinkingLevel(main.thinkingLevel);
 	}
+	return true;
 }
 
 export default function agentProfilesExtension(pi: ExtensionAPI) {
@@ -190,7 +339,7 @@ export default function agentProfilesExtension(pi: ExtensionAPI) {
 	let activeProfileName: string | undefined;
 
 	function getProfileOrder(): string[] {
-		return Object.keys(config.profiles).sort();
+		return Object.keys(config.profiles).sort((a, b) => a.localeCompare(b));
 	}
 
 	function buildProfilesSummary(): string {
@@ -219,8 +368,19 @@ export default function agentProfilesExtension(pi: ExtensionAPI) {
 			ctx.ui.notify(`Unknown profile: ${name}`, "error");
 			return false;
 		}
+		if (!isValidProfileMain(profile)) {
+			ctx.ui.notify(`Invalid main configuration for profile: ${name}`, "error");
+			return false;
+		}
 
-		const { updated, missing } = syncAgentModels(profile);
+		if (
+			options.switchCurrentModel &&
+			!(await switchCurrentSessionModel(pi, ctx, profile))
+		) {
+			return false;
+		}
+
+		const syncResult = syncAgentModels(profile);
 
 		if (options.persistSettings !== false) {
 			persistMainSettings(profile);
@@ -232,23 +392,10 @@ export default function agentProfilesExtension(pi: ExtensionAPI) {
 			});
 		}
 
-		if (options.switchCurrentModel) {
-			await switchCurrentSessionModel(pi, ctx, profile);
-		}
-
 		activeProfileName = name;
 
 		if (options.notify !== false) {
-			const main = getPrimaryMain(profile);
-			const mainText = main
-				? `main=${main.provider}/${main.model}`
-				: "main=unchanged";
-			const missingText =
-				missing.length > 0 ? ` · missing agents: ${missing.join(", ")}` : "";
-			ctx.ui.notify(
-				`Profile "${name}" active · ${mainText} · synced ${updated.length} agent(s)${missingText}`,
-				"info",
-			);
+			notifyProfileApplied(ctx, profile, name, syncResult);
 		}
 
 		return true;
@@ -325,7 +472,7 @@ export default function agentProfilesExtension(pi: ExtensionAPI) {
 
 	pi.registerCommand("profile", {
 		description:
-			"Show or switch model/agent profiles: /profile [list|low|medium|high|next|prev|cycle]",
+			"Show or switch model/agent profiles: /profile [list|next|prev|cycle|<profile>]",
 		handler: async (args, ctx) => {
 			await handleProfileCommand(args, ctx);
 		},

@@ -1,7 +1,6 @@
 ---
 name: plannotator-review
 description: Open Plannotator's browser-based code review UI for the current worktree or a pull request URL, then act on the feedback that comes back.
-hidden: true
 disable-model-invocation: true
 ---
 
