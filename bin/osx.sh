@@ -67,7 +67,8 @@ function brew_setup() {
     brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
     brew install --cask visual-studio-code --force # Visual Studio Code
     brew install --cask windows-app --force # Windows app for macOS
-    brew install --cask zed # Multiplayer code editor
+    brew install --cask wispr-flow --force # AI-assisted coding flow
+    brew install --cask zed --force # Multiplayer code editor
 
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
