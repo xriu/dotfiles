@@ -9,15 +9,13 @@ disable-model-invocation: true
 
 **Leading words:** _anchor_ (the change description), _gate_ (transition criteria), _skeleton_ (typed architecture).
 
-**Pass `auto` as the first argument** to use self-driving grilling mode (auto-selects recommended options without asking).
-
 ## The workflow
 
 If this change spans more than one agent session and the way isn't clear yet, use **`/wayfinder`** to chart a map first.
 
 ```
 Step 1: Anchor the change
-Step 2: Grill (interactive or auto)
+Step 2: Grill
 Step 3: Requirements
 Step 4: Prototype (if needed)
 Step 5: PRD
@@ -38,8 +36,7 @@ Write a one-paragraph description of what you're building or fixing. This _ancho
 
 ## Step 2: Grill with docs
 
-**If `auto` was passed:** Run **`/grill-with-docs-auto`**.
-**Otherwise:** Run **`/grill-with-docs`**.
+Run **`/grill-with-docs`**.
 
 **Gate:** Every major question has been answered or explicitly deferred. You have a `CONTEXT.md` and at least one ADR. If the grilling reveals this spans many sessions, pivot to **`/wayfinder`** instead. If you're uncertain about domain terms or architectural choices, you're not done.
 
