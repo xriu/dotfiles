@@ -23,10 +23,11 @@ Improve one or more of without changing functionality:
 - Focus on the requested files or symbols.
 - If no scope is provided, prefer recently modified code first.
 - Expand only when a nearby dependency must change to keep the refactor coherent.
+- When a worthwhile improvement requires editing code outside scope, leave it alone and mention it in the summary instead.
 
 ## Process
 
-1. Define the exact refactor target and why it needs work.
+1. Name the target in one sentence — if it takes two, narrow the scope. State why it needs work.
 2. Inspect current behavior, call sites, dependencies, and constraints.
 3. Check whether tests already cover the behavior.
 4. If coverage is missing for risky behavior, add or update tests first.
@@ -46,11 +47,11 @@ Improve one or more of without changing functionality:
 - Simplify conditionals and control flow
 - Improve module boundaries
 - Remove tests which simply restate the implementation. These provide zero confidence.
+- Keep comments that explain design rationale, business rules, or non-obvious behaviour. Remove only comments that restate the code (e.g. `// increment i` above `i++`).
 
 ## Avoid
 
 - Speculative abstractions
-  - (open to identifying a genuinely clarifying abstraction and suggesting it briefly)
 - Pattern-driven rewrites without clear payoff
 - Broad architecture changes unless explicitly requested
 - Changing public interfaces unless asked
@@ -82,6 +83,7 @@ Risks / follow-ups
 
 ## Guardrails
 
+- Follow project conventions from AGENTS.md or CONTEXT.md when present.
 - Preserve behavior first.
 - Prefer the smallest change set that clearly improves the code.
 - If the code does not clearly benefit from refactoring, say so.
