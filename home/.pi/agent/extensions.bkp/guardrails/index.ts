@@ -15,7 +15,9 @@ export default function (pi: ExtensionAPI) {
 	const interceptor = new Interceptor(state);
 	const command = new GuardrailsCommand(state);
 
-	pi.on("session_start", () => sessionLifecycle.onSessionStart());
+	pi.on("session_start", (_event, ctx) =>
+		sessionLifecycle.onSessionStart(ctx.cwd),
+	);
 	pi.on("before_agent_start", () => sessionLifecycle.onBeforeAgentStart());
 	pi.on("tool_call", (event: ToolCallEvent, ctx: ToolCallContext) =>
 		interceptor.handle(event, ctx),
@@ -24,7 +26,10 @@ export default function (pi: ExtensionAPI) {
 		description: "Guardrails extension status and control",
 		handler: (
 			args: string | undefined,
-			ctx: { ui: { notify: (msg: string, level: string) => void } },
+			ctx: {
+				cwd: string;
+				ui: { notify: (msg: string, level: string) => void };
+			},
 		) => command.handle(args, ctx),
 	});
 }

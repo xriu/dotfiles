@@ -24,8 +24,21 @@ export interface LoopState {
 	status: LoopStatus;
 	startedAt: string;
 	completedAt?: string;
-	lastReflectionAt: number;
 	tddMode?: boolean;
+}
+
+// ─── Shared UI utilities ──────────────────────────────────────────
+
+/** Icon per loop status — shared between index.ts and command-handlers.ts. */
+export const STATUS_ICONS: Record<LoopStatus, string> = {
+	active: "▶",
+	paused: "⏸",
+	completed: "✓",
+};
+
+/** Iteration display: "3/10" or "3". */
+export function formatMaxIter(state: LoopState): string {
+	return state.maxIterations > 0 ? `/${state.maxIterations}` : "";
 }
 
 interface PlanInfo {
@@ -79,11 +92,10 @@ export function migrateState(
 ): LoopState {
 	if (!raw.status) raw.status = raw.active ? "active" : "paused";
 	raw.active = raw.status === "active";
-	if ("reflectEveryItems" in raw && !raw.reflectEvery) {
-		raw.reflectEvery = (raw as any).reflectEveryItems;
-	}
-	if ("lastReflectionAtItems" in raw && raw.lastReflectionAt === undefined) {
-		raw.lastReflectionAt = (raw as any).lastReflectionAtItems;
+	if ("reflectEveryItems" in raw && raw.reflectEvery == null) {
+		raw.reflectEvery = (
+			raw as { reflectEveryItems?: number }
+		).reflectEveryItems;
 	}
 	return raw as LoopState;
 }
@@ -102,6 +114,31 @@ export function extractStatus(prdContent: string): string {
 	return match ? match[1] : "unknown";
 }
 
+export function isLoopStateRecord(
+	value: unknown,
+): value is Partial<LoopState> & { name: string } {
+	if (typeof value !== "object" || value === null) return false;
+	const state = value as {
+		name?: unknown;
+		taskFile?: unknown;
+		iteration?: unknown;
+		maxIterations?: unknown;
+		status?: unknown;
+	};
+	return (
+		typeof state.name === "string" &&
+		typeof state.taskFile === "string" &&
+		typeof state.iteration === "number" &&
+		Number.isFinite(state.iteration) &&
+		typeof state.maxIterations === "number" &&
+		Number.isFinite(state.maxIterations) &&
+		(state.status === undefined ||
+			state.status === "active" ||
+			state.status === "paused" ||
+			state.status === "completed")
+	);
+}
+
 function parseCheckboxes(content: string): { total: number; checked: number } {
 	const unchecked = [...content.matchAll(/^\s*- \[ \]/gm)].length;
 	const checked = [...content.matchAll(/^\s*- \[[xX]\]/gm)].length;
@@ -117,8 +154,8 @@ function* scanDirForStates(sd: string): Generator<LoopState> {
 
 		const planStateFile = path.join(planDir, ".ralph.state.json");
 		const raw = safeJsonParse(planStateFile);
-		if (raw) {
-			yield migrateState(raw as Partial<LoopState> & { name: string });
+		if (isLoopStateRecord(raw)) {
+			yield migrateState(raw);
 		}
 
 		const issuesDir = path.join(planDir, "issues");
@@ -126,8 +163,8 @@ function* scanDirForStates(sd: string): Generator<LoopState> {
 			for (const issueFile of fs.readdirSync(issuesDir)) {
 				if (!issueFile.endsWith(".state.json")) continue;
 				const raw = safeJsonParse(path.join(issuesDir, issueFile));
-				if (!raw) continue;
-				yield migrateState(raw as Partial<LoopState> & { name: string });
+				if (!isLoopStateRecord(raw)) continue;
+				yield migrateState(raw);
 			}
 		}
 	}
@@ -161,6 +198,7 @@ export class LoopStore {
 	}
 
 	loadCrossProjectRefs(ctx: ExtensionContext): void {
+		this.clearCrossProjectRefs();
 		const filePath = path.join(scratchDir(ctx), ".ralph.cross-refs.json");
 		const raw = safeJsonParse(filePath);
 		if (raw && typeof raw === "object") {
@@ -192,10 +230,8 @@ export class LoopStore {
 			const planPart = slashIdx >= 0 ? name.slice(0, slashIdx) : name;
 			const planStateFile = path.join(override, planPart, ".ralph.state.json");
 			const raw = safeJsonParse(planStateFile);
-			if (raw) {
-				const state = migrateState(
-					raw as Partial<LoopState> & { name: string },
-				);
+			if (isLoopStateRecord(raw)) {
+				const state = migrateState(raw);
 				if (state.name === name) return state;
 			}
 			const issuesDir = path.join(override, planPart, "issues");
@@ -203,10 +239,8 @@ export class LoopStore {
 				for (const issueFile of fs.readdirSync(issuesDir)) {
 					if (!issueFile.endsWith(".state.json")) continue;
 					const raw = safeJsonParse(path.join(issuesDir, issueFile));
-					if (!raw) continue;
-					const state = migrateState(
-						raw as Partial<LoopState> & { name: string },
-					);
+					if (!isLoopStateRecord(raw)) continue;
+					const state = migrateState(raw);
 					if (state.name === name) return state;
 				}
 			}
@@ -231,13 +265,25 @@ export class LoopStore {
 		}
 
 		// Issue-level: state file sits next to the task file
-		const sp = state.taskFile.replace(/\.md$/, ".state.json");
+		const taskFile = path.isAbsolute(state.taskFile)
+			? state.taskFile
+			: path.resolve(ctx.cwd, state.taskFile);
+		const sp = taskFile.replace(/\.(md|markdown)$/, ".state.json");
 		ensureDir(sp);
 		fs.writeFileSync(sp, JSON.stringify(state, null, 2), "utf-8");
 	}
 
 	listLoops(ctx: ExtensionContext): LoopState[] {
-		return [...scanDirForStates(scratchDir(ctx))];
+		const loops = new Map<string, LoopState>();
+		for (const loop of scanDirForStates(scratchDir(ctx))) {
+			loops.set(loop.name, loop);
+		}
+		for (const scratchOverride of this.loopScratchDirs.values()) {
+			for (const loop of scanDirForStates(scratchOverride)) {
+				loops.set(loop.name, loop);
+			}
+		}
+		return [...loops.values()];
 	}
 
 	// ── Plan discovery ─────────────────────────────────────────────
@@ -278,9 +324,7 @@ export class LoopStore {
 					const issueName = f.replace(/\.md$/, "");
 					const stateFile = path.join(issuesDir, `${issueName}.state.json`);
 					const raw = safeJsonParse(stateFile);
-					const state = raw
-						? migrateState(raw as Partial<LoopState> & { name: string })
-						: null;
+					const state = isLoopStateRecord(raw) ? migrateState(raw) : null;
 					issues.push({ fileName: f, name: issueName, state });
 				}
 			}

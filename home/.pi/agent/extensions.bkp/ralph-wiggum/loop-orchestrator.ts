@@ -9,9 +9,10 @@
  * Absorbs the active-loop tracking and done-this-turn flag from LoopRuntime.
  */
 
+import * as path from "node:path";
 import type { ExtensionContext } from "@earendil-works/pi-coding-agent";
 import type { LoopState, LoopStatus, LoopStore } from "./loop-store";
-import { isPlanLevelLoop } from "./loop-store";
+import { isPlanLevelLoop, tryRead } from "./loop-store";
 import { buildPrompt } from "./prompt-builder";
 
 // ─── Types ───────────────────────────────────────────────────────────
@@ -97,11 +98,16 @@ export class LoopOrchestrator {
 
 		this.store.saveState(ctx, state);
 		this._activeLoop = name;
+		this._doneThisTurn = false;
+
+		const needsReflection =
+			state.reflectEvery > 0 &&
+			(state.iteration - 1) % state.reflectEvery === 0;
 
 		const prompt = buildPrompt(
 			state,
 			config.taskContent,
-			false,
+			needsReflection,
 			config.prdContent,
 		);
 
@@ -124,6 +130,7 @@ export class LoopOrchestrator {
 		state.active = true;
 		this.store.saveState(ctx, state);
 		this._activeLoop = state.name;
+		this._doneThisTurn = false;
 
 		const needsReflection =
 			state.reflectEvery > 0 &&
@@ -164,6 +171,7 @@ export class LoopOrchestrator {
 			(state.iteration - 1) % state.reflectEvery === 0;
 
 		// Issue advancement for plan-level loops
+		const previousTaskFile = state.taskFile;
 		const isPlanLevel = isPlanLevelLoop(state.name);
 		if (isPlanLevel) {
 			const canContinue = this.store.tryAdvancePlanIssue(ctx, state);
@@ -171,6 +179,11 @@ export class LoopOrchestrator {
 				this.stop(state, "completed", ctx);
 				return { prompt: "", complete: true };
 			}
+		}
+
+		if (state.taskFile !== previousTaskFile) {
+			taskContent =
+				tryRead(path.resolve(ctx.cwd, state.taskFile)) ?? taskContent;
 		}
 
 		this.store.saveState(ctx, state);
@@ -195,5 +208,6 @@ export class LoopOrchestrator {
 		}
 		this.store.saveState(ctx, state);
 		this._activeLoop = null;
+		this._doneThisTurn = false;
 	}
 }

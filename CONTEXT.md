@@ -38,3 +38,11 @@ A loop started by plan name (e.g., `my-plan`). The agent works through the plan'
 
 **Issue-level loop**:
 A loop started with an issue path (e.g., `my-plan/01-bugfix`). The agent works on a single issue.
+
+**Agent Profile**:
+A named configuration that selects a model and optional thinking level for the main session and agent roles.
+_Avoid_: Agent model
+
+**Agent Override**:
+A per-role model and optional thinking-level setting that changes an agent's behavior only when explicitly configured in an Agent Profile.
+_Avoid_: Agent preset

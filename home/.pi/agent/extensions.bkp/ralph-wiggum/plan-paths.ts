@@ -59,7 +59,10 @@ export function parsePlanPath(input: string): ParsedPlanPath {
 	if (absMatch) {
 		scratchDirOverride = path.resolve(absMatch[1], SCRATCH_DIR);
 		cleaned = absMatch[2];
-	} else if (cleaned.startsWith(".scratch/")) {
+	} else if (
+		cleaned.startsWith(".scratch/") ||
+		cleaned.startsWith(".scratch\\")
+	) {
 		cleaned = cleaned.slice(".scratch/".length);
 	}
 
@@ -77,9 +80,9 @@ export function parsePlanPath(input: string): ParsedPlanPath {
 		} else if (parts[1] !== "issues") {
 			issuePart = parts[1];
 		} else {
-			return { planName, issueName: null, isIssue: false };
+			return { planName, issueName: null, isIssue: false, scratchDirOverride };
 		}
-		const issueName = issuePart.replace(/\.md$/, "");
+		const issueName = sanitize(issuePart.replace(/\.md$/, ""));
 		return { planName, issueName, isIssue: true, scratchDirOverride };
 	}
 

@@ -15,11 +15,14 @@ function normalizeBaseUrl(baseUrl: string): string {
 	return baseUrl.replace(/\/v1\/?$/, "").replace(/\/$/, "") + "/v1";
 }
 
-/** Resolve an apiKey that may contain $ENV_VAR references ($VAR / ${VAR}). */
+/** Resolve an apiKey that may contain $ENV_VAR references ($VAR or ${VAR}). */
 function resolveApiKey(raw: string): string {
-	return raw.replace(/\$\{?(\w+)\}?/g, (_match, name: string) => {
-		return process.env[name] ?? "";
-	});
+	return raw.replace(
+		/\$\{(\w+)\}|\$(\w+)/g,
+		(_match, braced: string | undefined, plain: string | undefined) => {
+			return process.env[braced ?? plain ?? ""] ?? "";
+		},
+	);
 }
 
 /**
@@ -42,10 +45,12 @@ export async function askAgent(
 
 	const controller = new AbortController();
 	const timeout = setTimeout(() => controller.abort(), config.timeoutMs);
+	const abort = () => controller.abort();
 
-	// Forward external abort signal
+	// Forward external abort signal.
 	if (signal) {
-		signal.addEventListener("abort", () => controller.abort());
+		if (signal.aborted) controller.abort();
+		else signal.addEventListener("abort", abort, { once: true });
 	}
 
 	try {
@@ -84,7 +89,7 @@ export async function askAgent(
 		};
 		const message = body.choices?.[0]?.message;
 		// Reasoning models put output in reasoning, not content
-		const rawText = message?.content ?? message?.reasoning ?? "";
+		const rawText = message?.content || message?.reasoning || "";
 		const text = rawText.trim().toLowerCase();
 
 		return parseDecision(text);
@@ -92,28 +97,17 @@ export async function askAgent(
 		return null;
 	} finally {
 		clearTimeout(timeout);
+		signal?.removeEventListener("abort", abort);
 	}
 }
 
 function parseDecision(text: string): AgentGateDecision | null {
 	const trimmed = text.trim();
+	const match = trimmed.match(/^(allow|deny)\b[:\s-]*(.*)$/i);
+	if (!match) return null;
 
-	// Try to extract decision and reason
-	const match = trimmed.match(/^(allow|deny)\b[:\s-]*(.*)$/im);
-	if (match) {
-		return {
-			decision: match[1].toLowerCase() as "allow" | "deny",
-			reason: match[2].trim() || "no reason given",
-		};
-	}
-
-	// Fallback: check if text starts with allow/deny
-	if (/^allow/i.test(trimmed)) {
-		return { decision: "allow", reason: trimmed };
-	}
-	if (/^deny/i.test(trimmed)) {
-		return { decision: "deny", reason: trimmed };
-	}
-
-	return null;
+	return {
+		decision: match[1].toLowerCase() as "allow" | "deny",
+		reason: match[2].trim() || "no reason given",
+	};
 }

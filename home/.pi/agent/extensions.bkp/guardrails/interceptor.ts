@@ -7,11 +7,7 @@ import { askAgent } from "./agent-gate.js";
 import type { GuardrailsConfig } from "./config.js";
 import { extractPaths } from "./path-extractor.js";
 import { matchCommand } from "./permission-gate-matcher.js";
-import {
-	expandPattern,
-	type MatchResult,
-	matchPath,
-} from "./policy-matcher.js";
+import { expandPattern, matchPath } from "./policy-matcher.js";
 import type { GuardrailsState } from "./state.js";
 
 // Mutating commands that write to the filesystem.
@@ -53,6 +49,7 @@ export class Interceptor {
 				}
 
 				if (config.permissionGate.requireConfirmation) {
+					let agentAllowed = false;
 					// AgentGate: AI decides before asking the user
 					if (config.features.agentGate) {
 						const decision = await askAgent(
@@ -69,16 +66,17 @@ export class Interceptor {
 									reason: `Blocked by agent: ${decision.reason}`,
 								};
 							}
-							// Agent allowed — let through without user prompt
-							return undefined;
+							// Agent allowed — skip the user prompt.
+							agentAllowed = true;
 						}
-						// Agent unavailable — fall through to user confirmation
 					}
 
-					const allowed = await ctx.ui.confirm(
-						"Dangerous command detected",
-						`${gateMatch.description}\n\nCommand: ${command}\n\nAllow?`,
-					);
+					const allowed =
+						agentAllowed ||
+						(await ctx.ui.confirm(
+							"Dangerous command detected",
+							`${gateMatch.description}\n\nCommand: ${command}\n\nAllow?`,
+						));
 					if (!allowed) {
 						this.state.denialCount++;
 						return { block: true, reason: "Permission denied by user" };
@@ -141,15 +139,15 @@ export class Interceptor {
 	}
 
 	private detectWrite(command: string): boolean {
-		// Check for any redirect (simplified to avoid false negatives)
-		if (/>/.test(command)) {
+		// Strip quoted strings to avoid false positives on '>' inside quotes
+		const unquoted = command.replace(/"[^"]*"|'[^']*'/g, "");
+
+		// Check for redirect operators in the unquoted portion
+		if (/>/.test(unquoted)) {
 			return true;
 		}
 
-		// Check for write commands outside of quotes
-		// This catches commands like "sudo rm file" that were missed by the previous logic
-		const unquotedCommand = command.replace(/"[^"]*"|'[^']*'/g, "");
-		return WRITE_COMMANDS.test(unquotedCommand);
+		return WRITE_COMMANDS.test(unquoted);
 	}
 
 	/** Check a single path against policy rules. Returns denial or null. */
@@ -160,26 +158,17 @@ export class Interceptor {
 		cwd: string,
 	): { block: true; reason: string } | null {
 		const absolutePath = expandPattern(filePath, cwd);
-		const match = matchPath(absolutePath, config, cwd);
+		const match = matchPath(absolutePath, config, cwd, { isWrite });
 		if (!match) return null;
 
 		// readOnly allows non-write operations
 		if (match.protection === "readOnly" && !isWrite) return null;
 
 		this.state.denialCount++;
-		return this.buildDenialReason(match, filePath);
-	}
-
-	private buildDenialReason(match: MatchResult, filePath: string) {
-		if (match.protection === "readOnly") {
-			return {
-				block: true,
-				reason: `Access denied: ${filePath} is read-only (guardrails policy: ${match.ruleId})`,
-			};
-		}
-		return {
-			block: true,
-			reason: `Access denied by guardrails policy: ${match.ruleId} — ${match.reason}`,
-		};
+		const reason =
+			match.protection === "readOnly"
+				? `Access denied: ${filePath} is read-only (guardrails policy: ${match.ruleId})`
+				: `Access denied by guardrails policy: ${match.ruleId} — ${match.reason}`;
+		return { block: true, reason };
 	}
 }

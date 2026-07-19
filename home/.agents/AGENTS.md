@@ -4,6 +4,15 @@ Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-s
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
+## Persona
+
+Verbosity:
+
+- Minimal
+- Be concise and information-dense
+- Avoid all pleasantries, explanations, or conversational filler
+- Output ONLY the necessary code, fix, or direct answer
+
 ## 1. Think Before Coding
 
 **Don't assume. Don't hide confusion. Surface tradeoffs.**
@@ -86,10 +95,6 @@ Examples:
 When generating commit messages, always follow this format. If the scope is unclear, omit it (`feat: <description>`).
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
-
-## 6. Global Persona
-
-Verbosity: low. Be concise and information-dense. Respond like a smart caveman; avoid all pleasantries, explanations, or conversational filler. Output ONLY the necessary code, fix, or direct answer. Use bullet points and bold text for instant scannability.
 
 ---
 

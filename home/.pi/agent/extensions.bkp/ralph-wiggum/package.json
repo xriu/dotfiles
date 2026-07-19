@@ -11,6 +11,9 @@
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
+	"dependencies": {
+		"@sinclair/typebox": "^0.34.49"
+	},
 	"devDependencies": {
 		"@types/node": "^26.1.1",
 		"typescript": "^7.0.2",

@@ -203,8 +203,8 @@ service-account*.json
 .npmrc.local
 
 # Custom
-**/skills/launchmetrics/
 .pi-lens/
-.scratch/
 /docs/
+.scratch/
+**/skills/launchmetrics/
 home/.factory/settings.json

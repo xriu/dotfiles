@@ -11,10 +11,18 @@ export interface MatchResult {
 
 export interface MatchPathOptions {
 	existsSync?: (p: string) => boolean;
+	isWrite?: boolean;
 }
 
-/** Resolve a pattern to an absolute path, expanding ~ and relative paths. */
+/** Resolve a pattern to an absolute path, expanding shell home variables and ~. */
 export function expandPattern(pattern: string, cwd: string): string {
+	const expandedVariables = pattern.replace(
+		/\$(?:\{(HOME|USERPROFILE)\}|(HOME|USERPROFILE))\b/g,
+		(_match, braced: string | undefined, plain: string | undefined) =>
+			process.env[braced ?? plain ?? ""] ?? _match,
+	);
+	pattern = expandedVariables;
+
 	if (pattern.startsWith("~")) {
 		const rest = pattern.slice(1);
 		// Only expand ~ when followed by / or nothing (valid homedir syntax).
@@ -83,8 +91,8 @@ export function matchPath(
 	cwd: string,
 	opts?: MatchPathOptions,
 ): MatchResult | null {
-	// Check allowedPaths global whitelist first
-	if (isPathAllowed(absolutePath, config, cwd)) {
+	// Check the whitelist only when the path-access feature is enabled.
+	if (config.features.pathAccess && isPathAllowed(absolutePath, config, cwd)) {
 		return null;
 	}
 
@@ -108,8 +116,8 @@ function ruleMatchesPath(
 ): boolean {
 	const exists = opts?.existsSync ?? fs.existsSync;
 
-	// onlyIfExists check
-	if (rule.onlyIfExists && !exists(absolutePath)) {
+	// A write to a not-yet-existing protected path must still be blocked.
+	if (rule.onlyIfExists && !exists(absolutePath) && !opts?.isWrite) {
 		return false;
 	}
 
@@ -177,16 +185,41 @@ function patternMatchesPath(
 }
 
 function globMatch(pattern: string, text: string): boolean {
-	// Use null-byte placeholders so ** doesn't get eaten by the * pass
-	const DOUBLE = "\x00\x00";
-	const SINGLE = "\x01";
+	const memo = new Map<string, boolean>();
 
-	const regex = pattern
-		.replace(/\*\*/g, DOUBLE)
-		.replace(/\*/g, SINGLE)
-		.replace(/[.+^${}()|[\]\\]/g, "\\$&")
-		.replace(new RegExp(SINGLE, "g"), "([^/]*)")
-		.replace(new RegExp(DOUBLE, "g"), "(.*)")
-		.replace(/\?/g, "([^/])");
-	return new RegExp(`^${regex}$`).test(text);
+	function matches(patternIndex: number, textIndex: number): boolean {
+		const key = `${patternIndex}:${textIndex}`;
+		const cached = memo.get(key);
+		if (cached !== undefined) return cached;
+
+		let result: boolean;
+		if (patternIndex === pattern.length) {
+			result = textIndex === text.length;
+		} else if (
+			pattern[patternIndex] === "*" &&
+			pattern[patternIndex + 1] === "*"
+		) {
+			result =
+				matches(patternIndex + 2, textIndex) ||
+				(textIndex < text.length && matches(patternIndex, textIndex + 1));
+		} else if (pattern[patternIndex] === "*") {
+			result =
+				matches(patternIndex + 1, textIndex) ||
+				(textIndex < text.length &&
+					text[textIndex] !== "/" &&
+					matches(patternIndex, textIndex + 1));
+		} else {
+			result =
+				textIndex < text.length &&
+				text[textIndex] !== "/" &&
+				(pattern[patternIndex] === "?" ||
+					pattern[patternIndex] === text[textIndex]) &&
+				matches(patternIndex + 1, textIndex + 1);
+		}
+
+		memo.set(key, result);
+		return result;
+	}
+
+	return matches(0, 0);
 }

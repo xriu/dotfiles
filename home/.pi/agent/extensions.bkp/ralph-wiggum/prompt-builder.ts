@@ -46,7 +46,6 @@ export function buildPrompt(
 	taskContent: string,
 	isReflection: boolean,
 	prdContent?: string,
-	tddMode?: boolean,
 ): string {
 	const maxStr = state.maxIterations > 0 ? `/${state.maxIterations}` : "";
 	const isPlanLevel = isPlanLevelLoop(state.name);
@@ -63,8 +62,8 @@ export function buildPrompt(
 
 	if (isReflection) parts.push(state.reflectInstructions, "\n---\n");
 
-	// Priority: explicit param > persisted state > auto-detect
-	const isTDD = tddMode ?? state.tddMode ?? isTDDLoop(state.name, taskContent);
+	// Priority: persisted state > auto-detect
+	const isTDD = state.tddMode ?? isTDDLoop(state.name, taskContent);
 	if (isTDD) parts.push(TDD_INSTRUCTIONS, "\n---\n");
 
 	if (isPlanLevel) {

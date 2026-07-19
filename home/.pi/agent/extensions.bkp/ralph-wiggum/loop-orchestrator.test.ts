@@ -294,6 +294,7 @@ describe("LoopOrchestrator", () => {
 			const result = orchestrator.advance(state, "Task", ctx);
 
 			expect(result.complete).toBe(true);
+			expect(result.prompt).toBe("");
 			expect(state.status).toBe("completed");
 			expect(orchestrator.activeLoop).toBeNull();
 		});
@@ -357,15 +358,6 @@ describe("LoopOrchestrator", () => {
 
 			expect(result.prompt).toContain("Context.");
 			expect(result.prompt).toContain("PLAN-LEVEL");
-		});
-
-		it("returns empty prompt and complete: true when max iterations exceeded", () => {
-			// max iterations exceeded → complete: true, prompt: ""
-			const state = makeState({ iteration: 10, maxIterations: 10 });
-			const result = orchestrator.advance(state, "Task", ctx);
-
-			expect(result.complete).toBe(true);
-			expect(result.prompt).toBe("");
 		});
 	});
 
@@ -460,6 +452,34 @@ describe("LoopOrchestrator", () => {
 			expect(result).not.toBeNull();
 			// Plan-level saves to .scratch/my-plan/.ralph.state.json
 			expect(fs.existsSync(path.join(planDir, ".ralph.state.json"))).toBe(true);
+		});
+
+		it("lists loops from registered cross-project scratch directories", () => {
+			const externalDir = path.join(tmpDir, "external", ".scratch");
+			const planDir = path.join(externalDir, "external-plan");
+			fs.mkdirSync(planDir, { recursive: true });
+			fs.writeFileSync(
+				path.join(planDir, ".ralph.state.json"),
+				JSON.stringify({
+					name: "external-plan",
+					taskFile: path.join(planDir, "issues", "01-task.md"),
+					iteration: 1,
+					maxIterations: 50,
+					itemsPerIteration: 0,
+					reflectEvery: 0,
+					reflectInstructions: DEFAULT_REFLECT_INSTRUCTIONS,
+					active: true,
+					status: "active",
+					startedAt: new Date().toISOString(),
+				}),
+				"utf-8",
+			);
+
+			realStore.setCrossProjectRef("external-plan", externalDir);
+
+			expect(realStore.listLoops(realCtx).map((loop) => loop.name)).toContain(
+				"external-plan",
+			);
 		});
 
 		it("start returns prompt containing task content", () => {

@@ -7,8 +7,8 @@ export class SessionLifecycle {
 		private readonly loadConfigFn: typeof loadConfig,
 	) {}
 
-	onSessionStart() {
-		const error = this.state.reloadConfig(this.loadConfigFn);
+	onSessionStart(cwd: string = process.cwd()) {
+		const error = this.state.reloadConfig(this.loadConfigFn, cwd);
 		if (error) {
 			console.warn(`[guardrails] Failed to load config: ${error}`);
 		}
