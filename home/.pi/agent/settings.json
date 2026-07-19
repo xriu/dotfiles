@@ -14,6 +14,7 @@
     "httpIdleTimeoutMs": 120000,
     "lastChangelogVersion": "0.80.6",
     "packages": [
+        "git:github.com/edxeth/pi-ralph-loop",
         "git:github.com/edxeth/pi-subagents",
         "npm:@hypabolic/pi-hypa",
         "npm:@ogulcancelik/pi-auto-permissions",
