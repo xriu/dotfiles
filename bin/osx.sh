@@ -74,6 +74,7 @@ function brew_setup() {
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
     # brew install opensuperwhisper # Whisper dictation/transcription app
+    # brew install multica-ai/tap/multica # Multi-agent orchestration CLI
 
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
@@ -118,7 +119,6 @@ function brew_setup() {
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
     brew install mkcert # Simple tool to make locally trusted development certificates
-    brew install multica-ai/tap/multica # Multi-agent orchestration CLI
     brew install opencode # OpenCode CLI
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install pake # Turn any webpage into a desktop app with Rust with ease
