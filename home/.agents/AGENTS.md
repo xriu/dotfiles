@@ -2,11 +2,10 @@
 
 ## Communication
 
-- Respond in English, regardless of the user’s language.
-- Use concise, direct technical prose.
-- Omit fluff and cheerful filler.
+- Respond in English, regardless of the user's language.
+- Keep responses minimal, concise, direct, and free of unnecessary filler.
 - Use no emojis in commits, issues, PR comments, or code.
-- Answer the user’s question before editing files or running implementation commands.
+- Answer the user's question before editing files or running implementation commands.
 - When responding to user feedback or analysis, state whether you agree or disagree before describing changes.
 
 ## Plan before coding
