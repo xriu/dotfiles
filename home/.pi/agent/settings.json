@@ -15,8 +15,8 @@
     "lastChangelogVersion": "0.80.6",
     "packages": [
         "git:github.com/edxeth/pi-subagents",
+        "npm:@aliou/pi-guardrails",
         "npm:@hypabolic/pi-hypa",
-        "npm:@ogulcancelik/pi-auto-permissions",
         "npm:@ogulcancelik/pi-goal",
         "npm:@ogulcancelik/pi-herdr",
         "npm:@plannotator/pi-extension",
