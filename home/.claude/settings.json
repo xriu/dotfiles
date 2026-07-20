@@ -1,6 +1,5 @@
 {
     "cleanupPeriodDays": 30,
-    "skillListingBudgetFraction": 0.03,
     "env": {
         "CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
         "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
