@@ -14,7 +14,6 @@
     "httpIdleTimeoutMs": 120000,
     "lastChangelogVersion": "0.80.6",
     "packages": [
-        "git:github.com/edxeth/pi-subagents",
         "npm:@aliou/pi-guardrails",
         "npm:@hypabolic/pi-hypa",
         "npm:@ogulcancelik/pi-goal",
