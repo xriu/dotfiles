@@ -1,55 +1,129 @@
 {
-    "permissionGate": {
-        "allowedPatterns": [
-            { "pattern": "^aws .*\\bdescribe", "regex": true },
-            { "pattern": "^aws .*\\blist", "regex": true },
-            { "pattern": "^aws .*\\bget", "regex": true }
+  "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.15.0/schema.json",
+  "permissionGate": {
+    "allowedPatterns": [
+      {
+        "pattern": "^aws .*\\bdescribe",
+        "regex": true
+      },
+      {
+        "pattern": "^aws .*\\blist",
+        "regex": true
+      },
+      {
+        "pattern": "^aws .*\\bget",
+        "regex": true
+      }
+    ],
+    "autoDenyPatterns": [
+      {
+        "pattern": "dd ",
+        "regex": true
+      },
+      {
+        "pattern": "diskutil ",
+        "regex": true
+      },
+      {
+        "pattern": "git push ",
+        "regex": true
+      },
+      {
+        "pattern": "git reset --hard ",
+        "regex": true
+      },
+      {
+        "pattern": "mkfs ",
+        "regex": true
+      },
+      {
+        "pattern": "npm publish ",
+        "regex": true
+      },
+      {
+        "pattern": "rm -rf /*",
+        "regex": true
+      },
+      {
+        "pattern": "rm -rf /",
+        "regex": true
+      },
+      {
+        "pattern": "rm -rf .",
+        "regex": true
+      },
+      {
+        "pattern": "rm -rf $HOME",
+        "regex": true
+      },
+      {
+        "pattern": "rm -rf ~",
+        "regex": true
+      },
+      {
+        "pattern": "sudo rm -rf ",
+        "regex": true
+      },
+      {
+        "pattern": "terraform apply ",
+        "regex": true
+      },
+      {
+        "pattern": "terraform destroy ",
+        "regex": true
+      },
+      {
+        "pattern": "aws ",
+        "regex": true
+      }
+    ]
+  },
+  "policies": {
+    "rules": [
+      {
+        "id": "sensitive-files",
+        "name": "Sensitive files",
+        "patterns": [
+          {
+            "pattern": ".env*"
+          },
+          {
+            "pattern": "config/credentials.json"
+          },
+          {
+            "pattern": "secrets/**"
+          },
+          {
+            "pattern": "~/.aws/**"
+          },
+          {
+            "pattern": "~/.ssh/**"
+          }
         ],
-        "autoDenyPatterns": [
-            { "pattern": "dd " },
-            { "pattern": "diskutil " },
-            { "pattern": "git push " },
-            { "pattern": "git reset --hard " },
-            { "pattern": "mkfs " },
-            { "pattern": "npm publish " },
-            { "pattern": "rm -rf /*" },
-            { "pattern": "rm -rf /" },
-            { "pattern": "rm -rf ." },
-            { "pattern": "rm -rf $HOME" },
-            { "pattern": "rm -rf ~" },
-            { "pattern": "sudo rm -rf " },
-            { "pattern": "terraform apply " },
-            { "pattern": "terraform destroy " },
-            { "pattern": "aws " }
-        ]
-    },
-    "policies": {
-        "rules": [
-            {
-                "id": "sensitive-files",
-                "name": "Sensitive files",
-                "patterns": [
-                    { "pattern": ".env*" },
-                    { "pattern": "config/credentials.json" },
-                    { "pattern": "secrets/**" },
-                    { "pattern": "~/.aws/**" },
-                    { "pattern": "~/.ssh/**" }
-                ],
-                "protection": "noAccess",
-                "onlyIfExists": true
-            },
-            {
-                "id": "generated-and-metadata-directories",
-                "name": "Generated and metadata directories",
-                "patterns": [
-                    { "pattern": ".git" },
-                    { "pattern": ".git/**" },
-                    { "pattern": "node_modules" },
-                    { "pattern": "node_modules/**" }
-                ],
-                "protection": "noAccess",
-                "onlyIfExists": true
-            }
-        ]
-    }
+        "protection": "noAccess",
+        "onlyIfExists": true
+      },
+      {
+        "id": "generated-and-metadata-directories",
+        "name": "Generated and metadata directories",
+        "patterns": [
+          {
+            "pattern": ".git"
+          },
+          {
+            "pattern": ".git/**"
+          },
+          {
+            "pattern": "node_modules"
+          },
+          {
+            "pattern": "node_modules/**"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true
+      }
+    ]
+  },
+  "version": "0.13.0-20260619"
 }
