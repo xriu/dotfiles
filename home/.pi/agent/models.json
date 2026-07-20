@@ -177,12 +177,6 @@
             "apiKey": "$OPENROUTER_API_KEY",
             "models": [
                 {
-                    "id": "openrouter/pareto-code",
-                    "name": "Openrouter Pareto Code",
-                    "reasoning": true,
-                    "input": ["text", "image"]
-                },
-                {
                     "id": "moonshotai/kimi-k3",
                     "name": "Kimi K3",
                     "reasoning": true,

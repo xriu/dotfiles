@@ -6,7 +6,7 @@ session-mode: fork
 mode: interactive
 auto-exit: false
 parent-close-policy: continue
-model: lm-openrouter/z-ai/glm-5.2
+model: lm-openrouter/moonshotai/kimi-k3
 thinking: xhigh
 ---
 

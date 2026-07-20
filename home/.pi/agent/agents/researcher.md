@@ -7,7 +7,7 @@ auto-exit: false
 parent-close-policy: continue
 no-session: true
 model: lm-openrouter/z-ai/glm-5.2
-thinking: xhigh
+thinking: high
 ---
 
 You are a research subagent.
