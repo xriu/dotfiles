@@ -3,12 +3,10 @@
         "Atlassian": {
             "url": "https://mcp.atlassian.com/v1/mcp/authv2"
         },
-        "Figma": {
-            "url": "https://mcp.figma.com/mcp"
-        },
         "aws-knowledge": {
             "type": "http",
-            "url": "https://knowledge-mcp.global.api.aws"
+            "url": "https://knowledge-mcp.global.api.aws",
+            "directTools": true
         },
         "aws-mcp": {
             "command": "uvx",
@@ -18,7 +16,8 @@
                 "--metadata",
                 "AWS_REGION=us-east-1",
                 "AWS_PROFILE=test"
-            ]
+            ],
+            "directTools": true
         }
     }
 }

@@ -1,27 +1,26 @@
 {
-  "lastChangelogVersion": "0.80.6",
-  "defaultModel": "openai/gpt-5.6-luna",
-  "defaultProjectTrust": "always",
-  "defaultProvider": "lm-openrouter",
-  "defaultThinkingLevel": "xhigh",
-  "extensions": [
-    "~/dotfiles/home/.pi/agent/extensions"
-  ],
-  "packages": [
-    "npm:pi-mcp-adapter",
-    {
-      "source": "npm:@plannotator/pi-extension",
-      "skills": []
-    },
-    "npm:@aliou/pi-guardrails",
-    "npm:@ff-labs/pi-fff",
-    "npm:pi-lens",
-    "npm:pi-rewind",
-    "npm:pi-thinking-steps",
-    "npm:pi-web-access"
-  ],
-  "enableInstallTelemetry": true,
-  "httpIdleTimeoutMs": 120000,
-  "showCacheMissNotices": true,
-  "theme": "dark"
+    "lastChangelogVersion": "0.80.6",
+    "defaultModel": "openai/gpt-5.6-luna",
+    "defaultProjectTrust": "always",
+    "defaultProvider": "lm-openrouter",
+    "defaultThinkingLevel": "xhigh",
+    "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
+    "packages": [
+        "npm:pi-mcp-adapter",
+        {
+            "source": "npm:@plannotator/pi-extension",
+            "skills": []
+        },
+        "npm:@aliou/pi-guardrails",
+        "npm:@ff-labs/pi-fff",
+        "npm:pi-lens",
+        "npm:pi-mono-figma",
+        "npm:pi-rewind",
+        "npm:pi-thinking-steps",
+        "npm:pi-web-access"
+    ],
+    "enableInstallTelemetry": true,
+    "httpIdleTimeoutMs": 120000,
+    "showCacheMissNotices": true,
+    "theme": "dark"
 }
