@@ -75,7 +75,7 @@ alias codebase-memory="codebase-memory-mcp --ui=true --port=9749"
 alias opencode="opencode"
 
 # Pi
-alias pi-packages="npm ls --prefix ~/.pi/agent/npm --depth=0"
+alias pi-list="npm ls --prefix ~/.pi/agent/npm --depth=0"
 alias pi1="PI_SUBAGENT_MUX=herdr pi"
 alias pi2="PI_ORCHESTRATOR_MODE=1 PI_SUBAGENT_MUX=herdr pi"
 
