@@ -55,6 +55,7 @@ function brew_setup() {
     brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask helium-browser --force # Chromium-based web browser
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
+    brew install --cask kitlangton-hex --force # Voice-to-text transcription and paste tool
     brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
     brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
     brew install --cask orbstack --force # Replacement for Docker Desktop
@@ -68,7 +69,6 @@ function brew_setup() {
     brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
     brew install --cask visual-studio-code --force # Visual Studio Code
     brew install --cask windows-app --force # Windows app for macOS
-    brew install --cask wispr-flow --force # AI-assisted coding flow
     brew install --cask zed --force # Multiplayer code editor
 
     # brew install carapace # Carapace is a completion system for any shell
