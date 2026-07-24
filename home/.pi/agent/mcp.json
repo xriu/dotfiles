@@ -5,7 +5,8 @@
         },
         "aws-knowledge": {
             "type": "http",
-            "url": "https://knowledge-mcp.global.api.aws"
+            "url": "https://knowledge-mcp.global.api.aws",
+            "directTools": true
         },
         "aws-mcp": {
             "command": "uvx",
@@ -13,8 +14,16 @@
                 "mcp-proxy-for-aws==1.6.1",
                 "https://aws-mcp.us-east-1.api.aws/mcp",
                 "--metadata",
-                "AWS_REGION=us-east-1"
-            ]
+                "AWS_REGION=us-east-1",
+                "AWS_PROFILE=test"
+            ],
+            "directTools": true
+        },
+        "open-computer-use": {
+            "type": "local",
+            "command": ["open-computer-use", "mcp"],
+            "enabled": true,
+            "timeout": 60000
         }
     }
 }

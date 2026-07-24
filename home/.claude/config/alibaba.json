@@ -1,26 +1,5 @@
 {
-    "alwaysThinkingEnabled": true,
-    "attribution": {
-        "commit": "",
-        "pr": ""
-    },
-    "autoCompactWindow": 180000,
     "cleanupPeriodDays": 30,
-    "disableArtifact": true,
-    "disableBundledSkills": true,
-    "disableClaudeAiConnectors": false,
-    "disableRemoteControl": true,
-    "disableWorkflows": true,
-    "effortLevel": "high",
-    "enabledPlugins": {
-        "agent-sdk-dev@claude-code-plugins": true,
-        "frontend-design@claude-plugins-official": true,
-        "plannotator@plannotator": true,
-        "plugin-dev@claude-code-plugins": true,
-        "rust-analyzer-lsp@claude-plugins-official": true,
-        "typescript-lsp@claude-plugins-official": true,
-        "visual-explainer@visual-explainer-marketplace": true
-    },
     "env": {
         "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen3.7-plus",
         "ANTHROPIC_DEFAULT_OPUS_MODEL": "qwen3.7-plus",
@@ -34,105 +13,22 @@
         "CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
         "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
         "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-        "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "0",
+        "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
         "CLAUDE_CODE_NO_FLICKER": "1",
         "CLAUDE_CODE_SUBAGENT_MODEL": "qwen3.7-plus",
         "DISABLE_ERROR_REPORTING": "1",
         "DISABLE_TELEMETRY": "1"
     },
-    "extraKnownMarketplaces": {
-        "claude-code-plugins": {
-            "source": {
-                "repo": "anthropics/claude-code",
-                "source": "github"
-            }
-        },
-        "plannotator": {
-            "source": {
-                "repo": "backnotprop/plannotator",
-                "source": "github"
-            }
-        },
-        "visual-explainer-marketplace": {
-            "source": {
-                "repo": "nicobailon/visual-explainer",
-                "source": "github"
-            }
-        }
+    "attribution": {
+        "commit": "",
+        "pr": ""
     },
-    "fastMode": false,
-    "hasCompletedOnboarding": true,
-    "hooks": {
-        "PreToolUse": [
-            {
-                "matcher": "Grep|Glob",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-code-discovery-gate",
-                        "timeout": 5
-                    }
-                ]
-            }
-        ],
-        "SessionStart": [
-            {
-                "matcher": "*",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "bash '/Users/xavier.riu/.claude/hooks/herdr-agent-state.sh' session",
-                        "timeout": 10
-                    }
-                ]
-            },
-            {
-                "matcher": "startup",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            },
-            {
-                "matcher": "resume",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            },
-            {
-                "matcher": "clear",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            },
-            {
-                "matcher": "compact",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "~/.claude/hooks/cbm-session-reminder"
-                    }
-                ]
-            }
-        ]
-    },
-    "model": "qwen3.7-plus",
     "permissions": {
-        "additionalDirectories": ["~/.claude/"],
         "allow": [],
-        "ask": [],
-        "defaultMode": "bypassPermissions",
         "deny": [
             "Bash(dd *)",
             "Bash(diskutil *)",
+            "Bash(git push *)",
             "Bash(git reset --hard *)",
             "Bash(mkfs *)",
             "Bash(npm publish *)",
@@ -144,6 +40,7 @@
             "Bash(sudo rm -rf *)",
             "Bash(terraform apply *)",
             "Bash(terraform destroy *)",
+            "Read(./.env*)",
             "Read(./config/credentials.json)",
             "Read(./secrets/**)",
             "Read(~/.aws/**)",
@@ -161,13 +58,47 @@
             "ReportFindings",
             "ScheduleWakeup",
             "SendMessage"
-        ]
+        ],
+        "ask": [],
+        "defaultMode": "bypassPermissions",
+        "additionalDirectories": ["~/.claude/"]
     },
-    "skillListingBudgetFraction": 0.03,
-    "skipDangerousModePermissionPrompt": true,
+    "model": "qwen3.7-plus",
+    "disableClaudeAiConnectors": false,
+    "disableBundledSkills": true,
+    "disableRemoteControl": true,
+    "disableWorkflows": true,
+    "disableArtifact": true,
     "statusLine": {
-        "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh",
-        "type": "command"
+        "type": "command",
+        "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
     },
-    "theme": "dark"
+    "enabledPlugins": {
+        "agent-sdk-dev@claude-code-plugins": true,
+        "frontend-design@claude-plugins-official": true,
+        "plannotator@plannotator": true,
+        "plugin-dev@claude-code-plugins": true,
+        "rust-analyzer-lsp@claude-plugins-official": true,
+        "typescript-lsp@claude-plugins-official": true
+    },
+    "extraKnownMarketplaces": {
+        "claude-code-plugins": {
+            "source": {
+                "source": "github",
+                "repo": "anthropics/claude-code"
+            }
+        },
+        "plannotator": {
+            "source": {
+                "source": "github",
+                "repo": "backnotprop/plannotator"
+            }
+        }
+    },
+    "alwaysThinkingEnabled": true,
+    "effortLevel": "high",
+    "fastMode": false,
+    "skipDangerousModePermissionPrompt": true,
+    "theme": "dark",
+    "hasCompletedOnboarding": true
 }

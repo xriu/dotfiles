@@ -1,33 +1,28 @@
 {
-    "compaction": {
-        "keepRecentTokens": 20000,
-        "reserveTokens": 820000
+  "lastChangelogVersion": "0.81.1",
+  "defaultModel": "moonshotai/kimi-k3",
+  "defaultProjectTrust": "always",
+  "defaultProvider": "lm-openrouter",
+  "defaultThinkingLevel": "xhigh",
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "packages": [
+    "npm:pi-mcp-adapter",
+    {
+      "source": "npm:@plannotator/pi-extension",
+      "skills": []
     },
-    "defaultModel": "openai/gpt-5.6-luna",
-    "defaultProjectTrust": "always",
-    "defaultProvider": "lm-openrouter",
-    "defaultThinkingLevel": "xhigh",
-    "enableInstallTelemetry": true,
-    "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-    "followUpMode": "all",
-    "hideThinkingBlock": false,
-    "httpIdleTimeoutMs": 120000,
-    "lastChangelogVersion": "0.80.6",
-    "packages": [
-        "git:github.com/edxeth/pi-subagents",
-        "npm:@hypabolic/pi-hypa",
-        "npm:@ogulcancelik/pi-auto-permissions",
-        "npm:@ogulcancelik/pi-goal",
-        "npm:@ogulcancelik/pi-herdr",
-        "npm:@plannotator/pi-extension",
-        "npm:pi-interview",
-        "npm:pi-lens",
-        "npm:pi-mcp-adapter",
-        "npm:pi-rewind",
-        "npm:pi-web-access"
-    ],
-    "showCacheMissNotices": true,
-    "steeringMode": "all",
-    "theme": "dark",
-    "treeFilterMode": "no-tools"
+    "npm:@aliou/pi-guardrails",
+    "npm:@ff-labs/pi-fff",
+    "npm:@pi-stef/figma",
+    "npm:pi-lens",
+    "npm:pi-rewind",
+    "npm:pi-thinking-steps",
+    "npm:pi-web-access"
+  ],
+  "enableInstallTelemetry": true,
+  "httpIdleTimeoutMs": 120000,
+  "showCacheMissNotices": true,
+  "theme": "dark"
 }

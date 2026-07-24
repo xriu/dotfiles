@@ -1,8 +1,66 @@
+# Herdr configuration
+# Managed in ~/.dotfiles and stowed to ~/.config/herdr/config.toml
+# Terminal-native workspace/tab/pane manager.
+
 onboarding = false
+
+[terminal]
+default_shell = "fish"
+shell_mode = "auto"
+new_cwd = "follow"
+
+[theme]
+name = "catppuccin"
+
+[theme.custom]
+accent = "#c6a0f6"
+blue = "#8aadf4"
+green = "#a6da95"
+panel_bg = "#24273a"
+red = "#ed8796"
+yellow = "#eed49f"
+
+[update]
+channel = "stable"
+
+[ui]
+accent = "#c6a0f6"
+agent_panel_sort = "spaces"
+confirm_close = false
+mouse_capture = true
+mouse_scroll_lines = 3
+prompt_new_tab_name = false
+prompt_new_workspace_name = true
+right_click_passthrough_modifier = "ctrl"
+show_agent_labels_on_pane_borders = false
+sidebar_max_width = 36
+sidebar_min_width = 18
+sidebar_width = 32
+
+[ui.toast]
+delivery = "herdr"
+delay_seconds = 1
+
+[ui.toast.herdr]
+position = "top-right"
+
+[ui.toast.clipboard]
+enabled = true
+position = "bottom-center"
 
 [ui.sound]
 enabled = false
 
-[ui]
-agent_panel_sort = "spaces"
-prompt_new_tab_name = false
+[session]
+resume_agents_on_restore = true
+
+[remote]
+manage_ssh_config = true
+
+[experimental]
+allow_nested = false
+kitty_graphics = true
+pane_history = true
+
+[advanced]
+scrollback_limit_bytes = 52428800

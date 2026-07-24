@@ -104,23 +104,23 @@
                 },
                 "researcher": {
                     "model": "lm-openrouter/z-ai/glm-5.2",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "high"
                 },
                 "context-builder": {
-                    "model": "lm-openrouter/z-ai/glm-5.2",
+                    "model": "lm-openrouter/moonshotai/kimi-k3",
                     "thinkingLevel": "xhigh"
                 },
                 "worker": {
-                    "model": "lm-openrouter/z-ai/glm-5.2",
+                    "model": "lm-openrouter/moonshotai/kimi-k3",
                     "thinkingLevel": "xhigh"
                 },
                 "delegate": {
                     "model": "lm-openrouter/deepseek/deepseek-v4-pro",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "high"
                 },
                 "scout": {
-                    "model": "lm-openrouter/deepseek/deepseek-v4-pro",
-                    "thinkingLevel": "xhigh"
+                    "model": "lm-openrouter/deepseek/deepseek-v4-flash:exacto",
+                    "thinkingLevel": "medium"
                 }
             }
         }
