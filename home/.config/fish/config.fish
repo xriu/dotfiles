@@ -9,6 +9,7 @@ set -gx LC_ALL $LANG
 set -gx GPG_TTY (tty)
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
+set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/config
 
 # Source multi-function files (Fish autoloading only works for single-function files)
 source $HOME/.config/fish/functions/terraform.fish
