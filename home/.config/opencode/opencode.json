@@ -71,11 +71,6 @@
             "enabled": true,
             "type": "remote",
             "url": "https://knowledge-mcp.global.api.aws"
-        },
-        "codebase-memory-mcp": {
-            "enabled": true,
-            "type": "local",
-            "command": ["/Users/xavier.riu/.local/bin/codebase-memory-mcp"]
         }
     },
     "provider": {

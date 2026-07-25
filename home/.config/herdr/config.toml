@@ -12,16 +12,28 @@ new_cwd = "follow"
 [theme]
 name = "catppuccin"
 
-[theme.custom]
-accent = "#c6a0f6"
-blue = "#8aadf4"
-green = "#a6da95"
-panel_bg = "#24273a"
-red = "#ed8796"
-yellow = "#eed49f"
-
 [update]
 channel = "stable"
+
+[keys]
+# Ghostty sends these as escape sequences for Cmd keys (see ghostty/config)
+split_vertical = "alt+n"
+split_horizontal = "alt+d"
+new_tab = "alt+shift+n"
+
+# Cmd+K = clear focused pane.
+# Ghostty maps cmd+k to the \x0b byte (Ctrl-K). In Zellij that byte hits
+# `Ctrl k { Clear; }`. Herdr has no native clear action, so this custom
+# command intercepts ctrl+k and sends ctrl+l (fish's clear-screen binding)
+# to the UI-focused pane.
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+description = "Clear focused pane (cmd+k)"
+command = "herdr pane send-keys \"$(herdr pane current | jq -r '.result.pane.pane_id')\" ctrl+l"
+
+[keys.indexed]
+tabs = "alt"
 
 [ui]
 accent = "#c6a0f6"
@@ -32,10 +44,7 @@ mouse_scroll_lines = 3
 prompt_new_tab_name = false
 prompt_new_workspace_name = true
 right_click_passthrough_modifier = "ctrl"
-show_agent_labels_on_pane_borders = false
-sidebar_max_width = 36
-sidebar_min_width = 18
-sidebar_width = 32
+show_agent_labels_on_pane_borders = true
 
 [ui.toast]
 delivery = "herdr"
@@ -47,6 +56,12 @@ position = "top-right"
 [ui.toast.clipboard]
 enabled = true
 position = "bottom-center"
+
+[ui.sidebar.spaces]
+row_gap = 1
+
+[ui.sidebar.agents]
+row_gap = 1
 
 [ui.sound]
 enabled = false

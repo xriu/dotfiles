@@ -5,7 +5,7 @@ system-prompt: replace
 mode: interactive
 auto-exit: false
 parent-close-policy: continue
-model: lm-openrouter/openai/gpt-5.6-luna
+model: xriu-alibaba/qwen3.7-plus
 thinking: xhigh
 ---
 
