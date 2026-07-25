@@ -1,6 +1,6 @@
 {
-  "lastChangelogVersion": "0.81.1",
-  "defaultModel": "openai/gpt-5.6-luna",
+  "lastChangelogVersion": "0.82.0",
+  "defaultModel": "z-ai/glm-5.2",
   "defaultProjectTrust": "always",
   "defaultProvider": "lm-openrouter",
   "defaultThinkingLevel": "xhigh",
