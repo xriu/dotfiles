@@ -1,6 +1,6 @@
 ---
 name: unstick
-description: Break out of a stuck loop when the same approach is failing repeatedly. Use when the agent is stuck, going in circles, repeating the same failed strategy, or when the user says "you're stuck", "try something different", "think outside the box", "fresh eyes", "unstick", or invokes /unstick.
+description: Break out of a stuck loop when the same approach is failing repeatedly. Use when the agent is stuck, going in circles, repeating the same failed strategy, or when the user says "stuck?", "try something different", "think outside the box", "fresh eyes", "unstick", or invokes /unstick.
 ---
 
 # Unstick
