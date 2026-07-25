@@ -60,6 +60,3 @@ if status is-interactive
         end
     end
 end
-
-# Added by codebase-memory-mcp install
-fish_add_path /Users/xavier.riu/.local/bin

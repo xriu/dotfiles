@@ -68,9 +68,6 @@ alias rustup-list="rustup component list --installed"
 # Zed
 alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
-# Codebase Memory
-alias codebase-memory="codebase-memory-mcp --ui=true --port=9749"
-
 # OpenCode
 alias opencode="opencode"
 

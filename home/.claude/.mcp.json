@@ -12,9 +12,6 @@
                 "--metadata",
                 "AWS_REGION=us-east-1"
             ]
-        },
-        "codebase-memory-mcp": {
-            "command": "/Users/xavier.riu/.local/bin/codebase-memory-mcp"
         }
     }
 }

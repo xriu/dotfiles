@@ -30,9 +30,6 @@
                 "AWS_REGION=us-east-1",
                 "AWS_PROFILE=test"
             ]
-        },
-        "codebase-memory-mcp": {
-            "command": "/Users/xavier.riu/.local/bin/codebase-memory-mcp"
         }
     }
 }
