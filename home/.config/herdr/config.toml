@@ -29,6 +29,17 @@ split_vertical = "alt+n"
 split_horizontal = "alt+d"
 new_tab = "alt+shift+n"
 
+# Cmd+K = clear focused pane.
+# Ghostty maps cmd+k to the \x0b byte (Ctrl-K). In Zellij that byte hits
+# `Ctrl k { Clear; }`. Herdr has no native clear action, so this custom
+# command intercepts ctrl+k and sends ctrl+l (fish's clear-screen binding)
+# to the UI-focused pane.
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+description = "Clear focused pane (cmd+k)"
+command = "herdr pane send-keys \"$(herdr pane current | jq -r '.result.pane.pane_id')\" ctrl+l"
+
 [keys.indexed]
 tabs = "alt"
 
