@@ -13,6 +13,7 @@
         },
         "npm:@aliou/pi-guardrails",
         "npm:@ff-labs/pi-fff",
+        "npm:@pi-stef/figma",
         "npm:pi-lens",
         "npm:pi-rewind",
         "npm:pi-thinking-steps",
