@@ -25,10 +25,6 @@
                 "regex": true
             },
             {
-                "pattern": "git push ",
-                "regex": true
-            },
-            {
                 "pattern": "git reset --hard ",
                 "regex": true
             },
