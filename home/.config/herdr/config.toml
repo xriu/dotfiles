@@ -12,14 +12,6 @@ new_cwd = "follow"
 [theme]
 name = "catppuccin"
 
-[theme.custom]
-accent = "#c6a0f6"
-blue = "#8aadf4"
-green = "#a6da95"
-panel_bg = "#24273a"
-red = "#ed8796"
-yellow = "#eed49f"
-
 [update]
 channel = "stable"
 
@@ -53,9 +45,6 @@ prompt_new_tab_name = false
 prompt_new_workspace_name = true
 right_click_passthrough_modifier = "ctrl"
 show_agent_labels_on_pane_borders = true
-sidebar_max_width = 36
-sidebar_min_width = 18
-sidebar_width = 32
 
 [ui.toast]
 delivery = "herdr"
@@ -67,6 +56,12 @@ position = "top-right"
 [ui.toast.clipboard]
 enabled = true
 position = "bottom-center"
+
+[ui.sidebar.spaces]
+row_gap = 1
+
+[ui.sidebar.agents]
+row_gap = 1
 
 [ui.sound]
 enabled = false
