@@ -7,25 +7,17 @@ description = "Label panes and tabs with their IDs for visual identification"
 [[startup]]
 command = ["./scripts/label-all.sh"]
 
-[[startup]]
-command = ["./scripts/label-tabs.sh"]
-
 [[actions]]
 id = "label-current-pane"
 title = "Label Current Pane"
 command = ["./scripts/label-current.sh"]
 
 [[actions]]
-id = "label-all-panes"
-title = "Label All Panes"
+id = "label-all"
+title = "Label All Panes and Tabs"
 command = ["./scripts/label-all.sh"]
 
 [[actions]]
 id = "label-current-tab"
 title = "Label Current Tab"
 command = ["./scripts/label-current-tab.sh"]
-
-[[actions]]
-id = "label-all-tabs"
-title = "Label All Tabs"
-command = ["./scripts/label-tabs.sh"]

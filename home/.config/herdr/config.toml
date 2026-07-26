@@ -48,12 +48,12 @@ type = "plugin_action"
 command = "herdr-pane-labels.label-current-pane"
 description = "Label pane with ID"
 
-# Label all panes with their pane IDs (refresh)
+# Label all panes and tabs with their IDs (refresh)
 [[keys.command]]
 key = "prefix+ctrl+shift+l"
 type = "plugin_action"
-command = "herdr-pane-labels.label-all-panes"
-description = "Label all panes with IDs"
+command = "herdr-pane-labels.label-all"
+description = "Label all panes and tabs with IDs"
 
 # Label the current tab with its tab ID
 [[keys.command]]
@@ -62,12 +62,6 @@ type = "plugin_action"
 command = "herdr-pane-labels.label-current-tab"
 description = "Label tab with ID"
 
-# Label all tabs with their tab IDs (refresh)
-[[keys.command]]
-key = "prefix+ctrl+shift+t"
-type = "plugin_action"
-command = "herdr-pane-labels.label-all-tabs"
-description = "Label all tabs with IDs"
 
 [ui]
 accent = "#c6a0f6"
