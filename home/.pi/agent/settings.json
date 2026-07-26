@@ -1,25 +1,30 @@
 {
-    "lastChangelogVersion": "0.82.1",
-    "defaultModel": "glm-5.2",
-    "defaultProjectTrust": "always",
-    "defaultProvider": "xriu-alibaba",
-    "defaultThinkingLevel": "xhigh",
-    "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-    "packages": [
-        "npm:pi-mcp-adapter",
-        { "source": "npm:@plannotator/pi-extension", "skills": [] },
-        "npm:@ff-labs/pi-fff",
-        "npm:pi-lens",
-        "npm:pi-rewind",
-        "npm:pi-thinking-steps",
-        "npm:pi-web-access"
-    ],
-    "enableInstallTelemetry": true,
-    "httpIdleTimeoutMs": 120000,
-    "showCacheMissNotices": true,
-    "theme": "dark",
-    "compaction": {
-        "reserveTokens": 24000,
-        "keepRecentTokens": 40000
-    }
+  "lastChangelogVersion": "0.82.1",
+  "defaultModel": "z-ai/glm-5.2",
+  "defaultProjectTrust": "always",
+  "defaultProvider": "lm-openrouter",
+  "defaultThinkingLevel": "xhigh",
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "packages": [
+    "npm:pi-mcp-adapter",
+    {
+      "source": "npm:@plannotator/pi-extension",
+      "skills": []
+    },
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-lens",
+    "npm:pi-rewind",
+    "npm:pi-thinking-steps",
+    "npm:pi-web-access"
+  ],
+  "enableInstallTelemetry": true,
+  "httpIdleTimeoutMs": 120000,
+  "showCacheMissNotices": true,
+  "theme": "dark",
+  "compaction": {
+    "reserveTokens": 24000,
+    "keepRecentTokens": 40000
+  }
 }

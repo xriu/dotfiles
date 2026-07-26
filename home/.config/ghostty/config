@@ -84,6 +84,10 @@ keybind = cmd+seven=text:\x1b7
 keybind = cmd+eight=text:\x1b8
 keybind = cmd+nine=text:\x1b9
 
+# Pane cycling: cmd+shift+1/2 sends alt+,/alt+. (Herdr cycle_pane_previous/next)
+keybind = cmd+shift+one=text:\x1b,
+keybind = cmd+shift+two=text:\x1b.
+
 # =============================================================================
 # macOS Options
 # =============================================================================
