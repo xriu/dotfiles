@@ -2,7 +2,7 @@
   "lastChangelogVersion": "0.82.1",
   "defaultModel": "qwen3.7-plus",
   "defaultProjectTrust": "always",
-  "defaultProvider": "xriu-alibaba-old",
+  "defaultProvider": "xriu-alibaba2",
   "defaultThinkingLevel": "xhigh",
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
