@@ -204,7 +204,6 @@ service-account*.json
 
 # Custom
 .pi-lens/
-/docs/
 .scratch/
-**/skills/launchmetrics/
+**/launchmetrics/
 home/.factory/settings.json

@@ -1,9 +1,9 @@
 {
     "defaultProfile": "openrouter",
     "profiles": {
-        "alibaba": {
+        "alibaba1": {
             "main": {
-                "provider": "xriu-alibaba",
+                "provider": "xriu-alibaba1",
                 "model": "qwen3.7-plus",
                 "thinkingLevel": "xhigh"
             },
@@ -42,6 +42,47 @@
                 }
             }
         },
+        "alibaba2": {
+            "main": {
+                "provider": "xriu-alibaba2",
+                "model": "qwen3.8-max-preview",
+                "thinkingLevel": "xhigh"
+            },
+            "agents": {
+                "oracle": {
+                    "model": "xriu-alibaba/qwen3.8-max-preview",
+                    "thinkingLevel": "xhigh"
+                },
+                "planner": {
+                    "model": "xriu-alibaba/qwen3.8-max-preview",
+                    "thinkingLevel": "xhigh"
+                },
+                "reviewer": {
+                    "model": "xriu-alibaba/qwen3.8-max-preview",
+                    "thinkingLevel": "xhigh"
+                },
+                "researcher": {
+                    "model": "xriu-alibaba/glm-5.2",
+                    "thinkingLevel": "xhigh"
+                },
+                "context-builder": {
+                    "model": "xriu-alibaba/glm-5.2",
+                    "thinkingLevel": "xhigh"
+                },
+                "worker": {
+                    "model": "xriu-alibaba/glm-5.2",
+                    "thinkingLevel": "xhigh"
+                },
+                "delegate": {
+                    "model": "xriu-alibaba/deepseek-v4-pro",
+                    "thinkingLevel": "xhigh"
+                },
+                "scout": {
+                    "model": "xriu-alibaba/deepseek-v4-pro",
+                    "thinkingLevel": "xhigh"
+                }
+            }
+        },
         "opencode": {
             "main": {
                 "provider": "xriu-opencode-openai",
@@ -74,7 +115,7 @@
                     "thinkingLevel": "high"
                 },
                 "delegate": {
-                    "model": "xriu-opencode-openai/deepseek-v4-flash",
+                    "model": "xriu-opencode-openai/deepseek-v4-pro",
                     "thinkingLevel": "medium"
                 },
                 "scout": {

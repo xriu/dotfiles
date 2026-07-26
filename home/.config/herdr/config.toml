@@ -17,9 +17,33 @@ channel = "stable"
 
 [keys]
 # Ghostty sends these as escape sequences for Cmd keys (see ghostty/config)
-split_vertical = "alt+n"
-split_horizontal = "alt+d"
-new_tab = "alt+shift+n"
+# Cmd+1..9: Ghostty sends \x1b1..\x1b9 which Herdr reads as alt+1..9.
+# These switch to a specific tab by number.
+switch_tab = "alt+1..9"
+
+# Cmd+[/]: Ghostty sends \x1b,/\x1b. which Herdr reads as alt+,/alt+.
+# These cycle through panes previous/next.
+cycle_pane_previous = "alt+,"
+cycle_pane_next = "alt+."
+
+[[keys.command]]
+key = "alt+n"
+type = "shell"
+description = "Split vertical + label"
+command = "~/.config/herdr/scripts/split-pane.sh right"
+
+[[keys.command]]
+key = "alt+d"
+type = "shell"
+description = "Split horizontal + label"
+command = "~/.config/herdr/scripts/split-pane.sh down"
+
+# Cmd+Shift+N = new tab with 2 panes (side-by-side)
+[[keys.command]]
+key = "alt+shift+n"
+type = "shell"
+description = "New tab with 2 panes"
+command = "~/.config/herdr/scripts/new-tab-two-panes.sh"
 
 # Cmd+K = clear focused pane.
 # Ghostty maps cmd+k to the \x0b byte (Ctrl-K). In Zellij that byte hits
@@ -30,10 +54,14 @@ new_tab = "alt+shift+n"
 key = "ctrl+k"
 type = "shell"
 description = "Clear focused pane (cmd+k)"
-command = "herdr pane send-keys \"$(herdr pane current | jq -r '.result.pane.pane_id')\" ctrl+l"
+command = "~/.config/herdr/scripts/clear-pane.sh"
 
-[keys.indexed]
-tabs = "alt"
+# Label all panes and tabs with their IDs (refresh)
+[[keys.command]]
+key = "prefix+shift+l"
+type = "plugin_action"
+command = "herdr-pane-labels.label-all"
+description = "Label all panes and tabs with IDs"
 
 [ui]
 accent = "#c6a0f6"
