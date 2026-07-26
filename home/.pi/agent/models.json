@@ -1,10 +1,26 @@
 {
     "providers": {
         "xriu-alibaba": {
-            "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
+            "baseUrl": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic",
             "api": "anthropic-messages",
             "apiKey": "$ALIBABA_API_KEY",
             "models": [
+                {
+                    "id": "qwen3.8-max-preview",
+                    "name": "Qwen3.8 Max Preview",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 1000000,
+                    "maxTokens": 65536
+                },
+                {
+                    "id": "qwen3.7-max",
+                    "name": "Qwen3.7 Max",
+                    "reasoning": true,
+                    "input": ["text"],
+                    "contextWindow": 1000000,
+                    "maxTokens": 65536
+                },
                 {
                     "id": "qwen3.7-plus",
                     "name": "Qwen3.7 Plus",
@@ -12,6 +28,38 @@
                     "input": ["text", "image"],
                     "contextWindow": 1000000,
                     "maxTokens": 65536
+                },
+                {
+                    "id": "deepseek-v4-pro",
+                    "name": "DeepSeek V4 Pro",
+                    "reasoning": true,
+                    "input": ["text"],
+                    "contextWindow": 1000000,
+                    "maxTokens": 384000
+                },
+                {
+                    "id": "deepseek-v4-flash",
+                    "name": "DeepSeek V4 Flash",
+                    "reasoning": true,
+                    "input": ["text"],
+                    "contextWindow": 1000000,
+                    "maxTokens": 384000
+                },
+                {
+                    "id": "kimi-k2.7-code",
+                    "name": "Kimi K2.7 Code",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 262144,
+                    "maxTokens": 262144
+                },
+                {
+                    "id": "glm-5.2",
+                    "name": "GLM-5.2",
+                    "reasoning": true,
+                    "input": ["text"],
+                    "contextWindow": 1000000,
+                    "maxTokens": 131072
                 }
             ]
         },

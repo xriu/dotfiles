@@ -9,35 +9,35 @@
             },
             "agents": {
                 "oracle": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "model": "xriu-alibaba/qwen3.8-max-preview",
                     "thinkingLevel": "xhigh"
                 },
                 "planner": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "model": "xriu-alibaba/qwen3.8-max-preview",
                     "thinkingLevel": "xhigh"
                 },
                 "reviewer": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "model": "xriu-alibaba/qwen3.8-max-preview",
                     "thinkingLevel": "xhigh"
                 },
                 "researcher": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "model": "xriu-alibaba/glm-5.2",
                     "thinkingLevel": "xhigh"
                 },
                 "context-builder": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "model": "xriu-alibaba/glm-5.2",
                     "thinkingLevel": "xhigh"
                 },
                 "worker": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "model": "xriu-alibaba/glm-5.2",
                     "thinkingLevel": "xhigh"
                 },
                 "delegate": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "model": "xriu-alibaba/deepseek-v4-flash",
                     "thinkingLevel": "xhigh"
                 },
                 "scout": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "model": "xriu-alibaba/deepseek-v4-flash",
                     "thinkingLevel": "xhigh"
                 }
             }
@@ -74,7 +74,7 @@
                     "thinkingLevel": "high"
                 },
                 "delegate": {
-                    "model": "xriu-opencode-openai/deepseek-v4-flash",
+                    "model": "xriu-opencode-openai/deepseek-v4-pro",
                     "thinkingLevel": "medium"
                 },
                 "scout": {
