@@ -11,12 +11,12 @@ description: Persist learnings into AGENTS.md or docs/ reference files. Use when
 
 Read the learning and decide its type:
 
-- **Agent rule** — changes how the agent behaves → `AGENTS.md`
-- **Agent convention** — a procedure or reference the agent consults → `docs/agents/<topic>.md`
-- **Research finding** — discovered facts, API behaviors, patterns → `docs/findings/<topic>.md`
-- **Architectural decision** — design choice with alternatives considered → `docs/adr/<NNNN>-<slug>.md`
-
-For full details on each destination and its format, read [`docs/agents/capture-learning.md`](docs/agents/capture-learning.md).
+| Type                   | Destination                 | When                                                        |
+| ---------------------- | --------------------------- | ----------------------------------------------------------- |
+| Agent behavioral rule  | `AGENTS.md`                 | Changes how the agent behaves in future sessions            |
+| Agent convention       | `docs/agents/<topic>.md`    | A procedure or reference the agent consults on demand       |
+| Research finding       | `docs/findings/<topic>.md`  | Discovered facts, API behaviors, patterns worth remembering |
+| Architectural decision | `docs/adr/<NNNN>-<slug>.md` | Design choice with alternatives considered                  |
 
 **Completion criterion**: One destination selected, destination path resolved.
 
@@ -32,12 +32,12 @@ Read the target file (if it exists). Search for content that already covers this
 
 ### 3. Write
 
-Write the learning to the resolved destination, in the format described by the reference doc.
+Write the learning in the format for its destination:
 
-- `AGENTS.md` rules: 1-3 concise sentences, imperative tone, placed under the most relevant existing `## Section` (or create a new one if none fits).
-- `docs/agents/`: focused reference doc on one topic.
-- `docs/findings/`: cited findings with sources.
-- `docs/adr/`: next sequential number, standard ADR format.
+- **`AGENTS.md`** — 1-3 sentences, direct imperative tone, placed under the most relevant existing `## Section` (create a new one if none fits).
+- **`docs/agents/<topic>.md`** — focused reference doc on one topic; use the topic as the filename slug.
+- **`docs/findings/<topic>.md`** — `# Topic` heading, cited findings with sources; keep facts separate from opinions.
+- **`docs/adr/<NNNN>-<slug>.md`** — next sequential number (`ls docs/adr/`), standard ADR: Context, Considered options, Decision, Consequences.
 
 **Completion criterion**: File written and content verified.
 
