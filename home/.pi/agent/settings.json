@@ -27,6 +27,17 @@
         "keepRecentTokens": 40000
     },
     "powerline": {
-        "welcome": false
+        "welcome": false,
+        "layout": {
+            "left": [
+                "model",
+                "thinking",
+                "shell_mode",
+                "path",
+                "context_pct",
+                "cost"
+            ],
+            "secondary": ["git"]
+        }
     }
 }
