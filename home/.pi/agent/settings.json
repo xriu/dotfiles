@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.82.1",
-  "defaultModel": "qwen3.7-plus",
+  "defaultModel": "qwen3.8-max-preview",
   "defaultProjectTrust": "always",
   "defaultProvider": "xriu-alibaba2",
   "defaultThinkingLevel": "xhigh",

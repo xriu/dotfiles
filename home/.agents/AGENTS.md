@@ -69,3 +69,7 @@ Use this vocabulary by default: `needs-triage`, `needs-info`, `ready-for-agent`,
 ### Domain docs
 
 For multi-context projects, `CONTEXT-MAP.md` at the root points to per-context `CONTEXT.md` files. For single-context projects, use the root `CONTEXT.md` and `docs/adr/`. See `docs/agents/domain.md`.
+
+### Capture learning
+
+Persist reusable learnings into `AGENTS.md` (agent rules) or `docs/` (reference findings). See `docs/agents/capture-learning.md`.
