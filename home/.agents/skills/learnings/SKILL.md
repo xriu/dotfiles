@@ -1,7 +1,6 @@
 ---
-name: capture-learning
+name: learnings
 description: Persist learnings into AGENTS.md or docs/ reference files. Use when the user says "capture this", "save this learning", "remember this", "add this to agents", or when work surfaces a reusable insight worth persisting.
-disable-model-invocation: true
 ---
 
 **Capture** the learning into the right destination so future sessions benefit.
