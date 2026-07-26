@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.82.1",
-  "defaultModel": "z-ai/glm-5.2",
+  "defaultModel": "glm-5.2",
   "defaultProjectTrust": "always",
-  "defaultProvider": "lm-openrouter",
+  "defaultProvider": "xriu-opencode-openai",
   "defaultThinkingLevel": "xhigh",
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
