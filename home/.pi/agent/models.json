@@ -3,7 +3,7 @@
         "xriu-alibaba1": {
             "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
             "api": "anthropic-messages",
-            "apiKey": "$ALIBABA_API_KEY2",
+            "apiKey": "$ALIBABA_API_KEY1",
             "models": [
                 {
                     "id": "qwen3.7-plus",
@@ -18,7 +18,7 @@
         "xriu-alibaba2": {
             "baseUrl": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic",
             "api": "anthropic-messages",
-            "apiKey": "$ALIBABA_API_KEY1",
+            "apiKey": "$ALIBABA_API_KEY2",
             "models": [
                 {
                     "id": "qwen3.8-max-preview",

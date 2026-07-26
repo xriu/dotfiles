@@ -3,7 +3,7 @@
     "profiles": {
         "alibaba1": {
             "main": {
-                "provider": "xriu-alibaba2",
+                "provider": "xriu-alibaba1",
                 "model": "qwen3.7-plus",
                 "thinkingLevel": "xhigh"
             },
@@ -44,7 +44,7 @@
         },
         "alibaba2": {
             "main": {
-                "provider": "xriu-alibaba1",
+                "provider": "xriu-alibaba2",
                 "model": "qwen3.8-max-preview",
                 "thinkingLevel": "xhigh"
             },
