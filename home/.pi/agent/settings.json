@@ -7,10 +7,7 @@
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
         "npm:pi-mcp-adapter",
-        {
-            "source": "npm:@plannotator/pi-extension",
-            "skills": []
-        },
+        { "source": "npm:@plannotator/pi-extension", "skills": [] },
         "npm:@ff-labs/pi-fff",
         "npm:pi-lens",
         "npm:pi-rewind",
