@@ -62,7 +62,6 @@ type = "plugin_action"
 command = "herdr-pane-labels.label-current-tab"
 description = "Label tab with ID"
 
-
 [ui]
 accent = "#c6a0f6"
 agent_panel_sort = "spaces"
