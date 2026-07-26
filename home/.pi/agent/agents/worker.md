@@ -6,7 +6,7 @@ session-mode: fork
 mode: interactive
 auto-exit: false
 parent-close-policy: continue
-model: xriu-alibaba/glm-5.2
+model: xriu-alibaba/qwen3.7-plus
 thinking: xhigh
 ---
 
