@@ -45,15 +45,29 @@ command = "herdr pane send-keys \"$(herdr pane current | jq -r '.result.pane.pan
 [[keys.command]]
 key = "prefix+shift+l"
 type = "plugin_action"
-command = "herdr-pane-labels.label-current"
+command = "herdr-pane-labels.label-current-pane"
 description = "Label pane with ID"
 
 # Label all panes with their pane IDs (refresh)
 [[keys.command]]
 key = "prefix+ctrl+shift+l"
 type = "plugin_action"
-command = "herdr-pane-labels.label-all"
+command = "herdr-pane-labels.label-all-panes"
 description = "Label all panes with IDs"
+
+# Label the current tab with its tab ID
+[[keys.command]]
+key = "prefix+shift+t"
+type = "plugin_action"
+command = "herdr-pane-labels.label-current-tab"
+description = "Label tab with ID"
+
+# Label all tabs with their tab IDs (refresh)
+[[keys.command]]
+key = "prefix+ctrl+shift+t"
+type = "plugin_action"
+command = "herdr-pane-labels.label-all-tabs"
+description = "Label all tabs with IDs"
 
 [ui]
 accent = "#c6a0f6"

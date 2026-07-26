@@ -2,18 +2,30 @@ id = "herdr-pane-labels"
 name = "Herdr Pane Labels"
 version = "0.1.0"
 min_herdr_version = "0.7.0"
-description = "Label panes with their pane ID for visual identification"
-platforms = ["linux", "macos"]
+description = "Label panes and tabs with their IDs for visual identification"
 
 [[startup]]
 command = ["./scripts/label-all.sh"]
 
+[[startup]]
+command = ["./scripts/label-tabs.sh"]
+
 [[actions]]
-id = "label-current"
-title = "Label current pane with its ID"
+id = "label-current-pane"
+title = "Label Current Pane"
 command = ["./scripts/label-current.sh"]
 
 [[actions]]
-id = "label-all"
-title = "Label all panes with their IDs"
+id = "label-all-panes"
+title = "Label All Panes"
 command = ["./scripts/label-all.sh"]
+
+[[actions]]
+id = "label-current-tab"
+title = "Label Current Tab"
+command = ["./scripts/label-current-tab.sh"]
+
+[[actions]]
+id = "label-all-tabs"
+title = "Label All Tabs"
+command = ["./scripts/label-tabs.sh"]
