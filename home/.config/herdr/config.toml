@@ -41,6 +41,20 @@ type = "shell"
 description = "Clear focused pane (cmd+k)"
 command = "herdr pane send-keys \"$(herdr pane current | jq -r '.result.pane.pane_id')\" ctrl+l"
 
+# Label the current pane with its pane ID
+[[keys.command]]
+key = "prefix+shift+l"
+type = "plugin_action"
+command = "herdr-pane-labels.label-current"
+description = "Label pane with ID"
+
+# Label all panes with their pane IDs (refresh)
+[[keys.command]]
+key = "prefix+ctrl+shift+l"
+type = "plugin_action"
+command = "herdr-pane-labels.label-all"
+description = "Label all panes with IDs"
+
 [ui]
 accent = "#c6a0f6"
 agent_panel_sort = "spaces"

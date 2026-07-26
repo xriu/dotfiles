@@ -1,0 +1,19 @@
+id = "herdr-pane-labels"
+name = "Herdr Pane Labels"
+version = "0.1.0"
+min_herdr_version = "0.7.0"
+description = "Label panes with their pane ID for visual identification"
+platforms = ["linux", "macos"]
+
+[[startup]]
+command = ["./scripts/label-all.sh"]
+
+[[actions]]
+id = "label-current"
+title = "Label current pane with its ID"
+command = ["./scripts/label-current.sh"]
+
+[[actions]]
+id = "label-all"
+title = "Label all panes with their IDs"
+command = ["./scripts/label-all.sh"]
