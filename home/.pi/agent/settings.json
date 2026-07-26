@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.82.1",
-  "defaultModel": "z-ai/glm-5.2",
+  "defaultModel": "qwen3.7-plus",
   "defaultProjectTrust": "always",
-  "defaultProvider": "lm-openrouter",
+  "defaultProvider": "xriu-alibaba-old",
   "defaultThinkingLevel": "xhigh",
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"

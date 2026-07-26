@@ -1,24 +1,9 @@
 {
     "providers": {
-        "xriu-alibaba-old": {
-            "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
-            "api": "anthropic-messages",
-            "apiKey": "$ALIBABA_API_KEY_OLD",
-            "models": [
-                {
-                    "id": "qwen3.7-plus",
-                    "name": "Qwen3.7 Plus",
-                    "reasoning": true,
-                    "input": ["text", "image"],
-                    "contextWindow": 1000000,
-                    "maxTokens": 65536
-                }
-            ]
-        },
-        "xriu-alibaba": {
+        "xriu-alibaba1": {
             "baseUrl": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic",
             "api": "anthropic-messages",
-            "apiKey": "$ALIBABA_API_KEY",
+            "apiKey": "$ALIBABA_API_KEY1",
             "models": [
                 {
                     "id": "qwen3.8-max-preview",
@@ -59,6 +44,21 @@
                     "input": ["text"],
                     "contextWindow": 1000000,
                     "maxTokens": 131072
+                }
+            ]
+        },
+        "xriu-alibaba2": {
+            "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
+            "api": "anthropic-messages",
+            "apiKey": "$ALIBABA_API_KEY2",
+            "models": [
+                {
+                    "id": "qwen3.7-plus",
+                    "name": "Qwen3.7 Plus",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 1000000,
+                    "maxTokens": 65536
                 }
             ]
         },
