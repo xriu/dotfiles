@@ -4,7 +4,7 @@
         "alibaba": {
             "main": {
                 "provider": "xriu-alibaba",
-                "model": "qwen3.7-plus",
+                "model": "qwen3.8-max-preview",
                 "thinkingLevel": "xhigh"
             },
             "agents": {
@@ -33,11 +33,11 @@
                     "thinkingLevel": "xhigh"
                 },
                 "delegate": {
-                    "model": "xriu-alibaba/deepseek-v4-flash",
+                    "model": "xriu-alibaba/deepseek-v4-pro",
                     "thinkingLevel": "xhigh"
                 },
                 "scout": {
-                    "model": "xriu-alibaba/deepseek-v4-flash",
+                    "model": "xriu-alibaba/deepseek-v4-pro",
                     "thinkingLevel": "xhigh"
                 }
             }
