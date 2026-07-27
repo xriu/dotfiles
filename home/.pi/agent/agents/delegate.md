@@ -5,7 +5,7 @@ system-prompt: append
 mode: interactive
 auto-exit: false
 parent-close-policy: continue
-model: xriu-alibaba/deepseek-v4-pro
+model: xriu-alibaba/qwen3.7-plus
 thinking: xhigh
 ---
 

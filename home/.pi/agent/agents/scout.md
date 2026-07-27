@@ -6,7 +6,7 @@ mode: interactive
 auto-exit: false
 parent-close-policy: continue
 no-session: true
-model: xriu-alibaba/deepseek-v4-pro
+model: xriu-alibaba/qwen3.7-plus
 thinking: xhigh
 ---
 
