@@ -1,5 +1,5 @@
 ---
-name: refactor-safe
+name: code-refactor
 description: Refactor code safely in small, verifiable steps while preserving external behavior. Use when user says "refactor", "clean up this code", "simplify", "improve readability", "remove dead code", or asks to restructure without changing functionality.
 disable-model-invocation: true
 ---

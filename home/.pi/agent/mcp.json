@@ -1,30 +1,33 @@
 {
-    "mcpServers": {
-        "Atlassian": {
-            "url": "https://mcp.atlassian.com/v1/mcp/authv2"
-        },
-        "aws-knowledge": {
-            "type": "http",
-            "url": "https://knowledge-mcp.global.api.aws",
-            "directTools": true
-        },
-        "aws-mcp": {
-            "command": "uvx",
-            "args": [
-                "mcp-proxy-for-aws==1.6.1",
-                "https://aws-mcp.us-east-1.api.aws/mcp",
-                "--metadata",
-                "AWS_REGION=us-east-1",
-                "AWS_PROFILE=test"
-            ],
-            "directTools": true
-        },
-        "open-computer-use": {
-            "type": "local",
-            "command": "open-computer-use",
-            "args": ["mcp"],
-            "enabled": true,
-            "timeout": 60000
-        }
-    }
+	"mcpServers": {
+		"Atlassian": {
+			"url": "https://mcp.atlassian.com/v1/mcp/authv2",
+			"oauth": {
+				"skipIssuerValidation": true
+			}
+		},
+		"aws-knowledge": {
+			"type": "http",
+			"url": "https://knowledge-mcp.global.api.aws",
+			"directTools": true
+		},
+		"aws-mcp": {
+			"command": "uvx",
+			"args": [
+				"mcp-proxy-for-aws==1.6.1",
+				"https://aws-mcp.us-east-1.api.aws/mcp",
+				"--metadata",
+				"AWS_REGION=us-east-1",
+				"AWS_PROFILE=test"
+			],
+			"directTools": true
+		},
+		"open-computer-use": {
+			"type": "local",
+			"command": "open-computer-use",
+			"args": ["mcp"],
+			"enabled": true,
+			"timeout": 60000
+		}
+	}
 }
