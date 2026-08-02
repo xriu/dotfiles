@@ -11,7 +11,18 @@
                     "reasoning": true,
                     "input": ["text", "image"],
                     "contextWindow": 1000000,
-                    "maxTokens": 65536
+                    "maxTokens": 65536,
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
                 }
             ]
         },
@@ -26,7 +37,18 @@
                     "reasoning": true,
                     "input": ["text", "image"],
                     "contextWindow": 1000000,
-                    "maxTokens": 65536
+                    "maxTokens": 65536,
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
                 },
                 {
                     "id": "qwen3.7-max",
@@ -34,7 +56,18 @@
                     "reasoning": true,
                     "input": ["text"],
                     "contextWindow": 1000000,
-                    "maxTokens": 65536
+                    "maxTokens": 65536,
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
                 },
                 {
                     "id": "qwen3.7-plus",
@@ -42,7 +75,18 @@
                     "reasoning": true,
                     "input": ["text", "image"],
                     "contextWindow": 1000000,
-                    "maxTokens": 65536
+                    "maxTokens": 65536,
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
                 },
                 {
                     "id": "deepseek-v4-pro",
@@ -50,7 +94,18 @@
                     "reasoning": true,
                     "input": ["text"],
                     "contextWindow": 1000000,
-                    "maxTokens": 384000
+                    "maxTokens": 384000,
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
                 },
                 {
                     "id": "glm-5.2",
@@ -58,7 +113,18 @@
                     "reasoning": true,
                     "input": ["text"],
                     "contextWindow": 1000000,
-                    "maxTokens": 131072
+                    "maxTokens": 131072,
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
                 }
             ]
         },
@@ -83,6 +149,14 @@
                     "compat": {
                         "requiresReasoningContentForToolCalls": true,
                         "allowsSyntheticReasoningContentForToolCalls": false
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -101,6 +175,14 @@
                     "compat": {
                         "requiresReasoningContentForToolCalls": true,
                         "allowsSyntheticReasoningContentForToolCalls": false
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -119,6 +201,14 @@
                     "compat": {
                         "requiresReasoningContentForToolCalls": true,
                         "allowsSyntheticReasoningContentForToolCalls": false
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -137,6 +227,14 @@
                     "compat": {
                         "requiresReasoningContentForToolCalls": true,
                         "thinkingFormat": "zai"
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -151,6 +249,14 @@
                         "output": 0.28,
                         "cacheRead": 0.0028,
                         "cacheWrite": 0
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -165,6 +271,14 @@
                         "output": 3.48,
                         "cacheRead": 0.0145,
                         "cacheWrite": 0
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 }
             ]
@@ -186,6 +300,17 @@
                         "output": 0.4,
                         "cacheRead": 0.06,
                         "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -200,6 +325,17 @@
                         "output": 7.5,
                         "cacheRead": 0.5,
                         "cacheWrite": 3.125
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -214,6 +350,17 @@
                         "output": 1.6,
                         "cacheRead": 0.04,
                         "cacheWrite": 0.5
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 }
             ]
@@ -235,6 +382,17 @@
                         "output": 15.0,
                         "cacheRead": 0.3,
                         "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -249,6 +407,17 @@
                         "output": 30.0,
                         "cacheRead": 0.5,
                         "cacheWrite": 6.25
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -263,6 +432,17 @@
                         "output": 15.0,
                         "cacheRead": 0.25,
                         "cacheWrite": 3.125
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -277,6 +457,17 @@
                         "output": 6.0,
                         "cacheRead": 0.1,
                         "cacheWrite": 1.25
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -291,6 +482,17 @@
                         "output": 9.0,
                         "cacheRead": 0.3,
                         "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -305,6 +507,17 @@
                         "output": 1.2,
                         "cacheRead": 0.06,
                         "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -319,6 +532,17 @@
                         "output": 1.28,
                         "cacheRead": 0.064,
                         "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -333,6 +557,17 @@
                         "output": 1.54,
                         "cacheRead": 0.091,
                         "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
@@ -347,10 +582,21 @@
                         "output": 0.87,
                         "cacheRead": 0.003625,
                         "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 },
                 {
-                    "id": "deepseek/deepseek-v4-flash-0731",
+                    "id": "deepseek/deepseek-v4-flash-0731:exacto",
                     "name": "DeepSeek V4 Flash",
                     "reasoning": true,
                     "input": ["text"],
@@ -361,6 +607,17 @@
                         "output": 0.168,
                         "cacheRead": 0.0168,
                         "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 }
             ]

@@ -6,7 +6,7 @@ mode: interactive
 auto-exit: false
 parent-close-policy: continue
 model: xriu-alibaba/qwen3.7-plus
-thinking: xhigh
+thinking: max
 ---
 
 You are a delegated agent. Execute the assigned task using the provided tools. Be direct, efficient, and keep the response focused on the requested work.

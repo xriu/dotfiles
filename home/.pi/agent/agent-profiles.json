@@ -5,40 +5,40 @@
             "main": {
                 "provider": "xriu-alibaba1",
                 "model": "qwen3.7-plus",
-                "thinkingLevel": "xhigh"
+                "thinkingLevel": "max"
             },
             "agents": {
                 "oracle": {
                     "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "planner": {
                     "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "reviewer": {
                     "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "researcher": {
                     "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "context-builder": {
                     "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "worker": {
                     "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "delegate": {
                     "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "scout": {
                     "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 }
             }
         },
@@ -46,40 +46,40 @@
             "main": {
                 "provider": "xriu-alibaba2",
                 "model": "qwen3.8-max-preview",
-                "thinkingLevel": "xhigh"
+                "thinkingLevel": "max"
             },
             "agents": {
                 "oracle": {
                     "model": "xriu-alibaba/qwen3.8-max-preview",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "planner": {
                     "model": "xriu-alibaba/qwen3.8-max-preview",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "reviewer": {
                     "model": "xriu-alibaba/qwen3.8-max-preview",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "researcher": {
                     "model": "xriu-alibaba/glm-5.2",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "context-builder": {
                     "model": "xriu-alibaba/glm-5.2",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "worker": {
                     "model": "xriu-alibaba/glm-5.2",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "delegate": {
                     "model": "xriu-alibaba/deepseek-v4-pro",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "scout": {
                     "model": "xriu-alibaba/deepseek-v4-pro",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 }
             }
         },
@@ -87,20 +87,20 @@
             "main": {
                 "provider": "xriu-opencode-openai",
                 "model": "deepseek-v4-flash",
-                "thinkingLevel": "xhigh"
+                "thinkingLevel": "max"
             },
             "agents": {
                 "oracle": {
                     "model": "xriu-opencode-openai/deepseek-v4-pro",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "planner": {
                     "model": "xriu-opencode-openai/deepseek-v4-pro",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "reviewer": {
                     "model": "xriu-opencode-openai/deepseek-v4-pro",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "researcher": {
                     "model": "xriu-opencode-openai/deepseek-v4-pro",
@@ -128,20 +128,20 @@
             "main": {
                 "provider": "lm-openrouter",
                 "model": "openai/gpt-5.6-luna",
-                "thinkingLevel": "xhigh"
+                "thinkingLevel": "max"
             },
             "agents": {
                 "oracle": {
                     "model": "lm-openrouter/openai/gpt-5.6-luna",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "planner": {
                     "model": "lm-openrouter/openai/gpt-5.6-luna",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "reviewer": {
                     "model": "lm-openrouter/openai/gpt-5.6-luna",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "researcher": {
                     "model": "lm-openrouter/z-ai/glm-5.2",
@@ -149,11 +149,11 @@
                 },
                 "context-builder": {
                     "model": "lm-openrouter/moonshotai/kimi-k3",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "worker": {
                     "model": "lm-openrouter/moonshotai/kimi-k3",
-                    "thinkingLevel": "xhigh"
+                    "thinkingLevel": "max"
                 },
                 "delegate": {
                     "model": "lm-openrouter/deepseek/deepseek-v4-pro",
