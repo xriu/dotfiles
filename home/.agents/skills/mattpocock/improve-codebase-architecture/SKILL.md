@@ -12,13 +12,13 @@ This command is _informed_ by the project's domain model and built on a shared d
 
 - Run the `/codebase-design` skill for the architecture vocabulary (**module**, **interface**, **depth**, **seam**, **adapter**, **leverage**, **locality**) and its principles (the deletion test, "the interface is the test surface", "one adapter = hypothetical seam, two = real"). Use these terms exactly in every suggestion — don't drift into "component," "service," "API," or "boundary."
 - The domain language in `CONTEXT.md` gives names to good seams; ADRs in `docs/adr/` record decisions this command should not re-litigate.
-- If the codebase is TypeScript, load `/coding-standards` and use `MODULES.md` to articulate the deepened module's shape (port design, functional core / imperative shell) and `TESTING.md` when describing how tests would improve.
+- If the codebase is TypeScript, load `/coding-standards` and use `references/MODULES-SERVICES-AND-ADAPTERS.md` to articulate the deepened module's shape (port design, functional core / imperative shell) and `references/TESTING.md` when describing how tests would improve.
 
 ## Process
 
 ### 1. Explore
 
-**Scope before you scan — YAGNI.** Deepening a module pays off by making future changes to it easier, so put extra weight on the parts of the codebase that have recently changed. Decide *where* to look before you look:
+**Scope before you scan — YAGNI.** Deepening a module pays off by making future changes to it easier, so put extra weight on the parts of the codebase that have recently changed. Decide _where_ to look before you look:
 
 - If the user named a direction — a module, a subsystem, a pain point — take it, and skip the inference below.
 - Otherwise, walk back a good stretch of the commit history (`git log --oneline`) to find the codebase's hot spots — the files and areas that keep coming up — and let those paths pull your attention first. If the changes are scattered with no clear hot spot, widen the net.
@@ -70,4 +70,4 @@ Side effects happen inline as decisions crystallize — run the `/domain-modelin
 - **Sharpening a fuzzy term during the conversation?** Update `CONTEXT.md` right there.
 - **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the reason would actually be needed by a future explorer to avoid re-suggesting the same thing — skip ephemeral reasons ("not worth it right now") and self-evident ones.
 - **Want to explore alternative interfaces for the deepened module?** Run the `/codebase-design` skill and use its design-it-twice parallel sub-agent pattern.
-- **TypeScript codebase?** Apply `/coding-standards` as interfaces crystallize — `ERRORS.md` for typed errors across the seam, `PARSING.md` for parse-at-the-boundary.
+- **TypeScript codebase?** Apply `/coding-standards` as interfaces crystallize — `references/ERRORS.md` for typed errors across the seam, `references/PARSING-AND-SCHEMAS.md` for parse-at-the-boundary.
