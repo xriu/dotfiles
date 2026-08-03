@@ -1,5 +1,5 @@
 ---
-name: double-check
+name: code-review-bugs
 description: Double-check an implementation with fresh eyes for bugs, errors, unnecessary complexity, and pre-existing issues. Use after writing or reviewing code when the user asks for a careful second pass, fresh-eyes review, or implementation double-check.
 disable-model-invocation: true
 ---

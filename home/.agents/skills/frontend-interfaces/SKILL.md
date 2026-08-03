@@ -1,5 +1,5 @@
 ---
-name: make-interfaces-feel-better
+name: frontend-interfaces
 description: Design engineering principles for making interfaces feel polished. Use when building UI components, reviewing frontend code, implementing animations, hover states, shadows, borders, typography, micro-interactions, enter/exit animations, or any visual detail work. Triggers on UI polish, design details, "make it feel better", "feels off", stagger animations, border radius, optical alignment, font smoothing, tabular numbers, image outlines, box shadows.
 disable-model-invocation: true
 ---
@@ -10,12 +10,12 @@ Great interfaces rarely come from a single thing. It's usually a collection of s
 
 ## Quick Reference
 
-| Category                      | When to Use                                                                       |
-| ----------------------------- | --------------------------------------------------------------------------------- |
-| [Typography](typography.md)   | Text wrapping, font smoothing, tabular numbers                                    |
-| [Surfaces](surfaces.md)       | Border radius, optical alignment, shadows, image outlines, hit areas              |
-| [Animations](animations.md)   | Interruptible animations, enter/exit transitions, icon animations, scale on press |
-| [Performance](performance.md) | Transition specificity, `will-change` usage                                       |
+| Category                                                 | When to Use                                                                       |
+| -------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [`references/TYPOGRAPHY.md`](references/TYPOGRAPHY.md)   | Text wrapping, font smoothing, tabular numbers                                    |
+| [`references/SURFACES.md`](references/SURFACES.md)       | Border radius, optical alignment, shadows, image outlines, hit areas              |
+| [`references/ANIMATIONS.md`](references/ANIMATIONS.md)   | Interruptible animations, enter/exit transitions, icon animations, scale on press |
+| [`references/PERFORMANCE.md`](references/PERFORMANCE.md) | Transition specificity, `will-change` usage                                       |
 
 ## Core Principles
 
@@ -146,7 +146,7 @@ Rows should cite the specific file and the specific property that changed when i
 
 ## Reference Files
 
-- [typography.md](typography.md) — Text wrapping, font smoothing, tabular numbers
-- [surfaces.md](surfaces.md) — Border radius, optical alignment, shadows, image outlines
-- [animations.md](animations.md) — Interruptible animations, enter/exit transitions, icon animations, scale on press
-- [performance.md](performance.md) — Transition specificity, `will-change` usage
+- [`references/TYPOGRAPHY.md`](references/TYPOGRAPHY.md) — Text wrapping, font smoothing, tabular numbers
+- [`references/SURFACES.md`](references/SURFACES.md) — Border radius, optical alignment, shadows, image outlines
+- [`references/ANIMATIONS.md`](references/ANIMATIONS.md) — Interruptible animations, enter/exit transitions, icon animations, scale on press
+- [`references/PERFORMANCE.md`](references/PERFORMANCE.md) — Transition specificity, `will-change` usage
