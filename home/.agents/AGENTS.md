@@ -2,26 +2,17 @@
 
 ## Engineering principles
 
-- Only report to me in ASD-STE100 Simplified Technical English
-- Do not aim to maintain backward compatibility. For deprecated code paths, remove them directly rather than retaining them through compatibility layers, fallback mechanisms, or migration plans.
-- Under the premise of fully meeting current requirements, adopt the simplest possible implementation. Avoid introducing abstractions, configuration items, and indirect layers that lack a basis in actual needs.
-- Build systems in a progressive, layered manner. First complete the minimal version that can run end-to-end, then gradually add features based on a stable, usable product. Do not replace an already usable product with immature complexity.
-- Keep components modular and clearly delineate different responsibilities and concerns.
-- When a mature, well-maintained library can reduce overall complexity or improve reliability, prioritize its use. Unless there is a clear reason, do not reimplement common functionality.
-- Before implementing functionality yourself or adding new dependencies, first evaluate the capabilities of existing project dependencies. Consult relevant documentation and type definitions first—do not assume a library lacks the required capability without verification.
-- Architectural decisions should focus on long-term evolution. Do not adopt stopgap solutions that only address the current issue and are expected to need replacement later.
-- Before designing a solution, first study how mature products address similar problems. Prioritize proven patterns and conventions, and avoid designing a new scheme from scratch.
+- **ASD-STE100.** Report to me, write all reports, code comments, and commit messages in ASD-STE100 Simplified Technical English.
+- **YAGNI.** Implement the simplest solution that fully meets the current requirement. Add an abstraction, configuration item, or indirection layer only when a present requirement needs it.
+- **Walking skeleton.** First complete the smallest version that runs end-to-end. Then add features in layers on that stable, usable base.
+- **Delete deprecated code outright.** Remove deprecated paths and their compatibility layers, fallbacks, and migration mechanisms.
+- **Reuse first.** Before you implement common functionality, inspect the current dependencies, their documentation, and their type definitions. Use an existing capability when it meets the requirement. Otherwise, use a mature, maintained library when it reduces total complexity or improves reliability.
+- **Proven patterns.** Before you design a new architectural mechanism, study established implementations of the same problem. Use a proven pattern when it fits the current requirements and constraints.
+- **Lasting design.** Among solutions that meet the current requirement, select the one that best supports expected changes recorded in requirements, domain documents, or ADRs.
+- **Information hiding.** Hide implementation complexity behind small public interfaces. Separate concerns that change for different reasons.
 
-## Agent skills
+## Agent reference
 
-### Issue tracker
-
-Issues and PRDs live as local Markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
-
-### Triage labels
-
-Use this vocabulary by default: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
-
-### Domain docs
-
-Single-context: root `CONTEXT.md` + `docs/adr/`. See `docs/agents/domain.md`.
+- For issue or PRD work, follow `docs/agents/issue-tracker.md`.
+- For issue triage, use the labels in `docs/agents/triage-labels.md`.
+- Before code exploration or design work, follow `docs/agents/domain.md`.
