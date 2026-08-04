@@ -1,8 +1,5 @@
 {
     "mcpServers": {
-        "Atlassian": {
-            "url": "https://mcp.atlassian.com/v1/mcp/authv2"
-        },
         "aws-knowledge": {
             "type": "http",
             "url": "https://knowledge-mcp.global.api.aws",
