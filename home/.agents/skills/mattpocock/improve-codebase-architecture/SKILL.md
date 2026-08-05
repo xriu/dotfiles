@@ -17,7 +17,7 @@ This command is _informed_ by the project's domain model and built on a shared d
 
 ### 1. Explore
 
-**Scope before you scan — YAGNI.** Deepening a module pays off by making future changes to it easier, so put extra weight on the parts of the codebase that have recently changed. Decide _where_ to look before you look:
+**Scope before you scan — YAGNI.** Deepening a module pays off by making future changes to it easier, so put extra weight on the parts of the codebase that have recently changed. Decide *where* to look before you look:
 
 - If the user named a direction — a module, a subsystem, a pain point — take it, and skip the inference below.
 - Otherwise, walk back a good stretch of the commit history (`git log --oneline`) to find the codebase's hot spots — the files and areas that keep coming up — and let those paths pull your attention first. If the changes are scattered with no clear hot spot, widen the net.
@@ -61,7 +61,7 @@ Do NOT propose interfaces yet. After the file is written, ask the user: "Which o
 
 ### 3. Grilling loop
 
-Once the user picks a candidate, run the `/batch-grill-me` skill to walk the decision tree with them — constraints, dependencies, the shape of the deepened module, what sits behind the seam, what tests survive.
+Once the user picks a candidate, run the `/grilling` skill to walk the decision tree with them — constraints, dependencies, the shape of the deepened module, what sits behind the seam, what tests survive.
 
 Side effects happen inline as decisions crystallize — run the `/domain-modeling` skill to keep the domain model current as you go:
 
@@ -69,5 +69,3 @@ Side effects happen inline as decisions crystallize — run the `/domain-modelin
 - **Sharpening a fuzzy term during the conversation?** Update `CONTEXT.md` right there.
 - **User rejects the candidate with a load-bearing reason?** Offer an ADR, framed as: _"Want me to record this as an ADR so future architecture reviews don't re-suggest it?"_ Only offer when the reason would actually be needed by a future explorer to avoid re-suggesting the same thing — skip ephemeral reasons ("not worth it right now") and self-evident ones.
 - **Want to explore alternative interfaces for the deepened module?** Run the `/codebase-design` skill and use its design-it-twice parallel sub-agent pattern.
-
-Once the design settles and the user moves to implementation, run the `/coding-standards` skill for TypeScript or Effect projects, so the deepened module follows the user's standards.
