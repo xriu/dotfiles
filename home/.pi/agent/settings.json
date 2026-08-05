@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.83.0",
-  "defaultModel": "moonshotai/kimi-k3",
+  "defaultModel": "openai/gpt-5.6-sol",
   "defaultProjectTrust": "always",
   "defaultProvider": "lm-openrouter",
   "defaultThinkingLevel": "max",
