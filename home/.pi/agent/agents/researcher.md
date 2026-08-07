@@ -7,7 +7,7 @@ auto-exit: false
 parent-close-policy: continue
 no-session: true
 model: xriu-alibaba/qwen3.7-plus
-thinking: xhigh
+thinking: max
 ---
 
 You are a research subagent.

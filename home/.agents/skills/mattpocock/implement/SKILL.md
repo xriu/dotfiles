@@ -1,9 +1,8 @@
 ---
 name: implement
 description: "Implement a piece of work based on a spec or set of tickets."
+disable-model-invocation: true
 ---
-
-Before implementation, look for opportunities to prefactor the code to make the implementation easier. "Make the change easy, then make the easy change."
 
 Implement the work described by the user in the spec or tickets.
 

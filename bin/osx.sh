@@ -43,8 +43,11 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
+    # brew install --cask stablyai/orca/orca # Orca fleet of parallel agents
+
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
+    brew install --cask block-buzz --force # BlockBuzz is an AI-powered assistant
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask claude-code --force # Terminal-based AI coding assistant
     brew install --cask cleanshot --force # Screen capture and recording tool

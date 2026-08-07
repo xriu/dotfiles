@@ -1,73 +1,18 @@
 # AGENTS.md
 
-## Communication
+## Engineering principles
 
-- Only report to me in ASD-STE100 Simplified Technical English
-- Answer the user's question before editing files or running implementation commands.
-- When responding to user feedback or analysis, state whether you agree or disagree before describing changes.
+- **ASD-STE100.** Use ASD-STE100 Simplified Technical English for user reports, code comments, and commit messages. Always read CONTEXT.md files, and use their ubiquitous language. Always talk to me like I have ADHD.
+- **YAGNI.** Implement the simplest solution that fully meets the current requirement. Add an abstraction, configuration item, or indirection layer only when a present requirement needs it.
+- **Walking skeleton.** First complete the smallest version that runs end to end. Then add features in layers on that stable base.
+- **Removal.** When you replace deprecated code, delete its paths, compatibility layers, fallbacks, and migration mechanisms.
+- **Reuse first.** Before you implement common functionality, inspect the current dependencies, their documentation, and their type definitions. Use an existing capability when it meets the requirement. Otherwise, use a mature, maintained library when it reduces total complexity or improves reliability.
+- **Proven patterns.** Before you design an architectural mechanism, study established implementations of the same problem. Use a proven pattern when it meets the current requirements and constraints.
+- **Lasting design.** When multiple solutions meet the requirement, select the solution that best supports expected changes in requirements, domain documents, or ADRs.
+- **Information hiding.** Hide implementation complexity behind small public interfaces. Separate concerns that change for different reasons.
 
-## Plan before coding
+## Agent reference
 
-Make assumptions explicit. When requirements have multiple plausible interpretations, list the alternatives and ask for a decision. Surface tradeoffs and prefer the simplest approach that satisfies the request.
-
-For multi-step work, state a short plan with a verification criterion for each step:
-
-```text
-1. [Step] → verify: [check]
-2. [Step] → verify: [check]
-3. [Step] → verify: [check]
-```
-
-Define success as an observable result. Examples:
-
-- Validation → tests cover invalid inputs and pass.
-- Bug fix → a regression test reproduces the failure and passes after the fix.
-- Refactor → the relevant tests pass before and after the change.
-
-Prefer test-first development when the inputs and outputs are clear. Use the project’s `tdd` skill when appropriate.
-
-## Simplicity
-
-Implement the minimum change that satisfies the request.
-
-- Add no speculative features, abstractions, configurability, or unreachable-state handling.
-- Match the existing style and keep unrelated code unchanged.
-- Remove only imports, variables, or functions made unused by the current change.
-- Mention unrelated dead code instead of removing it.
-
-Before finalizing, ask: “Could this be substantially shorter without losing required behavior?” If yes, simplify it.
-
-## Surgical changes
-
-Every changed line must trace directly to the request or to a necessary consequence of the change. For existing files:
-
-- Inspect the relevant code before editing.
-- Make targeted edits and preserve adjacent comments, formatting, and behavior.
-- Keep each concept in one authoritative location.
-
-## Verification loop
-
-Work toward the defined success criteria and verify them before reporting completion. Check that:
-
-- The requested behavior is implemented.
-- Tests or other relevant checks pass.
-- Changes introduced no new diagnostics or unused code.
-- Every modified file and meaningful verification result is reported.
-
-## Agent skills
-
-### Issue tracker
-
-Issues and PRDs live as local Markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
-
-### Triage labels
-
-Use this vocabulary by default: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
-
-### Domain docs
-
-For multi-context projects, `CONTEXT-MAP.md` at the root points to per-context `CONTEXT.md` files. For single-context projects, use the root `CONTEXT.md` and `docs/adr/`. See `docs/agents/domain.md`.
-
-### Capture learning
-
-Persist reusable learnings into `AGENTS.md` (agent rules) or `docs/` (reference findings). See `docs/agents/capture-learning.md`.
+- **Issues and PRDs.** For issue or PRD storage, publication, and lookup, follow `docs/agents/issue-tracker.md`.
+- **Triage.** For issue triage, use the labels in `docs/agents/triage-labels.md`.
+- **Domain language.** Before code exploration, design, or project reports, follow `docs/agents/domain.md`.

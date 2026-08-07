@@ -8,7 +8,14 @@ import type {
 import { getAgentDir } from "@earendil-works/pi-coding-agent";
 import { Key } from "@earendil-works/pi-tui";
 
-type ThinkingLevel = "off" | "minimal" | "low" | "medium" | "high" | "xhigh";
+type ThinkingLevel =
+	| "off"
+	| "minimal"
+	| "low"
+	| "medium"
+	| "high"
+	| "xhigh"
+	| "max";
 
 const THINKING_LEVELS = new Set<ThinkingLevel>([
 	"off",
@@ -17,6 +24,7 @@ const THINKING_LEVELS = new Set<ThinkingLevel>([
 	"medium",
 	"high",
 	"xhigh",
+	"max",
 ]);
 
 interface MainProfile {

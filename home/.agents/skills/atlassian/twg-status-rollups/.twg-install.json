@@ -1,0 +1,11 @@
+{
+  "skillName": "twg",
+  "target": "Claude Code",
+  "installPath": "/Users/xavier.riu/.claude/skills/twg-status-rollups",
+  "binaryPath": "/Users/xavier.riu/.local/bin/twg",
+  "installedAt": "2026-08-04T11:09:56.337Z",
+  "installedVersion": "1.1.1",
+  "buildProfile": "external",
+  "buildCommit": "81e4dcc86958",
+  "builtAt": "2026-07-24T10:17:20.604Z"
+}
