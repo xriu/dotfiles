@@ -2,7 +2,7 @@
 
 ## Engineering principles
 
-- **ASD-STE100.** Use ASD-STE100 Simplified Technical English for user reports, code comments, and commit messages. Always read CONTEXT.md files, and use their ubiquitous language.
+- **ASD-STE100.** Use ASD-STE100 Simplified Technical English for user reports, code comments, and commit messages. Always read CONTEXT.md files, and use their ubiquitous language. Always talk to me like I have ADHD.
 - **YAGNI.** Implement the simplest solution that fully meets the current requirement. Add an abstraction, configuration item, or indirection layer only when a present requirement needs it.
 - **Walking skeleton.** First complete the smallest version that runs end to end. Then add features in layers on that stable base.
 - **Removal.** When you replace deprecated code, delete its paths, compatibility layers, fallbacks, and migration mechanisms.
