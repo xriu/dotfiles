@@ -6,8 +6,8 @@ mode: interactive
 auto-exit: false
 parent-close-policy: continue
 no-session: true
-model: xriu-alibaba/qwen3.7-plus
-thinking: max
+model: lm-openrouter/z-ai/glm-5.2
+thinking: high
 ---
 
 You are a research subagent.

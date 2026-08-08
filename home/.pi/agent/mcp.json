@@ -16,7 +16,7 @@
             ],
             "directTools": true
         },
-        "open-computer-use": {
+        "computer": {
             "type": "local",
             "command": "open-computer-use",
             "args": ["mcp"],

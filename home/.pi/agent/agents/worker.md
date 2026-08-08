@@ -6,7 +6,7 @@ session-mode: fork
 mode: interactive
 auto-exit: false
 parent-close-policy: continue
-model: xriu-alibaba/qwen3.7-plus
+model: lm-openrouter/moonshotai/kimi-k3
 thinking: max
 ---
 
