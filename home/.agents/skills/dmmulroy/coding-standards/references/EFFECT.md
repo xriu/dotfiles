@@ -12,6 +12,7 @@ Read every branch that matches the changed behavior:
 
 - Data models, schemas, brands, variants, optional keys, or decoders: [`EFFECT-SCHEMA-AND-DATA.md`](EFFECT-SCHEMA-AND-DATA.md).
 - Services, module surfaces, Layers, runtime wiring, `Effect.fn`, or test services: [`EFFECT-SERVICES.md`](EFFECT-SERVICES.md).
+- Alchemy Workers, Durable Objects, Workflows, bindings, or two-phase Effectful Constructors: [`EFFECT-ALCHEMY.md`](EFFECT-ALCHEMY.md).
 - Runtime config, environment variables, `ConfigProvider`, or `layerConfig`: [`EFFECT-CONFIGURATION.md`](EFFECT-CONFIGURATION.md).
 - Retry, repeat, polling, backoff, jitter, rate limits, timeouts, or pass loops: [`EFFECT-SCHEDULING-AND-RETRY.md`](EFFECT-SCHEDULING-AND-RETRY.md).
 - Memoization, TTL caches, concurrent lookup deduplication, or request batching: [`EFFECT-CACHING.md`](EFFECT-CACHING.md).
