@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.84.1",
-  "defaultModel": "deepseek-v4-flash",
+  "defaultModel": "moonshotai/kimi-k3",
   "defaultProjectTrust": "always",
-  "defaultProvider": "opencode-go",
+  "defaultProvider": "lm-openrouter",
   "defaultThinkingLevel": "max",
   "hideThinkingBlock": true,
   "extensions": [
