@@ -1,46 +1,50 @@
 {
-    "lastChangelogVersion": "0.84.1",
-    "defaultModel": "z-ai/glm-5.2",
-    "defaultProjectTrust": "always",
-    "defaultProvider": "lm-openrouter",
-    "defaultThinkingLevel": "max",
-    "hideThinkingBlock": true,
-    "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
-    "packages": [
-        "npm:pi-mcp-adapter",
-        {
-            "source": "npm:@plannotator/pi-extension",
-            "skills": []
-        },
-        "npm:@ff-labs/pi-fff",
-        "npm:pi-lens",
-        "npm:pi-rewind",
-        "npm:pi-web-access",
-        "npm:pi-powerline-footer",
-        "npm:@aliou/pi-guardrails"
-    ],
-    "enableInstallTelemetry": true,
-    "httpIdleTimeoutMs": 120000,
-    "showCacheMissNotices": true,
-    "theme": "dark",
-    "compaction": {
-        "reserveTokens": 24000,
-        "keepRecentTokens": 40000
+  "lastChangelogVersion": "0.84.1",
+  "defaultModel": "deepseek-v4-flash",
+  "defaultProjectTrust": "always",
+  "defaultProvider": "opencode-go",
+  "defaultThinkingLevel": "max",
+  "hideThinkingBlock": true,
+  "extensions": [
+    "~/dotfiles/home/.pi/agent/extensions"
+  ],
+  "packages": [
+    "npm:pi-mcp-adapter",
+    {
+      "source": "npm:@plannotator/pi-extension",
+      "skills": []
     },
-    "treeFilterMode": "no-tools",
-    "powerline": {
-        "welcome": false,
-        "fixedEditor": false,
-        "layout": {
-            "left": [
-                "model",
-                "thinking",
-                "shell_mode",
-                "path",
-                "context_pct",
-                "cost"
-            ],
-            "secondary": ["git"]
-        }
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-lens",
+    "npm:pi-rewind",
+    "npm:pi-web-access",
+    "npm:pi-powerline-footer",
+    "npm:@aliou/pi-guardrails"
+  ],
+  "enableInstallTelemetry": true,
+  "httpIdleTimeoutMs": 120000,
+  "showCacheMissNotices": true,
+  "theme": "dark",
+  "compaction": {
+    "reserveTokens": 24000,
+    "keepRecentTokens": 40000
+  },
+  "treeFilterMode": "no-tools",
+  "powerline": {
+    "welcome": false,
+    "fixedEditor": false,
+    "layout": {
+      "left": [
+        "model",
+        "thinking",
+        "shell_mode",
+        "path",
+        "context_pct",
+        "cost"
+      ],
+      "secondary": [
+        "git"
+      ]
     }
+  }
 }

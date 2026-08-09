@@ -4,20 +4,20 @@
         "alibaba": {
             "main": {
                 "provider": "xriu-alibaba",
-                "model": "qwen3.8-max-preview",
+                "model": "qwen3.8-max",
                 "thinkingLevel": "max"
             },
             "agents": {
                 "oracle": {
-                    "model": "xriu-alibaba/qwen3.8-max-preview",
+                    "model": "xriu-alibaba/qwen3.8-max",
                     "thinkingLevel": "max"
                 },
                 "planner": {
-                    "model": "xriu-alibaba/qwen3.8-max-preview",
+                    "model": "xriu-alibaba/qwen3.8-max",
                     "thinkingLevel": "max"
                 },
                 "reviewer": {
-                    "model": "xriu-alibaba/qwen3.8-max-preview",
+                    "model": "xriu-alibaba/qwen3.8-max",
                     "thinkingLevel": "max"
                 },
                 "researcher": {

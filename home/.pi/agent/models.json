@@ -6,7 +6,7 @@
             "apiKey": "$ALIBABA_API_KEY",
             "models": [
                 {
-                    "id": "qwen3.8-max-preview",
+                    "id": "qwen3.8-max",
                     "name": "Qwen3.8 Max Preview",
                     "reasoning": true,
                     "input": ["text", "image"],
