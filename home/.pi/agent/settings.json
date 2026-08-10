@@ -1,10 +1,10 @@
 {
   "lastChangelogVersion": "0.84.1",
-  "defaultModel": "moonshotai/kimi-k3",
+  "defaultModel": "z-ai/glm-5.2",
   "defaultProjectTrust": "always",
   "defaultProvider": "lm-openrouter",
   "defaultThinkingLevel": "max",
-  "hideThinkingBlock": true,
+  "hideThinkingBlock": false,
   "extensions": [
     "~/dotfiles/home/.pi/agent/extensions"
   ],
@@ -18,6 +18,7 @@
     "npm:pi-lens",
     "npm:pi-rewind",
     "npm:pi-web-access",
+    "npm:pi-thinking-steps",
     "npm:pi-powerline-footer",
     "npm:@aliou/pi-guardrails"
   ],
