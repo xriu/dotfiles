@@ -1,5 +1,5 @@
 ---
-name: stacked-pr
+name: pr-stacked
 description: >-
   Handle dependent/stacked PRs and same-code-on-multiple-bases correctly. Use
   for a PR stacked on another, or when the same change must land on the default

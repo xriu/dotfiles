@@ -1,5 +1,5 @@
 ---
-name: clean
+name: code-clean
 description: >-
   Polish your own diff by hand with KISS/DRY and local style — the pre-handoff
   pass, not a test run and not a subagent sweep. Use for /clean, "clean it up",

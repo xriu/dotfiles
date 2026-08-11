@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.84.1",
-  "defaultModel": "deepseek/deepseek-v4-flash-0731:exacto",
+  "defaultModel": "deepseek-v4-flash",
   "defaultProjectTrust": "always",
-  "defaultProvider": "lm-openrouter",
+  "defaultProvider": "xriu-opencode-openai",
   "defaultThinkingLevel": "max",
   "hideThinkingBlock": false,
   "extensions": [

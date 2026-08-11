@@ -73,9 +73,6 @@
                 "name": "Sensitive files",
                 "patterns": [
                     {
-                        "pattern": ".env*"
-                    },
-                    {
                         "pattern": "config/credentials.json"
                     },
                     {
