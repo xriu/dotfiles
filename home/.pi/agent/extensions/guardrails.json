@@ -17,10 +17,6 @@
         ],
         "autoDenyPatterns": [
             {
-                "pattern": "dd ",
-                "regex": true
-            },
-            {
                 "pattern": "diskutil ",
                 "regex": true
             },
