@@ -1,125 +1,125 @@
 {
-  "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.17.0/schema.json",
-  "permissionGate": {
-    "allowedPatterns": [
-      {
-        "pattern": "^aws .*\\bdescribe",
-        "regex": true
-      },
-      {
-        "pattern": "^aws .*\\blist",
-        "regex": true
-      },
-      {
-        "pattern": "^aws .*\\bget",
-        "regex": true
-      }
-    ],
-    "autoDenyPatterns": [
-      {
-        "pattern": "dd ",
-        "regex": true
-      },
-      {
-        "pattern": "diskutil ",
-        "regex": true
-      },
-      {
-        "pattern": "git reset --hard ",
-        "regex": true
-      },
-      {
-        "pattern": "mkfs ",
-        "regex": true
-      },
-      {
-        "pattern": "npm publish ",
-        "regex": true
-      },
-      {
-        "pattern": "rm -rf /*",
-        "regex": true
-      },
-      {
-        "pattern": "rm -rf /",
-        "regex": true
-      },
-      {
-        "pattern": "rm -rf .",
-        "regex": true
-      },
-      {
-        "pattern": "rm -rf $HOME",
-        "regex": true
-      },
-      {
-        "pattern": "rm -rf ~",
-        "regex": true
-      },
-      {
-        "pattern": "sudo rm -rf ",
-        "regex": true
-      },
-      {
-        "pattern": "terraform apply ",
-        "regex": true
-      },
-      {
-        "pattern": "terraform destroy ",
-        "regex": true
-      }
-    ]
-  },
-  "policies": {
-    "rules": [
-      {
-        "id": "sensitive-files",
-        "name": "Sensitive files",
-        "patterns": [
-          {
-            "pattern": ".env*"
-          },
-          {
-            "pattern": "config/credentials.json"
-          },
-          {
-            "pattern": "secrets/**"
-          },
-          {
-            "pattern": "~/.aws/**"
-          },
-          {
-            "pattern": "~/.ssh/**"
-          }
+    "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.17.0/schema.json",
+    "permissionGate": {
+        "allowedPatterns": [
+            {
+                "pattern": "^aws .*\\bdescribe",
+                "regex": true
+            },
+            {
+                "pattern": "^aws .*\\blist",
+                "regex": true
+            },
+            {
+                "pattern": "^aws .*\\bget",
+                "regex": true
+            }
         ],
-        "protection": "noAccess",
-        "onlyIfExists": true
-      },
-      {
-        "id": "generated-and-metadata-directories",
-        "name": "Generated and metadata directories",
-        "patterns": [
-          {
-            "pattern": ".git"
-          },
-          {
-            "pattern": ".git/**"
-          },
-          {
-            "pattern": "node_modules"
-          },
-          {
-            "pattern": "node_modules/**"
-          }
-        ],
-        "protection": "noAccess",
-        "onlyIfExists": true
-      }
-    ]
-  },
-  "version": "0.16.2",
-  "onboarding": {
-    "completed": true,
-    "completedAt": "2026-07-20T16:47:25.356Z"
-  }
+        "autoDenyPatterns": [
+            {
+                "pattern": "dd ",
+                "regex": true
+            },
+            {
+                "pattern": "diskutil ",
+                "regex": true
+            },
+            {
+                "pattern": "git reset --hard ",
+                "regex": true
+            },
+            {
+                "pattern": "mkfs ",
+                "regex": true
+            },
+            {
+                "pattern": "npm publish ",
+                "regex": true
+            },
+            {
+                "pattern": "rm -rf /*",
+                "regex": true
+            },
+            {
+                "pattern": "rm -rf /",
+                "regex": true
+            },
+            {
+                "pattern": "rm -rf .",
+                "regex": true
+            },
+            {
+                "pattern": "rm -rf $HOME",
+                "regex": true
+            },
+            {
+                "pattern": "rm -rf ~",
+                "regex": true
+            },
+            {
+                "pattern": "sudo rm -rf ",
+                "regex": true
+            },
+            {
+                "pattern": "terraform apply ",
+                "regex": true
+            },
+            {
+                "pattern": "terraform destroy ",
+                "regex": true
+            }
+        ]
+    },
+    "policies": {
+        "rules": [
+            {
+                "id": "sensitive-files",
+                "name": "Sensitive files",
+                "patterns": [
+                    {
+                        "pattern": ".env*"
+                    },
+                    {
+                        "pattern": "config/credentials.json"
+                    },
+                    {
+                        "pattern": "secrets/**"
+                    },
+                    {
+                        "pattern": "~/.aws/credentials"
+                    },
+                    {
+                        "pattern": "~/.ssh/**"
+                    }
+                ],
+                "protection": "noAccess",
+                "onlyIfExists": true
+            },
+            {
+                "id": "generated-and-metadata-directories",
+                "name": "Generated and metadata directories",
+                "patterns": [
+                    {
+                        "pattern": ".git"
+                    },
+                    {
+                        "pattern": ".git/**"
+                    },
+                    {
+                        "pattern": "node_modules"
+                    },
+                    {
+                        "pattern": "node_modules/**"
+                    }
+                ],
+                "protection": "noAccess",
+                "onlyIfExists": true
+            }
+        ]
+    },
+    "version": "0.16.2",
+    "onboarding": {
+        "completed": true,
+        "completedAt": "2026-07-20T16:47:25.356Z"
+    }
 }
