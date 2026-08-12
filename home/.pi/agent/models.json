@@ -612,6 +612,56 @@
                         "xhigh": null,
                         "max": "max"
                     }
+                },
+                {
+                    "id": "x-ai/grok-4.6",
+                    "name": "Grok 4.6",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 500000,
+                    "maxTokens": 131072,
+                    "cost": {
+                        "input": 2.0,
+                        "output": 6.0,
+                        "cacheRead": 0.5,
+                        "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": "low",
+                        "medium": "medium",
+                        "high": "high",
+                        "xhigh": "xhigh",
+                        "max": null
+                    }
+                },
+                {
+                    "id": "deepseek/deepseek-v4-pro-0813:exacto",
+                    "name": "DeepSeek V4 Pro",
+                    "reasoning": true,
+                    "input": ["text"],
+                    "contextWindow": 1048576,
+                    "maxTokens": 384000,
+                    "cost": {
+                        "input": 0.435,
+                        "output": 0.87,
+                        "cacheRead": 0.003625,
+                        "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": "low",
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
                 }
             ]
         }
