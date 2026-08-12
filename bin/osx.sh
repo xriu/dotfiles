@@ -45,6 +45,7 @@ function brew_setup() {
 
     # brew install --cask stablyai/orca/orca # Orca fleet of parallel agents
     # brew install --cask block-buzz --force # BlockBuzz is an AI-powered assistant
+    # brew install --cask visual-studio-code --force # Visual Studio Code
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
@@ -70,7 +71,6 @@ function brew_setup() {
     brew install --cask tldraw --force # Whiteboard-style drawing app
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
-    brew install --cask visual-studio-code --force # Visual Studio Code
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed --force # Multiplayer code editor
 
