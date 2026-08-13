@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.84.1",
-  "defaultModel": "moonshotai/kimi-k3",
+  "defaultModel": "z-ai/glm-5.2",
   "defaultProjectTrust": "always",
   "defaultProvider": "lm-openrouter",
   "defaultThinkingLevel": "max",
