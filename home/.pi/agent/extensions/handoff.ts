@@ -563,7 +563,7 @@ export default function (pi: ExtensionAPI) {
 					// Use the replacement ctx, never the captured pi object: pi
 					// invalidates the extension runtime after a session switch.
 					replacementCtx
-						.sendUserMessage("Continue the work from the handoff document.", {
+						.sendUserMessage("Read-only the work from the handoff document.", {
 							deliverAs: "followUp",
 						})
 						.catch((error) => {
