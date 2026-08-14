@@ -44,10 +44,11 @@ function brew_setup() {
     softwareupdate --install-rosetta --agree-to-license
 
     # brew install --cask stablyai/orca/orca # Orca fleet of parallel agents
+    # brew install --cask block-buzz --force # BlockBuzz is an AI-powered assistant
+    # brew install --cask visual-studio-code --force # Visual Studio Code
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
-    brew install --cask block-buzz --force # BlockBuzz is an AI-powered assistant
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask claude-code --force # Terminal-based AI coding assistant
     brew install --cask cleanshot --force # Screen capture and recording tool
@@ -70,12 +71,12 @@ function brew_setup() {
     brew install --cask tldraw --force # Whiteboard-style drawing app
     brew install --cask twingate --force # Secure network access to cloud resources
     brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
-    brew install --cask visual-studio-code --force # Visual Studio Code
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed --force # Multiplayer code editor
 
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
+    # brew install prime-agent # A self-improving RLM agent for coding
 
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool

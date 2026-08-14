@@ -45,6 +45,7 @@ Trace each caller-visible operation from input through every decision and effect
 Read every applicable reference completely before designing the change:
 
 - [`references/EFFECT.md`](references/EFFECT.md) — whenever Effect code changes; follow its branch pointers before editing.
+- [`references/EFFECT-ALCHEMY.md`](references/EFFECT-ALCHEMY.md) — when an Alchemy Worker, Durable Object, Workflow, binding-backed service, or two-phase runtime composition changes.
 - [`references/ERRORS.md`](references/ERRORS.md) — when behavior can fail or absence may be ordinary.
 - [`references/SENSITIVE-DATA-AND-OBSERVABILITY.md`](references/SENSITIVE-DATA-AND-OBSERVABILITY.md) — when behavior handles secrets, personal data, logging, tracing, metrics, or error reporting.
 - [`references/PARSING-AND-SCHEMAS.md`](references/PARSING-AND-SCHEMAS.md) — when data crosses an external/serialized edge, a schema changes, or protocol/persistence representations are designed.

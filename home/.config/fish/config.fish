@@ -42,6 +42,12 @@ if status is-interactive
     # Initialize Atuin for Fish shell
     atuin init fish | source
 
+    # Sync secrets to the macOS GUI session so GUI apps (e.g. bb) inherit them.
+    # Values come from config.local.fish sourced above. Runs in interactive shells.
+    launchctl setenv ALIBABA_API_KEY $ALIBABA_API_KEY
+    launchctl setenv OPENROUTER_API_KEY $OPENROUTER_API_KEY
+    launchctl setenv OPENCODE_API_KEY $OPENCODE_API_KEY
+
     # 1. Define config but don't force export every time if not needed
     set -gx ZELLIJ_CONFIG_DIR $HOME/.config/zellij
 

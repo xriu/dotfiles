@@ -1,64 +1,23 @@
 {
     "defaultProfile": "openrouter",
     "profiles": {
-        "alibaba1": {
+        "alibaba": {
             "main": {
-                "provider": "xriu-alibaba1",
-                "model": "qwen3.7-plus",
+                "provider": "xriu-alibaba",
+                "model": "qwen3.8-max",
                 "thinkingLevel": "max"
             },
             "agents": {
                 "oracle": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "model": "xriu-alibaba/qwen3.8-max",
                     "thinkingLevel": "max"
                 },
                 "planner": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
+                    "model": "xriu-alibaba/qwen3.8-max",
                     "thinkingLevel": "max"
                 },
                 "reviewer": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "max"
-                },
-                "researcher": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "max"
-                },
-                "context-builder": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "max"
-                },
-                "worker": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "max"
-                },
-                "delegate": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "max"
-                },
-                "scout": {
-                    "model": "xriu-alibaba/qwen3.7-plus",
-                    "thinkingLevel": "max"
-                }
-            }
-        },
-        "alibaba2": {
-            "main": {
-                "provider": "xriu-alibaba2",
-                "model": "qwen3.8-max-preview",
-                "thinkingLevel": "max"
-            },
-            "agents": {
-                "oracle": {
-                    "model": "xriu-alibaba/qwen3.8-max-preview",
-                    "thinkingLevel": "max"
-                },
-                "planner": {
-                    "model": "xriu-alibaba/qwen3.8-max-preview",
-                    "thinkingLevel": "max"
-                },
-                "reviewer": {
-                    "model": "xriu-alibaba/qwen3.8-max-preview",
+                    "model": "xriu-alibaba/qwen3.8-max",
                     "thinkingLevel": "max"
                 },
                 "researcher": {

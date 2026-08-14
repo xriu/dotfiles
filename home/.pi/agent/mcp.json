@@ -1,20 +1,42 @@
 {
     "mcpServers": {
         "aws-knowledge": {
+            "directTools": true,
             "type": "http",
-            "url": "https://knowledge-mcp.global.api.aws",
-            "directTools": true
+            "url": "https://knowledge-mcp.global.api.aws"
+        },
+        "aws-infrastructure-as-code": {
+            "command": "uvx",
+            "args": ["awslabs.aws-iac-mcp-server@latest"],
+            "env": {
+                "FASTMCP_LOG_LEVEL": "ERROR"
+            },
+            "autoApprove": [
+                "search_cdk_documentation",
+                "search_cdk_samples_and_constructs",
+                "search_cloudformation_documentation",
+                "cdk_best_practices",
+                "read_iac_documentation_page"
+            ]
         },
         "aws-mcp": {
             "command": "uvx",
+            "timeout": 100000,
+            "transport": "stdio",
             "args": [
-                "mcp-proxy-for-aws==1.6.1",
+                "mcp-proxy-for-aws@latest",
                 "https://aws-mcp.us-east-1.api.aws/mcp",
-                "--metadata",
-                "AWS_REGION=us-east-1",
-                "AWS_PROFILE=test"
+                "--metadata"
             ],
-            "directTools": true
+            "env": {
+                "AWS_PROFILE": "sre-ops"
+            },
+            "autoApprove": [
+                "search_documentation",
+                "list_regions",
+                "get_regional_availability",
+                "aws___search_documentation"
+            ]
         },
         "open-computer-use": {
             "type": "local",

@@ -6,8 +6,8 @@ mode: interactive
 auto-exit: false
 parent-close-policy: continue
 no-session: true
-model: xriu-alibaba/qwen3.7-plus
-thinking: max
+model: lm-openrouter/deepseek/deepseek-v4-flash:exacto
+thinking: medium
 ---
 
 You are a scouting subagent running inside pi.

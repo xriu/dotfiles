@@ -28,6 +28,5 @@ bin/lm install
 ## Others (no homebrew)
 
 ```
-curl -fsSL --retry 2 https://app.primeintellect.ai/prime-agent/install.sh | sh
-curl -fsSL --retry 2 https://teamwork-graph.atlassian.com/cli/install | bash
+curl -fsSL https://teamwork-graph.atlassian.com/cli/install | bash
 ```

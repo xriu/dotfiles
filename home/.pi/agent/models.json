@@ -1,39 +1,13 @@
 {
     "providers": {
-        "xriu-alibaba1": {
-            "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
+        "xriu-alibaba": {
+            "baseUrl": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic",
             "api": "anthropic-messages",
             "apiKey": "$ALIBABA_API_KEY",
             "models": [
                 {
-                    "id": "qwen3.7-plus",
-                    "name": "Qwen3.7 Plus",
-                    "reasoning": true,
-                    "input": ["text", "image"],
-                    "contextWindow": 1000000,
-                    "maxTokens": 65536,
-                    "compat": {
-                        "forceAdaptiveThinking": true
-                    },
-                    "thinkingLevelMap": {
-                        "minimal": null,
-                        "low": null,
-                        "medium": null,
-                        "high": "high",
-                        "xhigh": null,
-                        "max": "max"
-                    }
-                }
-            ]
-        },
-        "xriu-alibaba2": {
-            "baseUrl": "https://token-plan.ap-southeast-1.maas.aliyuncs.com/apps/anthropic",
-            "api": "anthropic-messages",
-            "apiKey": "$ALIBABA_API_KEY2",
-            "models": [
-                {
-                    "id": "qwen3.8-max-preview",
-                    "name": "Qwen3.8 Max Preview",
+                    "id": "qwen3.8-max",
+                    "name": "Qwen3.8 Max",
                     "reasoning": true,
                     "input": ["text", "image"],
                     "contextWindow": 1000000,
@@ -91,6 +65,25 @@
                 {
                     "id": "deepseek-v4-pro",
                     "name": "DeepSeek V4 Pro",
+                    "reasoning": true,
+                    "input": ["text"],
+                    "contextWindow": 1000000,
+                    "maxTokens": 384000,
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
+                },
+                {
+                    "id": "deepseek-v4-flash-0731",
+                    "name": "DeepSeek V4 Flash",
                     "reasoning": true,
                     "input": ["text"],
                     "contextWindow": 1000000,
@@ -614,6 +607,56 @@
                     "thinkingLevelMap": {
                         "minimal": null,
                         "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
+                },
+                {
+                    "id": "x-ai/grok-4.6",
+                    "name": "Grok 4.6",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 500000,
+                    "maxTokens": 131072,
+                    "cost": {
+                        "input": 2.0,
+                        "output": 6.0,
+                        "cacheRead": 0.5,
+                        "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": "low",
+                        "medium": "medium",
+                        "high": "high",
+                        "xhigh": "xhigh",
+                        "max": null
+                    }
+                },
+                {
+                    "id": "deepseek/deepseek-v4-pro-0813:exacto",
+                    "name": "DeepSeek V4 Pro",
+                    "reasoning": true,
+                    "input": ["text"],
+                    "contextWindow": 1048576,
+                    "maxTokens": 384000,
+                    "cost": {
+                        "input": 0.435,
+                        "output": 0.87,
+                        "cacheRead": 0.003625,
+                        "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": "low",
                         "medium": null,
                         "high": "high",
                         "xhigh": null,

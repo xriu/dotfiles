@@ -1,5 +1,5 @@
 {
-    "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.15.0/schema.json",
+    "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.17.0/schema.json",
     "permissionGate": {
         "allowedPatterns": [
             {
@@ -16,10 +16,6 @@
             }
         ],
         "autoDenyPatterns": [
-            {
-                "pattern": "dd ",
-                "regex": true
-            },
             {
                 "pattern": "diskutil ",
                 "regex": true
@@ -77,16 +73,13 @@
                 "name": "Sensitive files",
                 "patterns": [
                     {
-                        "pattern": ".env*"
-                    },
-                    {
                         "pattern": "config/credentials.json"
                     },
                     {
                         "pattern": "secrets/**"
                     },
                     {
-                        "pattern": "~/.aws/**"
+                        "pattern": "~/.aws/credentials"
                     },
                     {
                         "pattern": "~/.ssh/**"
@@ -117,7 +110,7 @@
             }
         ]
     },
-    "version": "0.13.0-20260619",
+    "version": "0.16.2",
     "onboarding": {
         "completed": true,
         "completedAt": "2026-07-20T16:47:25.356Z"
