@@ -16,12 +16,21 @@
         },
         "aws-mcp": {
             "command": "uvx",
+            "timeout": 100000,
+            "transport": "stdio",
             "args": [
-                "mcp-proxy-for-aws==1.6.1",
+                "mcp-proxy-for-aws@latest",
                 "https://aws-mcp.us-east-1.api.aws/mcp",
-                "--metadata",
-                "AWS_REGION=us-east-1",
-                "AWS_PROFILE=test"
+                "--metadata"
+            ],
+            "env": {
+                "AWS_PROFILE": "sre-ops"
+            },
+            "autoApprove": [
+                "search_documentation",
+                "list_regions",
+                "get_regional_availability",
+                "aws___search_documentation"
             ]
         },
         "open-computer-use": {
