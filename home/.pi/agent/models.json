@@ -438,66 +438,16 @@
                     }
                 },
                 {
-                    "id": "qwen/qwen3.7-plus",
-                    "name": "Qwen3.7 Plus",
-                    "reasoning": true,
-                    "input": ["text", "image"],
-                    "contextWindow": 1000000,
-                    "maxTokens": 65536,
-                    "cost": {
-                        "input": 0.32,
-                        "output": 1.28,
-                        "cacheRead": 0.064,
-                        "cacheWrite": 0
-                    },
-                    "compat": {
-                        "forceAdaptiveThinking": true
-                    },
-                    "thinkingLevelMap": {
-                        "minimal": null,
-                        "low": null,
-                        "medium": null,
-                        "high": "high",
-                        "xhigh": null,
-                        "max": "max"
-                    }
-                },
-                {
-                    "id": "z-ai/glm-5.2",
-                    "name": "GLM 5.2",
+                    "id": "z-ai/glm-5.3",
+                    "name": "GLM 5.3",
                     "reasoning": true,
                     "input": ["text"],
                     "contextWindow": 1048576,
                     "maxTokens": 131072,
                     "cost": {
-                        "input": 0.49,
-                        "output": 1.54,
-                        "cacheRead": 0.091,
-                        "cacheWrite": 0
-                    },
-                    "compat": {
-                        "forceAdaptiveThinking": true
-                    },
-                    "thinkingLevelMap": {
-                        "minimal": null,
-                        "low": null,
-                        "medium": null,
-                        "high": "high",
-                        "xhigh": null,
-                        "max": "max"
-                    }
-                },
-                {
-                    "id": "deepseek/deepseek-v4-pro",
-                    "name": "DeepSeek V4 Pro",
-                    "reasoning": true,
-                    "input": ["text"],
-                    "contextWindow": 1048576,
-                    "maxTokens": 384000,
-                    "cost": {
-                        "input": 0.435,
-                        "output": 0.87,
-                        "cacheRead": 0.003625,
+                        "input": 1.4,
+                        "output": 4.4,
+                        "cacheRead": 0.26,
                         "cacheWrite": 0
                     },
                     "compat": {
