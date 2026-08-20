@@ -100,7 +100,7 @@
   "confirm_quit": true,
   "context_servers": {},
   "cursor_blink": true,
-  "diff_view_style": "split",
+  "diff_view_style": "unified",
   "disable_ai": false,
   "edit_predictions": {
     "open_ai_compatible_api": {

@@ -3,66 +3,44 @@
     "permissionGate": {
         "allowedPatterns": [
             {
-                "pattern": "^aws .*\\bdescribe",
-                "regex": true
-            },
-            {
-                "pattern": "^aws .*\\blist",
-                "regex": true
-            },
-            {
-                "pattern": "^aws .*\\bget",
-                "regex": true
+                "pattern": "^(AWS_[A-Z_]+=\\S* +)*aws +[a-z0-9.-]+ +(list|get|describe)[a-z0-9.-]*( +[^;&|`$<>()\\n\\r]+)* *$",
+                "regex": true,
+                "description": "Read-only AWS CLI operations (list/get/describe), no shell chaining"
             }
         ],
         "autoDenyPatterns": [
             {
-                "pattern": "diskutil ",
-                "regex": true
+                "pattern": "(^|&&|\\|\\||;) *(AWS_[A-Z_]+=\\S* +)*aws\\b",
+                "regex": true,
+                "description": "AWS CLI command outside the read-only allowlist (only list/get/describe operations are permitted). Ask the user to run it manually if needed."
             },
             {
-                "pattern": "git reset --hard ",
-                "regex": true
+                "pattern": "rm -rf",
+                "description": "Recursive force delete"
             },
             {
-                "pattern": "mkfs ",
-                "regex": true
+                "pattern": "diskutil",
+                "description": "Disk utility operation"
             },
             {
-                "pattern": "npm publish ",
-                "regex": true
+                "pattern": "git reset --hard",
+                "description": "Hard git reset discards uncommitted changes"
             },
             {
-                "pattern": "rm -rf /*",
-                "regex": true
+                "pattern": "mkfs",
+                "description": "Filesystem format"
             },
             {
-                "pattern": "rm -rf /",
-                "regex": true
+                "pattern": "npm publish",
+                "description": "npm package publishing"
             },
             {
-                "pattern": "rm -rf .",
-                "regex": true
+                "pattern": "terraform apply",
+                "description": "Terraform infrastructure changes"
             },
             {
-                "pattern": "rm -rf $HOME",
-                "regex": true
-            },
-            {
-                "pattern": "rm -rf ~",
-                "regex": true
-            },
-            {
-                "pattern": "sudo rm -rf ",
-                "regex": true
-            },
-            {
-                "pattern": "terraform apply ",
-                "regex": true
-            },
-            {
-                "pattern": "terraform destroy ",
-                "regex": true
+                "pattern": "terraform destroy",
+                "description": "Terraform infrastructure destruction"
             }
         ]
     },
