@@ -121,8 +121,10 @@ function brew_setup() {
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
     brew install mkcert # Simple tool to make locally trusted development certificates
-    brew install opencode # OpenCode CLI
+    brew install opencode # AI coding agent, built for the terminal
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
+    brew install oxfmt # High-performance formatting tool for JavaScript and TypeScript
+    brew install oxlint # High-performance linter for JavaScript and TypeScript written in Rust
     brew install pake # Turn any webpage into a desktop app with Rust with ease
     brew install pandoc # Universal document converter
     brew install pi-coding-agent # AI agent toolkit
