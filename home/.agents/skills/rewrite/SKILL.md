@@ -1,5 +1,5 @@
 ---
-name: clarify
+name: rewrite
 description: Rewrite a rough, plain-language prompt into a precise technical prompt before you send it.
 disable-model-invocation: true
 ---
