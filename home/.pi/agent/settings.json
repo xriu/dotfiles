@@ -12,8 +12,8 @@
             "source": "npm:@plannotator/pi-extension",
             "skills": []
         },
-        "git:github.com/DietrichGebert/ponytail",
         "npm:@aliou/pi-guardrails",
+        "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
         "npm:@nicknisi/pi-cloak",
         "npm:pi-clarify",
