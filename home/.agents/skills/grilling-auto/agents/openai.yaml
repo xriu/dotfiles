@@ -1,0 +1,3 @@
+interface:
+  display_name: "Grilling Auto"
+  short_description: "Stress-test thinking without the user, and report what survives"

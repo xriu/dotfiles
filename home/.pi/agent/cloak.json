@@ -1,0 +1,57 @@
+{
+	"enabled": true,
+	"cloakCharacter": "*",
+	"cloakLength": null,
+	"tryAllPatterns": true,
+	"patterns": [
+		{
+			"filePattern": ["**/.env", "**/.env.*", "**/*.env", "**/.envrc"],
+			"cloakPattern": {
+				"pattern": "^\\s*(?:export\\s+)?([A-Za-z_][A-Za-z0-9_]*)\\s*=\\s*(.+)$",
+				"replace": "$1="
+			}
+		},
+		{
+			"filePattern": "**/*.pem",
+			"cloakPattern": ".+"
+		},
+		{
+			"filePattern": "**/*credentials*.json",
+			"cloakPattern": [
+				{
+					"pattern": "(\"(?:private_key|client_secret|refresh_token|access_token|id_token)\":\\s*\")[^\"]+",
+					"replace": "$1"
+				},
+				{
+					"pattern": "-----BEGIN [A-Z ]+-----.*-----END [A-Z ]+-----",
+					"flags": "s"
+				}
+			],
+			"replace": ""
+		},
+		{
+			"filePattern": "**/auth.json",
+			"cloakPattern": {
+				"pattern": "(\"(?:key|token|access|refresh|secret|password|apiKey|accessToken|refreshToken|idToken|clientSecret|sessionToken)\"\\s*:\\s*\\\")[^\\\"]+",
+				"replace": "$1"
+			}
+		},
+		{
+			"filePattern": "**/.aws/credentials",
+			"cloakPattern": {
+				"pattern": "^(\\s*[^\\s=#;][^=#;]*?\\s*=\\s*)(.+)$",
+				"replace": "$1"
+			}
+		},
+		{
+			"filePattern": "**/secrets/**",
+			"cloakPattern": ".+"
+		},
+		{
+			"filePattern": "**/.ssh/**",
+			"cloakPattern": {
+				"pattern": "^(?!ssh-|ecdsa-|sk-|#|@|$).+$"
+			}
+		}
+	]
+}

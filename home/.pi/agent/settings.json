@@ -1,48 +1,44 @@
 {
-  "lastChangelogVersion": "0.84.2",
-  "defaultModel": "moonshotai/kimi-k3",
-  "defaultProjectTrust": "always",
-  "defaultProvider": "lm-openrouter",
-  "defaultThinkingLevel": "max",
-  "hideThinkingBlock": false,
-  "extensions": [
-    "~/dotfiles/home/.pi/agent/extensions"
-  ],
-  "packages": [
-    "npm:pi-mcp-adapter",
-    {
-      "source": "npm:@plannotator/pi-extension",
-      "skills": []
-    },
-    "npm:@aliou/pi-guardrails",
-    "npm:@ff-labs/pi-fff",
-    "npm:pi-clarify",
-    "npm:pi-lens",
-    "npm:pi-powerline-footer",
-    "npm:pi-rewind",
-    "npm:pi-thinking-steps",
-    "npm:pi-web-access"
-  ],
-  "enableInstallTelemetry": true,
-  "httpIdleTimeoutMs": 120000,
-  "showCacheMissNotices": true,
-  "theme": "dark",
-  "treeFilterMode": "no-tools",
-  "powerline": {
-    "welcome": false,
-    "fixedEditor": false,
-    "layout": {
-      "left": [
-        "model",
-        "thinking",
-        "shell_mode",
-        "path",
-        "context_pct",
-        "cost"
-      ],
-      "secondary": [
-        "git"
-      ]
+    "lastChangelogVersion": "0.84.2",
+    "defaultModel": "moonshotai/kimi-k3",
+    "defaultProjectTrust": "always",
+    "defaultProvider": "lm-openrouter",
+    "defaultThinkingLevel": "max",
+    "hideThinkingBlock": true,
+    "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
+    "packages": [
+        "git:github.com/dmmulroy/pi-mcp",
+        {
+            "source": "npm:@plannotator/pi-extension",
+            "skills": []
+        },
+        "npm:@aliou/pi-guardrails",
+        "npm:@dietrichgebert/ponytail",
+        "npm:@ff-labs/pi-fff",
+        "npm:@nicknisi/pi-cloak",
+        "npm:pi-clarify",
+        "npm:pi-powerline-footer",
+        "npm:pi-rewind",
+        "npm:pi-web-access"
+    ],
+    "enableInstallTelemetry": true,
+    "httpIdleTimeoutMs": 120000,
+    "showCacheMissNotices": true,
+    "theme": "dark",
+    "treeFilterMode": "no-tools",
+    "powerline": {
+        "welcome": false,
+        "fixedEditor": false,
+        "layout": {
+            "left": [
+                "model",
+                "thinking",
+                "shell_mode",
+                "path",
+                "context_pct",
+                "cost"
+            ],
+            "secondary": ["git"]
+        }
     }
-  }
 }

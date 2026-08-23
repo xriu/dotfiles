@@ -43,14 +43,9 @@ function brew_setup() {
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
-    # brew install --cask stablyai/orca/orca # Orca fleet of parallel agents
-    # brew install --cask block-buzz --force # BlockBuzz is an AI-powered assistant
-    # brew install --cask visual-studio-code --force # Visual Studio Code
-
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
-    brew install --cask claude-code --force # Terminal-based AI coding assistant
     brew install --cask cleanshot --force # Screen capture and recording tool
     brew install --cask cyberduck --force # Server and cloud storage browser
     brew install --cask dbeaver-community --force # Universal database tool and SQL client
@@ -76,7 +71,7 @@ function brew_setup() {
 
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
-    # brew install prime-agent # A self-improving RLM agent for coding
+    # brew install sentrux/tap/sentrux
 
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
@@ -140,7 +135,7 @@ function brew_setup() {
     brew install rustup # Rust toolchain installer
     brew install sentry-cli # Sentry command-line interface
     brew install starship # The cross-shell prompt for astronauts
-    brew install steipete/tap/codexbar # Menu bar usage monitor for Codex and Claude
+    brew install steipete/tap/codexbar # Menu bar usage monitor for AI agents
     brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install swaks # SMTP client
     brew install ta-lib # Technical Analysis Library

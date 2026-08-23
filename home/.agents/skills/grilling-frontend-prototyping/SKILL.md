@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 **Pass `auto` as the first argument** to use self-driving grilling mode (auto-selects recommended options without asking).
 
-Orchestrate `/batch-grill-me` with the UI branch of `/prototype`. `/batch-grill-me` owns the interview; `/prototype` owns prototype shape, routing, and switcher mechanics. This skill makes every grilling question visual.
+Orchestrate `/grill-me` with the UI branch of `/prototype`. `/grill-me` owns the interview; `/prototype` owns prototype shape, routing, and switcher mechanics. This skill makes every grilling question visual.
 
 ## Process
 
@@ -21,4 +21,4 @@ Orchestrate `/batch-grill-me` with the UI branch of `/prototype`. `/batch-grill-
 4. **Descend the design tree.** If `auto`, this is resolved by `/auto-grill` in step 3. Otherwise, the grilling walks down the visual design tree, each verdict zooming in one level: the overall design, then component groups, then individual components — until the user has designed the entire feature in detail. Continue through states and interactions, making fresh variants for the current question rather than polishing an unselected option. Completion criterion: every meaningful visual branch, state, and interaction for the feature has a recorded verdict, or the user explicitly stops.
 5. **Hand off the decision.** Surface the prototype URL and variant keys, summarize the winning decisions and reasons, and capture the full variant set as the prototype's primary source. If implementation is requested, fold only the validated design into production and keep prototype-only code out of the production path. Completion criterion: the handoff names the winner, rationale, unresolved items, and the disposition of prototype code.
 
-Begin implementation or promotion only after `/batch-grill-me` has received explicit confirmation of shared understanding.
+Begin implementation or promotion only after `/grill-me` has received explicit confirmation of shared understanding.
