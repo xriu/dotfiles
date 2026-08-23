@@ -1,6 +1,7 @@
 ---
 name: bb-cli
 description: Use this when controlling bb. The bb CLI lets you inspect, create, and orchestrate bb threads, automations, projects, providers, and environments.
+disable-model-invocation: true
 ---
 
 # bb CLI
@@ -191,7 +192,7 @@ isolated|reuse`, or anchor with `--source-seq-end`. Permission mode inherits
   should open remotely, expose the port and give them the share URL. Remote
   access is owned by the builtin `connect` plugin: `bb plugin disable connect`
   cuts it off entirely; with bb connect still enabled, `bb plugin enable
-  connect` restores the command. Plugins → Connect shows the current URL, QR
+connect` restores the command. Plugins → Connect shows the current URL, QR
   code, shared ports, re-pair form, and disconnect control.
 - Add remote execution machines from Settings → Machines. Its one-line
   installer stores the bb connect machine credential locally and configures

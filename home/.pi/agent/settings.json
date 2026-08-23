@@ -1,6 +1,6 @@
 {
-  "lastChangelogVersion": "0.84.1",
-  "defaultModel": "deepseek/deepseek-v4-flash-0731:exacto",
+  "lastChangelogVersion": "0.84.2",
+  "defaultModel": "moonshotai/kimi-k3",
   "defaultProjectTrust": "always",
   "defaultProvider": "lm-openrouter",
   "defaultThinkingLevel": "max",
