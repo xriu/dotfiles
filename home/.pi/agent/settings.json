@@ -16,10 +16,10 @@
         "npm:@ff-labs/pi-fff",
         "npm:@nicknisi/pi-cloak",
         "npm:pi-clarify",
-        "npm:pi-goal",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
-        "npm:pi-web-access"
+        "npm:pi-web-access",
+        "../../Personal/pi-workflow"
     ],
     "enableInstallTelemetry": true,
     "httpIdleTimeoutMs": 120000,
