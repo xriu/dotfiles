@@ -1,8 +1,8 @@
 {
     "lastChangelogVersion": "0.84.2",
-    "defaultModel": "moonshotai/kimi-k3",
+    "defaultModel": "qwen3.8-max",
     "defaultProjectTrust": "always",
-    "defaultProvider": "lm-openrouter",
+    "defaultProvider": "xriu-alibaba",
     "defaultThinkingLevel": "max",
     "hideThinkingBlock": true,
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
