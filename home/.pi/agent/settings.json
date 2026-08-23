@@ -12,11 +12,11 @@
             "source": "npm:@plannotator/pi-extension",
             "skills": []
         },
-        "git:github.com/edxeth/pi-ralph-loop",
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
         "npm:@nicknisi/pi-cloak",
         "npm:pi-clarify",
+        "npm:pi-goal",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
         "npm:pi-web-access"
