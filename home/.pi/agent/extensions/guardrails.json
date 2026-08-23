@@ -1,96 +1,52 @@
 {
-    "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.17.0/schema.json",
-    "permissionGate": {
-        "allowedPatterns": [
-            {
-                "pattern": "^(AWS_[A-Z_]+=\\S* +)*aws +[a-z0-9.-]+ +(list|get|describe)[a-z0-9.-]*( +[^;&|`$<>()\\n\\r]+)* *$",
-                "regex": true,
-                "description": "Read-only AWS CLI operations (list/get/describe), no shell chaining"
-            }
-        ],
-        "autoDenyPatterns": [
-            {
-                "pattern": "(^|&&|\\|\\||;) *(AWS_[A-Z_]+=\\S* +)*aws\\b",
-                "regex": true,
-                "description": "AWS CLI command outside the read-only allowlist (only list/get/describe operations are permitted). Ask the user to run it manually if needed."
-            },
-            {
-                "pattern": "rm -rf",
-                "description": "Recursive force delete"
-            },
-            {
-                "pattern": "diskutil",
-                "description": "Disk utility operation"
-            },
-            {
-                "pattern": "git reset --hard",
-                "description": "Hard git reset discards uncommitted changes"
-            },
-            {
-                "pattern": "mkfs",
-                "description": "Filesystem format"
-            },
-            {
-                "pattern": "npm publish",
-                "description": "npm package publishing"
-            },
-            {
-                "pattern": "terraform apply",
-                "description": "Terraform infrastructure changes"
-            },
-            {
-                "pattern": "terraform destroy",
-                "description": "Terraform infrastructure destruction"
-            }
-        ]
-    },
-    "policies": {
-        "rules": [
-            {
-                "id": "sensitive-files",
-                "name": "Sensitive files",
-                "patterns": [
-                    {
-                        "pattern": "config/credentials.json"
-                    },
-                    {
-                        "pattern": "secrets/**"
-                    },
-                    {
-                        "pattern": "~/.aws/credentials"
-                    },
-                    {
-                        "pattern": "~/.ssh/**"
-                    }
-                ],
-                "protection": "noAccess",
-                "onlyIfExists": true
-            },
-            {
-                "id": "generated-and-metadata-directories",
-                "name": "Generated and metadata directories",
-                "patterns": [
-                    {
-                        "pattern": ".git"
-                    },
-                    {
-                        "pattern": ".git/**"
-                    },
-                    {
-                        "pattern": "node_modules"
-                    },
-                    {
-                        "pattern": "node_modules/**"
-                    }
-                ],
-                "protection": "noAccess",
-                "onlyIfExists": true
-            }
-        ]
-    },
-    "version": "0.16.2",
-    "onboarding": {
-        "completed": true,
-        "completedAt": "2026-07-20T16:47:25.356Z"
-    }
+	"$schema": "https://unpkg.com/@aliou/pi-guardrails@0.17.0/schema.json",
+	"permissionGate": {
+		"allowedPatterns": [
+			{
+				"pattern": "^(AWS_[A-Z_]+=\\S* +)*aws +[a-z0-9.-]+ +(list|get|describe)[a-z0-9.-]*( +[^;&|`$<>()\\n\\r]+)* *$",
+				"regex": true,
+				"description": "Read-only AWS ops (list/get/describe)"
+			}
+		],
+		"autoDenyPatterns": [
+			{
+				"pattern": "(^|&&|\\|\\||;) *(AWS_[A-Z_]+=\\S* +)*aws\\b",
+				"regex": true,
+				"description": "AWS outside read-only allowlist"
+			},
+			{
+				"pattern": "rm -rf",
+				"description": "Recursive force delete"
+			},
+			{
+				"pattern": "diskutil",
+				"description": "Disk utility operation"
+			},
+			{
+				"pattern": "git reset --hard",
+				"description": "Discards uncommitted changes"
+			},
+			{
+				"pattern": "mkfs",
+				"description": "Filesystem format"
+			},
+			{
+				"pattern": "npm publish",
+				"description": "Publishes npm package"
+			},
+			{
+				"pattern": "terraform apply",
+				"description": "Applies infra changes"
+			},
+			{
+				"pattern": "terraform destroy",
+				"description": "Destroys infra"
+			}
+		]
+	},
+	"version": "0.16.2",
+	"onboarding": {
+		"completed": true,
+		"completedAt": "2026-07-20T16:47:25.356Z"
+	}
 }

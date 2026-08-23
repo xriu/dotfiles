@@ -7,7 +7,7 @@
     "hideThinkingBlock": true,
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
-        "npm:pi-mcp-adapter",
+        "git:github.com/dmmulroy/pi-mcp",
         {
             "source": "npm:@plannotator/pi-extension",
             "skills": []
@@ -15,6 +15,7 @@
         "git:github.com/DietrichGebert/ponytail",
         "npm:@aliou/pi-guardrails",
         "npm:@ff-labs/pi-fff",
+        "npm:@nicknisi/pi-cloak",
         "npm:pi-clarify",
         "npm:pi-lens",
         "npm:pi-powerline-footer",
