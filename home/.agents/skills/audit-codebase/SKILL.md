@@ -1,9 +1,10 @@
 ---
 name: audit-codebase
-description: Measure and report how well a design, pull request, module, service, refactor, or repository follows software-simplicity principles such as Single Responsibility, deep modules, single knowledge ownership, low change amplification, low caller burden, valid-state design, actionable failures, controlled scope, and evidence-based performance work. Use for architecture assessments, code reviews, maintainability audits, refactoring baselines, before-and-after comparisons, and engineering quality reports.
+description: Audit a design, pull request, module, or repository against software-simplicity principles and produce an evidence-cited scorecard. Use for maintainability audits, refactoring baselines, and before-after comparisons.
+disable-model-invocation: true
 ---
 
-# Measure Software Simplicity
+# Audit Software Simplicity
 
 Assess simplicity with Goal-Question-Metric (GQM), repository evidence, and a calibrated scorecard. Treat measurements as decision support.
 
@@ -14,7 +15,6 @@ Assess simplicity with Goal-Question-Metric (GQM), repository evidence, and a ca
 - Use static metrics as warning signals, not verdicts. LOC, method count, complexity, coupling, or cohesion alone cannot prove a responsibility or design problem.
 - Measure trends within the same system and comparable scope. Do not compare raw scores across unrelated projects.
 - Separate measurement, interpretation, and recommendation. Do not change code unless the user separately requests implementation.
-- Report in english.
 
 ## Workflow
 
@@ -29,7 +29,7 @@ Record:
 - three to five representative change scenarios for a component or repository assessment. A focused diff may use its single stated change;
 - principles that are applicable, not applicable, or currently unmeasurable.
 
-Choose scenarios from requirements, recent change history, incidents, or critical domain operations. Do not cherry-pick only easy changes.
+Choose scenarios from requirements, recent change history, incidents, or critical domain operations.
 
 ### 2. Collect evidence
 
@@ -58,7 +58,7 @@ Use the following default GQM catalog. Adapt the measures when the domain has st
 | Names and Contracts       | Can developers find ownership and understand intent without reconstructing it?                                                  | Conflicting-term count; undocumented public contracts or invariants; optional time-to-locate or comprehension probe, with sample size disclosed.                                                                                                             |
 | Conventions and Scope     | Does the change follow established patterns and avoid speculative or unrelated work?                                            | Unexplained convention deviations; directly related changed-hunk ratio; speculative abstractions without a current consumer; unrelated cleanup count.                                                                                                        |
 
-Do not force every metric onto every assessment. Use `N/A` when a principle truly does not apply and `Unknown` when it applies but evidence is insufficient.
+Use `N/A` when a principle truly does not apply and `Unknown` when it applies but evidence is insufficient.
 
 ### 4. Score with evidence
 
@@ -82,7 +82,7 @@ Overall score = sum(applicable numeric scores) / count(numeric scores)
 Evidence coverage = count(numeric scores) / count(applicable principles)
 ```
 
-Do not let an average hide a critical violation. When a pass/fail decision is requested and no project policy exists, use this default gate:
+Report every `0` score beside the average. When a pass/fail decision is requested and no project policy exists, use this default gate:
 
 - no principle scores `0`;
 - Single Responsibility, Single Knowledge Owner, and Valid States and Failures score at least `2` when applicable;
