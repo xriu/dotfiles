@@ -1,24 +1,5 @@
 {
     "mcpServers": {
-        "aws-knowledge": {
-            "directTools": true,
-            "type": "http",
-            "url": "https://knowledge-mcp.global.api.aws"
-        },
-        "aws-infrastructure-as-code": {
-            "command": "uvx",
-            "args": ["awslabs.aws-iac-mcp-server@latest"],
-            "env": {
-                "FASTMCP_LOG_LEVEL": "ERROR"
-            },
-            "autoApprove": [
-                "search_cdk_documentation",
-                "search_cdk_samples_and_constructs",
-                "search_cloudformation_documentation",
-                "cdk_best_practices",
-                "read_iac_documentation_page"
-            ]
-        },
         "open-computer-use": {
             "type": "local",
             "command": "open-computer-use",
