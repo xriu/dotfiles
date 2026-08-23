@@ -8,14 +8,14 @@ Grill the subject relentlessly, exactly as the **grilling** skill does, but the 
 
 Same mechanics as grilling: map the **design tree** (every decision branches into the decisions that hang off it), work it in **rounds**, and ask only the **frontier** — the questions whose prerequisites are already settled. Recompute the frontier after each round. The difference is who answers:
 
-- **Find the answer yourself.** Treat every frontier question as a fact the environment holds. Dispatch sub-agents to read code, docs, data, or research the web. When evidence settles a question, settle it — no candidates needed, the fact is the answer.
+- **Find the answer yourself.** Treat every frontier question as a fact the environment holds. Gather evidence by reading code, docs, and data or researching the web; dispatch a sub-agent when the digging is heavy. When evidence settles a question, settle it — no candidates needed, the fact is the answer.
 - **When you must choose, generate up to 3 candidate answers and pick the best.** No evidence, genuine judgment call: enumerate at most 3 plausible answers, weigh them against the evidence you do have, pick the strongest. 3 is a cap, not a quota — an obvious choice gets one or two. Log the question as **open** with your pick as the recommended answer and the assumption it creates. Then continue grilling down that branch under the assumption.
 - **Never stall.** A question you cannot answer this round does not block the round. Only questions downstream of it inherit the assumption.
 
 Each round:
 
 1. Compute the frontier from what is already settled or assumed.
-2. Answer the whole frontier with sub-agents and evidence, or mark it open with a recommendation.
+2. Answer the whole frontier with evidence, or mark it open with a recommendation.
 3. Push the frontier outward and repeat until it is empty: every branch visited, nothing silently assumed.
 
 When the frontier is empty, write the report:
