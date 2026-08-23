@@ -15,6 +15,15 @@
 - **Lasting design.** When multiple solutions meet the requirement, select the solution that best supports expected changes in requirements, domain documents, or ADRs.
 - **Information hiding.** Hide implementation complexity behind small public interfaces. Separate concerns that change for different reasons.
 
+## Skills
+
+Load these skills at session start; follow them for the whole session:
+
+- **ponytail** — laziest solution that works: stdlib first, shortest diff, no speculative abstractions.
+- **grilling** — when the user wants a plan, decision, or idea stress-tested: interview relentlessly.
+- **wayfinder** — when work is bigger than one session: chart it as decision tickets on the issue tracker, resolve one at a time.
+- **ask-matt** — when unsure which skill or flow fits the situation: route over the skills in this repo.
+
 ## Agent reference
 
 - **Issues and PRDs.** For issue or PRD storage, publication, and lookup, follow `docs/agents/issue-tracker.md`.
