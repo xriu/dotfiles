@@ -18,8 +18,7 @@
         "npm:pi-clarify",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
-        "npm:pi-web-access",
-        "../../Personal/pi-workflow"
+        "npm:pi-web-access"
     ],
     "enableInstallTelemetry": true,
     "httpIdleTimeoutMs": 120000,
