@@ -44,12 +44,15 @@
                 "aws___search_documentation"
             ]
         },
-        "open-computer-use": {
+        "computer": {
             "type": "local",
             "command": "open-computer-use",
             "args": ["mcp"],
             "enabled": true,
             "timeout": 60000
+        },
+        "sentrux": {
+            "command": ["sentrux", "--mcp"]
         }
     }
 }

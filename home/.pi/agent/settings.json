@@ -12,7 +12,6 @@
             "source": "npm:@plannotator/pi-extension",
             "skills": []
         },
-        "npm:@aliou/pi-guardrails",
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
         "npm:@nicknisi/pi-cloak",

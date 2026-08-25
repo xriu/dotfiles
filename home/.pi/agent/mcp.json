@@ -7,9 +7,6 @@
             "command": ["open-computer-use", "mcp"],
             "enabled": true,
             "timeout": 60000
-        },
-        "sentrux": {
-            "command": ["sentrux", "--mcp"]
         }
     }
 }
