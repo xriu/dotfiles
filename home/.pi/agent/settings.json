@@ -20,6 +20,11 @@
         "npm:pi-rewind",
         "npm:pi-web-access"
     ],
+    "enabledModels": [
+        "openrouter/openrouter/free",
+        "lm-openrouter/z-ai/glm-5.3-flash",
+        "lm-openrouter/deepseek/deepseek-v4-flash-0731:exacto"
+    ],
     "enableInstallTelemetry": true,
     "httpIdleTimeoutMs": 120000,
     "showCacheMissNotices": true,
