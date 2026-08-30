@@ -5,6 +5,7 @@
     "defaultProvider": "lm-openrouter",
     "defaultThinkingLevel": "max",
     "hideThinkingBlock": true,
+    "quietStartup": true,
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
         "git:github.com/dmmulroy/pi-mcp",
@@ -34,6 +35,10 @@
         "xriu-opencode-openai/mimo-v2.5",
         "xriu-opencode-openai/mimo-v2.5-pro"
     ],
+    "customHeader": {
+        "quiet": false,
+        "skillsMode": true
+    },
     "enableInstallTelemetry": true,
     "compaction": {
         "enabled": true,
