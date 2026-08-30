@@ -72,6 +72,7 @@ function brew_setup() {
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
     # brew install sentrux/tap/sentrux
+    # brew install steipete/tap/codexbar # Menu bar usage monitor for AI agents
 
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
@@ -135,7 +136,6 @@ function brew_setup() {
     brew install rustup # Rust toolchain installer
     brew install sentry-cli # Sentry command-line interface
     brew install starship # The cross-shell prompt for astronauts
-    brew install steipete/tap/codexbar # Menu bar usage monitor for AI agents
     brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install swaks # SMTP client
     brew install ta-lib # Technical Analysis Library
