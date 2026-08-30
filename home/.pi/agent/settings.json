@@ -34,8 +34,12 @@
         "lm-openrouter/z-ai/glm-5.3-flash",
         "xriu-opencode-openai/deepseek-v4-flash",
         "xriu-opencode-openai/deepseek-v4-pro",
+        "xriu-opencode-openai/glm-5.3-flash",
+        "xriu-opencode-openai/kimi-k3",
         "xriu-opencode-openai/mimo-v2.5",
-        "xriu-opencode-openai/mimo-v2.5-pro"
+        "xriu-opencode-openai/mimo-v2.5-pro",
+        "xriu-opencode-anthropic/qwen3.8-flash",
+        "xriu-opencode-anthropic/qwen3.8-max"
     ],
     "customHeader": {
         "quiet": false,
