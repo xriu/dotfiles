@@ -1,5 +1,5 @@
 {
-    "lastChangelogVersion": "0.84.3",
+    "lastChangelogVersion": "0.84.4",
     "defaultModel": "moonshotai/kimi-k3",
     "defaultProjectTrust": "always",
     "defaultProvider": "lm-openrouter",
@@ -29,15 +29,16 @@
         "lm-openrouter/qwen/qwen3.8-flash",
         "lm-openrouter/x-ai/grok-4.6",
         "lm-openrouter/z-ai/glm-5.3-flash",
-        "xriu-opencode-anthropic/qwen3.7-max",
-        "xriu-opencode-anthropic/qwen3.7-plus",
         "xriu-opencode-openai/deepseek-v4-flash",
         "xriu-opencode-openai/deepseek-v4-pro",
-        "xriu-opencode-openai/glm-5.2",
         "xriu-opencode-openai/mimo-v2.5",
         "xriu-opencode-openai/mimo-v2.5-pro"
     ],
     "enableInstallTelemetry": true,
+    "compaction": {
+        "enabled": true,
+        "reserveTokens": 800000
+    },
     "httpIdleTimeoutMs": 120000,
     "showCacheMissNotices": true,
     "theme": "dark",
