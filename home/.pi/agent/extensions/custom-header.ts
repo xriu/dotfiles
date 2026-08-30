@@ -3,9 +3,9 @@
  *
  * Knobs in ~/.pi/agent/settings.json → "customHeader": { "quiet", "skillsMode" }
  * - quiet: hide the built-in header (logo + keybinding hints).
- * - skillsMode: render our own resource listing as a widget below the
- *   header: [Context], [Skills: automatic] (model-invocable), [Skills:
- *   manual] (/skill:name only), [Prompts], [Extensions].
+ * - skillsMode: render our own resource listing as the header: [Context],
+ *   [Skills: automatic] (model-invocable), [Skills: manual] (/skill:name
+ *   only), [Prompts], [Extensions].
  *
  * Designed to run with pi's native "quietStartup": true, which suppresses
  * the "Model scope:" line (printed before extensions load) and pi's own
@@ -131,15 +131,13 @@ export default function (pi: ExtensionAPI) {
 
 		const { Text } = await import("@earendil-works/pi-tui");
 
-		if (quiet) ctx.ui.setHeader(() => new Text("", 0, 0) as never);
-
 		if (skillsMode) {
 			try {
 				const data = await gatherListingData(settings);
-				ctx.ui.setWidget("custom-header", (_tui, theme) => new Text(renderListing(data, (c, t) => theme.fg(c, t)) + "\n", 0, 0) as never);
+				ctx.ui.setHeader((_tui, theme) => new Text("\n" + renderListing(data, (c, t) => theme.fg(c, t)), 0, 0) as never);
 			} catch {
 				// Discovery failed: no listing.
 			}
-		}
+		} else if (quiet) ctx.ui.setHeader(() => new Text("", 0, 0) as never);
 	});
 }
