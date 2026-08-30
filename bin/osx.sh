@@ -17,6 +17,7 @@ function install_osx_packages() {
     brew update
 
     # Caskroom
+    # brew trust humanlayer/humanlayer
     # brew tap manaflow-ai/cmux
     brew tap oven-sh/bun
     brew tap databricks/tap
@@ -72,6 +73,7 @@ function brew_setup() {
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
     # brew install steipete/tap/codexbar # Menu bar usage monitor for AI agents
+    # brew install humanlayer/humanlayer/humanlayer # The Multiplayer Coding Agent Workspace
 
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
