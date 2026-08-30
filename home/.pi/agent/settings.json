@@ -42,7 +42,6 @@
         "xriu-opencode-anthropic/qwen3.8-max"
     ],
     "customHeader": {
-        "quiet": false,
         "skillsMode": true
     },
     "enableInstallTelemetry": true,
