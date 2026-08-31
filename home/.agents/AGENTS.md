@@ -19,10 +19,10 @@
 
 Load these skills at session start; follow them for the whole session:
 
-- **ponytail** — laziest solution that works: stdlib first, shortest diff, no speculative abstractions.
-- **grill-me** — relentless interview to sharpen a plan, decision, or design: question the user until the idea holds.
-- **wayfinder** — when work is bigger than one session: chart it as decision tickets on the issue tracker, resolve one at a time.
-- **ask-matt** — when unsure which skill or flow fits the situation: route over the skills in this repo.
+- **`/ponytail`** — laziest solution that works: stdlib first, shortest diff, no speculative abstractions.
+- **`/grill-me`** — relentless interview to sharpen a plan, decision, or design: question the user until the idea holds.
+- **`/wayfinder`** — when work is bigger than one session: chart it as decision tickets on the issue tracker, resolve one at a time.
+- **`/ask-matt`** — when unsure which skill or flow fits the situation: route over the skills in this repo.
 
 ## Agent reference
 
