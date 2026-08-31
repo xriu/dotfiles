@@ -5,6 +5,7 @@
     "defaultProvider": "lm-openrouter",
     "defaultThinkingLevel": "max",
     "hideThinkingBlock": true,
+    "quietStartup": true,
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
         "git:github.com/dmmulroy/pi-mcp",
@@ -14,7 +15,9 @@
         },
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
+        "npm:@juicesharp/rpiv-todo",
         "npm:@nicknisi/pi-cloak",
+        "npm:@tintinweb/pi-subagents",
         "npm:pi-clarify",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
@@ -31,9 +34,16 @@
         "lm-openrouter/z-ai/glm-5.3-flash",
         "xriu-opencode-openai/deepseek-v4-flash",
         "xriu-opencode-openai/deepseek-v4-pro",
+        "xriu-opencode-openai/glm-5.3-flash",
+        "xriu-opencode-openai/kimi-k3",
         "xriu-opencode-openai/mimo-v2.5",
-        "xriu-opencode-openai/mimo-v2.5-pro"
+        "xriu-opencode-openai/mimo-v2.5-pro",
+        "xriu-opencode-anthropic/qwen3.8-flash",
+        "xriu-opencode-anthropic/qwen3.8-max"
     ],
+    "customHeader": {
+        "skillsMode": true
+    },
     "enableInstallTelemetry": true,
     "compaction": {
         "enabled": true,
