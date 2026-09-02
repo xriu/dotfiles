@@ -27,6 +27,7 @@
         "openrouter/openrouter/free",
         "lm-openrouter/deepseek/deepseek-v4-flash-0731:exacto",
         "lm-openrouter/google/gemini-3.7-flash",
+        "lm-openrouter/google/gemini-3.8-flash",
         "lm-openrouter/moonshotai/kimi-k3",
         "lm-openrouter/openai/gpt-5.6-sol",
         "lm-openrouter/qwen/qwen3.8-flash",
