@@ -1,6 +1,6 @@
 {
     "lastChangelogVersion": "0.84.4",
-    "defaultModel": "moonshotai/kimi-k3",
+    "defaultModel": "google/gemini-3.8-flash",
     "defaultProjectTrust": "always",
     "defaultProvider": "lm-openrouter",
     "defaultThinkingLevel": "max",
