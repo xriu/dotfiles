@@ -24,4 +24,14 @@ layout {
   tab name="dotfiles" {
     pane cwd="$HOME/dotfiles" borderless=true name="dotfiles"
   }
+  tab name="workspace" {
+    pane split_direction="vertical" {
+      pane cwd="$HOME/Personal" name="Personal"
+      pane cwd="$HOME/Develop" name="Develop"
+    }
+    pane split_direction="vertical" {
+      pane cwd="$HOME/.bb" name=".bb"
+      pane cwd="/tmp" name="tmp"
+    }
+  }
 }
