@@ -239,31 +239,6 @@
                     }
                 },
                 {
-                    "id": "google/gemini-3.7-flash",
-                    "name": "Gemini 3.7 Flash",
-                    "reasoning": true,
-                    "input": ["text", "image"],
-                    "contextWindow": 1048576,
-                    "maxTokens": 65536,
-                    "cost": {
-                        "input": 0.375,
-                        "output": 1.875,
-                        "cacheRead": 0.0375,
-                        "cacheWrite": 0.02083
-                    },
-                    "compat": {
-                        "forceAdaptiveThinking": true
-                    },
-                    "thinkingLevelMap": {
-                        "minimal": null,
-                        "low": null,
-                        "medium": null,
-                        "high": "high",
-                        "xhigh": null,
-                        "max": "max"
-                    }
-                },
-                {
                     "id": "google/gemini-3.8-flash",
                     "name": "Gemini 3.8 Flash",
                     "reasoning": true,
