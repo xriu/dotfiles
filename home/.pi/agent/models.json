@@ -239,31 +239,6 @@
                     }
                 },
                 {
-                    "id": "openai/gpt-5.6-sol",
-                    "name": "GPT-5.6 Sol",
-                    "reasoning": true,
-                    "input": ["text", "image"],
-                    "contextWindow": 1050000,
-                    "maxTokens": 128000,
-                    "cost": {
-                        "input": 5.0,
-                        "output": 30.0,
-                        "cacheRead": 0.5,
-                        "cacheWrite": 6.25
-                    },
-                    "compat": {
-                        "forceAdaptiveThinking": true
-                    },
-                    "thinkingLevelMap": {
-                        "minimal": null,
-                        "low": null,
-                        "medium": null,
-                        "high": "high",
-                        "xhigh": null,
-                        "max": "max"
-                    }
-                },
-                {
                     "id": "google/gemini-3.7-flash",
                     "name": "Gemini 3.7 Flash",
                     "reasoning": true,
@@ -436,6 +411,124 @@
                         "high": "high",
                         "xhigh": "xhigh",
                         "max": null
+                    }
+                },
+                {
+                    "id": "anthropic/claude-fable-5.1",
+                    "name": "Claude Fable 5.1",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 1000000,
+                    "maxTokens": 128000,
+                    "cost": {
+                        "input": 10,
+                        "output": 50,
+                        "cacheRead": 1,
+                        "cacheWrite": 12.5
+                    },
+                    "compat": {
+                        "thinkingFormat": "openrouter",
+                        "cacheControlFormat": "anthropic",
+                        "openRouterRouting": {
+                            "only": ["amazon-bedrock/us-east-1"]
+                        }
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": "low",
+                        "medium": "medium",
+                        "high": "high",
+                        "xhigh": "xhigh",
+                        "max": "max"
+                    }
+                },
+                {
+                    "id": "anthropic/claude-sonnet-5",
+                    "name": "Claude Sonnet 5",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 1000000,
+                    "maxTokens": 128000,
+                    "cost": {
+                        "input": 2,
+                        "output": 10,
+                        "cacheRead": 0.2,
+                        "cacheWrite": 2.5
+                    },
+                    "compat": {
+                        "thinkingFormat": "openrouter",
+                        "cacheControlFormat": "anthropic",
+                        "openRouterRouting": {
+                            "only": ["amazon-bedrock/us-east-1"]
+                        }
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": "low",
+                        "medium": "medium",
+                        "high": "high",
+                        "xhigh": "xhigh",
+                        "max": "max"
+                    }
+                },
+                {
+                    "api": "openai-completions",
+                    "baseUrl": "https://openrouter.ai/api/v1",
+                    "id": "openai/gpt-5.6-sol",
+                    "name": "GPT-5.6 Sol",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 1050000,
+                    "maxTokens": 128000,
+                    "cost": {
+                        "input": 5.0,
+                        "output": 30.0,
+                        "cacheRead": 0.5,
+                        "cacheWrite": 6.25
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true,
+                        "openRouterRouting": {
+                            "only": ["amazon-bedrock/us-east-1"]
+                        }
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
+                },
+                {
+                    "api": "openai-completions",
+                    "baseUrl": "https://openrouter.ai/api/v1",
+                    "id": "openai/gpt-5.6-luna",
+                    "name": "GPT-5.6 Luna",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 1050000,
+                    "maxTokens": 128000,
+                    "cost": {
+                        "input": 5.0,
+                        "output": 30.0,
+                        "cacheRead": 0.5,
+                        "cacheWrite": 6.25
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true,
+                        "openRouterRouting": {
+                            "only": ["amazon-bedrock/us-east-1"]
+                        }
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
                     }
                 }
             ]
