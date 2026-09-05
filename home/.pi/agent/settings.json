@@ -40,11 +40,11 @@
         "openrouter/openrouter/free",
         "xriu-opencode-anthropic/qwen3.8-flash",
         "xriu-opencode-anthropic/qwen3.8-max",
-        "xriu-opencode-free/muse-spark-1.3-contributor-free",
         "xriu-opencode-openai/deepseek-v4-flash",
         "xriu-opencode-openai/deepseek-v4-pro",
         "xriu-opencode-openai/glm-5.3-flash",
         "xriu-opencode-openai/kimi-k3",
+        "xriu-opencode-openai/muse-spark-1.3-contributor",
         "xriu-opencode-openai/mimo-v2.5",
         "xriu-opencode-openai/mimo-v2.5-pro"
     ],
