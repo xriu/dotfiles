@@ -649,6 +649,36 @@
                         "xhigh": null,
                         "max": "max"
                     }
+                },
+                {
+                    "api": "openai-completions",
+                    "baseUrl": "https://openrouter.ai/api/v1",
+                    "id": "openai/gpt-6-astra",
+                    "name": "GPT-6 Astra",
+                    "reasoning": true,
+                    "input": [
+                        "text",
+                        "image"
+                    ],
+                    "contextWindow": 1050000,
+                    "maxTokens": 128000,
+                    "cost": {
+                        "input": 10,
+                        "output": 50,
+                        "cacheRead": 1,
+                        "cacheWrite": 12.5
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": "low",
+                        "medium": "medium",
+                        "high": "high",
+                        "xhigh": "xhigh",
+                        "max": "max"
+                    }
                 }
             ]
         },
