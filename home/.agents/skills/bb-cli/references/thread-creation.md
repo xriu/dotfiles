@@ -21,10 +21,14 @@
 - Spawn creates a root thread unless you pass `--parent-thread`.
 - Use `bb thread fork <source-thread-id>` to clone a provider session. The
   fork inherits the source conversation in its timeline. It creates an idle
-  fork by default; add `--prompt`, select `--workspace isolated|reuse`, or
-  anchor with `--source-seq-end` on a completed source turn (the clone and the
-  inherited timeline both end with the turn containing that sequence).
-  Permission mode inherits the source thread unless explicitly overridden.
+  fork in the source environment by default; add `--prompt`, select an existing
+  environment with `--environment`, or create a fresh personal workspace or
+  worktree with `--new-environment personal|worktree`. `--base-branch` matches
+  spawn for worktrees, while the target machine is always derived from the
+  source environment. Anchor with
+  `--source-seq-end` on a completed source turn (the clone and inherited
+  timeline both end with the turn containing that sequence). Permission mode
+  inherits the source thread unless explicitly overridden.
 - Pass `--visibility hidden` for background/plugin workers that should remain
   out of sidebar organization without contributing unread/pending favicon
   attention. `bb thread list` excludes them by
@@ -108,7 +112,7 @@ environment pull-request show <id>`. Diff commands require an explicit target
   and the matching merge-base or commit flags; all support `--json`.
 - `bb environment pull-request ready|draft|merge` manages pull-request state;
   `bb environment archive-threads` bulk-archives an environment's threads.
-- Use `bb environment show|update|commit|squash-merge` for environment metadata
+- Use `bb environment show|update|commit` for environment metadata
   and Git changes. Check live help before a commit or merge.
 - Spawned child threads inherit permission from explicit flags, then the
   parent thread's last execution, then project defaults. The parent's mode is
