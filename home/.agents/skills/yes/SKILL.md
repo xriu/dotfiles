@@ -1,7 +1,7 @@
 ---
 name: yes
-description: (xriu) yes
+description: (xriu) Yes, let's follow your recommendation
 disable-model-invocation: true
 ---
 
-say "Yes, let's follow your recommendation"
+Yes, let's follow your recommendation
