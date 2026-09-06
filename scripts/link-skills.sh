@@ -1,28 +1,9 @@
 #!/usr/bin/env bash
-#
-# Current intended layout:
-#
-# ```text
-#   /dotfiles/.skills                  # source: real folders
-#   ├── atlassian/twg/
-#   ├── dmmulroy/coding-standards/
-#   └── mattpocock/tdd/
-
-#   /dotfiles/home/.agents/skills      # destination: links only
-#   ├── twg -> /dotfiles/.skills/atlassian/twg
-#   ├── coding-standards -> /dotfiles/.skills/dmmulroy/coding-standards
-#   └── tdd -> /dotfiles/.skills/mattpocock/tdd
-# ```
-
 set -euo pipefail
 
-if [[ "${DEBUG:-0}" == "1" ]]; then
-    PS4='+ ${BASH_SOURCE}:${LINENO}: '
-    set -x
-fi
-
-readonly SKILLS_SOURCE="/Users/xavier.riu/dotfiles/.skills"
-readonly SKILLS_DEST="/Users/xavier.riu/dotfiles/home/.agents/skills"
+readonly DOTFILES="$HOME/dotfiles"
+readonly SKILLS_SOURCE="$DOTFILES/.skills"
+readonly SKILLS_DEST="$DOTFILES/home/.agents/skills"
 
 # The source must be independent from the destination. Migrate the old root
 # link once, then keep the canonical skill tree in .skills.
@@ -39,7 +20,6 @@ if [[ -L "$SKILLS_SOURCE" ]]; then
     done < <(find "$SKILLS_DEST" -mindepth 1 -maxdepth 1 -type l -print0)
     rm "$SKILLS_SOURCE"
     mv "$SKILLS_DEST" "$SKILLS_SOURCE"
-    mkdir "$SKILLS_DEST"
 elif [[ ! -d "$SKILLS_SOURCE" ]]; then
     printf 'Skills source does not exist: %s\n' "$SKILLS_SOURCE" >&2
     exit 1
@@ -52,11 +32,11 @@ fi
 mkdir -p "$SKILLS_DEST"
 
 skill_names=()
-skill_sources=()
+skill_dirs=()
 
 while IFS= read -r -d '' skill_file; do
-    skill_source="${skill_file%/SKILL.md}"
-    skill_name="${skill_source##*/}"
+    skill_dir="${skill_file%/SKILL.md}"
+    skill_name="${skill_dir##*/}"
 
     for existing_name in "${skill_names[@]}"; do
         if [[ "$existing_name" == "$skill_name" ]]; then
@@ -66,7 +46,7 @@ while IFS= read -r -d '' skill_file; do
     done
 
     skill_names+=("$skill_name")
-    skill_sources+=("$skill_source")
+    skill_dirs+=("$skill_dir")
 done < <(find "$SKILLS_SOURCE" -type f -name SKILL.md -print0)
 
 if [[ "${#skill_names[@]}" -eq 0 ]]; then
@@ -85,11 +65,11 @@ done < <(find "$SKILLS_DEST" -mindepth 1 -maxdepth 1 -print0)
 
 for index in "${!skill_names[@]}"; do
     skill_name="${skill_names[$index]}"
-    skill_source="${skill_sources[$index]}"
+    skill_dir="${skill_dirs[$index]}"
     skill_dest="$SKILLS_DEST/$skill_name"
 
-    ln -s "$skill_source" "$skill_dest"
-    printf 'Linked skill: %s -> %s\n' "$skill_dest" "$skill_source"
+    ln -s "$skill_dir" "$skill_dest"
+    printf 'Linked skill: %s -> %s\n' "$skill_dest" "$skill_dir"
 done
 
 printf 'Linked %d skills into flat destination: %s\n' "${#skill_names[@]}" "$SKILLS_DEST"
