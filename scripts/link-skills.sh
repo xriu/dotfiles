@@ -1,4 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#
+# Current intended layout:
+#
+# ```text
+#   /dotfiles/.skills                  # source: real folders
+#   ├── atlassian/twg/
+#   ├── dmmulroy/coding-standards/
+#   └── mattpocock/tdd/
+
+#   /dotfiles/home/.agents/skills      # destination: links only
+#   ├── twg -> /dotfiles/.skills/atlassian/twg
+#   ├── coding-standards -> /dotfiles/.skills/dmmulroy/coding-standards
+#   └── tdd -> /dotfiles/.skills/mattpocock/tdd
+# ```
 
 set -euo pipefail
 
@@ -7,69 +21,75 @@ if [[ "${DEBUG:-0}" == "1" ]]; then
     set -x
 fi
 
-readonly SKILLS_ROOT="/Users/xavier.riu/dotfiles/home/.agents/skills"
-readonly SKILLS_LINK="/Users/xavier.riu/dotfiles/.skills"
+readonly SKILLS_SOURCE="/Users/xavier.riu/dotfiles/.skills"
+readonly SKILLS_DEST="/Users/xavier.riu/dotfiles/home/.agents/skills"
 
-if [[ ! -d "$SKILLS_ROOT" ]]; then
-    printf 'Skills root does not exist: %s\n' "$SKILLS_ROOT" >&2
-    exit 1
-fi
-
-if [[ -L "$SKILLS_LINK" ]]; then
-    current_target="$(readlink "$SKILLS_LINK")"
-    if [[ "$current_target" == "$SKILLS_ROOT" ]]; then
-        printf 'Already linked: %s -> %s\n' "$SKILLS_LINK" "$SKILLS_ROOT"
-    else
-        printf 'Replacing link: %s -> %s\n' "$SKILLS_LINK" "$current_target"
-        rm "$SKILLS_LINK"
-        ln -s "$SKILLS_ROOT" "$SKILLS_LINK"
-    fi
-elif [[ -d "$SKILLS_LINK" ]]; then
-    if ! diff -qr "$SKILLS_LINK" "$SKILLS_ROOT" >/dev/null; then
-        printf 'Refusing to replace non-matching directory: %s\n' "$SKILLS_LINK" >&2
+# The source must be independent from the destination. Migrate the old root
+# link once, then keep the canonical skill tree in .skills.
+if [[ -L "$SKILLS_SOURCE" ]]; then
+    source_target="$(readlink "$SKILLS_SOURCE")"
+    if [[ "$source_target" != "$SKILLS_DEST" ]]; then
+        printf 'Refusing unexpected source link: %s -> %s\n' "$SKILLS_SOURCE" "$source_target" >&2
         exit 1
     fi
-    rm -rf "$SKILLS_LINK"
-    ln -s "$SKILLS_ROOT" "$SKILLS_LINK"
-elif [[ -e "$SKILLS_LINK" ]]; then
-    printf 'Refusing to replace existing path: %s\n' "$SKILLS_LINK" >&2
+
+    printf 'Moving canonical skills to source: %s\n' "$SKILLS_SOURCE"
+    while IFS= read -r -d '' entry; do
+        rm "$entry"
+    done < <(find "$SKILLS_DEST" -mindepth 1 -maxdepth 1 -type l -print0)
+    rm "$SKILLS_SOURCE"
+    mv "$SKILLS_DEST" "$SKILLS_SOURCE"
+    mkdir "$SKILLS_DEST"
+elif [[ ! -d "$SKILLS_SOURCE" ]]; then
+    printf 'Skills source does not exist: %s\n' "$SKILLS_SOURCE" >&2
     exit 1
-else
-    # Link the root once. Nested skill directories resolve through this link.
-    ln -s "$SKILLS_ROOT" "$SKILLS_LINK"
-    printf 'Created link: %s -> %s\n' "$SKILLS_LINK" "$SKILLS_ROOT"
 fi
 
-linked=0
-existing=0
+if [[ -L "$SKILLS_DEST" ]]; then
+    printf 'Skills destination must be a real directory: %s\n' "$SKILLS_DEST" >&2
+    exit 1
+fi
+mkdir -p "$SKILLS_DEST"
+
+skill_names=()
+skill_sources=()
 
 while IFS= read -r -d '' skill_file; do
-    skill_dir="${skill_file%/SKILL.md}"
-    relative_dir="${skill_dir#"$SKILLS_ROOT/"}"
+    skill_source="${skill_file%/SKILL.md}"
+    skill_name="${skill_source##*/}"
 
-    # A skill is nested when its directory has a parent below the root.
-    [[ "$relative_dir" == */* ]] || continue
-
-    skill_name="${skill_dir##*/}"
-    skill_link="$SKILLS_ROOT/$skill_name"
-
-    if [[ -L "$skill_link" ]]; then
-        current_target="$(readlink "$skill_link")"
-        if [[ "$current_target" == "$skill_dir" ]]; then
-            printf 'Already linked skill: %s -> %s\n' "$skill_link" "$skill_dir"
-            existing=$((existing + 1))
-            continue
+    for existing_name in "${skill_names[@]}"; do
+        if [[ "$existing_name" == "$skill_name" ]]; then
+            printf 'Duplicate skill name: %s\n' "$skill_name" >&2
+            exit 1
         fi
-        printf 'Replacing skill link: %s -> %s\n' "$skill_link" "$current_target"
-        rm "$skill_link"
-    elif [[ -e "$skill_link" ]]; then
-        printf 'Refusing to overwrite existing skill: %s\n' "$skill_link" >&2
-        exit 1
+    done
+
+    skill_names+=("$skill_name")
+    skill_sources+=("$skill_source")
+done < <(find "$SKILLS_SOURCE" -type f -name SKILL.md -print0)
+
+if [[ "${#skill_names[@]}" -eq 0 ]]; then
+    printf 'No skills found under: %s\n' "$SKILLS_SOURCE" >&2
+    exit 1
+fi
+
+# The destination is flat: remove the old nested tree before linking each skill.
+while IFS= read -r -d '' entry; do
+    if [[ -L "$entry" ]]; then
+        rm "$entry"
+    else
+        rm -rf "$entry"
     fi
+done < <(find "$SKILLS_DEST" -mindepth 1 -maxdepth 1 -print0)
 
-    ln -s "$skill_dir" "$skill_link"
-    printf 'Linked skill: %s -> %s\n' "$skill_link" "$skill_dir"
-    linked=$((linked + 1))
-done < <(find "$SKILLS_ROOT" -type f -name SKILL.md -print0)
+for index in "${!skill_names[@]}"; do
+    skill_name="${skill_names[$index]}"
+    skill_source="${skill_sources[$index]}"
+    skill_dest="$SKILLS_DEST/$skill_name"
 
-printf 'Nested skills linked: %d new, %d already linked\n' "$linked" "$existing"
+    ln -s "$skill_source" "$skill_dest"
+    printf 'Linked skill: %s -> %s\n' "$skill_dest" "$skill_source"
+done
+
+printf 'Linked %d skills into flat destination: %s\n' "${#skill_names[@]}" "$SKILLS_DEST"
