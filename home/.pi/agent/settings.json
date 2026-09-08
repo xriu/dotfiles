@@ -1,6 +1,6 @@
 {
     "lastChangelogVersion": "0.85.1",
-    "defaultModel": "google/gemini-3.8-flash",
+    "defaultModel": "lm-openrouter/meta/muse-spark-1.3",
     "defaultProjectTrust": "always",
     "defaultProvider": "lm-openrouter",
     "defaultThinkingLevel": "max",

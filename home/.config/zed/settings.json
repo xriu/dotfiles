@@ -14,7 +14,7 @@
       "provider": "opencode",
     },
     "default_profile": "write",
-    "dock": "left",
+    "dock": "right",
     "enable_feedback": false,
     "enabled": true,
     "favorite_models": [
@@ -94,7 +94,7 @@
   },
   "cli_default_open_behavior": "existing_window",
   "collaboration_panel": {
-    "dock": "right",
+    "dock": "left",
   },
   "colorize_brackets": true,
   "confirm_quit": true,
@@ -132,7 +132,7 @@
   },
   "git_panel": {
     "default_width": 360,
-    "dock": "right",
+    "dock": "left",
   },
   "hard_tabs": false,
   "icon_theme": {
@@ -305,13 +305,13 @@
     "show": "auto",
   },
   "outline_panel": {
-    "dock": "right",
+    "dock": "left",
   },
   "project_panel": {
     "auto_fold_dirs": false,
     "button": true,
     "default_width": 360,
-    "dock": "right",
+    "dock": "left",
     "file_icons": true,
     "folder_icons": true,
     "git_status": true,
