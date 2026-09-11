@@ -181,6 +181,31 @@
                     }
                 },
                 {
+                    "id": "deepseek/deepseek-v4.1-flash",
+                    "name": "DeepSeek V4.1 Flash",
+                    "reasoning": true,
+                    "input": ["text", "image"],
+                    "contextWindow": 1048576,
+                    "maxTokens": 384000,
+                    "cost": {
+                        "input": 0.2,
+                        "output": 0.6,
+                        "cacheRead": 0.006,
+                        "cacheWrite": 0
+                    },
+                    "compat": {
+                        "forceAdaptiveThinking": true
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": "low",
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
+                },
+                {
                     "id": "meta/muse-spark-1.3",
                     "name": "Muse Spark 1.3",
                     "reasoning": true,
@@ -309,10 +334,7 @@
                         "cacheWrite": 6.25
                     },
                     "compat": {
-                        "forceAdaptiveThinking": true,
-                        "openRouterRouting": {
-                            "only": ["amazon-bedrock/us-east-1"]
-                        }
+                        "forceAdaptiveThinking": true
                     },
                     "thinkingLevelMap": {
                         "minimal": null,
