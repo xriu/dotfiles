@@ -26,9 +26,3 @@ Listed in decision order: exist, find, start, structure, remove.
 - **E2E reproduction.** When doing bug fixes, always start by reproducing the bug in an E2E setting as closely aligned with how an end user would experience it as possible. This makes sure you find the real problem so your fix will actually solve it.
 - **Pixel perfection.** When end-to-end testing a product, be picky about the UI. If something clearly looks off, even if not directly related to your current work, get it fixed along the way.
 - **Broken windows.** Apply that same standard to lint, test failures, and test flakiness. If you see one, even if not caused by your current work, get it fixed.
-
-## Agent reference
-
-- **Issues and PRDs.** For issue or PRD storage, publication, and lookup, follow `~/dotfiles/docs/agents/issue-tracker.md`.
-- **Triage.** For issue triage, use the labels in `~/dotfiles/docs/agents/triage-labels.md`.
-- **Domain language.** Before code exploration, design, or project reports, follow `~/dotfiles/docs/agents/domain.md`.
