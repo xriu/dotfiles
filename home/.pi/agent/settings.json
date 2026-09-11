@@ -42,6 +42,7 @@
         "xriu-opencode-anthropic/qwen3.8-flash",
         "xriu-opencode-anthropic/qwen3.8-max",
         "xriu-opencode-openai/deepseek-v4-flash",
+        "xriu-opencode-openai/deepseek-v4.1-flash",
         "xriu-opencode-openai/deepseek-v4-pro",
         "xriu-opencode-openai/glm-5.3-flash",
         "xriu-opencode-openai/kimi-k3",
