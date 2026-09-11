@@ -54,10 +54,6 @@
         "skillsMode": true
     },
     "enableInstallTelemetry": true,
-    "compaction": {
-        "enabled": true,
-        "reserveTokens": 800000
-    },
     "httpIdleTimeoutMs": 120000,
     "showCacheMissNotices": true,
     "theme": "dark",
