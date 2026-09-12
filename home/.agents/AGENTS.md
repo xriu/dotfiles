@@ -9,11 +9,19 @@
   - Always talk to me like I have ADHD.
   - Always read CONTEXT.md files, and use their ubiquitous language.
 
+### Execution
+
+- **Think before coding.** State assumptions, define success criteria, surface material tradeoffs, and push back when warranted.
+- **Surgical changes.** Touch only files and behavior required by the goal.
+- **Goal-driven execution.** Verify every success criterion.
+  Repeat until all pass, or report the blocker.
+
 ### Design
 
 Listed in decision order: exist, find, start, structure, remove.
 
 - **YAGNI.** Implement the simplest solution that fully meets the current requirement. Add an abstraction, configuration item, or indirection layer only when a present requirement needs it.
+- **File size.** Keep source files at 500 lines or fewer. When a file reaches the limit, split it by responsibility before adding more code. Exclude generated and vendor files.
 - **Reuse first.** Before you implement common functionality, inspect the current dependencies, their documentation, and their type definitions. Use an existing capability when it meets the requirement. Otherwise, use a mature, maintained library when it reduces total complexity or improves reliability.
 - **Proven patterns.** Before you design an architectural mechanism, study established implementations of the same problem. Use a proven pattern when it meets the current requirements and constraints.
 - **Walking skeleton.** First complete the smallest version that runs end to end. Then add features in layers on that stable base.
