@@ -2,7 +2,7 @@
 set -euo pipefail
 
 readonly DOTFILES="$HOME/dotfiles"
-readonly SKILLS_SOURCE="$DOTFILES/.skills"
+readonly SKILLS_SOURCE="$DOTFILES/home/.skills"
 readonly SKILLS_DEST="$DOTFILES/home/.agents/skills"
 
 # The source must be independent from the destination. Migrate the old root
