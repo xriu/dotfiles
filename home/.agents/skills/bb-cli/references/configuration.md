@@ -10,6 +10,16 @@
   copy from the source checkout. It uses gitignore pattern syntax. bb copies
   the matches before it runs `.bb-env-setup.sh`.
 
+- Hooks require ownership confirmed by successful provider creation. Attached
+  checkout and personal-workspace paths skip both hooks. Server restart resumes
+  the saved hook operation; cleanup waits for daemon-confirmed termination
+  after a transport failure and retries while the daemon is unreachable.
+
+- Missing default environment plugins cause creation to fail before a thread is
+  inserted. Enable the plugin or explicitly select another environment.
+- Host-dependent environment preflight requires a connected machine. Directory
+  switching creates a core-owned attachment without claiming plugin provenance.
+
 ## App settings
 
 - Read `references/app-settings.md` for every general key, experiment, default,
@@ -23,18 +33,6 @@
 - Use `bb settings version [--force]` for release information.
 - Use `bb settings reload` to reload BB-managed configuration.
 - These commands support `--json`.
-
-## Provider plugin settings
-
-- Read provider settings with `bb plugin config <plugin-id>` and change them
-  with `bb plugin config <plugin-id> set <key> <value>`.
-- Claude Code's `idleQueryReleaseEnabled` setting opts into closing its native
-  process after 30 seconds of quiescence while keeping the bb thread resumable.
-  It defaults to `false`; changes apply on the next start, resume, or turn.
-- Claude Code's `chromeEnabled` setting starts its process with `--chrome` so
-  bb threads get the Claude in Chrome browser tools. It defaults to `false`;
-  the host needs the Chrome extension and a claude.ai login. A change restarts
-  the thread's Claude process before its next turn without losing context.
 
 ## Agent Instructions
 
@@ -80,3 +78,57 @@
   machines only when more than one is enrolled.
 - `bb skill cli-skills-status` reports per machine whether the installed copy is
   `installed`, `outdated`, `missing`, or `unknown` (disconnected or unreachable).
+
+## BB guide instructions and skills
+
+Settings → Installed plugins → BB guide controls the BB introduction and the
+four bundled skills. All settings default to true. Use
+`bb plugin config bb-guide set <key> true|false` with `introduction`, `skills`
+(the master skill switch), `bbCli`, `pluginAuthoring`, `skillCreator`, or `submitPlugin`.
+Disabling the plugin removes its introduction and skills. Changes apply when
+agent configuration is next assembled; independently installed copies remain
+available through their own sources.
+
+## BB source runtime preparation
+
+In the BB repository, add `--dryrun` to `pnpm start` or `pnpm start:worktree`
+to run Turbo preparation, print resolved paths/ports and exit. The dry run uses
+the same dotenv settings and runtime policy as normal startup. It does not start
+services, migrate instance data or require ports to be free, but still writes
+build outputs and may repair native modules. Install dependencies beforehand.
+Preparation writes the checkout's build outputs; use a separate staging checkout
+to warm Turbo while a live instance serves its existing files, then prepare the
+stable serving checkout before launch. See `docs/debugging-and-qa.md` and
+`bb guide environments`. These source-maintenance commands are separate from
+installed `bb` commands and `.bb-env-setup.sh`.
+
+## Machine access and isolated data
+
+Machine access `machineServerUrl` is the URL reachable by machines; unset uses
+`BB_EXTERNAL_URL`. `defaultMachineAccess` selects an access provider; unset
+uses the first registered access provider, or direct when none are registered.
+Inspect effective values
+with `bb settings show --json` and change them with `bb settings general`.
+`BB_DATA_DIR` selects isolated enrollment state. Local machine lifecycle commands
+treat it as an ownership assertion and refuse the default BB installation; see
+thread-creation.md and docs/configuration.md for the directory constraints.
+
+Machine enrollment v2 stores private `serverHeaders` in machine `config.json`.
+The launcher transports these through `BB_SERVER_HEADERS` (JSON string map) for
+all server requests. Do not print these headers; they can contain access tokens.
+
+## Machine environment
+
+Use `bb machine env list --json` for variables and built-in gh health.
+`bb machine env set NAME [--note text] --json` reads the value from
+stdin and removes one trailing newline; never pass secrets in argv. Runtime
+output is forwarded as-is, so commands and providers can print contributed
+values. `bb machine env unset NAME --json` removes an override. All values are
+encrypted in the database and omitted from settings responses.
+
+These settings apply globally to enrolled machines, not local hosts, on each
+agent turn, setup command, and new BB terminal. User values override built-ins;
+agent-provider entries override host values. Reopen existing terminals after a
+change. The server gh login provides GitHub Git/gh authentication and commit
+identity by default; a user GH_TOKEN replaces it. See Settings → Machines →
+Machine environment, and `bb machine env list` for builtInGit readiness.

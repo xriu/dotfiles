@@ -2,7 +2,7 @@
 set -euo pipefail
 
 readonly DOTFILES="$HOME/dotfiles"
-readonly SKILLS_SOURCE="$DOTFILES/.skills"
+readonly SKILLS_SOURCE="$DOTFILES/home/.skills"
 readonly SKILLS_DEST="$DOTFILES/home/.agents/skills"
 
 # The source must be independent from the destination. Migrate the old root
@@ -54,20 +54,19 @@ if [[ "${#skill_names[@]}" -eq 0 ]]; then
     exit 1
 fi
 
-# The destination is flat: remove the old nested tree before linking each skill.
+# Remove stale links, but preserve destination-only real skills.
 while IFS= read -r -d '' entry; do
-    if [[ -L "$entry" ]]; then
-        rm "$entry"
-    else
-        rm -rf "$entry"
-    fi
-done < <(find "$SKILLS_DEST" -mindepth 1 -maxdepth 1 -print0)
+    rm "$entry"
+done < <(find "$SKILLS_DEST" -mindepth 1 -maxdepth 1 -type l -print0)
 
 for index in "${!skill_names[@]}"; do
     skill_name="${skill_names[$index]}"
     skill_dir="${skill_dirs[$index]}"
     skill_dest="$SKILLS_DEST/$skill_name"
 
+    if [[ -e "$skill_dest" || -L "$skill_dest" ]]; then
+        rm -rf "$skill_dest"
+    fi
     ln -s "$skill_dir" "$skill_dest"
     printf 'Linked skill: %s -> %s\n' "$skill_dest" "$skill_dir"
 done

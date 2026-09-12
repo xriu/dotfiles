@@ -18,6 +18,11 @@ This index lists every command path that the core CLI registers. Read the task-s
 - `bb settings keyboard list`
 - `bb settings keyboard set`
 - `bb settings keyboard reset`
+- `bb settings ui`
+- `bb settings ui list`
+- `bb settings ui get`
+- `bb settings ui set`
+- `bb settings ui reset`
 - `bb settings usage`
 - `bb settings version`
 - `bb settings reload`
@@ -45,6 +50,8 @@ This index lists every command path that the core CLI registers. Read the task-s
 - `bb project update`
 - `bb project delete`
 
+`bb project show <id>` accepts `proj_personal` to inspect Personal.
+
 ## provider
 
 - `bb provider`
@@ -62,15 +69,31 @@ This index lists every command path that the core CLI registers. Read the task-s
 ## machine
 
 - `bb machine`
+- `bb machine providers`
+- `bb machine enroll`
+- `bb machine env`
+- `bb machine env list`
+- `bb machine env set`
+- `bb machine env unset`
+- `bb machine create`
 - `bb machine list`
 - `bb machine show`
 - `bb machine join-code`
 - `bb machine rename`
 - `bb machine remove`
+- `bb machine suspend`
+- `bb machine resume`
+- `bb machine retry-cleanup`
 - `bb machine retry-update`
 - `bb machine provider-cli`
 - `bb machine provider-cli status`
 - `bb machine provider-cli install`
+
+`bb thread spawn --new-machine <provider-id>` creates a machine for a new
+environment and requires `--environment-provider <id>`. For a composed option,
+use `--environment-provider modal-sandbox` alone. `--machine-inputs <json>`
+configures the machine with optional configured `preset` and `image` names;
+`--environment-inputs <json>` configures the workspace. Neither carries secrets.
 
 ## updates
 
@@ -155,6 +178,9 @@ This index lists every command path that the core CLI registers. Read the task-s
 ## environment
 
 - `bb environment`
+- `bb environment providers`
+- `bb environment list`
+- `bb environment delete`
 - `bb environment show`
 - `bb environment status`
 - `bb environment branches`
@@ -249,3 +275,26 @@ This index lists every command path that the core CLI registers. Read the task-s
 
 - `bb voice`
 - `bb voice transcribe`
+
+## browser
+
+- `bb browser`
+- `bb browser instances`
+- `bb browser tabs`
+- `bb browser create`
+- `bb browser acquire`
+- `bb browser connection`
+- `bb browser release`
+- `bb browser reveal`
+- `bb browser close`
+- `bb browser capture`
+- `bb browser watch`
+- `bb browser import-sources`
+- `bb browser import-cookies`
+
+Machine lists and name/ID selectors include machines still being created. Machine creation is durable: `create --no-wait` returns the creating host ID. `machine show <host-id>` reads progress and `machine remove <host-id>` cancels it. SIGINT only stops following.
+
+Machine environment: `bb machine env list`, `bb machine env set NAME`
+(value from stdin), and `bb machine env unset NAME`; all accept `--json`.
+
+Standalone `bb machine create` machines remain until explicitly removed.

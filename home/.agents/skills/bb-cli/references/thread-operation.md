@@ -14,13 +14,13 @@
   needs clarification, or follow-up work is needed.
 - Add `--plan` to `bb thread spawn` or `bb thread tell` to send the prompt as
   the provider's structured `/plan` action: the agent proposes a plan for
-  approval before executing (Claude Code and Codex). Plain `/plan ...` text is
+  approval before executing when supported by the provider. Plain `/plan ...` text is
   not recognized and reaches the provider as literal text. Review the proposed
   plan with `bb thread interactions`; `bb thread cancel-plan` leaves Plan mode
   early. The SDK equivalent is `input: [createBuiltinPlanCommandTextInput(text)]`
   (exported by `@bb/sdk`) on `threads.spawn` / `threads.send`.
 - Use `bb thread edit-message <thread-id> --message "..."` to replace and rerun
-  the latest eligible user message in a Codex, Claude Code, or Pi thread. Pass
+  the latest eligible user message in a supporting provider thread. Pass
   `--expected-request-sequence <sequence>` to select an earlier message. Failed
   and incomplete turns are eligible; submitting against a running thread stops
   and settles its current turn first. Opening edit mode in the app is
@@ -37,6 +37,8 @@
   scheduled tell neither sends nor runs. Both report `delivery: "queued"` and
   dispatch on the sweep after the requested time. The SDK equivalent is `sendAt`
   (epoch ms) on `threads.spawn` / `threads.send`.
+- `bb thread queue list` shows a Sender for agent threads and system notices.
+  SDK queue rows and `--json` include `initiator` and nullable `senderThreadId`.
 - A send that cannot run right now does not fail: it joins the thread's queue
   with a typed reason. `--json` reports `delivery: "queued"` plus
   the complete `queuedMessage` row, so a script can inspect its `id`,
@@ -44,8 +46,8 @@
   one of `time`, `thread-busy`, `turn-starting`, `provisioning`, `host-offline`,
   `interaction`, or `plugin` (which also carries `pluginId` and a human reason).
 - Inspect and act on queued dispatches with `bb thread queue list [<thread-id>]
-  [--wait-holder plugin:<plugin-id>]`, `bb thread queue send <thread-id>
-  <message-id>` (send it now, bypassing every plugin wait and its schedule), and
+[--wait-holder plugin:<plugin-id>]`, `bb thread queue send <thread-id>
+<message-id>` (send it now, bypassing every plugin wait and its schedule), and
   `bb thread queue delete <thread-id> <message-id>` (discard it). Omitting the
   thread lists every queued row in the workspace. The list shows `Waiting on`
   and `Send at` columns. Several queued rows on one thread are normal. The SDK
@@ -63,13 +65,13 @@
 - Use `bb thread count` when you need how many threads there are, never a list
   plus a row count: the count is a database aggregate, while `bb thread list`
   pages a bounded window and would miscount. Narrow with `--status
-  <pending|idle|starting|active|stopping|error>`, `--host`, `--provider`,
+<pending|idle|starting|active|stopping|error>`, `--host`, `--provider`,
   `--project`, and `--parent <id|none>` (`none` counts only threads that have no
   parent at all; pass an id to count one thread's children). Archived, deleted,
   and hidden threads are excluded. Plain output is one number; `--by
-  host|provider|project` prints a count per group (a thread with none groups
+host|provider|project` prints a count per group (a thread with none groups
   under `-`) and the total. The SDK equivalent is `threads.count({ status,
-  hostId, providerId, projectId, parentThreadId, groupBy })`.
+hostId, providerId, projectId, parentThreadId, groupBy })`.
 - `bb thread tell` steers by default, delivering the message immediately into
   the active turn. Use `--mode queue` when the message is non-urgent and the
   agent can finish its current work first. Steer is especially important for a
@@ -83,7 +85,7 @@
   thread's queue with `waitingOn.kind: "interaction"` and dispatches once the
   interaction settles; the CLI prints that it is queued and why. That outcome is
   not a failure, so do not resend. For a hard stop use `bb thread stop
-  <thread-id>`. `--json` reports `delivery` as `sent` or `queued`. If the thread
+<thread-id>`. `--json` reports `delivery` as `sent` or `queued`. If the thread
   fails while the message is queued (its provider exited), the message waits
   until somebody retries the thread.
 
@@ -99,7 +101,9 @@
 - Use `bb thread log <thread-id>` to inspect the conversation. The default
   shows only the newest 20 user-message turns and ends with a notice when older
   history was omitted. For timeline text, `--limit <n>` accepts at most 100.
-  `--all` prints the whole thread. JSON accepts any positive limit. It defaults
+  `--all` prints the whole thread. Human formats use a consistent history
+  snapshot and join paginated group contents. Appends remain outside that walk;
+  rerun after a cursor-invalidated error from a history edit. JSON accepts any positive limit. It defaults
   to the oldest 100 raw events and warns when more exist. Page with
   `--after-seq <seq>` or pass `--all`.
   Grep the `--all` output, not the default page, when checking whether a
@@ -138,7 +142,11 @@ For review or fix pipelines, get the environment ID from
 - Use `bb file read|write|list|paths|mkdir|move|remove` for SDK-equivalent host
   file access. `--host` targets another machine; `--root` confines mutations.
 - File write requires exactly one of `--content` and `--stdin`. File paths lists
-  files and directories when neither selector is present.
+  files and directories when neither selector is present. File list and file
+  paths include dot-prefixed entries; `--no-hidden` skips them. Both skip
+  `node_modules`, `.venv`, `.pnpm-store`, and root-relative `.claude/worktrees`
+  by default. `--exclude <names...>` replaces that set; entries match basenames
+  at any depth or exact root-relative paths using `/` separators.
 - File remove supports `--recursive` and requires `--yes` without a terminal.
 - Use `bb voice transcribe <file> [--type <mime>] [--prompt <text>]` without the
   app composer. The MIME type defaults to `audio/webm`.
@@ -169,3 +177,5 @@ For review or fix pipelines, get the environment ID from
   `bb terminal close <terminal-id>` when the process is no longer needed.
 - `bb terminal restart <terminal-id>` replaces the session with a shell in the
   same scope, size, and title. It does not replay the original launch command.
+
+Clearing a thread's parent with `bb thread update --clear-parent-thread` inherits the former parent's section unless the update explicitly supplies a section. Children released by environment archiving also inherit their former parent's section.

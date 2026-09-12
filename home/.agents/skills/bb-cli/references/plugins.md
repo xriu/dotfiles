@@ -6,11 +6,6 @@
   it with services, schedules, HTTP/RPC endpoints, settings — and `bb` CLI
   subcommands that agents run through bash like any other command.
 - Use `bb plugin list` to inspect installed plugins and their current state.
-- The builtin Concurrency limit plugin exposes
-  `bb concurrency-limit status [--json]`,
-  `bb concurrency-limit global [unlimited|<limit>] [--json]`, and
-  `bb concurrency-limit host <host-id> [auto|<limit>] [--json]`. Automatic
-  host limits allow one thread per available processor.
 - **BB plugin catalog** (store under `/api/v1/plugin-catalog`):
   - The reserved **BB Official marketplace** has the name `bb-official`. It
     describes all plugins in the app bundle with a generated v2 document.
@@ -76,7 +71,7 @@
   - `bb plugin install <src>` — `<entry-id>@<marketplace>`, an HTTP(S) Git
     repository URL, a local path,
     `git:<url>[@<ref|semver-range>]`, or `npm:<package>[@<version|tag|range>]`
-    (npm on PATH required for `npm:`). Repository URLs and prefixes `path:` /
+    (using BB's shipped npm). Repository URLs and prefixes `path:` /
     `npm:` / `git:` skip catalog resolution. To pin or
     range an npm package, install with `npm:<package>@…`.
     Omit the npm spec to track compatible stable releases; ranges and dist-tags
@@ -100,7 +95,11 @@
     and git sources without a prebuilt app when their imported dependencies
     are already available;
     git/npm packages can also ship a metadata-validated prebuilt `dist/`, and
-    npm packages must. Managed git/npm installs refuse `engines.bb` /
+    npm packages must. Git installs use `--omit=dev`, `--omit=optional`, and
+    `--ignore-scripts`; plugins may keep normal development dependencies in
+    their manifests.
+    npm and Node do not need to be on PATH; Git sources still require `git`.
+    Managed git/npm installs refuse `engines.bb` /
     `engines.bbPluginSdk` mismatches, manifest vs. artifact identity mismatches,
     and reserved ID mismatches.
     A `git:`/`path:` repository can hold several plugins. Install one with
@@ -210,7 +209,7 @@
     useBbNavigate, useComposer for scoped text editing / quote / mention /
     focus access); components are vendored shadcn source the
     plugin owns. Installed
-    plugins and their settings also appear under Extensions → Plugins.
+    plugins and their settings also appear under Settings → Installed plugins.
 - **Writing a plugin?** Use the `bb-plugin-authoring` skill — the complete
   authoring reference for the backend `BbPluginApi` (settings, storage, sdk,
   http/rpc/realtime, background services and schedules, CLI commands, agent

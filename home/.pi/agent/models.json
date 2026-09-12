@@ -181,7 +181,7 @@
                     }
                 },
                 {
-                    "id": "deepseek/deepseek-v4.1-flash",
+                    "id": "deepseek/deepseek-v4.1-flash:exacto",
                     "name": "DeepSeek V4.1 Flash",
                     "reasoning": true,
                     "input": ["text", "image"],
@@ -390,6 +390,32 @@
                         "input": 0.22,
                         "output": 0.66,
                         "cacheRead": 0.007,
+                        "cacheWrite": 0
+                    },
+                    "compat": {
+                        "requiresReasoningContentForToolCalls": true,
+                        "allowsSyntheticReasoningContentForToolCalls": false
+                    },
+                    "thinkingLevelMap": {
+                        "minimal": null,
+                        "low": null,
+                        "medium": null,
+                        "high": "high",
+                        "xhigh": null,
+                        "max": "max"
+                    }
+                },
+                {
+                    "id": "deepseek-v4.1-flash",
+                    "name": "DeepSeek V4.1 Flash",
+                    "reasoning": true,
+                    "input": ["text"],
+                    "contextWindow": 1000000,
+                    "maxTokens": 384000,
+                    "cost": {
+                        "input": 0.15,
+                        "output": 0.6,
+                        "cacheRead": 0.003,
                         "cacheWrite": 0
                     },
                     "compat": {
