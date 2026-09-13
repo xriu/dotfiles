@@ -13,8 +13,7 @@
 
 - **Think before coding.** State assumptions, define success criteria, surface material tradeoffs, and push back when warranted.
 - **Surgical changes.** Touch only files and behavior required by the goal.
-- **Goal-driven execution.** Verify every success criterion.
-  Repeat until all pass, or report the blocker.
+- **Goal-driven execution.** Verify every success criterion. Repeat until all pass, or report the blocker.
 
 ### Design
 
