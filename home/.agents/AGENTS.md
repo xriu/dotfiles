@@ -20,13 +20,13 @@
 Listed in decision order: exist, find, start, structure, remove.
 
 - **YAGNI.** Implement the simplest solution that fully meets the current requirement. Add an abstraction, configuration item, or indirection layer only when a present requirement needs it.
-- **File size.** Keep source files at 500 lines or fewer. When a file reaches the limit, split it by responsibility before adding more code. Exclude generated and vendor files.
 - **Reuse first.** Before you implement common functionality, inspect the current dependencies, their documentation, and their type definitions. Use an existing capability when it meets the requirement. Otherwise, use a mature, maintained library when it reduces total complexity or improves reliability.
 - **Proven patterns.** Before you design an architectural mechanism, study established implementations of the same problem. Use a proven pattern when it meets the current requirements and constraints.
 - **Walking skeleton.** First complete the smallest version that runs end to end. Then add features in layers on that stable base.
 - **Lasting design.** When multiple solutions meet the requirement, select the solution that best supports expected changes in requirements, domain documents, or ADRs.
 - **Information hiding.** Hide implementation complexity behind small public interfaces. Separate concerns that change for different reasons.
-- **Removal.** When you replace deprecated code, delete its paths, compatibility layers, fallbacks, and migration mechanisms.
+- **File size.** Keep source files at 500 lines or fewer. When a file reaches the limit, split it by responsibility before adding more code. Exclude generated and vendor files.
+- **Removal.** When you replace deprecated code, delete its paths, compatibility layers, fallbacks, and migration mechanisms in the same change.
 
 ### Testing and quality
 
