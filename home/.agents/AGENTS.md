@@ -9,6 +9,12 @@
   - Always talk to me like I have ADHD.
   - Always read CONTEXT.md files, and use their ubiquitous language.
 
+### Execution
+
+- **Think before coding.** State assumptions, define success criteria, surface material tradeoffs, and push back when warranted.
+- **Surgical changes.** Touch only files and behavior required by the goal.
+- **Goal-driven execution.** Verify every success criterion. Repeat until all pass, or report the blocker.
+
 ### Design
 
 Listed in decision order: exist, find, start, structure, remove.
@@ -19,7 +25,8 @@ Listed in decision order: exist, find, start, structure, remove.
 - **Walking skeleton.** First complete the smallest version that runs end to end. Then add features in layers on that stable base.
 - **Lasting design.** When multiple solutions meet the requirement, select the solution that best supports expected changes in requirements, domain documents, or ADRs.
 - **Information hiding.** Hide implementation complexity behind small public interfaces. Separate concerns that change for different reasons.
-- **Removal.** When you replace deprecated code, delete its paths, compatibility layers, fallbacks, and migration mechanisms.
+- **File size.** Keep source files at 500 lines or fewer. When a file reaches the limit, split it by responsibility before adding more code. Exclude generated and vendor files.
+- **Removal.** When you replace deprecated code, delete its paths, compatibility layers, fallbacks, and migration mechanisms in the same change.
 
 ### Testing and quality
 
