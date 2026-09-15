@@ -1,5 +1,3 @@
 {
-    "curator": {
-        "workflow": "none"
-    }
+    "workflow": "none"
 }
