@@ -7,6 +7,7 @@ test -f ~/.config/fish/config.local.fish; and source ~/.config/fish/config.local
 # Exports
 set -gx LC_ALL $LANG
 set -gx GPG_TTY (tty)
+set -gx TYPESAFE_JUDGMENTS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/config
