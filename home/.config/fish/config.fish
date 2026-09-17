@@ -12,6 +12,9 @@ set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/config
 
+# Set environment variables via launchctl so they are available in GUI sessions
+launchctl setenv TYPESAFE_JUDGMENTS 1
+
 # Source multi-function files (Fish autoloading only works for single-function files)
 source $HOME/.config/fish/functions/terraform.fish
 source $HOME/.config/fish/functions/terragrunt.fish
@@ -45,7 +48,6 @@ if status is-interactive
 
     # Sync secrets to the macOS GUI session so GUI apps (e.g. bb) inherit them.
     # Values come from config.local.fish sourced above. Runs in interactive shells.
-    launchctl setenv TYPESAFE_JUDGMENTS 1
     launchctl setenv OPENROUTER_API_KEY $OPENROUTER_API_KEY
     launchctl setenv OPENCODE_API_KEY $OPENCODE_API_KEY
 
