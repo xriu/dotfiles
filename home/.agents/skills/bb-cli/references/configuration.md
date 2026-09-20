@@ -113,11 +113,31 @@ with `bb settings show --json` and change them with `bb settings general`.
 treat it as an ownership assertion and refuse the default BB installation; see
 thread-creation.md and docs/configuration.md for the directory constraints.
 
+The `bb` CLI appends every failed invocation to
+`<data dir>/logs/cli-errors.jsonl` on the machine that ran it: command path,
+error code, and the unknown command or flag, never argument values.
+`bb diagnostics cli-errors [--since 7d] [--json]` tallies it; `--clear` deletes
+it. `BB_CLI_ERROR_LOG=0` turns recording off.
+
 Machine enrollment v2 stores private `serverHeaders` in machine `config.json`.
 The launcher transports these through `BB_SERVER_HEADERS` (JSON string map) for
 all server requests. Do not print these headers; they can contain access tokens.
 
 ## Machine environment
+
+Use `--project <id>` on `bb machine env list|set|unset` for project overrides;
+omit it for global settings. Project overrides follow the project across
+machines and worktrees, including the primary host. Empty strings override;
+unset restores inheritance. List masks all values and includes inherited global
+rows for project scope. Set and unset update a single variable atomically.
+
+Settings → Environment variables edits machine variables and has a scope
+selector under its header. Project settings → Advanced settings opens the same editor for that
+project. Changes apply
+to the next agent turn and new terminals/commands. Project values are passed per
+operation and never installed into the daemon's global environment. They override
+global values; provider contributions retain precedence. All scopes share an
+encrypted database table and the existing machine-environment encryption key.
 
 Repository setup receives freshly resolved machine variables on each dispatch,
 including recovery. Values are sent transiently to the setup process and are
@@ -130,17 +150,33 @@ output is forwarded as-is, so commands and providers can print contributed
 values. `bb machine env unset NAME --json` removes an override. All values are
 encrypted in the database and omitted from settings responses.
 
-These settings apply globally to enrolled machines, excluding local hosts. The
-server synchronizes them into the daemon environment on connection and settings
-changes, so background commands and new child processes inherit them. Removing
-an override restores the original daemon value. User values override built-ins;
-agent-provider entries override host values. Environment synchronization does
-not restart cached provider runtimes; they retain their launch environment until
-recreated. Reopen existing terminals after a change. The server gh login provides GitHub Git/gh authentication and commit
-identity by default; a user GH_TOKEN replaces it. See Settings → Machines →
+These settings apply globally to every connected machine, including the primary
+host. The server synchronizes them into the daemon environment on connection and
+settings changes, so background commands and new child processes inherit them.
+Removing an override restores the original daemon value. User values override
+built-ins; agent-provider entries override host values. Environment synchronization
+does not restart cached provider runtimes; they retain their launch environment until
+recreated. Reopen existing terminals after a change. The server gh login provides
+GitHub Git/gh authentication and commit identity to non-primary hosts by default;
+the primary host uses its local Git authentication. A user GH_TOKEN replaces it.
+See Settings → Machines →
 Machine environment, and `bb machine env list` for builtInGit readiness.
 
 Plugin host calls start immediately using the current environment while any calls
 are active in that plugin worker. Changed or removed machine variables take
 effect on the next call after all active calls finish. Continuous overlapping
 calls can keep the previous values until the worker becomes idle.
+
+Plugin commands use `plugin:<plugin-id>/<command-id>` as their stable binding
+ID. For example: `bb settings keyboard set plugin:example/open-issue Mod+Shift+I`.
+`bb settings keyboard reset plugin:example/open-issue` restores the plugin's
+default; `set ... disabled` explicitly unbinds it. The SDK supports the same IDs
+through `system.updateKeyboardSettings` and `system.config`.
+Overrides survive plugin disable/re-enable and reload. Every active plugin
+command appears in Keyboard Settings; commands without defaults start unbound.
+Conflicting plugin defaults stay unbound and display the conflicting command.
+The UI offers Replace binding or Cancel when assigning an occupied shortcut.
+`keyboard list` includes all saved overrides and core effective bindings;
+plugin defaults and availability are resolved in each app window, where the
+plugin frontend runs. CLI/SDK callers should clear conflicting explicit
+bindings in the same update; plugin defaults yield to explicit bindings.
