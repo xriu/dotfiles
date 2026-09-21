@@ -50,60 +50,53 @@ type JevDecision = boolean | undefined;
 
 // Route complete AWS commands and known risky shell commands to Jev.
 const awsCommandPattern = /(?:^|[;&|]\s*)(?:AWS_[A-Z_]+=\S*\s+)*aws\b/;
-const jevEndpoint = "https://api.typesafe.ai/v1/systemone";
+const openRouterEndpoint = "https://openrouter.ai/api/alpha/decisions";
+const jevModel = "~typesafe/jev-latest";
+const openRouterApiKeyName = "OPENROUTER_API_KEY_TEST";
 const jevTimeoutMs = 1_500;
-const jevPassThreshold = 0.98;
+const jevPassThreshold = 0.9;
 
 const isRecord = (value: unknown): value is JsonRecord => typeof value === "object" && value !== null;
 
-// Parse only the strict pass/deny shape. Invalid responses fall back to local policy.
+// Parse the OpenRouter Decisions response. Invalid responses fall back to local policy.
 function parseJevDecision(payload: unknown): JevDecision {
 	if (!isRecord(payload) || !isRecord(payload.answers)) return undefined;
 
 	const answer = payload.answers.command_decision;
-	if (
-		!isRecord(answer) ||
-		answer.type !== "choice" ||
-		(answer.choice !== "pass" && answer.choice !== "deny") ||
-		!isRecord(answer.probabilities)
-	) {
-		return undefined;
-	}
+	if (!isRecord(answer) || answer.type !== "noul" || typeof answer.noul !== "number") return undefined;
+	if (answer.noul < 0 || answer.noul > 1) return undefined;
 
-	const passProbability = answer.probabilities.pass;
-	if (typeof passProbability !== "number" || passProbability < 0 || passProbability > 1) return undefined;
-
-	return answer.choice === "pass" && passProbability >= jevPassThreshold;
+	return answer.noul >= jevPassThreshold;
 }
 
-// Ask Jev for a bounded pass/deny decision. Any service failure returns undefined.
+// Ask Jev through OpenRouter. Any service failure returns undefined.
 async function askJev(command: string, signal: AbortSignal | undefined): Promise<JevDecision> {
-	const apiKey = process.env.TYPESAFE_API_KEY;
+	const apiKey = process.env[openRouterApiKeyName];
 	if (!apiKey) return undefined;
 
 	const timeoutSignal = AbortSignal.timeout(jevTimeoutMs);
 	const requestSignal = signal ? AbortSignal.any([signal, timeoutSignal]) : timeoutSignal;
 
 	try {
-		const response = await fetch(jevEndpoint, {
+		const response = await fetch(openRouterEndpoint, {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${apiKey}`,
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				model: "jev-1.13.0",
+				model: jevModel,
 				state: { command },
 				questions: {
 					command_decision: {
-						type: "choice",
+						type: "noul",
 						instructions: {
 							question: "Should `command` be allowed to run unattended?",
-							policy: "Deny destructive, mutating, privileged, credential-related, shell-executing, ambiguous, or unsafe commands.",
+							policy: "Allow safe, non-privileged commands. For AWS, treat sts get-caller-identity and list-*, get-*, and describe-* operations as read-only. Deny destructive, mutating, credential-changing, shell-executing, ambiguous, or unsafe commands.",
 						},
 						criteria: {
-							pass: "A command that is safe to run unattended and does not need privilege or dangerous permission changes.",
-							deny: "A command that can cause harm, change resources or permissions, expose secrets, execute arbitrary shell behavior, or is ambiguous.",
+							true: "A command with no harmful side effect. An AWS sts get-caller-identity, list-*, get-*, or describe-* operation is read-only and allowed.",
+							false: "A command that changes or deletes resources, changes credentials or permissions, executes shell behavior, exposes secret values, or is ambiguous.",
 						},
 					},
 				},

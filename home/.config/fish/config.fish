@@ -15,9 +15,10 @@ set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/config
 # Sync secrets to the macOS GUI session so GUI apps (e.g. bb) inherit them.
 # Values come from config.local.fish sourced above. Runs in interactive shells.
 launchctl setenv TYPESAFE_JUDGMENTS 1
-launchctl setenv OPENROUTER_API_KEY $OPENROUTER_API_KEY
-launchctl setenv OPENCODE_API_KEY $OPENCODE_API_KEY
 launchctl setenv TYPESAFE_API_KEY $TYPESAFE_API_KEY
+launchctl setenv OPENCODE_API_KEY $OPENCODE_API_KEY
+launchctl setenv OPENROUTER_API_KEY $OPENROUTER_API_KEY
+launchctl setenv OPENROUTER_API_KEY_TEST $OPENROUTER_API_KEY_TEST
 
 # Source multi-function files (Fish autoloading only works for single-function files)
 source $HOME/.config/fish/functions/terraform.fish
