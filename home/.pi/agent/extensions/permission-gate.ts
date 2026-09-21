@@ -39,13 +39,16 @@ const promptPatterns: Pattern[] = [
 	{ pattern: "\\b(chmod|chown)\\b.*777", regex: true, description: "World-writable permission change", enabled: true },
 ];
 
+// Match a command against one enabled policy pattern.
 const matches = (command: string, p: Pattern) =>
 	p.enabled && (p.regex ? new RegExp(p.pattern).test(command) : command.includes(p.pattern));
 
+// Shared gate result types. undefined means the command can continue.
 type JsonRecord = Record<string, unknown>;
 type PolicyResult = { block: true; reason: string } | undefined;
 type JevDecision = boolean | undefined;
 
+// Route complete AWS commands and known risky shell commands to Jev.
 const awsCommandPattern = /(?:^|[;&|]\s*)(?:AWS_[A-Z_]+=\S*\s+)*aws\b/;
 const jevEndpoint = "https://api.typesafe.ai/v1/systemone";
 const jevTimeoutMs = 1_500;
@@ -53,6 +56,7 @@ const jevPassThreshold = 0.98;
 
 const isRecord = (value: unknown): value is JsonRecord => typeof value === "object" && value !== null;
 
+// Parse only the strict pass/deny shape. Invalid responses fall back to local policy.
 function parseJevDecision(payload: unknown): JevDecision {
 	if (!isRecord(payload) || !isRecord(payload.answers)) return undefined;
 
@@ -72,6 +76,7 @@ function parseJevDecision(payload: unknown): JevDecision {
 	return answer.choice === "pass" && passProbability >= jevPassThreshold;
 }
 
+// Ask Jev for a bounded pass/deny decision. Any service failure returns undefined.
 async function askJev(command: string, signal: AbortSignal | undefined): Promise<JevDecision> {
 	const apiKey = process.env.TYPESAFE_API_KEY;
 	if (!apiKey) return undefined;
@@ -113,38 +118,43 @@ async function askJev(command: string, signal: AbortSignal | undefined): Promise
 	}
 }
 
+// Apply the local rules that must always block without user confirmation.
+function hardDeny(command: string): PolicyResult {
+	const denied = autoDenyPatterns.find((p) => matches(command, p));
+	return denied ? { block: true, reason: `Blocked: ${denied.description}` } : undefined;
+}
+
+// Ask the user when local policy requires confirmation.
+async function askUser(command: string, ctx: ExtensionContext): Promise<PolicyResult> {
+	if (!ctx.hasUI) {
+		return { block: true, reason: "Dangerous command blocked (no UI for confirmation)" };
+	}
+
+	const choice = await ctx.ui.select(`⚠️ Dangerous command:\n\n  ${command}\n\nAllow?`, ["Yes", "No"]);
+	return choice === "Yes" ? undefined : { block: true, reason: "Blocked by user" };
+}
+
+// Preserve the original allowlist, denylist, and prompt policy as the fallback.
 async function applyCurrentPolicy(command: string, ctx: ExtensionContext): Promise<PolicyResult> {
 	if (allowedPatterns.some((p) => matches(command, p))) return undefined;
 
-	const denied = autoDenyPatterns.find((p) => matches(command, p));
-	if (denied) {
-		return { block: true, reason: `Blocked: ${denied.description}` };
-	}
+	const denied = hardDeny(command);
+	if (denied) return denied;
 
-	if (promptPatterns.some((p) => matches(command, p))) {
-		if (!ctx.hasUI) {
-			return { block: true, reason: "Dangerous command blocked (no UI for confirmation)" };
-		}
-
-		const choice = await ctx.ui.select(`⚠️ Dangerous command:\n\n  ${command}\n\nAllow?`, ["Yes", "No"]);
-		if (choice !== "Yes") {
-			return { block: true, reason: "Blocked by user" };
-		}
-	}
-
-	return undefined;
+	return promptPatterns.some((p) => matches(command, p)) ? askUser(command, ctx) : undefined;
 }
 
+// Gate Bash calls: Jev first for selected commands, local policy otherwise.
 export default function (pi: ExtensionAPI) {
 	pi.on("tool_call", async (event, ctx) => {
 		if (!isToolCallEventType("bash", event)) return undefined;
 
 		const command = event.input.command;
-
 		const isAwsCommand = awsCommandPattern.test(command);
 		const needsJev = isAwsCommand || promptPatterns.some((p) => matches(command, p));
 
 		if (needsJev) {
+			// Jev can relax the AWS operation deny rule, but not unrelated hard-deny rules.
 			if (isAwsCommand && !allowedPatterns.some((p) => matches(command, p))) {
 				const hardDenied = autoDenyPatterns.find(
 					(p) => p.description !== "AWS outside read-only allowlist" && matches(command, p),
@@ -152,6 +162,7 @@ export default function (pi: ExtensionAPI) {
 				if (hardDenied) return { block: true, reason: `Blocked: ${hardDenied.description}` };
 			}
 
+			// A valid Jev answer decides the command. Undefined falls back below.
 			const jevDecision = await askJev(command, ctx.signal);
 			if (jevDecision !== undefined) {
 				return jevDecision ? undefined : { block: true, reason: "Blocked by Jev: command denied" };
