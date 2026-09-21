@@ -2,11 +2,12 @@
  * Permission Gate Extension
  *
  * Migrated from guardrails.json (pi-guardrails permissionGate).
- * Order: allowlist bypasses checks, then auto-deny blocks, then prompt patterns ask.
+ * AWS and prompt-pattern commands ask Jev first; failures fall back to the local policy.
+ * Local policy: allowlist bypasses checks, then auto-deny blocks, then prompts ask.
  * Matching: substring unless marked regex.
  */
 
-import { isToolCallEventType, type ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import { isToolCallEventType, type ExtensionAPI, type ExtensionContext } from "@earendil-works/pi-coding-agent";
 
 type Pattern = { pattern: string; regex?: boolean; description: string; enabled: boolean };
 
@@ -41,30 +42,122 @@ const promptPatterns: Pattern[] = [
 const matches = (command: string, p: Pattern) =>
 	p.enabled && (p.regex ? new RegExp(p.pattern).test(command) : command.includes(p.pattern));
 
+type JsonRecord = Record<string, unknown>;
+type PolicyResult = { block: true; reason: string } | undefined;
+type JevDecision = boolean | undefined;
+
+const awsCommandPattern = /(?:^|[;&|]\s*)(?:AWS_[A-Z_]+=\S*\s+)*aws\b/;
+const jevEndpoint = "https://api.typesafe.ai/v1/systemone";
+const jevTimeoutMs = 1_500;
+const jevPassThreshold = 0.98;
+
+const isRecord = (value: unknown): value is JsonRecord => typeof value === "object" && value !== null;
+
+function parseJevDecision(payload: unknown): JevDecision {
+	if (!isRecord(payload) || !isRecord(payload.answers)) return undefined;
+
+	const answer = payload.answers.command_decision;
+	if (
+		!isRecord(answer) ||
+		answer.type !== "choice" ||
+		(answer.choice !== "pass" && answer.choice !== "deny") ||
+		!isRecord(answer.probabilities)
+	) {
+		return undefined;
+	}
+
+	const passProbability = answer.probabilities.pass;
+	if (typeof passProbability !== "number" || passProbability < 0 || passProbability > 1) return undefined;
+
+	return answer.choice === "pass" && passProbability >= jevPassThreshold;
+}
+
+async function askJev(command: string, signal: AbortSignal | undefined): Promise<JevDecision> {
+	const apiKey = process.env.TYPESAFE_API_KEY;
+	if (!apiKey) return undefined;
+
+	const timeoutSignal = AbortSignal.timeout(jevTimeoutMs);
+	const requestSignal = signal ? AbortSignal.any([signal, timeoutSignal]) : timeoutSignal;
+
+	try {
+		const response = await fetch(jevEndpoint, {
+			method: "POST",
+			headers: {
+				Authorization: `Bearer ${apiKey}`,
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				model: "jev-1.13.0",
+				state: { command },
+				questions: {
+					command_decision: {
+						type: "choice",
+						instructions: {
+							question: "Should `command` be allowed to run unattended?",
+							policy: "Deny destructive, mutating, privileged, credential-related, shell-executing, ambiguous, or unsafe commands.",
+						},
+						criteria: {
+							pass: "A command that is safe to run unattended and does not need privilege or dangerous permission changes.",
+							deny: "A command that can cause harm, change resources or permissions, expose secrets, execute arbitrary shell behavior, or is ambiguous.",
+						},
+					},
+				},
+			}),
+			signal: requestSignal,
+		});
+
+		if (!response.ok) return undefined;
+		return parseJevDecision(await response.json());
+	} catch {
+		return undefined;
+	}
+}
+
+async function applyCurrentPolicy(command: string, ctx: ExtensionContext): Promise<PolicyResult> {
+	if (allowedPatterns.some((p) => matches(command, p))) return undefined;
+
+	const denied = autoDenyPatterns.find((p) => matches(command, p));
+	if (denied) {
+		return { block: true, reason: `Blocked: ${denied.description}` };
+	}
+
+	if (promptPatterns.some((p) => matches(command, p))) {
+		if (!ctx.hasUI) {
+			return { block: true, reason: "Dangerous command blocked (no UI for confirmation)" };
+		}
+
+		const choice = await ctx.ui.select(`⚠️ Dangerous command:\n\n  ${command}\n\nAllow?`, ["Yes", "No"]);
+		if (choice !== "Yes") {
+			return { block: true, reason: "Blocked by user" };
+		}
+	}
+
+	return undefined;
+}
+
 export default function (pi: ExtensionAPI) {
 	pi.on("tool_call", async (event, ctx) => {
 		if (!isToolCallEventType("bash", event)) return undefined;
 
 		const command = event.input.command;
 
-		if (allowedPatterns.some((p) => matches(command, p))) return undefined;
+		const isAwsCommand = awsCommandPattern.test(command);
+		const needsJev = isAwsCommand || promptPatterns.some((p) => matches(command, p));
 
-		const denied = autoDenyPatterns.find((p) => matches(command, p));
-		if (denied) {
-			return { block: true, reason: `Blocked: ${denied.description}` };
-		}
-
-		if (promptPatterns.some((p) => matches(command, p))) {
-			if (!ctx.hasUI) {
-				return { block: true, reason: "Dangerous command blocked (no UI for confirmation)" };
+		if (needsJev) {
+			if (isAwsCommand && !allowedPatterns.some((p) => matches(command, p))) {
+				const hardDenied = autoDenyPatterns.find(
+					(p) => p.description !== "AWS outside read-only allowlist" && matches(command, p),
+				);
+				if (hardDenied) return { block: true, reason: `Blocked: ${hardDenied.description}` };
 			}
 
-			const choice = await ctx.ui.select(`⚠️ Dangerous command:\n\n  ${command}\n\nAllow?`, ["Yes", "No"]);
-			if (choice !== "Yes") {
-				return { block: true, reason: "Blocked by user" };
+			const jevDecision = await askJev(command, ctx.signal);
+			if (jevDecision !== undefined) {
+				return jevDecision ? undefined : { block: true, reason: "Blocked by Jev: command denied" };
 			}
 		}
 
-		return undefined;
+		return applyCurrentPolicy(command, ctx);
 	});
 }
