@@ -1,10 +1,15 @@
 {
-    "mcp": {
-        "toolMode": "proxy",
-        "startup": "lazy",
+    "settings": {
+        "jev": {
+            "semanticSearch": true,
+            "allowedServers": ["computer"]
+        }
+    },
+    "mcpServers": {
         "computer": {
             "type": "local",
-            "command": ["open-computer-use", "mcp"],
+            "command": "open-computer-use",
+            "args": ["mcp"],
             "enabled": true,
             "timeout": 60000
         }
