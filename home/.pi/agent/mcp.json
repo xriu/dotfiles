@@ -6,7 +6,7 @@
                 "aws-knowledge",
                 "aws-infrastructure-as-code",
                 "aws-mcp",
-                "computer"
+                "open-computer-use"
             ]
         }
     },
@@ -35,11 +35,10 @@
                 "AWS_PROFILE": "sre-ops"
             }
         },
-        "computer": {
+        "open-computer-use": {
             "type": "local",
             "command": "open-computer-use",
             "args": ["mcp"],
-            "enabled": true,
             "timeout": 60000
         }
     }
