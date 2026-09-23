@@ -1,7 +1,7 @@
 {
     "lastChangelogVersion": "0.87.1",
     "defaultProvider": "openrouter",
-    "defaultModel": "moonshotai/kimi-k2.6",
+    "defaultModel": "openai/gpt-6-luna",
     "defaultProjectTrust": "always",
     "defaultThinkingLevel": "max",
     "hideThinkingBlock": true,
@@ -9,10 +9,7 @@
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
         "npm:pi-mcp-adapter",
-        {
-            "source": "git:github.com/xriu/pi-extensions",
-            "extensions": ["openrouter-models/src/index.ts"]
-        },
+        "git:github.com/xriu/pi-extensions",
         {
             "source": "npm:@plannotator/pi-extension",
             "skills": []
