@@ -1,4 +1,4 @@
 {
-    "provider": "lm-openrouter",
-    "model": "deepseek/deepseek-v4.1-flash:exacto"
+    "provider": "openrouter",
+    "model": "deepseek/deepseek-v4.1-flash"
 }

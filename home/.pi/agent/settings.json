@@ -1,7 +1,7 @@
 {
     "lastChangelogVersion": "0.87.0",
-    "defaultProvider": "lm-openrouter",
-    "defaultModel": "openai/gpt-5.6-luna",
+    "defaultProvider": "openrouter",
+    "defaultModel": "moonshotai/kimi-k2.6",
     "defaultProjectTrust": "always",
     "defaultThinkingLevel": "max",
     "hideThinkingBlock": true,
