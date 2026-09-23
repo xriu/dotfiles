@@ -1,16 +1,17 @@
 ---
 name: twg-jira
 description: >
-  Use with root `twg` for Jira workitems, projects, boards, sprints, fields,
-  transitions, comments, links, and administration. Applies Jira semantics and
-  safe mutation rules.
+  Use with root `twg` for Jira workitems, similar issue discovery,
+  duplicate detection, projects, boards, sprints, fields, transitions,
+  comments, links, and administration. Applies Jira semantics and safe mutation
+  rules.
 disable-model-invocation: true
 ---
 
 # twg-jira
 
-Use with the root `twg` skill whenever Jira is the source of truth or a Jira
-mutation is required. This skill owns Jira semantics and safety; exact command
+Use with the root `twg` skill when Jira is the source of truth or a Jira
+mutation is required. This skill owns Jira semantics and safety; command
 grammar comes from live `twg help`.
 
 ## CLI launcher fallback
@@ -26,6 +27,7 @@ PATH failures.
   primary anchor.
 - The user asks to create, update, transition, comment on, link, watch, or
   delete Jira work.
+- The user asks to find or review duplicate Jira workitems.
 - Required or custom fields must be discovered and populated.
 - A workflow skill needs authoritative Jira fields or status.
 
@@ -37,11 +39,13 @@ inside a cross-product answer.
 | Intent                         | Route                                 |
 | ------------------------------ | ------------------------------------- |
 | Known workitem                 | Native workitem `get`                 |
+| Several known workitems        | One `get`/`bulk-get` with all keys    |
 | Jira-only fuzzy text discovery | Workitem `search` (JQL-backed)        |
 | Exact Jira filtering           | Workitem `query` with JQL             |
-| Semantic Jira discovery        | Top-level `search --app jira` (Rovo)  |
+| Semantic Jira discovery        | `rovo search --app jira`              |
+| Duplicate workitem detection   | `references/duplicates.md`            |
 | Related artifacts or people    | Native read plus `context`            |
-| Link implementation artifacts  | `jira workitem link pr                | repo | deployment | build | branch | commit | loom | meeting` |
+| Link implementation artifacts  | `jira workitem link`                  |
 | Create or update               | Field metadata, then mutation         |
 | Change workflow state          | Discover transitions, then transition |
 | Board or sprint ordering       | Board/backlog/sprint command          |
@@ -57,10 +61,15 @@ consequential mutation.
   schemes, boards, versions, components, filters, and dashboards.
 - JSM requests have an underlying Jira workitem, but approvals, portals, queues,
   request types, and SLAs belong to JSM.
-- Search results are candidate anchors. Use the native workitem read for final
-  fields, comments, links, and status.
+- Search results are candidate anchors; use the native workitem read for final
+  fields and status. Plain `get` avoids supplemental hydration; add
+  `--comments` and/or `--remote-links`, or `--full` for all fields plus both.
 - For "what should I pick next," query actual open Jira work or the requested
   board backlog. Do not rank from broad activity alone.
+- Read a set of workitems in one call: `jira workitem get`,
+  `jira workitem bulk-get`, and `context jira workitem` all accept every key at
+  once. Never loop `get` over a key list. When the fields are queryable, use
+  `jira workitem query --jql <jql> --fields <fields>` and skip hydration.
 
 ## Safe Reads And Writes
 
@@ -70,16 +79,20 @@ consequential mutation.
   fields.
 - Use returned `customfield_*` IDs rather than display names in writes.
 - Discover available transitions instead of guessing a transition name or ID.
+  - Run `twg jira workitem transition --id <KEY> --site <SITE> -o json` without `--transition-id` to discover available transitions and their required screen fields.
+  - Select one and use its `requirements` to gather field values before calling with `--transition-id`.
+  - Treat required fields as user-decision inputs. If the user did not supply a required value, do not infer or choose an allowed value; ask the user before transitioning. This includes Resolution: a request to cancel does not imply `Won't Do`, `Declined`, `Duplicate`, or another Resolution.
+  - This discovery call is read-only and does not transition the workitem.
 - Keep global Jira field administration separate from workitem field values.
-- Use typed workitem artifact links when the request is to add Jira remote links
-  to PRs, repos, deployments, builds, branches, commits, Loom videos, or meetings.
-  These are not Jira Software devinfo/provider writes.
+- Use typed workitem artifact links to add Jira remote links to PRs, repos,
+  deployments, builds, branches, commits, Loom videos, or meetings. These are
+  not Jira Software devinfo/provider writes.
 - Verify mutations with a native read and report the resulting key and URL.
 
 ## Handoffs
 
 - Load `twg-context-discovery` for dependencies, related documents, or
-  implementation links; load `twg-responsibility-routing` for owners, experts,
+  implementation links; `twg-responsibility-routing` for owners, experts,
   authority, or escalation.
 - Load `twg-status-rollups` for project, sprint, team, or leadership synthesis.
 - Load `twg-engineering-work` when the Jira anchor must be traced to PRs or
@@ -91,5 +104,6 @@ consequential mutation.
 - `references/workitems.md` - workitem reads, writes, comments, and links
 - `references/fields-and-transitions.md` - metadata-first fields and workflow changes
 - `references/querying.md` - JQL and board/backlog selection
+- `references/duplicates.md` - prompt driven duplicate detection and review
 - `references/rich-content.md` - descriptions, comments, and mentions
 - `references/administration.md` - Jira configuration versus workitem data

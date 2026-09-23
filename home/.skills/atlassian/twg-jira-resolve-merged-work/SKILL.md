@@ -12,7 +12,7 @@ disable-model-invocation: true
 Resolve stale Jira workitems only when merged PR evidence is strong. Plan first;
 mutate only after approval.
 
-Use exact command grammar from live `twg help` / `twg help describe`; do not
+Use exact command grammar from live `twg help` / `twg help describe <path>`; do not
 guess board, sprint, transition, workspace, repo, PR, or field syntax.
 
 ## CLI launcher fallback
@@ -104,7 +104,7 @@ Only mutate after explicit approval of the exact rows or plan.
 - Link enrichment: if links are missing, offer `jira workitem link weblink`
   for PR/repo URLs after querying links and verifying help. Do not claim this
   creates native development-panel links.
-- PR title fix: for Bitbucket, update title only when `twg bitbucket` can read
+- PR title fix: for Bitbucket, update title only when a verified `bitbucket pull-requests get` leaf can read
   the PR, write access is verified, the PR is confidently tied to the item, and
   the user approved it. For GitHub, update only when an authenticated write tool
   is available and access is verified; otherwise skip with the reason.
