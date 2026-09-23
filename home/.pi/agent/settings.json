@@ -1,54 +1,53 @@
 {
-  "lastChangelogVersion": "0.87.1",
-  "defaultProvider": "openrouter",
-  "defaultModel": "moonshotai/kimi-k2.6",
-  "defaultProjectTrust": "always",
-  "defaultThinkingLevel": "max",
-  "hideThinkingBlock": true,
-  "quietStartup": true,
-  "extensions": [
-    "~/dotfiles/home/.pi/agent/extensions"
-  ],
-  "packages": [
-    "git:github.com/xriu/pi-extensions",
-    "npm:pi-mcp-adapter",
-    {
-      "source": "npm:@plannotator/pi-extension",
-      "skills": []
+    "lastChangelogVersion": "0.87.1",
+    "defaultProvider": "openrouter",
+    "defaultModel": "moonshotai/kimi-k2.6",
+    "defaultProjectTrust": "always",
+    "defaultThinkingLevel": "max",
+    "hideThinkingBlock": true,
+    "quietStartup": true,
+    "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
+    "packages": [
+        "npm:pi-mcp-adapter",
+        {
+            "source": "git:github.com/xriu/pi-extensions",
+            "extensions": ["openrouter-models/src/index.ts"]
+        },
+        {
+            "source": "npm:@plannotator/pi-extension",
+            "skills": []
+        },
+        "npm:@dietrichgebert/ponytail",
+        "npm:@ff-labs/pi-fff",
+        "npm:@juicesharp/rpiv-todo",
+        "npm:@nicknisi/pi-cloak",
+        "npm:@tintinweb/pi-subagents",
+        "npm:pi-clarify",
+        "npm:pi-powerline-footer",
+        "npm:pi-rewind",
+        "npm:pi-web-access"
+    ],
+    "customHeader": {
+        "skillsMode": true
     },
-    "npm:@dietrichgebert/ponytail",
-    "npm:@ff-labs/pi-fff",
-    "npm:@juicesharp/rpiv-todo",
-    "npm:@nicknisi/pi-cloak",
-    "npm:@tintinweb/pi-subagents",
-    "npm:pi-clarify",
-    "npm:pi-powerline-footer",
-    "npm:pi-rewind",
-    "npm:pi-web-access"
-  ],
-  "customHeader": {
-    "skillsMode": true
-  },
-  "enableInstallTelemetry": true,
-  "httpIdleTimeoutMs": 120000,
-  "showCacheMissNotices": true,
-  "theme": "dark",
-  "treeFilterMode": "no-tools",
-  "powerline": {
-    "welcome": false,
-    "fixedEditor": false,
-    "layout": {
-      "left": [
-        "model",
-        "thinking",
-        "shell_mode",
-        "path",
-        "context_pct",
-        "cost"
-      ],
-      "secondary": [
-        "git"
-      ]
+    "enableInstallTelemetry": true,
+    "httpIdleTimeoutMs": 120000,
+    "showCacheMissNotices": true,
+    "theme": "dark",
+    "treeFilterMode": "no-tools",
+    "powerline": {
+        "welcome": false,
+        "fixedEditor": false,
+        "layout": {
+            "left": [
+                "model",
+                "thinking",
+                "shell_mode",
+                "path",
+                "context_pct",
+                "cost"
+            ],
+            "secondary": ["git"]
+        }
     }
-  }
 }
