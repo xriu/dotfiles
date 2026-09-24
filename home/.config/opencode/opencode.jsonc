@@ -1,4 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugins": ["/Users/xavier.riu/Personal/pi-extensions/oc-openrouter/src"],
+  "plugins": [
+    "git+ssh://git@github.com/xriu/pi-extensions.git#main::path:oc-openrouter",
+  ],
 }
