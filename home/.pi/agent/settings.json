@@ -8,12 +8,8 @@
     "quietStartup": true,
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
-        "npm:pi-mcp-adapter",
         "git:github.com/xriu/pi-extensions",
-        {
-            "source": "npm:@plannotator/pi-extension",
-            "skills": []
-        },
+        "npm:pi-mcp-adapter",
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
         "npm:@juicesharp/rpiv-todo",

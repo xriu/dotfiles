@@ -7,20 +7,21 @@
     "hideThinkingBlock": false,
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
+        "npm:@pi-stef/figma",
         "npm:pi-mcp-adapter",
+        "git:github.com/xriu/pi-extensions",
         {
             "source": "npm:@plannotator/pi-extension",
             "skills": []
         },
         "npm:@dietrichgebert/ponytail",
-        "npm:@aliou/pi-guardrails",
         "npm:@ff-labs/pi-fff",
-        "npm:@pi-stef/figma",
+        "npm:@juicesharp/rpiv-todo",
+        "npm:@nicknisi/pi-cloak",
+        "npm:@tintinweb/pi-subagents",
         "npm:pi-clarify",
-        "npm:pi-lens",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
-        "npm:pi-thinking-steps",
         "npm:pi-web-access"
     ],
     "enabledModels": [
