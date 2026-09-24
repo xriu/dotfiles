@@ -7,9 +7,18 @@ test -f ~/.config/fish/config.local.fish; and source ~/.config/fish/config.local
 # Exports
 set -gx LC_ALL $LANG
 set -gx GPG_TTY (tty)
+set -gx TYPESAFE_JUDGMENTS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/config
+
+# Sync secrets to the macOS GUI session so GUI apps (e.g. bb) inherit them.
+# Values come from config.local.fish sourced above. Runs in interactive shells.
+launchctl setenv TYPESAFE_JUDGMENTS 1
+launchctl setenv TYPESAFE_API_KEY $TYPESAFE_API_KEY
+launchctl setenv OPENROUTER_API_KEY $OPENROUTER_API_KEY
+launchctl setenv OPENROUTER_API_KEY_TEST $OPENROUTER_API_KEY_TEST
+launchctl setenv OPENCODE_API_KEY $OPENCODE_API_KEY
 
 # Source multi-function files (Fish autoloading only works for single-function files)
 source $HOME/.config/fish/functions/terraform.fish
@@ -41,12 +50,6 @@ set -g ZELLIJ_AUTO_START false
 if status is-interactive
     # Initialize Atuin for Fish shell
     atuin init fish | source
-
-    # Sync secrets to the macOS GUI session so GUI apps (e.g. bb) inherit them.
-    # Values come from config.local.fish sourced above. Runs in interactive shells.
-    launchctl setenv ALIBABA_API_KEY $ALIBABA_API_KEY
-    launchctl setenv OPENROUTER_API_KEY $OPENROUTER_API_KEY
-    launchctl setenv OPENCODE_API_KEY $OPENCODE_API_KEY
 
     # 1. Define config but don't force export every time if not needed
     set -gx ZELLIJ_CONFIG_DIR $HOME/.config/zellij
