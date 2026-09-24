@@ -2,39 +2,10 @@
     "settings": {
         "jev": {
             "semanticSearch": true,
-            "allowedServers": [
-                "aws-knowledge",
-                "aws-infrastructure-as-code",
-                "aws-mcp",
-                "open-computer-use"
-            ]
+            "allowedServers": ["open-computer-use"]
         }
     },
     "mcpServers": {
-        "aws-knowledge": {
-            "type": "http",
-            "url": "https://knowledge-mcp.global.api.aws"
-        },
-        "aws-infrastructure-as-code": {
-            "command": "uvx",
-            "args": ["awslabs.aws-iac-mcp-server@latest"],
-            "env": {
-                "FASTMCP_LOG_LEVEL": "ERROR"
-            }
-        },
-        "aws-mcp": {
-            "command": "uvx",
-            "timeout": 100000,
-            "transport": "stdio",
-            "args": [
-                "mcp-proxy-for-aws@latest",
-                "https://aws-mcp.us-east-1.api.aws/mcp",
-                "--metadata"
-            ],
-            "env": {
-                "AWS_PROFILE": "sre-ops"
-            }
-        },
         "open-computer-use": {
             "type": "local",
             "command": "open-computer-use",
