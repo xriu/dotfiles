@@ -2,14 +2,14 @@
     "settings": {
         "jev": {
             "semanticSearch": true,
-            "allowedServers": ["open-computer-use"]
+            "allowedServers": ["computer"]
         }
     },
     "mcpServers": {
-        "open-computer-use": {
+        "computer": {
             "type": "local",
-            "command": "open-computer-use",
-            "args": ["mcp"],
+            "command": ["cua-driver", "mcp"],
+            "enabled": true,
             "timeout": 60000
         }
     }
