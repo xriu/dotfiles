@@ -16,9 +16,9 @@ set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/config
 # Values come from config.local.fish sourced above. Runs in interactive shells.
 launchctl setenv TYPESAFE_JUDGMENTS 1
 launchctl setenv TYPESAFE_API_KEY $TYPESAFE_API_KEY
-launchctl setenv OPENROUTER_API_KEY $OPENROUTER_API_KEY
-launchctl setenv OPENROUTER_API_KEY_TEST $OPENROUTER_API_KEY_TEST
-launchctl setenv OPENCODE_API_KEY $OPENCODE_API_KEY
+# launchctl setenv OPENROUTER_API_KEY $OPENROUTER_API_KEY
+# launchctl setenv OPENROUTER_API_KEY_TEST $OPENROUTER_API_KEY_TEST
+# launchctl setenv OPENCODE_API_KEY $OPENCODE_API_KEY
 
 # Source multi-function files (Fish autoloading only works for single-function files)
 source $HOME/.config/fish/functions/terraform.fish
