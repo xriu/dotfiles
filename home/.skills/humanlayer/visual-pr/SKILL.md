@@ -1,6 +1,6 @@
 ---
 name: visual-pr
-description: Only use when the user explicitly invokes this skill by name.
+description: Create or update a pull request and its description for the current branch.
 disable-model-invocation: true
 ---
 
@@ -17,11 +17,11 @@ Create or update the pull request for the current task with a concise descriptio
 2. Identify or create the pull request:
    - Check the current branch for a PR with `gh pr view --json url,number,title,state,baseRefName,headRefName 2>/dev/null`.
    - If no PR exists, inspect `git status --short --branch` and the commits on the current branch.
-   - Commit task-related changes when needed, push the branch with an upstream, and create a PR for it. Follow the repository's git safety protocol.
+   - Commit task-related changes when needed, push the branch with an upstream, and create the new PR as a draft (`gh pr create --draft`). Follow the repository's git safety protocol.
    - Ask the user to select a PR only when the current branch has no relevant work and there is no safe current-branch PR to create.
 
 3. Gather only the context needed to explain the change:
-   - Read the ticket and any relevant task artifacts.
+   - Read the relevant Issue and any related task artifacts.
    - Read the complete PR diff and enough surrounding code to understand behavior and ownership.
    - Use `gh pr view` to collect PR metadata and changed files.
    - Read `{SKILLBASE}/references/show-me.md` for the visual-outline conventions used in the PR body.
@@ -38,7 +38,7 @@ Create or update the pull request for the current task with a concise descriptio
      - Call-tree, call-stack, control-flow, or data-flow changes.
    - Prefer `diff` blocks when showing changes to an existing shape. Show the complete target shape when most of it is new or diff notation would obscure ownership or order.
    - Keep each view focused on what a reviewer needs. Omit categories that did not change.
-   - optionaL: if you are aware of a ticket id/url, a humanlayer task url, or related plan/document urls, or other relevant links, include them in the header, otherwise omit the header
+   - Optional: if you know an Issue ID or URL, a HumanLayer task URL, a related plan or document URL, or another relevant link, include it in the header; otherwise, omit the header.
 
 5. Save and publish the description:
    - Use `.humanlayer/tasks/{task-slug}/pr-description.md` when the task directory exists; otherwise use `.humanlayer/tasks/pr-{number}/description.md`.
