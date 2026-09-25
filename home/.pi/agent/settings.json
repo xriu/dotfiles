@@ -8,7 +8,7 @@
     "quietStartup": true,
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
-        "git:github.com/xriu/pi-extensions",
+        "ssh://git@github.com/xriu/pi-extensions@main",
         "npm:pi-mcp-adapter",
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
