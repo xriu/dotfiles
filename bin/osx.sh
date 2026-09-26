@@ -41,6 +41,8 @@ function brew_setup() {
 
     echo "Brew install packages"
 
+    # brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
+
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
@@ -57,7 +59,6 @@ function brew_setup() {
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
     brew install --cask kitlangton-hex --force # Voice-to-text transcription and paste tool
     brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
-    brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances

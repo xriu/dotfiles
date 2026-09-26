@@ -3,6 +3,7 @@
     "button": true,
     "commit_message_instructions": "Use the Conventional Commits format: <type>(<scope>): <description>.",
     "commit_message_model": {
+      "effort": "xhigh",
       "enable_thinking": true,
       "model": "openai/gpt-6-luna",
       "provider": "openrouter",
