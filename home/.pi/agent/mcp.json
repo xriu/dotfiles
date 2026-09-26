@@ -7,10 +7,9 @@
     },
     "mcpServers": {
         "computer": {
-            "type": "local",
-            "command": ["cua-driver", "mcp"],
-            "enabled": true,
-            "timeout": 60000
+            "lifecycle": "lazy",
+            "command": "cua-driver",
+            "args": ["mcp"]
         }
     }
 }
