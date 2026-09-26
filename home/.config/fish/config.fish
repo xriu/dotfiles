@@ -13,12 +13,15 @@ set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
 set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/config
 
 # Sync secrets to the macOS GUI session so GUI apps (e.g. bb) inherit them.
-# Values come from config.local.fish sourced above. Runs in interactive shells.
-launchctl setenv TYPESAFE_JUDGMENTS 1
-launchctl setenv TYPESAFE_API_KEY $TYPESAFE_API_KEY
-launchctl setenv OPENROUTER_API_KEY $OPENROUTER_API_KEY
-launchctl setenv OPENROUTER_API_KEY_TEST $OPENROUTER_API_KEY_TEST
-launchctl setenv OPENCODE_API_KEY $OPENCODE_API_KEY
+# Skip missing values and systems without launchctl.
+if type -q launchctl
+    launchctl setenv TYPESAFE_JUDGMENTS 1
+    for name in TYPESAFE_API_KEY OPENROUTER_API_KEY OPENROUTER_API_KEY_TEST OPENCODE_API_KEY
+        if set -q $name; and test (count $$name) -eq 1; and test -n "$$name"
+            launchctl setenv $name "$$name"
+        end
+    end
+end
 
 # Source multi-function files (Fish autoloading only works for single-function files)
 source $HOME/.config/fish/functions/terraform.fish
