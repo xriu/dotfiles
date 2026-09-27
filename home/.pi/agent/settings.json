@@ -13,9 +13,9 @@
         {
             "source": "ssh://git@github.com/xriu/pi-extensions@main",
             "extensions": [
-                "extensions/pi/opencode-go/**",
                 "extensions/pi/custom-header/**",
-                "extensions/pi/permission-gate/**"
+                "extensions/pi/permission-gate/**",
+                "extensions/pi/mermaid/**"
             ]
         },
         "npm:@dietrichgebert/ponytail",
@@ -32,6 +32,7 @@
     "customHeader": {
         "skillsMode": true
     },
+    "tuiMode": "fullscreen",
     "enableInstallTelemetry": true,
     "httpIdleTimeoutMs": 120000,
     "showCacheMissNotices": true,
