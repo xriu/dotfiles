@@ -16,8 +16,7 @@ set -gx RIPGREP_CONFIG_PATH $HOME/.config/ripgrep/config
 # Skip missing values and systems without launchctl.
 if type -q launchctl
     launchctl setenv TYPESAFE_JUDGMENTS 1
-    # OPENCODE_API_KEY
-    for name in TYPESAFE_API_KEY OPENROUTER_API_KEY OPENROUTER_API_KEY_TEST
+    for name in TYPESAFE_API_KEY OPENROUTER_API_KEY OPENROUTER_API_KEY_TEST OPENCODE_API_KEY
         if set -q $name; and test (count $$name) -eq 1; and test -n "$$name"
             launchctl setenv $name "$$name"
         end
