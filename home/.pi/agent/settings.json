@@ -2,11 +2,7 @@
     "lastChangelogVersion": "0.87.1",
     "defaultProvider": "openrouter",
     "defaultModel": "openai/gpt-6-luna",
-    "enabledModels": [
-        "openrouter/**",
-        "opencode-go/deepseek-v4.1-flash",
-        "opencode-go/muse-spark-1.3-contributor-free"
-    ],
+    "enabledModels": ["openrouter/**", "opencode-go/deepseek-v4.1-flash"],
     "defaultProjectTrust": "always",
     "defaultThinkingLevel": "max",
     "hideThinkingBlock": true,
