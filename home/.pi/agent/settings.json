@@ -14,6 +14,13 @@
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
         "ssh://git@github.com/Launchmetrics/LM-AI@main",
+        {
+            "source": "ssh://git@github.com/xriu/pi-extensions@main",
+            "extensions": [
+                "extensions/pi/opencode-go/**",
+                "extensions/pi/custom-header/**"
+            ]
+        },
         "npm:pi-mcp-adapter",
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
