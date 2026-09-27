@@ -28,6 +28,7 @@
     "customHeader": {
         "skillsMode": true
     },
+    "tuiMode": "fullscreen",
     "enableInstallTelemetry": true,
     "httpIdleTimeoutMs": 120000,
     "showCacheMissNotices": true,

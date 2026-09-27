@@ -1,0 +1,16 @@
+{
+	"name": "pi-mermaid-viewer",
+	"private": true,
+	"type": "module",
+	"pi": {
+		"extensions": [
+			"./index.ts"
+		]
+	},
+	"scripts": {
+		"test": "node --experimental-strip-types ./source.test.ts"
+	},
+	"dependencies": {
+		"grok-mermaid": "0.2.3"
+	}
+}
