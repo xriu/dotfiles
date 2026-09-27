@@ -2,6 +2,7 @@
     "lastChangelogVersion": "0.87.1",
     "defaultProvider": "openrouter",
     "defaultModel": "openai/gpt-6-luna",
+    "enabledModels": ["openrouter/**", "opencode-go/deepseek-v4.1-flash"],
     "defaultProjectTrust": "always",
     "defaultThinkingLevel": "max",
     "hideThinkingBlock": true,
@@ -9,13 +10,21 @@
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
         "ssh://git@github.com/Launchmetrics/LM-AI@main",
-        "npm:pi-mcp-adapter",
+        {
+            "source": "ssh://git@github.com/xriu/pi-extensions@main",
+            "extensions": [
+                "extensions/pi/opencode-go/**",
+                "extensions/pi/custom-header/**",
+                "extensions/pi/permission-gate/**"
+            ]
+        },
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
         "npm:@juicesharp/rpiv-todo",
         "npm:@nicknisi/pi-cloak",
         "npm:@tintinweb/pi-subagents",
         "npm:pi-clarify",
+        "npm:pi-mcp-adapter",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
         "npm:pi-web-access"
