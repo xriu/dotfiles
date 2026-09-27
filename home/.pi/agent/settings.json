@@ -18,7 +18,8 @@
             "source": "ssh://git@github.com/xriu/pi-extensions@main",
             "extensions": [
                 "extensions/pi/opencode-go/**",
-                "extensions/pi/custom-header/**"
+                "extensions/pi/custom-header/**",
+                "extensions/pi/permission-gate/**"
             ]
         },
         "npm:pi-mcp-adapter",
