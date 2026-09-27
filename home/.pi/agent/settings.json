@@ -18,13 +18,13 @@
                 "extensions/pi/permission-gate/**"
             ]
         },
-        "npm:pi-mcp-adapter",
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
         "npm:@juicesharp/rpiv-todo",
         "npm:@nicknisi/pi-cloak",
         "npm:@tintinweb/pi-subagents",
         "npm:pi-clarify",
+        "npm:pi-mcp-adapter",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
         "npm:pi-web-access"
