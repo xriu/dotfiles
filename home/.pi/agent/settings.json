@@ -14,8 +14,7 @@
             "source": "ssh://git@github.com/xriu/pi-extensions@main",
             "extensions": [
                 "extensions/pi/custom-header/**",
-                "extensions/pi/permission-gate/**",
-                "extensions/pi/mermaid/**"
+                "extensions/pi/permission-gate/**"
             ]
         },
         "npm:@dietrichgebert/ponytail",
