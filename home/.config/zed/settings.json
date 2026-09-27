@@ -11,8 +11,8 @@
     "default_model": {
       "effort": "xhigh",
       "enable_thinking": true,
-      "model": "go/deepseek-v4-flash",
-      "provider": "opencode",
+      "model": "openai/gpt-6-luna",
+      "provider": "openrouter",
     },
     "default_profile": "write",
     "dock": "left",
