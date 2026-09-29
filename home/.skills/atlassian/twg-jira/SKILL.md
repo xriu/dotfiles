@@ -5,7 +5,6 @@ description: >
   duplicate detection, projects, boards, sprints, fields, transitions,
   comments, links, and administration. Applies Jira semantics and safe mutation
   rules.
-disable-model-invocation: true
 ---
 
 # twg-jira
