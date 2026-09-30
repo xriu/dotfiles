@@ -81,7 +81,7 @@ alias pi1="PI_SUBAGENT_MUX=herdr pi"
 alias pi2="PI_ORCHESTRATOR_MODE=1 PI_SUBAGENT_MUX=herdr pi"
 
 # Update
-alias update="brew-update; pi update --all; rustup-update; npm-update; bun-update"
+alias update="brew-update; pi update --all; rustup-update; npm-update; bun-update; cua-driver update --apply"
 
 # LM internal alias
 functions -e lm 2>/dev/null
