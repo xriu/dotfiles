@@ -5,6 +5,7 @@
     "enabledModels": ["openrouter/**", "opencode-go/deepseek-v4.1-flash"],
     "defaultProjectTrust": "always",
     "defaultThinkingLevel": "max",
+    "defaultTools": ["+codemode"],
     "hideThinkingBlock": true,
     "quietStartup": true,
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
@@ -24,7 +25,6 @@
         "npm:@nicknisi/pi-cloak",
         "npm:@tintinweb/pi-subagents",
         "npm:pi-clarify",
-        "npm:pi-mcp-adapter",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
         "npm:pi-web-access"
