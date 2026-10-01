@@ -41,7 +41,7 @@ Create or update the pull request for the current task with a concise descriptio
    - Optional: if you know an Issue ID or URL, a HumanLayer task URL, a related plan or document URL, or another relevant link, include it in the header; otherwise, omit the header.
 
 5. Save and publish the description:
-   - Use `.humanlayer/tasks/{task-slug}/pr-description.md` when the task directory exists; otherwise use `.humanlayer/tasks/pr-{number}/description.md`.
+   - Use `.scratch/tasks/{task-slug}/pr-description.md` when the task directory exists; otherwise use `.scratch/tasks/pr-{number}/description.md`.
    - Update the PR with `gh pr edit {number} --body-file {output-path}`.
    - Confirm the update succeeded.
 
