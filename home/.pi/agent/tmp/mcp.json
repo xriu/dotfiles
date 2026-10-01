@@ -18,6 +18,11 @@
                 "Authorization": "Bearer ${EXECUTOR_API_KEY}"
             }
         },
+        "github": {
+            "url": "https://api.githubcopilot.com/mcp/",
+            "auth": "bearer",
+            "bearerToken": "!gh auth token"
+        },
         "aws-knowledge": {
             "type": "http",
             "url": "https://knowledge-mcp.global.api.aws"
