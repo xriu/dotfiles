@@ -205,6 +205,6 @@ service-account*.json
 # Custom
 .pi-lens/
 .scratch/
-**/launchmetrics/
-**/tldraw-offline/
+**/launchmetrics/**
+**/tldraw-offline/**
 home/.factory/settings.json
