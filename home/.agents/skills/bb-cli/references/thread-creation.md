@@ -111,10 +111,13 @@ worktree` only; a provider takes its branch through `--environment-inputs`.
   CLI update state across every machine — the CLI counterpart of Settings →
   Updates. `bb updates apply [--machine <id-or-name>]` runs every available
   provider CLI install/update sequentially. `bb updates app` shows whether bb
-  can update itself, which needs bb started with `--in-app-updates`;
+  can update itself, which it cannot when started with `--no-in-app-updates`;
   `bb updates app apply [--yes] [--no-wait]` downloads the
   update and restarts bb into it, without rolling back if it fails to start.
   Running it from a thread restarts bb and interrupts that thread.
+  Source installs show their Git revision and use manual Git updates without the
+  update shim. They are never compared with npm releases; unavailable release
+  checks report “Latest unknown”.
 - Use `bb project create --name <name> --root <path> --machine <id-or-name>`
   to bind a new project's local path to a connected enrolled machine. Use
   `--host` as an alias. Without a selector, the CLI asks its local host daemon.
