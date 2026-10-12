@@ -1,6 +1,6 @@
 # Skills index
 
-All 102 skills in this directory, with a one-line description and a score.
+All 90 skills in this directory, with a one-line description and a score.
 
 **What the score means.** The score is my estimate of the value of the skill in
 this Pi setup, from 1 to 10. It is not a quality grade. A well-written skill
@@ -8,8 +8,9 @@ loses points when another installed skill, `AGENTS.md`, or Ponytail already
 covers the same ground. A narrow skill keeps its points when nothing else covers
 it. The scores for the `poteto/` set match `poteto/README.md`.
 
-Every skill is mounted at `~/.agents/skills/`, and `~/.pi/skills` points there.
-`bb-cli` is the only skill in that directory that does not live here.
+Every skill is mounted at `~/.agents/skills/` as a symlink to this directory.
+`bb-cli` is the only entry in that directory that does not live here. Three of
+the symlinks break on a fresh clone (see the review below).
 
 ## Read this first: what the review found
 
@@ -23,19 +24,32 @@ Every skill is mounted at `~/.agents/skills/`, and `~/.pi/skills` points there.
   `launchmetrics/lm-grilling-design` differ only in variant count and in reading
   `lm-brand`.
 - **Two shells**: `all` and `dmmulroy/bro` carry one line of instruction each.
-- **Five broken pointers**: `code-clean` names `/no-tropes`, `/ui-only`, and
-  `/ui-system`. `pr-update` names `/no-tropes`, `/pr-triage`, and `/pr-ready`.
+- **Five broken pointers**: `code-clean` names `no-tropes`, `ui-only`, and
+  `ui-system`. `pr-update` names `no-tropes`, `pr-triage`, and `pr-ready`.
   None of these skills exist anywhere in this setup.
+- **Three symlinks break on a fresh clone**: `lm-brand`, `lm-grilling-design`,
+  and `tldraw-offline` point into directories that `.gitignore` excludes
+  (`**/launchmetrics/**` and `**/tldraw-offline/**`). The links are committed,
+  the targets are not. Untrack the links, or stop ignoring the directories.
+- **The `atlassian/` auto-invoke pair is inverted**: `twg` is the router and it
+  names every Atlassian capability, but it carries
+  `disable-model-invocation: true`. `twg-jira` is its child and it does not.
+  The model can pick the child, but never the router. Confluence, PR, incident,
+  and people coverage now needs an explicit `/twg`.
+- **The `atlassian/` removal does not hold**: `twg upgrade` and `twg setup`
+  "silently refresh detected installed skills with overwrite". Either command
+  can restore the twelve deleted exports.
 - **Hidden prerequisites**: `mattpocock/code-review`, `triage`, `to-spec`,
   `to-tickets`, and `wayfinder` read files that
   `setup-matt-pocock-skills` must create in the target repo first.
   `openclaw/test-audit` expects `scripts/check-changed.mjs` and
   `scripts/run-vitest.mjs` in the target repo.
-- **Cost**: the 102 descriptions total 28.7 KB. Only 17 skills can fire without
-  an explicit call, so only 4.4 KB of that text sits in the context window on
-  every session. `agent-browser` alone spends 1 KB of it.
+- **Cost**: the 90 descriptions total 18.9 KB. Only 14 skills can fire without
+  an explicit call, so only 2.4 KB of that text sits in the context window on
+  every session. `agent-browser` has the largest description at 925 bytes, but
+  it is user-invoked only, so it adds nothing to that figure.
 - **No duplicate bodies, no missing frontmatter.** Every skill has a `name` and
-  a `description`. 85 of 102 are user-invoked only.
+  a `description`. 76 of 90 are user-invoked only.
 
 ## Standalone and single-purpose skills (30)
 
@@ -75,29 +89,20 @@ collections: `humanlayer/` (2), `launchmetrics/` (2), and `openclaw/` (1).
 | `frontend-design`        |        5.5 | The condensed twin of `frontend-distinct`, with the same description. Routing conflict.                                                                  |
 | `all`                    |        3.0 | Not a skill. A canned reply: "yes, all recommendations".                                                                                                 |
 
-## `atlassian/` (14)
+## `atlassian/` (2)
 
 Dense operational docs for the `twg` CLI, which is installed at
-`~/.local/bin/twg`. All of them share the same strengths: batch reads instead of
-call loops, a stated stop condition, and safety rules for writes. All of them
-repeat the same "CLI launcher fallback" block.
+`~/.local/bin/twg`. Both share the same strengths: batch reads instead of call
+loops, a stated stop condition, and safety rules for writes. Both repeat the
+same "CLI launcher fallback" block.
 
-| Skill                          | Score / 10 | Why                                                                                                                               |
-| ------------------------------ | ---------: | --------------------------------------------------------------------------------------------------------------------------------- |
-| `twg`                          |        9.0 | The router. Bounded evidence loop, batch-read discipline, and a rule to stop after five same-subcommand calls.                    |
-| `twg-jira`                     |        8.5 | Jira semantics and safe writes: read before write, use `customfield_*` IDs, and ask the user for required transition fields.      |
-| `twg-confluence`               |        8.5 | Separates user authorization from the `--yes` preflight. The best write-safety text in the set.                                   |
-| `twg-responsibility-routing`   |        8.5 | Splits owner from maintainer, expert, approver, and escalation. Refuses to promote a contributor into an approver.                |
-| `twg-status-rollups`           |        8.5 | Routing matrix over `pr-tree`, `org-tree`, `work-tree`, and `workitem-tree`, with a call budget of 2-4.                           |
-| `twg-jira-resolve-merged-work` |        8.0 | Finds stale Jira work with merged PRs and stops at a dry-run plan. Never transitions medium-confidence items.                     |
-| `twg-space-creation`           |        8.0 | Builds or clones a whole space from evidence, with confirmation gates and one-branch verification.                                |
-| `twg-context-discovery`        |        8.0 | Bounded fan-out for dependency maps and catch-ups. Names the cost of widening after resolution.                                   |
-| `twg-engineering-work`         |        8.0 | PR queues, stale reviews, contributors, and hot areas. Carries recipe cards and an anti-pattern list.                             |
-| `twg-operational-health`       |        8.0 | Incidents, handoffs, and PIRs, with a rule to separate a working theory from a confirmed problem.                                 |
-| `twg-code-review`              |        7.5 | Adds company context to a code review and freezes the snapshot first. Only on request.                                            |
-| `twg-agentic-search`           |        7.5 | Iterative Rovo search that separates confirmed facts from interpretation and gaps.                                                |
-| `twg-artifacts`                |        7.0 | Publishes a local file as an Atlassian Artifact, with content read before description. Narrow.                                    |
-| `twg-bench-lite`               |        6.5 | A/B harness for paid graph context against free MCP context. Needs a portable runner and a fresh Codex thread, so it rots easily. |
+Twelve exports were removed in `1063e2c4`. Only the router and its Jira child
+remain. The `twg` installer can put the others back.
+
+| Skill      | Score / 10 | Why                                                                                                                          |
+| ---------- | ---------: | ---------------------------------------------------------------------------------------------------------------------------- |
+| `twg`      |        9.0 | The router. Bounded evidence loop, batch-read discipline, and a rule to stop after five same-subcommand calls.               |
+| `twg-jira` |        8.5 | Jira semantics and safe writes: read before write, use `customfield_*` IDs, and ask the user for required transition fields. |
 
 ## `mattpocock/` (27)
 
@@ -197,3 +202,7 @@ conditional loading.
 5. Repair the five broken pointers in `code-clean` and `pr-update`.
 6. Move `docs-to-types` and `work-build` behind `work-plan`, which already names
    them, so they stop competing for automatic selection.
+7. Untrack the three symlinks that point into ignored directories, or stop
+   ignoring `launchmetrics/` and `tldraw-offline/`.
+8. Decide the `atlassian/` auto-invoke rule. Turn the flag on for both skills, or
+   off for both.
