@@ -1,23 +1,15 @@
 ---
 name: implement
-description: "Implement work from a spec or tickets."
+description: "Implement a piece of work based on a spec or set of tickets."
 disable-model-invocation: true
 ---
 
-Implement the user's spec or tickets. Keep the change within the stated requirements.
+Implement the work described by the user in the spec or tickets.
 
-## Steps
+Use /tdd where possible, at pre-agreed seams.
 
-1. Read the spec or tickets and the relevant code. Record assumptions and observable acceptance criteria. Ask the user about gaps that block a correct implementation.
-   **Ready when** each requirement has an observable outcome and no blocking ambiguity remains.
+Run typechecking regularly, single test files regularly, and the full test suite once at the end.
 
-2. Implement in small slices that match the acceptance criteria. When a change needs tests, use `/tdd` and agree the test seams with the user before writing tests.
-   **Done when** every acceptance criterion is implemented.
+Once done, use /code-review to review the work.
 
-3. Run the repository's relevant focused tests and typechecks during work. Run the full test suite once after implementation. Use commands the repository defines.
-   **Done when** relevant checks pass, or the final report names any that failed or could not run.
-
-4. Compare the final diff with the acceptance criteria and repository conventions. Fix defects and remove unrelated changes.
-   **Done when** every diff hunk supports a requirement or its validation.
-
-Leave changes in the working tree. Commit only when the user asks.
+Commit your work to the current branch.
