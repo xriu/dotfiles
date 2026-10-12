@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.
+description: Design a UI brief as a studio design lead — opinionated palette, type, and layout with one signature element, critiqued against default looks before and after building. Also covers UI copy.
 disable-model-invocation: true
 ---
 
