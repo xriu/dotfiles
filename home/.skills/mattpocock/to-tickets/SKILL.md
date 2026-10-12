@@ -85,7 +85,7 @@ Do NOT close or modify any parent issue.
 
 ## Parent
 
-A reference to the parent issue on the tracker (if the source was an existing issue, otherwise omit this section).
+A reference to the parent issue on the tracker (if the source was an existing issue, otherwise omit this section). On GitHub, write the full URL: `[#<n>: <title>](https://github.com/<owner>/<repo>/issues/<n>)`. A bare `#<n>` is not a link, and bb's workflow plugin reads the ticket family only from exactly one same-repository issue URL in this section.
 
 ## What to build
 
