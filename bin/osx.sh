@@ -118,6 +118,7 @@ function brew_setup() {
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
     brew install mkcert # Simple tool to make locally trusted development certificates
+    brew install omlahore/tap/removemacai # Debloat macOS
     brew install opencode # AI coding agent, built for the terminal
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install oxfmt # High-performance formatting tool for JavaScript and TypeScript
