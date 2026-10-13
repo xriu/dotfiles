@@ -22,10 +22,10 @@
         "npm:@ff-labs/pi-fff",
         "npm:@juicesharp/rpiv-todo",
         "npm:@nicknisi/pi-cloak",
-        "npm:@tintinweb/pi-subagents",
         "npm:pi-clarify",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
+        "npm:pi-subagent-manager",
         "npm:pi-web-access"
     ],
     "customHeader": {
