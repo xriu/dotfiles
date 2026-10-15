@@ -106,9 +106,9 @@
   "edit_predictions": {
     "open_ai_compatible_api": {
       "api_url": "https://opencode.ai/zen/go/v1/chat/completions",
-      "model": "deepseek-v4-flash",
+      "model": "deepseek-v4.1-flash",
     },
-    "provider": "zed",
+    "provider": "open_ai_compatible_api",
   },
   "enable_language_server": true,
   "ensure_final_newline_on_save": true,
