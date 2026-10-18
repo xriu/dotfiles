@@ -1,7 +1,7 @@
 {
     "lastChangelogVersion": "1.3.0",
     "defaultProvider": "openrouter",
-    "defaultModel": "moonshotai/kimi-k3",
+    "defaultModel": "deepseek/deepseek-v4.1-flash",
     "enabledModels": ["openrouter/**", "opencode-go/deepseek-v4.1-flash"],
     "defaultProjectTrust": "always",
     "defaultThinkingLevel": "max",
