@@ -57,6 +57,7 @@
     "bindings": {
       "shift shift": "workspace::ToggleZoom",
       "cmd-t": "workspace::NewTerminal",
+      "shift-enter": ["terminal::SendText", "\u001b[13;2u"],
     },
   },
   {

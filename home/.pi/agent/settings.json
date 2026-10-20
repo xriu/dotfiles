@@ -1,7 +1,7 @@
 {
-    "lastChangelogVersion": "1.1.0",
+    "lastChangelogVersion": "1.3.0",
     "defaultProvider": "openrouter",
-    "defaultModel": "deepseek/deepseek-v4.1-flash",
+    "defaultModel": "deepseek/deepseek-v4.1-flash-1017",
     "enabledModels": ["openrouter/**", "opencode-go/deepseek-v4.1-flash"],
     "defaultProjectTrust": "always",
     "defaultThinkingLevel": "max",
@@ -10,7 +10,6 @@
     "quietStartup": true,
     "extensions": ["~/dotfiles/home/.pi/agent/extensions"],
     "packages": [
-        "ssh://git@github.com/Launchmetrics/LM-AI@main",
         {
             "source": "ssh://git@github.com/xriu/pi-extensions@main",
             "extensions": [
@@ -21,12 +20,12 @@
         },
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
-        "npm:@juicesharp/rpiv-todo",
         "npm:@nicknisi/pi-cloak",
-        "npm:@tintinweb/pi-subagents",
+        "npm:pi-checklist",
         "npm:pi-clarify",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
+        "npm:pi-subagent-manager",
         "npm:pi-web-access"
     ],
     "customHeader": {

@@ -17,13 +17,14 @@ function install_osx_packages() {
     brew update
 
     # Caskroom
-    # brew trust humanlayer/humanlayer
-    # brew tap manaflow-ai/cmux
-    brew tap oven-sh/bun
-    brew tap databricks/tap
-    brew tap homebrew/cask
-    brew tap homebrew/cask-versions
-    brew tap homebrew/cask-fonts
+    # brew trust --tap humanlayer/humanlayer
+    # brew trust --tap manaflow-ai/cmux
+    brew trust --tap homebrew/cask
+    brew trust --tap homebrew/cask-versions
+    brew trust --tap homebrew/cask-fonts
+    brew trust --tap oven-sh/bun
+    brew trust --tap databricks/tap
+    brew trust --tap abue-ammar/tinycast
 
     brew_setup
     npm_packages
@@ -41,12 +42,11 @@ function brew_setup() {
 
     echo "Brew install packages"
 
-    # brew install --cask ollama-app --force # Ollama is a small, fast, and easy-to-use local AI engine
-
     # Install Rosetta
     softwareupdate --install-rosetta --agree-to-license
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
+    brew install --cask abue-ammar/tinycast/tinycast --force # A small, native launcher for your apps, clipboard, snippets and windows
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask cleanshot --force # Screen capture and recording tool
@@ -60,7 +60,6 @@ function brew_setup() {
     brew install --cask kitlangton-hex --force # Voice-to-text transcription and paste tool
     brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
     brew install --cask orbstack --force # Replacement for Docker Desktop
-    brew install --cask raycast --force # Control your tools with a few keystrokes
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask tablepro --force # Native database client for many database types
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
@@ -119,6 +118,7 @@ function brew_setup() {
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
     brew install mkcert # Simple tool to make locally trusted development certificates
+    brew install omlahore/tap/removemacai # Debloat macOS
     brew install opencode # AI coding agent, built for the terminal
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
     brew install oxfmt # High-performance formatting tool for JavaScript and TypeScript
