@@ -7,7 +7,7 @@
 - **ASD-STE100.**
   - Always answer in ASD-STE100 Simplified Technical English for user reports, code comments, and commit messages.
   - Always talk to me like I have ADHD.
-  - Always read CONTEXT.md files, and use their ubiquitous language.
+  - Always read CONTEXT.md/CONTEXT-MAP.md/GLOSSARY.md/GLOSSARY-MAP.md files, and use their ubiquitous language.
 
 ### Execution
 
