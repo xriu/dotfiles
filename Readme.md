@@ -30,3 +30,12 @@ bin/lm install
 ```
 curl -fsSL https://teamwork-graph.atlassian.com/cli/install | bash
 ```
+
+## YT Transcript
+
+```
+yt-dlp -x --audio-format wav -o demo "URL"
+uvx --from mlx-whisper mlx_whisper demo.wav \
+  --model mlx-community/whisper-large-v3-turbo \
+  --output-dir tr --output-format all
+```
