@@ -18,8 +18,8 @@ why investigators: openrouter/deepseek/deepseek-v4.1-flash-1017
 why synthesizer: openrouter/deepseek/deepseek-v4.1-flash-1017
 reflect tooling: openrouter/deepseek/deepseek-v4.1-flash-1017
 reflect judgment, divergent, synthesizer: openrouter/deepseek/deepseek-v4.1-flash-1017
-arena runners: openrouter/deepseek/deepseek-v4.1-flash-1017
-arena cross-judge pool: openrouter/deepseek/deepseek-v4.1-flash-1017
+arena runners: openrouter/openai/gpt-6.1-terra, openrouter/deepseek/deepseek-v4.1-flash-1017
+arena cross-judge pool: openrouter/openai/gpt-6.1-terra, openrouter/deepseek/deepseek-v4.1-flash-1017
 swarm workers: openrouter/deepseek/deepseek-v4.1-flash-1017
-architect runners: openrouter/deepseek/deepseek-v4.1-flash-1017
-interrogate reviewers: openrouter/deepseek/deepseek-v4.1-flash-1017
+architect runners: openrouter/openai/gpt-6.1-terra, openrouter/deepseek/deepseek-v4.1-flash-1017
+interrogate reviewers: openrouter/openai/gpt-6.1-terra, openrouter/deepseek/deepseek-v4.1-flash-1017
