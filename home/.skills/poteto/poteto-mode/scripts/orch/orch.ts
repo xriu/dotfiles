@@ -7,6 +7,7 @@ import {
   openStore,
   parseVerdict,
   type Counts,
+  type Forge,
   type Frontier,
   type InboxPointer,
   type OpenGate,
@@ -81,6 +82,8 @@ interface GateResolveOptions {
 
 interface FrontierSetOptions {
   readonly repo?: string;
+  readonly forge: Forge;
+  readonly base?: string;
   readonly prs?: readonly number[];
 }
 
@@ -472,15 +475,25 @@ function createProgram(io: Io): Command {
 
   const frontier = program
     .command("frontier")
-    .description("manage the Graphite stack frontier")
+    .description("manage the stack frontier")
     .action(() => requireSubcommand(program));
-  leaf(frontier, "set", "discover the Graphite stack and set the frontier")
+  leaf(
+    frontier,
+    "set",
+    "resolve the pull request base chain and set the frontier"
+  )
     .addOption(
       new Option(
         "--repo <dir>",
         "repository directory (or ORCH_REPO)"
       ).env("ORCH_REPO")
     )
+    .addOption(
+      new Option("--forge <forge>", "pull request forge")
+        .choices(["gh", "origin"])
+        .default("gh")
+    )
+    .option("--base <branch>", "base branch where the frontier stops")
     .option(
       "--prs <n,...>",
       "optional expected pull request order pin",
@@ -493,6 +506,8 @@ function createProgram(io: Io): Command {
         (store) =>
           store.frontier.set({
             repo: frontierRepo(options),
+            forge: options.forge,
+            baseBranch: options.base,
             prs: options.prs,
           }),
         frontierLine

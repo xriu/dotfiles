@@ -34,6 +34,7 @@ mkdir -p "$SKILLS_DEST"
 skill_names=()
 skill_dirs=()
 
+# .tmp is scratch space. Never publish skills that live inside it.
 while IFS= read -r -d '' skill_file; do
     skill_dir="${skill_file%/SKILL.md}"
     skill_name="${skill_dir##*/}"
@@ -47,7 +48,7 @@ while IFS= read -r -d '' skill_file; do
 
     skill_names+=("$skill_name")
     skill_dirs+=("$skill_dir")
-done < <(find "$SKILLS_SOURCE" -type f -name SKILL.md -print0)
+done < <(find "$SKILLS_SOURCE" -type d -name .tmp -prune -o -type f -name SKILL.md -print0)
 
 if [[ "${#skill_names[@]}" -eq 0 ]]; then
     printf 'No skills found under: %s\n' "$SKILLS_SOURCE" >&2
