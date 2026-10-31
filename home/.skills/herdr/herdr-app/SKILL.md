@@ -46,6 +46,9 @@ herdr-app do space.new --name "remote api" --machine vps --folder /srv/api
 ```
 
 The folder is on that machine; tabs and splits in the space stay there.
+`terminal.open --folder /path --place down` starts the split in that folder,
+including when `--argv` supplies a program. Without `--folder`, it follows the
+focused terminal's folder.
 `hc machine ls` lists machines. Use `hc run --on vps ...`, `hc exec --on vps ...`
 and `hc file ... --on vps ...` for remote work, not your local file tools.
 
@@ -60,7 +63,10 @@ herdr-app do pane.split '{"direction":"right","pane":"p12"}'
 It prints the created IDs (for example `{ "pane": "...", "terminal": "..." }`)
 or `{ "error": "..." }` and exits 1. Read the result, then inspect `ls` or
 `status` to confirm. Commands invoked by an agent never open a missing-argument
-dialog: supply all required arguments.
+dialog: supply all required arguments. A successful launch reply means the
+terminal was created, not that its program started correctly. If it exits
+with a nonzero code within two seconds, the window shows an error toast with
+the exit code and last output lines.
 
 A terminal started with hc opts into the window with `herdr.space=<id>`.
 `herdr.tab=<id>` chooses its tab; without it, Herdr creates a tab in that space.
@@ -122,8 +128,3 @@ Never experiment with pointer/key automation on the person's real display.
 When developing the app on Linux, its `scripts/sandbox` provides an isolated
 home, core and display: `up`, `do`, `status`, `shot`, then `down` when done.
 Never stop a server or session you didn't start.
-
-## In pi
-
-When `herdr-app --skill` changes (an app update), run it and replace the
-manual above with the new text.

@@ -77,6 +77,7 @@ Never sleep or poll to wait for anything hc runs: `hc wait <t>` (it stops
 working or exits), `hc wait <t> --output X` (it prints X, e.g. a server is
 ready), `hc wait --children` (your helpers). Wait can return before all
 children finish:
+
 - `reason: message`: the message arrives as your next input, possibly late;
   it is not output to fetch with `hc read`. Process it and wait again if needed.
 - `reason: timeout` (default 180 seconds): a check-in, not failure; wait again.
@@ -124,6 +125,8 @@ Use the returned address to wait/read it; don't launch a duplicate.
 Your harness's own file tools touch only the machine you run on. Use hc for
 remote files and commands. `hc machine ls` lists configured machines; see
 `hc machine --help` to configure SSH or `--via <cmd>` connections.
+Without `--name`, SSH machines use the first host label (IPs stay whole),
+shortened to 32 characters with `-2`, `-3`, etc. added if the name is taken.
 
 On Windows, `hc server status` never starts a core. If elevated SSH startup
 would block the same user's desktop session, open Herdr on that Windows
@@ -156,26 +159,26 @@ paths start at your current folder. Prefer explicit paths for remote work.
 - `blocked` means a person is needed (permission or a question): read the
   screen and ask your user. `send` refuses unless `--force`; don't use it to
   bypass a permission decision. `error`: read why, then send or kill.
+- `hc run` without a command starts this machine's own shell. On macOS,
+  this is a login shell so it loads the login environment; explicit commands
+  are unchanged. Recovery shells use the same rule.
 - `hc keep <t>` (or `run --keep`) replaces a lost program with a shell,
   never reruns a task. `hc keep <t> --off` disables recovery. Signal death
   without an exit code is loss too. After a grace delay, recovery runs on
-  every OS. Streams end on loss; reattach after the restarted event.
-  Pending input/attach may be unavailable: retry after recovery.
+  every OS, including after a host shutdown. On macOS, shutdown warnings
+  preserve kept programs even if they catch a signal and exit with a code;
+  on Linux, systemd stops the core before its holders. Ordinary exits and
+  explicit kills remain final. Streams end on loss; reattach after the
+  restarted event. Pending input/attach may be unavailable: retry after recovery.
 - Once work is accepted: `hc kill <t>`, then `hc rm <t>`. Only clean up
   terminals you started; `hc ls` includes your user's other live work.
 - `hc update` also restarts an older running core when the installed binary
   is already current. JSON reports `restarted: true`; terminals keep running.
+  Managed installs must be updated with their package manager instead, and
+  one in a folder you can't write (Unix) the way it was installed.
 - Never `hc server stop` or restart the user's core unless asked. It affects
   every terminal. Tests need their own `HC_SESSION` and scratch XDG paths.
 - Errors are `{error: {kind, message, hint}}` on stderr. Exit codes include
   3 not_found, 7 needs_target, 9 blocked, 10 status_mismatch, 11 finished.
 - Codex must run with `--no-daemon` (including templates), or its commands
   execute outside hc.
-
-## In pi
-
-Use hc for work the person must watch or steer, or on another machine. Use
-pi sub-agents for parallel work inside this session.
-
-When `hc --version` changes, run `hc --skill` and replace the manual above
-with the new text.
