@@ -75,6 +75,7 @@ function brew_setup() {
     # brew install steipete/tap/codexbar # Menu bar usage monitor for AI agents
     # brew install humanlayer/humanlayer/humanlayer # The Multiplayer Coding Agent Workspace
 
+    # brew install agent-desktop # Desktop automation CLI for AI agents
     brew install agent-browser # Browser automation CLI for AI agents
     brew install ast-grep # AST-based code search tool
     brew install atuin # Magical shell history
