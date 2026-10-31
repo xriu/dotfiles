@@ -23,6 +23,10 @@
             "auth": "bearer",
             "bearerToken": "!gh auth token"
         },
+        "computer": {
+            "command": "cua-driver",
+            "args": ["mcp"]
+        },
         "aws-knowledge": {
             "type": "http",
             "url": "https://knowledge-mcp.global.api.aws"
