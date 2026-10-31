@@ -87,7 +87,6 @@ function brew_setup() {
     brew install biome # Toolchain of the web
     brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
-    brew install can1357/tap/omp # A coding agent with the IDE wired in
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install databricks # Databricks CLI
@@ -111,7 +110,6 @@ function brew_setup() {
     brew install grep # GNU grep, egrep and fgrep
     brew install hadolint # Smarter Dockerfile linter to validate best practices
     brew install herdr # Agent multiplexer that lives in your terminal
-    brew install hudochenkov/sshpass/sshpass # Non-interactive ssh password authentication
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
     brew install lazydocker # A tool for managing docker containers with a simple, intuitive interface.
