@@ -2,7 +2,7 @@
 
 # `inherit-parent` or `auto` as a value: the role runs on the parent chat model (omit the subagent `model`). Alias entries in a panel list still count toward its fan-out.
 
-# budget: unlimited (max)
+# budget: max
 
 # Pi keeps effort in a separate `thinkingLevel` field, so the slugs below are plain provider/model-id.
 
