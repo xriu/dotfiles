@@ -60,13 +60,13 @@ function brew_setup() {
     brew install --cask kitlangton-hex --force # Voice-to-text transcription and paste tool
     brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
     brew install --cask orbstack --force # Replacement for Docker Desktop
+    brew install --cask pearcleaner --force # Utility to uninstall apps and remove leftover files from old/uninstalled apps
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask tablepro --force # Native database client for many database types
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask tldraw --force # Whiteboard-style drawing app
     brew install --cask twingate --force # Secure network access to cloud resources
-    brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed --force # Multiplayer code editor
 
