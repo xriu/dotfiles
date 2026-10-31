@@ -4,4 +4,4 @@ description: Read-only comment audit. Swarms the repo with the no-comments rules
 disable-model-invocation: true
 ---
 
-/poteto-mode to spawn a /swarm to use /no-comments and identify useless code comments we can prune in my repo. come back with a high level plan of which of these workarounds would be best solved by refactoring and which we can straight up delete
+/skill:poteto-mode to spawn a /skill:swarm to use /skill:no-comments and identify useless code comments we can prune in my repo. come back with a high level plan of which of these workarounds would be best solved by refactoring and which we can straight up delete
