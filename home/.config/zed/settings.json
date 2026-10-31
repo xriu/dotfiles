@@ -17,12 +17,12 @@
     "commit_message_instructions": "Use the Conventional Commits format: <type>(<scope>): <description>.",
     "commit_message_model": {
       "enable_thinking": true,
-      "model": "deepseek/deepseek-v4.1-flash-1017",
+      "model": "~deepseek/deepseek-flash-latest",
       "provider": "openrouter",
     },
     "default_model": {
       "enable_thinking": true,
-      "model": "deepseek/deepseek-v4.1-flash-1017",
+      "model": "~deepseek/deepseek-flash-latest",
       "provider": "openrouter",
     },
     "default_profile": "write",
