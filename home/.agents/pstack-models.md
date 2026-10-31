@@ -10,14 +10,14 @@ feature, refactoring: openrouter/deepseek/deepseek-v4.1-flash-1017
 bug-fix: openrouter/deepseek/deepseek-v4.1-flash-1017
 perf-issue: openrouter/deepseek/deepseek-v4.1-flash-1017
 hillclimb: openrouter/deepseek/deepseek-v4.1-flash-1017
-judgment and prose: openrouter/openai/gpt-6.1-terra
-hardest tasks: openrouter/openai/gpt-6.1-terra
+judgment and prose: openrouter/deepseek/deepseek-v4.1-flash-1017
+hardest tasks: openrouter/deepseek/deepseek-v4.1-flash-1017
 how explorer: openrouter/deepseek/deepseek-v4.1-flash-1017
-how explainer: openrouter/openai/gpt-6.1-terra
+how explainer: openrouter/deepseek/deepseek-v4.1-flash-1017
 why investigators: openrouter/deepseek/deepseek-v4.1-flash-1017
-why synthesizer: openrouter/openai/gpt-6.1-terra
+why synthesizer: openrouter/deepseek/deepseek-v4.1-flash-1017
 reflect tooling: openrouter/deepseek/deepseek-v4.1-flash-1017
-reflect judgment, divergent, synthesizer: openrouter/openai/gpt-6.1-terra
+reflect judgment, divergent, synthesizer: openrouter/deepseek/deepseek-v4.1-flash-1017
 arena runners: openrouter/openai/gpt-6.1-terra, openrouter/deepseek/deepseek-v4.1-flash-1017
 arena cross-judge pool: openrouter/openai/gpt-6.1-terra, openrouter/deepseek/deepseek-v4.1-flash-1017
 swarm workers: openrouter/deepseek/deepseek-v4.1-flash-1017
