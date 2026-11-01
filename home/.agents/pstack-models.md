@@ -6,20 +6,20 @@
 
 # Pi keeps effort in a separate `thinkingLevel` field, so the slugs below are plain provider/model-id.
 
-feature, refactoring: openrouter/deepseek/deepseek-v4.1-flash-1017
-bug-fix: openrouter/deepseek/deepseek-v4.1-flash-1017
-perf-issue: openrouter/deepseek/deepseek-v4.1-flash-1017
-hillclimb: openrouter/deepseek/deepseek-v4.1-flash-1017
-judgment and prose: openrouter/deepseek/deepseek-v4.1-flash-1017
-hardest tasks: openrouter/deepseek/deepseek-v4.1-flash-1017
-how explorer: openrouter/deepseek/deepseek-v4.1-flash-1017
-how explainer: openrouter/deepseek/deepseek-v4.1-flash-1017
-why investigators: openrouter/deepseek/deepseek-v4.1-flash-1017
-why synthesizer: openrouter/deepseek/deepseek-v4.1-flash-1017
-reflect tooling: openrouter/deepseek/deepseek-v4.1-flash-1017
-reflect judgment, divergent, synthesizer: openrouter/deepseek/deepseek-v4.1-flash-1017
-arena runners: openrouter/deepseek/deepseek-v4.1-flash-1017
-arena cross-judge pool: openrouter/deepseek/deepseek-v4.1-flash-1017
-swarm workers: openrouter/deepseek/deepseek-v4.1-flash-1017
-architect runners: openrouter/deepseek/deepseek-v4.1-flash-1017
-interrogate reviewers: openrouter/deepseek/deepseek-v4.1-flash-1017
+feature, refactoring: openrouter/~deepseek/deepseek-flash-latest
+bug-fix: openrouter/~deepseek/deepseek-flash-latest
+perf-issue: openrouter/~deepseek/deepseek-flash-latest
+hillclimb: openrouter/~deepseek/deepseek-flash-latest
+judgment and prose: openrouter/~deepseek/deepseek-flash-latest
+hardest tasks: openrouter/~deepseek/deepseek-flash-latest
+how explorer: openrouter/~deepseek/deepseek-flash-latest
+how explainer: openrouter/~deepseek/deepseek-flash-latest
+why investigators: openrouter/~deepseek/deepseek-flash-latest
+why synthesizer: openrouter/~deepseek/deepseek-flash-latest
+reflect tooling: openrouter/~deepseek/deepseek-flash-latest
+reflect judgment, divergent, synthesizer: openrouter/~deepseek/deepseek-flash-latest
+arena runners: openrouter/~deepseek/deepseek-flash-latest
+arena cross-judge pool: openrouter/~deepseek/deepseek-flash-latest
+swarm workers: openrouter/~deepseek/deepseek-flash-latest
+architect runners: openrouter/~deepseek/deepseek-flash-latest
+interrogate reviewers: openrouter/~deepseek/deepseek-flash-latest
