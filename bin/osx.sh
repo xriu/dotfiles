@@ -17,14 +17,13 @@ function install_osx_packages() {
     brew update
 
     # Caskroom
-    # brew trust --tap humanlayer/humanlayer
-    # brew trust --tap manaflow-ai/cmux
-    brew trust --tap homebrew/cask
-    brew trust --tap homebrew/cask-versions
-    brew trust --tap homebrew/cask-fonts
-    brew trust --tap oven-sh/bun
-    brew trust --tap databricks/tap
     brew trust --tap abue-ammar/tinycast
+    brew trust --tap anomalyco/tap
+    brew trust --tap databricks/tap
+    brew trust --tap homebrew/cask
+    brew trust --tap homebrew/cask-fonts
+    brew trust --tap homebrew/cask-versions
+    brew trust --tap oven-sh/bun
 
     brew_setup
     npm_packages
@@ -58,7 +57,6 @@ function brew_setup() {
     brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask helium-browser --force # Chromium-based web browser
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
-    brew install --cask kitlangton-hex --force # Voice-to-text transcription and paste tool
     brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
     brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask pearcleaner --force # Utility to uninstall apps and remove leftover files from old/uninstalled apps
@@ -74,7 +72,6 @@ function brew_setup() {
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
     # brew install steipete/tap/codexbar # Menu bar usage monitor for AI agents
-    # brew install humanlayer/humanlayer/humanlayer # The Multiplayer Coding Agent Workspace
 
     # brew install agent-desktop # Desktop automation CLI for AI agents
     brew install agent-browser # Browser automation CLI for AI agents
