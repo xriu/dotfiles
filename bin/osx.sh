@@ -47,6 +47,7 @@ function brew_setup() {
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask abue-ammar/tinycast/tinycast --force # A small, native launcher for your apps, clipboard, snippets and windows
+    brew install --cask anomalyco/tap/hex --force # Voice-to-text transcription and paste tool
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask cleanshot --force # Screen capture and recording tool
