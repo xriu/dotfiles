@@ -45,6 +45,14 @@
     "powerline": {
         "welcome": false,
         "fixedEditor": false,
+        "customItems": [
+            {
+                "id": "poteto",
+                "statusKey": "poteto",
+                "position": "secondary",
+                "color": "accent"
+            }
+        ],
         "layout": {
             "left": [
                 "model",
@@ -54,7 +62,7 @@
                 "context_pct",
                 "cost"
             ],
-            "secondary": ["git"]
+            "secondary": ["git", "custom:poteto"]
         }
     }
 }
