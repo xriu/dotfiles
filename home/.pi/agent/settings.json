@@ -66,6 +66,6 @@
     },
     "extensionChangelogVersions": {
         "{\"source\":\"npm:pi-powerline-footer\",\"scope\":\"user\"}": "0.22.0",
-        "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.46.0"
+        "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0"
     }
 }
