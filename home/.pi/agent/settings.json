@@ -20,7 +20,8 @@
             "extensions": [
                 "extensions/pi/command-gate/**",
                 "extensions/pi/custom-header/**",
-                "extensions/pi/poteto-mode/**"
+                "extensions/pi/poteto-mode/**",
+                "extensions/pi/mermaid/**"
             ]
         },
         "npm:@dietrichgebert/ponytail",
