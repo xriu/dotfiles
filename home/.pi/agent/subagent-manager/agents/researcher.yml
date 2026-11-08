@@ -1,3 +1,16 @@
-thinkingLevel: high
+thinkingLevel: max
 models:
   - openrouter/~deepseek/deepseek-flash-latest
+tools:
+  allow:
+    - read
+    - bash
+    - grep
+    - find
+    - ls
+    - agent_update
+    - agent_pause
+    - web_search
+    - fetch_content
+    - get_search_content
+    - source_check
