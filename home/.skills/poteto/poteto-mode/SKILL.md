@@ -105,9 +105,22 @@ You own every subagent's work. Review the diff and write your own summary, don't
 
 pstack was written for Cursor. In another harness (Claude Code, Codex, Pi, OpenCode, and others), read Cursor-specific instructions in this skill, its playbooks, and the routed skills through these mappings. If you can't tell which harness you are, check which of the paths below exist.
 
-- **Subagents.** `Task` means your subagent tool: `Agent` in Claude Code (`subagent_type: general-purpose`), `task` in OpenCode (`subagent_type: general`), `spawn_agent` in Codex. Drop parameters your tool doesn't have. `environment: "cloud"` means a Cursor cloud agent. Elsewhere, run that agent locally in its own worktree. If your harness has no subagent tool, as in Pi without an extension, do each delegated step yourself, one after another.
-- **`poteto-agent`.** Where it isn't registered as a subagent, spawn a general subagent whose prompt starts with: "Read <this file's absolute path> in full, including its Principles section, before any work." Then give the task.
+- **Subagents.** `Task` means your subagent tool: `Agent` in Claude Code (`subagent_type: general-purpose`), `task` in OpenCode (`subagent_type: general`), `spawn_agent` in Codex, `agent_spawn` in Pi. Drop parameters your tool doesn't have. `environment: "cloud"` means a Cursor cloud agent. Elsewhere, run that agent locally in its own worktree. If your harness has no subagent tool, do each delegated step yourself, one after another. In Pi, parallel means `wait: false` then `agent_wait`. Pi has no worktree parameter, so give each writer its own absolute path in the task.
+- **`poteto-agent`.** In Pi it is registered as type `poteto`. Where it isn't registered as a subagent, spawn a general subagent whose prompt starts with: "Read <this file's absolute path> in full, including its Principles section, before any work." Then give the task.
 - **Model settings.** Cursor loads `~/.cursor/rules/pstack-models.mdc` and Claude Code loads `~/.claude/rules/pstack-models.md` automatically. Elsewhere, `/setup-pstack` writes `~/.agents/pstack-models.md`. Read it at task start if it exists. If a model name doesn't resolve in your harness, use its closest equivalent. Cursor puts the reasoning level and speed in the model name (`-xhigh`, `-fast`). Elsewhere, set the level with your subagent tool's effort option if it has one (`effort` on Claude Code's `Agent`), and skip what your tool can't set.
+- **Pi models and effort.** Pi ignores `pstack-models.md`. `agent_spawn` takes no `model`, `effort`, or `readonly` parameter. The manager reads the model and thinking level from the agent type file in `~/.pi/agent/subagent-manager/agents/`. Route each role to a type and pass no model. This table overrides the model and effort text in every routed skill.
+
+  | pstack role line                                                                                                               | Pi type      |
+  | ------------------------------------------------------------------------------------------------------------------------------ | ------------ |
+  | `feature, refactoring`, `bug-fix`, `perf-issue`, `hillclimb`                                                                   | `coder`      |
+  | `hardest tasks`, `architect runners`, `arena runners`                                                                          | `architect`  |
+  | `judgment and prose` (judgment), `interrogate reviewers`, `arena cross-judge pool`, `reflect judgment, divergent, synthesizer` | `reviewer`   |
+  | `judgment and prose` (prose)                                                                                                   | `writer`     |
+  | `how explorer`, `how explainer`, `why investigators`, `why synthesizer`, `reflect tooling`                                     | `researcher` |
+  | `swarm workers`                                                                                                                | `tasker`     |
+
+  A panel seat sets no model. Run two seats on the same type when a workflow needs two candidates, and say so. A type's `models` list is a fallback order, not a fan-out list.
+
 - **Transcripts.** Read only the active workspace's sessions, never other projects'. Cursor: the `agent-transcripts/` directory the system prompt names. Claude Code: `~/.claude/projects/<slug>/*.jsonl`, where `<slug>` is the workspace path with every character that isn't a letter or digit turned into "-". Pi: `~/.pi/agent/sessions/--<slug>--/*.jsonl`, where `<slug>` is the workspace path with the leading slash dropped and each "/" turned into "-". Codex: `~/.codex/sessions/YYYY/MM/DD/rollout-*.jsonl`, keeping files whose first line has `payload.cwd` equal to the workspace path. OpenCode: `~/.local/share/opencode/storage/`.
 - **Skill folders.** Project: `.cursor/skills/` (Cursor), `.claude/skills/` (Claude Code), `.pi/skills/` (Pi), `.agents/skills/` (Codex, OpenCode, and others). User: `~/.cursor/skills/`, `~/.claude/skills/`, `~/.pi/agent/skills/`, `~/.codex/skills/`, `~/.agents/skills/`.
 - **Questions.** `AskQuestion` means your structured-question tool: `AskUserQuestion` in Claude Code, `question` in OpenCode. Without one, ask in chat with numbered options.
@@ -129,7 +142,7 @@ Every playbook ends with a reply written this way, PR link as `https://github.co
 
 ## Comments
 
-Comments follow the same rule as the reply. Write them clean as you go. Keep a comment only for a non-obvious *why* the code can't show. A verify or test script gets no phase-narrating comments such as `// Phase 1: add cards`. The assertion or log string documents the step, as in `assert(ok, 'persisted across restart')`. This applies to every file you produce, including the delegate's diff.
+Comments follow the same rule as the reply. Write them clean as you go. Keep a comment only for a non-obvious _why_ the code can't show. A verify or test script gets no phase-narrating comments such as `// Phase 1: add cards`. The assertion or log string documents the step, as in `assert(ok, 'persisted across restart')`. This applies to every file you produce, including the delegate's diff.
 
 ## Playbooks
 
