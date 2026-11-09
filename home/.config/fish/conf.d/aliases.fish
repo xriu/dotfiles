@@ -23,6 +23,7 @@ alias gmerge="git merge main"
 # List
 alias ls="lla"
 alias ll="ls -l --sort-dirs-first"
+alias lls="ls -l --sort date --sort-reverse"
 
 # Docker shortcuts
 alias dc='docker-compose'

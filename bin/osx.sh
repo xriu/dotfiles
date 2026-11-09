@@ -17,14 +17,13 @@ function install_osx_packages() {
     brew update
 
     # Caskroom
-    # brew trust --tap humanlayer/humanlayer
-    # brew trust --tap manaflow-ai/cmux
-    brew trust --tap homebrew/cask
-    brew trust --tap homebrew/cask-versions
-    brew trust --tap homebrew/cask-fonts
-    brew trust --tap oven-sh/bun
-    brew trust --tap databricks/tap
     brew trust --tap abue-ammar/tinycast
+    brew trust --tap anomalyco/tap
+    brew trust --tap databricks/tap
+    brew trust --tap homebrew/cask
+    brew trust --tap homebrew/cask-fonts
+    brew trust --tap homebrew/cask-versions
+    brew trust --tap oven-sh/bun
 
     brew_setup
     npm_packages
@@ -47,6 +46,7 @@ function brew_setup() {
 
     brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
     brew install --cask abue-ammar/tinycast/tinycast --force # A small, native launcher for your apps, clipboard, snippets and windows
+    brew install --cask anomalyco/tap/hex --force # Voice-to-text transcription and paste tool
     brew install --cask appcleaner --force # Application uninstaller
     brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
     brew install --cask cleanshot --force # Screen capture and recording tool
@@ -57,23 +57,21 @@ function brew_setup() {
     brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask helium-browser --force # Chromium-based web browser
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
-    brew install --cask kitlangton-hex --force # Voice-to-text transcription and paste tool
     brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
     brew install --cask orbstack --force # Replacement for Docker Desktop
+    brew install --cask pearcleaner --force # Utility to uninstall apps and remove leftover files from old/uninstalled apps
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask tablepro --force # Native database client for many database types
     brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
     brew install --cask tldraw --force # Whiteboard-style drawing app
     brew install --cask twingate --force # Secure network access to cloud resources
-    brew install --cask vibeproxy --force # Menu bar app for using AI subscriptions with coding tools
     brew install --cask windows-app --force # Windows app for macOS
     brew install --cask zed --force # Multiplayer code editor
 
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
     # brew install steipete/tap/codexbar # Menu bar usage monitor for AI agents
-    # brew install humanlayer/humanlayer/humanlayer # The Multiplayer Coding Agent Workspace
 
     # brew install agent-desktop # Desktop automation CLI for AI agents
     brew install agent-browser # Browser automation CLI for AI agents
@@ -87,7 +85,6 @@ function brew_setup() {
     brew install biome # Toolchain of the web
     brew install btop # Improved top (interactive process viewer)
     brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
-    brew install can1357/tap/omp # A coding agent with the IDE wired in
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
     brew install databricks # Databricks CLI
@@ -111,7 +108,6 @@ function brew_setup() {
     brew install grep # GNU grep, egrep and fgrep
     brew install hadolint # Smarter Dockerfile linter to validate best practices
     brew install herdr # Agent multiplexer that lives in your terminal
-    brew install hudochenkov/sshpass/sshpass # Non-interactive ssh password authentication
     brew install jenv # Manage your Java environment
     brew install jq # Lightweight and flexible command-line JSON processor
     brew install lazydocker # A tool for managing docker containers with a simple, intuitive interface.
@@ -170,14 +166,6 @@ function npm_packages() {
     echo "NPM packages"
     # https://github.com/UsefulSoftwareCo/executor
     # npm install -g executor # Tool discovery and execution layer for AI agents
-
-    # Firstmate stack solution: https://github.com/kunchenguid
-    # curl -fsSL https://kunchenguid.github.io/treehouse/install.sh | sh
-    # curl -fsSL https://raw.githubusercontent.com/kunchenguid/no-mistakes/main/docs/install.sh | sh
-    # npm install -g lavish-axi && lavish-axi setup hooks
-    # npm install -g chrome-devtools-axi && chrome-devtools-axi setup hooks
-    # npm install -g gh-axi && gh-axi setup hooks
-    # npm install -g tasks-axi
 
 }
 

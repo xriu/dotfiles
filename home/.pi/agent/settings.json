@@ -1,5 +1,5 @@
 {
-    "lastChangelogVersion": "1.4.0",
+    "lastChangelogVersion": "1.5.0",
     "defaultProvider": "openrouter",
     "defaultModel": "~deepseek/deepseek-flash-latest",
     "enabledModels": ["openrouter/**", "opencode-go/deepseek-v4.1-flash"],
@@ -18,8 +18,8 @@
         {
             "source": "ssh://git@github.com/xriu/pi-extensions@main",
             "extensions": [
-                "extensions/pi/custom-header/**",
                 "extensions/pi/command-gate/**",
+                "extensions/pi/custom-header/**",
                 "extensions/pi/mermaid/**"
             ]
         },
@@ -27,6 +27,7 @@
         "npm:@ff-labs/pi-fff",
         "npm:pi-checklist",
         "npm:pi-clarify",
+        "npm:pi-context-view",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
         "npm:pi-subagent-manager",
@@ -44,6 +45,14 @@
     "powerline": {
         "welcome": false,
         "fixedEditor": false,
+        "customItems": [
+            {
+                "id": "poteto",
+                "statusKey": "poteto",
+                "position": "secondary",
+                "color": "accent"
+            }
+        ],
         "layout": {
             "left": [
                 "model",
@@ -53,7 +62,12 @@
                 "context_pct",
                 "cost"
             ],
-            "secondary": ["git"]
+            "secondary": ["git", "custom:poteto"]
         }
+    },
+    "extensionChangelogVersions": {
+        "{\"source\":\"npm:pi-powerline-footer\",\"scope\":\"user\"}": "0.22.0",
+        "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
+        "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.3"
     }
 }

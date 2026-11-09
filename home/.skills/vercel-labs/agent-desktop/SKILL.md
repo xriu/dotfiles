@@ -13,6 +13,7 @@ description: >
   "operate desktop", "accessibility tree", "snapshot app", "type into field", "navigate menu",
   "toggle checkbox", "take screenshot", "desktop automation", "agent-desktop",
   or any desktop GUI task on macOS, Windows or Linux.
+disable-model-invocation: true
 ---
 
 # agent-desktop

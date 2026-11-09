@@ -39,3 +39,13 @@ uvx --from mlx-whisper mlx_whisper demo.wav \
   --model mlx-community/whisper-large-v3-turbo \
   --output-dir tr --output-format all
 ```
+
+## Hex (Catalan)
+
+The `hex` binary is not on `PATH`. Use the app binary:
+
+```
+HEX="/Applications/Hex.app/Contents/MacOS/hex"
+$HEX model install whisper_large_v3_turbo
+$HEX model use whisper_large_v3_turbo --language ca
+```

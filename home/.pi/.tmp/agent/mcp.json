@@ -11,6 +11,9 @@
         }
     },
     "mcpServers": {
+        "superlogical": {
+            "url": "https://www.superlogical.com/rex/community-mcp"
+        },
         "executor": {
             "type": "http",
             "url": "http://localhost:4789/mcp?elicitation_mode=native",

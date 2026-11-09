@@ -1,0 +1,3 @@
+thinkingLevel: max
+models:
+  - openrouter/~deepseek/deepseek-flash-latest

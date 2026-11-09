@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # Architect
 
+**Pi:** Before spawning, read the Pi panel instructions in `../poteto-mode/SKILL.md` under Harness. They override this skill's model, seat, and isolation instructions.
+
 Sketch types, function signatures, class shapes, and module boundaries with `not implemented` bodies and pseudocode. Synthesize across multiple model perspectives, then fill in code against the chosen sketch.
 
 ## Start
@@ -56,7 +58,7 @@ Replace `not implemented` bodies with code, pseudocode with logic. The synthesiz
 
 If implementation keeps producing friction the sketch can't absorb, throw the sketch out. Don't bolt fixes onto a wrong design, per the **redesign-from-first-principles** and **fix-root-causes** principle skills.
 
-The signal is a *pattern*, not single instances. Tells:
+The signal is a _pattern_, not single instances. Tells:
 
 - The same shape of workaround appearing repeatedly across unrelated code.
 - Multiple unrelated edge cases that all need special-case branches.

@@ -15,6 +15,7 @@
 - **Surgical changes.** Touch only files and behavior required by the goal.
 - **Goal-driven execution.** Verify every success criterion. Repeat until all pass, or report the blocker.
 - **Root cause first.** When real behavior differs from expected behavior, read the evidence (logs, state, code path) before you name a cause. Report what you checked and what it showed.
+- **Source before snippets.** External open-source repos are cloned read-only in `~/clones`. Read the clone before web docs, and clone a missing repo there with `--depth 1`. Ask before you update a clone.
 
 ### Design
 
