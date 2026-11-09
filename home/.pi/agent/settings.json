@@ -27,6 +27,7 @@
         "npm:@ff-labs/pi-fff",
         "npm:pi-checklist",
         "npm:pi-clarify",
+        "npm:pi-context-view",
         "npm:pi-powerline-footer",
         "npm:pi-rewind",
         "npm:pi-subagent-manager",
@@ -66,6 +67,7 @@
     },
     "extensionChangelogVersions": {
         "{\"source\":\"npm:pi-powerline-footer\",\"scope\":\"user\"}": "0.22.0",
-        "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0"
+        "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
+        "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.3"
     }
 }
