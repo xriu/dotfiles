@@ -1,7 +1,7 @@
 ---
 name: judge-terra
 description: Read-only pstack Arena judge that scores candidates against a rubric.
-thinkingLevel: medium
+thinkingLevel: xhigh
 color: warning
 models:
   - openrouter/~openai/gpt-terra-latest
