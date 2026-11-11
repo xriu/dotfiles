@@ -15,10 +15,7 @@
         "DISABLE_ERROR_REPORTING": "1",
         "DISABLE_TELEMETRY": "1"
     },
-    "attribution": {
-        "commit": "",
-        "pr": ""
-    },
+    "attribution": false,
     "permissions": {
         "allow": [],
         "deny": [
@@ -59,11 +56,11 @@
         "additionalDirectories": ["~/.claude/"]
     },
     "model": "sonnet",
-    "disableClaudeAiConnectors": false,
+    "enableArtifact": false,
+    "enableWorkflows": true,
+    "disableClaudeAiConnectors": true,
     "disableBundledSkills": true,
     "disableRemoteControl": true,
-    "disableWorkflows": true,
-    "disableArtifact": true,
     "statusLine": {
         "type": "command",
         "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
