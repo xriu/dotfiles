@@ -4,6 +4,7 @@ set -euo pipefail
 readonly DOTFILES="$HOME/dotfiles"
 readonly SKILLS_SOURCE="$DOTFILES/home/.skills"
 readonly SKILLS_DEST="$DOTFILES/home/.agents/skills"
+readonly CLAUDE_SKILLS_DEST="$HOME/.claude/skills"
 
 # The source must be independent from the destination. Migrate the old root
 # link once, then keep the canonical skill tree in .skills.
@@ -24,12 +25,6 @@ elif [[ ! -d "$SKILLS_SOURCE" ]]; then
     printf 'Skills source does not exist: %s\n' "$SKILLS_SOURCE" >&2
     exit 1
 fi
-
-if [[ -L "$SKILLS_DEST" ]]; then
-    printf 'Skills destination must be a real directory: %s\n' "$SKILLS_DEST" >&2
-    exit 1
-fi
-mkdir -p "$SKILLS_DEST"
 
 skill_names=()
 skill_dirs=()
@@ -55,21 +50,38 @@ if [[ "${#skill_names[@]}" -eq 0 ]]; then
     exit 1
 fi
 
-# Remove stale links, but preserve destination-only real skills.
-while IFS= read -r -d '' entry; do
-    rm "$entry"
-done < <(find "$SKILLS_DEST" -mindepth 1 -maxdepth 1 -type l -print0)
+# Publish one flat symlink per skill. Only our own links are removed or
+# replaced: any other entry belongs to another tool and stays untouched.
+publish_skills() {
+    local dest="$1"
+    local index skill_name skill_dir skill_dest count=0
 
-for index in "${!skill_names[@]}"; do
-    skill_name="${skill_names[$index]}"
-    skill_dir="${skill_dirs[$index]}"
-    skill_dest="$SKILLS_DEST/$skill_name"
-
-    if [[ -e "$skill_dest" || -L "$skill_dest" ]]; then
-        rm -rf "$skill_dest"
+    if [[ -L "$dest" ]]; then
+        printf 'Skills destination must be a real directory: %s\n' "$dest" >&2
+        exit 1
     fi
-    ln -s "$skill_dir" "$skill_dest"
-    printf 'Linked skill: %s -> %s\n' "$skill_dest" "$skill_dir"
-done
+    mkdir -p "$dest"
 
-printf 'Linked %d skills into flat destination: %s\n' "${#skill_names[@]}" "$SKILLS_DEST"
+    while IFS= read -r -d '' entry; do
+        rm "$entry"
+    done < <(find "$dest" -mindepth 1 -maxdepth 1 -type l -lname "$SKILLS_SOURCE/*" -print0)
+
+    for index in "${!skill_names[@]}"; do
+        skill_name="${skill_names[$index]}"
+        skill_dir="${skill_dirs[$index]}"
+        skill_dest="$dest/$skill_name"
+
+        if [[ -e "$skill_dest" || -L "$skill_dest" ]]; then
+            printf 'Skipped skill, name in use: %s\n' "$skill_dest" >&2
+            continue
+        fi
+        ln -s "$skill_dir" "$skill_dest"
+        count=$((count + 1))
+        printf 'Linked skill: %s -> %s\n' "$skill_dest" "$skill_dir"
+    done
+
+    printf 'Linked %d of %d skills into: %s\n' "$count" "${#skill_names[@]}" "$dest"
+}
+
+publish_skills "$SKILLS_DEST"
+publish_skills "$CLAUDE_SKILLS_DEST"
