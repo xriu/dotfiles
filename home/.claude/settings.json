@@ -1,96 +1,93 @@
 {
-  "cleanupPeriodDays": 30,
-  "env": {
-    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
-    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
-    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
-    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "0",
-    "CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
-    "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
-    "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
-    "CLAUDE_CODE_NO_FLICKER": "1",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet[1m]",
-    "DISABLE_ERROR_REPORTING": "1",
-    "DISABLE_TELEMETRY": "1"
-  },
-  "attribution": {
-    "commit": "",
-    "pr": "",
-    "sessionUrl": false
-  },
-  "permissions": {
-    "allow": [],
-    "deny": [
-      "Bash(dd *)",
-      "Bash(diskutil *)",
-      "Bash(git push *)",
-      "Bash(git reset --hard *)",
-      "Bash(mkfs *)",
-      "Bash(npm publish *)",
-      "Bash(rm -rf /*)",
-      "Bash(rm -rf /)",
-      "Bash(rm -rf .*)",
-      "Bash(rm -rf $HOME*)",
-      "Bash(rm -rf ~*)",
-      "Bash(sudo rm -rf *)",
-      "Bash(terraform apply *)",
-      "Bash(terraform destroy *)",
-      "Read(./.env*)",
-      "Read(./config/credentials.json)",
-      "Read(./secrets/**)",
-      "Read(~/.ssh/**)",
-      "AskUserQuestion",
-      "DesignSync",
-      "EnterPlanMode",
-      "ExitPlanMode",
-      "NotebookEdit",
-      "PushNotification",
-      "ReportFindings"
-    ],
-    "ask": [],
-    "defaultMode": "bypassPermissions",
-    "additionalDirectories": [
-      "~/.claude/"
-    ]
-  },
-  "model": "opus",
-  "disableClaudeAiConnectors": true,
-  "disableRemoteControl": true,
-  "enableArtifact": false,
-  "enableWorkflows": true,
-  "workflowSizeGuideline": "large",
-  "statusLine": {
-    "type": "command",
-    "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
-  },
-  "enabledPlugins": {
-    "agent-sdk-dev@claude-code-plugins": true,
-    "frontend-design@claude-plugins-official": true,
-    "plannotator@plannotator": true,
-    "plugin-dev@claude-code-plugins": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
-  },
-  "extraKnownMarketplaces": {
-    "claude-code-plugins": {
-      "source": {
-        "source": "github",
-        "repo": "anthropics/claude-code"
-      }
+    "cleanupPeriodDays": 30,
+    "env": {
+        "CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
+        "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
+        "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
+        "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "0",
+        "CLAUDE_CODE_ENABLE_AWAY_SUMMARY": "0",
+        "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION": "true",
+        "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
+        "CLAUDE_CODE_NO_FLICKER": "1",
+        "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet[1m]",
+        "DISABLE_ERROR_REPORTING": "1",
+        "DISABLE_TELEMETRY": "1"
     },
-    "plannotator": {
-      "source": {
-        "source": "github",
-        "repo": "backnotprop/plannotator"
-      }
-    }
-  },
-  "subagentPromptCacheTtl": "1h",
-  "alwaysThinkingEnabled": true,
-  "effortLevel": "medium",
-  "ultracode": false,
-  "fastMode": false,
-  "skipDangerousModePermissionPrompt": true,
-  "theme": "dark",
-  "hasCompletedOnboarding": true
+    "attribution": {
+        "commit": "",
+        "pr": "",
+        "sessionUrl": false
+    },
+    "permissions": {
+        "allow": [],
+        "deny": [
+            "Bash(dd *)",
+            "Bash(diskutil *)",
+            "Bash(git reset --hard *)",
+            "Bash(mkfs *)",
+            "Bash(npm publish *)",
+            "Bash(rm -rf /*)",
+            "Bash(rm -rf /)",
+            "Bash(rm -rf .*)",
+            "Bash(rm -rf $HOME*)",
+            "Bash(rm -rf ~*)",
+            "Bash(sudo rm -rf *)",
+            "Bash(terraform apply *)",
+            "Bash(terraform destroy *)",
+            "Read(./.env*)",
+            "Read(./config/credentials.json)",
+            "Read(./secrets/**)",
+            "Read(~/.ssh/**)",
+            "AskUserQuestion",
+            "DesignSync",
+            "EnterPlanMode",
+            "ExitPlanMode",
+            "NotebookEdit",
+            "PushNotification",
+            "ReportFindings"
+        ],
+        "ask": [],
+        "defaultMode": "bypassPermissions",
+        "additionalDirectories": ["~/.claude/"]
+    },
+    "model": "opus",
+    "disableClaudeAiConnectors": true,
+    "disableRemoteControl": true,
+    "enableArtifact": false,
+    "enableWorkflows": true,
+    "workflowSizeGuideline": "large",
+    "statusLine": {
+        "type": "command",
+        "command": "bash /Users/xavier.riu/dotfiles/home/.claude/status-line.sh"
+    },
+    "enabledPlugins": {
+        "agent-sdk-dev@claude-code-plugins": true,
+        "frontend-design@claude-plugins-official": true,
+        "plannotator@plannotator": true,
+        "plugin-dev@claude-code-plugins": true,
+        "rust-analyzer-lsp@claude-plugins-official": true,
+        "typescript-lsp@claude-plugins-official": true
+    },
+    "extraKnownMarketplaces": {
+        "claude-code-plugins": {
+            "source": {
+                "source": "github",
+                "repo": "anthropics/claude-code"
+            }
+        },
+        "plannotator": {
+            "source": {
+                "source": "github",
+                "repo": "backnotprop/plannotator"
+            }
+        }
+    },
+    "subagentPromptCacheTtl": "1h",
+    "alwaysThinkingEnabled": true,
+    "effortLevel": "medium",
+    "ultracode": false,
+    "fastMode": false,
+    "skipDangerousModePermissionPrompt": true,
+    "theme": "dark",
+    "hasCompletedOnboarding": true
 }
