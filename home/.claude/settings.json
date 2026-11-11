@@ -11,7 +11,7 @@
         "CLAUDE_CODE_ENABLE_TELEMETRY": "0",
         "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
         "CLAUDE_CODE_NO_FLICKER": "1",
-        "CLAUDE_CODE_SUBAGENT_MODEL": "claude-sonnet-5[1m]",
+        "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet[1m]",
         "DISABLE_ERROR_REPORTING": "1",
         "DISABLE_TELEMETRY": "1"
     },
