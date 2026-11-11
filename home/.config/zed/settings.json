@@ -80,13 +80,7 @@
   },
   "colorize_brackets": true,
   "confirm_quit": true,
-  "context_servers": {
-    "plannotator-inbox": {
-      "command": "/Users/xavier.riu/.local/bin/plannotator",
-      "args": ["inbox", "mcp"],
-      "env": {},
-    },
-  },
+  "context_servers": {},
   "cursor_blink": true,
   "diff_view_style": "split",
   "disable_ai": false,

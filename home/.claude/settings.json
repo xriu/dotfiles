@@ -50,7 +50,7 @@
         "defaultMode": "bypassPermissions",
         "additionalDirectories": ["~/.claude/"]
     },
-    "model": "opus",
+    "model": "claude-fable-5-2",
     "disableClaudeAiConnectors": true,
     "disableRemoteControl": true,
     "enableArtifact": false,
@@ -63,7 +63,6 @@
     "enabledPlugins": {
         "agent-sdk-dev@claude-code-plugins": true,
         "frontend-design@claude-plugins-official": true,
-        "plannotator@plannotator": true,
         "plugin-dev@claude-code-plugins": true,
         "rust-analyzer-lsp@claude-plugins-official": true,
         "typescript-lsp@claude-plugins-official": true
