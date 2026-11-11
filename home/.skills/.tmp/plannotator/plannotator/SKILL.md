@@ -19,21 +19,21 @@ Use the CLI only when you have no such tool, or for what the tool does not do: `
 
 ## Choose the command
 
-| The user wants                                                   | Run (CLI, when you have no `plannotator` tool)                                                          |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Review a plan you produced                                       | Nothing. Plan review opens automatically on plan exit via hooks. Never run bare `plannotator` yourself. |
-| Review and explicitly approve a plan/spec saved as a file        | `plannotator annotate <file> --gate --json`                                                             |
-| Review current code changes                                      | `plannotator review`                                                                                    |
-| Review a GitHub PR, GitLab MR or Bitbucket Cloud PR              | `plannotator review <PR_URL>`                                                                           |
-| Annotate a markdown, text, config, or HTML file                  | `plannotator annotate <file>`                                                                           |
-| Annotate a web page                                              | `plannotator annotate <https-url>`                                                                      |
-| Annotate a running local app (dev server)                        | `plannotator annotate <http://localhost:PORT/>`                                                         |
-| Pick a file to annotate from a folder                            | `plannotator annotate <folder/>`                                                                        |
-| Annotate your latest assistant message                           | `plannotator last`                                                                                      |
-| Browse past plan decisions                                       | `plannotator archive`                                                                                   |
-| Export or share a Guided Review                                  | `plannotator guide export` / `plannotator guide share`                                                  |
-| Reopen or list live sessions                                     | `plannotator sessions`                                                                                  |
-| Ask the person something they can answer later, without blocking | The `plannotator_inbox` tool when you have it, else the Inbox's MCP server (`plannotator inbox mcp`)    |
+| The user wants | Run (CLI, when you have no `plannotator` tool) |
+| --- | --- |
+| Review a plan you produced | Nothing. Plan review opens automatically on plan exit via hooks. Never run bare `plannotator` yourself. |
+| Review and explicitly approve a plan/spec saved as a file | `plannotator annotate <file> --gate --json` |
+| Review current code changes | `plannotator review` |
+| Review a GitHub PR, GitLab MR or Bitbucket Cloud PR | `plannotator review <PR_URL>` |
+| Annotate a markdown, text, config, or HTML file | `plannotator annotate <file>` |
+| Annotate a web page | `plannotator annotate <https-url>` |
+| Annotate a running local app (dev server) | `plannotator annotate <http://localhost:PORT/>` |
+| Pick a file to annotate from a folder | `plannotator annotate <folder/>` |
+| Annotate your latest assistant message | `plannotator last` |
+| Browse past plan decisions | `plannotator archive` |
+| Export or share a Guided Review | `plannotator guide export` / `plannotator guide share` |
+| Reopen or list live sessions | `plannotator sessions` |
+| Ask the person something they can answer later, without blocking | The `plannotator_inbox` tool when you have it, else the Inbox's MCP server (`plannotator inbox mcp`) |
 
 ## Session model
 
@@ -109,12 +109,12 @@ plannotator annotate report.md --gate --json --require-approval --result-file /t
 
 Exit codes under a strict flag (grep convention):
 
-| Exit  | Meaning                                                                                                                                                                                      |
-| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | Approved. The only success.                                                                                                                                                                  |
-| 1     | The reviewer did not approve (annotated or dismissed); the decision record was still published.                                                                                              |
-| 2     | The gate itself failed: bad flag combination, startup failure (missing file, unreachable URL, oversized file), or the result file could not be published. Never treat as a reviewer outcome. |
-| 128+n | Killed by signal n.                                                                                                                                                                          |
+| Exit | Meaning |
+| --- | --- |
+| 0 | Approved. The only success. |
+| 1 | The reviewer did not approve (annotated or dismissed); the decision record was still published. |
+| 2 | The gate itself failed: bad flag combination, startup failure (missing file, unreachable URL, oversized file), or the result file could not be published. Never treat as a reviewer outcome. |
+| 128+n | Killed by signal n. |
 
 Without strict flags, startup failures exit 1 and the exit code carries no decision; parse the output instead. Both strict flags require `--gate --json` and reject `--hook`.
 
@@ -231,16 +231,16 @@ plannotator improve-context
 
 ## Environment variables that change behavior
 
-| Variable                     | Use                                                                                                                                                                                                                                                                     |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PLANNOTATOR_REMOTE=1`       | Force remote mode (fixed port 19432, wide bind) for SSH/devcontainer sessions; `0` forces local. Unset means SSH auto-detection.                                                                                                                                        |
-| `PLANNOTATOR_PORT`           | Fix the port instead of a random one.                                                                                                                                                                                                                                   |
-| `PLANNOTATOR_ORIGIN`         | Override agent-origin detection (`claude-code`, `codex`, `opencode`, `pi`, `oh-my-pi`, `amp`, `droid`, `copilot-cli`, `gemini-cli`, `kiro-cli`, `mistral-vibe`, `qwen-code`, `dsh`). Set it when launching Plannotator from a wrapper the detection cannot see through. |
-| `PLANNOTATOR_AI=disabled`    | Disable Ask AI and agent-launched review surfaces in the UI.                                                                                                                                                                                                            |
-| `PLANNOTATOR_SHARE=disabled` | Disable URL sharing, including guide share links.                                                                                                                                                                                                                       |
-| `PLANNOTATOR_DATA_DIR`       | Move the data directory: plans, history, drafts, config. Unset, the default is `~/.plannotator` or `$XDG_DATA_HOME/plannotator`; `plannotator data-dir` prints which one this install uses.                                                                             |
-| `PLANNOTATOR_BROWSER`        | Open sessions in a specific browser; `none` opens no browser at all (the session URL is always printed on stderr).                                                                                                                                                      |
-| `PLANNOTATOR_UPDATE_CHECK=0` | No automatic check for a newer release (and no update notices or auto-update). `plannotator update` still checks when run.                                                                                                                                              |
+| Variable | Use |
+| --- | --- |
+| `PLANNOTATOR_REMOTE=1` | Force remote mode (fixed port 19432, wide bind) for SSH/devcontainer sessions; `0` forces local. Unset means SSH auto-detection. |
+| `PLANNOTATOR_PORT` | Fix the port instead of a random one. |
+| `PLANNOTATOR_ORIGIN` | Override agent-origin detection (`claude-code`, `codex`, `opencode`, `pi`, `oh-my-pi`, `amp`, `droid`, `copilot-cli`, `gemini-cli`, `kiro-cli`, `mistral-vibe`, `qwen-code`, `dsh`). Set it when launching Plannotator from a wrapper the detection cannot see through. |
+| `PLANNOTATOR_AI=disabled` | Disable Ask AI and agent-launched review surfaces in the UI. |
+| `PLANNOTATOR_SHARE=disabled` | Disable URL sharing, including guide share links. |
+| `PLANNOTATOR_DATA_DIR` | Move the data directory: plans, history, drafts, config. Unset, the default is `~/.plannotator` or `$XDG_DATA_HOME/plannotator`; `plannotator data-dir` prints which one this install uses. |
+| `PLANNOTATOR_BROWSER` | Open sessions in a specific browser; `none` opens no browser at all (the session URL is always printed on stderr). |
+| `PLANNOTATOR_UPDATE_CHECK=0` | No automatic check for a newer release (and no update notices or auto-update). `plannotator update` still checks when run. |
 
 ## Posting annotations into a live session
 
