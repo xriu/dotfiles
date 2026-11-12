@@ -127,6 +127,7 @@ function brew_setup() {
     brew install portless # Replace port numbers with stable, named local URLs for humans and agents
     brew install pstree # A tool to show the tree of processes
     brew install python@3.10 # Interpreted, interactive, object-oriented programming language
+    brew install rea # Reverse engineering CLI and MCP server for agents
     brew install ripgrep # Fast grep replacement with Rust
     brew install rtk # CLI proxy to minimize LLM token consumption
     brew install ruff # Fast Python linter

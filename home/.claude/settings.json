@@ -50,7 +50,7 @@
         "defaultMode": "bypassPermissions",
         "additionalDirectories": ["~/.claude/"]
     },
-    "model": "claude-fable-5-2",
+    "model": "claude-fable-5-2[1m]",
     "disableClaudeAiConnectors": true,
     "disableRemoteControl": true,
     "enableArtifact": false,
