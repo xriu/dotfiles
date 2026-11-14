@@ -1,11 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Standalone agents setup (not part of setup.sh): links skills and config,
+# then copies pi subagent roles.
+set -euo pipefail
 
-# Function to configure pi subagent roles
-function agents_configuration() {
+readonly DOTFILES="$HOME/dotfiles"
 
-    # Copy subagent roles and settings; the subagent manager rejects symlinks
-    mkdir -p ~/.pi/agent/subagent-manager/agents
-    cp -R ${HOME}/dotfiles/home/.pi/agent/subagent-manager/agents/. ~/.pi/agent/subagent-manager/agents/
-    cp ${HOME}/dotfiles/home/.pi/agent/subagent-manager/settings.json ~/.pi/agent/subagent-manager/settings.json
+"$DOTFILES/scripts/link-agents.sh" skills config
 
-}
+# The subagent manager rejects symlinks, so roles and settings are copied.
+mkdir -p ~/.pi/agent/subagent-manager/agents
+cp -R "$DOTFILES/home/.pi/agent/subagent-manager/agents/." ~/.pi/agent/subagent-manager/agents/
+cp "$DOTFILES/home/.pi/agent/subagent-manager/settings.json" ~/.pi/agent/subagent-manager/settings.json
+printf 'Copied pi subagent roles and settings\n'
