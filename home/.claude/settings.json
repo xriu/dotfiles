@@ -73,12 +73,6 @@
                 "source": "github",
                 "repo": "anthropics/claude-code"
             }
-        },
-        "plannotator": {
-            "source": {
-                "source": "github",
-                "repo": "backnotprop/plannotator"
-            }
         }
     },
     "subagentPromptCacheTtl": "1h",
