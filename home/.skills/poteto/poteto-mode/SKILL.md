@@ -105,9 +105,10 @@ You own every subagent's work. Review the diff and write your own summary, don't
 
 pstack was written for Cursor. In another harness (Claude Code, Codex, Pi, OpenCode, and others), read Cursor-specific instructions in this skill, its playbooks, and the routed skills through these mappings. If you can't tell which harness you are, check which of the paths below exist.
 
-- **Subagents.** `Task` means your subagent tool: `Agent` in Claude Code (`subagent_type: general-purpose`), `task` in OpenCode (`subagent_type: general`), `spawn_agent` in Codex, `agent_spawn` in Pi. Drop parameters your tool doesn't have. `environment: "cloud"` means a Cursor cloud agent. Elsewhere, run that agent locally in its own worktree. If your harness has no subagent tool, do each delegated step yourself, one after another. In Pi, parallel means `wait: false` then `agent_wait`. Pi has no worktree parameter, so give each writer its own absolute path in the task.
+- **Subagents.** `Task` means your subagent tool: `Agent` in Claude Code (`subagent_type: general-purpose`), `task` in OpenCode (`subagent_type: general`), `spawn_agent` in Codex, `agent_spawn` in Pi with the subagent-manager extension. Drop parameters your tool doesn't have. `environment: "cloud"` means a Cursor cloud agent. Elsewhere, run that agent locally in its own worktree. If your harness has no subagent tool, as in Pi without an extension, do each delegated step yourself, one after another. In Pi, parallel means `wait: false` then `agent_wait`. Pi has no worktree parameter, so give each writer its own absolute path in the task.
 - **`poteto-agent`.** In Pi it is registered as type `poteto`. Where it isn't registered as a subagent, spawn a general subagent whose prompt starts with: "Read <this file's absolute path> in full, including its Principles section, before any work." Then give the task.
 - **Model settings.** Cursor loads `~/.cursor/rules/pstack-models.mdc` and Claude Code loads `~/.claude/rules/pstack-models.md` automatically. Elsewhere, `/setup-pstack` writes `~/.agents/pstack-models.md`. Outside Pi, read it at task start if it exists. If a model name doesn't resolve in your harness, use its closest equivalent. Cursor puts the reasoning level and speed in the model name (`-xhigh`, `-fast`). Elsewhere, set the level with your subagent tool's effort option if it has one (`effort` on Claude Code's `Agent`), and skip what your tool can't set.
+
 - **Pi models and effort.** `agent_spawn` takes no `model`, `effort`, or `readonly` parameter. The manager selects those settings from each type in `~/.pi/agent/subagent-manager/agents/`. `pstack-models.md` does not configure Pi types or panel seats. This table overrides model, effort, type, and panel-size instructions in routed skills.
 
   | pstack role line                                                                           | Pi type                                               |
@@ -150,7 +151,7 @@ Every playbook ends with a reply written this way, PR link as `https://github.co
 
 ## Comments
 
-Comments follow the same rule as the reply. Write them clean as you go. Keep a comment only for a non-obvious _why_ the code can't show. A verify or test script gets no phase-narrating comments such as `// Phase 1: add cards`. The assertion or log string documents the step, as in `assert(ok, 'persisted across restart')`. This applies to every file you produce, including the delegate's diff.
+Comments follow the same rule as the reply. Write them clean as you go. Keep a comment only for a non-obvious *why* the code can't show. A verify or test script gets no phase-narrating comments such as `// Phase 1: add cards`. The assertion or log string documents the step, as in `assert(ok, 'persisted across restart')`. This applies to every file you produce, including the delegate's diff.
 
 ## Playbooks
 
