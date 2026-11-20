@@ -23,6 +23,7 @@ function install_osx_packages() {
     brew trust --tap homebrew/cask
     brew trust --tap homebrew/cask-fonts
     brew trust --tap homebrew/cask-versions
+    brew trust --tap libracoder/kiri
     brew trust --tap oven-sh/bun
 
     brew_setup
@@ -57,8 +58,8 @@ function brew_setup() {
     brew install --cask google-chrome --force # Google Chrome browser
     brew install --cask helium-browser --force # Chromium-based web browser
     brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
+    brew install --cask libracoder/kiri/kiri --force # Container runtime for the Docker CLI, Compose and buildx
     brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
-    brew install --cask orbstack --force # Replacement for Docker Desktop
     brew install --cask pearcleaner --force # Utility to uninstall apps and remove leftover files from old/uninstalled apps
     brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
     brew install --cask tablepro --force # Native database client for many database types
@@ -114,6 +115,7 @@ function brew_setup() {
     brew install lazygit # Simple terminal UI for git commands
     brew install mas # Mac App Store command-line interface
     brew install maven # Java-based project management
+    brew install mise # Dev tools, env vars, and task runner
     brew install mkcert # Simple tool to make locally trusted development certificates
     brew install omlahore/tap/removemacai # Debloat macOS
     brew install opencode # AI coding agent, built for the terminal
