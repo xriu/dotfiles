@@ -101,6 +101,17 @@
           }
         ]
       }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": "tldraw-offline",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node '/Users/xavier.riu/skills/tldraw-offline/inject-server-context.mjs' SubagentStart"
+          }
+        ]
+      }
     ]
   }
 }
