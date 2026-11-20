@@ -1,4 +1,5 @@
 [tools]
+"github:huacnlee/disktree" = "latest"
 node = "24.22.2"
 
 [settings]

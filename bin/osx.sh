@@ -189,8 +189,8 @@ function mise_setup() {
         ln -s "$mise_config_src" "$mise_config_dst"
     fi
 
-    # Install the Node version configured in ~/.config/mise/config.toml.
-    mise --cd "$HOME" install node
+    # Install every tool configured in ~/.config/mise/config.toml.
+    mise --cd "$HOME" install
 
 }
 
