@@ -89,6 +89,7 @@ function brew_setup() {
     brew install docker-compose # Isolated development environments using Docker
     brew install docker-slim # Minify and secure Docker images
     brew install eslint # AST-based pattern checker for JavaScript
+    brew install usefulsoftwareco/tap/executor-beta # Run Executor locally and connect your agents to your apps
     brew install fd # Simple, fast and user-friendly alternative to find
     brew install ffmpeg # Frame extraction, video thumbnails, local video duration
     brew install findutils # Collection of GNU find, xargs, and locate
