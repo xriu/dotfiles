@@ -3,35 +3,27 @@
 # Install packages
 function install_osx_packages() {
 
-    # Install for Homebrew
-    if test ! $(which brew); then
+    # Install Homebrew when missing
+    if ! command -v brew >/dev/null 2>&1; then
         echo "Installing homebrew"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-        eval "$(/opt/homebrew/bin/brew shellenv)"
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
     # Update
     brew update
 
-    # Caskroom
-    brew trust --tap abue-ammar/tinycast
+    # Trust third-party taps before install
     brew trust --tap anomalyco/tap
     brew trust --tap databricks/tap
-    brew trust --tap homebrew/cask
-    brew trust --tap homebrew/cask-fonts
-    brew trust --tap homebrew/cask-versions
     brew trust --tap libracoder/kiri
+    brew trust --tap omlahore/tap
     brew trust --tap oven-sh/bun
 
     brew_setup
     mise_setup || return 1
-    npm_packages
-    bun_packages
     mac_setup
-    fish_setup
+    fish_setup || return 1
 
     # Cleanup
     brew cleanup
@@ -43,33 +35,36 @@ function brew_setup() {
 
     echo "Brew install packages"
 
-    # Install Rosetta
-    softwareupdate --install-rosetta --agree-to-license
+    # Install Rosetta when missing
+    if [[ ! -f /Library/Apple/usr/share/rosetta/rosetta ]]; then
+        softwareupdate --install-rosetta --agree-to-license
+    fi
 
-    brew install --cask 1password --force # Password manager that keeps all passwords secure behind one password
-    brew install --cask abue-ammar/tinycast/tinycast --force # A small, native launcher for your apps, clipboard, snippets and windows
-    brew install --cask anomalyco/tap/hex --force # Voice-to-text transcription and paste tool
-    brew install --cask appcleaner --force # Application uninstaller
-    brew install --cask caffeine --force # Prevent your Mac from automatically going to sleep
-    brew install --cask cleanshot --force # Screen capture and recording tool
-    brew install --cask cyberduck --force # Server and cloud storage browser
-    brew install --cask dbeaver-community --force # Universal database tool and SQL client
-    brew install --cask finetune --force # Per-application volume mixer, equalizer, and audio router
-    brew install --cask ghostty --force # Terminal emulator that uses platform-native UI and GPU acceleration
-    brew install --cask google-chrome --force # Google Chrome browser
-    brew install --cask helium-browser --force # Chromium-based web browser
-    brew install --cask httpie-desktop --force # Testing client for REST, GraphQL, and HTTP APIs
-    brew install --cask libracoder/kiri/kiri --force # Container runtime for the Docker CLI, Compose and buildx
-    brew install --cask mongodb-compass --force # Interactive tool for analyzing MongoDB data
-    brew install --cask pearcleaner --force # Utility to uninstall apps and remove leftover files from old/uninstalled apps
-    brew install --cask session-manager-plugin --force # Plugin for AWS CLI to start and end sessions that connect to managed instances
-    brew install --cask tablepro --force # Native database client for many database types
-    brew install --cask temurin --force # JDK from the Eclipse Foundation (Adoptium)
-    brew install --cask temurin@21 --force # JDK from the Eclipse Foundation (Adoptium)
-    brew install --cask tldraw --force # Whiteboard-style drawing app
-    brew install --cask twingate --force # Secure network access to cloud resources
-    brew install --cask windows-app --force # Windows app for macOS
-    brew install --cask zed --force # Multiplayer code editor
+    brew install --cask 1password # Password manager that keeps all passwords secure behind one password
+    brew install --cask anomalyco/tap/hex # Voice-to-text transcription and paste tool
+    brew install --cask appcleaner # Application uninstaller
+    brew install --cask caffeine # Prevent your Mac from automatically going to sleep
+    brew install --cask cleanshot # Screen capture and recording tool
+    brew install --cask cyberduck # Server and cloud storage browser
+    brew install --cask dbeaver-community # Universal database tool and SQL client
+    brew install --cask finetune # Per-application volume mixer, equalizer, and audio router
+    brew install --cask ghostty # Terminal emulator that uses platform-native UI and GPU acceleration
+    brew install --cask google-chrome # Google Chrome browser
+    brew install --cask helium-browser # Chromium-based web browser
+    brew install --cask httpie-desktop # Testing client for REST, GraphQL, and HTTP APIs
+    brew install --cask libracoder/kiri/kiri # Container runtime for the Docker CLI, Compose and buildx
+    brew install --cask mongodb-compass # Interactive tool for analyzing MongoDB data
+    brew install --cask pearcleaner # Utility to uninstall apps and remove leftover files from old/uninstalled apps
+    brew install --cask sentry-cli # Sentry command-line interface
+    brew install --cask session-manager-plugin # Plugin for AWS CLI to start and end sessions that connect to managed instances
+    brew install --cask tablepro # Native database client for many database types
+    brew install --cask temurin # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask temurin@21 # JDK from the Eclipse Foundation (Adoptium)
+    brew install --cask tinycast # A small, native launcher for your apps, clipboard, snippets and windows
+    brew install --cask tldraw # Whiteboard-style drawing app
+    brew install --cask twingate # Secure network access to cloud resources
+    brew install --cask windows-app # Windows app for macOS
+    brew install --cask zed # Multiplayer code editor
 
     # brew install carapace # Carapace is a completion system for any shell
     # brew install fzf # Command-line fuzzy finder
@@ -86,10 +81,9 @@ function brew_setup() {
     brew install bat # Clone of cat(1) with syntax highlighting and Git integration
     brew install biome # Toolchain of the web
     brew install btop # Improved top (interactive process viewer)
-    brew install bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
     brew install cmake # Cross-platform make
     brew install coreutils # GNU File, Shell, and Text utilities
-    brew install databricks # Databricks CLI
+    brew install databricks/tap/databricks # Databricks CLI
     brew install dive # Tool for exploring each layer in a docker image
     brew install docker # Pack, ship and run any application as a lightweight container
     brew install docker-compose # Isolated development environments using Docker
@@ -117,9 +111,11 @@ function brew_setup() {
     brew install maven # Java-based project management
     brew install mise # Dev tools, env vars, and task runner
     brew install mkcert # Simple tool to make locally trusted development certificates
+    brew install mole # Deep clean and optimize your Mac
     brew install omlahore/tap/removemacai # Debloat macOS
     brew install opencode # AI coding agent, built for the terminal
     brew install openssh # OpenBSD freely-licensed SSH connectivity tools
+    brew install oven-sh/bun/bun # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
     brew install oxfmt # High-performance formatting tool for JavaScript and TypeScript
     brew install oxlint # High-performance linter for JavaScript and TypeScript written in Rust
     brew install pake # Turn any webpage into a desktop app with Rust with ease
@@ -136,7 +132,6 @@ function brew_setup() {
     brew install rust # Safe, concurrent, practical language
     brew install rustscan # Modern port scanner
     brew install rustup # Rust toolchain installer
-    brew install sentry-cli # Sentry command-line interface
     brew install starship # The cross-shell prompt for astronauts
     brew install svn # Bidirectional operation between a Subversion repository and Git
     brew install swaks # SMTP client
@@ -146,7 +141,6 @@ function brew_setup() {
     brew install tfenv # Terraform version manager
     brew install tfmv # tfmv is a CLI to rename Terraform resources
     brew install tree # Display directories as trees (with optional color/HTML output)
-    brew install tw93/tap/mole # Deep clean and optimize your Mac
     brew install uv # Universal Version Manager
     brew install vim # Vi 'workalike' with many additional features
     brew install wget # Internet file retriever
@@ -157,10 +151,35 @@ function brew_setup() {
     brew install zoxide # A faster way to navigate your filesystem
 
     # Fonts
-    brew install font-fira-code
-    brew install font-fira-code-nerd-font
-    brew install font-fira-mono
-    brew install font-fira-mono-for-powerline
+    brew install --cask font-fira-code
+    brew install --cask font-fira-code-nerd-font
+    brew install --cask font-fira-mono
+    brew install --cask font-fira-mono-for-powerline
+
+}
+
+# Link a dotfiles path into $HOME without overwriting unmanaged paths.
+function link_dotfile() {
+
+    local src="$1"
+    local dst="$2"
+
+    if [[ ! -e "$src" ]]; then
+        echo "Missing dotfile source: $src" >&2
+        return 1
+    fi
+
+    mkdir -p "$(dirname "$dst")"
+
+    if [[ -L "$dst" && "$(readlink "$dst")" == "$src" ]]; then
+        return 0
+    elif [[ -e "$dst" || -L "$dst" ]]; then
+        # Keep an unmanaged path instead of overwriting it.
+        echo "Existing path found at $dst; preserve or remove it before setup." >&2
+        return 1
+    fi
+
+    ln -s "$src" "$dst"
 
 }
 
@@ -168,26 +187,9 @@ function mise_setup() {
 
     echo "Mise setup"
 
-    local mise_config_dir="$HOME/.config/mise"
-    local mise_config_src="$HOME/dotfiles/home/.config/mise/config.toml"
-    local mise_config_dst="$mise_config_dir/config.toml"
-
-    if [[ ! -f "$mise_config_src" ]]; then
-        echo "Missing mise config source: $mise_config_src" >&2
-        return 1
-    fi
-
-    mkdir -p "$mise_config_dir"
-
-    if [[ -L "$mise_config_dst" && "$(readlink "$mise_config_dst")" == "$mise_config_src" ]]; then
-        :
-    elif [[ -e "$mise_config_dst" || -L "$mise_config_dst" ]]; then
-        # Preserve an unmanaged config instead of overwriting it.
-        echo "Existing mise config found at $mise_config_dst; preserve or remove it before setup." >&2
-        return 1
-    else
-        ln -s "$mise_config_src" "$mise_config_dst"
-    fi
+    link_dotfile \
+        "$HOME/dotfiles/home/.config/mise/config.toml" \
+        "$HOME/.config/mise/config.toml" || return 1
 
     # Install every tool configured in ~/.config/mise/config.toml.
     mise --cd "$HOME" install
@@ -206,20 +208,6 @@ function mise_setup() {
 
 }
 
-function npm_packages() {
-
-    echo "NPM packages"
-    # https://github.com/UsefulSoftwareCo/executor
-    # npm install -g executor # Tool discovery and execution layer for AI agents
-
-}
-
-function bun_packages() {
-
-    echo "Bun packages"
-
-}
-
 function mac_setup() {
 
     echo "JENV set java virtual machines"
@@ -231,15 +219,30 @@ function fish_setup() {
 
     echo "Fish install"
 
-    # Configure Fish
-    mkdir -p ~/.config
-    ln -sf ~/dotfiles/home/.config/fish/conf.d/ ~/.config/fish/conf.d
-    ln -sf ~/dotfiles/home/.config/fish/functions/ ~/.config/fish/functions
-    ln -sf ~/dotfiles/home/.config/fish/completions/ ~/.config/fish/completions
-    ln -sf ~/dotfiles/home/.config/fish/config.fish ~/.config/fish/config.fish
-    ln -sf ~/dotfiles/home/.config/starship.toml ~/.config/starship.toml
+    local fish_src="$HOME/dotfiles/home/.config/fish"
+    local fish_dst="$HOME/.config/fish"
 
-    # Set Fish as default shell
-    chsh -s $(which fish)
+    # Configure Fish
+    link_dotfile "$fish_src/conf.d" "$fish_dst/conf.d" || return 1
+    link_dotfile "$fish_src/functions" "$fish_dst/functions" || return 1
+    link_dotfile "$fish_src/completions" "$fish_dst/completions" || return 1
+    link_dotfile "$fish_src/config.fish" "$fish_dst/config.fish" || return 1
+    link_dotfile "$HOME/dotfiles/home/.config/starship.toml" "$HOME/.config/starship.toml" || return 1
+
+    # Add Fish to /etc/shells and set it as the default shell
+    local fish_bin
+    fish_bin="$(command -v fish)"
+    if ! grep -qxF "$fish_bin" /etc/shells; then
+        echo "$fish_bin" | sudo tee -a /etc/shells >/dev/null
+    fi
+    if [[ "${SHELL:-}" != "$fish_bin" ]]; then
+        chsh -s "$fish_bin"
+    fi
 
 }
+
+# Run setup when executed directly instead of sourced.
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    set -euo pipefail
+    install_osx_packages
+fi
