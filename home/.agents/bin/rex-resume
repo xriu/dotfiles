@@ -1,0 +1,33 @@
+#!/bin/sh
+# Keep one resume record for each Rex pane: the agent, its session ID, and its folder.
+# A restored pane takes the record and opens the same agent session again.
+#
+#   rex-resume save AGENT ID DIR   Write the record for this pane.
+#   rex-resume save-json AGENT     Write the record from {"session_id","cwd"} JSON on stdin.
+#   rex-resume drop                Remove the record for this pane.
+#   rex-resume take                Print the record as AGENT<TAB>ID<TAB>DIR, then remove it.
+[ -n "$REX_BLOCK" ] || exit 0
+
+dir="${XDG_STATE_HOME:-$HOME/.local/state}/rex-resume"
+file="$dir/$(printf '%s' "$REX_BLOCK" | tr -c 'A-Za-z0-9-' '_')"
+
+save() {
+  [ -n "$2" ] || exit 0
+  mkdir -p "$dir"
+  printf '%s\t%s\t%s\n' "$1" "$2" "$3" >"$file"
+}
+
+case "$1" in
+save) save "$2" "$3" "$4" ;;
+save-json)
+  json=$(cat)
+  save "$2" "$(printf '%s' "$json" | jq -r '.session_id // empty')" "$(printf '%s' "$json" | jq -r '.cwd // empty')"
+  ;;
+drop) rm -f "$file" ;;
+take) [ -f "$file" ] && cat "$file" && rm -f "$file" ;;
+*)
+  echo "usage: rex-resume save AGENT ID DIR | save-json AGENT | drop | take" >&2
+  exit 2
+  ;;
+esac
+exit 0
