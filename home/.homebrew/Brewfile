@@ -1,0 +1,125 @@
+# Third-party taps
+tap "anomalyco/tap"
+tap "databricks/tap"
+tap "libracoder/kiri"
+tap "omlahore/tap"
+tap "oven-sh/bun"
+tap "usefulsoftwareco/tap"
+
+# Apps
+cask "1password" # Password manager that keeps all passwords secure behind one password
+cask "anomalyco/tap/hex" # Voice-to-text transcription and paste tool
+cask "appcleaner" # Application uninstaller
+cask "caffeine" # Prevent your Mac from automatically going to sleep
+cask "cleanshot" # Screen capture and recording tool
+cask "cyberduck" # Server and cloud storage browser
+cask "dbeaver-community" # Universal database tool and SQL client
+cask "finetune" # Per-application volume mixer, equalizer, and audio router
+cask "ghostty" # Terminal emulator that uses platform-native UI and GPU acceleration
+cask "google-chrome" # Google Chrome browser
+cask "helium-browser" # Chromium-based web browser
+cask "httpie-desktop" # Testing client for REST, GraphQL, and HTTP APIs
+cask "libracoder/kiri/kiri" # Container runtime for the Docker CLI, Compose and buildx
+cask "mongodb-compass" # Interactive tool for analyzing MongoDB data
+cask "pearcleaner" # Utility to uninstall apps and remove leftover files from old/uninstalled apps
+cask "sentry-cli" # Sentry command-line interface
+cask "session-manager-plugin" # Plugin for AWS CLI to start and end sessions that connect to managed instances
+cask "tablepro" # Native database client for many database types
+cask "temurin" # JDK from the Eclipse Foundation (Adoptium)
+cask "temurin@21" # JDK from the Eclipse Foundation (Adoptium)
+cask "tinycast" # A small, native launcher for your apps, clipboard, snippets and windows
+cask "tldraw" # Whiteboard-style drawing app
+cask "twingate" # Secure network access to cloud resources
+cask "windows-app" # Windows app for macOS
+cask "zed" # Multiplayer code editor
+
+# CLI tools
+# brew "carapace" # Carapace is a completion system for any shell
+# brew "fzf" # Command-line fuzzy finder
+# brew "steipete/tap/codexbar" # Menu bar usage monitor for AI agents
+# brew "agent-desktop" # Desktop automation CLI for AI agents
+brew "agent-browser" # Browser automation CLI for AI agents
+brew "ast-grep" # AST-based code search tool
+brew "atuin" # Magical shell history
+brew "aws-cdk" # Cloud Development Kit for AWS
+brew "awscli" # Official Amazon AWS command-line interface
+brew "bash" # Bourne-Again SHell, a UNIX command interpreter
+brew "bash-completion" # Programmable completion for Bash 4.2+
+brew "bat" # Clone of cat(1) with syntax highlighting and Git integration
+brew "biome" # Toolchain of the web
+brew "btop" # Improved top (interactive process viewer)
+brew "cmake" # Cross-platform make
+brew "coreutils" # GNU File, Shell, and Text utilities
+brew "databricks/tap/databricks" # Databricks CLI
+brew "dive" # Tool for exploring each layer in a docker image
+brew "docker" # Pack, ship and run any application as a lightweight container
+brew "docker-compose" # Isolated development environments using Docker
+brew "docker-slim" # Minify and secure Docker images
+brew "eslint" # AST-based pattern checker for JavaScript
+brew "fd" # Simple, fast and user-friendly alternative to find
+brew "ffmpeg" # Frame extraction, video thumbnails, local video duration
+brew "findutils" # Collection of GNU find, xargs, and locate
+brew "fish" # User-friendly command line shell for UNIX-like operating systems
+brew "gh" # GitHub command-line tool
+brew "git" # Distributed revision control system
+brew "git-delta" # A syntax-highlighting pager for git and diff output
+brew "git-filter-repo" # Quickly rewrite git repository history
+brew "glow" # Terminal markdown reader designed for developers
+brew "go" # Open source programming language to build simple/reliable/efficient software
+brew "gradle" # Open-source build automation tool based on the Groovy and Kotlin DSL
+brew "grep" # GNU grep, egrep and fgrep
+brew "hadolint" # Smarter Dockerfile linter to validate best practices
+brew "herdr" # Agent multiplexer that lives in your terminal
+brew "jenv" # Manage your Java environment
+brew "jq" # Lightweight and flexible command-line JSON processor
+brew "lazydocker" # A tool for managing docker containers with a simple, intuitive interface
+brew "lazygit" # Simple terminal UI for git commands
+brew "mas" # Mac App Store command-line interface
+brew "maven" # Java-based project management
+brew "mise" # Dev tools, env vars, and task runner
+brew "mkcert" # Simple tool to make locally trusted development certificates
+brew "mole" # Deep clean and optimize your Mac
+brew "omlahore/tap/removemacai" # Debloat macOS
+brew "opencode" # AI coding agent, built for the terminal
+brew "openssh" # OpenBSD freely-licensed SSH connectivity tools
+brew "oven-sh/bun/bun" # Bun is an all-in-one toolkit for JavaScript and TypeScript apps
+brew "oxfmt" # High-performance formatting tool for JavaScript and TypeScript
+brew "oxlint" # High-performance linter for JavaScript and TypeScript written in Rust
+brew "pake" # Turn any webpage into a desktop app with Rust with ease
+brew "pandoc" # Universal document converter
+brew "pi-coding-agent" # AI agent toolkit
+brew "pnpm" # Fast, disk space efficient package manager
+brew "portless" # Replace port numbers with stable, named local URLs for humans and agents
+brew "pstree" # A tool to show the tree of processes
+brew "python@3.10" # Interpreted, interactive, object-oriented programming language
+brew "rea" # Reverse engineering CLI and MCP server for agents
+brew "ripgrep" # Fast grep replacement with Rust
+brew "rtk" # CLI proxy to minimize LLM token consumption
+brew "ruff" # Fast Python linter
+brew "rust" # Safe, concurrent, practical language
+brew "rustscan" # Modern port scanner
+brew "rustup" # Rust toolchain installer
+brew "starship" # The cross-shell prompt for astronauts
+brew "svn" # Bidirectional operation between a Subversion repository and Git
+brew "swaks" # SMTP client
+brew "ta-lib" # Technical Analysis Library
+brew "tealdeer" # Tldr client in Rust
+brew "terragrunt" # Thin wrapper for Terraform e.g. for locking state
+brew "tfenv" # Terraform version manager
+brew "tfmv" # tfmv is a CLI to rename Terraform resources
+brew "tree" # Display directories as trees (with optional color/HTML output)
+brew "usefulsoftwareco/tap/executor-beta" # Run Executor locally and connect your agents to your apps
+brew "uv" # Universal Version Manager
+brew "vim" # Vi 'workalike' with many additional features
+brew "wget" # Internet file retriever
+brew "worktrunk" # CLI for Worktrunk, a tool to manage your workspaces and projects
+brew "yt-dlp" # YouTube stream URLs for frame extraction
+brew "z" # Tracks most-used directories to make cd smarter
+brew "zellij" # Terminal multiplexer
+brew "zoxide" # A faster way to navigate your filesystem
+
+# Fonts
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+cask "font-fira-mono"
+cask "font-fira-mono-for-powerline"
