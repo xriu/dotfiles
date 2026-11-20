@@ -162,6 +162,11 @@ function brew_setup() {
     brew install font-fira-mono
     brew install font-fira-mono-for-powerline
 
+    # Notarization ticket not stapled, so macOS blocks the first launch until its
+    # online check succeeds. Clear the download quarantine flag instead.
+    # shortcut: one app listed by hand, add another line when a cask hits this.
+    xattr -dr com.apple.quarantine /Applications/Tinycast.app 2>/dev/null || true
+
 }
 
 function mise_setup() {
@@ -191,6 +196,13 @@ function mise_setup() {
 
     # Install every tool configured in ~/.config/mise/config.toml.
     mise --cd "$HOME" install
+
+    # mise does not create the macOS app entry, so link the bundle from Applications.
+    local disktree_bin
+    if disktree_bin="$(mise --cd "$HOME" which disktree)"; then
+        mkdir -p "$HOME/Applications"
+        ln -sfn "$(dirname "$disktree_bin")/Disktree.app" "$HOME/Applications/Disktree.app"
+    fi
 
 }
 
