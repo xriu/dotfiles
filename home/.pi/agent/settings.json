@@ -36,6 +36,7 @@
         "skillsMode": true
     },
     "tuiMode": "fullscreen",
+    "shellCommandPrefix": "command -v mise >/dev/null && eval \"$(mise hook-env -s bash)\"",
     "enableInstallTelemetry": true,
     "httpIdleTimeoutMs": 120000,
     "showCacheMissNotices": true,

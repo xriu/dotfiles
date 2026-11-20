@@ -1,1 +1,14 @@
-{}
+{
+  "mcpServers": {
+    "executor": {
+      "command": "/opt/homebrew/bin/executor",
+      "args": [
+        "mcp"
+      ],
+      "env": {
+        "EXECUTOR_DATA_DIR": "${HOME}/.executor/v2/cli-file"
+      },
+      "description": "Executor apps: local tools for your connected accounts and files"
+    }
+  }
+}

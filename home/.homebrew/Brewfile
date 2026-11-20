@@ -99,6 +99,7 @@ brew "ruff" # Fast Python linter
 brew "rust" # Safe, concurrent, practical language
 brew "rustscan" # Modern port scanner
 brew "rustup" # Rust toolchain installer
+brew "solargraph" # Ruby language server
 brew "starship" # The cross-shell prompt for astronauts
 brew "svn" # Bidirectional operation between a Subversion repository and Git
 brew "swaks" # SMTP client
@@ -114,12 +115,9 @@ brew "vim" # Vi 'workalike' with many additional features
 brew "wget" # Internet file retriever
 brew "worktrunk" # CLI for Worktrunk, a tool to manage your workspaces and projects
 brew "yt-dlp" # YouTube stream URLs for frame extraction
-brew "z" # Tracks most-used directories to make cd smarter
 brew "zellij" # Terminal multiplexer
 brew "zoxide" # A faster way to navigate your filesystem
 
 # Fonts
-cask "font-fira-code"
-cask "font-fira-code-nerd-font"
-cask "font-fira-mono"
-cask "font-fira-mono-for-powerline"
+cask "font-fira-code-nerd-font" # Superset of font-fira-code; Zed uses this face
+cask "font-fira-mono-for-powerline" # Powerline-patched Fira Mono, installs as "FuraMono Powerline"
