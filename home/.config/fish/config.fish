@@ -27,7 +27,7 @@ end
 source $HOME/.config/fish/functions/terraform.fish
 source $HOME/.config/fish/functions/terragrunt.fish
 
-# PATH (paths handled by conf.d/ files are excluded: brew, bun, cargo, pnpm, fnm)
+# PATH (conf.d handles brew, bun, cargo, pnpm; mise activates below)
 fish_add_path /usr/bin
 fish_add_path /usr/local/bin
 fish_add_path /opt/homebrew/bin
@@ -39,11 +39,12 @@ fish_add_path $HOME/.console-ninja/.bin
 fish_add_path $HOME/.GIS-lm-build/bin
 fish_add_path $HOME/.jenv/bin
 fish_add_path $HOME/.local/bin
-fish_add_path $HOME/.local/share/fnm
-fish_add_path $HOME/.local/share/fnm/node-versions/v24.13.0/installation/bin
 
 # Ensure cargo/rustup takes precedence over Homebrew's rust
 set -gx PATH $HOME/.cargo/bin $PATH
+
+# Activate mise after PATH edits so mise-managed tools take precedence.
+command -q mise; and mise activate fish | source
 
 # Toggle Zellij auto-start for normal (non-quick-terminal) Ghostty windows.
 # Quick Terminal always launches Zellij via conf.d/zellij.fish regardless of this flag.

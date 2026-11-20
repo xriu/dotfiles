@@ -27,6 +27,7 @@ function install_osx_packages() {
     brew trust --tap oven-sh/bun
 
     brew_setup
+    mise_setup || return 1
     npm_packages
     bun_packages
     mac_setup
@@ -98,7 +99,6 @@ function brew_setup() {
     brew install ffmpeg # Frame extraction, video thumbnails, local video duration
     brew install findutils # Collection of GNU find, xargs, and locate
     brew install fish # User-friendly command line shell for UNIX-like operating systems
-    brew install fnm # Fast Node Manager
     brew install gh # GitHub command-line tool
     brew install git # Distributed revision control system
     brew install git-delta # A syntax-highlighting pager for git and diff output
@@ -161,6 +161,36 @@ function brew_setup() {
     brew install font-fira-code-nerd-font
     brew install font-fira-mono
     brew install font-fira-mono-for-powerline
+
+}
+
+function mise_setup() {
+
+    echo "Mise setup"
+
+    local mise_config_dir="$HOME/.config/mise"
+    local mise_config_src="$HOME/dotfiles/home/.config/mise/config.toml"
+    local mise_config_dst="$mise_config_dir/config.toml"
+
+    if [[ ! -f "$mise_config_src" ]]; then
+        echo "Missing mise config source: $mise_config_src" >&2
+        return 1
+    fi
+
+    mkdir -p "$mise_config_dir"
+
+    if [[ -L "$mise_config_dst" && "$(readlink "$mise_config_dst")" == "$mise_config_src" ]]; then
+        :
+    elif [[ -e "$mise_config_dst" || -L "$mise_config_dst" ]]; then
+        # Preserve an unmanaged config instead of overwriting it.
+        echo "Existing mise config found at $mise_config_dst; preserve or remove it before setup." >&2
+        return 1
+    else
+        ln -s "$mise_config_src" "$mise_config_dst"
+    fi
+
+    # Install the Node version configured in ~/.config/mise/config.toml.
+    mise --cd "$HOME" install node
 
 }
 
