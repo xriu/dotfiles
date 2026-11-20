@@ -66,10 +66,6 @@ alias pnpm-list="pnpm list -g --depth=0"
 alias rustup-update="rustup update"
 alias rustup-list="rustup component list --installed"
 
-# Cua-Driver
-alias cua-driver-start="open -n -g -a CuaDriver --args serve"
-alias cua-driver-update="cua-driver update --apply"
-
 # Zed
 alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
@@ -80,7 +76,7 @@ alias opencode="opencode"
 alias pi-list="npm ls --prefix ~/.pi/agent/npm --depth=0"
 
 # Update
-alias update="brew-update; pi update --all; rustup-update; npm-update; bun-update; cua-driver update --apply"
+alias update="brew-update; pi update --all; rustup-update; npm-update; bun-update"
 
 # LM internal alias
 functions -e lm 2>/dev/null
