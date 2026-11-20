@@ -15,11 +15,11 @@
             "url": "https://www.superlogical.com/rex/community-mcp"
         },
         "executor": {
-            "type": "http",
-            "url": "http://localhost:4789/mcp?elicitation_mode=native",
-            "headers": {
-                "Authorization": "Bearer ${EXECUTOR_API_KEY}"
-            }
+            "url": "http://127.0.0.1:4312/mcp"
+        },
+        "athena": {
+            "url": "https://mcp-gateway.launchmetrics.com/athena",
+            "description": "Launchmetrics Athena: Jira issues and knowledge retrieval"
         },
         "github": {
             "url": "https://api.githubcopilot.com/mcp/",

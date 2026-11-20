@@ -8,22 +8,28 @@ function agent(name) {
 	return { settings: Bun.YAML.parse(match[1]), prompt: match[2].trim() };
 }
 
+function override(name) {
+	return Bun.YAML.parse(
+		readFileSync(`${import.meta.dir}/agents/${name}.yml`, "utf8"),
+	);
+}
+
 test("panel workers use different models with the same instructions and tools", () => {
 	const deepseek = agent("poteto");
 	const terra = agent("peer");
 	expect(deepseek.settings.name).toBe("poteto");
 	expect(terra.settings.name).toBe("peer");
-	expect(deepseek.settings.models).toEqual([
-		"openrouter/~deepseek/deepseek-flash-latest",
-	]);
-	expect(terra.settings.models).toEqual([
-		"openrouter/~openai/gpt-terra-latest",
-	]);
-	expect(terra.settings.thinkingLevel).toBe(deepseek.settings.thinkingLevel);
+	expect(deepseek.settings.models?.length).toBeGreaterThan(0);
+	expect(terra.settings.models?.length).toBeGreaterThan(0);
+	for (const model of deepseek.settings.models) expect(model).toMatch(/deepseek/i);
+	for (const model of terra.settings.models) expect(model).toMatch(/openai|gpt/i);
+	expect(terra.settings.models[0]).not.toBe(deepseek.settings.models[0]);
 	expect(terra.settings.tools).toEqual(deepseek.settings.tools);
 	expect(terra.settings.tools.allow).toContain("edit");
 	expect(terra.settings.tools.allow).toContain("write");
 	expect(terra.settings.tools.allow).not.toContain("agent_spawn");
+	expect(terra.settings.tools.block ?? []).not.toContain("edit");
+	expect(terra.settings.tools.block ?? []).not.toContain("write");
 	expect(terra.prompt).toBe(deepseek.prompt);
 });
 
@@ -32,12 +38,11 @@ test("both judge models use the same read-only tools and instructions", () => {
 	const terra = agent("judge-terra");
 	expect(deepseek.settings.name).toBe("judge-deepseek");
 	expect(terra.settings.name).toBe("judge-terra");
-	expect(deepseek.settings.models).toEqual([
-		"openrouter/~deepseek/deepseek-flash-latest",
-	]);
-	expect(terra.settings.models).toEqual([
-		"openrouter/~openai/gpt-terra-latest",
-	]);
+	expect(deepseek.settings.models?.length).toBeGreaterThan(0);
+	expect(terra.settings.models?.length).toBeGreaterThan(0);
+	for (const model of deepseek.settings.models) expect(model).toMatch(/deepseek/i);
+	for (const model of terra.settings.models) expect(model).toMatch(/openai|gpt/i);
+	expect(terra.settings.models[0]).not.toBe(deepseek.settings.models[0]);
 	expect(deepseek.settings.tools.allow).toEqual([
 		"read",
 		"grep",
@@ -48,4 +53,21 @@ test("both judge models use the same read-only tools and instructions", () => {
 	]);
 	expect(terra.settings.tools).toEqual(deepseek.settings.tools);
 	expect(terra.prompt).toBe(deepseek.prompt);
+});
+
+test("role policies allow coordination and restrict researcher tools", () => {
+	const settings = JSON.parse(
+		readFileSync(`${import.meta.dir}/settings.json`, "utf8"),
+	);
+	const architect = override("architect");
+	const researcher = override("researcher");
+	expect(settings.toolFiltering).toBe("allowed");
+	expect(architect.tools.allow).toContain("agent_spawn");
+	expect(architect.tools.allow).toContain("agent_wait");
+	expect(architect.tools.block ?? []).not.toContain("agent_spawn");
+	expect(architect.tools.block ?? []).not.toContain("agent_wait");
+	expect(researcher.tools.allow).toContain("read");
+	expect(researcher.tools.allow).not.toContain("edit");
+	expect(researcher.tools.allow).not.toContain("write");
+	expect(researcher.tools.allow).not.toContain("agent_spawn");
 });

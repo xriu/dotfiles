@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # Swarm
 
+**Pi:** Before spawning, read the Pi role, panel, and orchestration instructions in `../poteto-mode/SKILL.md` under Harness. They override this skill's type, model, and isolation instructions.
+
 ## Start
 
 Open a todolist with one entry per phase before launching anything.

@@ -1,18 +1,19 @@
 ---
 name: setup-pstack
-description: Configure which models pstack uses per role and at what reasoning budget. Detects your available models and writes an always-applied rule that overrides the skill defaults. Use for /setup-pstack, "configure pstack models", "pstack budget", or changing pstack's model choices.
+description: Configure pstack models and reasoning levels for the current harness.
 disable-model-invocation: true
 ---
 
 # Setup pstack
 
-Write pstack's model settings, one model per role:
+Write pstack's model settings, one model per role, where this harness reads them:
 
 - **Cursor:** `~/.cursor/rules/pstack-models.mdc`, an always-applied rule.
 - **Claude Code:** `~/.claude/rules/pstack-models.md`. Claude Code loads every file in `~/.claude/rules/` into each new session.
-- **Every other harness** (Codex, Pi, OpenCode, and others): `~/.agents/pstack-models.md`. These harnesses don't load it on their own, so pstack skills read this file when they pick a model.
+- **Codex, OpenCode, and other harnesses outside Pi:** `~/.agents/pstack-models.md`. These harnesses don't load it on their own, so pstack skills read this file when they pick a model.
+- **Pi with the subagent-manager extension:** the manager's agent types under `${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}/subagent-manager/agents/`, plus trusted project overrides. `agent_spawn` takes no model or effort, and `pstack-models.md` does not configure Pi types. Use [Pi types and settings](#pi-types-and-settings) in place of steps 1–6.
 
-"The settings file" below means the file for your harness. In Claude Code, if that file is missing, read `~/.agents/pstack-models.md` instead, where older versions of this skill wrote it.
+"The settings file" below means the rule or `~/.agents/pstack-models.md` for your harness. In Claude Code, if that file is missing, read `~/.agents/pstack-models.md` instead, where older versions of this skill wrote it.
 
 ## Steps
 
@@ -83,3 +84,12 @@ Check whether the project has a way to drive the real app for proof (a `verify-*
 ### 8. Offer a formal verification skill (optional)
 
 Check whether the project already has a formal verification skill (a project skill that runs a model checker, a proof, or another verifier against the code). If not, offer once: "want a formal verification skill, so agents can prove a key property of your code holds in every case in scope, not only the cases tests reach? I can generate one with /create-formal-verification-skill." On yes, invoke `/create-formal-verification-skill` (resolves wherever pstack is installed: workspace, user, or plugin). On no, move on without pushing.
+
+## Pi types and settings
+
+Use this path instead of steps 1–6. If Pi has no subagent-manager extension, stop and report that it is needed.
+
+1. **Inspect.** Run `agent_types` and read the Pi role mapping in `../poteto-mode/SKILL.md`. Resolve the active user types under `${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}/subagent-manager/agents/`. Inspect trusted project overrides and the effective manager `modelSelection`; leave project files alone unless the user selects them. If `~/dotfiles/home/.pi/agent/subagent-manager/agents/` is confirmed as the source for this manager, use it as the source of truth; otherwise edit the active types. For a custom `PI_CODING_AGENT_DIR`, ask before assuming the dotfiles source manages it. Report missing or unresolved types.
+2. **Choose.** Show each type's effective model, thinking level, and the roles it serves. Roles sharing a type share its settings. Ask for the budget from step 3(a): `unlimited` → `max`, `large` → `xhigh`, `medium` → `high`, `small` → `medium`. Show the proposed changes and let the user choose models and levels per type. Validate model IDs against available and scoped models; `pi --list-models` alone does not prove a spawn will work. A `models` list is fallback order, not panel seats. `use-current` ignores the list. Keep explicit model preferences for `poteto` and `judge-deepseek` in the DeepSeek family, and for `peer` and `judge-terra` in the OpenAI/GPT family, including fallback entries. Clearing them or changing family also needs the panel and judge mapping and its tests updated. Do not apply changes until the user confirms them.
+3. **Write.** For user-scope changes, compare each selected tracked file with its active copy first. Show unexpected differences and ask before overwriting them. Change only approved model and `thinkingLevel` fields; preserve every other key, tool policy, and Markdown prompt. If a file uses the legacy `model` alias, replace it with `models` rather than leaving both. For these two fields in a `.yml` overlay, deleting a key inherits the lower-layer value; `null` clears it so the parent/default applies. A full `.md` replaces the lower-layer definition: omit either field to use the parent/default, and keep its tools and prompt. Create a `.yml` only for an existing lower-layer agent; do not create an orphan override or both formats for one name in one scope. Leave live-only and unrelated files alone. Copy only approved user-scope files to the active directory, not the whole setup script. For a selected project-scope change, edit that project's file only; never copy it into user scope. If a selected type is live-only on a dotfiles install, ask before importing or changing it.
+4. **Verify.** Reload with `/agents reload` (ask the user to run it if your harness cannot), then run `agent_types`. Report each changed type's effective model and level, project overrides, unavailable models, and any clamping. If the intended value does not take effect, report the gap; do not silently substitute a model. Running and retained threads keep their original definitions.

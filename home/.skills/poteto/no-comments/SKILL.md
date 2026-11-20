@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # No comments
 
+**Pi:** Before spawning, read the Pi role mapping in `../poteto-mode/SKILL.md` under Harness. It overrides this skill's type and model instructions.
+
 Spawn Comment Sicko. Act on accepted findings.
 
 Defer to Comment Sicko's fresh perspective.
