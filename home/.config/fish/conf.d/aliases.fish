@@ -66,6 +66,9 @@ alias pnpm-list="pnpm list -g --depth=0"
 alias rustup-update="rustup update"
 alias rustup-list="rustup component list --installed"
 
+# Mise
+alias mise-update="mise upgrade"
+
 # Zed
 alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
@@ -76,7 +79,7 @@ alias opencode="opencode"
 alias pi-list="npm ls --prefix ~/.pi/agent/npm --depth=0"
 
 # Update
-alias update="brew-update; pi update --all; rustup-update; npm-update; bun-update"
+alias update="brew-update; pi update --all; rustup-update; mise-update; npm-update; bun-update"
 
 # LM internal alias
 functions -e lm 2>/dev/null
