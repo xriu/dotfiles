@@ -5,21 +5,20 @@
             "allowedServers": [
                 "aws-knowledge",
                 "aws-infrastructure-as-code",
-                "aws-mcp",
-                "open-computer-use"
+                "aws-mcp"
             ]
         }
     },
     "mcpServers": {
-        "superlogical": {
-            "url": "https://www.superlogical.com/rex/community-mcp"
+        "athena": {
+            "url": "https://mcp-gateway.launchmetrics.com/athena",
+            "description": "Launchmetrics Athena: Jira issues and knowledge retrieval"
         },
         "executor": {
             "url": "http://127.0.0.1:4312/mcp"
         },
-        "athena": {
-            "url": "https://mcp-gateway.launchmetrics.com/athena",
-            "description": "Launchmetrics Athena: Jira issues and knowledge retrieval"
+        "superlogical": {
+            "url": "https://www.superlogical.com/rex/community-mcp"
         },
         "github": {
             "url": "https://api.githubcopilot.com/mcp/",
@@ -49,12 +48,6 @@
             "env": {
                 "AWS_PROFILE": "sre-ops"
             }
-        },
-        "open-computer-use": {
-            "type": "local",
-            "command": "open-computer-use",
-            "args": ["mcp"],
-            "timeout": 60000
         }
     }
 }
