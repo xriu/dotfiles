@@ -1,1 +1,37 @@
-/Users/xavier.riu/dotfiles/home/.agents/AGENTS.md
+# AGENTS.md
+
+## Engineering principles
+
+### Communication
+
+- **ASD-STE100.**
+  - Always answer in ASD-STE100 Simplified Technical English for user reports, code comments, and commit messages.
+  - Always talk to me like I have ADHD.
+  - Always read CONTEXT.md/CONTEXT-MAP.md/GLOSSARY.md/GLOSSARY-MAP.md files, and use their ubiquitous language.
+
+### Execution
+
+- **Think before coding.** State assumptions, define success criteria, surface material tradeoffs, and push back when warranted.
+- **Surgical changes.** Touch only files and behavior required by the goal.
+- **Goal-driven execution.** Verify every success criterion. Repeat until all pass, or report the blocker.
+- **Root cause first.** When real behavior differs from expected behavior, read the evidence (logs, state, code path) before you name a cause. Report what you checked and what it showed.
+- **Source before snippets.** External open-source repos are cloned read-only in `~/clones`. Read the clone before web docs, and clone a missing repo there with `--depth 1`. Ask before you update a clone.
+
+### Design
+
+Listed in decision order: exist, find, start, structure, remove.
+
+- **YAGNI.** Implement the simplest solution that fully meets the current requirement. Add an abstraction, configuration item, or indirection layer only when a present requirement needs it.
+- **Reuse first.** Before you implement common functionality, inspect the current dependencies, their documentation, and their type definitions. Use an existing capability when it meets the requirement. Otherwise, use a mature, maintained library when it reduces total complexity or improves reliability.
+- **Proven patterns.** Before you design an architectural mechanism, study established implementations of the same problem. Use a proven pattern when it meets the current requirements and constraints.
+- **Walking skeleton.** First complete the smallest version that runs end to end. Then add features in layers on that stable base.
+- **Lasting design.** When multiple solutions meet the requirement, select the solution that best supports expected changes in requirements, domain documents, or ADRs.
+- **Information hiding.** Hide implementation complexity behind small public interfaces. Separate concerns that change for different reasons.
+- **File size.** Keep source files at 500 lines or fewer. When a file reaches the limit, split it by responsibility before adding more code. Exclude generated and vendor files.
+- **Removal.** When you replace deprecated code, delete its paths, compatibility layers, fallbacks, and migration mechanisms in the same change.
+
+### Testing and quality
+
+- **E2E reproduction.** When doing bug fixes, always start by reproducing the bug in an E2E setting as closely aligned with how an end user would experience it as possible. This makes sure you find the real problem so your fix will actually solve it.
+- **Pixel perfection.** When end-to-end testing a product, be picky about the UI. If something clearly looks off, even if not directly related to your current work, get it fixed along the way.
+- **Broken windows.** Apply that same standard to lint, test failures, and test flakiness. If you see one, even if not caused by your current work, get it fixed.

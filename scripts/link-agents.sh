@@ -75,9 +75,8 @@ link_skills() {
 link_config() {
     local name
 
-    # Shared agent instructions. ~/.agents/skills is managed by `skills`.
-    link "$HOME_SRC/.agents/AGENTS.md" "$HOME/.agents/AGENTS.md"
-    link "$HOME_SRC/.agents/pstack-models.md" "$HOME/.agents/pstack-models.md"
+    # ~/.agents is itself a symlink to $HOME_SRC/.agents, so its files need no
+    # per-file link: linking a path inside it onto itself destroys the file.
 
     # pi. auth.json, models-store.json and sessions stay local. subagent-manager
     # is copied by bin/agents.sh because it rejects symlinks.
