@@ -112,6 +112,7 @@ brew "tree" # Display directories as trees (with optional color/HTML output)
 brew "usefulsoftwareco/tap/executor-beta" # Run Executor locally and connect your agents to your apps
 brew "uv" # Universal Version Manager
 brew "vim" # Vi 'workalike' with many additional features
+brew "websocat" # Command-line client for WebSockets
 brew "wget" # Internet file retriever
 brew "worktrunk" # CLI for Worktrunk, a tool to manage your workspaces and projects
 brew "yt-dlp" # YouTube stream URLs for frame extraction
