@@ -1,14 +1,12 @@
 {
-  "mcpServers": {
-    "executor": {
-      "command": "/opt/homebrew/bin/executor",
-      "args": [
-        "mcp"
-      ],
-      "env": {
-        "EXECUTOR_DATA_DIR": "${HOME}/.executor/v2/cli-file"
-      },
-      "description": "Executor apps: local tools for your connected accounts and files"
+    "mcpServers": {
+        "executor-ro": {
+            "url": "http://127.0.0.1:4312/mcp?connection=95415723-5ebe-43f2-8dda-eebf50e766bd",
+            "exposure": "codemode",
+            "env": {
+                "EXECUTOR_DATA_DIR": "${HOME}/.executor/v2/cli-file"
+            },
+            "description": "Executor: read-only"
+        }
     }
-  }
 }
