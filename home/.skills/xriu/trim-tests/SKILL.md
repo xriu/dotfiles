@@ -1,5 +1,5 @@
 ---
-name: prune-tests
+name: trim-tests
 description: Read-only test audit. Uses /test-audit to rank the repo's tests by usefulness and return one plan that deletes at least 20% of them while coverage stays within 2% of baseline. Executes only after you approve.
 disable-model-invocation: true
 ---

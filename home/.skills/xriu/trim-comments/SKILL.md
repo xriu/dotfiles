@@ -1,5 +1,5 @@
 ---
-name: prune-comments
+name: trim-comments
 description: Read-only comment audit. Swarms the repo with the no-comments rules and returns one plan that splits workaround comments into refactor work and plain deletes.
 disable-model-invocation: true
 ---
