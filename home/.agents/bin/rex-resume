@@ -1,0 +1,42 @@
+#!/bin/sh
+# Keep one resume record for each Rex pane: the agent, its session ID, its folder,
+# and an optional config folder such as CLAUDE_CONFIG_DIR.
+# A restored pane takes the record and opens the same agent session again.
+#
+#   rex-resume save AGENT ID DIR [CONFIG_DIR]  Write the record for this pane.
+#   rex-resume save-json AGENT                 Write the record from {"session_id","cwd"} JSON on stdin.
+#   rex-resume drop                            Remove the record for this pane.
+#   rex-resume take                            Print the record as AGENT<TAB>ID<TAB>DIR[<TAB>CONFIG_DIR], then remove it.
+[ -n "$REX_BLOCK" ] || exit 0
+
+dir="${XDG_STATE_HOME:-$HOME/.local/state}/rex-resume"
+file="$dir/$(printf '%s' "$REX_BLOCK" | tr -c 'A-Za-z0-9-' '_')"
+
+save() {
+  [ -n "$2" ] || exit 0
+  mkdir -p "$dir"
+  if [ -n "$4" ]; then
+    printf '%s\t%s\t%s\t%s\n' "$1" "$2" "$3" "$4" >"$file"
+  else
+    printf '%s\t%s\t%s\n' "$1" "$2" "$3" >"$file"
+  fi
+}
+
+case "$1" in
+save) save "$2" "$3" "$4" "$5" ;;
+save-json)
+  json=$(cat)
+  config_dir=""
+  if [ "$2" = "claude" ] && [ -n "$CLAUDE_CONFIG_DIR" ] && [ "${CLAUDE_CONFIG_DIR%/}" != "$HOME/.claude" ]; then
+    config_dir="$CLAUDE_CONFIG_DIR"
+  fi
+  save "$2" "$(printf '%s' "$json" | jq -r '.session_id // empty')" "$(printf '%s' "$json" | jq -r '.cwd // empty')" "$config_dir"
+  ;;
+drop) rm -f "$file" ;;
+take) [ -f "$file" ] && cat "$file" && rm -f "$file" ;;
+*)
+  echo "usage: rex-resume save AGENT ID DIR [CONFIG_DIR] | save-json AGENT | drop | take" >&2
+  exit 2
+  ;;
+esac
+exit 0

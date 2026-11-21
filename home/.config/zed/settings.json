@@ -62,6 +62,9 @@
     },
   },
   "auto_indent_on_paste": false,
+  "auto_install_extensions": {
+    "oxc": true,
+  },
   "auto_update": false,
   "autosave": {
     "after_delay": {
@@ -157,40 +160,51 @@
       "tab_size": 4,
     },
     "JavaScript": {
+      "language_servers": ["oxlint", "!biome", "!eslint", "..."],
       "formatter": {
-        "language_server": { "name": "biome" },
+        "language_server": { "name": "oxfmt" },
       },
       "code_actions_on_format": {
-        "source.fixAll.biome": true,
-        "source.organizeImports.biome": true,
+        "source.fixAll.oxc": true,
       },
     },
     "TypeScript": {
+      "language_servers": ["oxlint", "!biome", "!eslint", "..."],
       "formatter": {
-        "language_server": { "name": "biome" },
+        "language_server": { "name": "oxfmt" },
       },
       "code_actions_on_format": {
-        "source.fixAll.biome": true,
-        "source.organizeImports.biome": true,
+        "source.fixAll.oxc": true,
       },
     },
     "TSX": {
+      "language_servers": ["oxlint", "!biome", "!eslint", "..."],
       "formatter": {
-        "language_server": { "name": "biome" },
+        "language_server": { "name": "oxfmt" },
       },
       "code_actions_on_format": {
-        "source.fixAll.biome": true,
-        "source.organizeImports.biome": true,
+        "source.fixAll.oxc": true,
       },
     },
   },
   "load_direnv": "direct",
   "lsp": {
-    "eslint": {
-      "settings": {
-        "codeActionOnSave": {
-          "rules": ["import/order"],
-        },
+    "solargraph": {
+      "binary": {
+        "path": "/opt/homebrew/bin/solargraph",
+        "arguments": ["stdio"],
+      },
+    },
+    "oxlint": {
+      "binary": {
+        "path": "/opt/homebrew/bin/oxlint",
+        "arguments": ["--lsp"],
+      },
+    },
+    "oxfmt": {
+      "binary": {
+        "path": "/opt/homebrew/bin/oxfmt",
+        "arguments": ["--lsp"],
       },
     },
   },

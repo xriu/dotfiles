@@ -1,5 +1,5 @@
 {
-    "lastChangelogVersion": "1.5.2",
+    "lastChangelogVersion": "1.6.0",
     "defaultProvider": "openrouter",
     "defaultModel": "~deepseek/deepseek-flash-latest",
     "enabledModels": ["openrouter/**", "opencode-go/deepseek-v4.1-flash"],
@@ -36,6 +36,7 @@
         "skillsMode": true
     },
     "tuiMode": "fullscreen",
+    "shellCommandPrefix": "command -v mise >/dev/null && eval \"$(mise hook-env -s bash)\"",
     "enableInstallTelemetry": true,
     "httpIdleTimeoutMs": 120000,
     "showCacheMissNotices": true,
@@ -66,7 +67,7 @@
     },
     "extensionChangelogVersions": {
         "{\"source\":\"npm:pi-powerline-footer\",\"scope\":\"user\"}": "0.22.0",
-        "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
+        "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
         "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.4"
     }
 }

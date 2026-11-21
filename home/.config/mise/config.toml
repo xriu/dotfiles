@@ -1,0 +1,9 @@
+[tools]
+"github:huacnlee/brewman" = "latest"
+"github:huacnlee/disktree" = "latest"
+node = "24.22.2"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+idiomatic_version_file_disable_files = ["node:package.json"]
+node.corepack = true
