@@ -1,7 +1,7 @@
 ---
 name: judge-deepseek
 description: Read-only pstack Arena judge that scores candidates against a rubric.
-thinkingLevel: max
+thinkingLevel: high
 color: warning
 models:
   - openrouter/~deepseek/deepseek-flash-latest
