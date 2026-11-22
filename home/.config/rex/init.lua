@@ -21,6 +21,9 @@ rex.bind("cmd+shift+l", "tab_locations")
 dofile(home .. "/Personal/rex-plugins/github/rex-github.lua")
 rex.bind("cmd+shift+g", "github_panel")
 
+-- rex-github-always: the GitHub panel in every new tab, while ~/.local/state/rex-github-always/on exists
+dofile(home .. "/Personal/rex-plugins/github-always/rex-github-always.lua")
+
 -- rex-worktrees: switch to or create git worktree tabs with wt
 dofile(home .. "/Personal/rex-plugins/worktrees/rex-worktrees.lua")
 rex.bind("cmd+shift+b", "worktree_switch")
