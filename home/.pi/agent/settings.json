@@ -6,10 +6,6 @@
     "defaultProjectTrust": "always",
     "defaultThinkingLevel": "max",
     "defaultTools": ["+codemode"],
-    "codemode": {
-        "mode": "only",
-        "inlineBudget": 3000
-    },
     "hideThinkingBlock": true,
     "quietStartup": true,
     "packages": [
