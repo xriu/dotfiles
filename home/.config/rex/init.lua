@@ -20,3 +20,7 @@ rex.bind("cmd+shift+l", "tab_locations")
 -- rex-github: the PR and issue panel (https://github.com/luongnv89/rex-extensions/tree/main/github)
 dofile(home .. "/.config/rex/rex-extensions/github/rex-github.lua")
 rex.bind("cmd+shift+g", "github_panel")
+
+-- rex-worktrees: switch to or create git worktree tabs with wt
+dofile(home .. "/Personal/rex-plugins/worktrees/rex-worktrees.lua")
+rex.bind("cmd+shift+b", "worktree_switch")
