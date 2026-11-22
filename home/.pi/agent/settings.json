@@ -24,6 +24,7 @@
         },
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
+        "npm:@guwidoe/pi-prompt-suggester",
         "npm:pi-checklist",
         "npm:pi-clarify",
         "npm:pi-context-view",
@@ -68,6 +69,7 @@
     "extensionChangelogVersions": {
         "{\"source\":\"npm:pi-powerline-footer\",\"scope\":\"user\"}": "0.22.0",
         "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
-        "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.4"
+        "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.4",
+        "{\"source\":\"npm:@guwidoe/pi-prompt-suggester\",\"scope\":\"user\"}": "0.3.10"
     }
 }
