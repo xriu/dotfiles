@@ -6,6 +6,10 @@
     "defaultProjectTrust": "always",
     "defaultThinkingLevel": "max",
     "defaultTools": ["+codemode"],
+    "codemode": {
+        "mode": "only",
+        "inlineBudget": 3000
+    },
     "hideThinkingBlock": true,
     "quietStartup": true,
     "packages": [
@@ -19,16 +23,16 @@
             "extensions": [
                 "extensions/pi/command-gate/**",
                 "extensions/pi/custom-header/**",
-                "extensions/pi/mermaid/**"
+                "extensions/pi/mermaid/**",
+                "extensions/pi/prompt-suggester/**"
             ]
         },
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
-        "npm:@guwidoe/pi-prompt-suggester",
+        "npm:pi-powerline-footer",
         "npm:pi-checklist",
         "npm:pi-clarify",
         "npm:pi-context-view",
-        "npm:pi-powerline-footer",
         "npm:pi-rewind",
         "npm:pi-subagent-manager",
         "npm:pi-web-access"
@@ -69,7 +73,6 @@
     "extensionChangelogVersions": {
         "{\"source\":\"npm:pi-powerline-footer\",\"scope\":\"user\"}": "0.22.0",
         "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
-        "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.4",
-        "{\"source\":\"npm:@guwidoe/pi-prompt-suggester\",\"scope\":\"user\"}": "0.3.10"
+        "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.4"
     }
 }
