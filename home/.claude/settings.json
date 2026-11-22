@@ -52,12 +52,12 @@
       "ReportFindings"
     ],
     "ask": [],
-    "defaultMode": "bypassPermissions",
+    "defaultMode": "auto",
     "additionalDirectories": [
       "~/.claude/"
     ]
   },
-  "model": "opus",
+  "model": "sonnet",
   "disableClaudeAiConnectors": true,
   "hooks": {
     "SessionStart": [
@@ -76,17 +76,6 @@
             "type": "command",
             "command": "$HOME/.agents/bin/rex-resume save-json claude",
             "timeout": 5
-          }
-        ]
-      }
-    ],
-    "SubagentStart": [
-      {
-        "matcher": "tldraw-offline",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node '/Users/xavier.riu/skills/tldraw-offline/inject-server-context.mjs' SubagentStart"
           }
         ]
       }

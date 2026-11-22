@@ -1,0 +1,3 @@
+# Open the `wt switch` picker list-only, so the list keeps every column.
+[switch.picker]
+preview = false
