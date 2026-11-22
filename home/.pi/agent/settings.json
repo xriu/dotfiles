@@ -24,11 +24,11 @@
         },
         "npm:@dietrichgebert/ponytail",
         "npm:@ff-labs/pi-fff",
+        "npm:pi-powerline-footer",
         "npm:@guwidoe/pi-prompt-suggester",
         "npm:pi-checklist",
         "npm:pi-clarify",
         "npm:pi-context-view",
-        "npm:pi-powerline-footer",
         "npm:pi-rewind",
         "npm:pi-subagent-manager",
         "npm:pi-web-access"
