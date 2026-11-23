@@ -19,7 +19,6 @@
             "extensions": [
                 "extensions/pi/command-gate/**",
                 "extensions/pi/custom-header/**",
-                "extensions/pi/mermaid/**",
                 "extensions/pi/prompt-suggester/**"
             ]
         },
