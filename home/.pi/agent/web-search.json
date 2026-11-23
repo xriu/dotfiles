@@ -1,3 +1,7 @@
 {
-    "workflow": "none"
+    "workflow": "none",
+    "fetchRouting": {
+        "providers": ["http", "jina"],
+        "allowRemoteHostedProviders": true
+    }
 }
