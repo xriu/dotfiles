@@ -18,7 +18,6 @@ cask "cyberduck" # Server and cloud storage browser
 cask "dbeaver-community" # Universal database tool and SQL client
 cask "finetune" # Per-application volume mixer, equalizer, and audio router
 cask "ghostty" # Terminal emulator that uses platform-native UI and GPU acceleration
-cask "google-chrome" # Google Chrome browser
 cask "helium-browser" # Chromium-based web browser
 cask "httpie-desktop" # Testing client for REST, GraphQL, and HTTP APIs
 cask "ladybird" # Web browser
