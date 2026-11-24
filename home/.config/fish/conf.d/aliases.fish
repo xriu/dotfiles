@@ -72,6 +72,10 @@ alias mise-update="mise upgrade"
 # Zed
 alias zed="/Applications/Zed.app/Contents/MacOS/cli"
 
+# Ladybird
+alias lb-work="open -na Ladybird --args --profile work"
+alias lb-personal="open -na Ladybird --args --profile personal"
+
 # OpenCode
 alias opencode="opencode"
 

@@ -1,3 +1,5 @@
+# rubocop:disable all
+
 # Third-party taps
 tap "anomalyco/tap"
 tap "databricks/tap"
@@ -16,9 +18,9 @@ cask "cyberduck" # Server and cloud storage browser
 cask "dbeaver-community" # Universal database tool and SQL client
 cask "finetune" # Per-application volume mixer, equalizer, and audio router
 cask "ghostty" # Terminal emulator that uses platform-native UI and GPU acceleration
-cask "google-chrome" # Google Chrome browser
 cask "helium-browser" # Chromium-based web browser
 cask "httpie-desktop" # Testing client for REST, GraphQL, and HTTP APIs
+cask "ladybird" # Web browser
 cask "libracoder/kiri/kiri" # Container runtime for the Docker CLI, Compose and buildx
 cask "mongodb-compass" # Interactive tool for analyzing MongoDB data
 cask "pearcleaner" # Utility to uninstall apps and remove leftover files from old/uninstalled apps
@@ -109,6 +111,7 @@ brew "tealdeer" # Tldr client in Rust
 brew "terragrunt" # Thin wrapper for Terraform e.g. for locking state
 brew "tfenv" # Terraform version manager
 brew "tfmv" # tfmv is a CLI to rename Terraform resources
+brew "tmux" # Terminal multiplexer that attaches and detaches sessions
 brew "tree" # Display directories as trees (with optional color/HTML output)
 brew "typescript-language-server" # Language server for TypeScript, wraps tsserver
 brew "usefulsoftwareco/tap/executor-beta" # Run Executor locally and connect your agents to your apps
