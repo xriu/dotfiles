@@ -2,7 +2,7 @@
     "lastChangelogVersion": "1.6.0",
     "defaultProvider": "openrouter",
     "defaultModel": "~deepseek/deepseek-flash-latest",
-    "enabledModels": ["openrouter/**", "opencode-go/deepseek-v4.1-flash"],
+    "enabledModels": ["openrouter/**", "opencode-go/**"],
     "defaultProjectTrust": "always",
     "defaultThinkingLevel": "max",
     "defaultTools": ["+codemode"],
