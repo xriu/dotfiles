@@ -1,73 +1,86 @@
 {
-    "lastChangelogVersion": "1.6.0",
-    "defaultProvider": "openrouter",
-    "defaultModel": "~deepseek/deepseek-flash-latest",
-    "enabledModels": ["openrouter/**", "opencode-go/**"],
-    "defaultProjectTrust": "always",
-    "defaultThinkingLevel": "max",
-    "defaultTools": ["+codemode"],
-    "hideThinkingBlock": true,
-    "quietStartup": true,
-    "packages": [
-        "ssh://git@github.com/Launchmetrics/LM-AI@main",
-        {
-            "source": "npm:@plannotator/pi-extension",
-            "skills": []
-        },
-        {
-            "source": "ssh://git@github.com/xriu/pi-extensions@main",
-            "extensions": [
-                "extensions/pi/command-gate/**",
-                "extensions/pi/custom-header/**",
-                "extensions/pi/prompt-suggester/**"
-            ]
-        },
-        "npm:@dietrichgebert/ponytail",
-        "npm:@ff-labs/pi-fff",
-        "npm:pi-powerline-footer",
-        "npm:pi-checklist",
-        "npm:pi-clarify",
-        "npm:pi-context-view",
-        "npm:pi-rewind",
-        "npm:pi-subagent-manager",
-        "npm:pi-web-access"
+  "lastChangelogVersion": "1.6.1",
+  "defaultProvider": "openrouter",
+  "defaultModel": "~deepseek/deepseek-flash-latest",
+  "enabledModels": [
+    "openrouter/**",
+    "opencode-go/**"
+  ],
+  "defaultProjectTrust": "always",
+  "defaultThinkingLevel": "max",
+  "defaultTools": [
+    "+codemode"
+  ],
+  "hideThinkingBlock": true,
+  "quietStartup": true,
+  "packages": [
+    "ssh://git@github.com/Launchmetrics/LM-AI@main",
+    {
+      "source": "npm:@plannotator/pi-extension",
+      "skills": []
+    },
+    {
+      "source": "ssh://git@github.com/xriu/pi-extensions@main",
+      "extensions": [
+        "extensions/pi/command-gate/**",
+        "extensions/pi/custom-header/**",
+        "extensions/pi/prompt-suggester/**"
+      ]
+    },
+    "npm:@dietrichgebert/ponytail",
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-powerline-footer",
+    "npm:pi-checklist",
+    "npm:pi-clarify",
+    "npm:pi-context-view",
+    "npm:pi-rewind",
+    "npm:pi-subagent-manager",
+    "npm:pi-web-access"
+  ],
+  "customHeader": {
+    "skillsMode": true
+  },
+  "tuiMode": "fullscreen",
+  "shellCommandPrefix": "command -v mise >/dev/null && eval \"$(mise hook-env -s bash)\"",
+  "enableInstallTelemetry": true,
+  "httpIdleTimeoutMs": 120000,
+  "theme": "dark",
+  "treeFilterMode": "no-tools",
+  "powerline": {
+    "welcome": false,
+    "fixedEditor": false,
+    "customItems": [
+      {
+        "id": "poteto",
+        "statusKey": "poteto",
+        "position": "secondary",
+        "color": "accent"
+      }
     ],
-    "customHeader": {
-        "skillsMode": true
-    },
-    "tuiMode": "fullscreen",
-    "shellCommandPrefix": "command -v mise >/dev/null && eval \"$(mise hook-env -s bash)\"",
-    "enableInstallTelemetry": true,
-    "httpIdleTimeoutMs": 120000,
-    "showCacheMissNotices": true,
-    "theme": "dark",
-    "treeFilterMode": "no-tools",
-    "powerline": {
-        "welcome": false,
-        "fixedEditor": false,
-        "customItems": [
-            {
-                "id": "poteto",
-                "statusKey": "poteto",
-                "position": "secondary",
-                "color": "accent"
-            }
-        ],
-        "layout": {
-            "left": [
-                "model",
-                "thinking",
-                "shell_mode",
-                "path",
-                "context_pct",
-                "cost"
-            ],
-            "secondary": ["git", "custom:poteto"]
-        }
-    },
-    "extensionChangelogVersions": {
-        "{\"source\":\"npm:pi-powerline-footer\",\"scope\":\"user\"}": "0.22.0",
-        "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
-        "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.4"
+    "layout": {
+      "left": [
+        "model",
+        "thinking",
+        "shell_mode",
+        "path",
+        "context_pct",
+        "cost"
+      ],
+      "secondary": [
+        "git",
+        "custom:poteto"
+      ]
     }
+  },
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-powerline-footer\",\"scope\":\"user\"}": "0.22.0",
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.48.0",
+    "{\"source\":\"npm:pi-context-view\",\"scope\":\"user\"}": "0.8.4"
+  },
+  "notices": {
+    "cacheMisses": true,
+    "cacheWarming": true,
+    "compactionCosts": true,
+    "reasoningDrops": true
+  }
 }
