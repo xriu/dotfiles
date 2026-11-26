@@ -69,15 +69,6 @@
             "timeout": 5
           }
         ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.agents/bin/rex-resume save-json claude",
-            "timeout": 5
-          }
-        ]
       }
     ]
   },
