@@ -3,6 +3,7 @@
     "show": true,
   },
   "title_bar": {
+    "show": "always",
     "show_branch_status_icon": true,
     "show_branch_name": true,
     "show_worktree_name": true,
