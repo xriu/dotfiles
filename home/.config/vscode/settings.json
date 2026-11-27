@@ -105,19 +105,7 @@
         ".github/instructions": true,
         ".claude/rules": true,
         "~/.copilot/instructions": true,
-        "~/.claude/rules": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-collections-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-folder-pre-request.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-post-response.instructions.md": true,
-        "/var/folders/jq/xkyvscnx7g5c9tn3dbmf09240000gq/T/postman-http-request-pre-request.instructions.md": true,
-        "/private/tmp/postman-collections-post-response.instructions.md": true,
-        "/private/tmp/postman-collections-pre-request.instructions.md": true,
-        "/private/tmp/postman-folder-post-response.instructions.md": true,
-        "/private/tmp/postman-folder-pre-request.instructions.md": true,
-        "/private/tmp/postman-http-request-post-response.instructions.md": true,
-        "/private/tmp/postman-http-request-pre-request.instructions.md": true
+        "~/.claude/rules": true
     },
 	"chat.mcp.gallery.enabled": true,
 	"chat.tools.terminal.autoApprove": {
@@ -256,7 +244,6 @@
 	},
 	"kilo-code.allowedCommands": ["git log", "git diff", "git show"],
 	"kilo-code.deniedCommands": [],
-	"postman.mcp.notifications.postmanMCP": false,
 	"prettier.useEditorConfig": false,
 	"python.formatting.autopep8Args": ["--max-line-length=120"],
 	"python.formatting.provider": "autopep8",
