@@ -1,9 +1,5 @@
 local home = os.getenv("HOME") or ""
 
--- rex-tabs: the machine in session names and the folder in tab names (https://github.com/luongnv89/rex-extensions/tree/main/tabs)
-dofile(home .. "/Personal/rex-plugins/tabs/rex-tabs.lua")
-rex.bind("cmd+shift+l", "tab_locations")
-
 -- rex-github: the PR and issue panel (https://github.com/luongnv89/rex-extensions/tree/main/github)
 dofile(home .. "/Personal/rex-plugins/github/rex-github.lua")
 rex.bind("cmd+shift+g", "github_panel")
