@@ -1,24 +1,37 @@
 {
-  "default": {
-    "enabled": true
-  },
-  "jev": {
-    "enabled": false
-  },
-  "permissions": {
-    "allow": ["aws * describe*", "aws * list*", "aws * get*", "aws * ls*", "aws s3 cp*", "aws lambda-microvms update-microvms-image*", "aws --version"],
-    "deny": [
-      "aws",
-      "dd",
-      "diskutil",
-      "git reset --hard",
-      "mkfs",
-      "npm publish",
-      "rm -rf",
-      "rm -fr",
-      "terraform apply",
-      "terraform destroy"
-    ],
-    "denyRead": ["./.env*", "./config/credentials.json", "./secrets/**", "~/.ssh/**"]
-  }
+    "default": {
+        "enabled": true
+    },
+    "jev": {
+        "enabled": false
+    },
+    "permissions": {
+        "allow": [
+            "aws * describe*",
+            "aws * list*",
+            "aws * get*",
+            "aws * ls*",
+            "aws s3 cp*",
+            "aws lambda-microvms update-microvms-image*",
+            "aws --version"
+        ],
+        "deny": [
+            "aws",
+            "dd",
+            "diskutil",
+            "git reset --hard",
+            "mkfs",
+            "npm publish",
+            "rm -rf",
+            "rm -fr",
+            "terraform apply",
+            "terraform destroy"
+        ],
+        "denyRead": [
+            "./.env*",
+            "./config/credentials.json",
+            "./secrets/**",
+            "~/.ssh/**"
+        ]
+    }
 }
