@@ -6,7 +6,7 @@
     "enabled": false
   },
   "permissions": {
-    "allow": ["aws * describe*", "aws * list*", "aws * get*", "aws * ls*"],
+    "allow": ["aws * describe*", "aws * list*", "aws * get*", "aws * ls*", "aws --version"],
     "deny": [
       "aws",
       "dd",
