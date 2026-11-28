@@ -1,18 +1,14 @@
 {
-    "default": {
-        "enabled": true
-    },
-    "jev": {
-        "enabled": false
-    },
+    "default": { "enabled": true },
+    "jev": { "enabled": false },
     "permissions": {
         "allow": [
             "aws * describe*",
             "aws * list*",
             "aws * get*",
             "aws * ls*",
-            "aws s3 cp*",
-            "aws lambda-microvms update-microvms-image*",
+            "aws * cp*",
+            "aws * update-microvms-image*",
             "aws --version"
         ],
         "deny": [
