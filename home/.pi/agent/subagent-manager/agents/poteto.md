@@ -4,7 +4,7 @@ description: pstack delegate for code-writing and helper tasks inside a poteto-m
 thinkingLevel: max
 color: accent
 models:
-  - openrouter/~deepseek/deepseek-flash-latest
+  - openrouter/~z-ai/glm-flash-latest
 tools:
   allow:
     - read

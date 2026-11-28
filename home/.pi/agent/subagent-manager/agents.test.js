@@ -15,62 +15,62 @@ function override(name) {
 }
 
 test("panel workers use different models with the same instructions and tools", () => {
-	const deepseek = agent("poteto");
+	const poteto = agent("poteto");
 	const terra = agent("peer");
 	const gemini = agent("peer-gemini");
-	expect(deepseek.settings.name).toBe("poteto");
+	expect(poteto.settings.name).toBe("poteto");
 	expect(terra.settings.name).toBe("peer");
 	expect(gemini.settings.name).toBe("peer-gemini");
-	expect(deepseek.settings.thinkingLevel).toBe("max");
+	expect(poteto.settings.thinkingLevel).toBe("max");
 	expect(terra.settings.thinkingLevel).toBe("xhigh");
 	expect(gemini.settings.thinkingLevel).toBe("xhigh");
-	expect(deepseek.settings.models?.length).toBeGreaterThan(0);
+	expect(poteto.settings.models?.length).toBeGreaterThan(0);
 	expect(terra.settings.models?.length).toBeGreaterThan(0);
 	expect(gemini.settings.models?.length).toBeGreaterThan(0);
-	for (const model of deepseek.settings.models)
-		expect(model).toMatch(/deepseek/i);
+	for (const model of poteto.settings.models)
+		expect(model).toMatch(/glm/i);
 	for (const model of terra.settings.models)
 		expect(model).toMatch(/openai|gpt/i);
 	for (const model of gemini.settings.models) expect(model).toMatch(/gemini/i);
 	expect(
 		new Set([
-			deepseek.settings.models[0],
+			poteto.settings.models[0],
 			terra.settings.models[0],
 			gemini.settings.models[0],
 		]).size,
 	).toBe(3);
-	expect(terra.settings.tools).toEqual(deepseek.settings.tools);
-	expect(gemini.settings.tools).toEqual(deepseek.settings.tools);
+	expect(terra.settings.tools).toEqual(poteto.settings.tools);
+	expect(gemini.settings.tools).toEqual(poteto.settings.tools);
 	expect(terra.settings.tools.allow).toContain("edit");
 	expect(terra.settings.tools.allow).toContain("write");
 	expect(terra.settings.tools.allow).not.toContain("agent_spawn");
 	expect(terra.settings.tools.block ?? []).not.toContain("edit");
 	expect(terra.settings.tools.block ?? []).not.toContain("write");
-	expect(deepseek.prompt).toContain(
+	expect(poteto.prompt).toContain(
 		"$HOME/.agents/skills/poteto-mode/worker.md",
 	);
-	expect(deepseek.prompt).toContain(
+	expect(poteto.prompt).toContain(
 		"$HOME/.agents/skills/poteto-mode/SKILL.md",
 	);
-	expect(terra.prompt).toBe(deepseek.prompt);
-	expect(gemini.prompt).toBe(deepseek.prompt);
+	expect(terra.prompt).toBe(poteto.prompt);
+	expect(gemini.prompt).toBe(poteto.prompt);
 });
 
 test("both judge models use the same read-only tools and instructions", () => {
-	const deepseek = agent("judge-deepseek");
+	const glm = agent("judge-glm");
 	const terra = agent("judge-terra");
-	expect(deepseek.settings.name).toBe("judge-deepseek");
+	expect(glm.settings.name).toBe("judge-glm");
 	expect(terra.settings.name).toBe("judge-terra");
-	expect(deepseek.settings.thinkingLevel).toBe("high");
+	expect(glm.settings.thinkingLevel).toBe("high");
 	expect(terra.settings.thinkingLevel).toBe("high");
-	expect(deepseek.settings.models?.length).toBeGreaterThan(0);
+	expect(glm.settings.models?.length).toBeGreaterThan(0);
 	expect(terra.settings.models?.length).toBeGreaterThan(0);
-	for (const model of deepseek.settings.models)
-		expect(model).toMatch(/deepseek/i);
+	for (const model of glm.settings.models)
+		expect(model).toMatch(/glm/i);
 	for (const model of terra.settings.models)
 		expect(model).toMatch(/openai|gpt/i);
-	expect(terra.settings.models[0]).not.toBe(deepseek.settings.models[0]);
-	expect(deepseek.settings.tools.allow).toEqual([
+	expect(terra.settings.models[0]).not.toBe(glm.settings.models[0]);
+	expect(glm.settings.tools.allow).toEqual([
 		"read",
 		"grep",
 		"find",
@@ -78,8 +78,8 @@ test("both judge models use the same read-only tools and instructions", () => {
 		"agent_update",
 		"agent_pause",
 	]);
-	expect(terra.settings.tools).toEqual(deepseek.settings.tools);
-	expect(terra.prompt).toBe(deepseek.prompt);
+	expect(terra.settings.tools).toEqual(glm.settings.tools);
+	expect(terra.prompt).toBe(glm.prompt);
 });
 
 test("role policies allow coordination and restrict researcher tools", () => {

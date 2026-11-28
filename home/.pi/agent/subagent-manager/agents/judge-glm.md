@@ -1,10 +1,10 @@
 ---
-name: judge-deepseek
+name: judge-glm
 description: Read-only pstack Arena judge that scores candidates against a rubric.
 thinkingLevel: high
 color: warning
 models:
-  - openrouter/~deepseek/deepseek-flash-latest
+  - openrouter/~z-ai/glm-flash-latest
 tools:
   allow:
     - read
