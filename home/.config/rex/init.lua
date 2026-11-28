@@ -17,3 +17,6 @@ rex.bind("cmd+shift+s", "sandbox_panel")
 -- rex-worktrees: switch to or create git worktree tabs with wt
 dofile(home .. "/Personal/rex-plugins/extensions/worktrees/rex-worktrees.lua")
 rex.bind("cmd+shift+b", "worktree_switch")
+
+-- rex-selection-actions: floating actions tooltip on selected text
+dofile("/Users/xavier.riu/Personal/rex-plugins/extensions/selection-actions/rex-selection-actions.lua")
