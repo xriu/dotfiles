@@ -24,7 +24,8 @@
       "extensions": [
         "extensions/pi/command-gate/**",
         "extensions/pi/custom-header/**",
-        "extensions/pi/prompt-suggester/**"
+        "extensions/pi/prompt-suggester/**",
+        "extensions/pi/quiet-mode/**"
       ]
     },
     "npm:@dietrichgebert/ponytail",
