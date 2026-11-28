@@ -14,6 +14,8 @@ readonly BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 link() {
     local src="$1" dest="$2"
 
+    # A missing source would become a dangling link that nothing reports.
+    [[ -e "$src" ]] || { printf 'No source to link: %s\n' "$src" >&2; exit 1; }
     if [[ -L "$dest" && "$(readlink "$dest")" == "$src" ]]; then
         return
     fi
@@ -86,7 +88,7 @@ link_config() {
     done
 
     # Claude Code. Runtime state (credentials, history, skills) stays local.
-    for name in settings.json status-line.sh rules; do
+    for name in settings.json status-line.sh; do
         link "$HOME_SRC/.claude/$name" "$HOME/.claude/$name"
     done
 }
