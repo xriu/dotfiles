@@ -81,7 +81,7 @@ link_config() {
     # pi. auth.json, models-store.json and sessions stay local. subagent-manager
     # is copied by bin/agents.sh because it rejects symlinks. command-gate.json is
     # the Command Gate policy file.
-    for name in AGENTS.md settings.json clarify.json cloak.json command-gate.json mcp.json models.json web-search.json prompts; do
+    for name in AGENTS.md settings.json clarify.json command-gate.json mcp.json models.json web-search.json prompts; do
         link "$HOME_SRC/.pi/agent/$name" "$HOME/.pi/agent/$name"
     done
 
