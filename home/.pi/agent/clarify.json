@@ -1,4 +1,4 @@
 {
     "provider": "openrouter",
-    "model": "~deepseek/deepseek-flash-latest"
+    "model": "~z-ai/glm-flash-latest"
 }

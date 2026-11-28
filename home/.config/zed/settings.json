@@ -18,12 +18,12 @@
     "commit_message_instructions": "Use the Conventional Commits format: <type>(<scope>): <description>.",
     "commit_message_model": {
       "enable_thinking": true,
-      "model": "~deepseek/deepseek-flash-latest",
+      "model": "~z-ai/glm-flash-latest",
       "provider": "openrouter",
     },
     "default_model": {
       "enable_thinking": true,
-      "model": "~deepseek/deepseek-flash-latest",
+      "model": "~z-ai/glm-flash-latest",
       "provider": "openrouter",
     },
     "default_profile": "write",

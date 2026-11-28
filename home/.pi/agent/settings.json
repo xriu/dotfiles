@@ -1,10 +1,9 @@
 {
   "lastChangelogVersion": "1.7.0",
   "defaultProvider": "openrouter",
-  "defaultModel": "~deepseek/deepseek-flash-latest",
+  "defaultModel": "~z-ai/glm-flash-latest",
   "enabledModels": [
-    "openrouter/**",
-    "opencode-go/**"
+    "openrouter/**"
   ],
   "defaultProjectTrust": "always",
   "defaultThinkingLevel": "max",
