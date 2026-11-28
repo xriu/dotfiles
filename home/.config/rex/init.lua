@@ -1,5 +1,8 @@
 local home = os.getenv("HOME") or ""
 
+-- rex-resume: bring `pi` back after a Rex restart (https://github.com/earendil-works/pi/blob/v1.7.0/packages/coding-agent/docs/terminal-setup.md#program-resume)
+rex.set("resume.trust.pi_plain", { command = { "pi", "--session", rex.match.uuid } })
+
 -- rex-github: the PR and issue panel (https://github.com/luongnv89/rex-extensions/tree/main/github)
 dofile(home .. "/Personal/rex-plugins/extensions/github/rex-github.lua")
 rex.bind("cmd+shift+g", "github_panel")
